@@ -17,7 +17,7 @@ const fs = require('fs');
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SCRIPTS_DIR = path.join(PKG_ROOT, 'scripts');
 const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode'];
-const VERSION = '36.4.6';
+const VERSION = '36.4.7';
 
 function parseArgs(argv) {
   const args = argv.slice(2);
@@ -57,6 +57,7 @@ MetaGO Lifeform Kit v${VERSION}
   metago-lifeform install [--platform <平台>]   安装到指定平台（默认: trae）
   metago-lifeform uninstall                     卸载当前平台适配
   metago-lifeform verify                        验证安装是否成功
+  metago-lifeform version                       显示版本号
   metago-lifeform help                          显示本帮助
 
 支持平台:
@@ -116,6 +117,11 @@ function main() {
     case 'v': {
       console.log('\n[MetaGO Lifeform Kit] 正在验证安装...');
       runPowerShell('verify.ps1', []);
+      break;
+    }
+    case 'version':
+    case 'ver': {
+      console.log(`MetaGO Lifeform Kit v${VERSION}`);
       break;
     }
     default:
