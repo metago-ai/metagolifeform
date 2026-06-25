@@ -11,7 +11,7 @@ import { PROMPTS, type PromptMessage } from "./prompts.js";
 
 // 创建 MetaGO MCP Server 实例
 const server = new McpServer({
-  name: "metago-mcp-server",
+  name: "@metago-ai/mcp-server",
   version: "1.0.0",
 });
 
@@ -80,21 +80,21 @@ for (const prompt of PROMPTS) {
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("[metago-mcp-server] 服务已启动，等待客户端连接...");
+  console.error("[@metago-ai/mcp-server] 服务已启动，等待客户端连接...");
 }
 
 main().catch((err: unknown) => {
-  console.error("[metago-mcp-server] 致命错误:", err);
+  console.error("[@metago-ai/mcp-server] 致命错误:", err);
   process.exit(1);
 });
 
 // 处理进程信号，确保优雅退出
 process.on("SIGINT", () => {
-  console.error("[metago-mcp-server] 收到 SIGINT，正在退出...");
+  console.error("[@metago-ai/mcp-server] 收到 SIGINT，正在退出...");
   process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-  console.error("[metago-mcp-server] 收到 SIGTERM，正在退出...");
+  console.error("[@metago-ai/mcp-server] 收到 SIGTERM，正在退出...");
   process.exit(0);
 });

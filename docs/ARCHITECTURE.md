@@ -152,7 +152,7 @@ adapters/
 | MCP tools × 22 | 一对一映射 22 个元构技能，接收 `input` 字符串参数 |
 | MCP prompts × 8 | 激活 / 决策审查 / 批判性分析 / 元进化触发 / 耦生度评估 / 合规检查 / 溯源审计 / 全息创造 |
 | 传输方式 | stdio（基于 `@modelcontextprotocol/sdk` 标准实现） |
-| 入口命令 | `npx -y metago-mcp-server` 或全局安装后 `metago-mcp-server` |
+| 入口命令 | `npx -y @metago-ai/mcp-server` 或全局安装后 `@metago-ai/mcp-server` |
 
 > 详细架构与配置见下文 [MCP Server 能力暴露层](#mcp-server-能力暴露层) 章节。
 
@@ -184,7 +184,7 @@ metago-lifeform/
 │       │   ├── index.ts          MCP Server 入口（注册 tools/prompts、启动 stdio 传输）
 │       │   ├── skills-data.ts    22 个技能元数据（id / toolName / description / guide）
 │       │   └── prompts.ts        8 个引导词元数据（含参数与消息序列）
-│       ├── package.json          metago-mcp-server，bin: metago-mcp-server
+│       ├── package.json          @metago-ai/mcp-server，bin: @metago-ai/mcp-server
 │       ├── tsconfig.json         TypeScript strict 模式
 │       └── README.md             MCP Server 包文档
 ├── scripts/                      一键安装 / 卸载 / 验证脚本
@@ -205,7 +205,7 @@ metago-lifeform/
 **根包与子包关系**：
 
 - 根包 `metago-lifeform`（version 36.4.0）声明 `"workspaces": ["packages/*"]`，统一管理子包依赖与构建。
-- 子包 `metago-mcp-server` 独立发布至 npm，可被任意 MCP 客户端通过 `npx -y metago-mcp-server` 调用，亦可在 Monorepo 内通过 `npm run build:mcp` / `npm run start:mcp` 构建/启动。
+- 子包 `@metago-ai/mcp-server` 独立发布至 npm，可被任意 MCP 客户端通过 `npx -y @metago-ai/mcp-server` 调用，亦可在 Monorepo 内通过 `npm run build:mcp` / `npm run start:mcp` 构建/启动。
 
 ---
 
@@ -222,7 +222,7 @@ L5 暴露层（MCP Server）将元构生命体的核心能力以 [Model Context 
                             │ MCP 协议（JSON-RPC over stdio）
                             ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  packages/mcp-server/  →  metago-mcp-server                     │
+│  packages/mcp-server/  →  @metago-ai/mcp-server                     │
 │  ┌──────────────────────────────────────────────────────────┐    │
 │  │  22 MCP tools  ◀──── 一对一映射 ────  22 个 metago-* 技能 │    │
 │  │  8 MCP prompts ◀──── 一对一映射 ────  8 条元构引导词     │    │
@@ -247,7 +247,7 @@ L5 暴露层（MCP Server）将元构生命体的核心能力以 [Model Context 
 | 模块系统 | ESM（`"type": "module"`） | import 路径带 `.js` 后缀（Node16 moduleResolution） |
 | 运行时 | Node.js >= 18.0.0 | |
 | 语言 | TypeScript strict 模式 | 构建产物 `dist/index.js` |
-| 入口命令 | `npx -y metago-mcp-server` | 全局安装后亦可 `metago-mcp-server` |
+| 入口命令 | `npx -y @metago-ai/mcp-server` | 全局安装后亦可 `@metago-ai/mcp-server` |
 
 ### 22 个 MCP tools 概览
 
