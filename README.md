@@ -9,14 +9,14 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.1">📦 Release v36.4.1</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.3">📦 Release v36.4.3</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.1-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.3-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -101,7 +101,7 @@ cd metagolifeform
 |------|------|------|
 | L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
 | L1 适配层 | 7大平台适配器（见下） | ✅ |
-| L2 能力层 | 22个metago技能 | ✅ |
+| L2 能力层 | 26个metago技能（22核心 + 4 Dev Kit） | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
 | L5 暴露层 | MCP Server（22 tools + 8 prompts） | ✅ |
@@ -194,7 +194,7 @@ npx -y @metago-ai/mcp-server
 
 ---
 
-## 22个metago技能
+## 26个metago技能（22 核心 + 4 Dev Kit）
 
 | 能力族 | 技能 | 功能 |
 |--------|------|------|
@@ -222,6 +222,24 @@ npx -y @metago-ai/mcp-server
 | 价值族 | metago-scene-adapt | 场景适配 |
 
 ---
+
+
+---
+
+## MetaGO Dev Kit（开发者垂直场景包）
+
+> Dev Kit 是面向开发者的能力增强包，复用 4 个核心能力（决策锁、批判性分析、事实核查、问题溯源），叠加 4 个开发专用技能。
+
+**新增 4 个开发专用技能**（位于 `skills/metago-*-deep/design/suggest/audit/`）：
+
+| 技能 | 功能 |
+|------|------|
+| `metago-code-review-deep` | 深度代码审查（5 步流程 + 4 级分级标准） |
+| `metago-architecture-design` | 架构设计（5 步流程 + 7 项原则 + ADR） |
+| `metago-refactor-suggest` | 重构建议（5 步流程 + 8 种代码异味 + 4 种复杂度量） |
+| `metago-security-audit` | 安全审计（OWASP Top 10 + CVSS 评分） |
+
+详见 [packages/dev-kit/README.md](packages/dev-kit/README.md) 和 [产品矩阵战略规划](docs/STRATEGY.md)。
 
 ## 核心公理与根本属性
 
