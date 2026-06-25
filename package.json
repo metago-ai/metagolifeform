@@ -7,8 +7,13 @@
     "install:trae": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
     "uninstall:trae": "powershell -ExecutionPolicy Bypass -File scripts/uninstall.ps1",
     "verify": "powershell -ExecutionPolicy Bypass -File scripts/verify.ps1",
-    "list:skills": "powershell -Command \"Get-ChildItem skills -Directory | Select-Object Name\""
+    "list:skills": "powershell -Command \"Get-ChildItem skills -Directory | Select-Object Name\"",
+    "build:mcp": "cd packages/mcp-server && npm run build",
+    "start:mcp": "cd packages/mcp-server && npm start"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "metago", "lifeform", "ai-agent", "meta-evolution",
     "decision-lock", "compliance", "trae", "claude-code",

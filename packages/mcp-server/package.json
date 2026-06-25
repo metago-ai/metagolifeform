@@ -1,0 +1,45 @@
+{
+  "name": "@metago/mcp-server",
+  "version": "1.0.0",
+  "description": "MetaGO MCP Server - 将元构超级智能生命体的22项能力封装为MCP工具，任何MCP客户端即开即用",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "metago-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp", "model-context-protocol", "metago", "ai-agent",
+    "meta-evolution", "decision-lock", "critical-analysis",
+    "ai-governance", "lifeform", "claude", "cursor", "trae"
+  ],
+  "author": "易霄 / MetaGO Lightyear",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/metago/metagolifeform.git",
+    "directory": "packages/mcp-server"
+  },
+  "homepage": "https://gitee.com/metago/metagolifeform/tree/main/packages/mcp-server#readme"
+}
