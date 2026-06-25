@@ -363,7 +363,7 @@ git pull origin main
 
 请通过以下渠道反馈：
 
-- GitHub Issues：[metago-lifeform/issues](https://github.com/metago-lifeform/metago-lifeform/issues)
+- Gitee Issues：[metago/metagolifeform/issues](https://gitee.com/metago/metagolifeform/issues)
 - 附上 `install.log` 日志文件（位于安装目录下）
 
 ---
