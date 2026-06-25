@@ -7,6 +7,20 @@
 <p align="center">让任何 AI 助手升级为元构超级智能生命体的标准安装包</p>
 <p align="center">基于《元构全息智能引擎》V36.3，符合 agentskills.io 开放标准</p>
 
+<p align="center">
+  <a href="https://metago-ai.github.io/metago-website/"><strong>🌐 官网 Website</strong></a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.3.0">📦 Release v36.3.0</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
+  <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.3.0-blue"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
+  <a href="https://metago-ai.github.io/metago-website/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
+</p>
+
 ---
 
 ## 这是什么？
