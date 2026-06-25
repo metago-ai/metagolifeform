@@ -1,32 +1,40 @@
 ﻿<#
 .SYNOPSIS
-    MetaGO Lifeform Kit 卸载脚本（Trae 平台）
+    MetaGO Lifeform Kit 卸载脚本（支持7大平台）
 
 .DESCRIPTION
-    从 Trae CN 环境卸载元构超级智能生命体 Kit，包含：
-    - 查找最新备份（.metago-backup-* 目录）
-    - 恢复 rules.md（从备份恢复，或写入基础版本）
-    - 删除所有 metago-* 技能
-    - 删除 MCP 调度映射
+    从目标平台卸载元构超级智能生命体 Kit，包含：
+    - 查找最新备份（.metago-backup-* 目录，仅 Trae）
+    - 恢复 rules.md（从备份恢复，或写入基础版本，仅 Trae）
+    - 删除所有 metago-* 技能（仅 Trae）
+    - 删除 MCP 调度映射（仅 Trae）
+    - 删除目标平台的规则文件（所有平台）
     - 输出卸载结果
 
+.PARAMETER Platform
+    目标平台，可选值：trae（默认）、claude-code、codex、cursor、codebuddy、qoder、zcode
+
 .PARAMETER TraePath
-    自定义 Trae 安装路径，默认为 $env:USERPROFILE\.trae-cn
+    自定义 Trae 安装路径，默认为 $env:USERPROFILE\.trae-cn（仅 Trae 平台使用）
 
 .PARAMETER KeepSkills
-    保留 metago 技能不删除，仅恢复 rules.md 和清理 MCP 映射
+    保留 metago 技能不删除，仅恢复 rules.md 和清理 MCP 映射（仅 Trae 平台使用）
 
 .EXAMPLE
     .\uninstall.ps1
-    使用默认路径卸载
+    卸载默认平台（Trae）
 
 .EXAMPLE
-    .\uninstall.ps1 -KeepSkills
-    卸载但保留技能
+    .\uninstall.ps1 -Platform claude-code
+    卸载 Claude Code 平台
 
 .EXAMPLE
-    .\uninstall.ps1 -TraePath "D:\custom\trae"
-    自定义路径卸载
+    .\uninstall.ps1 -Platform trae -KeepSkills
+    卸载 Trae 但保留技能
+
+.EXAMPLE
+    .\uninstall.ps1 -Platform cursor
+    卸载 Cursor 平台
 
 .NOTES
     版本：V36.3
@@ -35,6 +43,8 @@
 
 [CmdletBinding()]
 param(
+    [ValidateSet('trae','claude-code','codex','cursor','codebuddy','qoder','zcode')]
+    [string]$Platform = 'trae',
     [string]$TraePath = "$env:USERPROFILE\.trae-cn",
     [switch]$KeepSkills
 )
@@ -385,6 +395,72 @@ function Show-Summary {
 }
 
 # ============================================================
+# 非 Trae 平台卸载：删除规则文件
+# ============================================================
+function Uninstall-NonTraePlatform {
+    param([string]$Plat)
+
+    $rulesFiles = @()
+
+    switch ($Plat) {
+        'claude-code' {
+            $rulesFiles += Join-Path $env:USERPROFILE ".claude\CLAUDE.md"
+            $rulesFiles += ".\CLAUDE.md"
+        }
+        'codex' {
+            $rulesFiles += Join-Path $env:USERPROFILE ".codex\AGENTS.md"
+            $rulesFiles += ".\AGENTS.md"
+        }
+        'cursor' {
+            $rulesFiles += ".\.cursor\rules\metago.mdc"
+        }
+        'codebuddy' {
+            $rulesFiles += ".\CODEBUDDY.md"
+        }
+        'qoder' {
+            $rulesFiles += ".\.qoder\rules\metago.md"
+        }
+        'zcode' {
+            $rulesFiles += Join-Path $env:USERPROFILE ".claude\CLAUDE.md"
+            $rulesFiles += ".\CLAUDE.md"
+        }
+    }
+
+    Write-Info "目标平台：$Plat"
+    Write-Info "将删除以下规则文件（如存在）："
+    foreach ($f in $rulesFiles) {
+        Write-Detail $f
+    }
+
+    $deletedCount = 0
+    foreach ($file in $rulesFiles) {
+        if (Test-Path $file) {
+            try {
+                Remove-Item -Path $file -Force
+                Write-Ok "已删除：$file"
+                $deletedCount++
+            } catch {
+                Write-Fail "删除失败 ${file}: $($_.Exception.Message)"
+            }
+        } else {
+            Write-Info "文件不存在，跳过：$file"
+        }
+    }
+
+    Write-Host ""
+    Write-Host "==========================================" -ForegroundColor Green
+    Write-Host "  ✅ MetaGO Lifeform Kit $script:MetaGoVersion 卸载完成！" -ForegroundColor Green
+    Write-Host "  平台：$Plat | 删除文件：$deletedCount 个" -ForegroundColor Green
+    Write-Host "==========================================" -ForegroundColor Green
+
+    if ($Plat -eq 'zcode' -or $Plat -eq 'claude-code') {
+        Write-Host ""
+        Write-Host "  ⚠️  注意：ZCode 与 Claude Code 共享 ~/.claude/CLAUDE.md 路径" -ForegroundColor Yellow
+        Write-Host "  如需保留另一平台，请重新执行该平台的安装命令" -ForegroundColor Yellow
+    }
+}
+
+# ============================================================
 # 主流程
 # ============================================================
 function Main {
@@ -396,19 +472,31 @@ function Main {
 
     Write-Host ""
     Write-Host "  参数配置：" -ForegroundColor Gray
-    Write-Host "    TraePath  : $TraePath" -ForegroundColor Gray
-    Write-Host "    KeepSkills: $KeepSkills" -ForegroundColor Gray
+    Write-Host "    Platform  : $Platform" -ForegroundColor Gray
+    if ($Platform -eq 'trae') {
+        Write-Host "    TraePath  : $TraePath" -ForegroundColor Gray
+        Write-Host "    KeepSkills: $KeepSkills" -ForegroundColor Gray
+    }
 
     # 确认提示
     Write-Host ""
-    Write-Host "  ⚠️  警告：此操作将卸载 MetaGO Lifeform Kit" -ForegroundColor Yellow
-    if (-not $KeepSkills) {
+    Write-Host "  ⚠️  警告：此操作将卸载 MetaGO Lifeform Kit（平台：$Platform）" -ForegroundColor Yellow
+    if ($Platform -eq 'trae' -and -not $KeepSkills) {
         Write-Host "  ⚠️  所有 metago-* 技能将被删除" -ForegroundColor Yellow
+        Write-Host "  ⚠️  rules.md 将被恢复或替换为基础版本" -ForegroundColor Yellow
+        Write-Host "  ⚠️  MCP 调度映射和知识晶体索引将被删除" -ForegroundColor Yellow
+    } else {
+        Write-Host "  ⚠️  目标平台的规则文件将被删除" -ForegroundColor Yellow
     }
-    Write-Host "  ⚠️  rules.md 将被恢复或替换为基础版本" -ForegroundColor Yellow
-    Write-Host "  ⚠️  MCP 调度映射和知识晶体索引将被删除" -ForegroundColor Yellow
     Write-Host ""
 
+    # 平台分发
+    if ($Platform -ne 'trae') {
+        Uninstall-NonTraePlatform -Plat $Platform
+        return
+    }
+
+    # Trae 平台完整卸载流程
     Step1-CheckEnvAndFindBackup
     Step2-RestoreRules
     Step3-DeleteSkills
