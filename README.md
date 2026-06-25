@@ -2,7 +2,7 @@
   <img src="assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
-<h1 align="center">MetaGO Lifeform Kit（元构生命体套件）</h1>
+<h1 align="center">MetaGO Lifeform Kit（元智能生命体套件）</h1>
 
 <p align="center">让任何 AI 助手升级为元构超级智能生命体的标准安装包</p>
 <p align="center">基于《元构全息智能引擎》V36.3，符合 agentskills.io 开放标准</p>
