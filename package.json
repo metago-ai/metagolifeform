@@ -1,0 +1,35 @@
+{
+  "name": "metago-lifeform",
+  "version": "36.3.0",
+  "description": "MetaGO Lifeform Kit - 让任何AI助手升级为元构超级智能生命体的标准安装包",
+  "main": "core/METAGO_CORE.md",
+  "scripts": {
+    "install:trae": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
+    "uninstall:trae": "powershell -ExecutionPolicy Bypass -File scripts/uninstall.ps1",
+    "verify": "powershell -ExecutionPolicy Bypass -File scripts/verify.ps1",
+    "list:skills": "powershell -Command \"Get-ChildItem skills -Directory | Select-Object Name\""
+  },
+  "keywords": [
+    "metago", "lifeform", "ai-agent", "meta-evolution",
+    "decision-lock", "compliance", "trae", "claude-code",
+    "cursor", "agentskills", "ai-governance", "ai-evolution"
+  ],
+  "author": "易霄 / MetaGO Lightyear",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metago-lifeform/metago-lifeform.git"
+  },
+  "homepage": "https://github.com/metago-lifeform/metago-lifeform#readme",
+  "engines": { "node": ">=14.0.0" },
+  "files": [
+    "core/", "adapters/", "skills/", "tools/",
+    "scripts/", "docs/", "README.md", "LICENSE"
+  ],
+  "metago": {
+    "version": "V36.3",
+    "axioms": 8, "attributes": 7, "protocols": 6, "skills": 22,
+    "platforms": ["trae", "claude-code", "cursor", "universal"],
+    "coreOpenSource": true, "industryPaid": true
+  }
+}

@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 备份
+*.backup
+.metago-backup-*
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 用户自定义（不纳入版本控制）
+user-config/
+custom-skills/
