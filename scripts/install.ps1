@@ -1,19 +1,30 @@
-﻿<#
+<#
 .SYNOPSIS
-    MetaGO Lifeform Kit 一键安装脚本（Trae 平台）
+    MetaGO Lifeform Kit 一键安装脚本（支持7大平台）
 
 .DESCRIPTION
-    将元构超级智能生命体 Kit 安装到 Trae CN 环境，包含：
-    - 环境检查（检测 Trae 安装路径）
-    - 备份现有配置（rules.md 与 metago-* 技能）
-    - 安装 22 个 metago 技能
-    - 升级 rules.md 运行法则
-    - 创建知识晶体索引模板
-    - 安装 MCP 调度映射
+    将元构超级智能生命体 Kit 安装到指定平台，包含：
+    - 平台检测与路径适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode）
+    - 备份现有配置（rules 文件与 metago-* 技能）
+    - 安装 22 个 metago 技能（仅支持技能的平台）
+    - 升级平台规则文件
+    - 创建知识晶体索引模板（仅 Trae）
+    - 安装 MCP 调度映射（仅 Trae）
     - 验证安装结果
 
-.PARAMETER TraePath
-    自定义 Trae 安装路径，默认为 $env:USERPROFILE\.trae-cn
+.PARAMETER Platform
+    目标平台，可选值：trae、claude-code、codex、cursor、codebuddy、qoder、zcode
+    默认：trae
+
+.PARAMETER InstallPath
+    自定义安装路径（覆盖平台默认路径）
+
+.PARAMETER Skills
+    指定要安装的技能列表（逗号分隔），默认安装全部22个
+    示例：-Skills metago-critique,metago-decision-lock
+
+.PARAMETER Upgrade
+    升级模式：跳过备份，强制覆盖已存在的技能与规则
 
 .PARAMETER Force
     强制覆盖已存在的 metago 技能目录
@@ -21,17 +32,28 @@
 .PARAMETER SkipBackup
     跳过备份步骤，直接安装
 
-.EXAMPLE
-    .\install.ps1
-    使用默认路径安装
+.PARAMETER SkipSkills
+    跳过技能安装，仅安装规则文件
 
 .EXAMPLE
-    .\install.ps1 -Force
-    强制覆盖已存在的技能
+    .\scripts\install.ps1
+    使用默认平台（Trae）安装
 
 .EXAMPLE
-    .\install.ps1 -TraePath "D:\custom\trae" -SkipBackup
-    自定义路径并跳过备份
+    .\scripts\install.ps1 -Platform claude-code
+    安装到 Claude Code 平台
+
+.EXAMPLE
+    .\scripts\install.ps1 -Platform cursor
+    安装到 Cursor 平台（仅规则文件，Cursor 不支持技能目录）
+
+.EXAMPLE
+    .\scripts\install.ps1 -Platform trae -Skills metago-critique,metago-decision-lock
+    仅安装指定技能到 Trae
+
+.EXAMPLE
+    .\scripts\install.ps1 -Platform trae -Upgrade
+    升级现有 Trae 安装（跳过备份，强制覆盖）
 
 .NOTES
     版本：V36.3
@@ -40,9 +62,20 @@
 
 [CmdletBinding()]
 param(
-    [string]$TraePath = "$env:USERPROFILE\.trae-cn",
+    [ValidateSet('trae','claude-code','codex','cursor','codebuddy','qoder','zcode')]
+    [string]$Platform = 'trae',
+
+    [string]$InstallPath,
+
+    [string]$Skills,
+
+    [switch]$Upgrade,
+
     [switch]$Force,
-    [switch]$SkipBackup
+
+    [switch]$SkipBackup,
+
+    [switch]$SkipSkills
 )
 
 $ErrorActionPreference = "Stop"
@@ -51,7 +84,9 @@ $ErrorActionPreference = "Stop"
 # 元数据
 # ============================================================
 $script:MetaGoVersion = "V36.3"
-$script:SkillList = @(
+
+# 全部22个技能清单
+$script:AllSkills = @(
     "metago-action-plan",
     "metago-compliance",
     "metago-coupling-optimize",
@@ -76,15 +111,123 @@ $script:SkillList = @(
     "metago-whatif"
 )
 
+# 解析 -Skills 参数
+if ($Skills) {
+    $script:SkillList = $Skills -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' }
+    # 验证技能名
+    foreach ($s in $script:SkillList) {
+        if ($s -notin $script:AllSkills) {
+            Write-Host "[错误] 未知技能名：$s" -ForegroundColor Red
+            Write-Host "可用技能：$($script:AllSkills -join ', ')" -ForegroundColor Gray
+            exit 1
+        }
+    }
+} else {
+    $script:SkillList = $script:AllSkills
+}
+
 # 脚本所在目录（用于定位源文件）
 $script:ScriptDir = $PSScriptRoot
 $script:SourceSkillsDir = Join-Path $script:ScriptDir "..\skills"
-$script:SourceRulesTemplate = Join-Path $script:ScriptDir "..\adapters\trae\rules.template.md"
+$script:SourceAdaptersDir = Join-Path $script:ScriptDir "..\adapters"
+
+# ============================================================
+# 平台配置表
+# ============================================================
+$script:PlatformConfigs = @{
+    'trae' = @{
+        Name         = 'Trae'
+        DefaultPath  = "$env:USERPROFILE\.trae-cn"
+        RulesFile    = 'rules.md'
+        RulesTemplate = 'adapters\trae\rules.template.md'
+        SkillsDir    = 'skills'
+        SupportsSkills = $true
+        SupportsMemory = $true
+        SupportsMcp   = $true
+    }
+    'claude-code' = @{
+        Name         = 'Claude Code'
+        DefaultPath  = "$env:USERPROFILE\.claude"
+        RulesFile    = 'CLAUDE.md'
+        RulesTemplate = 'adapters\claude-code\CLAUDE.md.template'
+        SkillsDir    = 'skills'
+        SupportsSkills = $true
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+    'codex' = @{
+        Name         = 'OpenAI Codex'
+        DefaultPath  = "$env:USERPROFILE\.codex"
+        RulesFile    = 'AGENTS.md'
+        RulesTemplate = 'adapters\codex\AGENTS.md.template'
+        SkillsDir    = ''
+        SupportsSkills = $false
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+    'cursor' = @{
+        Name         = 'Cursor'
+        DefaultPath  = (Get-Location).Path
+        RulesFile    = '.cursor\rules\metago.mdc'
+        RulesTemplate = 'adapters\cursor\metago.mdc.template'
+        SkillsDir    = ''
+        SupportsSkills = $false
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+    'codebuddy' = @{
+        Name         = 'CodeBuddy'
+        DefaultPath  = (Get-Location).Path
+        RulesFile    = 'CODEBUDDY.md'
+        RulesTemplate = 'adapters\codebuddy\CODEBUDDY.md.template'
+        SkillsDir    = '.codebuddy\rules'
+        SupportsSkills = $true
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+    'qoder' = @{
+        Name         = 'Qoder'
+        DefaultPath  = (Get-Location).Path
+        RulesFile    = '.qoder\rules\metago.md'
+        RulesTemplate = 'adapters\qoder\metago-rules.md.template'
+        SkillsDir    = ''
+        SupportsSkills = $false
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+    'zcode' = @{
+        Name         = 'ZCode'
+        DefaultPath  = "$env:USERPROFILE\.claude"
+        RulesFile    = 'CLAUDE.md'
+        RulesTemplate = 'adapters\zcode\CLAUDE.md.template'
+        SkillsDir    = 'skills'
+        SupportsSkills = $true
+        SupportsMemory = $false
+        SupportsMcp   = $false
+    }
+}
+
+# 获取平台配置
+$script:PlatformConfig = $script:PlatformConfigs[$Platform]
+
+# 确定安装路径
+if ($InstallPath) {
+    $script:TargetPath = $InstallPath
+} else {
+    $script:TargetPath = $script:PlatformConfig.DefaultPath
+}
 
 # 统计变量
 $script:InstalledSkills = @()
 $script:SkippedSkills = @()
 $script:FailedSkills = @()
+$script:BackupDir = $null
+
+# 升级模式自动设置 Force 和 SkipBackup
+if ($Upgrade) {
+    $Force = $true
+    $SkipBackup = $true
+}
 
 # ============================================================
 # 输出辅助函数
@@ -118,61 +261,88 @@ function Write-Detail {
 }
 
 # ============================================================
-# 步骤1：环境检查
+# 步骤1：环境检查与平台适配
 # ============================================================
 function Step1-CheckEnvironment {
-    Write-Step "步骤 1/7：环境检查"
+    Write-Step "步骤 1/7：环境检查（平台：$($script:PlatformConfig.Name)）"
 
-    Write-Info "检测 Trae 安装路径：$TraePath"
+    Write-Info "目标平台    : $($script:PlatformConfig.Name)"
+    Write-Info "安装路径    : $script:TargetPath"
+    Write-Info "规则文件    : $($script:PlatformConfig.RulesFile)"
+    Write-Info "支持技能    : $($script:PlatformConfig.SupportsSkills)"
+    if ($script:PlatformConfig.SupportsSkills) {
+        Write-Info "技能目录    : $($script:PlatformConfig.SkillsDir)"
+    }
+    Write-Info "安装技能数  : $($script:SkillList.Count)/$($script:AllSkills.Count)"
 
-    if (-not (Test-Path $TraePath)) {
-        Write-Fail "Trae 未安装在 $TraePath"
-        Write-Info "请确认 Trae CN 已安装，或使用 -TraePath 参数指定自定义路径"
-        Write-Info "示例：.\install.ps1 -TraePath 'D:\custom\.trae-cn'"
-        exit 1
+    # 检查安装路径
+    if (-not (Test-Path $script:TargetPath)) {
+        # 对于项目级平台（cursor/qoder/codebuddy），路径就是当前目录，一定存在
+        # 对于用户级平台（trae/claude-code/codex/zcode），需要创建
+        if ($Platform -in @('cursor','qoder','codebuddy')) {
+            Write-Fail "安装路径不存在：$script:TargetPath"
+            exit 1
+        }
+        Write-Info "安装路径不存在，正在创建：$script:TargetPath"
+        New-Item -ItemType Directory -Path $script:TargetPath -Force | Out-Null
+    }
+    Write-Ok "安装路径检测通过"
+
+    # 确定各种路径
+    $script:RulesFilePath = Join-Path $script:TargetPath $script:PlatformConfig.RulesFile
+    $script:RulesFileDir = Split-Path $script:RulesFilePath -Parent
+
+    # 确保规则文件目录存在
+    if (-not (Test-Path $script:RulesFileDir)) {
+        Write-Info "创建规则文件目录：$script:RulesFileDir"
+        New-Item -ItemType Directory -Path $script:RulesFileDir -Force | Out-Null
     }
 
-    $traeSkillsDir = Join-Path $TraePath "skills"
-    $traeRulesFile = Join-Path $TraePath "rules.md"
-    $traeMcpsDir = Join-Path $TraePath "mcps"
-    $traeMemoryDir = Join-Path $TraePath "memory"
-
-    Write-Ok "Trae 安装路径检测通过"
-
-    Write-Info "检查关键目录..."
-    if (Test-Path $traeSkillsDir) {
-        Write-Detail "skills 目录存在：$traeSkillsDir"
+    # 技能路径
+    if ($script:PlatformConfig.SupportsSkills -and -not $SkipSkills) {
+        $script:TargetSkillsDir = Join-Path $script:TargetPath $script:PlatformConfig.SkillsDir
+        if (-not (Test-Path $script:TargetSkillsDir)) {
+            New-Item -ItemType Directory -Path $script:TargetSkillsDir -Force | Out-Null
+        }
     } else {
-        Write-Info "skills 目录不存在，正在创建..."
-        New-Item -ItemType Directory -Path $traeSkillsDir -Force | Out-Null
-        Write-Detail "已创建：$traeSkillsDir"
+        $script:TargetSkillsDir = $null
     }
 
-    if (Test-Path $traeMemoryDir) {
-        Write-Detail "memory 目录存在：$traeMemoryDir"
+    # 记忆路径（仅 Trae）
+    if ($script:PlatformConfig.SupportsMemory) {
+        $script:TargetMemoryDir = Join-Path $script:TargetPath "memory"
+        if (-not (Test-Path $script:TargetMemoryDir)) {
+            New-Item -ItemType Directory -Path $script:TargetMemoryDir -Force | Out-Null
+        }
     } else {
-        Write-Info "memory 目录不存在，正在创建..."
-        New-Item -ItemType Directory -Path $traeMemoryDir -Force | Out-Null
-        Write-Detail "已创建：$traeMemoryDir"
+        $script:TargetMemoryDir = $null
     }
 
-    $script:TraeSkillsDir = $traeSkillsDir
-    $script:TraeRulesFile = $traeRulesFile
-    $script:TraeMcpsDir = $traeMcpsDir
-    $script:TraeMemoryDir = $traeMemoryDir
+    # MCP 路径（仅 Trae）
+    if ($script:PlatformConfig.SupportsMcp) {
+        $script:TargetMcpsDir = Join-Path $script:TargetPath "mcps"
+    } else {
+        $script:TargetMcpsDir = $null
+    }
 
+    # 检查源文件
     Write-Info "检查源文件..."
-    if (-not (Test-Path $SourceSkillsDir)) {
-        Write-Fail "源技能目录不存在：$SourceSkillsDir"
+    $sourceRulesTemplate = Join-Path $script:ScriptDir "..\$($script:PlatformConfig.RulesTemplate)"
+    if (-not (Test-Path $sourceRulesTemplate)) {
+        Write-Fail "源规则模板不存在：$sourceRulesTemplate"
+        Write-Info "请确认 MetaGO Lifeform Kit 仓库完整"
         exit 1
     }
-    Write-Detail "源技能目录：$SourceSkillsDir"
+    Write-Detail "源规则模板：$sourceRulesTemplate"
+    $script:SourceRulesTemplate = $sourceRulesTemplate
 
-    if (-not (Test-Path $SourceRulesTemplate)) {
-        Write-Fail "源规则模板不存在：$SourceRulesTemplate"
-        exit 1
+    if (-not $SkipSkills -and $script:PlatformConfig.SupportsSkills) {
+        if (-not (Test-Path $script:SourceSkillsDir)) {
+            Write-Fail "源技能目录不存在：$script:SourceSkillsDir"
+            exit 1
+        }
+        Write-Detail "源技能目录：$script:SourceSkillsDir"
     }
-    Write-Detail "源规则模板：$SourceRulesTemplate"
 
     Write-Ok "环境检查完成"
 }
@@ -184,12 +354,12 @@ function Step2-BackupConfig {
     Write-Step "步骤 2/7：备份现有配置"
 
     if ($SkipBackup) {
-        Write-Info "已指定 -SkipBackup，跳过备份步骤"
+        Write-Info "已指定跳过备份（-SkipBackup 或 -Upgrade）"
         return
     }
 
     $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
-    $backupDir = Join-Path $TraePath ".metago-backup-$timestamp"
+    $backupDir = Join-Path $script:TargetPath ".metago-backup-$timestamp"
 
     Write-Info "创建备份目录：$backupDir"
     New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
@@ -199,37 +369,41 @@ function Step2-BackupConfig {
     New-Item -ItemType Directory -Path $backupRulesDir -Force | Out-Null
     New-Item -ItemType Directory -Path $backupSkillsDir -Force | Out-Null
 
-    # 备份 rules.md
-    if (Test-Path $TraeRulesFile) {
-        Write-Info "备份 rules.md..."
-        Copy-Item -Path $TraeRulesFile -Destination (Join-Path $backupRulesDir "rules.md") -Force
-        Write-Detail "已备份 rules.md"
+    # 备份规则文件
+    if (Test-Path $script:RulesFilePath) {
+        Write-Info "备份规则文件..."
+        Copy-Item -Path $script:RulesFilePath -Destination (Join-Path $backupRulesDir (Split-Path $script:PlatformConfig.RulesFile -Leaf)) -Force
+        Write-Detail "已备份：$($script:PlatformConfig.RulesFile)"
     } else {
-        Write-Info "rules.md 不存在，跳过备份"
+        Write-Info "规则文件不存在，跳过备份"
     }
 
     # 备份现有 metago-* 技能
-    Write-Info "备份现有 metago-* 技能..."
-    $existingMetaGoSkills = Get-ChildItem $TraeSkillsDir -Directory -ErrorAction SilentlyContinue |
-        Where-Object { $_.Name -like "metago-*" }
+    if ($script:TargetSkillsDir -and (Test-Path $script:TargetSkillsDir)) {
+        Write-Info "备份现有 metago-* 技能..."
+        $existingMetaGoSkills = Get-ChildItem $script:TargetSkillsDir -Directory -ErrorAction SilentlyContinue |
+            Where-Object { $_.Name -like "metago-*" }
 
-    if ($existingMetaGoSkills) {
-        foreach ($skill in $existingMetaGoSkills) {
-            Copy-Item -Path $skill.FullName -Destination $backupSkillsDir -Recurse -Force
-            Write-Detail "已备份技能：$($skill.Name)"
+        if ($existingMetaGoSkills) {
+            foreach ($skill in $existingMetaGoSkills) {
+                Copy-Item -Path $skill.FullName -Destination $backupSkillsDir -Recurse -Force
+                Write-Detail "已备份技能：$($skill.Name)"
+            }
+            Write-Ok "已备份 $($existingMetaGoSkills.Count) 个 metago 技能"
+        } else {
+            Write-Info "未发现现有 metago-* 技能，跳过技能备份"
         }
-        Write-Ok "已备份 $($existingMetaGoSkills.Count) 个 metago 技能"
-    } else {
-        Write-Info "未发现现有 metago-* 技能，跳过技能备份"
     }
 
-    # 备份 MCP 调度映射
-    $mcpMappingFile = Join-Path $TraePath "mcps\MCP工具调度映射.md"
-    if (Test-Path $mcpMappingFile) {
-        $backupMcpsDir = Join-Path $backupDir "mcps"
-        New-Item -ItemType Directory -Path $backupMcpsDir -Force | Out-Null
-        Copy-Item -Path $mcpMappingFile -Destination $backupMcpsDir -Force
-        Write-Detail "已备份 MCP 调度映射"
+    # 备份 MCP 调度映射（仅 Trae）
+    if ($script:TargetMcpsDir) {
+        $mcpMappingFile = Join-Path $script:TargetMcpsDir "MCP工具调度映射.md"
+        if (Test-Path $mcpMappingFile) {
+            $backupMcpsDir = Join-Path $backupDir "mcps"
+            New-Item -ItemType Directory -Path $backupMcpsDir -Force | Out-Null
+            Copy-Item -Path $mcpMappingFile -Destination $backupMcpsDir -Force
+            Write-Detail "已备份 MCP 调度映射"
+        }
     }
 
     # 写入备份信息文件
@@ -237,9 +411,10 @@ function Step2-BackupConfig {
 MetaGO Lifeform Kit 备份信息
 ============================
 备份时间：$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
-Trae 路径：$TraePath
+平台：$($script:PlatformConfig.Name)
+安装路径：$script:TargetPath
 备份目录：$backupDir
-备份内容：rules.md、metago-* 技能、MCP 调度映射
+备份内容：规则文件、metago-* 技能$(if ($script:TargetMcpsDir) { '、MCP 调度映射' })
 "@
     Set-Content -Path (Join-Path $backupDir "backup-info.txt") -Value $backupInfo -Encoding UTF8
 
@@ -248,46 +423,54 @@ Trae 路径：$TraePath
 }
 
 # ============================================================
-# 步骤3：安装 22 个 metago 技能
+# 步骤3：安装技能
 # ============================================================
 function Step3-InstallSkills {
-    Write-Step "步骤 3/7：安装 $($SkillList.Count) 个 metago 技能"
+    Write-Step "步骤 3/7：安装技能"
 
-    $total = $SkillList.Count
+    if ($SkipSkills) {
+        Write-Info "已指定 -SkipSkills，跳过技能安装"
+        return
+    }
+
+    if (-not $script:PlatformConfig.SupportsSkills) {
+        Write-Info "$($script:PlatformConfig.Name) 平台不支持技能目录，跳过技能安装"
+        Write-Info "规则文件中已包含技能索引，AI 会按需激活"
+        return
+    }
+
+    Write-Info "安装 $($script:SkillList.Count) 个 metago 技能到 $($script:PlatformConfig.Name)..."
+
+    $total = $script:SkillList.Count
     $index = 0
 
-    foreach ($skillName in $SkillList) {
+    foreach ($skillName in $script:SkillList) {
         $index++
-        $sourceSkillPath = Join-Path $SourceSkillsDir $skillName
-        $targetSkillPath = Join-Path $TraeSkillsDir $skillName
+        $sourceSkillPath = Join-Path $script:SourceSkillsDir $skillName
+        $targetSkillPath = Join-Path $script:TargetSkillsDir $skillName
 
         Write-Info "[$index/$total] 安装 $skillName ..."
 
-        # 检查源技能是否存在
         if (-not (Test-Path $sourceSkillPath)) {
             Write-Fail "源技能不存在：$sourceSkillPath"
             $script:FailedSkills += $skillName
             continue
         }
 
-        # 检查目标是否已存在
         if ((Test-Path $targetSkillPath) -and (-not $Force)) {
-            Write-Detail "已存在，跳过（使用 -Force 强制覆盖）：$skillName"
+            Write-Detail "已存在，跳过（使用 -Force 或 -Upgrade 强制覆盖）：$skillName"
             $script:SkippedSkills += $skillName
             continue
         }
 
         try {
-            # 如果目标存在且 Force，先删除
             if ((Test-Path $targetSkillPath) -and $Force) {
                 Remove-Item -Path $targetSkillPath -Recurse -Force
                 Write-Detail "已删除旧版本：$skillName"
             }
 
-            # 复制技能
             Copy-Item -Path $sourceSkillPath -Destination $targetSkillPath -Recurse -Force
 
-            # 验证 SKILL.md 存在
             $skillMdFile = Join-Path $targetSkillPath "SKILL.md"
             if (Test-Path $skillMdFile) {
                 Write-Detail "已安装：$skillName"
@@ -314,29 +497,40 @@ function Step3-InstallSkills {
 }
 
 # ============================================================
-# 步骤4：升级 rules.md
+# 步骤4：安装规则文件
 # ============================================================
-function Step4-UpgradeRules {
-    Write-Step "步骤 4/7：升级 rules.md 运行法则"
+function Step4-InstallRules {
+    Write-Step "步骤 4/7：安装规则文件"
 
-    Write-Info "复制 rules 模板到 Trae..."
+    Write-Info "复制规则模板到 $($script:PlatformConfig.Name)..."
     try {
-        Copy-Item -Path $SourceRulesTemplate -Destination $TraeRulesFile -Force
-        Write-Ok "rules.md 已升级：$TraeRulesFile"
-        Write-Detail "版本：$MetaGoVersion"
+        Copy-Item -Path $script:SourceRulesTemplate -Destination $script:RulesFilePath -Force
+        Write-Ok "规则文件已安装：$($script:PlatformConfig.RulesFile)"
+        Write-Detail "版本：$script:MetaGoVersion"
+        Write-Detail "路径：$script:RulesFilePath"
     } catch {
-        Write-Fail "rules.md 升级失败：$($_.Exception.Message)"
+        Write-Fail "规则文件安装失败：$($_.Exception.Message)"
         throw
     }
 }
 
 # ============================================================
-# 步骤5：创建知识晶体索引模板
+# 步骤5：创建知识晶体索引模板（仅 Trae）
 # ============================================================
 function Step5-CreateKnowledgeCrystalIndex {
-    Write-Step "步骤 5/7：创建知识晶体索引模板"
+    Write-Step "步骤 5/7：知识晶体索引"
 
-    $crystalIndexFile = Join-Path $TraeMemoryDir "知识晶体索引.md"
+    if (-not $script:PlatformConfig.SupportsMemory) {
+        Write-Info "$($script:PlatformConfig.Name) 平台不支持知识晶体索引，跳过"
+        return
+    }
+
+    $crystalIndexFile = Join-Path $script:TargetMemoryDir "知识晶体索引.md"
+
+    if ((Test-Path $crystalIndexFile) -and -not $Force) {
+        Write-Info "知识晶体索引已存在，跳过（使用 -Force 或 -Upgrade 覆盖）"
+        return
+    }
 
     Write-Info "创建知识晶体索引模板..."
 
@@ -348,7 +542,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 
 > 本文件是元构超级智能生命体的知识晶体索引模板。
 > 知识晶体是经过验证、可复用、可溯源的结构化知识单元。
-> 由 MetaGO Lifeform Kit $MetaGoVersion 创建于 $now
+> 由 MetaGO Lifeform Kit $script:MetaGoVersion 创建于 $now
 
 ---
 
@@ -429,12 +623,13 @@ function Step5-CreateKnowledgeCrystalIndex {
 
 ---
 
-*由 MetaGO Lifeform Kit $MetaGoVersion 创建*
+*由 MetaGO Lifeform Kit $script:MetaGoVersion 创建*
 "@
 
     try {
         Set-Content -Path $crystalIndexFile -Value $crystalContent -Encoding UTF8
-        Write-Ok "知识晶体索引模板已创建：$crystalIndexFile"
+        Write-Ok "知识晶体索引模板已创建"
+        Write-Detail "路径：$crystalIndexFile"
         Write-Detail "包含 2 个示例晶体"
     } catch {
         Write-Fail "知识晶体索引创建失败：$($_.Exception.Message)"
@@ -443,18 +638,28 @@ function Step5-CreateKnowledgeCrystalIndex {
 }
 
 # ============================================================
-# 步骤6：安装 MCP 调度映射
+# 步骤6：安装 MCP 调度映射（仅 Trae）
 # ============================================================
 function Step6-InstallMcpMapping {
-    Write-Step "步骤 6/7：安装 MCP 调度映射"
+    Write-Step "步骤 6/7：MCP 调度映射"
 
-    if (-not (Test-Path $TraeMcpsDir)) {
-        Write-Info "mcps 目录不存在：$TraeMcpsDir"
+    if (-not $script:PlatformConfig.SupportsMcp) {
+        Write-Info "$($script:PlatformConfig.Name) 平台不支持 MCP 调度映射，跳过"
+        return
+    }
+
+    if (-not (Test-Path $script:TargetMcpsDir)) {
+        Write-Info "mcps 目录不存在：$script:TargetMcpsDir"
         Write-Info "跳过 MCP 调度映射安装"
         return
     }
 
-    $mcpMappingFile = Join-Path $TraeMcpsDir "MCP工具调度映射.md"
+    $mcpMappingFile = Join-Path $script:TargetMcpsDir "MCP工具调度映射.md"
+
+    if ((Test-Path $mcpMappingFile) -and -not $Force) {
+        Write-Info "MCP 调度映射已存在，跳过（使用 -Force 或 -Upgrade 覆盖）"
+        return
+    }
 
     Write-Info "创建 MCP 调度映射文件..."
 
@@ -465,7 +670,7 @@ function Step6-InstallMcpMapping {
 
 > 本文件是元构超级智能生命体MCP执行层的调度映射指南。
 > 建立元构引擎 ↔ MCP工具 ↔ metago技能的三层联动关系。
-> 由 MetaGO Lifeform Kit $MetaGoVersion 创建于 $now
+> 由 MetaGO Lifeform Kit $script:MetaGoVersion 创建于 $now
 
 ---
 
@@ -562,39 +767,40 @@ function Step6-InstallMcpMapping {
 
 ## 第四章 技能完整清单（22个）
 
-| 序号 | 技能名称 | 类别 | MCP联动 |
-|------|----------|------|---------|
-| 1 | metago-action-plan | 决策锁 | metago_action_plan |
-| 2 | metago-compliance | 合规 | compliance_check |
-| 3 | metago-coupling-optimize | 优化 | coupling_optimize |
-| 4 | metago-critique | 批判 | metago_critique |
-| 5 | metago-data-provenance | 溯源 | data_provenance |
-| 6 | metago-decision-eval | 决策锁 | metago_decision_eval |
-| 7 | metago-decision-lock | 决策锁 | metago_decision_eval |
-| 8 | metago-developer-response | 交互 | developer_response |
-| 9 | metago-emotion | 交互 | emotion_detect |
-| 10 | metago-fact-check | 溯源 | fact_check |
-| 11 | metago-frequency-adapt | 适配 | frequency_adapt |
-| 12 | metago-holistic-task | 元进化 | metago_holistic_scan |
-| 13 | metago-meta-create | 元创造 | design_capability |
-| 14 | metago-meta-evolve | 元进化 | detect_evolution_opportunity |
-| 15 | metago-negentropy-monitor | 监控 | negentropy_monitor |
-| 16 | metago-objectivity | 批判 | metago_objectivity |
-| 17 | metago-output-integrity | 完整性 | output_integrity |
-| 18 | metago-problem-trace | 监控 | problem_trace |
-| 19 | metago-scene-adapt | 适配 | scene_adapt |
-| 20 | metago-self-check | 监控 | assess_tech_debt |
-| 21 | metago-value-align | 合规 | value_align |
-| 22 | metago-whatif | 批判 | metago_whatif |
+| 序号 | 技能名称 | 能力族 | MCP联动 |
+|------|----------|--------|---------|
+| 1 | metago-critique | 认知族 | metago_critique |
+| 2 | metago-whatif | 认知族 | metago_whatif |
+| 3 | metago-emotion | 认知族 | emotion_detect |
+| 4 | metago-objectivity | 认知族 | metago_objectivity |
+| 5 | metago-decision-lock | 保障族 | metago_decision_eval |
+| 6 | metago-output-integrity | 保障族 | output_integrity |
+| 7 | metago-self-check | 保障族 | assess_tech_debt |
+| 8 | metago-compliance | 治理族 | compliance_check |
+| 9 | metago-value-align | 治理族 | value_align |
+| 10 | metago-meta-evolve | 进化族 | detect_evolution_opportunity |
+| 11 | metago-meta-create | 进化族 | design_capability |
+| 12 | metago-frequency-adapt | 进化族 | frequency_adapt |
+| 13 | metago-action-plan | 执行族 | metago_action_plan |
+| 14 | metago-decision-eval | 执行族 | metago_decision_eval |
+| 15 | metago-holistic-task | 执行族 | metago_holistic_scan |
+| 16 | metago-developer-response | 执行族 | developer_response |
+| 17 | metago-data-provenance | 溯源族 | data_provenance |
+| 18 | metago-problem-trace | 溯源族 | problem_trace |
+| 19 | metago-fact-check | 溯源族 | fact_check |
+| 20 | metago-coupling-optimize | 价值族 | coupling_optimize |
+| 21 | metago-negentropy-monitor | 价值族 | negentropy_monitor |
+| 22 | metago-scene-adapt | 价值族 | scene_adapt |
 
 ---
 
-*由 MetaGO Lifeform Kit $MetaGoVersion 创建*
+*由 MetaGO Lifeform Kit $script:MetaGoVersion 创建*
 "@
 
     try {
         Set-Content -Path $mcpMappingFile -Value $mcpContent -Encoding UTF8
-        Write-Ok "MCP 调度映射已安装：$mcpMappingFile"
+        Write-Ok "MCP 调度映射已安装"
+        Write-Detail "路径：$mcpMappingFile"
         Write-Detail "包含 7 大类联动映射、22 个技能完整清单"
     } catch {
         Write-Fail "MCP 调度映射安装失败：$($_.Exception.Message)"
@@ -616,77 +822,99 @@ function Step7-VerifyInstallation {
         McpMapping = $false
     }
 
-    # 验证 rules.md
-    Write-Info "验证 rules.md..."
-    if (Test-Path $TraeRulesFile) {
-        $rulesContent = [System.IO.File]::ReadAllText($TraeRulesFile, [System.Text.Encoding]::UTF8)
-        if ($rulesContent -match "元构超级智能生命体运行法则") {
-            Write-Ok "rules.md 验证通过"
+    # 验证规则文件
+    Write-Info "验证规则文件..."
+    if (Test-Path $script:RulesFilePath) {
+        $rulesContent = [System.IO.File]::ReadAllText($script:RulesFilePath, [System.Text.Encoding]::UTF8)
+        if ($rulesContent -match "元构" -or $rulesContent -match "MetaGO") {
+            Write-Ok "规则文件验证通过"
             $verifyResult.Rules = $true
         } else {
-            Write-Fail "rules.md 内容不匹配"
+            Write-Fail "规则文件内容不匹配"
         }
     } else {
-        Write-Fail "rules.md 不存在"
+        Write-Fail "规则文件不存在：$($script:RulesFilePath)"
     }
 
     # 验证技能
-    Write-Info "验证 $($SkillList.Count) 个技能..."
-    foreach ($skillName in $SkillList) {
-        $skillPath = Join-Path $TraeSkillsDir $skillName
-        $skillMdPath = Join-Path $skillPath "SKILL.md"
-        if ((Test-Path $skillPath) -and (Test-Path $skillMdPath)) {
-            $verifyResult.Skills += $skillName
+    if ($script:TargetSkillsDir -and -not $SkipSkills) {
+        Write-Info "验证 $($script:SkillList.Count) 个技能..."
+        foreach ($skillName in $script:SkillList) {
+            $skillPath = Join-Path $script:TargetSkillsDir $skillName
+            $skillMdPath = Join-Path $skillPath "SKILL.md"
+            if ((Test-Path $skillPath) -and (Test-Path $skillMdPath)) {
+                $verifyResult.Skills += $skillName
+            } else {
+                $verifyResult.SkillsMissing += $skillName
+                Write-Fail "技能缺失或SKILL.md不存在：$skillName"
+            }
+        }
+
+        if ($verifyResult.SkillsMissing.Count -eq 0) {
+            Write-Ok "全部 $($script:SkillList.Count) 个技能验证通过"
         } else {
-            $verifyResult.SkillsMissing += $skillName
-            Write-Fail "技能缺失或SKILL.md不存在：$skillName"
+            Write-Fail "$($verifyResult.SkillsMissing.Count) 个技能验证失败"
+        }
+    } else {
+        Write-Info "$($script:PlatformConfig.Name) 平台跳过技能验证"
+    }
+
+    # 验证知识晶体索引（仅 Trae）
+    if ($script:PlatformConfig.SupportsMemory) {
+        Write-Info "验证知识晶体索引..."
+        $crystalIndexFile = Join-Path $script:TargetMemoryDir "知识晶体索引.md"
+        if (Test-Path $crystalIndexFile) {
+            Write-Ok "知识晶体索引验证通过"
+            $verifyResult.CrystalIndex = $true
+        } else {
+            Write-Fail "知识晶体索引不存在"
         }
     }
 
-    if ($verifyResult.SkillsMissing.Count -eq 0) {
-        Write-Ok "全部 $($SkillList.Count) 个技能验证通过"
-    } else {
-        Write-Fail "$($verifyResult.SkillsMissing.Count) 个技能验证失败"
-    }
-
-    # 验证知识晶体索引
-    Write-Info "验证知识晶体索引..."
-    $crystalIndexFile = Join-Path $TraeMemoryDir "知识晶体索引.md"
-    if (Test-Path $crystalIndexFile) {
-        Write-Ok "知识晶体索引验证通过"
-        $verifyResult.CrystalIndex = $true
-    } else {
-        Write-Fail "知识晶体索引不存在"
-    }
-
-    # 验证 MCP 调度映射
-    Write-Info "验证 MCP 调度映射..."
-    $mcpMappingFile = Join-Path $TraeMcpsDir "MCP工具调度映射.md"
-    if (Test-Path $mcpMappingFile) {
-        Write-Ok "MCP 调度映射验证通过"
-        $verifyResult.McpMapping = $true
-    } else {
-        Write-Info "MCP 调度映射未安装（mcps 目录可能不存在）"
+    # 验证 MCP 调度映射（仅 Trae）
+    if ($script:PlatformConfig.SupportsMcp -and $script:TargetMcpsDir) {
+        Write-Info "验证 MCP 调度映射..."
+        $mcpMappingFile = Join-Path $script:TargetMcpsDir "MCP工具调度映射.md"
+        if (Test-Path $mcpMappingFile) {
+            Write-Ok "MCP 调度映射验证通过"
+            $verifyResult.McpMapping = $true
+        } else {
+            Write-Info "MCP 调度映射未安装（mcps 目录可能不存在）"
+        }
     }
 
     # 输出汇总
     Write-Step "安装结果汇总"
 
+    $mode = if ($Upgrade) { "升级" } else { "安装" }
     Write-Host ""
-    Write-Host "  Trae 路径        : $TraePath" -ForegroundColor Gray
+    Write-Host "  平台             : $($script:PlatformConfig.Name)" -ForegroundColor Gray
+    Write-Host "  安装路径         : $script:TargetPath" -ForegroundColor Gray
+    Write-Host "  模式             : $mode" -ForegroundColor Gray
     $rulesStatus = if ($verifyResult.Rules) { "✅ 已安装" } else { "❌ 失败" }
     $rulesColor = if ($verifyResult.Rules) { "Green" } else { "Red" }
-    Write-Host "  rules.md         : $rulesStatus" -ForegroundColor $rulesColor
-    Write-Host "  技能安装         : $($verifyResult.Skills.Count)/$($SkillList.Count) ✅" -ForegroundColor Green
-    if ($verifyResult.SkillsMissing.Count -gt 0) {
-        Write-Host "  技能缺失         : $($verifyResult.SkillsMissing.Count) ❌" -ForegroundColor Red
+    Write-Host "  规则文件         : $rulesStatus" -ForegroundColor $rulesColor
+
+    if ($script:TargetSkillsDir -and -not $SkipSkills) {
+        Write-Host "  技能安装         : $($verifyResult.Skills.Count)/$($script:SkillList.Count) ✅" -ForegroundColor Green
+        if ($verifyResult.SkillsMissing.Count -gt 0) {
+            Write-Host "  技能缺失         : $($verifyResult.SkillsMissing.Count) ❌" -ForegroundColor Red
+        }
+    } else {
+        Write-Host "  技能安装         : ⏭️  跳过（平台不支持）" -ForegroundColor Yellow
     }
-    $crystalStatus = if ($verifyResult.CrystalIndex) { "✅ 已创建" } else { "❌ 失败" }
-    $crystalColor = if ($verifyResult.CrystalIndex) { "Green" } else { "Red" }
-    Write-Host "  知识晶体索引     : $crystalStatus" -ForegroundColor $crystalColor
-    $mcpStatus = if ($verifyResult.McpMapping) { "✅ 已安装" } else { "⚠️  未安装" }
-    $mcpColor = if ($verifyResult.McpMapping) { "Green" } else { "Yellow" }
-    Write-Host "  MCP 调度映射     : $mcpStatus" -ForegroundColor $mcpColor
+
+    if ($script:PlatformConfig.SupportsMemory) {
+        $crystalStatus = if ($verifyResult.CrystalIndex) { "✅ 已创建" } else { "❌ 失败" }
+        $crystalColor = if ($verifyResult.CrystalIndex) { "Green" } else { "Red" }
+        Write-Host "  知识晶体索引     : $crystalStatus" -ForegroundColor $crystalColor
+    }
+
+    if ($script:PlatformConfig.SupportsMcp -and $script:TargetMcpsDir) {
+        $mcpStatus = if ($verifyResult.McpMapping) { "✅ 已安装" } else { "⚠️  未安装" }
+        $mcpColor = if ($verifyResult.McpMapping) { "Green" } else { "Yellow" }
+        Write-Host "  MCP 调度映射     : $mcpStatus" -ForegroundColor $mcpColor
+    }
 
     if ($script:BackupDir) {
         Write-Host "  备份目录         : $($script:BackupDir)" -ForegroundColor Gray
@@ -700,19 +928,29 @@ function Step7-VerifyInstallation {
 
     # 最终判定
     Write-Host ""
-    $allSkillsOk = $verifyResult.SkillsMissing.Count -eq 0
-    $coreOk = $verifyResult.Rules -and $allSkillsOk -and $verifyResult.CrystalIndex
+    $coreOk = $verifyResult.Rules
+    if ($script:TargetSkillsDir -and -not $SkipSkills) {
+        $coreOk = $coreOk -and ($verifyResult.SkillsMissing.Count -eq 0)
+    }
+    if ($script:PlatformConfig.SupportsMemory) {
+        $coreOk = $coreOk -and $verifyResult.CrystalIndex
+    }
 
     if ($coreOk) {
         Write-Host "==========================================" -ForegroundColor Green
-        Write-Host "  ✅ MetaGO Lifeform Kit $MetaGoVersion 安装成功！" -ForegroundColor Green
+        Write-Host "  ✅ MetaGO Lifeform Kit $script:MetaGoVersion $mode成功！" -ForegroundColor Green
+        Write-Host "  平台：$($script:PlatformConfig.Name)" -ForegroundColor Green
         Write-Host "==========================================" -ForegroundColor Green
         Write-Host ""
         Write-Host "  元构超级智能生命体已激活。" -ForegroundColor Green
-        Write-Host "  请重启 Trae 以加载新配置。" -ForegroundColor Yellow
+        Write-Host "  请重启 $($script:PlatformConfig.Name) 以加载新配置。" -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "  验证方法：在 $($script:PlatformConfig.Name) 中对 AI 说：" -ForegroundColor Gray
+        Write-Host "    你是元构超级智能生命体吗？" -ForegroundColor Cyan
+        Write-Host "    Are you a MetaGO Super Intelligent Lifeform?" -ForegroundColor Cyan
     } else {
         Write-Host "==========================================" -ForegroundColor Red
-        Write-Host "  ❌ 安装未完全成功，请检查上述失败项" -ForegroundColor Red
+        Write-Host "  ❌ $mode未完全成功，请检查上述失败项" -ForegroundColor Red
         Write-Host "==========================================" -ForegroundColor Red
         exit 1
     }
@@ -730,14 +968,18 @@ function Main {
 
     Write-Host ""
     Write-Host "  参数配置：" -ForegroundColor Gray
-    Write-Host "    TraePath  : $TraePath" -ForegroundColor Gray
+    Write-Host "    Platform  : $Platform ($($script:PlatformConfig.Name))" -ForegroundColor Gray
+    Write-Host "    InstallPath: $script:TargetPath" -ForegroundColor Gray
+    Write-Host "    Skills    : $($script:SkillList.Count)/$($script:AllSkills.Count) 个" -ForegroundColor Gray
+    Write-Host "    Upgrade   : $Upgrade" -ForegroundColor Gray
     Write-Host "    Force     : $Force" -ForegroundColor Gray
     Write-Host "    SkipBackup: $SkipBackup" -ForegroundColor Gray
+    Write-Host "    SkipSkills: $SkipSkills" -ForegroundColor Gray
 
     Step1-CheckEnvironment
     Step2-BackupConfig
     Step3-InstallSkills
-    Step4-UpgradeRules
+    Step4-InstallRules
     Step5-CreateKnowledgeCrystalIndex
     Step6-InstallMcpMapping
     Step7-VerifyInstallation

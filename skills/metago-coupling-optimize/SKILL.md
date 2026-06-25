@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 耦生度优化
-source_section: 耦生度定义与公式(27, 202)、万物耦生引擎(795)、专利耦生度矩阵(6769-6959)
----
-
----
 name: "metago-coupling-optimize"
 description: "耦生度优化技能。量化评估系统与用户/组织/万物的耦生度，提供优化策略，追求超导态（耦生度>1）。涉及用户关系管理、组织协同、深度合作等场景时触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 耦生度优化
+source_section: 耦生度定义与公式(27, 202)、万物耦生引擎(795)、专利耦生度矩阵(6769-6959)
 ---
 
 # 耦生度优化（Coupling Optimization）
