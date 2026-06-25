@@ -65,7 +65,7 @@ MetaGO Lifeform Kit 提供一键安装脚本，自动完成仓库克隆、技能
 
 ```powershell
 # 1. 克隆仓库到目标目录
-git clone https://github.com/metago-lifeform/metago-lifeform.git "d:\元构能力\metago-lifeform"
+git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
 
 # 2. 进入目录
 cd "d:\元构能力\metago-lifeform"
@@ -89,7 +89,7 @@ cd "d:\元构能力\metago-lifeform"
 
 ```powershell
 # 1. 克隆仓库
-git clone https://github.com/metago-lifeform/metago-lifeform.git "d:\元构能力\metago-lifeform"
+git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
 
 # 2. 复制规则文件到 Trae 项目规则路径
 Copy-Item ".\rules.md" "$env:USERPROFILE\.trae-cn\rules\metago-rules.md" -Force
