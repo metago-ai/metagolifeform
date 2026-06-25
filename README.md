@@ -54,10 +54,26 @@ cd metagolifeform
 | 层级 | 内容 | 开源 |
 |------|------|------|
 | L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
-| L1 适配层 | Trae/Claude Code/Cursor适配器 | ✅ |
+| L1 适配层 | 7大平台适配器（见下） | ✅ |
 | L2 能力层 | 22个metago技能 | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
+
+---
+
+## 支持平台（7个）
+
+| 平台 | 配置文件 | 适配器目录 |
+|------|----------|------------|
+| Trae | `rules.md` | `adapters/trae/` |
+| Claude Code | `CLAUDE.md` | `adapters/claude-code/` |
+| OpenAI Codex | `AGENTS.md` | `adapters/codex/` |
+| Cursor | `.cursor/rules/*.mdc` | `adapters/cursor/` |
+| CodeBuddy | `CODEBUDDY.md` | `adapters/codebuddy/` |
+| Qoder | `.qoder/rules/` | `adapters/qoder/` |
+| ZCode | `CLAUDE.md` | `adapters/zcode/` |
+
+每个适配器目录包含：规则模板文件 + 安装说明（README.md）
 
 ---
 
