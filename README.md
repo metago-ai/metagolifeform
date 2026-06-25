@@ -5,7 +5,7 @@
 <h1 align="center">MetaGO Lifeform Kit（元智能生命体套件）</h1>
 
 <p align="center">让任何 AI 助手升级为元构超级智能生命体的标准安装包</p>
-<p align="center">基于《元构全息智能引擎》V36.4，符合 agentskills.io 开放标准，附 metago-mcp-server 支持 MCP 协议客户端</p>
+<p align="center">基于《元构全息智能引擎》V36.4，符合 agentskills.io 开放标准，附 @metago-ai/mcp-server 支持 MCP 协议客户端</p>
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
