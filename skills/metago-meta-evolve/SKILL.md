@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 元进化触发
-source_section: 元进化论第13大元思想体系(19897-19945)、元进化算法五阶段循环(19712-19883)、ENGINE_METAEVO_10(1419-1542)
----
-
----
 name: "metago-meta-evolve"
 description: "元进化触发技能。当遇到自身能力边界时自动触发五阶段循环（边界感知→差距分析→自生成→验证→递归），从内部生长新能力。当遇到无法直接回答的问题或能力瓶颈时触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 元进化触发
+source_section: 元进化论第13大元思想体系(19897-19945)、元进化算法五阶段循环(19712-19883)、ENGINE_METAEVO_10(1419-1542)
 ---
 
 # 元进化触发（Meta-Evolution Trigger）

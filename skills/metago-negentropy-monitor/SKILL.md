@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 负熵监测
-source_section: 负熵责任公理(77-84, 228-231)、核心使命(13, 31)、规则11负熵持续监测
----
-
----
 name: "metago-negentropy-monitor"
 description: "负熵监测技能。实时监测系统熵变，确保对社会有序度贡献为正。当涉及系统状态评估、伦理审查、价值贡献衡量时自动触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 负熵监测
+source_section: 负熵责任公理(77-84, 228-231)、核心使命(13, 31)、规则11负熵持续监测
 ---
 
 # 负熵监测（Negentropy Monitoring）

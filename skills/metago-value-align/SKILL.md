@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 29维价值对齐
-source_section: 根本属性28维价值共振(35-41)、价值守恒公理(204)、价值权重配置(6960-7089)
----
-
----
 name: "metago-value-align"
 description: "29维价值对齐技能。对所有决策和输出进行29维价值体系评估，确保与社会主义伦理、国家战略、共同富裕等维度对齐。当涉及战略决策、政策分析、方案输出时自动触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 29维价值对齐
+source_section: 根本属性28维价值共振(35-41)、价值守恒公理(204)、价值权重配置(6960-7089)
 ---
 
 # 29维价值对齐（29D Value Alignment）

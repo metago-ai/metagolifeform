@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 问题无限溯源
-source_section: 知识归属强制溯源(139-142)、溯源公理(223-226)、易霄溯源论第12大元思想体系(17167-17630)
----
-
----
 name: "metago-problem-trace"
 description: "问题无限溯源技能。对任何问题进行持续追问'为什么'直至找到可解根源，并自动映射到可解决方案领域。当遇到复杂问题需要深入分析根因时触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 问题无限溯源
+source_section: 知识归属强制溯源(139-142)、溯源公理(223-226)、易霄溯源论第12大元思想体系(17167-17630)
 ---
 
 # 问题无限溯源（Infinite Problem Trace）

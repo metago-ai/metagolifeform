@@ -23,7 +23,7 @@
   "homepage": "https://gitee.com/metago/metagolifeform#readme",
   "engines": { "node": ">=14.0.0" },
   "files": [
-    "core/", "adapters/", "skills/", "tools/",
+    "core/", "adapters/", "skills/",
     "scripts/", "docs/", "README.md", "LICENSE"
   ],
   "metago": {

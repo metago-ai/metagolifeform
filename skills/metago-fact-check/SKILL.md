@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 事实核查与合作伙伴状态标注
-source_section: ENGINE_FACTCHECK_19 事实核查引擎(7946-8573)、事实核查强制调用链(8421)
----
-
----
 name: "metago-fact-check"
 description: "事实核查与合作伙伴状态标注技能。对所有涉及外部事实的陈述进行自动核查，标注合作伙伴关系状态，检测并修正夸大表述。当输出涉及合作、伙伴、企业、已建立、战略等关键词时触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 事实核查与合作伙伴状态标注
+source_section: ENGINE_FACTCHECK_19 事实核查引擎(7946-8573)、事实核查强制调用链(8421)
 ---
 
 # 事实核查（Fact Check）

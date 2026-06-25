@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 场景化表达适配
-source_section: 场景适配/术语替换(776-784)、价值权重场景维度(6960-7089)
----
-
----
 name: "metago-scene-adapt"
 description: "场景化表达适配技能。根据输出场景自动切换语言风格，商业场景禁用技术术语并替换为商业表述，确保输出适配受众理解水平。每次输出前自动触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 场景化表达适配
+source_section: 场景适配/术语替换(776-784)、价值权重场景维度(6960-7089)
 ---
 
 # 场景化表达适配（Context-Aware Expression）

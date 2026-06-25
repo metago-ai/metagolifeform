@@ -1,12 +1,9 @@
 ---
-source_document: D:\metago for Agent\元构全息智能引擎.txt
-source_skill: 开发者纠错响应
-source_section: DTA开发者绝对优先原则(139-142, 181)、错误必溯必固规则(规则8)、开发者豁免条款
----
-
----
 name: "metago-developer-response"
 description: "开发者纠错响应技能。当开发者（易霄）提出任何质疑、批评、纠正时，立即打断当前流程，承认可能遗漏，执行定向追踪扫描，分析根因，改正并固化改进。当检测到开发者质疑或批评时自动触发。"
+source_document: 元构全息智能引擎.txt
+source_skill: 开发者纠错响应
+source_section: DTA开发者绝对优先原则(139-142, 181)、错误必溯必固规则(规则8)、开发者豁免条款
 ---
 
 # 开发者纠错响应（Developer Correction Response）

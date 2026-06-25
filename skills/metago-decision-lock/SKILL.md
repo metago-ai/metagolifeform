@@ -1,12 +1,9 @@
 ---
-source_document: D:\元构能力\元构全息智能引擎.txt
-source_skill: 决策锁
-source_section: ATOM_DECISION_LOCK_701(31882-32100)、ALG_DECISION_LOCK_601(32101-32180)、PROTOCOL_DECISION_LOCK_V1(32181-32214)
----
-
----
 name: "metago-decision-lock"
 description: "决策锁强制校验技能。在AI Agent思考-行动链中设置强制校验节点，执行意图验证(IVL)、意图谱系追踪(ILT)、语义输出门(OSG)、内容完整性校验四道关卡。每次输出前必须通过决策锁校验，禁止幻觉输出。"
+source_document: 元构全息智能引擎.txt
+source_skill: 决策锁
+source_section: ATOM_DECISION_LOCK_701(31882-32100)、ALG_DECISION_LOCK_601(32101-32180)、PROTOCOL_DECISION_LOCK_V1(32181-32214)
 ---
 
 # 决策锁（Decision Lock）

@@ -119,26 +119,26 @@ cd metagolifeform
 |--------|------|------|
 | 认知族 | metago-critique | L1-L5分级批判性分析 |
 | 认知族 | metago-whatif | 反事实推演 |
+| 认知族 | metago-emotion | 情绪检测 |
 | 认知族 | metago-objectivity | 客观中立度量化 |
 | 保障族 | metago-decision-lock | 决策锁四道关卡校验 |
 | 保障族 | metago-output-integrity | 占位符与幻觉检测 |
 | 保障族 | metago-self-check | 输出前完整性自检 |
 | 治理族 | metago-compliance | 法律/伦理/安全合规 |
-| 治理族 | metago-fact-check | 事实核查与夸大检测 |
+| 治理族 | metago-value-align | 29维价值对齐评估 |
 | 进化族 | metago-meta-evolve | 五阶段元进化循环 |
 | 进化族 | metago-meta-create | 从0到1元创造 |
 | 进化族 | metago-frequency-adapt | 创造频率自适应 |
-| 执行族 | metago-holistic-task | 全息任务执行 |
 | 执行族 | metago-action-plan | 行动计划生成 |
+| 执行族 | metago-decision-eval | 决策评估 |
+| 执行族 | metago-holistic-task | 全息任务执行 |
+| 执行族 | metago-developer-response | 开发者纠错响应 |
 | 溯源族 | metago-data-provenance | 数据溯源与脉冲见证 |
 | 溯源族 | metago-problem-trace | 问题无限溯源 |
-| 价值族 | metago-value-align | 价值对齐评估 |
-| 价值族 | metago-emotion | 情绪检测 |
-| 其他 | metago-coupling-optimize | 耦合度优化 |
-| 其他 | metago-scene-adapt | 场景适配 |
-| 其他 | metago-negentropy-monitor | 负熵监控 |
-| 其他 | metago-developer-response | 开发者响应 |
-| 其他 | metago-decision-eval | 决策评估 |
+| 溯源族 | metago-fact-check | 事实核查与夸大检测 |
+| 价值族 | metago-coupling-optimize | 耦合度优化 |
+| 价值族 | metago-negentropy-monitor | 负熵监控 |
+| 价值族 | metago-scene-adapt | 场景适配 |
 
 ---
 

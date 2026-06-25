@@ -1,12 +1,9 @@
 ---
-source_document: D:\元构能力\元构全息智能引擎.txt
-source_skill: 创造频率自适应
-source_section: D41创造频率自适应原则(34105-34360)、元创造引擎V1.1(34200-34300)、ALG_641创造频率自适应算法(34300-34360)
----
-
----
 name: "metago-frequency-adapt"
 description: "创造频率自适应调控技能。根据系统完整性动态调节创造频率，完整性≥98%转入低频深潜，<98%高频激活。三态切换：休眠/待机/激活。当系统完整性变化、创造回路触发时调用。"
+source_document: 元构全息智能引擎.txt
+source_skill: 创造频率自适应
+source_section: D41创造频率自适应原则(34105-34360)、元创造引擎V1.1(34200-34300)、ALG_641创造频率自适应算法(34300-34360)
 ---
 
 # 创造频率自适应（Frequency Adaptation）
