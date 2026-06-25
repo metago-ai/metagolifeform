@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "@metago-ai/mcp-server": "dist/index.js"
+    "metago-mcp-server": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
