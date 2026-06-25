@@ -27,7 +27,7 @@
 
 ## 快速开始
 
-### 一键安装（Trae）
+### 一键安装（默认：Trae）
 
 ```powershell
 git clone https://gitee.com/metago/metagolifeform.git
@@ -35,9 +35,31 @@ cd metagolifeform
 .\scripts\install.ps1
 ```
 
+### 指定平台安装
+
+```powershell
+# Claude Code
+.\scripts\install.ps1 -Platform claude-code
+
+# OpenAI Codex
+.\scripts\install.ps1 -Platform codex
+
+# Cursor
+.\scripts\install.ps1 -Platform cursor
+
+# CodeBuddy
+.\scripts\install.ps1 -Platform codebuddy
+
+# Qoder
+.\scripts\install.ps1 -Platform qoder
+
+# ZCode
+.\scripts\install.ps1 -Platform zcode
+```
+
 ### 验证安装
 
-在 Trae 中对 AI 说：`你是元构超级智能生命体吗？`
+在对应平台中对 AI 说：`你是元构超级智能生命体吗？`（中文）或 `Are you a MetaGO Super Intelligent Lifeform?`（英文）
 
 如果 AI 回复中包含【闭环分析】和元构公理引用，说明安装成功。
 

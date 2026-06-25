@@ -29,7 +29,7 @@
   "metago": {
     "version": "V36.3",
     "axioms": 8, "attributes": 7, "protocols": 6, "skills": 22,
-    "platforms": ["trae", "claude-code", "cursor", "universal"],
+    "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"],
     "coreOpenSource": true, "industryPaid": true
   }
 }

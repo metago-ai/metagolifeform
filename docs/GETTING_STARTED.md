@@ -23,7 +23,8 @@
 
 | 组件 | 最低版本 | 推荐版本 | 说明 |
 |------|----------|----------|------|
-| Trae IDE | 1.0.0 | 最新稳定版 | MetaGO 的原生宿主环境 |
+| AI 编程平台 | - | 任选其一 | 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode |
+| Trae IDE | 1.0.0 | 最新稳定版 | MetaGO 的原生宿主环境（首选平台） |
 | PowerShell | 5.1 | 7.2+ | 执行安装脚本 |
 | Git | 2.20+ | 最新稳定版 | 拉取仓库与版本管理 |
 | Node.js | 16+ | 20 LTS | MCP 工具调度运行时（可选） |
@@ -34,13 +35,27 @@
 - ✅ macOS（需使用 PowerShell Core 7+）
 - ✅ Linux（需使用 PowerShell Core 7+）
 
-### 3. Trae 配置确认
+### 3. 平台配置确认
 
-确保 Trae 已正确配置以下能力：
+MetaGO Lifeform Kit 支持 7 大 AI 编程平台，请根据你使用的平台确认相应能力已启用：
 
-- **Skill 加载能力**：Trae 能够识别并加载 `skills/*/SKILL.md` 格式的技能文件
-- **MCP 工具调度**：Trae 已启用 MCP（Model Context Protocol）工具调用通道
-- **项目记忆**：Trae 的项目记忆目录可写（默认位于 `~/.trae-cn/memory/`）
+**通用要求（所有平台）**：
+
+- **规则加载能力**：平台能够识别并加载规则文件（如 `rules.md` / `CLAUDE.md` / `AGENTS.md` 等）
+- **技能扫描能力**：平台能够扫描 `skills/*/SKILL.md` 格式的技能文件
+- **项目记忆**：平台的项目记忆目录可写
+
+**各平台专项确认**：
+
+| 平台 | 需确认的能力 |
+|------|-------------|
+| Trae | Skill 加载能力、MCP 工具调度、项目记忆目录（`~/.trae-cn/memory/`） |
+| Claude Code | `CLAUDE.md` 规则加载、MCP 工具调度、项目记忆目录（`~/.claude/`） |
+| OpenAI Codex | `AGENTS.md` 规则加载、工具调用通道 |
+| Cursor | `.cursor/rules/*.mdc` 规则加载、MCP 工具调度 |
+| CodeBuddy | `CODEBUDDY.md` 规则加载、工具调用通道 |
+| Qoder | `.qoder/rules/*.md` 规则加载、工具调用通道 |
+| ZCode | `CLAUDE.md` 规则加载、MCP 工具调度、项目记忆目录（`~/.claude/`） |
 
 ### 4. 网络环境
 
