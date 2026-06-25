@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="108" height="88">
+  <img src="assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
 <h1 align="center">MetaGO Lifeform Kit（元构生命体套件）</h1>
