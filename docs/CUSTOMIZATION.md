@@ -1,6 +1,6 @@
 # MetaGO Lifeform Kit 自定义指南
 
-> 本文介绍如何添加自定义技能、修改规则、配置 MCP 调度、创建知识晶体索引，以及适配其他 AI 平台。
+> 本文介绍如何添加自定义技能、修改规则、配置 MCP 调度、创建知识晶体索引、适配其他 AI 平台，以及自定义 MCP Server 的 tools 与 prompts。
 
 ---
 
@@ -11,6 +11,7 @@
 - [配置 MCP 调度映射](#配置-mcp-调度映射)
 - [创建知识晶体索引](#创建知识晶体索引)
 - [适配其他平台](#适配其他平台)
+- [自定义 MCP Server tools 与 prompts](#自定义-mcp-server-tools-与-prompts)
 - [技能格式模板示例](#技能格式模板示例)
 
 ---
@@ -570,6 +571,204 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 
 ---
 
+## 自定义 MCP Server tools 与 prompts
+
+MCP Server 子包位于 [`packages/mcp-server/`](../packages/mcp-server/)，其能力元数据完全代码化，便于自定义扩展。本节介绍如何添加自定义 tools 与 prompts。
+
+### 文件结构概览
+
+```
+packages/mcp-server/
+├── src/
+│   ├── index.ts          入口：注册 tools/prompts，启动 stdio 传输
+│   ├── skills-data.ts    22 个技能元数据（tools 源）
+│   └── prompts.ts        8 个引导词元数据（prompts 源）
+├── package.json          @metago/mcp-server
+└── tsconfig.json
+```
+
+入口 `index.ts` 遍历 `SKILLS` 与 `PROMPTS` 两个数组，自动注册为 MCP tools / prompts。因此，**自定义能力的核心是修改 `skills-data.ts` 与 `prompts.ts` 两个数据文件**，无需改动注册逻辑。
+
+### 自定义 MCP tool（修改 skills-data.ts）
+
+#### SkillMeta 数据结构
+
+```ts
+export interface SkillMeta {
+  /** 技能唯一标识，如 'metago-decision-lock' */
+  id: string;
+  /** MCP tool 名称（下划线格式），如 'metago_decision_lock' */
+  toolName: string;
+  /** 中文名称，如 '决策锁' */
+  name: string;
+  /** 工具描述（展示给客户端） */
+  description: string;
+  /** 能力族：认知族 / 保障族 / 治理族 / 进化族 / 执行族 / 溯源族 / 价值族 */
+  category: string;
+  /** 执行引导词（包含触发条件、核心流程、输出格式） */
+  guide: string;
+}
+```
+
+每个 tool 在被调用时，会返回 `${guide}\n\n## 用户输入\n${args.input}` 的拼接文本。其中 `input` 是固定参数（字符串），由 `index.ts` 中的 zod schema 定义，**自定义 tool 无需重复声明参数 schema**。
+
+#### 添加自定义 tool 示例
+
+在 `packages/mcp-server/src/skills-data.ts` 的 `SKILLS` 数组中追加一项：
+
+```ts
+{
+  id: "metago-code-review",
+  toolName: "metago_code_review",
+  name: "代码审查",
+  description: "对代码进行安全性、规范性、性能、可维护性四维度审查。当用户请求代码审查、合并请求、代码变更时触发。",
+  category: "保障族",
+  guide: `## 触发条件
+当用户请求代码审查、提交合并请求、代码变更涉及核心模块时触发。
+
+## 执行流程
+1. 安全性审查：SQL 注入 / XSS / 敏感信息硬编码 / 权限校验缺失
+2. 规范性审查：命名 / 缩进 / 注释 / 文件结构
+3. 性能审查：N+1 查询 / 不必要循环 / 内存泄漏 / 阻塞操作
+4. 可维护性审查：函数长度 / 单一职责 / 依赖关系 / 单元测试
+
+## 输出格式
+按四维度给出 PASS/FAIL 与证据，附总评与改进建议。`,
+},
+```
+
+#### 命名约定
+
+| 字段 | 约定 |
+|------|------|
+| `id` | 与 `skills/` 目录下的技能目录同名（连字符格式，如 `metago-code-review`） |
+| `toolName` | 下划线格式，客户端通过此名称发起 tool_call（如 `metago_code_review`） |
+| `name` | 中文显示名称 |
+| `description` | 必须包含用途与触发条件，末尾建议标注"当XXX时触发" |
+| `category` | 限定为：认知族 / 保障族 / 治理族 / 进化族 / 执行族 / 溯源族 / 价值族；自定义技能建议归入"保障族"或新建族后同步更新 `category` |
+
+### 自定义 MCP prompt（修改 prompts.ts）
+
+#### PromptMeta 数据结构
+
+```ts
+export interface PromptArgument {
+  /** 参数名称 */
+  name: string;
+  /** 参数描述 */
+  description: string;
+  /** 是否必填 */
+  required: boolean;
+}
+
+export interface PromptMessage {
+  /** 消息角色 */
+  role: "user" | "assistant";
+  /** 消息内容 */
+  content: { type: "text"; text: string };
+}
+
+export interface PromptMeta {
+  /** MCP prompt 名称 */
+  name: string;
+  /** 描述 */
+  description: string;
+  /** 参数列表 */
+  arguments?: PromptArgument[];
+  /** 消息序列 */
+  messages: PromptMessage[];
+}
+```
+
+消息文本中可使用 `{{参数名}}` 占位符，由 `index.ts` 在运行时替换为实际参数值。
+
+#### 添加自定义 prompt 示例
+
+在 `packages/mcp-server/src/prompts.ts` 的 `PROMPTS` 数组中追加一项：
+
+```ts
+{
+  name: "metago_code_review_guide",
+  description: "代码审查引导：对给定代码执行四维度审查（安全/规范/性能/可维护性）。",
+  arguments: [
+    {
+      name: "code",
+      description: "待审查的代码",
+      required: true,
+    },
+  ],
+  messages: [
+    {
+      role: "user",
+      content: {
+        type: "text",
+        text: "请对以下代码执行四维度审查：\n{{code}}",
+      },
+    },
+    {
+      role: "assistant",
+      content: {
+        type: "text",
+        text: "启动代码审查。依次执行安全性（SQL注入/XSS/硬编码/权限）、规范性（命名/缩进/注释/结构）、性能（N+1/循环/内存/阻塞）、可维护性（长度/职责/依赖/测试）四维度，逐项给出 PASS/FAIL 与证据，附总评与改进建议。",
+      },
+    },
+  ],
+},
+```
+
+#### 参数占位符规则
+
+- 占位符格式：`{{参数名}}`，参数名须与 `arguments[].name` 一致。
+- 无参数的 prompt（如 `metago_activate`、`metago_coupling_assess`）可不声明 `arguments` 字段。
+- `required: true` 的参数在客户端调用时必须提供；`required: false` 或未声明 `arguments` 的参数可省略。
+
+### 构建与本地验证
+
+完成自定义后，构建并启动 MCP Server 进行验证：
+
+```powershell
+# 进入子包目录
+cd "d:\元构能力\metago-lifeform\packages\mcp-server"
+
+# 安装依赖（首次）
+npm install
+
+# 编译 TypeScript
+npm run build      # 产物输出至 dist/
+
+# 启动服务（生产模式）
+npm start          # node dist/index.js
+
+# 开发模式（tsx 热加载，便于调试）
+npm run dev        # tsx src/index.ts
+```
+
+启动后控制台会输出 `[metago-mcp-server] 服务已启动，等待客户端连接...`，随后即可在 MCP 客户端配置中通过 `npx -y @metago/mcp-server` 或本地路径 `node ./packages/mcp-server/dist/index.js` 调用。
+
+> 本地开发时，可在客户端 MCP 配置中直接指向本地构建产物，避免反复发布 npm：
+>
+> ```json
+> {
+>   "mcpServers": {
+>     "metago": {
+>       "command": "node",
+>       "args": ["d:/元构能力/metago-lifeform/packages/mcp-server/dist/index.js"]
+>     }
+>   }
+> }
+> ```
+
+### 自定义最佳实践
+
+1. **保持一对一映射**：自定义 MCP tool 应与 `skills/` 目录下的 `SKILL.md` 一一对应，避免能力割裂。
+2. **guide 完整**：`guide` 字段需包含触发条件、执行流程、输出格式三段，确保客户端获得结构化引导。
+3. **遵循公理约束**：自定义 tool 不得违反 8 条核心公理，特别是 A36（法律优先于效率）；涉及外部 API 调用的 tool 建议在 guide 中前置合规检查说明。
+4. **prompt 参数最小化**：仅声明真正需要的参数，必填参数须严格校验，可选参数使用 `.optional()`。
+5. **能力族归类**：自定义 tool 的 `category` 须归入既有 7 大能力族，便于客户端按族筛选。
+6. **版本管理**：自定义后请同步递增 `packages/mcp-server/package.json` 的 `version`，并保持根包 `metago` 元数据中的 `mcpServer.tools` 计数一致。
+
+---
+
 ## 技能格式模板示例
 
 以下是完整的技能模板，可直接复制使用：
@@ -837,4 +1036,4 @@ description: "代码审查技能。对代码进行安全性、规范性、性能
 ---
 
 *MetaGO Lifeform Kit · 自定义指南*
-*文档版本：1.0 · 最后更新：2026-06-25*
+*文档版本：1.1 · 最后更新：2026-06-26（新增"自定义 MCP Server tools 与 prompts"章节）*
