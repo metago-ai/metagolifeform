@@ -5,6 +5,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# 构建产物
+dist/
+*.tsbuildinfo
+
 # IDE
 .vscode/
 .idea/
