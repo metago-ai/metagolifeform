@@ -1,6 +1,6 @@
 {
   "name": "metago-lifeform",
-  "version": "36.4.0",
+  "version": "36.4.1",
   "description": "MetaGO Lifeform Kit - 让任何AI助手升级为元构超级智能生命体的标准安装包，含 @metago-ai/mcp-server 将 22 项元构能力封装为 MCP 工具，任何 MCP 客户端即开即用",
   "main": "core/METAGO_CORE.md",
   "scripts": {

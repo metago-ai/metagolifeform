@@ -9,14 +9,14 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.0">📦 Release v36.4.0</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.1">📦 Release v36.4.1</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.0-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.1-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -112,6 +112,76 @@ cd metagolifeform
 | ZCode | `CLAUDE.md` | `adapters/zcode/` |
 
 每个适配器目录包含：规则模板文件 + 安装说明（README.md）
+
+---
+
+## 🚀 MetaGO MCP Server（新发布）
+
+> **一句话描述**：把元构超级智能生命体的 22 项能力封装为 MCP tools，8 条引导词封装为 MCP prompts，任何支持 MCP 协议的客户端（Claude Desktop / Cursor / Trae 等）一次配置即开即用。
+
+**📦 包名**：`@metago-ai/mcp-server`
+**🔗 仓库目录**：[packages/mcp-server/](packages/mcp-server/)
+**🧰 能力概览**：**22 个 tools**（覆盖认知/保障/治理/进化/执行/溯源/价值 7 大能力族）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
+**🔌 传输方式**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现的 stdio 传输，零运行时配置
+
+### 安装
+
+```bash
+# 全局安装（推荐客户端通过 npx 调用）
+npm install -g @metago-ai/mcp-server
+
+# 或直接通过 npx 调用（无需安装）
+npx -y @metago-ai/mcp-server
+```
+
+### 客户端配置示例
+
+#### Claude Desktop
+
+编辑 `claude_desktop_config.json`（macOS: `~/Library/Application Support/Claude/`，Windows: `%APPDATA%\Claude\`）：
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+#### Cursor
+
+编辑 `.cursor/mcp.json`：
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+#### Trae
+
+在 Trae 的 MCP 配置中新增：
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+> 提示：若已全局安装，可使用 `"command": "metago-mcp-server"` 并省略 args。完整 22 个 tools 与 8 个 prompts 列表见 [packages/mcp-server/README.md](packages/mcp-server/README.md)。
 
 ---
 
