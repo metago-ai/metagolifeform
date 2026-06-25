@@ -42,7 +42,16 @@
 
 ## 快速开始
 
-### 一键安装（默认：Trae）
+### 通过 npm 安装（推荐）
+
+```bash
+npm install -g metago-lifeform
+metago-lifeform install                          # 安装到 Trae（默认）
+metago-lifeform install --platform claude-code    # 安装到 Claude Code
+metago-lifeform verify                            # 验证安装
+```
+
+### 通过 Git 克隆安装
 
 ```powershell
 git clone https://gitee.com/metago/metagolifeform.git
