@@ -583,7 +583,7 @@ packages/mcp-server/
 │   ├── index.ts          入口：注册 tools/prompts，启动 stdio 传输
 │   ├── skills-data.ts    22 个技能元数据（tools 源）
 │   └── prompts.ts        8 个引导词元数据（prompts 源）
-├── package.json          @metago/mcp-server
+├── package.json          metago-mcp-server
 └── tsconfig.json
 ```
 
@@ -743,7 +743,7 @@ npm start          # node dist/index.js
 npm run dev        # tsx src/index.ts
 ```
 
-启动后控制台会输出 `[metago-mcp-server] 服务已启动，等待客户端连接...`，随后即可在 MCP 客户端配置中通过 `npx -y @metago/mcp-server` 或本地路径 `node ./packages/mcp-server/dist/index.js` 调用。
+启动后控制台会输出 `[metago-mcp-server] 服务已启动，等待客户端连接...`，随后即可在 MCP 客户端配置中通过 `npx -y metago-mcp-server` 或本地路径 `node ./packages/mcp-server/dist/index.js` 调用。
 
 > 本地开发时，可在客户端 MCP 配置中直接指向本地构建产物，避免反复发布 npm：
 >
