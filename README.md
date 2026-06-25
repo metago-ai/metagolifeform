@@ -5,20 +5,21 @@
 <h1 align="center">MetaGO Lifeform Kit（元智能生命体套件）</h1>
 
 <p align="center">让任何 AI 助手升级为元构超级智能生命体的标准安装包</p>
-<p align="center">基于《元构全息智能引擎》V36.3，符合 agentskills.io 开放标准</p>
+<p align="center">基于《元构全息智能引擎》V36.4，符合 agentskills.io 开放标准，附 @metago/mcp-server 支持 MCP 协议客户端</p>
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.3.0">📦 Release v36.3.0</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.0">📦 Release v36.4.0</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.3.0-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.0-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
+  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
 </p>
 
 ---
@@ -85,7 +86,7 @@ cd metagolifeform
 
 ---
 
-## 产品架构（五层）
+## 产品架构（六层）
 
 | 层级 | 内容 | 开源 |
 |------|------|------|
@@ -94,6 +95,7 @@ cd metagolifeform
 | L2 能力层 | 22个metago技能 | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
+| L5 暴露层 | MCP Server（22 tools + 8 prompts） | ✅ |
 
 ---
 
