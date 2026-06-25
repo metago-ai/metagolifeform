@@ -1,0 +1,40 @@
+{
+  "name": "@metago-ai/dev-kit",
+  "version": "1.0.0",
+  "description": "MetaGO Dev Kit - 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计）",
+  "main": "README.md",
+  "scripts": {
+    "list": "echo 'Dev Kit skills: metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit'",
+    "verify": "powershell -Command \"Get-ChildItem ../../skills/metago-code-review-deep,../../skills/metago-architecture-design,../../skills/metago-refactor-suggest,../../skills/metago-security-audit -Filter SKILL.md | Select-Object FullName\""
+  },
+  "keywords": [
+    "metago", "dev-kit", "developer", "code-review", "architecture",
+    "refactor", "security-audit", "agentskills", "ai-governance"
+  ],
+  "author": "易霄 / MetaGO Lightyear",
+  "license": "MIT",
+  "metago": {
+    "type": "vertical-kit",
+    "vertical": "developer",
+    "reusedSkills": [
+      "metago-decision-lock",
+      "metago-critique",
+      "metago-fact-check",
+      "metago-problem-trace"
+    ],
+    "addedSkills": [
+      "metago-code-review-deep",
+      "metago-architecture-design",
+      "metago-refactor-suggest",
+      "metago-security-audit"
+    ],
+    "totalSkills": 8,
+    "parentPackage": "metago-lifeform@>=36.4.3"
+  },
+  "homepage": "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/metago/metagolifeform.git",
+    "directory": "packages/dev-kit"
+  }
+}
