@@ -94,7 +94,7 @@ A manifesto is not "trust me"; it is **verify it yourself**.
 ### Installation
 
 ```powershell
-irm https://gitee.com/metago/metagolifeform/raw/main/scripts/install.ps1 | iex
+irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 ```
 
 One command, 8 axioms, 7 attributes, 6 protocols, 22 skills injected into your Agent.
