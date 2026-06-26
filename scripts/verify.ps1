@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     MetaGO Lifeform Kit 安装验证脚本
 
