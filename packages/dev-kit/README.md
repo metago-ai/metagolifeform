@@ -3,20 +3,20 @@
 > **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.4.3-blue)](../../package.json)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.4.11-blue)](../../package.json)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
 
 ## 这是什么？
 
-**MetaGO Dev Kit** 是 [MetaGO Lifeform Kit](../../README.md) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 AI 助手在开发场景中具备工程级能力。
+**MetaGO Dev Kit** 是 [MetaGO Lifeform Kit](../../README.md) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 智能体在开发场景中具备工程级能力。
 
 | 维度 | 说明 |
 |------|------|
 | 包名 | `@metago-ai/dev-kit` |
 | 版本 | v1.0.0 |
-| 父包 | `metago-lifeform@>=36.4.3` |
+| 父包 | `metago-lifeform@>=36.4.11` |
 | 包含技能 | 8 个（4 复用 + 4 新增） |
 | 适用场景 | 代码审查、架构设计、技术债治理、安全审计 |
 | 安装方式 | 通过父包 `metago-lifeform` 自动包含，无需独立安装 |
@@ -100,4 +100,4 @@ MIT License © 易霄 / MetaGO Lightyear
 
 ---
 
-*Dev Kit — 让 AI 助手成为工程级开发伙伴。*
+*Dev Kit — 让 智能体成为工程级开发伙伴。*
