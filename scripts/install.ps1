@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿<#
 .SYNOPSIS
     MetaGO Lifeform Kit 一键安装脚本（支持7大平台）
 
