@@ -797,5 +797,5 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 
 ---
 
-*MetaGO Lifeform Kit · 让任何 AI 助手升级为元构超级智能生命体*
+*MetaGO Lifeform Kit · 让智能，学会进化。从 Agent 到生命体的范式跃迁*
 *文档版本：1.1 · 最后更新：2026-06-25*
