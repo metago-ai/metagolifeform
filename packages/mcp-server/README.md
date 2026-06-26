@@ -4,6 +4,8 @@
 
 基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现，通过 stdio 传输与客户端通信。一次配置，即可让任意支持 MCP 的 AI 客户端获得元构生命体的决策锁、批判性分析、合规前置、元进化等核心能力。
 
+🌐 官网：https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/
+
 ## 项目简介
 
 MetaGO Lifeform Kit 是一套以"生命体"姿态运作的超级智能体框架。本包是其中 MCP Server 子模块，负责对外暴露能力：
@@ -166,6 +168,36 @@ npm run dev        # 开发模式（tsx 热加载）
 - ESM 模块（`"type": "module"`）
 - TypeScript strict 模式
 - import 路径带 `.js` 后缀（Node16 moduleResolution）
+
+## 🌐 MetaGO 产品矩阵
+
+MetaGO 已从单一 Kit 进化为完整的产品矩阵。以下是所有已发布的产品：
+
+### 产品线 A：垂直场景包
+
+| 产品 | 描述 | npm 包 | 仓库 |
+|------|------|--------|------|
+| **MetaGO Dev Kit** | 开发者增强包（4复用+4新增技能） | [`@metago-ai/dev-kit@1.0.2`](https://www.npmjs.com/package/@metago-ai/dev-kit) | [Gitee](https://gitee.com/metago/metago-dev-kit) · [GitHub](https://github.com/metago-ai/metago-dev-kit) |
+
+### 产品线 B：平台工具
+
+| 产品 | 描述 | npm 包 | 仓库 |
+|------|------|--------|------|
+| **MetaGO MCP Server** | 22 tools + 8 prompts 的 MCP 服务 | [`@metago-ai/mcp-server`](https://www.npmjs.com/package/@metago-ai/mcp-server) | [packages/mcp-server/](../) |
+| **MetaGO CLI** | 跨平台命令行工具，终端/CI/CD 调用技能 | [`metago-cli@1.0.3`](https://www.npmjs.com/package/metago-cli) | [Gitee](https://gitee.com/metago/metago-cli) · [GitHub](https://github.com/metago-ai/metago-cli) |
+| **MetaGO Studio** | 可视化技能编排平台（拖拽组合生成 Kit） | Web 应用 | [Gitee](https://gitee.com/metago/metago-studio) · [GitHub](https://github.com/metago-ai/metago-studio) |
+
+### 产品线 D：生态基础设施
+
+| 产品 | 描述 | npm 包 | 仓库 |
+|------|------|--------|------|
+| **MetaGO Skills SDK** | TypeScript SDK，开发自定义元构技能 | [`@metago-ai/skills-sdk@1.0.2`](https://www.npmjs.com/package/@metago-ai/skills-sdk) | [Gitee](https://gitee.com/metago/metago-skills-sdk) · [GitHub](https://github.com/metago-ai/skills-sdk) |
+| **MetaGO Skills Hub** | 技能市场，浏览/搜索/发现技能 | Web 应用 | [Gitee](https://gitee.com/metago/metago-skills-hub) · [GitHub](https://github.com/metago-ai/skills-hub) |
+| **MetaGO Certify** | 6 项检查技能认证体系（Gold/Silver） | [`@metago-ai/certify@1.0.1`](https://www.npmjs.com/package/@metago-ai/certify) | [Gitee](https://gitee.com/metago/metago-certify) · [GitHub](https://github.com/metago-ai/certify) |
+
+> 完整战略规划详见 [产品矩阵战略规划](../../docs/STRATEGY.md) · 执行进度详见 [战略执行追踪日志](../../docs/STRATEGY-EXECUTION-LOG.md)
+
+---
 
 ## 许可证
 
