@@ -56,7 +56,7 @@
     升级现有 Trae 安装（跳过备份，强制覆盖）
 
 .NOTES
-    版本：V36.3
+    版本：V36.4
     作者：易霄 / MetaGO Lightyear
 #>
 
@@ -83,7 +83,7 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.3"
+$script:MetaGoVersion = "V36.4"
 
 # 全部22个技能清单
 $script:AllSkills = @(
@@ -589,7 +589,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 **关联技能**：metago-data-provenance、metago-output-integrity
 
 **进化记录**：
-- V36.3 $today 初始创建
+- V36.4 $today 初始创建
 
 ---
 
@@ -609,7 +609,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 **关联技能**：metago-decision-lock、metago-decision-eval
 
 **进化记录**：
-- V36.3 $today 初始创建
+- V36.4 $today 初始创建
 
 ---
 
