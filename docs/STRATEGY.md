@@ -15,7 +15,7 @@
 
 | 阶段 | 形态 | 时间 | 状态 |
 |------|------|------|------|
-| **Kit 阶段** | 单一 npm 包 `metago-lifeform`，覆盖 22 项元构能力 + 7 大平台适配器 | 已完成 v36.3.0 → v36.4.2 | ✅ |
+| **Kit 阶段** | 单一 npm 包 `metago-lifeform`，覆盖 22 项元构能力 + 7 大平台适配器 | 已完成 v36.3.0 → v36.4.11 | ✅ |
 | **产品矩阵阶段** | 按用户场景拆分多条产品线，每个产品独立版本、独立发布、独立演进 | 2026 Q3 进行中 | 🚧 |
 | **生态阶段** | Skills Hub 开放市场 + 第三方技能接入 + 认证体系 | 2027 Q1+ | 📋 |
 
@@ -65,7 +65,7 @@
 
 | 产品 | 形态 | 定位 | 状态 |
 |------|------|------|------|
-| MetaGO Copilot | 桌面助手 | 内置元构能力的桌面 AI 助手，覆盖日常任务 | 📋 规划中 |
+| MetaGO Copilot | 桌面助手 | 内置元构能力的桌面智能体，覆盖日常任务 | 📋 规划中 |
 | MetaGO Chat | Web 对话产品 | 基于元构生命体的对话产品，含决策锁与溯源 | 📋 规划中 |
 | MetaGO Agent Cloud | 云端智能体 | 托管式元构智能体云服务，按量付费 | 📋 规划中 |
 
@@ -124,7 +124,7 @@
 - [ ] 更新根包 `package.json`（metago.skills 22 → 26）
 - [ ] 更新 `scripts/cli.js` VERSION 常量
 - [ ] 更新 README.md（技能表 22 → 26、新增 Dev Kit 章节）
-- [ ] 发布 `metago-lifeform@36.4.3`（含 Dev Kit）
+- [ ] 发布 `metago-lifeform@36.4.11`（含 Dev Kit）
 - [ ] 同步 Gitee + GitHub
 - [ ] 建立独立 Gitee/GitHub 仓库 `metago-dev-kit`（作为独立 npm 包 `@metago-ai/dev-kit` 发布）
 

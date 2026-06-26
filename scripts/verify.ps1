@@ -21,7 +21,7 @@
     验证 Claude Code 安装
 
 .NOTES
-    版本：V36.3
+    版本：V36.4
 #>
 
 [CmdletBinding()]
