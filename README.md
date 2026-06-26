@@ -16,7 +16,7 @@
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.9-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.10-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -288,6 +288,7 @@ MetaGO 已从单一 Kit 进化为完整的产品矩阵。以下是所有已发�
 - [MCP Server 文档](docs/MCP_SERVER.md)
 - [产品矩阵战略规划](docs/STRATEGY.md)
 - [战略执行追踪日志](docs/STRATEGY-EXECUTION-LOG.md)
+- [诞生宣言（中文）](MANIFESTO.md) · [Birth Manifesto (English)](MANIFESTO_EN.md)
 
 ---
 
