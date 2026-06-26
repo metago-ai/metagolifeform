@@ -37,7 +37,7 @@
     卸载 Cursor 平台
 
 .NOTES
-    版本：V36.3
+    版本：V36.4
     作者：易霄 / MetaGO Lightyear
 #>
 
@@ -54,7 +54,7 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.3"
+$script:MetaGoVersion = "V36.4"
 
 # 统计变量
 $script:DeletedSkills = @()
