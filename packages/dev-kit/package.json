@@ -29,7 +29,7 @@
       "metago-security-audit"
     ],
     "totalSkills": 8,
-    "parentPackage": "metago-lifeform@>=36.4.3"
+    "parentPackage": "metago-lifeform@>=36.4.11"
   },
   "homepage": "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/",
   "repository": {
