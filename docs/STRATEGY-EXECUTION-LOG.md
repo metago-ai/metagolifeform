@@ -1,4 +1,4 @@
-# MetaGO 产品矩阵战略执行追踪日志
+﻿# MetaGO 产品矩阵战略执行追踪日志
 
 > 本文档追踪 `docs/STRATEGY.md` 中规划的执行进度，确保所有阶段全部实现、不遗漏任何决策。
 > 创建于 2026-06-26，按时间倒序记录。
@@ -72,9 +72,9 @@
 ## 第4阶段 Week 11-12：MetaGO Skills Hub（已完成 ✅）
 
 ### 交付物
-- **Gitee 仓库**：https://gitee.com/metago/metago-skills-hub（commit db6bb6c）
-- **GitHub 仓库**：https://github.com/metago-ai/metago-skills-hub（23 文件 Contents API）
-- **本地目录**：`d:\元构能力\metago-skills-hub\`
+- **Gitee 仓库**：https://gitee.com/metago/skills-hub（commit db6bb6c）
+- **GitHub 仓库**：https://github.com/metago-ai/skills-hub（23 文件 Contents API）
+- **本地目录**：`d:\元构能力\skills-hub\`
 - **构建验证**：`npm run build` 成功（962ms，dist/ 输出 263KB JS + 25KB CSS）
 
 ### 实现的功能
@@ -114,9 +114,9 @@
 ### 交付物
 - **npm 包**：`@metago-ai/skills-sdk@1.0.0`（https://www.npmjs.com/package/@metago-ai/skills-sdk）
   - 包大小：13.3 kB / 19 文件 / shasum: 3d56f792
-- **Gitee 仓库**：https://gitee.com/metago/metago-skills-sdk（commit beda5f2）
-- **GitHub 仓库**：https://github.com/metago-ai/metago-skills-sdk
-- **本地目录**：`d:\元构能力\metago-skills-sdk\`
+- **Gitee 仓库**：https://gitee.com/metago/skills-sdk（commit beda5f2）
+- **GitHub 仓库**：https://github.com/metago-ai/skills-sdk
+- **本地目录**：`d:\元构能力\skills-sdk\`
 
 ### 核心 API（4 大模块）
 | 模块 | API | 功能 |
