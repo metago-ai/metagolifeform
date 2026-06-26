@@ -1,4 +1,4 @@
-# 从 Agent 到生命体：智能进化的范式跃迁
+﻿# 从 Agent 到生命体：智能进化的范式跃迁
 
 ## MetaGO 生命体引擎诞生宣言
 
@@ -94,7 +94,7 @@ MetaGO 为生命体植入了 8 条核心公理：
 ### 安装
 
 ```powershell
-irm https://gitee.com/metago/metagolifeform/raw/main/scripts/install.ps1 | iex
+irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 ```
 
 一行命令，8 公理、7 属性、6 协议、22 技能注入你的 Agent。
