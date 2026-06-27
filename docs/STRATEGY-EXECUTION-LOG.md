@@ -28,8 +28,8 @@
 - 已同步 Gitee + GitHub
 
 #### 2. Dev Kit 集成到 lifeform 主包（commit 2f352a3）
-- `package.json`：version 36.4.1 → 36.4.12，skills 22 → 26，新增 `metago.devKit` 字段
-- `scripts/cli.js`：VERSION 常量 36.4.1 → 36.4.12
+- `package.json`：version 36.4.1 → 36.4.13，skills 22 → 26，新增 `metago.devKit` 字段
+- `scripts/cli.js`：VERSION 常量 36.4.1 → 36.4.13
 - `packages/dev-kit/package.json`：新建，子包名 `@metago-ai/dev-kit@1.0.2`
 - `packages/dev-kit/README.md`：新建，技能清单（4 复用 + 4 新增）+ 使用方法 + 产品矩阵关系图
 - `README.md`：22 技能 → 26 技能，新增 Dev Kit 章节（在"核心公理与根本属性"之前）
@@ -40,7 +40,7 @@
 - 使用宽松正则 `(?m)^---\s*\r?$` 避免 CRLF 行尾误判
 
 #### 4. npm 发布 ✅
-- `metago-lifeform@36.4.12` 已发布到 https://www.npmjs.com/package/metago-lifeform
+- `metago-lifeform@36.4.13` 已发布到 https://www.npmjs.com/package/metago-lifeform
 - 包大小：110.8 kB / 解压后 344.6 kB / 57 文件
 - shasum: `c88b74bc94a1f9f0a4672a62630f86aeae92d0d6`
 - 包含 26 个 SKILL.md（22 核心 + 4 Dev Kit）+ docs/STRATEGY.md + docs/STRATEGY-EXECUTION-LOG.md
@@ -58,7 +58,7 @@
 
 ### 决策记录
 
-- **决策1**：Dev Kit 双形态发布——既作为 lifeform 主包子包（v36.4.12 含 26 技能），又作为独立 npm 包 `@metago-ai/dev-kit@1.0.2`（仅 4 开发专用技能 + peerDeps lifeform）
+- **决策1**：Dev Kit 双形态发布——既作为 lifeform 主包子包（v36.4.13 含 26 技能），又作为独立 npm 包 `@metago-ai/dev-kit@1.0.2`（仅 4 开发专用技能 + peerDeps lifeform）
   - 原因：让用户有两种安装路径——①一键安装 lifeform 获得全部 ②按需叠加 Dev Kit
   - 独立仓库价值：独立 issue/PR、独立版本号、独立 README、独立下载统计
 
@@ -238,7 +238,7 @@
 - **GitHub Pages**：Git Data API 上传到 `gh-pages` 分支
 
 ### 工程约定（已固化）
-- Release 版本：`vX.Y.Z`（如 v36.4.12）
+- Release 版本：`vX.Y.Z`（如 v36.4.13）
 - 仓库 logo：width="280"，height auto-scale
 - 安装说明：PowerShell `git clone` + `cd` + `.\scripts\install.ps1`
 - 官网技术栈：Astro + Tailwind CSS（实际为 React + Vite + Tailwind，已修正）
@@ -263,7 +263,7 @@
 - [x] 4 个开发专用技能创建
 - [x] Dev Kit 集成到 lifeform 主包
 - [x] 26 个 SKILL.md 验证通过
-- [x] npm publish metago-lifeform@36.4.12
+- [x] npm publish metago-lifeform@36.4.13
 - [x] 独立仓库 metago-dev-kit（推迟到第2阶段后期）
 - [x] 独立 npm 包 @metago-ai/dev-kit@1.0.2
 
@@ -289,7 +289,7 @@
 - 创建本追踪日志
 - 完成 Dev Kit 集成（commit 2f352a3）
 - 同步 Gitee + GitHub（5 文件 Contents API）
-- npm publish metago-lifeform@36.4.12 ✅（110.8 kB / 57 文件）
+- npm publish metago-lifeform@36.4.13 ✅（110.8 kB / 57 文件）
 - 验证 26 个 SKILL.md 全部通过
 
 
@@ -298,7 +298,7 @@
   - 7 个仓库 README 全部更新含完整产品矩阵（含 Certify 行）
   - 6 个独立仓库创建 .gitee/ISSUE_TEMPLATE.md
   - metago-lifeform README 添加产品矩阵章节 + 文档列表更新（+MCP_SERVER/STRATEGY/EXECUTION-LOG）
-  - 版本号更新：lifeform 36.4.12, dev-kit 1.0.2, cli 1.0.3, skills-sdk 1.0.2, certify 1.0.1
+  - 版本号更新：lifeform 36.4.13, dev-kit 1.0.2, cli 1.0.3, skills-sdk 1.0.2, certify 1.0.1
   - Gitee 推送 7 仓库全部成功
   - GitHub Contents API 上传 19 文件全部成功
   - npm publish 5 包全部成功
