@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿<p align="center">
+<p align="center">
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
@@ -9,14 +9,14 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.15">📦 Release v36.4.15</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.16">📦 Release v36.4.16</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.15-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.16-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
