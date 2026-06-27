@@ -15,7 +15,7 @@
 
 | 阶段 | 形态 | 时间 | 状态 |
 |------|------|------|------|
-| **Kit 阶段** | 单一 npm 包 `metago-lifeform`，覆盖 22 项元构能力 + 7 大平台适配器 | 已完成 v36.3.0 → v36.4.11 | ✅ |
+| **Kit 阶段** | 单一 npm 包 `metago-lifeform`，覆盖 22 项元构能力 + 7 大平台适配器 | 已完成 v36.3.0 → v36.4.12 | ✅ |
 | **产品矩阵阶段** | 按用户场景拆分多条产品线，每个产品独立版本、独立发布、独立演进 | 2026 Q3 进行中 | 🚧 |
 | **生态阶段** | Skills Hub 开放市场 + 第三方技能接入 + 认证体系 | 2027 Q1+ | 📋 |
 
@@ -124,7 +124,7 @@
 - [ ] 更新根包 `package.json`（metago.skills 22 → 26）
 - [ ] 更新 `scripts/cli.js` VERSION 常量
 - [ ] 更新 README.md（技能表 22 → 26、新增 Dev Kit 章节）
-- [ ] 发布 `metago-lifeform@36.4.11`（含 Dev Kit）
+- [ ] 发布 `metago-lifeform@36.4.12`（含 Dev Kit）
 - [ ] 同步 Gitee + GitHub
 - [ ] 建立独立 Gitee/GitHub 仓库 `metago-dev-kit`（作为独立 npm 包 `@metago-ai/dev-kit` 发布）
 
