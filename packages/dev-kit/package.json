@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "@metago-ai/dev-kit",
   "version": "1.0.0",
   "description": "MetaGO Dev Kit - 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计）",
@@ -29,7 +29,7 @@
       "metago-security-audit"
     ],
     "totalSkills": 8,
-    "parentPackage": "metago-lifeform@>=36.4.13"
+    "parentPackage": "metago-lifeform@>=36.4.14"
   },
   "homepage": "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/",
   "repository": {

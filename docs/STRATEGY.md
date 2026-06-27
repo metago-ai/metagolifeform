@@ -1,4 +1,4 @@
-# MetaGO 产品矩阵战略规划
+﻿# MetaGO 产品矩阵战略规划
 
 > **文档地位**：本规划是 MetaGO 全部产品演进的最高指导纲领，所有 PRD、版本计划、产品决策必须以本规划为准。
 >
@@ -124,7 +124,7 @@
 - [ ] 更新根包 `package.json`（metago.skills 22 → 26）
 - [ ] 更新 `scripts/cli.js` VERSION 常量
 - [ ] 更新 README.md（技能表 22 → 26、新增 Dev Kit 章节）
-- [ ] 发布 `metago-lifeform@36.4.13`（含 Dev Kit）
+- [ ] 发布 `metago-lifeform@36.4.14`（含 Dev Kit）
 - [ ] 同步 Gitee + GitHub
 - [ ] 建立独立 Gitee/GitHub 仓库 `metago-dev-kit`（作为独立 npm 包 `@metago-ai/dev-kit` 发布）
 
