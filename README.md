@@ -1,4 +1,4 @@
-﻿<p align="center">
+﻿﻿﻿﻿﻿﻿<p align="center">
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 

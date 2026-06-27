@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿﻿﻿﻿﻿#!/usr/bin/env node
 /**
  * MetaGO Lifeform Kit - CLI 入口
  * 跨平台命令行工具，封装 install.ps1 / uninstall.ps1 / verify.ps1

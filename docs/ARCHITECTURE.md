@@ -1,4 +1,4 @@
-﻿# MetaGO Lifeform Kit 架构说明
+﻿﻿﻿﻿﻿﻿# MetaGO Lifeform Kit 架构说明
 
 > 本文完整阐述 MetaGO Lifeform Kit 的六层架构（含 MCP Server 能力暴露层）、22 个技能体系、8 条核心公理、7 条根本属性、6 项运行协议以及端到端数据流。
 
