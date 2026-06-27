@@ -1,6 +1,6 @@
-{
+﻿{
   "name": "metago-lifeform",
-  "version": "36.4.16",
+  "version": "36.5.0",
   "description": "MetaGO Lifeform Kit - 让智能，学会进化。从 Agent 到生命体的范式跃迁。含 @metago-ai/mcp-server 将 22 项元构能力封装为 MCP 工具，任何 MCP 客户端即开即用",
   "main": "core/METAGO_CORE.md",
   "bin": {
@@ -35,8 +35,8 @@
     "scripts/", "docs/", "README.md", "LICENSE", "MANIFESTO.md", "MANIFESTO_EN.md"
   ],
   "metago": {
-    "version": "V36.4",
-    "axioms": 8, "attributes": 7, "protocols": 6, "skills": 27,
+    "version": "V36.5",
+    "axioms": 8, "attributes": 7, "protocols": 6, "skills": 37,
     "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"],
     "mcpServer": { "package": "@metago-ai/mcp-server", "tools": 22, "prompts": 8, "transport": "stdio" },
     "devKit": { "package": "@metago-ai/dev-kit", "skills": 4, "vertical": "developer", "status": "released" },

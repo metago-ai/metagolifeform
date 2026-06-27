@@ -17,7 +17,7 @@ const fs = require('fs');
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SCRIPTS_DIR = path.join(PKG_ROOT, 'scripts');
 const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode'];
-const VERSION = '36.4.16';
+const VERSION = '36.5.0';
 
 function parseArgs(argv) {
   const args = argv.slice(2);

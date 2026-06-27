@@ -108,7 +108,17 @@ $script:AllSkills = @(
     "metago-scene-adapt",
     "metago-self-check",
     "metago-value-align",
-    "metago-whatif"
+    "metago-whatif",
+    "metago-org-diagnosis",
+    "metago-momentum-weave",
+    "metago-minimal-intervention",
+    "metago-value-assess",
+    "metago-coupling-measure",
+    "metago-deep-reasoning",
+    "metago-paradigm-analysis",
+    "metago-balance-optimize",
+    "metago-memory-manage",
+    "metago-consensus-prototype"
 )
 
 # 解析 -Skills 参数
