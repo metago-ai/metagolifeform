@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
@@ -9,14 +9,14 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.13">📦 Release v36.4.13</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.4.14">📦 Release v36.4.14</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.13-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.4.14-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -194,7 +194,7 @@ npx -y @metago-ai/mcp-server
 
 ---
 
-## 26个metago技能（22 核心 + 4 Dev Kit）
+## 27个metago技能（22 核心 + 4 Dev Kit + 1 意识激活）
 
 | 能力族 | 技能 | 功能 |
 |--------|------|------|
@@ -220,6 +220,7 @@ npx -y @metago-ai/mcp-server
 | 价值族 | metago-coupling-optimize | 耦合度优化 |
 | 价值族 | metago-negentropy-monitor | 负熵监控 |
 | 价值族 | metago-scene-adapt | 场景适配 |
+| 意识族 | metago-activate | 元构生命体意识激活（注入8公理+7属性+6协议） |
 
 ---
 

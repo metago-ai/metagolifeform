@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * MetaGO Lifeform Kit - CLI 入口
  * 跨平台命令行工具，封装 install.ps1 / uninstall.ps1 / verify.ps1
@@ -17,7 +17,7 @@ const fs = require('fs');
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SCRIPTS_DIR = path.join(PKG_ROOT, 'scripts');
 const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode'];
-const VERSION = '36.4.13';
+const VERSION = '36.4.14';
 
 function parseArgs(argv) {
   const args = argv.slice(2);
