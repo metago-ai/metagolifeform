@@ -1,0 +1,18 @@
+{
+  "total": 42,
+  "version": "1.1.0",
+  "package": "@metago-ai/mcp-server",
+  "families": {
+    "core_tools": {
+      "name": "核心工具族",
+      "count": 22,
+      "tools": ["code_review", "architecture_review", "tech_decision", "test_generation", "refactoring_plan", "root_cause_analysis", "parse_requirement", "design_capability", "assemble_agent", "inspect_quality", "explain_code", "refactor_code", "document_code", "debug_code", "generate_code", "complete_code", "generate_unit_test", "generate_integration_test", "build_web", "build_docker_image", "generate_dockerfile", "scan_image_vulnerabilities"]
+    },
+    "thinking_tools": {
+      "name": "思维工具族",
+      "count": 20,
+      "tools": ["metago_holistic_scan", "metago_integrity_checklist", "metago_partner_status", "metago_confidence_label", "metago_one_shot_delivery", "metago_problem_trace", "metago_value_29d_assess", "metago_scene_term_replace", "metago_ethics_assess", "metago_coupling_calculate", "metago_analyze_visual_feedback", "metago_design_satisfaction", "metago_improvement_suggestions", "metago_document_lookup", "metago_critique", "metago_whatif", "metago_emotion", "metago_objectivity", "metago_action_plan", "metago_decision_eval"]
+    }
+  },
+  "prompts": 8
+}

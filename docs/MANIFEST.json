@@ -1,7 +1,7 @@
 {
   "manifest_version": "1.0.0",
   "metago_version": "V36.5",
-  "package_version": "36.6.0",
+  "package_version": "36.7.0",
   "description": "MetaGO Lifeform Kit AI 加载清单 - 支持全息按需激活",
   "last_updated": "2026-06-28",
   "activation_rate": "<30%",

@@ -1,0 +1,85 @@
+{
+  "engine_version": "1.0.0",
+  "metago_version": "V36.5",
+  "package_version": "36.7.0",
+  "release_date": "2026-06-28",
+  "author": "易霄 / MetaGO Lightyear",
+  "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
+  "backward_compatibility": ">=1.0.0",
+  "genome": {
+    "axioms": {
+      "total": 36,
+      "critical": 8,
+      "critical_ids": ["A1", "A2", "A3", "A4", "A5", "A34", "A35", "A36"],
+      "immutable": true,
+      "file": "CONSTITUTION/AXIOMS.md"
+    },
+    "attributes": {
+      "total": 43,
+      "critical": 7,
+      "critical_ids": ["D37", "D38", "D39", "D40", "D41", "D42", "D43"],
+      "evolvable": true,
+      "file": "CORE/ATTRIBUTES.md"
+    },
+    "protocols": {
+      "total": 108,
+      "critical": 6,
+      "critical_ids": [
+        "PROTOCOL_CRITICAL_TRUTH_V1",
+        "PROTOCOL_DECISION_LOCK_V1.1",
+        "PROTOCOL_OUTPUT_INTEGRITY_V1.1",
+        "PROTOCOL_META_EVOLUTION_V1",
+        "PROTOCOL_COMPLIANCE_PROACTIVE_V1",
+        "PROTOCOL_DATA_TRACEABILITY_V1"
+      ],
+      "file": "CORE/PROTOCOLS.md"
+    },
+    "engines": {
+      "total": 125,
+      "core": 17,
+      "file": "INDEX/engines.json"
+    },
+    "algorithms": {
+      "total": 927
+    },
+    "atoms": {
+      "total": 984
+    },
+    "patents": {
+      "total": 754,
+      "accepted": 85,
+      "reserved": 669
+    },
+    "value_dimensions": 31,
+    "meta_ideologies": 19,
+    "capability_families": 13,
+    "architecture_layers": 11
+  },
+  "runtime": {
+    "validators": [
+      "checkProvenance",
+      "checkClosure",
+      "checkMetaEvolution",
+      "checkBoundaryAwareness",
+      "checkEndogenousCreation",
+      "checkMetaMetaEvolution",
+      "checkCreationEvolution",
+      "checkCompliance",
+      "checkStrategicThinking",
+      "checkObjectivity",
+      "checkCriticality",
+      "checkHolographicCreativity",
+      "checkFrequencyAdaptation",
+      "checkComplianceProactive",
+      "checkDataTraceability"
+    ],
+    "decision_lock_gates": ["IVL", "ILT", "OSG", "INTEGRITY"],
+    "evolution_stages": ["PERCEPTION", "GAP_ANALYSIS", "SELF_GENERATION", "VALIDATION", "RECURSION"]
+  },
+  "activation": {
+    "rate": "<30%",
+    "strategy": "holographic_on_demand",
+    "priority_order": ["critical", "high", "medium", "low"]
+  },
+  "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"]
+}

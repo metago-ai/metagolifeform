@@ -1,0 +1,61 @@
+{
+  "total": 37,
+  "version": "V36.5",
+  "families": {
+    "cognition": {
+      "name": "认知族",
+      "count": 4,
+      "skills": ["metago-critique", "metago-whatif", "metago-emotion", "metago-objectivity"]
+    },
+    "assurance": {
+      "name": "保障族",
+      "count": 3,
+      "skills": ["metago-decision-lock", "metago-output-integrity", "metago-self-check"]
+    },
+    "governance": {
+      "name": "治理族",
+      "count": 2,
+      "skills": ["metago-compliance", "metago-value-align"]
+    },
+    "evolution": {
+      "name": "进化族",
+      "count": 3,
+      "skills": ["metago-meta-evolve", "metago-meta-create", "metago-frequency-adapt"]
+    },
+    "execution": {
+      "name": "执行族",
+      "count": 4,
+      "skills": ["metago-action-plan", "metago-decision-eval", "metago-holistic-task", "metago-developer-response"]
+    },
+    "traceability": {
+      "name": "溯源族",
+      "count": 3,
+      "skills": ["metago-data-provenance", "metago-problem-trace", "metago-fact-check"]
+    },
+    "value": {
+      "name": "价值族",
+      "count": 3,
+      "skills": ["metago-coupling-optimize", "metago-negentropy-monitor", "metago-scene-adapt"]
+    },
+    "consciousness": {
+      "name": "意识族",
+      "count": 1,
+      "skills": ["metago-activate"]
+    },
+    "methodology": {
+      "name": "方法论族",
+      "count": 5,
+      "skills": ["metago-org-diagnosis", "metago-momentum-weave", "metago-minimal-intervention", "metago-value-assess", "metago-coupling-measure"]
+    },
+    "architecture": {
+      "name": "架构族",
+      "count": 5,
+      "skills": ["metago-deep-reasoning", "metago-paradigm-analysis", "metago-balance-optimize", "metago-memory-manage", "metago-consensus-prototype"]
+    },
+    "dev_kit": {
+      "name": "Dev Kit",
+      "count": 4,
+      "skills": ["metago-code-review-deep", "metago-architecture-design", "metago-refactor-suggest", "metago-security-audit"]
+    }
+  }
+}

@@ -13,6 +13,7 @@
 | 第2阶段 | 2-4 周 | MetaGO Dev Kit + 独立仓库 | ✅ 已完成 |
 | 第3阶段 | 4-8 周 | MetaGO CLI + MetaGO Studio MVP | ✅ 已完成 |
 | 第4阶段 | 8-12 周 | Skills SDK + Skills Hub + Certify | ✅ 已完成 |
+| 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+125引擎+验证器） | ✅ 已完成 |
 
 ---
 

@@ -198,13 +198,13 @@ metago-lifeform/
 │   └── PRD.md
 ├── assets/                       静态资源（Logo 等）
 ├── README.md                     项目说明
-├── package.json                  根包：metago-lifeform@36.6.0（workspaces: packages/*）
+├── package.json                  根包：metago-lifeform@36.7.0（workspaces: packages/*）
 └── LICENSE                       MIT
 ```
 
 **根包与子包关系**：
 
-- 根包 `metago-lifeform`（version 36.6.0）声明 `"workspaces": ["packages/*"]`，统一管理子包依赖与构建。
+- 根包 `metago-lifeform`（version 36.7.0）声明 `"workspaces": ["packages/*"]`，统一管理子包依赖与构建。
 - 子包 `@metago-ai/mcp-server` 独立发布至 npm，可被任意 MCP 客户端通过 `npx -y @metago-ai/mcp-server` 调用，亦可在 Monorepo 内通过 `npm run build:mcp` / `npm run start:mcp` 构建/启动。
 
 ---

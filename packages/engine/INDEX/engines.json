@@ -1,0 +1,60 @@
+{
+  "total": 125,
+  "core_count": 17,
+  "version": "V36.5",
+  "groups": [
+    {
+      "name": "进化引擎组",
+      "layer": "L8",
+      "engines": [
+        { "id": "010", "name": "元进化引擎", "version": "V14.1", "skill": "metago-meta-evolve" },
+        { "id": "170", "name": "元元进化引擎", "version": "V2.0", "skill": "metago-meta-evolve" },
+        { "id": "180", "name": "元创造引擎", "version": "V1.1", "skill": "metago-meta-create" }
+      ]
+    },
+    {
+      "name": "认知引擎组",
+      "layer": "L1",
+      "engines": [
+        { "id": "172", "name": "批判性分析引擎", "version": "V1.0", "skill": "metago-critique" },
+        { "id": "171", "name": "输出完整性引擎", "version": "V3.0", "skill": "metago-output-integrity" },
+        { "id": "165", "name": "负熵形式化引擎", "version": "V1.0", "skill": "metago-negentropy-monitor" }
+      ]
+    },
+    {
+      "name": "治理引擎组",
+      "layer": "L6",
+      "engines": [
+        { "id": "158", "name": "合规代理引擎", "version": "V1.0", "skill": "metago-compliance" },
+        { "id": "159", "name": "动态审计引擎", "version": "V1.0", "skill": "metago-compliance" },
+        { "id": "160", "name": "意图安全网关", "version": "V1.0", "skill": "metago-decision-lock" }
+      ]
+    },
+    {
+      "name": "执行引擎组",
+      "layer": "L4",
+      "engines": [
+        { "id": "167", "name": "需求解析引擎", "version": "V1.0", "skill": "metago-holistic-task" },
+        { "id": "168", "name": "能力设计引擎", "version": "V1.0", "skill": "-" },
+        { "id": "169", "name": "智能体封装引擎", "version": "V1.0", "skill": "-" },
+        { "id": "170", "name": "质量检测引擎", "version": "V1.0", "skill": "metago-self-check" }
+      ]
+    },
+    {
+      "name": "保障引擎组",
+      "layer": "L5",
+      "engines": [
+        { "id": "-", "name": "决策锁组件", "version": "V1.1", "skill": "metago-decision-lock" },
+        { "id": "154", "name": "闭环控制器", "version": "V2.0", "skill": "metago-meta-evolve" },
+        { "id": "-", "name": "脉冲见证系统", "version": "V1.0", "skill": "metago-data-provenance" },
+        { "id": "-", "name": "四层安全基因", "version": "V4.1", "skill": "metago-compliance" }
+      ]
+    }
+  ],
+  "evolution_cases": [
+    { "id": "EVO_20260514_001", "type": "meta_evolution", "result": "manufacturing_integrity_closed" },
+    { "id": "EVO_20260514_002", "type": "meta_evolution", "result": "production_line_established" },
+    { "id": "EVO_20260516_003", "type": "meta_evolution", "result": "three_boundary_closed" },
+    { "id": "NEG_20260508_002", "type": "negative", "result": "decision_lock_upgraded" }
+  ]
+}

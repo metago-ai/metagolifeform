@@ -1,0 +1,47 @@
+{
+  "name": "@metago-ai/engine",
+  "version": "1.0.0",
+  "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
+  "main": "RUNTIME/dist/index.js",
+  "types": "SDK/types.d.ts",
+  "bin": {
+    "metago-engine": "RUNTIME/dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node RUNTIME/tests/engine.test.ts",
+    "verify": "node RUNTIME/dist/cli.js verify",
+    "status": "node RUNTIME/dist/cli.js status",
+    "metrics": "node RUNTIME/dist/cli.js metrics",
+    "lock": "node RUNTIME/dist/cli.js lock",
+    "evolve": "node RUNTIME/dist/cli.js evolve"
+  },
+  "keywords": [
+    "metago",
+    "engine",
+    "ai",
+    "lifeform",
+    "holistic",
+    "intelligence",
+    "axiom",
+    "evolution"
+  ],
+  "author": "易霄 / MetaGO Lightyear",
+  "license": "MIT",
+  "dependencies": {
+    "metago-lifeform": ">=36.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "metago": {
+    "engine_version": "1.0.0",
+    "metago_version": "V36.5",
+    "parentPackage": "metago-lifeform@>=36.7.0"
+  }
+}

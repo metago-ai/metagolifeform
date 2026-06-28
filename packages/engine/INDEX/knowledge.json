@@ -1,0 +1,71 @@
+{
+  "version": "V36.5",
+  "last_updated": "2026-06-28",
+  "source_document": "元构全息智能引擎.txt",
+  "source_lines": 34656,
+  "source_chars": 750831,
+  "activation_rate": "<30%",
+  "strategy": "holographic_on_demand",
+  "dimensions": [
+    {
+      "id": "version_evolution",
+      "name": "版本演进索引",
+      "range": "V1.0 → V36.5",
+      "nodes": 20
+    },
+    {
+      "id": "meta_ideology",
+      "name": "19大元思想体系",
+      "pillars": ["本体论", "进化论", "能力论", "工业论"],
+      "count": 19
+    },
+    {
+      "id": "axioms",
+      "name": "36条核心公理",
+      "critical_count": 8
+    },
+    {
+      "id": "attributes",
+      "name": "43条根本属性",
+      "critical_count": 7
+    },
+    {
+      "id": "architecture",
+      "name": "11层架构索引",
+      "layers": ["L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "L10"]
+    },
+    {
+      "id": "capability_families",
+      "name": "13大能力族索引",
+      "count": 13
+    },
+    {
+      "id": "engines",
+      "name": "125个引擎索引",
+      "core_count": 17,
+      "file": "INDEX/engines.json"
+    },
+    {
+      "id": "algorithms",
+      "name": "927个算法索引",
+      "count": 927
+    },
+    {
+      "id": "protocols",
+      "name": "108个协议索引",
+      "critical_count": 6,
+      "file": "CORE/PROTOCOLS.md"
+    },
+    {
+      "id": "evolution_cases",
+      "name": "元进化案例索引",
+      "count": 4
+    }
+  ],
+  "living_document": {
+    "yaml_frontmatter": true,
+    "cross_reference_map": "docs/MAP.md",
+    "ai_loading_manifest": "docs/MANIFEST.json",
+    "version_sync_script": "scripts/sync-versions.ps1"
+  }
+}
