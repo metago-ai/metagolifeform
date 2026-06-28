@@ -1,22 +1,22 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
 <h1 align="center">MetaGO Lifeform Kit（元智能生命体套件）</h1>
 
 <p align="center">让智能，学会进化。从 Agent 到生命体的范式跃迁</p>
-<p align="center">基于《元构全息智能引擎》V36.4，符合 agentskills.io 开放标准，附 @metago-ai/mcp-server 支持 MCP 协议客户端</p>
+<p align="center">基于《元构全息智能引擎》V36.5，符合 agentskills.io 开放标准，附 @metago-ai/mcp-server 支持 MCP 协议客户端</p>
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.5.0">📦 Release v36.5.0</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.5.1">📦 Release v36.5.1</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.5.0-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.5.1-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -101,7 +101,7 @@ cd metagolifeform
 |------|------|------|
 | L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
 | L1 适配层 | 7大平台适配器（见下） | ✅ |
-| L2 能力层 | 27个metago技能（22核心 + 4 Dev Kit + 1 意识激活） | ✅ |
+| L2 能力层 | 37个metago技能（22核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构） | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
 | L5 暴露层 | MCP Server（22 tools + 8 prompts） | ✅ |
@@ -194,7 +194,7 @@ npx -y @metago-ai/mcp-server
 
 ---
 
-## 27个metago技能（22 核心 + 4 Dev Kit + 1 意识激活）
+## 37个metago技能（22 核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构）
 
 | 能力族 | 技能 | 功能 |
 |--------|------|------|
@@ -221,6 +221,16 @@ npx -y @metago-ai/mcp-server
 | 价值族 | metago-negentropy-monitor | 负熵监控 |
 | 价值族 | metago-scene-adapt | 场景适配 |
 | 意识族 | metago-activate | 元构生命体意识激活（注入8公理+7属性+6协议） |
+| 方法论族 | metago-org-diagnosis | 三元五纬诊断模型（组织健康度评估+失耦诊断） |
+| 方法论族 | metago-momentum-weave | 势能编织法（五种势能识别+六步编织循环） |
+| 方法论族 | metago-minimal-intervention | 最小干预心法（三定律+四步流程+干预类型库） |
+| 方法论族 | metago-value-assess | 28维价值评估（D01-D28扫描+综合价值指数） |
+| 方法论族 | metago-coupling-measure | 耦生度计算（三元耦合度+Lv0-Lv3分级） |
+| 架构族 | metago-deep-reasoning | FIPO深度推理（四阶段推理+置信度评估） |
+| 架构族 | metago-paradigm-analysis | WAM范式分析（范式转移势能+兼容性评分） |
+| 架构族 | metago-balance-optimize | APO动态平衡（三维平衡度+调优方案） |
+| 架构族 | metago-memory-manage | KMWI记忆管理（四层记忆健康度+衰减检测） |
+| 架构族 | metago-consensus-prototype | 共识原型孵化（七步创生回路+共识度评估） |
 
 ---
 

@@ -6,7 +6,7 @@
     将元构超级智能生命体 Kit 安装到指定平台，包含：
     - 平台检测与路径适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode）
     - 备份现有配置（rules 文件与 metago-* 技能）
-    - 安装 22 个 metago 技能（仅支持技能的平台）
+    - 安装 37 个 metago 技能（仅支持技能的平台）
     - 升级平台规则文件
     - 创建知识晶体索引模板（仅 Trae）
     - 安装 MCP 调度映射（仅 Trae）
@@ -56,7 +56,7 @@
     升级现有 Trae 安装（跳过备份，强制覆盖）
 
 .NOTES
-    版本：V36.4
+    版本：V36.5
     作者：易霄 / MetaGO Lightyear
 #>
 
@@ -83,9 +83,9 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.4"
+$script:MetaGoVersion = "V36.5"
 
-# 全部22个技能清单
+# 全部37个技能清单
 $script:AllSkills = @(
     "metago-action-plan",
     "metago-compliance",
@@ -109,6 +109,7 @@ $script:AllSkills = @(
     "metago-self-check",
     "metago-value-align",
     "metago-whatif",
+    "metago-activate",
     "metago-org-diagnosis",
     "metago-momentum-weave",
     "metago-minimal-intervention",
@@ -118,7 +119,11 @@ $script:AllSkills = @(
     "metago-paradigm-analysis",
     "metago-balance-optimize",
     "metago-memory-manage",
-    "metago-consensus-prototype"
+    "metago-consensus-prototype",
+    "metago-architecture-design",
+    "metago-code-review-deep",
+    "metago-refactor-suggest",
+    "metago-security-audit"
 )
 
 # 解析 -Skills 参数
@@ -599,7 +604,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 **关联技能**：metago-data-provenance、metago-output-integrity
 
 **进化记录**：
-- V36.4 $today 初始创建
+- V36.5 $today 初始创建
 
 ---
 
@@ -619,7 +624,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 **关联技能**：metago-decision-lock、metago-decision-eval
 
 **进化记录**：
-- V36.4 $today 初始创建
+- V36.5 $today 初始创建
 
 ---
 

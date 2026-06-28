@@ -3,7 +3,7 @@
 > **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.4.14-blue)](../../package.json)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.5.1-blue)](../../package.json)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
@@ -16,7 +16,7 @@
 |------|------|
 | 包名 | `@metago-ai/dev-kit` |
 | 版本 | v1.0.0 |
-| 父包 | `metago-lifeform@>=36.4.14` |
+| 父包 | `metago-lifeform@>=36.5.0` |
 | 包含技能 | 8 个（4 复用 + 4 新增） |
 | 适用场景 | 代码审查、架构设计、技术债治理、安全审计 |
 | 安装方式 | 通过父包 `metago-lifeform` 自动包含，无需独立安装 |
