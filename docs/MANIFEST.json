@@ -1,0 +1,147 @@
+{
+  "manifest_version": "1.0.0",
+  "metago_version": "V36.5",
+  "package_version": "36.6.0",
+  "description": "MetaGO Lifeform Kit AI 加载清单 - 支持全息按需激活",
+  "last_updated": "2026-06-28",
+  "activation_rate": "<30%",
+  "documents": [
+    {
+      "id": "WHITEPAPER",
+      "title": "元构全息智能引擎白皮书",
+      "title_en": "MetaGO Holistic Intelligence Engine Whitepaper",
+      "path": "docs/WHITEPAPER.md",
+      "type": "entry_point",
+      "priority": "critical",
+      "size_chars": 32620,
+      "description": "元构全貌权威描述，百万字精华浓缩，中英双语8章",
+      "tags": ["whitepaper", "overview", "paradigm"],
+      "related": ["ARCHITECTURE", "PRD", "MANIFESTO"]
+    },
+    {
+      "id": "ARCHITECTURE",
+      "title": "技术架构文档",
+      "title_en": "Technical Architecture",
+      "path": "docs/ARCHITECTURE.md",
+      "type": "technical",
+      "priority": "high",
+      "description": "11层架构、125引擎、927算法、984原子的技术细节",
+      "tags": ["architecture", "engines", "algorithms"],
+      "related": ["WHITEPAPER", "MCP_SERVER"]
+    },
+    {
+      "id": "PRD",
+      "title": "产品需求文档",
+      "title_en": "Product Requirements Document",
+      "path": "docs/PRD.md",
+      "type": "product",
+      "priority": "high",
+      "description": "8大产品矩阵的产品规划与路线图",
+      "tags": ["product", "roadmap", "matrix"],
+      "related": ["WHITEPAPER", "STRATEGY"]
+    },
+    {
+      "id": "STRATEGY",
+      "title": "战略规划",
+      "title_en": "Strategic Planning",
+      "path": "docs/STRATEGY.md",
+      "type": "strategy",
+      "priority": "medium",
+      "description": "产品矩阵战略规划与执行追踪",
+      "tags": ["strategy", "execution"],
+      "related": ["PRD", "STRATEGY-EXECUTION-LOG"]
+    },
+    {
+      "id": "STRATEGY-EXECUTION-LOG",
+      "title": "战略执行日志",
+      "title_en": "Strategy Execution Log",
+      "path": "docs/STRATEGY-EXECUTION-LOG.md",
+      "type": "log",
+      "priority": "low",
+      "description": "战略执行进度追踪",
+      "tags": ["execution", "tracking"],
+      "related": ["STRATEGY"]
+    },
+    {
+      "id": "MCP_SERVER",
+      "title": "MCP Server 文档",
+      "title_en": "MCP Server Documentation",
+      "path": "docs/MCP_SERVER.md",
+      "type": "tool",
+      "priority": "high",
+      "description": "42个MCP工具 + 8个prompts的完整文档",
+      "tags": ["mcp", "tools", "prompts"],
+      "related": ["ARCHITECTURE"]
+    },
+    {
+      "id": "GETTING_STARTED",
+      "title": "入门指南",
+      "title_en": "Getting Started",
+      "path": "docs/GETTING_STARTED.md",
+      "type": "guide",
+      "priority": "critical",
+      "description": "快速开始安装与使用",
+      "tags": ["guide", "install", "quickstart"],
+      "related": ["ARCHITECTURE", "CUSTOMIZATION"]
+    },
+    {
+      "id": "CUSTOMIZATION",
+      "title": "自定义指南",
+      "title_en": "Customization Guide",
+      "path": "docs/CUSTOMIZATION.md",
+      "type": "guide",
+      "priority": "medium",
+      "description": "如何自定义元构技能与配置",
+      "tags": ["customization", "skills"],
+      "related": ["GETTING_STARTED"]
+    },
+    {
+      "id": "MAP",
+      "title": "文档映射图",
+      "title_en": "Document Map",
+      "path": "docs/MAP.md",
+      "type": "index",
+      "priority": "medium",
+      "description": "文档间交叉引用关系映射",
+      "tags": ["map", "cross-reference"],
+      "related": ["all"]
+    }
+  ],
+  "skills": {
+    "total": 37,
+    "families": {
+      "cognition": 4,
+      "assurance": 3,
+      "governance": 2,
+      "evolution": 3,
+      "execution": 4,
+      "traceability": 3,
+      "value": 3,
+      "consciousness": 1,
+      "methodology": 5,
+      "architecture": 5,
+      "dev_kit": 4
+    }
+  },
+  "mcp_tools": {
+    "total": 42,
+    "prompts": 8,
+    "package": "@metago-ai/mcp-server",
+    "version": "1.1.0"
+  },
+  "platforms": [
+    "trae",
+    "claude-code",
+    "codex",
+    "cursor",
+    "codebuddy",
+    "qoder",
+    "zcode"
+  ],
+  "loading_rules": {
+    "activation_rate": "<30%",
+    "strategy": "holographic_on_demand",
+    "priority_order": ["critical", "high", "medium", "low"],
+    "cross_reference": "docs/MAP.md"
+  }
+}
