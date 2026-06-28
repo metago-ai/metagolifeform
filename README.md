@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.5.0">📦 Release v36.5.0</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.6.0">📦 Release v36.6.0</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
