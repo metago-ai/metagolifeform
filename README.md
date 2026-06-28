@@ -19,7 +19,7 @@
   <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.5.0-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
-  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
+  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-42_tools_+_8_prompts-8A2BE2?logo=npm"></a>
 </p>
 
 ---
@@ -104,7 +104,7 @@ cd metagolifeform
 | L2 能力层 | 27个metago技能（22核心 + 4 Dev Kit + 1 意识激活） | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
-| L5 暴露层 | MCP Server（22 tools + 8 prompts） | ✅ |
+| L5 暴露层 | MCP Server（42 tools + 8 prompts） | ✅ |
 
 ---
 
@@ -291,7 +291,7 @@ MetaGO 已从单一 Kit 进化为完整的产品矩阵。以下是所有已发�
 
 | 产品 | 描述 | npm 包 | 仓库 |
 |------|------|--------|------|
-| **MetaGO MCP Server** | 22 tools + 8 prompts 的 MCP 服务 | [`@metago-ai/mcp-server`](https://www.npmjs.com/package/@metago-ai/mcp-server) | [packages/mcp-server/](packages/mcp-server/) |
+| **MetaGO MCP Server** | 42 tools + 8 prompts 的 MCP 服务 | [`@metago-ai/mcp-server`](https://www.npmjs.com/package/@metago-ai/mcp-server) | [packages/mcp-server/](packages/mcp-server/) |
 | **MetaGO CLI** | 跨平台命令行工具，终端/CI/CD 调用技能 | [`metago-cli@1.0.3`](https://www.npmjs.com/package/metago-cli) | [Gitee](https://gitee.com/metago/metago-cli) · [GitHub](https://github.com/metago-ai/metago-cli) |
 | **MetaGO Studio** | 可视化技能编排平台（拖拽组合生成 Kit） | Web 应用 | [Gitee](https://gitee.com/metago/metago-studio) · [GitHub](https://github.com/metago-ai/metago-studio) |
 

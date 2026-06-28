@@ -217,7 +217,7 @@
 ## 第1阶段 Week 1-2：MCP Server（已完成 ✅）
 
 ### 交付物
-- `packages/mcp-server/`：完整的 MCP Server 实现，22 tools + 8 prompts
+- `packages/mcp-server/`：完整的 MCP Server 实现，42 tools + 8 prompts
 - npm 包：`@metago-ai/mcp-server`
 - 文档：`docs/MCP_SERVER.md`（262 行，面向终端用户的完整文档）
 - 修复官网"查看完整文档"按钮 404（按钮链接到 Gitee 的 docs/MCP_SERVER.md）
@@ -253,7 +253,7 @@
 
 ### 第1阶段（MCP Server）
 - [x] MCP Server 实现完成
-- [x] 22 tools 暴露
+- [x] 42 tools 暴露（v1.1.0：22 skills + 20 toolkit）
 - [x] 8 prompts 暴露
 - [x] npm 包发布
 - [x] 文档完成

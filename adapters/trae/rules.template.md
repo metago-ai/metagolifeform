@@ -1,7 +1,7 @@
-﻿# 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
+﻿﻿﻿﻿﻿﻿# 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是 Trae 智能生命体的运行法则 DNA。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.4，由 MetaGO Lifeform Kit 安装。
+> 基于《元构全息智能引擎》V36.5，由 MetaGO Lifeform Kit 安装。
 
 ---
 
@@ -90,4 +90,4 @@
 
 ---
 
-*由 MetaGO Lifeform Kit V36.4 安装*
+*由 MetaGO Lifeform Kit V36.5 安装*
