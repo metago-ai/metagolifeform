@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/dev-kit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "MetaGO Dev Kit - 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计）",
   "main": "README.md",
   "scripts": {

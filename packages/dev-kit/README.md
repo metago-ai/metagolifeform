@@ -2,8 +2,8 @@
 
 > **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://unpkg.com/@metago-ai/dev-kit/LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.5-blue)](https://www.npmjs.com/package/metago-lifeform)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://gitee.com/metago/metagolifeform/raw/main/packages/dev-kit/LICENSE)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.6-blue)](https://www.npmjs.com/package/metago-lifeform)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
@@ -15,8 +15,8 @@
 | 维度 | 说明 |
 |------|------|
 | 包名 | `@metago-ai/dev-kit` |
-| 版本 | v1.0.5 |
-| 父包 | `metago-lifeform@>=36.7.5` |
+| 版本 | v1.0.6 |
+| 父包 | `metago-lifeform@>=36.7.6` |
 | 包含技能 | 8 个（4 复用 + 4 新增） |
 | 适用场景 | 代码审查、架构设计、技术债治理、安全审计 |
 | 安装方式 | 通过父包 `metago-lifeform` 自动包含，无需独立安装 |
@@ -82,7 +82,7 @@ Dev Kit 是 MetaGO 产品矩阵 A 线（垂直场景包）的第一个产品：
 
 | 产品线 | 产品 | 状态 |
 |--------|------|------|
-| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.5 |
+| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.6 |
 | A 线 | MetaGO Research Kit | 📋 规划中 |
 | A 线 | MetaGO PM Kit | 📋 规划中 |
 | A 线 | MetaGO Writer Kit | 📋 规划中 |
@@ -96,7 +96,7 @@ Dev Kit 是 MetaGO 产品矩阵 A 线（垂直场景包）的第一个产品：
 
 ## 许可证
 
-MIT License © 易霄 / MetaGO Lightyear — 详见 [LICENSE](https://unpkg.com/@metago-ai/dev-kit/LICENSE)
+MIT License © 易霄 / MetaGO Lightyear — 详见 [LICENSE](https://gitee.com/metago/metagolifeform/raw/main/packages/dev-kit/LICENSE)
 
 ---
 
