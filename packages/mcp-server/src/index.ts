@@ -8,11 +8,12 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { SKILLS } from "./skills-data.js";
 import { PROMPTS, type PromptMessage } from "./prompts.js";
+import { TOOLKIT_TOOLS } from "./toolkit-data.js";
 
 // 创建 MetaGO MCP Server 实例
 const server = new McpServer({
   name: "@metago-ai/mcp-server",
-  version: "1.0.0",
+  version: "1.1.0",
 });
 
 /**
@@ -48,6 +49,32 @@ for (const skill of SKILLS) {
     },
     async (args) => {
       const text = `${skill.guide}\n\n## 用户输入\n${args.input}`;
+      return {
+        content: [{ type: "text" as const, text }],
+      };
+    },
+  );
+}
+
+// ==================== 注册 20 个元构思维工具为 MCP tools ====================
+for (const tool of TOOLKIT_TOOLS) {
+  // 构建 zod schema shape：必填参数原样传入，可选参数标记 .optional()
+  const shape: Record<string, z.ZodType> = {};
+  for (const [argName, argDef] of Object.entries(tool.args)) {
+    shape[argName] = argDef.required ? argDef.schema : argDef.schema.optional();
+  }
+
+  server.tool(
+    tool.toolName,
+    tool.description,
+    shape,
+    async (args) => {
+      // 把参数拼接到引导词
+      const argsStr = Object.entries(args)
+        .filter(([, v]) => v !== undefined)
+        .map(([k, v]) => `## ${k}\n${typeof v === "object" ? JSON.stringify(v, null, 2) : v}`)
+        .join("\n\n");
+      const text = `${tool.guide}\n\n## 用户输入\n${argsStr}`;
       return {
         content: [{ type: "text" as const, text }],
       };

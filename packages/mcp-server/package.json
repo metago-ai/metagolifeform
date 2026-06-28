@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.0.0",
-  "description": "MetaGO MCP Server - 将元构超级智能生命体的22项能力封装为MCP工具，任何MCP客户端即开即用",
+  "version": "1.1.0",
+  "description": "MetaGO MCP Server - 将元构超级智能生命体的42项能力（22技能+20思维工具）封装为MCP工具，任何MCP客户端即开即用",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {

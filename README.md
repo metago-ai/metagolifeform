@@ -1,4 +1,4 @@
-﻿<p align="center">
+<p align="center">
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
 </p>
 
@@ -9,14 +9,14 @@
 
 <p align="center">
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.5.1">📦 Release v36.5.1</a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.5.0">📦 Release v36.5.0</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.5.1-blue"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.5.0-blue"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-22_tools_+_8_prompts-8A2BE2?logo=npm"></a>
@@ -101,7 +101,7 @@ cd metagolifeform
 |------|------|------|
 | L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
 | L1 适配层 | 7大平台适配器（见下） | ✅ |
-| L2 能力层 | 37个metago技能（22核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构） | ✅ |
+| L2 能力层 | 27个metago技能（22核心 + 4 Dev Kit + 1 意识激活） | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
 | L5 暴露层 | MCP Server（22 tools + 8 prompts） | ✅ |
@@ -124,14 +124,39 @@ cd metagolifeform
 
 ---
 
-## 🚀 MetaGO MCP Server（新发布）
+## 🚀 MetaGO MCP Server（新发布 v1.1.0）
 
-> **一句话描述**：把元构超级智能生命体的 22 项能力封装为 MCP tools，8 条引导词封装为 MCP prompts，任何支持 MCP 协议的客户端（Claude Desktop / Cursor / Trae 等）一次配置即开即用。
+> **一句话描述**：把元构超级智能生命体的 42 项能力封装为 MCP tools，8 条引导词封装为 MCP prompts，任何支持 MCP 协议的客户端（Claude Desktop / Cursor / Trae 等）一次配置即开即用。
 
 **📦 包名**：`@metago-ai/mcp-server`
 **🔗 仓库目录**：[packages/mcp-server/](packages/mcp-server/)
-**🧰 能力概览**：**22 个 tools**（覆盖认知/保障/治理/进化/执行/溯源/价值 7 大能力族）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
+**🧰 能力概览**：**42 个 tools**（22 个元构技能 + 20 个元构思维工具）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
 **🔌 传输方式**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现的 stdio 传输，零运行时配置
+
+### 20 个元构思维工具（v1.1.0 新增）
+
+| 工具族 | 工具 | 功能 |
+|--------|------|------|
+| 规划推演族 | metago_action_plan | 行动计划生成（目标分解为可执行步骤） |
+| 规划推演族 | metago_whatif | 反事实推演（假设情景分析） |
+| 规划推演族 | metago_holistic_scan | 全息扫描维度生成（主题维度清单） |
+| 规划推演族 | metago_problem_trace | 问题无限溯源（追问至可解根源） |
+| 规划推演族 | metago_one_shot_delivery | 一次性交付格式生成（六节标准结构） |
+| 质量批判族 | metago_integrity_checklist | 输出完整性自检（5大维度检查） |
+| 质量批判族 | metago_objectivity | 客观中立度量（0-100分量化） |
+| 质量批判族 | metago_critique | 批判性分析（L1-L5分级） |
+| 质量批判族 | metago_emotion | 情绪检测（文本情感分析） |
+| 价值伦理族 | metago_value_29d_assess | 29维价值评估（综合价值指数） |
+| 价值伦理族 | metago_ethics_assess | 伦理风险评估（13维E01-E13） |
+| 价值伦理族 | metago_decision_eval | 决策评估（0-100分质量评分） |
+| 溯源标注族 | metago_document_lookup | 文档溯源（概念行号定位） |
+| 溯源标注族 | metago_confidence_label | 事实置信度标注（4级标注） |
+| 溯源标注族 | metago_partner_status | 合作伙伴状态标注（4级分类） |
+| 耦生场景族 | metago_coupling_calculate | 耦生度计算（人机/组织双模式） |
+| 耦生场景族 | metago_scene_term_replace | 场景术语替换（技术→商业表述） |
+| 产品改进族 | metago_improvement_suggestions | 改进建议生成（优先级建议） |
+| 产品改进族 | metago_analyze_visual_feedback | 视觉反馈分析（严重程度矩阵） |
+| 产品改进族 | metago_design_satisfaction | 设计满意度计算（维度评分） |
 
 ### 安装
 
