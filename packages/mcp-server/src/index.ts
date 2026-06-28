@@ -13,7 +13,7 @@ import { TOOLKIT_TOOLS } from "./toolkit-data.js";
 // 创建 MetaGO MCP Server 实例
 const server = new McpServer({
   name: "@metago-ai/mcp-server",
-  version: "1.1.0",
+  version: "1.1.4",
 });
 
 /**
@@ -39,26 +39,21 @@ function renderMessages(
   });
 }
 
-// ==================== 注册 22 个元构技能为 MCP tools ====================
-for (const skill of SKILLS) {
-  server.tool(
-    skill.toolName,
-    skill.description,
-    {
-      input: z.string().describe("待处理的内容/问题/代码"),
-    },
-    async (args) => {
-      const text = `${skill.guide}\n\n## 用户输入\n${args.input}`;
-      return {
-        content: [{ type: "text" as const, text }],
-      };
-    },
-  );
-}
+// ==================== 注册 MCP tools（去重：TOOLKIT_TOOLS 优先，SKILLS 补充独有的） ====================
+// SKILLS 与 TOOLKIT_TOOLS 有 7 个同名工具（metago_critique / metago_objectivity /
+// metago_action_plan / metago_whatif / metago_problem_trace / metago_decision_eval / metago_emotion）。
+// TOOLKIT_TOOLS 版本提供结构化参数（zod schema 验证），优先注册；
+// SKILLS 版本仅作为补充，注册 TOOLKIT_TOOLS 中不存在的工具。
+// 未去重会导致 MCP SDK 抛出 "Tool X is already registered" 异常，进程启动即崩溃。
+const registeredToolNames = new Set<string>();
 
-// ==================== 注册 20 个元构思维工具为 MCP tools ====================
+// 先注册 20 个思维工具（结构化参数，优先级高）
 for (const tool of TOOLKIT_TOOLS) {
-  // 构建 zod schema shape：必填参数原样传入，可选参数标记 .optional()
+  if (registeredToolNames.has(tool.toolName)) {
+    continue;
+  }
+  registeredToolNames.add(tool.toolName);
+
   const shape: Record<string, z.ZodType> = {};
   for (const [argName, argDef] of Object.entries(tool.args)) {
     shape[argName] = argDef.required ? argDef.schema : argDef.schema.optional();
@@ -69,12 +64,33 @@ for (const tool of TOOLKIT_TOOLS) {
     tool.description,
     shape,
     async (args) => {
-      // 把参数拼接到引导词
       const argsStr = Object.entries(args)
         .filter(([, v]) => v !== undefined)
         .map(([k, v]) => `## ${k}\n${typeof v === "object" ? JSON.stringify(v, null, 2) : v}`)
         .join("\n\n");
       const text = `${tool.guide}\n\n## 用户输入\n${argsStr}`;
+      return {
+        content: [{ type: "text" as const, text }],
+      };
+    },
+  );
+}
+
+// 再注册 22 个核心技能中独有的（跳过已在 TOOLKIT_TOOLS 中注册的 7 个同名工具）
+for (const skill of SKILLS) {
+  if (registeredToolNames.has(skill.toolName)) {
+    continue;
+  }
+  registeredToolNames.add(skill.toolName);
+
+  server.tool(
+    skill.toolName,
+    skill.description,
+    {
+      input: z.string().describe("待处理的内容/问题/代码"),
+    },
+    async (args) => {
+      const text = `${skill.guide}\n\n## 用户输入\n${args.input}`;
       return {
         content: [{ type: "text" as const, text }],
       };
