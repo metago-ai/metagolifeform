@@ -1,22 +1,22 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# @metago-ai/dev-kit
+﻿# @metago-ai/dev-kit
 
 > **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](../../LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.6.0-blue)](../../package.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://unpkg.com/@metago-ai/dev-kit/LICENSE)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.2-blue)](https://www.npmjs.com/package/metago-lifeform)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
 
 ## 这是什么？
 
-**MetaGO Dev Kit** 是 [MetaGO Lifeform Kit](../../README.md) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 智能体在开发场景中具备工程级能力。
+**MetaGO Dev Kit** 是 [MetaGO Lifeform Kit](https://www.npmjs.com/package/metago-lifeform) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 智能体在开发场景中具备工程级能力。
 
 | 维度 | 说明 |
 |------|------|
 | 包名 | `@metago-ai/dev-kit` |
-| 版本 | v1.0.0 |
-| 父包 | `metago-lifeform@>=36.6.0` |
+| 版本 | v1.0.3 |
+| 父包 | `metago-lifeform@>=36.7.2` |
 | 包含技能 | 8 个（4 复用 + 4 新增） |
 | 适用场景 | 代码审查、架构设计、技术债治理、安全审计 |
 | 安装方式 | 通过父包 `metago-lifeform` 自动包含，无需独立安装 |
@@ -82,21 +82,21 @@ Dev Kit 是 MetaGO 产品矩阵 A 线（垂直场景包）的第一个产品：
 
 | 产品线 | 产品 | 状态 |
 |--------|------|------|
-| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.0 |
+| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.3 |
 | A 线 | MetaGO Research Kit | 📋 规划中 |
 | A 线 | MetaGO PM Kit | 📋 规划中 |
 | A 线 | MetaGO Writer Kit | 📋 规划中 |
-| B 线 | MetaGO MCP Server | ✅ v1.0.0 |
+| B 线 | MetaGO MCP Server | ✅ v1.1.1 |
 | B 线 | MetaGO CLI | 📋 规划中 |
 | B 线 | MetaGO Studio | 📋 规划中 |
 
-详见 [产品矩阵战略规划](../../docs/STRATEGY.md)。
+详见 [产品矩阵战略规划](https://gitee.com/metago/metagolifeform/raw/main/docs/STRATEGY.md)。
 
 ---
 
 ## 许可证
 
-MIT License © 易霄 / MetaGO Lightyear
+MIT License © 易霄 / MetaGO Lightyear — 详见 [LICENSE](https://unpkg.com/@metago-ai/dev-kit/LICENSE)
 
 ---
 

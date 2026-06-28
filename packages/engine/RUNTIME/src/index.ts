@@ -22,8 +22,6 @@ import { Perception } from './perception';
 import { RuntimeMemory } from './memory';
 import { Metrics } from './metrics';
 
-export { EngineLoader, AxiomValidator, DecisionLock, EvolutionEngine, Perception, RuntimeMemory, Metrics };
-
 /**
  * 引擎主类 - 聚合所有组件
  */

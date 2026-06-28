@@ -108,7 +108,7 @@ npx metago-engine status
 | 感知层 | perception.ts | AI 能力边界感知方法 |
 | 引擎加载协议 | loader.ts | AI 引擎跨平台加载与校验协议 |
 
-详见 [PATENTS.md](PATENTS.md)。
+详见 [PATENTS.md](https://unpkg.com/@metago-ai/engine/PATENTS.md)。
 
 ---
 

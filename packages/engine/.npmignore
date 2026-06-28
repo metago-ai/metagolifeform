@@ -1,0 +1,13 @@
+# 源码与构建中间产物
+RUNTIME/src/
+RUNTIME/tests/
+RUNTIME/tsconfig.json
+RUNTIME/node_modules/
+
+# 顶层开发依赖
+node_modules/
+*.log
+
+# 编辑器
+.vscode/
+.idea/

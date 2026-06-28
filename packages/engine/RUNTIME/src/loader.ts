@@ -67,7 +67,7 @@ export class EngineLoader {
   private state: EngineState;
 
   constructor(enginePath?: string) {
-    this.enginePath = enginePath || path.resolve(__dirname, '../');
+    this.enginePath = enginePath || path.resolve(__dirname, '../../');
     this.state = {
       loaded: false,
       genome: null,

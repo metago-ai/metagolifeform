@@ -5,10 +5,10 @@
 
 **MetaGO Holistic Intelligence Engine** —— 元构全息智能引擎核心本体。
 
-[![Engine Version](https://img.shields.io/badge/Engine-v1.0.0-blue)](./GENOME.json)
-[![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.5-5eead4)](./ENGINE.md)
-[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
-[![Patents](https://img.shields.io/badge/Patents-754-FFD700)](./PATENTS.md)
+[![Engine Version](https://img.shields.io/badge/Engine-v1.0.0-blue)](https://unpkg.com/@metago-ai/engine/GENOME.json)
+[![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.5-5eead4)](https://unpkg.com/@metago-ai/engine/ENGINE.md)
+[![License](https://img.shields.io/badge/License-MIT-green)](https://unpkg.com/@metago-ai/engine/LICENSE)
+[![Patents](https://img.shields.io/badge/Patents-754-FFD700)](https://unpkg.com/@metago-ai/engine/PATENTS.md)
 
 ## 这是什么
 
@@ -154,9 +154,9 @@ packages/engine/
 
 ## 许可证
 
-MIT —— 详见 [LICENSE](LICENSE)
+MIT —— 详见 [LICENSE](https://unpkg.com/@metago-ai/engine/LICENSE)
 
-专利授权 —— 详见 [PATENTS.md](PATENTS.md)
+专利授权 —— 详见 [PATENTS.md](https://unpkg.com/@metago-ai/engine/PATENTS.md)
 
 ---
 

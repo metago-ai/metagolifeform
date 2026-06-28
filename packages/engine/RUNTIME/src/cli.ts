@@ -54,7 +54,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const enginePath = path.resolve(__dirname, '../');
+  const enginePath = path.resolve(__dirname, '../../');
   const engine = new MetaGOEngine(enginePath, '1.0.0');
   await engine.init();
 
