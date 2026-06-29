@@ -25,6 +25,7 @@ export default defineConfig({
       { text: "引擎", link: "/engine/axioms" },
       { text: "API", link: "/api/mcp-server" },
       { text: "参考", link: "/reference/changelog" },
+      { text: "反馈", link: "/feedback" },
       { text: "官网", link: "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/" },
     ],
 
@@ -196,6 +197,13 @@ export default defineConfig({
             { text: "常见问题", link: "/reference/faq" },
             { text: "路线图", link: "/reference/roadmap" },
             { text: "发布清单", link: "/reference/release-checklist" },
+          ],
+        },
+        {
+          text: "反馈与社区",
+          items: [
+            { text: "反馈渠道", link: "/feedback" },
+            { text: "僵尸能力分析", link: "https://github.com/metago-ai/metagolifeform/blob/main/docs/ZOMBIE-ANALYSIS-REPORT.md" },
           ],
         },
       ],

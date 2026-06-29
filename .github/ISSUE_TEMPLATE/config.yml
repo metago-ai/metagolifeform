@@ -1,0 +1,20 @@
+# GitHub Issue 模板配置
+# 文档：https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+
+# 禁用空白 Issue（强制用户选择模板）
+blank_issues_enabled: false
+
+# 联系链接（当用户点击 "Contact links" 时显示）
+contact_links:
+  - name: 📚 MetaGO 文档站
+    url: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/
+    about: 查看 MetaGO 完整文档、技能手册、架构原理
+  - name: 🏠 MetaGO 官网
+    url: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/
+    about: MetaGO 生命体产品官网
+  - name: 💬 Gitee 仓库（国内镜像）
+    url: https://gitee.com/metago/metagolifeform
+    about: 国内访问更快，Issue 同步处理
+  - name: 📧 邮件反馈
+    url: mailto:metago@metago.life?subject=MetaGO%20反馈
+    about: 私密反馈或商务合作请发邮件
