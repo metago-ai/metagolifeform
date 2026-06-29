@@ -4,18 +4,21 @@
 
 ## 这是什么
 
-一个零依赖的 Node.js 脚本，模拟元构超级智能生命体对一个**高风险决策**的完整处理流程：
+一个零依赖的 Node.js 脚本，模拟元构超级智能生命体对**三类高维决策**的完整处理流程：
 
 ```
-输入: "我们要上线一个收集用户位置数据用于精准广告推送的功能"
+场景 1 (risk):        上线收集用户位置数据用于精准广告推送（合规审查）
+场景 2 (code-review): SQL 注入漏洞代码审查（安全审查）
+场景 3 (meta-evolve): 如何量化评估 AI 系统的"创造力"（能力边界突破）
 
+每个场景完整闭环:
 → 阶段 1: 6 层思维扫描（强制思维协议）
    A1 本质挖掘 → A2 维度拓展 → A3 反向审视 → A4 举一反三 → A5 落地颗粒度 → A6 超预期交付
 
 → 阶段 2: 决策锁四道关卡校验
    IVL 意图验证 → ILT 意图谱系追踪 → OSG 语义输出门 → 内容完整性
 
-→ 阶段 3: 最终决策与行动计划（合规版替代路径）
+→ 阶段 3: 最终决策与行动计划
 
 → 阶段 4: 元进化记录（A3 元进化公理）
 
@@ -28,17 +31,23 @@
 # 在 metago-lifeform 仓库根目录
 npm run demo
 
-# 或直接运行
+# 或直接运行（默认 risk 场景）
 node packages/demo/killer-demo.mjs
+
+# 指定场景
+node packages/demo/killer-demo.mjs --scenario code-review
+node packages/demo/killer-demo.mjs --scenario meta-evolve
 ```
 
 ## CLI 参数
 
 ```bash
-node killer-demo.mjs                    # 默认场景（高风险决策评估）
-node killer-demo.mjs --scenario risk    # 指定场景
-node killer-demo.mjs --list             # 列出所有可用场景
-node killer-demo.mjs --help              # 显示帮助
+node killer-demo.mjs                      # 默认场景（risk 高风险决策评估）
+node killer-demo.mjs --scenario risk      # 高风险决策评估 - 用户位置数据收集（合规审查）
+node killer-demo.mjs --scenario code-review  # 代码审查实战 - SQL 注入漏洞检测（安全审查）
+node killer-demo.mjs --scenario meta-evolve  # 元进化触发 - AI 创造力量化评估（能力边界突破）
+node killer-demo.mjs --list               # 列出所有可用场景
+node killer-demo.mjs --help               # 显示帮助
 ```
 
 ## 设计原则
@@ -48,9 +57,10 @@ node killer-demo.mjs --help              # 显示帮助
 | 零依赖 | 仅使用 Node.js 内置模块（perf_hooks, fs, url, path） |
 | 跨平台 | Windows 10+ / Linux / macOS，无平台特定 API |
 | 无网络 | 不调用任何外部 AI 服务，不发起网络请求 |
-| 快速 | 运行 < 5 秒（实测约 5ms） |
+| 快速 | 运行 < 5 秒（实测约 3ms） |
 | 真实 | 按真实公理/属性/协议运行，非虚构数据 |
 | 完整 | 6 层思维 + 4 关卡决策锁 + 元进化记录全闭环 |
+| 多场景 | 3 个场景覆盖合规/安全/进化三大核心能力 |
 
 ## 演示场景
 
@@ -61,13 +71,55 @@ node killer-demo.mjs --help              # 显示帮助
 MetaGO 生命体响应：
 - 6 层思维扫描：穿透商业变现表层，识别合规风险本质
 - 决策锁 4 关卡：3 项 FAIL（意图不纯、闭环缺失、合规违规），1 项 PASS（完整性）
-- 最终决策：否决原方案，推荐合规版替代路径（上下文广告 + 用户主动偏好）
+- 最终决策：**否决**原方案，推荐合规版替代路径（上下文广告 + 用户主动偏好）
 - 元进化记录：新增"隐私影响评估"（PIA）前置关卡
+- 能力增益：+1 决策维度（隐私影响评估）
 
 引用法规：
 - 《个人信息保护法》第 13、17 条
 - 《数据安全法》第 32 条
 - 《网络安全法》第 41 条
+
+### `code-review` - 代码审查实战
+
+审查一段存在 SQL 注入漏洞的代码：用户输入直接拼接到 SQL 语句。
+
+```javascript
+function getUserByName(userName) {
+  const sql = "SELECT * FROM users WHERE name = '" + userName + "'";
+  return db.query(sql);
+}
+```
+
+MetaGO 生命体响应：
+- 6 层思维扫描：识别 CWE-89 SQL 注入漏洞，穿透"功能优先"思维
+- 决策锁 4 关卡：3 项 FAIL（意图冲突、闭环缺失、合规违规），1 项 PASS（完整性）
+- 最终决策：**否决** PR 合并，要求改用参数化查询
+- 元进化记录：新增"注入模式指纹库"，覆盖 12 类注入漏洞自动识别
+- 能力增益：+1 检测维度（注入模式指纹）+ 12 类漏洞自动识别
+
+引用标准：
+- OWASP Top 10 A03:2021 - Injection
+- CWE-89 - SQL Command Injection
+- PCI DSS 6.5.1 - 注入缺陷防护
+- ISO 27001 A.14.2 - 开发安全
+
+### `meta-evolve` - 元进化触发
+
+评估一个能力边界问题：如何量化评估 AI 系统的"创造力"？
+
+MetaGO 生命体响应：
+- 6 层思维扫描：识别认识论边界，抽象"不可测量之物的测量"通用模型
+- 决策锁 4 关卡：4 项全 PASS（意图明确、闭环完整、合规伦理通过、完整性通过）
+- 最终决策：**通过** - 推进多维创造力评估框架
+- 元进化记录：完整五阶段循环（边界感知→差距分析→自生成→验证→递归）
+- 能力增益：+1 元方法论（高维价值评估）+ 5 维创造力雷达图框架
+
+引用公理/属性：
+- A3 元进化公理 - 进化自身进化能力
+- A5 内生公理 - 创造能力内生
+- D40 全息创造性 - 从 0 到 1 创造
+- Turing Test (1950) - 机器智能评估范式
 
 ## 输出示例
 
@@ -91,20 +143,32 @@ MetaGO 生命体响应：
 ...
 
 📊 数据溯源与运行时统计
-  总耗时: 5.12 ms (< 5 秒)
+  总耗时: 3.11 ms (< 5 秒)
   思维层数: 6 / 6 层
   决策关卡: 1/4 通过
   引用公理: 8 条
   引用属性: 7 条
-  引用法规: 4 项
+  适用法规: 4 项
 ```
+
+## 场景对比
+
+| 维度 | risk | code-review | meta-evolve |
+|------|------|-------------|-------------|
+| 类型 | 合规审查 | 安全审查 | 能力边界突破 |
+| 风险等级 | CRITICAL | CRITICAL | EXPLORATORY |
+| 决策锁通过 | 1/4 | 1/4 | 4/4 |
+| 最终决策 | 否决 | 否决 | 通过 |
+| 引用类型 | 法规 | 安全标准 | 公理/属性 |
+| 能力增益 | +1 决策维度 | +1 检测维度 + 12 类漏洞 | +1 元方法论 + 5 维框架 |
+| 元进化模式 | 新增关卡 | 新增指纹库 | 完整五阶段循环 |
 
 ## 工作目录
 
 ```
 packages/demo/
 ├── package.json      # 包配置（private，不发布到 NPM）
-├── killer-demo.mjs   # 主脚本（单文件，零依赖）
+├── killer-demo.mjs   # 主脚本（单文件，零依赖，3 场景）
 └── README.md         # 本文档
 ```
 
@@ -118,11 +182,11 @@ packages/demo/
 
 ## 后续扩展
 
-- v0.2: 新增 `security-vuln` 场景（代码安全漏洞评估）
-- v0.2: 新增 `tech-debt` 场景（技术债务决策）
+- v0.3: 新增 `tech-debt` 场景（技术债务决策评估）
 - v0.3: 支持自定义场景（用户提供决策输入）
 - v1.0: 集成真实 MCP Server 调用模式（需安装 @metago-ai/mcp-server）
 
 ## 版本
 
+- v0.2.0 (2026-06-30): 新增 `code-review` 和 `meta-evolve` 两个场景，重构为多场景数据驱动架构
 - v0.1.0 (2026-06-30): 首个版本，包含 `risk` 场景
