@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/metago/metagolifeform.git"
+    "url": "https://github.com/metago-ai/metagolifeform.git"
   },
   "homepage": "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/",
   "engines": { "node": ">=14.0.0" },
