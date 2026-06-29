@@ -128,7 +128,25 @@ jobs:
         run: npm pack --dry-run --json
         working-directory: ${{ needs.resolve.outputs.directory }}
 
+      - name: Check if version already published (idempotency)
+        id: check
+        working-directory: ${{ needs.resolve.outputs.directory }}
+        run: |
+          NPM_NAME="${{ needs.resolve.outputs.npm_name }}"
+          VERSION="${{ needs.resolve.outputs.version }}"
+          if [ "$VERSION" = "manual" ]; then
+            echo "Manual dispatch, proceeding with publish"
+            echo "published=false" >> $GITHUB_OUTPUT
+          elif npm view "${NPM_NAME}@${VERSION}" version > /dev/null 2>&1; then
+            echo "published=true" >> $GITHUB_OUTPUT
+            echo "⚠️ ${NPM_NAME}@${VERSION} already published on NPM, skipping publish step"
+          else
+            echo "published=false" >> $GITHUB_OUTPUT
+            echo "✓ ${NPM_NAME}@${VERSION} not yet published, will publish"
+          fi
+
       - name: Publish to NPM
+        if: steps.check.outputs.published == 'false'
         run: npm publish --provenance --access public
         working-directory: ${{ needs.resolve.outputs.directory }}
         env:
@@ -136,6 +154,10 @@ jobs:
 
       - name: Summary
         run: |
-          echo "✅ Published ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }}"
+          if [ "${{ steps.check.outputs.published }}" = "true" ]; then
+            echo "⏭️  Skipped: ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }} already on NPM"
+          else
+            echo "✅ Published ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }}"
+          fi
           echo "📦 Tag: ${GITHUB_REF#refs/tags/}"
           echo "🌐 https://www.npmjs.com/package/${{ needs.resolve.outputs.npm_name }}"
