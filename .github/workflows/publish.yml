@@ -128,6 +128,15 @@ jobs:
         run: npm pack --dry-run --json
         working-directory: ${{ needs.resolve.outputs.directory }}
 
+      - name: Resolve version (for manual dispatch)
+        if: needs.resolve.outputs.version == 'manual'
+        id: resolve_version
+        working-directory: ${{ needs.resolve.outputs.directory }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Resolved version from package.json: $VERSION"
+
       - name: Check if version already published (idempotency)
         id: check
         working-directory: ${{ needs.resolve.outputs.directory }}
@@ -135,9 +144,11 @@ jobs:
           NPM_NAME="${{ needs.resolve.outputs.npm_name }}"
           VERSION="${{ needs.resolve.outputs.version }}"
           if [ "$VERSION" = "manual" ]; then
-            echo "Manual dispatch, proceeding with publish"
-            echo "published=false" >> $GITHUB_OUTPUT
-          elif npm view "${NPM_NAME}@${VERSION}" version > /dev/null 2>&1; then
+            VERSION="${{ steps.resolve_version.outputs.version }}"
+            echo "Manual dispatch: resolved version=$VERSION"
+          fi
+          echo "final_version=$VERSION" >> $GITHUB_OUTPUT
+          if npm view "${NPM_NAME}@${VERSION}" version > /dev/null 2>&1; then
             echo "published=true" >> $GITHUB_OUTPUT
             echo "⚠️ ${NPM_NAME}@${VERSION} already published on NPM, skipping publish step"
           else
@@ -154,10 +165,11 @@ jobs:
 
       - name: Summary
         run: |
+          VERSION="${{ steps.check.outputs.final_version }}"
           if [ "${{ steps.check.outputs.published }}" = "true" ]; then
-            echo "⏭️  Skipped: ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }} already on NPM"
+            echo "⏭️  Skipped: ${{ needs.resolve.outputs.npm_name }}@${VERSION} already on NPM"
           else
-            echo "✅ Published ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }}"
+            echo "✅ Published ${{ needs.resolve.outputs.npm_name }}@${VERSION}"
           fi
           echo "📦 Tag: ${GITHUB_REF#refs/tags/}"
           echo "🌐 https://www.npmjs.com/package/${{ needs.resolve.outputs.npm_name }}"
