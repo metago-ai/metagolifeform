@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/engine",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
   "main": "RUNTIME/dist/index.js",
   "types": "SDK/types.d.ts",
@@ -11,7 +11,6 @@
     "build": "tsc -p RUNTIME/tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:legacy": "ts-node RUNTIME/tests/engine.test.ts",
     "verify": "node RUNTIME/dist/cli.js verify",
     "status": "node RUNTIME/dist/cli.js status",
     "metrics": "node RUNTIME/dist/cli.js metrics",
@@ -42,9 +41,26 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "files": [
+    "RUNTIME/dist/",
+    "SDK/",
+    "ADAPTERS/",
+    "CONSTITUTION/",
+    "CORE/",
+    "INDEX/",
+    "EVOLUTION/",
+    "ENGINE.md",
+    "CHANGES.md",
+    "GENOME.json",
+    "PATENTS.md",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "metago": {
-    "engine_version": "1.0.0",
+    "engine_version": "1.0.5",
     "metago_version": "V36.5",
     "parentPackage": "metago-lifeform@>=36.7.0"
   }
 }
+
