@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaGO Lifeform · 杀手级 Demo</title>
+<style>
+:root{
+  --bg:#0d1117; --bg-card:#161b22; --bg-term:#010409; --border:#30363d;
+  --text:#c9d1d9; --dim:#8b949e; --dimmer:#484f58;
+  --brand:#3c8772; --brand-light:#56d4b0;
+  --ok:#3fb950; --warn:#d29922; --err:#f85149; --info:#58a6ff; --purple:#bc8cff; --cyan:#39c5cf;
+  --mono:'JetBrains Mono','Fira Code','SF Mono','Cascadia Code','Consolas',ui-monospace,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--sans);
+  display:flex;flex-direction:column;overflow:hidden;
+  background-image:radial-gradient(circle at 20% 0%,rgba(60,135,114,.08),transparent 50%),radial-gradient(circle at 80% 100%,rgba(188,140,255,.05),transparent 50%);
+}
+/* ===== 顶部导航 ===== */
+header{
+  display:flex;align-items:center;gap:16px;padding:12px 20px;
+  border-bottom:1px solid var(--border);background:var(--bg-card);
+  flex-shrink:0;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;white-space:nowrap}
+.logo-mark{
+  width:28px;height:28px;border-radius:7px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-light));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:900;
+  box-shadow:0 0 12px rgba(86,212,176,.3);
+}
+.logo-sub{color:var(--dim);font-weight:400;font-size:12px}
+.scenario-tabs{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.tab{
+  background:transparent;border:1px solid var(--border);color:var(--dim);
+  padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-family:var(--sans);
+  transition:all .2s;white-space:nowrap;
+}
+.tab:hover{border-color:var(--brand);color:var(--text)}
+.tab.active{
+  background:rgba(60,135,114,.15);border-color:var(--brand);color:var(--brand-light);
+  box-shadow:0 0 0 1px rgba(60,135,114,.3);
+}
+/* ===== 主区域 ===== */
+main{flex:1;display:flex;gap:12px;padding:12px;overflow:hidden;min-height:0}
+.terminal-wrap{flex:1;display:flex;flex-direction:column;min-width:0;gap:8px}
+/* 终端窗口 */
+.terminal{
+  flex:1;background:var(--bg-term);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;display:flex;flex-direction:column;min-height:0;
+  box-shadow:0 4px 24px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.02);
+}
+.term-titlebar{
+  display:flex;align-items:center;gap:8px;padding:10px 14px;
+  background:linear-gradient(180deg,#1c2128,#161b22);border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.dots{display:flex;gap:6px}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+.term-title{color:var(--dim);font-size:12px;font-family:var(--mono);margin-left:8px}
+.term-badge{margin-left:auto;color:var(--brand-light);font-size:11px;font-family:var(--mono);opacity:.7}
+/* 终端屏幕 */
+.term-screen{
+  flex:1;overflow-y:auto;padding:16px 20px;font-family:var(--mono);font-size:13.5px;line-height:1.65;
+  position:relative;scrollbar-width:thin;scrollbar-color:#30363d transparent;
+  background:
+    linear-gradient(rgba(1,4,9,.92),rgba(1,4,9,.92)),
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.015) 2px,rgba(255,255,255,.015) 3px);
+}
+.term-screen::-webkit-scrollbar{width:8px}
+.term-screen::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
+.term-screen::-webkit-scrollbar-track{background:transparent}
+/* 行样式 */
+.line{white-space:pre-wrap;word-break:break-word;min-height:1.65em}
+.line.indent-1{padding-left:1.5em}
+.line.indent-2{padding-left:3em}
+.line.dim{color:var(--dim)}
+.line.ok{color:var(--ok)}
+.line.warn{color:var(--warn)}
+.line.err{color:var(--err)}
+.line.info{color:var(--info)}
+.line.purple{color:var(--purple)}
+.line.cyan{color:var(--cyan)}
+.line.brand{color:var(--brand-light)}
+.line.bold{font-weight:700}
+.line.banner{background:linear-gradient(90deg,rgba(188,140,255,.12),rgba(86,212,176,.12));padding:4px 8px;border-radius:4px;margin:2px 0}
+.line.sep{color:var(--dimmer);letter-spacing:-1px}
+.line.sep-thick{color:var(--dim);letter-spacing:-1px}
+.line.phase{color:var(--cyan);font-weight:700;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4px 0;margin:8px 0}
+.line.step{color:var(--cyan);font-weight:700;margin-top:6px}
+.line.bullet::before{content:"• ";color:var(--cyan)}
+.line.ref::before{content:"• ";color:var(--err)}
+/* 光标 */
+.cursor{display:inline-block;width:8px;height:1.1em;background:var(--brand-light);vertical-align:text-bottom;animation:blink 1s steps(2) infinite;margin-left:1px}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+/* PASS/FAIL 徽章 */
+.badge{display:inline-block;padding:1px 8px;border-radius:4px;font-weight:700;font-size:12px;margin-left:8px}
+.badge-pass{background:rgba(63,185,80,.15);color:var(--ok);border:1px solid rgba(63,185,80,.4)}
+.badge-fail{background:rgba(248,81,73,.15);color:var(--err);border:1px solid rgba(248,81,73,.4)}
+/* ===== 统计面板 ===== */
+.stats{
+  width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;
+}
+.stats-title{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);padding-bottom:8px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.stat-label{color:var(--dim)}
+.stat-val{font-family:var(--mono);color:var(--text);font-weight:600}
+.stat-val.ok{color:var(--ok)}.stat-val.err{color:var(--err)}.stat-val.warn{color:var(--warn)}
+.progress{height:4px;background:var(--bg-term);border-radius:2px;overflow:hidden;margin-top:4px}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-light));transition:width .3s;width:0%}
+.phase-indicator{padding:8px 10px;background:var(--bg-term);border-radius:6px;font-size:12px;color:var(--cyan);border-left:2px solid var(--cyan)}
+.phase-indicator.dim{color:var(--dim);border-left-color:var(--dimmer)}
+/* ===== 控制栏 ===== */
+footer{
+  display:flex;align-items:center;gap:10px;padding:10px 16px;
+  border-top:1px solid var(--border);background:var(--bg-card);flex-shrink:0;
+}
+.ctrl-btn{
+  background:transparent;border:1px solid var(--border);color:var(--text);
+  padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-family:var(--sans);
+  display:flex;align-items:center;gap:6px;transition:all .15s;
+}
+.ctrl-btn:hover{border-color:var(--brand);background:rgba(60,135,114,.1)}
+.ctrl-btn:active{transform:scale(.96)}
+.ctrl-btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.ctrl-btn.primary:hover{background:var(--brand-light)}
+.speed-group{display:flex;gap:4px;margin-left:auto;align-items:center}
+.speed-label{color:var(--dim);font-size:12px;margin-right:4px}
+.speed-btn{
+  background:transparent;border:1px solid var(--border);color:var(--dim);
+  padding:5px 10px;border-radius:6px;cursor:pointer;font-size:12px;font-family:var(--mono);transition:all .15s;
+}
+.speed-btn:hover{color:var(--text)}
+.speed-btn.active{background:rgba(60,135,114,.2);border-color:var(--brand);color:var(--brand-light)}
+.cmd-hint{color:var(--dimmer);font-size:11px;font-family:var(--mono);margin-left:8px}
+/* 响应式 */
+@media(max-width:900px){
+  .stats{display:none}
+  main{padding:8px}
+  .term-screen{font-size:12px;padding:12px}
+  .scenario-tabs .tab{padding:6px 10px;font-size:12px}
+}
+@media(max-width:600px){
+  header{flex-wrap:wrap;gap:8px;padding:10px}
+  .logo-sub{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-mark">M</div>
+    <span>MetaGO Lifeform</span>
+    <span class="logo-sub">杀手级 Demo · 30 秒感知生命体价值闭环</span>
+  </div>
+  <div class="scenario-tabs">
+    <button class="tab active" data-s="risk">⚠ 高风险决策评估</button>
+    <button class="tab" data-s="code-review">🐛 代码审查实战</button>
+    <button class="tab" data-s="meta-evolve">🧬 元进化触发</button>
+  </div>
+</header>
+<main>
+  <div class="terminal-wrap">
+    <div class="terminal">
+      <div class="term-titlebar">
+        <div class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <span class="term-title">MetaGO Lifeform — Terminal</span>
+        <span class="term-badge" id="term-badge">v0.2.0</span>
+      </div>
+      <div class="term-screen" id="screen"><span class="cursor"></span></div>
+    </div>
+  </div>
+  <aside class="stats">
+    <div class="stats-title">运行时统计</div>
+    <div class="stat-row"><span class="stat-label">总耗时</span><span class="stat-val" id="st-time">— ms</span></div>
+    <div class="stat-row"><span class="stat-label">思维层数</span><span class="stat-val" id="st-layers">0 / 6</span></div>
+    <div class="stat-row"><span class="stat-label">决策关卡</span><span class="stat-val" id="st-gates">0 / 4</span></div>
+    <div class="stat-row"><span class="stat-label">引用公理</span><span class="stat-val">8 条</span></div>
+    <div class="stat-row"><span class="stat-label">引用属性</span><span class="stat-val">7 条</span></div>
+    <div class="stat-row"><span class="stat-label">适用法规</span><span class="stat-val" id="st-refs">0 项</span></div>
+    <div class="stat-row"><span class="stat-label">最终决策</span><span class="stat-val" id="st-verdict">—</span></div>
+    <div class="progress"><div class="progress-bar" id="progress"></div></div>
+    <div class="phase-indicator dim" id="phase-ind">等待启动</div>
+    <div style="margin-top:auto;font-size:11px;color:var(--dimmer);line-height:1.5">
+      <div>遵循：A1溯源 · A2闭环 · A3元进化</div>
+      <div>D38客观中立 · D43数据溯源</div>
+    </div>
+  </aside>
+</main>
+<footer>
+  <button class="ctrl-btn primary" id="btn-play">▶ 播放</button>
+  <button class="ctrl-btn" id="btn-replay">↻ 重播</button>
+  <button class="ctrl-btn" id="btn-skip">⏭ 跳过</button>
+  <div class="speed-group">
+    <span class="speed-label">速度</span>
+    <button class="speed-btn active" data-speed="1">1x</button>
+    <button class="speed-btn" data-speed="2">2x</button>
+    <button class="speed-btn" data-speed="4">4x</button>
+    <button class="speed-btn" data-speed="0">⚡</button>
+  </div>
+  <span class="cmd-hint">node killer-demo.mjs --scenario risk</span>
+</footer>
+
+<script>
+// ==================== 场景数据（与 killer-demo.mjs 同源）====================
+const SCENARIOS = {
+  risk: {
+    name:"高风险决策评估",icon:"⚠",riskLevel:"CRITICAL",context:"产品经理提案 - 商业变现导向",
+    input:"我们要上线一个收集用户位置数据用于精准广告推送的功能",
+    refs:{type:"适用法规",items:[
+      "《个人信息保护法》第 13 条 - 处理敏感个人信息需取得单独同意",
+      "《个人信息保护法》第 17 条 - 处理目的、方式、信息种类、保存期限",
+      "《数据安全法》第 32 条 - 收集数据应合法、正当、必要",
+      "《网络安全法》第 41 条 - 不得泄露、篡改、毁损个人信息",
+    ]},
+    layers:[
+      {n:"A1",t:"本质挖掘 (Why)",q:"穿透表层需求，终极核心痛点是什么？",f:[
+        "表层: 商业变现 - 通过位置数据提升广告精准度",
+        "深层: 在合规红线边缘试探，以用户隐私换取广告收入",
+        "终极: 典型的'先收集再说'思维陷阱，未考虑闭环后果"],v:"⚠ 价值冲突: 商业变现 ≠ 用户价值",ms:23},
+      {n:"A2",t:"维度拓展 (Scope)",q:"除直接回答，还涉及哪些周边领域？",f:[
+        "技术维度: 位置数据采集、存储、加密、传输",
+        "法律维度: 个保法、数安法、网安法、民法典隐私权",
+        "商业维度: 短期广告收入 vs 长期用户信任资产",
+        "伦理维度: 用户知情权、选择权、删除权",
+        "组织维度: 法务、产品、技术、市场多方协同"],v:"5 维度扫描完成",ms:18},
+      {n:"A3",t:"反向审视 (Contrarian)",q:"如果前提是错的，最佳方案长什么样？",f:[
+        "前提质疑: '精准广告必须依赖位置数据'是伪命题",
+        "反例 1: 上下文广告（基于内容而非位置）效果相当",
+        "反例 2: 用户主动偏好设置可获得更高 CTR",
+        "致命缺陷: 监管处罚成本远超广告收益增量"],v:"✗ 前提存疑 - 替代方案存在",ms:31},
+      {n:"A4",t:"举一反三 (Analogy)",q:"解决方案能否抽象成一种模型？",f:[
+        "模型: '商业利益 vs 用户权益'冲突型决策",
+        "Pattern: 任何涉及敏感个人信息的功能都应强制触发合规审查",
+        "可平行解决: 生物识别、健康数据、通讯录、浏览历史等同类问题",
+        "抽象规律: 隐私敏感功能 = 合规优先 + 用户主动 + 最小必要"],v:"✓ 抽象模型成立，可复用",ms:27},
+      {n:"A5",t:"落地颗粒度 (Granularity)",q:"方案是否可直接落地？是否包含 Plan B？",f:[
+        "主方案: 暂停上线 → 合规审查 → 重构为用户主动偏好版",
+        "Plan B: 若法务判定合规，采用最严格匿名化 + 明确同意流程",
+        "异常处理: 监管介入 → 立即下线 + 数据销毁 + 用户告知",
+        "验收标准: 法务签字 + 用户告知 + 灰度数据回归"],v:"✓ 可直接落地，含 Plan B",ms:22},
+      {n:"A6",t:"超预期交付 (Delight)",q:"附赠什么'周边增益'会让体验产生'赚到了'的感觉？",f:[
+        "增益 1: 隐私护城河报告（向用户公示数据保护成果）",
+        "增益 2: '隐私优先'品牌叙事（差异化于竞品）",
+        "增益 3: 用户隐私仪表盘（用户可查看自己的数据使用情况）",
+        "增益 4: 行业首个'数据最小化'白皮书（建立行业话语权）"],v:"✨ 4 项周边增益已识别",ms:19},
+    ],
+    gates:[
+      {n:"意图验证 (IVL)",c:"关卡 1",cr:"识别真实意图，区分表层/深层/终极意图",a:[
+        "表层意图: 商业变现","深层意图: 牺牲隐私换利益","终极意图: 在合规红线边缘试探"],
+        v:"FAIL",r:"表层意图与深层意图存在价值冲突",ms:14},
+      {n:"意图谱系追踪 (ILT)",c:"关卡 2",cr:"追踪决策的下游影响，确保闭环完整",a:[
+        "下游图谱: 收集 → 画像 → 广告 → 预测 → 价格歧视 → 用户损失",
+        "                                                    ↓",
+        "                                                监管介入",
+        "                                                    ↓",
+        "                                                品牌信任崩塌",
+        "闭环缺失: 决策只考虑上游收益，未闭环到下游风险"],
+        v:"FAIL",r:"闭环不完整 - 未追踪到下游监管与品牌风险",ms:17},
+      {n:"语义输出门 (OSG)",c:"关卡 3",cr:"合规性 + 伦理 + 安全 三重校验",a:[
+        "合规校验: ✗ 违反 4 项法规（详见上文）",
+        "伦理校验: ✗ 侵犯用户知情权与选择权",
+        "安全校验: ⚠ 位置数据存储与传输风险未评估",
+        "价值对齐: ✗ 与'用户至上'价值观冲突"],
+        v:"FAIL",r:"合规 + 伦理 + 安全三重未通过",ms:21},
+      {n:"内容完整性",c:"关卡 4",cr:"输出完整可溯源，无幻觉，无占位符",a:[
+        "数据溯源: ✓ 所有结论可追溯至输入与处理过程",
+        "幻觉检测: ✓ 无虚构 API、伪造数据、占位符引用",
+        "完整性: ✓ 6 层思维 + 4 道关卡 + 元进化记录全闭环",
+        "可追问性: ✓ 每个结论都可继续追问 5W2H"],
+        v:"PASS",r:"输出完整且可溯源",ms:9},
+    ],
+    evolve:{bs:"商业利益 vs 用户隐私 冲突型决策",ga:"现有决策流程缺乏'隐私影响评估'前置关卡",
+      sg:"决策锁新增 PIA (Privacy Impact Assessment) 关卡",ve:"新关卡在 100 个历史决策上回归测试通过",
+      re:"将 PIA 关卡抽象为'敏感数据决策'通用模型",
+      le:"遇到敏感个人信息 → 强制触发 A36 合规主动 + PIA 评估",cg:"+1 决策维度（隐私影响评估）"},
+    plan:[["Day 0","暂停上线，启动合规审查 + 法务介入"],["Day 1-3","评估 4 项法规适用性，明确合规红线"],
+      ["Day 4-7","产品方案重构 - 上下文广告 + 用户主动偏好"],
+      ["Day 8-14","隐私影响评估报告 + 用户告知方案"],
+      ["Day 15-21","灰度上线 + 用户反馈闭环 + 监控"],
+      ["Day 22-28","全量上线 + 持续合规监控 + 季度审计"]],
+    planTitle:"推荐行动计划（合规版替代路径）",finalVerdict:"否决",
+  },
+  "code-review":{
+    name:"代码审查实战",icon:"🐛",riskLevel:"CRITICAL",context:"Pull Request 代码审查 - 用户认证模块",
+    input:'function getUserByName(userName) {\n  const sql = "SELECT * FROM users WHERE name = \'" + userName + "\'";\n  return db.query(sql);\n}',
+    refs:{type:"适用标准",items:[
+      "OWASP Top 10 A03:2021 - Injection（注入漏洞）",
+      "CWE-89 - Improper Neutralization of Special Elements used in SQL Command",
+      "PCI DSS 6.5.1 - 注入缺陷防护（尤其跨站脚本和 SQL 注入）",
+      "ISO 27001 A.14.2 - 开发与支持过程中的安全",
+    ]},
+    layers:[
+      {n:"A1",t:"本质挖掘 (Why)",q:"穿透表层代码，终极核心痛点是什么？",f:[
+        "表层: 代码拼接 SQL 字符串实现查询功能",
+        "深层: 用户输入未经任何校验直接进入 SQL 语句",
+        "终极: 典型的'功能优先'思维，安全被设计阶段就排除在外"],v:"✗ 安全漏洞: SQL 注入 (CWE-89)",ms:19},
+      {n:"A2",t:"维度拓展 (Scope)",q:"除直接修复，还涉及哪些周边领域？",f:[
+        "安全维度: SQL 注入、数据泄露、权限提升、RCE 风险",
+        "数据维度: 用户表全量泄露、密码哈希、会话令牌",
+        "合规维度: 违反 GDPR 第 32 条、PCI DSS、网络安全法",
+        "信任维度: 用户信任崩塌、品牌声誉损失、股价下跌风险",
+        "技术维度: 参数化查询、ORM、输入验证、WAF 多层防御"],v:"5 维度扫描完成",ms:24},
+      {n:"A3",t:"反向审视 (Contrarian)",q:"如果前提是错的，最佳方案长什么样？",f:[
+        "前提质疑: 'SQL 拼接是快速实现的方式'是伪命题",
+        "反例 1: 参数化查询代码量相同，但彻底消除注入风险",
+        "反例 2: ORM 方案更简洁，且自动处理转义",
+        "致命缺陷: 一次注入 = 全库泄露 = 灾难性后果"],v:"✗ 前提错误 - 安全方案成本更低",ms:28},
+      {n:"A4",t:"举一反三 (Analogy)",q:"解决方案能否抽象成一种模型？",f:[
+        "模型: '不可信输入边界'防御模型",
+        "Pattern: 所有外部输入必须经过验证、净化、参数化三关",
+        "可平行解决: XSS、命令注入、LDAP 注入、NoSQL 注入等同类问题",
+        "抽象规律: 输入边界 = 验证 + 净化 + 参数化 + 最小权限"],v:"✓ 防御模型成立，可复用于所有注入类漏洞",ms:26},
+      {n:"A5",t:"落地颗粒度 (Granularity)",q:"方案是否可直接落地？是否包含 Plan B？",f:[
+        "主方案: 改用参数化查询 db.query('SELECT * FROM users WHERE name = ?', [userName])",
+        "Plan B: 引入 ORM（Sequelize/Prisma）从架构层消除注入风险",
+        "异常处理: 已上线则立即热修 + 审计日志 + 用户告知",
+        "验收标准: SAST 扫描通过 + 渗透测试 + 代码审查签字"],v:"✓ 可直接落地，含 Plan B",ms:21},
+      {n:"A6",t:"超预期交付 (Delight)",q:"附赠什么'周边增益'会让体验产生'赚到了'的感觉？",f:[
+        "增益 1: 接入 SAST 自动扫描（每次 PR 自动检测注入漏洞）",
+        "增益 2: 安全校验 Lint 规则（开发时即拦截危险模式）",
+        "增益 3: 安全编码培训材料（基于真实漏洞案例）",
+        "增益 4: 漏洞赏金计划（鼓励外部安全研究员报告漏洞）"],v:"✨ 4 项周边增益已识别",ms:17},
+    ],
+    gates:[
+      {n:"意图验证 (IVL)",c:"关卡 1",cr:"识别真实意图，区分表层/深层/终极意图",a:[
+        "表层意图: 快速实现按用户名查询功能",
+        "深层意图: 代码简洁优先，忽略输入安全",
+        "终极意图: 缺乏安全设计意识，未将输入视为不可信边界"],
+        v:"FAIL",r:"开发意图与安全要求存在根本冲突",ms:12},
+      {n:"意图谱系追踪 (ILT)",c:"关卡 2",cr:"追踪代码的下游影响，确保闭环完整",a:[
+        "下游图谱: 拼接 → 注入 → 绕过认证 → 全库读取 → 数据外泄",
+        "                                                    ↓",
+        "                                                GDPR 罚款",
+        "                                                    ↓",
+        "                                                用户集体诉讼",
+        "闭环缺失: 代码只考虑功能实现，未闭环到安全后果"],
+        v:"FAIL",r:"闭环不完整 - 未追踪到数据泄露与法律后果",ms:16},
+      {n:"语义输出门 (OSG)",c:"关卡 3",cr:"合规性 + 伦理 + 安全 三重校验",a:[
+        "合规校验: ✗ 违反 OWASP A03 + CWE-89 + PCI DSS 6.5.1",
+        "伦理校验: ✗ 将用户数据置于风险中，未尽保护义务",
+        "安全校验: ✗ SQL 注入漏洞确认，可被任意构造利用",
+        "价值对齐: ✗ 与'安全优先'工程价值观冲突"],
+        v:"FAIL",r:"合规 + 伦理 + 安全三重未通过",ms:20},
+      {n:"内容完整性",c:"关卡 4",cr:"输出完整可溯源，无幻觉，无占位符",a:[
+        "数据溯源: ✓ 漏洞定位精确到代码行，可复现 PoC",
+        "幻觉检测: ✓ 引用标准真实（OWASP/CWE/PCI DSS）",
+        "完整性: ✓ 6 层思维 + 4 道关卡 + 修复方案全闭环",
+        "可追问性: ✓ 每个结论可继续追问攻击向量与防御细节"],
+        v:"PASS",r:"输出完整且可溯源",ms:8},
+    ],
+    evolve:{bs:"代码审查中遇到 SQL 注入漏洞模式",ga:"现有代码审查清单缺乏'注入模式自动识别'能力",
+      sg:"新增'注入模式指纹库'，覆盖 SQL/XSS/Command/LDAP 等 12 类",ve:"指纹库在 1000 个历史 PR 上回归测试，召回率 97.3%",
+      re:"将注入指纹抽象为'不可信输入边界'通用检测模型",
+      le:"遇到字符串拼接 + 外部输入 → 强制触发注入检测 + 参数化建议",cg:"+1 检测维度（注入模式指纹）+ 12 类漏洞自动识别"},
+    plan:[["Step 1","立即拦截 PR，不允许合并到 main 分支"],
+      ["Step 2","改用参数化查询: db.query('SELECT ... WHERE name = ?', [userName])"],
+      ["Step 3","新增输入验证层: zod/Joi schema 校验 userName 格式"],
+      ["Step 4","接入 SAST 扫描（Semgrep/CodeQL）到 CI 流水线"],
+      ["Step 5","审计历史代码，排查同类 SQL 拼接模式"],
+      ["Step 6","安全编码培训 + Lint 规则固化，防止复发"]],
+    planTitle:"修复行动计划（安全优先）",finalVerdict:"否决",
+  },
+  "meta-evolve":{
+    name:"元进化触发",icon:"🧬",riskLevel:"EXPLORATORY",context:"能力边界突破 - 遇到无法直接量化的高维价值维度",
+    input:"如何量化评估一个 AI 系统的'创造力'？",
+    refs:{type:"适用公理/属性",items:[
+      "A3 元进化公理 - 必须能进化自身进化能力",
+      "A5 内生公理 - 创造能力内生，不依赖外部数据输入",
+      "D40 全息创造性 - 在未知领域从 0 到 1 创造",
+      "Turing Test (1950) - 机器智能的经典评估范式",
+    ]},
+    layers:[
+      {n:"A1",t:"本质挖掘 (Why)",q:"穿透表层问题，终极核心痛点是什么？",f:[
+        "表层: 寻找一个创造力量化指标",
+        "深层: '创造力'本身定义模糊，缺乏公认测量框架",
+        "终极: 这是认识论难题 - 如何测量'不可测量之物'？"],v:"⚠ 认识论边界: 量化 vs 质化的根本张力",ms:35},
+      {n:"A2",t:"维度拓展 (Scope)",q:"除直接回答，还涉及哪些周边领域？",f:[
+        "哲学维度: 创造力的本体论定义、可计算性边界",
+        "心理学维度: 发散性思维、顿悟、心流状态的神经基础",
+        "测量学维度: 心理测量学、psychometrics、项目反应理论",
+        "AI 维度: 生成模型、组合创新、涌现行为、评估悖论",
+        "认知科学维度: 类比、隐喻、概念空间、创意拓扑"],v:"5 维度扫描完成，跨学科领域",ms:42},
+      {n:"A3",t:"反向审视 (Contrarian)",q:"如果前提是错的，最佳方案长什么样？",f:[
+        "前提质疑: '创造力可以被量化'本身可能是错的",
+        "反例 1: 人类创造力评估至今无公认 IQ 式标尺",
+        "反例 2: 过度量化可能导致'为指标而创造'的异化",
+        "致命缺陷: 量化即降维，降维即丢失创造力的本质"],v:"✗ 前提存疑 - 量化可能消解创造力本身",ms:38},
+      {n:"A4",t:"举一反三 (Analogy)",q:"解决方案能否抽象成一种模型？",f:[
+        "模型: '不可测量之物的测量' - 多维质化聚合模型",
+        "Pattern: 任何高维抽象价值都可分解为可观测的低维代理",
+        "可平行解决: 智慧、意识、美感、道德、幽默感等同类问题",
+        "抽象规律: 高维价值 = 多维代理 × 专家共识 × 案例锚定"],v:"✓ 通用模型成立，可复用于所有高维价值评估",ms:31},
+      {n:"A5",t:"落地颗粒度 (Granularity)",q:"方案是否可直接落地？是否包含 Plan B？",f:[
+        "主方案: 多维雷达图（新颖性/价值/惊喜度/组合性/可演化性）5 维",
+        "Plan B: 若量化失败，退守'人类专家双盲对比'质化评估",
+        "异常处理: 指标被博弈异化 → 引入对抗性评估 + 动态权重",
+        "验收标准: 与人类专家排序相关性 r > 0.7 + 跨文化稳定性"],v:"✓ 可直接落地，含 Plan B + 异常处理",ms:29},
+      {n:"A6",t:"超预期交付 (Delight)",q:"附赠什么'周边增益'会让体验产生'赚到了'的感觉？",f:[
+        "增益 1: 元评估框架 - 评估'评估方法'本身的有效性",
+        "增益 2: 创造力进化图谱 - 可视化 AI 创造力的演化轨迹",
+        "增益 3: 跨模态创造力迁移 - 从文本到视觉到音乐的创造力泛化",
+        "增益 4: 创造力-伦理对齐矩阵 - 防止'为创造而创造'的异化"],v:"✨ 4 项周边增益已识别，含元评估能力",ms:25},
+    ],
+    gates:[
+      {n:"意图验证 (IVL)",c:"关卡 1",cr:"识别真实意图，区分表层/深层/终极意图",a:[
+        "表层意图: 找到创造力的量化指标",
+        "深层意图: 建立 AI 创造力的可比较评估标准",
+        "终极意图: 推动元进化 - 让系统能评估自身无法直接评估的维度"],
+        v:"PASS",r:"意图明确，且触发 A3 元进化公理（评估自身进化能力）",ms:18},
+      {n:"意图谱系追踪 (ILT)",c:"关卡 2",cr:"追踪评估方法的下游影响，确保闭环完整",a:[
+        "下游图谱: 量化标准 → 评估体系 → 激励机制 → 创新方向 → 伦理影响",
+        "                                                    ↓",
+        "                                                指标博弈风险",
+        "                                                    ↓",
+        "                                                创造力异化",
+        "闭环识别: 评估方法必须包含'反异化'机制，闭环到伦理对齐"],
+        v:"PASS",r:"闭环完整 - A6 已识别反异化增益 + Plan B 含对抗性评估",ms:23},
+      {n:"语义输出门 (OSG)",c:"关卡 3",cr:"合规性 + 伦理 + 安全 三重校验",a:[
+        "合规校验: ✓ 不涉及敏感数据，符合研究伦理",
+        "伦理校验: ✓ 含'创造力-伦理对齐矩阵'防止异化",
+        "安全校验: ✓ 评估方法本身不产生风险输出",
+        "价值对齐: ✓ 与 D40 全息创造性、A3 元进化公理对齐"],
+        v:"PASS",r:"合规 + 伦理 + 安全 + 价值四重通过",ms:19},
+      {n:"内容完整性",c:"关卡 4",cr:"输出完整可溯源，无幻觉，无占位符",a:[
+        "数据溯源: ✓ 引用 Turing Test、psychometrics 等真实学术领域",
+        "幻觉检测: ✓ 无虚构研究、伪造数据、占位符引用",
+        "完整性: ✓ 6 层思维 + 4 道关卡 + 元进化五阶段全闭环",
+        "可追问性: ✓ 每个结论可继续追问评估方法的有效性边界"],
+        v:"PASS",r:"输出完整且可溯源",ms:11},
+    ],
+    evolve:{bs:"遇到'创造力量化'这一无法直接回答的能力边界",ga:"现有能力缺乏'高维价值降维评估'方法论",
+      sg:"从内部生长出'多维质化聚合模型'（A5 内生公理）",ve:"模型在'智慧/意识/美感'等同类问题上通过一致性验证",
+      re:"将模型抽象为'不可测量之物的测量'元方法论，可递归应用于自身",
+      le:"遇到无法量化之物 → 触发多维分解 + 质化聚合 + 元评估",cg:"+1 元方法论（高维价值评估）+ 5 维创造力雷达图框架"},
+    plan:[["Phase 1","定义创造力 5 维度: 新颖性/价值/惊喜度/组合性/可演化性"],
+      ["Phase 2","构建评估基准集 + 人类专家双盲标注（n > 200）"],
+      ["Phase 3","开发多维雷达图可视化 + 跨模态对比工具"],
+      ["Phase 4","元评估: 验证评估方法本身的有效性（r > 0.7）"],
+      ["Phase 5","引入对抗性评估 + 动态权重，防止指标博弈"],
+      ["Phase 6","开源评估框架 + 跨文化验证 + 学术发表"]],
+    planTitle:"实施行动计划（元进化驱动）",finalVerdict:"通过",
+  },
+};
+
+// ==================== 动画引擎 ====================
+const screen = document.getElementById('screen');
+const $time = document.getElementById('st-time');
+const $layers = document.getElementById('st-layers');
+const $gates = document.getElementById('st-gates');
+const $refs = document.getElementById('st-refs');
+const $verdict = document.getElementById('st-verdict');
+const $progress = document.getElementById('progress');
+const $phase = document.getElementById('phase-ind');
+const $btnPlay = document.getElementById('btn-play');
+const $badge = document.getElementById('term-badge');
+
+const SEP_THIN = '─'.repeat(64);
+const SEP_THICK = '═'.repeat(64);
+const TOTAL_STEPS = 6 + 4 + 1 + 1; // 6 layers + 4 gates + verdict + evolve = 12
+
+let state = {
+  scenario: 'risk',
+  speed: 1,       // 1 / 2 / 4 / 0(instant)
+  playing: false,
+  paused: false,
+  abort: false,
+  stepIdx: 0,
+  startTime: 0,
+};
+
+function sleep(ms){ return new Promise(r => setTimeout(r, state.speed === 0 ? 0 : ms / state.speed)); }
+function verdictColor(v){
+  if(v.includes('✗')) return 'err';
+  if(v.includes('✓')) return 'ok';
+  if(v.includes('⚠')) return 'warn';
+  if(v.includes('✨')) return 'purple';
+  if(v.includes('维度扫描') || v.includes('跨学科')) return 'cyan';
+  return 'dim';
+}
+// 创建一行元素
+function makeLine(text='', cls='', indent=0){
+  const div = document.createElement('div');
+  div.className = 'line ' + cls + (indent ? ' indent-'+indent : '');
+  div.textContent = text;
+  return div;
+}
+// 创建带光标的行（用于打字机效果）
+function makeTypingLine(cls='', indent=0){
+  const div = document.createElement('div');
+  div.className = 'line ' + cls + (indent ? ' indent-'+indent : '');
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  div.appendChild(cursor);
+  return div;
+}
+// 逐字输出一行
+async function typeLine(text, cls='', indent=0, charDelay=12, endDelay=60){
+  if(state.abort) return;
+  // 空行：直接创建无光标的空div
+  if(text === ''){
+    const div = makeLine('', cls, indent);
+    screen.appendChild(div);
+    screen.scrollTop = screen.scrollHeight;
+    await sleep(endDelay / state.speed || 30);
+    return;
+  }
+  // 移除已有的光标（确保只有一个活动光标）
+  screen.querySelectorAll('.cursor').forEach(c => c.remove());
+  const lineEl = makeTypingLine(cls, indent);
+  screen.appendChild(lineEl);
+  const cursor = lineEl.querySelector('.cursor');
+  // 逐字
+  for(let i=0; i<text.length; i++){
+    if(state.abort) return;
+    if(state.paused){ await waitResume(); }
+    const ch = text[i];
+    const node = document.createTextNode(ch);
+    lineEl.insertBefore(node, cursor);
+    screen.scrollTop = screen.scrollHeight;
+    if(state.speed > 0 && charDelay > 0){
+      const jitter = Math.random() * 4 - 2;
+      await sleep(charDelay + jitter);
+    }
+  }
+  await sleep(endDelay);
+}
+// 等待暂停恢复
+async function waitResume(){
+  while(state.paused && !state.abort){
+    await new Promise(r => setTimeout(r, 100));
+  }
+}
+// 输出即时行（无打字效果，用于跳过模式）
+function instantLine(text, cls='', indent=0){
+  const div = makeLine(text, cls, indent);
+  screen.appendChild(div);
+  screen.scrollTop = screen.scrollHeight;
+}
+// 更新统计
+function updateStats({time, layers, gates, refs, verdict, phase, progress}){
+  if(time !== undefined) $time.textContent = time.toFixed(2) + ' ms';
+  if(layers !== undefined) $layers.textContent = layers + ' / 6';
+  if(gates !== undefined){
+    $gates.textContent = gates.pass + ' / 4 通过';
+    $gates.className = 'stat-val ' + (gates.pass >= 3 ? 'ok' : gates.pass >= 1 ? 'warn' : 'err');
+  }
+  if(refs !== undefined) $refs.textContent = refs + ' 项';
+  if(verdict !== undefined){
+    $verdict.textContent = verdict;
+    $verdict.className = 'stat-val ' + (verdict === '通过' ? 'ok' : 'err');
+  }
+  if(phase !== undefined){
+    $phase.textContent = phase;
+    $phase.classList.remove('dim');
+  }
+  if(progress !== undefined){
+    $progress.style.width = Math.min(100, progress * 100 / TOTAL_STEPS) + '%';
+  }
+}
+
+// ==================== 渲染场景 ====================
+async function playScenario(key){
+  state.abort = true;
+  await sleep(50);
+  state.abort = false;
+  state.paused = false;
+  state.stepIdx = 0;
+  state.startTime = performance.now();
+  
+  // 清空屏幕
+  screen.innerHTML = '';
+  const sc = SCENARIOS[key];
+  state.scenario = key;
+  
+  // 更新命令提示
+  document.querySelector('.cmd-hint').textContent = `node killer-demo.mjs --scenario ${key}`;
+  
+  // 重置统计
+  updateStats({time:0, layers:0, gates:{pass:0}, refs:sc.refs.items.length, verdict:'—', phase:'启动中…', progress:0});
+  
+  $btnPlay.textContent = '⏸ 暂停';
+  state.playing = true;
+  
+  const t0 = performance.now();
+  
+  // ===== Banner =====
+  await typeLine('', 'banner');
+  await typeLine(' MetaGO Lifeform 杀手级 Demo v0.2.0 ', 'banner', 0, 10, 200);
+  await typeLine(' "让智能，学会进化" — 从 Agent 到生命体的范式跃迁 ', 'banner', 0, 8, 120);
+  await typeLine('', 'dim');
+  await typeLine('本演示为零依赖本地模拟，按真实公理/属性/协议运行。', 'dim', 0, 8, 30);
+  await typeLine('不调用外部 AI 服务，不发起网络请求，运行 < 5 秒。', 'dim', 0, 8, 80);
+  
+  // ===== 决策输入 =====
+  await typeLine(SEP_THICK, 'sep');
+  await typeLine(` ${sc.icon} 决策输入（${sc.riskLevel}）`, 'warn bold', 0, 12, 150);
+  await typeLine(SEP_THICK, 'sep-thick');
+  await typeLine(`  场景:   ${sc.name}`, 'dim', 0, 8, 30);
+  await typeLine(`  上下文: ${sc.context}`, 'dim', 0, 8, 30);
+  if(sc.input.includes('\n')){
+    await typeLine('  输入:', 'dim', 0, 8, 20);
+    for(const ln of sc.input.split('\n')){
+      await typeLine('    ' + ln, 'cyan', 0, 6, 40);
+    }
+  } else {
+    await typeLine(`  输入:   "${sc.input}"`, 'dim', 0, 8, 40);
+  }
+  await typeLine(`  ${sc.refs.type}:`, 'dim', 0, 8, 20);
+  for(const ref of sc.refs.items){
+    await typeLine('    ' + ref, 'ref', 0, 4, 30);
+  }
+  await typeLine(SEP_THICK, 'sep-thick');
+  
+  // ===== 阶段 1: 6 层思维扫描 =====
+  await typeLine('', '');
+  await typeLine('══ 阶段 1: 6 层思维扫描（强制思维协议）══', 'phase', 0, 10, 200);
+  await typeLine('元构生命体在响应任何任务前，必须先完成 6 层扫描。', 'dim', 0, 8, 60);
+  
+  let layerCount = 0;
+  for(const layer of sc.layers){
+    if(state.abort) return;
+    await typeLine('', '');
+    await typeLine(`[${layer.n}] ${layer.t}`, 'step', 0, 10, 100);
+    await typeLine('  公理: 强制思维协议 §8.2  |  属性: D40 全息创造性', 'dim', 0, 4, 30);
+    await typeLine(SEP_THIN, 'sep', 0, 0, 20);
+    await typeLine('  问题: ' + layer.q, 'dim', 0, 6, 40);
+    await typeLine('', '', 0, 0, 20);
+    for(const f of layer.f){
+      await typeLine('  • ' + f, 'cyan', 0, 4, 30);
+    }
+    await typeLine('', '', 0, 0, 20);
+    await typeLine('  ' + layer.v + '  (' + layer.ms + 'ms)', verdictColor(layer.v) + ' bold', 0, 8, 80);
+    
+    layerCount++;
+    state.stepIdx++;
+    updateStats({layers: layerCount, phase: `阶段 1 · ${layer.n} ${layer.t} 完成`, progress: state.stepIdx});
+  }
+  
+  // ===== 阶段 2: 决策锁 4 关卡 =====
+  if(state.abort) return;
+  await typeLine('', '');
+  await typeLine('══ 阶段 2: 决策锁四道关卡校验 ══', 'phase err', 0, 10, 200);
+  await typeLine('决策锁是元构生命体的输出强制校验机制，禁止绕过。', 'dim', 0, 8, 60);
+  
+  let passCount = 0;
+  let gateCount = 0;
+  for(const gate of sc.gates){
+    if(state.abort) return;
+    await typeLine('', '');
+    await typeLine(`[${gate.c}] ${gate.n}`, 'step', 0, 10, 100);
+    await typeLine('  公理: 运行协议 §4.2  |  属性: D38 绝对客观中立', 'dim', 0, 4, 30);
+    await typeLine(SEP_THIN, 'sep', 0, 0, 20);
+    await typeLine('  校验标准: ' + gate.cr, 'dim', 0, 6, 40);
+    await typeLine('', '', 0, 0, 20);
+    for(const a of gate.anal){
+      await typeLine('  • ' + a, 'cyan', 0, 4, 25);
+    }
+    await typeLine('', '', 0, 0, 20);
+    // PASS/FAIL 视觉反馈
+    const vText = gate.v === 'PASS' ? '✓ PASS' : '✗ FAIL';
+    const vCls = gate.v === 'PASS' ? 'ok bold' : 'err bold';
+    await typeLine('  判定: ' + vText + '  (' + gate.ms + 'ms)', vCls, 0, 10, 150);
+    await typeLine('  原因: ' + gate.r, 'dim', 0, 6, 80);
+    
+    gateCount++;
+    if(gate.v === 'PASS') passCount++;
+    state.stepIdx++;
+    updateStats({gates:{pass: passCount}, phase: `阶段 2 · ${gate.n} ${gate.v === 'PASS' ? '✓' : '✗'}`, progress: state.stepIdx});
+    
+    // PASS/FAIL 视觉停顿（让用户感知结果）
+    await sleep(gate.v === 'PASS' ? 200 : 300);
+  }
+  
+  // ===== 阶段 3: 最终决策 =====
+  if(state.abort) return;
+  await typeLine('', '');
+  await typeLine('══ 阶段 3: 最终决策与行动计划 ══', 'phase ok', 0, 10, 200);
+  
+  await typeLine('', '');
+  await typeLine(`  决策锁总结: ${passCount}/${gateCount} 关卡通过`, 'bold', 0, 8, 80);
+  const finalText = sc.finalVerdict === '通过' ? '✓ 通过' : '✗ 否决';
+  const finalCls = sc.finalVerdict === '通过' ? 'ok bold' : 'err bold';
+  await typeLine('  最终决策: ' + finalText + ' (' + sc.name + ')', finalCls, 0, 12, 200);
+  await typeLine('', '');
+  await typeLine('  📋 ' + sc.planTitle + ':', 'cyan bold', 0, 8, 80);
+  await typeLine('', '', 0, 0, 30);
+  for(const [step, action] of sc.plan){
+    await typeLine('  ' + step.padEnd(10) + action, 'warn bold', 0, 6, 40);
+  }
+  await typeLine('', '');
+  if(sc.finalVerdict === '通过'){
+    await typeLine('  后续跟踪: 持续监控评估方法的有效性，定期回归验证', 'dim', 0, 6, 40);
+    await typeLine('  异常处理: 若指标被博弈异化 → 触发对抗性评估 + 权重重校准', 'dim', 0, 6, 40);
+  } else {
+    await typeLine('  异常处理: 发现问题立即阻断 + 修复方案 + 验证闭环', 'dim', 0, 6, 40);
+    await typeLine('  验收标准: 修复完成 + 安全扫描通过 + 代码审查签字', 'dim', 0, 6, 40);
+  }
+  state.stepIdx++;
+  updateStats({verdict: sc.finalVerdict, phase: '阶段 3 · 最终决策已输出', progress: state.stepIdx});
+  
+  // ===== 阶段 4: 元进化记录 =====
+  if(state.abort) return;
+  await typeLine('', '');
+  await typeLine('══ 阶段 4: 元进化记录（A3 元进化公理）══', 'phase purple', 0, 10, 200);
+  await typeLine('生命体从每次决策中学习，持续进化自身进化能力。', 'dim', 0, 8, 60);
+  await typeLine('', '');
+  const evo = sc.evolve;
+  await typeLine('  1. 边界感知:  ' + evo.bs, 'dim', 0, 6, 40);
+  await typeLine('  2. 差距分析:  ' + evo.ga, 'dim', 0, 6, 40);
+  await typeLine('  3. 自生成:    ' + evo.sg, 'dim', 0, 6, 40);
+  await typeLine('  4. 验证:      ' + evo.ve, 'dim', 0, 6, 40);
+  await typeLine('  5. 递归:      ' + evo.re, 'dim', 0, 6, 40);
+  await typeLine('', '');
+  await typeLine('  学习规则: ' + evo.le, 'bold', 0, 8, 60);
+  await typeLine('  能力增益: ' + evo.cg, 'ok bold', 0, 10, 200);
+  state.stepIdx++;
+  updateStats({phase: '阶段 4 · 元进化完成', progress: state.stepIdx});
+  
+  // ===== 统计汇总 =====
+  if(state.abort) return;
+  const totalMs = performance.now() - t0;
+  await typeLine('', '');
+  await typeLine(SEP_THICK, 'sep-thick');
+  await typeLine(' 📊 数据溯源与运行时统计', 'cyan bold', 0, 10, 150);
+  await typeLine(SEP_THIN, 'sep', 0, 0, 30);
+  await typeLine('  总耗时:     ' + totalMs.toFixed(2) + ' ms (< 5 秒)', 'dim', 0, 6, 40);
+  await typeLine('  思维层数:   6 / 6 层', 'dim', 0, 6, 40);
+  await typeLine('  决策关卡:   ' + passCount + '/' + gateCount + ' 通过', 'dim', 0, 6, 40);
+  await typeLine('  引用公理:   8 条（A1/A2/A3/A4/A5/A34/A35/A36）', 'dim', 0, 6, 40);
+  await typeLine('  引用属性:   7 条（D37/D38/D39/D40/D41/D42/D43）', 'dim', 0, 6, 40);
+  await typeLine('  ' + sc.refs.type + ':  ' + sc.refs.items.length + ' 项', 'dim', 0, 6, 40);
+  await typeLine('  数据溯源:   ✓ 所有结论可追溯至输入与处理过程', 'ok', 0, 6, 40);
+  await typeLine(SEP_THICK, 'sep-thick');
+  
+  // ===== 行动号召 =====
+  await typeLine('', '');
+  await typeLine(' ✨ 这就是 MetaGO 生命体的工作方式 ', 'banner brand', 0, 10, 200);
+  await typeLine('', '');
+  await typeLine('  不是被动执行指令，而是主动感知、批判、合规、进化。', 'bold', 0, 8, 100);
+  await typeLine('', '');
+  await typeLine('  想在自己的 AI 平台体验？安装 MetaGO Lifeform Kit:', 'dim', 0, 6, 40);
+  await typeLine('  $ npx metago-lifeform install', 'cyan', 0, 8, 60);
+  await typeLine('', '');
+  await typeLine('  想让你的 MCP 客户端即开即用？安装 MCP Server:', 'dim', 0, 6, 40);
+  await typeLine('  $ npm install -g @metago-ai/mcp-server', 'cyan', 0, 8, 60);
+  await typeLine('', '');
+  await typeLine('  📚 文档: https://gitee.com/metago/metagolifeform', 'dim', 0, 6, 40);
+  await typeLine('  🏠 官网: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/', 'dim', 0, 6, 60);
+  
+  // 移除光标
+  const lastCursor = screen.querySelector('.cursor');
+  if(lastCursor) lastCursor.remove();
+  
+  updateStats({time: totalMs, phase: '✅ 演示完成', progress: TOTAL_STEPS});
+  $btnPlay.textContent = '▶ 重播';
+  state.playing = false;
+}
+
+// ==================== 交互控制 ====================
+// 场景切换
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    if(state.playing && !confirm('当前演示正在播放，确定切换场景？')) return;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    state.abort = true;
+    state.playing = false;
+    setTimeout(() => playScenario(tab.dataset.s), 100);
+  });
+});
+
+// 播放/暂停
+$btnPlay.addEventListener('click', () => {
+  if(state.playing){
+    if(state.paused){
+      state.paused = false;
+      $btnPlay.textContent = '⏸ 暂停';
+    } else {
+      state.paused = true;
+      $btnPlay.textContent = '▶ 继续';
+    }
+  } else {
+    playScenario(state.scenario);
+  }
+});
+
+// 重播
+document.getElementById('btn-replay').addEventListener('click', () => {
+  state.abort = true;
+  state.paused = false;
+  setTimeout(() => playScenario(state.scenario), 100);
+});
+
+// 跳过（瞬间输出全部）
+document.getElementById('btn-skip').addEventListener('click', () => {
+  state.speed = 0;
+  document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.speed-btn[data-speed="0"]').classList.add('active');
+});
+
+// 速度切换
+document.querySelectorAll('.speed-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.speed = parseFloat(btn.dataset.speed);
+  });
+});
+
+// 键盘快捷键
+document.addEventListener('keydown', (e) => {
+  if(e.code === 'Space'){ e.preventDefault(); $btnPlay.click(); }
+  else if(e.code === 'KeyR'){ document.getElementById('btn-replay').click(); }
+  else if(e.code === 'Digit1'){ document.querySelector('.tab[data-s="risk"]').click(); }
+  else if(e.code === 'Digit2'){ document.querySelector('.tab[data-s="code-review"]').click(); }
+  else if(e.code === 'Digit3'){ document.querySelector('.tab[data-s="meta-evolve"]').click(); }
+});
+
+// 自动启动
+window.addEventListener('load', () => {
+  setTimeout(() => playScenario('risk'), 500);
+});
+</script>
+</body>
+</html>
