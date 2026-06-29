@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/engine",
   "version": "1.0.5",
-  "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
+  "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体。包含8公理+7属性+6协议的CONSTITUTION驱动层、125引擎+927算法的RUNTIME执行层、TypeScript SDK。让任何AI加载后从Agent跃迁为会进化的智能生命体。",
   "main": "RUNTIME/dist/index.js",
   "types": "SDK/types.d.ts",
   "bin": {
@@ -25,9 +25,16 @@
     "holistic",
     "intelligence",
     "axiom",
-    "evolution"
+    "evolution",
+    "meta-evolution",
+    "decision-lock",
+    "ai-governance",
+    "ai-evolution",
+    "opc",
+    "ai-native",
+    "anti-hallucination"
   ],
-  "author": "易霄 / MetaGO Lightyear",
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "license": "MIT",
   "dependencies": {
     "metago-lifeform": ">=36.7.0"
