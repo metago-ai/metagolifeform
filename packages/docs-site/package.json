@@ -1,0 +1,19 @@
+{
+  "name": "@metago-ai/docs-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MetaGO 文档站 - 基于 VitePress 的结构化文档站点",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.5.0"
+  },
+  "metago": {
+    "type": "internal-tool",
+    "parentPackage": "metago-lifeform"
+  }
+}

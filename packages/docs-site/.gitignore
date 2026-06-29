@@ -1,0 +1,6 @@
+# VitePress 构建产物
+.vitepress/dist/
+.vitepress/cache/
+
+# 临时文件
+*.log
