@@ -12,7 +12,7 @@ import { createServer } from "node:http";
 import { readFileSync, existsSync, statSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve, extname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -217,7 +217,7 @@ const server = createServer((req, res) => {
 });
 
 // 仅在直接执行时启动服务器（避免单元测试 import 时触发 listen）
-const isMain = import.meta.url === `file://${process.argv[1]?.replace(/\\/g, "/")}`;
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMain) {
   server.listen(PORT, () => {
     console.log("");
