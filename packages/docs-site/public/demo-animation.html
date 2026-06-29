@@ -659,7 +659,7 @@ async function playScenario(key){
     await typeLine(SEP_THIN, 'sep', 0, 0, 20);
     await typeLine('  校验标准: ' + gate.cr, 'dim', 0, 6, 40);
     await typeLine('', '', 0, 0, 20);
-    for(const a of gate.anal){
+    for(const a of gate.a){
       await typeLine('  • ' + a, 'cyan', 0, 4, 25);
     }
     await typeLine('', '', 0, 0, 20);
