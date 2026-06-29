@@ -12,7 +12,8 @@
     "verify": "powershell -ExecutionPolicy Bypass -File scripts/verify.ps1",
     "list:skills": "powershell -Command \"Get-ChildItem skills -Directory | Select-Object Name\"",
     "build:mcp": "cd packages/mcp-server && npm run build",
-    "start:mcp": "cd packages/mcp-server && npm start"
+    "start:mcp": "cd packages/mcp-server && npm start",
+    "demo": "node packages/demo/killer-demo.mjs"
   },
   "workspaces": [
     "packages/*"

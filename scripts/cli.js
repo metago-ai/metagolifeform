@@ -17,7 +17,8 @@ const fs = require('fs');
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SCRIPTS_DIR = path.join(PKG_ROOT, 'scripts');
 const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode'];
-const VERSION = '36.5.1';
+// 从 package.json 动态读取版本号，避免硬编码不同步（与 logger.ts 同模式）
+const VERSION = require('../package.json').version;
 
 function parseArgs(argv) {
   const args = argv.slice(2);
