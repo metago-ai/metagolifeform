@@ -1,0 +1,141 @@
+name: Publish to NPM
+
+# 触发条件：打 tag 时自动发布
+# tag 命名规范：
+#   - metago-lifeform-v36.7.8  → 发布根包 metago-lifeform
+#   - mcp-server-v1.1.5        → 发布 @metago-ai/mcp-server
+#   - engine-v1.0.4             → 发布 @metago-ai/engine
+#   - dev-kit-v1.0.7            → 发布 @metago-ai/dev-kit
+on:
+  push:
+    tags:
+      - "metago-lifeform-v*"
+      - "mcp-server-v*"
+      - "engine-v*"
+      - "dev-kit-v*"
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 要发布的包（mcp-server / engine / dev-kit / metago-lifeform）
+        required: true
+        type: choice
+        options:
+          - mcp-server
+          - engine
+          - dev-kit
+          - metago-lifeform
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ==================== 解析 tag → 包名 ====================
+  resolve:
+    name: Resolve Package
+    runs-on: ubuntu-latest
+    outputs:
+      package: ${{ steps.parse.outputs.package }}
+      version: ${{ steps.parse.outputs.version }}
+      directory: ${{ steps.parse.outputs.directory }}
+      npm_name: ${{ steps.parse.outputs.npm_name }}
+
+    steps:
+      - name: Parse tag
+        id: parse
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PKG="${{ github.event.inputs.package }}"
+            echo "package=$PKG" >> $GITHUB_OUTPUT
+            echo "version=manual" >> $GITHUB_OUTPUT
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+            echo "Tag: $TAG"
+            # 解析包名
+            if [[ "$TAG" == metago-lifeform-v* ]]; then
+              PKG="metago-lifeform"
+              DIR="."
+              NPM_NAME="metago-lifeform"
+            elif [[ "$TAG" == mcp-server-v* ]]; then
+              PKG="mcp-server"
+              DIR="packages/mcp-server"
+              NPM_NAME="@metago-ai/mcp-server"
+            elif [[ "$TAG" == engine-v* ]]; then
+              PKG="engine"
+              DIR="packages/engine"
+              NPM_NAME="@metago-ai/engine"
+            elif [[ "$TAG" == dev-kit-v* ]]; then
+              PKG="dev-kit"
+              DIR="packages/dev-kit"
+              NPM_NAME="@metago-ai/dev-kit"
+            else
+              echo "Unknown tag pattern: $TAG"
+              exit 1
+            fi
+            VERSION="${TAG#*-v}"
+            echo "package=$PKG" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "directory=$DIR" >> $GITHUB_OUTPUT
+            echo "npm_name=$NPM_NAME" >> $GITHUB_OUTPUT
+          fi
+
+  # ==================== 测试 + 构建 + 发布 ====================
+  publish:
+    name: Publish ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }}
+    needs: resolve
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then npm install; fi
+        working-directory: ${{ needs.resolve.outputs.directory }}
+
+      - name: Build
+        run: |
+          if npm run | grep -q "^  build$"; then
+            npm run build
+          else
+            echo "No build script, skipping"
+          fi
+        working-directory: ${{ needs.resolve.outputs.directory }}
+
+      - name: Run tests (if any)
+        run: |
+          if npm run | grep -q "^  test$"; then
+            npm test
+          else
+            echo "No test script, skipping"
+          fi
+        working-directory: ${{ needs.resolve.outputs.directory }}
+        env:
+          CI: true
+
+      - name: Verify tarball (dry-run)
+        run: npm pack --dry-run --json
+        working-directory: ${{ needs.resolve.outputs.directory }}
+
+      - name: Publish to NPM
+        run: npm publish --provenance --access public
+        working-directory: ${{ needs.resolve.outputs.directory }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "✅ Published ${{ needs.resolve.outputs.npm_name }}@${{ needs.resolve.outputs.version }}"
+          echo "📦 Tag: ${GITHUB_REF#refs/tags/}"
+          echo "🌐 https://www.npmjs.com/package/${{ needs.resolve.outputs.npm_name }}"

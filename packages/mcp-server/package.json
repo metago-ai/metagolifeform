@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.1.4",
-  "description": "MetaGO MCP Server - 将元构超级智能生命体的42项能力（22技能+20思维工具）封装为MCP工具，任何MCP客户端即开即用",
+  "version": "1.1.5",
+  "description": "MetaGO MCP Server - 将元构超级智能生命体的35项能力（22技能+15独有思维工具，7同名合并）封装为MCP工具，任何MCP客户端即开即用",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
@@ -10,12 +10,23 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [
-    "mcp", "model-context-protocol", "metago", "ai-agent",
-    "meta-evolution", "decision-lock", "critical-analysis",
-    "ai-governance", "lifeform", "claude", "cursor", "trae"
+    "mcp",
+    "model-context-protocol",
+    "metago",
+    "ai-agent",
+    "meta-evolution",
+    "decision-lock",
+    "critical-analysis",
+    "ai-governance",
+    "lifeform",
+    "claude",
+    "cursor",
+    "trae"
   ],
   "author": "易霄 / MetaGO Lightyear",
   "license": "MIT",
@@ -24,9 +35,10 @@
     "zod": "^3.23.0"
   },
   "devDependencies": {
-    "typescript": "^5.5.0",
     "@types/node": "^22.0.0",
-    "tsx": "^4.0.0"
+    "tsx": "^4.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^4.1.9"
   },
   "engines": {
     "node": ">=18.0.0"

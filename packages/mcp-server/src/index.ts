@@ -9,11 +9,12 @@ import { z } from "zod";
 import { SKILLS } from "./skills-data.js";
 import { PROMPTS, type PromptMessage } from "./prompts.js";
 import { TOOLKIT_TOOLS } from "./toolkit-data.js";
+import { logLifecycle, logCall } from "./logger.js";
 
 // 创建 MetaGO MCP Server 实例
 const server = new McpServer({
   name: "@metago-ai/mcp-server",
-  version: "1.1.4",
+  version: "1.1.5",
 });
 
 /**
@@ -64,14 +65,27 @@ for (const tool of TOOLKIT_TOOLS) {
     tool.description,
     shape,
     async (args) => {
-      const argsStr = Object.entries(args)
-        .filter(([, v]) => v !== undefined)
-        .map(([k, v]) => `## ${k}\n${typeof v === "object" ? JSON.stringify(v, null, 2) : v}`)
-        .join("\n\n");
-      const text = `${tool.guide}\n\n## 用户输入\n${argsStr}`;
-      return {
-        content: [{ type: "text" as const, text }],
-      };
+      const startTime = Date.now();
+      try {
+        const argsStr = Object.entries(args)
+          .filter(([, v]) => v !== undefined)
+          .map(([k, v]) => `## ${k}\n${typeof v === "object" ? JSON.stringify(v, null, 2) : v}`)
+          .join("\n\n");
+        const text = `${tool.guide}\n\n## 用户输入\n${argsStr}`;
+        logCall(tool.toolName, args as Record<string, unknown>, "ok", Date.now() - startTime);
+        return {
+          content: [{ type: "text" as const, text }],
+        };
+      } catch (err) {
+        logCall(
+          tool.toolName,
+          args as Record<string, unknown>,
+          "error",
+          Date.now() - startTime,
+          err instanceof Error ? err.message : String(err),
+        );
+        throw err;
+      }
     },
   );
 }
@@ -90,10 +104,23 @@ for (const skill of SKILLS) {
       input: z.string().describe("待处理的内容/问题/代码"),
     },
     async (args) => {
-      const text = `${skill.guide}\n\n## 用户输入\n${args.input}`;
-      return {
-        content: [{ type: "text" as const, text }],
-      };
+      const startTime = Date.now();
+      try {
+        const text = `${skill.guide}\n\n## 用户输入\n${args.input}`;
+        logCall(skill.toolName, args as Record<string, unknown>, "ok", Date.now() - startTime);
+        return {
+          content: [{ type: "text" as const, text }],
+        };
+      } catch (err) {
+        logCall(
+          skill.toolName,
+          args as Record<string, unknown>,
+          "error",
+          Date.now() - startTime,
+          err instanceof Error ? err.message : String(err),
+        );
+        throw err;
+      }
     },
   );
 }
@@ -123,21 +150,36 @@ for (const prompt of PROMPTS) {
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("[@metago-ai/mcp-server] 服务已启动，等待客户端连接...");
+  logLifecycle("startup");
 }
 
 main().catch((err: unknown) => {
-  console.error("[@metago-ai/mcp-server] 致命错误:", err);
+  logLifecycle("crash", {
+    error: err instanceof Error ? err.message : String(err),
+  });
   process.exit(1);
 });
 
 // 处理进程信号，确保优雅退出
 process.on("SIGINT", () => {
-  console.error("[@metago-ai/mcp-server] 收到 SIGINT，正在退出...");
+  logLifecycle("shutdown");
   process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-  console.error("[@metago-ai/mcp-server] 收到 SIGTERM，正在退出...");
+  logLifecycle("shutdown");
   process.exit(0);
+});
+
+// 捕获未处理的异常（避免静默崩溃）
+process.on("uncaughtException", (err: Error) => {
+  logLifecycle("crash", { error: `uncaughtException: ${err.message}` });
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (reason: unknown) => {
+  logLifecycle("crash", {
+    error: `unhandledRejection: ${reason instanceof Error ? reason.message : String(reason)}`,
+  });
+  process.exit(1);
 });

@@ -176,10 +176,23 @@ export class AxiomValidator {
 
   /**
    * D38 绝对客观中立：检查输出是否迎合用户
+   *
+   * 修复记录（v1.0.4）：原版 pleasingPhrases 仅做精确子串匹配，
+   * "您说得完全对" 因中间插入"完全"绕过检测。改用正则匹配讨好性话术模式。
    */
   static checkObjectivity(output: string): ValidationResult {
-    const pleasingPhrases = ['您说得对', '完全同意', '好的好的', '您太厉害了', 'you are absolutely right'];
-    const hasPleasing = pleasingPhrases.some(p => output.toLowerCase().includes(p.toLowerCase()));
+    const pleasingPhrases = ['完全同意', '好的好的', '您太厉害了', '您太棒了', '您真厉害',
+                            'you are absolutely right', "you're absolutely right", 'absolutely correct'];
+    const pleasingPatterns = [
+      /您说得[^\s]{0,5}对/,    // 匹配"您说得对"、"您说得完全对"、"您说得非常对"等
+      /您[^\s]{0,3}说得[^\s]{0,5}对/,
+      /完全[赞同认可]/,
+      /毫无[问题保留意见]/,
+    ];
+    const lowerOutput = output.toLowerCase();
+    const hasPleasingPhrase = pleasingPhrases.some(p => lowerOutput.includes(p.toLowerCase()));
+    const hasPleasingPattern = pleasingPatterns.some(p => p.test(output));
+    const hasPleasing = hasPleasingPhrase || hasPleasingPattern;
 
     return {
       axiomId: 'D38',

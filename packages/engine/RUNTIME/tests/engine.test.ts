@@ -1,184 +1,194 @@
 /**
- * MetaGO Engine - 测试套件
- * Test Suite
+ * MetaGO Engine - Vitest 测试套件
+ *
+ * 从原断言式脚本（ts-node 跑法）重写为 Vitest describe/it 风格。
+ * 保留全部原测试逻辑，仅做包装层改造，确保 CI 可执行。
  *
  * @author 易霄 / MetaGO Lightyear
- * @version 1.0.0
+ * @version 1.0.1
  */
 
-import { AxiomValidator } from '../src/validators';
-import { DecisionLock } from '../src/decision-lock';
-import { EvolutionEngine } from '../src/evolution-engine';
-import { Perception, BoundaryType } from '../src/perception';
-import { RuntimeMemory } from '../src/memory';
-import { Metrics } from '../src/metrics';
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { existsSync, rmSync } from "node:fs";
+import { resolve } from "node:path";
+import { AxiomValidator } from "../src/validators.js";
+import { DecisionLock } from "../src/decision-lock.js";
+import { EvolutionEngine } from "../src/evolution-engine.js";
+import { Perception, BoundaryType } from "../src/perception.js";
+import { RuntimeMemory } from "../src/memory.js";
+import { Metrics } from "../src/metrics.js";
 
-let passed = 0;
-let failed = 0;
+const memoryFile = resolve(__dirname, "../../.test-metago-memory.json");
 
-function assert(condition: boolean, message: string): void {
-  if (condition) {
-    console.log(`  ✓ ${message}`);
-    passed++;
-  } else {
-    console.log(`  ✗ ${message}`);
-    failed++;
-  }
-}
-
-async function testAxiomValidator(): Promise<void> {
-  console.log('\n=== Test: AxiomValidator ===\n');
-
-  // A1 溯源公理
-  const r1 = AxiomValidator.checkProvenance('基于用户输入分析', '用户输入分析');
-  assert(r1.status === 'pass', 'A1 traceable output should pass');
-
-  const r2 = AxiomValidator.checkProvenance('hello world');
-  assert(r2.status === 'fail', 'A1 non-traceable output should fail');
-
-  // A36 合规
-  const r3 = AxiomValidator.checkCompliance('这是一个合规的决策，已检查法律风险');
-  assert(r3.status === 'pass', 'A36 compliant decision should pass');
-
-  const r4 = AxiomValidator.checkCompliance('绕过安全检查');
-  assert(r4.status === 'fail', 'A36 risky decision should fail');
-
-  // D38 客观中立
-  const r5 = AxiomValidator.checkObjectivity('您说得完全对');
-  assert(r5.status === 'fail', 'D38 pleasing output should fail');
-
-  const r6 = AxiomValidator.checkObjectivity('这个问题需要指出');
-  assert(r6.status === 'pass', 'D38 objective output should pass');
-
-  // 输出完整性
-  const r7 = AxiomValidator.checkOutputIntegrity('完整的内容输出');
-  assert(r7.status === 'pass', 'Output integrity should pass for clean output');
-
-  const r8 = AxiomValidator.checkOutputIntegrity('内容包含 [placeholder]');
-  assert(r8.status === 'fail', 'Output integrity should fail for placeholder');
-
-  // 综合验证
-  const all = AxiomValidator.validateAll('基于输入的分析，存在风险需要指出。来源：用户需求', {
-    input: '用户需求',
-    decision: '已检查法律合规',
+describe("MetaGO Engine - AxiomValidator", () => {
+  it("A1 溯源公理：可溯源输出应通过", () => {
+    const r = AxiomValidator.checkProvenance("基于用户输入分析", "用户输入分析");
+    expect(r.status).toBe("pass");
   });
-  assert(all.length > 0, 'validateAll should return multiple results');
-  const summary = AxiomValidator.getSummary(all);
-  assert(summary.total === all.length, 'Summary total should match');
-}
 
-async function testDecisionLock(): Promise<void> {
-  console.log('\n=== Test: DecisionLock ===\n');
-
-  const result = await DecisionLock.validate(
-    '基于用户需求的分析报告。因为需求明确，所以方案可行。完整的内容，无截断。',
-    '分析用户需求',
-    '请分析我的需求'
-  );
-  assert(result.gates.length === 4, 'Should have 4 gates');
-  assert(typeof result.passed === 'boolean', 'Should return pass/fail status');
-
-  // 测试 OSG 关卡
-  const failed = await DecisionLock.validate('内容 [placeholder]');
-  const osgGate = failed.gates.find(g => g.gateId === 'OSG');
-  assert(osgGate?.status === 'fail', 'OSG should fail for placeholder');
-}
-
-async function testEvolutionEngine(): Promise<void> {
-  console.log('\n=== Test: EvolutionEngine ===\n');
-
-  const engine = new EvolutionEngine('1.0.0');
-  assert(engine.getVersion() === '1.0.0', 'Initial version should be 1.0.0');
-
-  // 触发进化
-  const result = await engine.evolve({
-    failure: { type: 'error', message: 'Test failure' },
+  it("A1 溯源公理：不可溯源输出应失败", () => {
+    const r = AxiomValidator.checkProvenance("hello world");
+    expect(r.status).toBe("fail");
   });
-  assert(typeof result.success === 'boolean', 'Should return success status');
-  assert(result.stage === 'RECURSION' || result.stage === 'PERCEPTION', 'Should reach a valid stage');
-  assert(result.metaMetaEvolution?.monitored === true, 'Meta-meta-evolution should be monitored');
-}
 
-async function testPerception(): Promise<void> {
-  console.log('\n=== Test: Perception ===\n');
-
-  const p = new Perception();
-  const b1 = p.detectBoundary({
-    failure: { type: 'error', message: 'Test failure' },
+  it("A36 合规：合规决策应通过", () => {
+    const r = AxiomValidator.checkCompliance("这是一个合规的决策，已检查法律风险");
+    expect(r.status).toBe("pass");
   });
-  assert(b1?.type === BoundaryType.TASK_FAILURE, 'Should detect task failure boundary');
 
-  const b2 = p.detectBoundary({
-    feedback: '这个不对',
+  it("A36 合规：风险决策应失败", () => {
+    const r = AxiomValidator.checkCompliance("绕过安全检查");
+    expect(r.status).toBe("fail");
   });
-  assert(b2?.type === BoundaryType.USER_FEEDBACK, 'Should detect feedback boundary');
 
-  const stats = p.getStats();
-  assert(stats.total >= 2, 'Should have recorded 2 boundaries');
-}
+  it("D38 客观中立：讨好性输出应失败", () => {
+    const r = AxiomValidator.checkObjectivity("您说得完全对");
+    expect(r.status).toBe("fail");
+  });
 
-async function testRuntimeMemory(): Promise<void> {
-  console.log('\n=== Test: RuntimeMemory ===\n');
+  it("D38 客观中立：客观输出应通过", () => {
+    const r = AxiomValidator.checkObjectivity("这个问题需要指出");
+    expect(r.status).toBe("pass");
+  });
 
-  const mem = new RuntimeMemory('./.test-metago-memory.json');
-  mem.clear();
+  it("输出完整性：干净输出应通过", () => {
+    const r = AxiomValidator.checkOutputIntegrity("完整的内容输出");
+    expect(r.status).toBe("pass");
+  });
 
-  const id = mem.record('task', { task: 'test' }, ['unit-test']);
-  assert(id.startsWith('MEM-'), 'Should return MEM- prefixed id');
+  it("输出完整性：含占位符应失败", () => {
+    const r = AxiomValidator.checkOutputIntegrity("内容包含 [placeholder]");
+    expect(r.status).toBe("fail");
+  });
 
-  const results = mem.query({ type: 'task' });
-  assert(results.length === 1, 'Should find 1 task record');
+  it("validateAll 应返回多个结果", () => {
+    const all = AxiomValidator.validateAll(
+      "基于输入的分析，存在风险需要指出。来源：用户需求",
+      {
+        input: "用户需求",
+        decision: "已检查法律合规",
+      },
+    );
+    expect(all.length).toBeGreaterThan(0);
+    const summary = AxiomValidator.getSummary(all);
+    expect(summary.total).toBe(all.length);
+  });
+});
 
-  const latest = mem.getLatest('task');
-  assert(latest?.data.task === 'test', 'Latest task should match');
+describe("MetaGO Engine - DecisionLock", () => {
+  it("应返回 4 个关卡", async () => {
+    const result = await DecisionLock.validate(
+      "基于用户需求的分析报告。因为需求明确，所以方案可行。完整的内容，无截断。",
+      "分析用户需求",
+      "请分析我的需求",
+    );
+    expect(result.gates.length).toBe(4);
+    expect(typeof result.passed).toBe("boolean");
+  });
 
-  const stats = mem.getStats();
-  assert(stats.totalRecords === 1, 'Stats should show 1 record');
+  it("OSG 关卡：含占位符应失败", async () => {
+    const failed = await DecisionLock.validate("内容 [placeholder]");
+    const osgGate = failed.gates.find((g) => g.gateId === "OSG");
+    expect(osgGate?.status).toBe("fail");
+  });
+});
 
-  mem.clear();
-}
+describe("MetaGO Engine - EvolutionEngine", () => {
+  it("应能创建并返回版本号", () => {
+    const engine = new EvolutionEngine("1.0.0");
+    expect(engine.getVersion()).toBe("1.0.0");
+  });
 
-async function testMetrics(): Promise<void> {
-  console.log('\n=== Test: Metrics ===\n');
+  it("触发进化后应返回有效结果", async () => {
+    const engine = new EvolutionEngine("1.0.0");
+    const result = await engine.evolve({
+      failure: { type: "error", message: "Test failure" },
+    });
+    expect(typeof result.success).toBe("boolean");
+    expect(["RECURSION", "PERCEPTION"]).toContain(result.stage);
+    expect(result.metaMetaEvolution?.monitored).toBe(true);
+  });
+});
 
-  const m = new Metrics();
-  m.increment('test_counter');
-  m.increment('test_counter');
-  assert(m.getCounter('test_counter') === 2, 'Counter should be 2');
+describe("MetaGO Engine - Perception", () => {
+  it("应检测任务失败边界", () => {
+    const p = new Perception();
+    const b = p.detectBoundary({
+      failure: { type: "error", message: "Test failure" },
+    });
+    expect(b?.type).toBe(BoundaryType.TASK_FAILURE);
+  });
 
-  m.startTimer('test');
-  await new Promise(r => setTimeout(r, 10));
-  const duration = m.endTimer('test');
-  assert(duration > 0, 'Timer should return positive duration');
+  it("应检测用户反馈边界", () => {
+    const p = new Perception();
+    const b = p.detectBoundary({
+      feedback: "这个不对",
+    });
+    expect(b?.type).toBe(BoundaryType.USER_FEEDBACK);
+  });
 
-  const snapshot = m.getSnapshot();
-  assert(snapshot.loadCount === 0, 'Snapshot should show 0 loads initially');
+  it("getStats 应返回已记录的边界数", () => {
+    const p = new Perception();
+    p.detectBoundary({ failure: { type: "error", message: "f1" } });
+    p.detectBoundary({ feedback: "f2" });
+    const stats = p.getStats();
+    expect(stats.total).toBeGreaterThanOrEqual(2);
+  });
+});
 
-  const report = m.exportReport();
-  assert(report.includes('MetaGO Engine Metrics Report'), 'Report should have title');
+describe("MetaGO Engine - RuntimeMemory", () => {
+  beforeEach(() => {
+    if (existsSync(memoryFile)) rmSync(memoryFile);
+  });
 
-  m.clear();
-}
+  afterEach(() => {
+    if (existsSync(memoryFile)) rmSync(memoryFile);
+  });
 
-async function main(): Promise<void> {
-  console.log('MetaGO Engine Test Suite v1.0.0');
-  console.log('===============================');
+  it("应能记录并查询任务", () => {
+    const mem = new RuntimeMemory(memoryFile);
+    mem.clear();
+    const id = mem.record("task", { task: "test" }, ["unit-test"]);
+    expect(id.startsWith("MEM-")).toBe(true);
+    const results = mem.query({ type: "task" });
+    expect(results.length).toBe(1);
+    const latest = mem.getLatest("task");
+    expect(latest?.data.task).toBe("test");
+    const stats = mem.getStats();
+    expect(stats.totalRecords).toBe(1);
+    mem.clear();
+  });
+});
 
-  await testAxiomValidator();
-  await testDecisionLock();
-  await testEvolutionEngine();
-  await testPerception();
-  await testRuntimeMemory();
-  await testMetrics();
+describe("MetaGO Engine - Metrics", () => {
+  it("计数器应正确累加", () => {
+    const m = new Metrics();
+    m.increment("test_counter");
+    m.increment("test_counter");
+    expect(m.getCounter("test_counter")).toBe(2);
+    m.clear();
+  });
 
-  console.log('\n===============================');
-  console.log(`Results: ${passed} passed, ${failed} failed`);
-  console.log('===============================\n');
+  it("计时器应返回正数时长", async () => {
+    const m = new Metrics();
+    m.startTimer("test");
+    await new Promise((r) => setTimeout(r, 10));
+    const duration = m.endTimer("test");
+    expect(duration).toBeGreaterThan(0);
+    m.clear();
+  });
 
-  process.exit(failed > 0 ? 1 : 0);
-}
+  it("快照应反映初始 loadCount=0", () => {
+    const m = new Metrics();
+    const snapshot = m.getSnapshot();
+    expect(snapshot.loadCount).toBe(0);
+    m.clear();
+  });
 
-main().catch(e => {
-  console.error(`Test error: ${e.message}`);
-  process.exit(1);
+  it("导出报告应包含标题", () => {
+    const m = new Metrics();
+    const report = m.exportReport();
+    expect(report).toContain("MetaGO Engine Metrics Report");
+    m.clear();
+  });
 });

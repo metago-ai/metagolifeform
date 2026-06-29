@@ -1,7 +1,7 @@
 {
   "name": "metago-lifeform",
-  "version": "36.7.7",
-  "description": "MetaGO Lifeform Kit - 让智能，学会进化。从 Agent 到生命体的范式跃迁。37个技能·8公理·7属性·6协议·活文档系统，支持7大AI平台。含 @metago-ai/mcp-server 将 42 项能力封装为 MCP 工具",
+  "version": "36.7.8",
+  "description": "MetaGO Lifeform Kit - 让智能，学会进化。从 Agent 到生命体的范式跃迁。37个技能·8公理·7属性·6协议·活文档系统，支持7大AI平台。含 @metago-ai/mcp-server 将 35 项能力（22技能+15独有思维工具，7同名合并）封装为 MCP 工具",
   "main": "core/METAGO_CORE.md",
   "bin": {
     "metago-lifeform": "scripts/cli.js"
@@ -38,8 +38,8 @@
     "version": "V36.5",
     "axioms": 8, "attributes": 7, "protocols": 6, "skills": 37,
     "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"],
-    "mcpServer": { "package": "@metago-ai/mcp-server", "tools": 22, "prompts": 8, "transport": "stdio" },
-    "devKit": { "package": "@metago-ai/dev-kit", "skills": 4, "vertical": "developer", "status": "released" },
+    "mcpServer": { "package": "@metago-ai/mcp-server", "tools": 35, "prompts": 8, "transport": "stdio" },
+    "devKit": { "package": "@metago-ai/dev-kit", "skills": 8, "vertical": "developer", "status": "released" },
     "coreOpenSource": true, "industryPaid": true
   }
 }
