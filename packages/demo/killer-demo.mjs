@@ -413,8 +413,8 @@ function printCallToAction() {
   console.log("  " + dim("想让你的 MCP 客户端即开即用？安装 MCP Server:"));
   console.log("  " + cyan("$ npm install -g @metago-ai/mcp-server"));
   console.log("");
-  console.log("  " + dim("查看能力度量仪表盘:"));
-  console.log("  " + cyan("$ npx @metago-ai/dashboard"));
+  console.log("  " + dim("查看能力度量仪表盘（仓库内运行）:"));
+  console.log("  " + cyan("$ npm run dashboard"));
   console.log("");
   console.log("  " + dim("📚 文档: https://gitee.com/metago/metagolifeform"));
   console.log("  " + dim("🏠 官网: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"));
