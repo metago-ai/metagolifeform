@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaGO 能力度量仪表盘</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header .meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .refresh-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .refresh-btn:hover { opacity: 0.9; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .stat-card .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-card .value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .stat-card .sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .stat-card.green .value { color: var(--green); }
+    .stat-card.red .value { color: var(--red); }
+    .stat-card.yellow .value { color: var(--yellow); }
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .charts-grid { grid-template-columns: 1fr; }
+    }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .chart-card h2 {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chart-container {
+      position: relative;
+      height: 240px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    table th {
+      text-align: left;
+      padding: 8px 12px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    table tr:hover { background: rgba(255,255,255,0.03); }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .badge.green { background: rgba(16,185,129,0.15); color: var(--green); }
+    .badge.red { background: rgba(239,68,68,0.15); color: var(--red); }
+    .badge.yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-state .icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .empty-state .hint {
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .recent-list {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .recent-item {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .recent-item .tool { color: var(--accent); font-family: monospace; }
+    .recent-item .time { color: var(--muted); }
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>MetaGO 能力度量仪表盘</h1>
+      <div class="meta" id="meta">加载中...</div>
+    </div>
+    <button class="refresh-btn" onclick="loadData()">刷新</button>
+  </div>
+
+  <div id="empty-state" class="empty-state" style="display:none;">
+    <div class="icon">📊</div>
+    <div>暂无数据</div>
+    <div class="hint">运行 @metago-ai/mcp-server 后再次刷新</div>
+  </div>
+
+  <div id="content" style="display:none;">
+    <!-- 统计卡片 -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">总调用次数</div>
+        <div class="value" id="total-calls">0</div>
+        <div class="sub" id="total-records-sub"></div>
+      </div>
+      <div class="stat-card green">
+        <div class="label">唯一工具数</div>
+        <div class="value" id="unique-tools">0</div>
+        <div class="sub">已调用的不同工具</div>
+      </div>
+      <div class="stat-card red">
+        <div class="label">错误率</div>
+        <div class="value" id="error-rate">0%</div>
+        <div class="sub" id="error-count"></div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="label">崩溃次数</div>
+        <div class="value" id="crash-count">0</div>
+        <div class="sub" id="startup-count"></div>
+      </div>
+    </div>
+
+    <!-- 图表 -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2>每日调用趋势</h2>
+        <div class="chart-container">
+          <canvas id="daily-chart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h2>工具调用分布 Top 10</h2>
+        <div class="chart-container">
+          <canvas id="tool-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- 工具详情表 -->
+    <div class="chart-card" style="margin-bottom:24px;">
+      <h2>工具调用详情</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>工具名</th>
+            <th>调用次数</th>
+            <th>错误率</th>
+            <th>平均时长</th>
+            <th>P50</th>
+            <th>P95</th>
+          </tr>
+        </thead>
+        <tbody id="tool-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- 最近调用 -->
+    <div class="chart-card">
+      <h2>最近 20 条调用记录</h2>
+      <div class="recent-list" id="recent-list"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    MetaGO 能力度量仪表盘 v0.1 · 数据本地存储，不上传任何信息 ·
+    <a href="https://gitee.com/metago/metagolifeform" style="color:var(--accent);">Gitee</a>
+  </div>
+
+  <script>
+    let dailyChart = null;
+    let toolChart = null;
+
+    async function loadData() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+
+        if (data.error) {
+          document.getElementById('empty-state').style.display = 'block';
+          document.getElementById('content').style.display = 'none';
+          document.getElementById('meta').textContent = data.error + ' · ' + (data.path || '');
+          return;
+        }
+
+        document.getElementById('empty-state').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+
+        const s = data.summary;
+        document.getElementById('total-calls').textContent = s.totalCalls.toLocaleString();
+        document.getElementById('total-records-sub').textContent = `${s.totalRecords} 条记录 · ${(s.logFileSizeBytes/1024).toFixed(1)} KB`;
+        document.getElementById('unique-tools').textContent = s.uniqueTools;
+        document.getElementById('error-rate').textContent = s.errorRate + '%';
+        document.getElementById('error-count').textContent = `${s.totalErrors} 次错误`;
+        document.getElementById('crash-count').textContent = s.crashCount;
+        document.getElementById('startup-count').textContent = `${s.startupCount} 次启动`;
+
+        const sizeKB = (s.logFileSizeBytes / 1024).toFixed(1);
+        document.getElementById('meta').textContent = `数据源: calls.jsonl (${sizeKB} KB) · ${s.totalRecords} 条记录`;
+
+        renderDailyChart(data.dailyStats);
+        renderToolChart(data.toolStats.slice(0, 10));
+        renderToolTable(data.toolStats);
+        renderRecent(data.recentRecords);
+      } catch (err) {
+        document.getElementById('meta').textContent = '加载失败: ' + err;
+      }
+    }
+
+    function renderDailyChart(daily) {
+      const ctx = document.getElementById('daily-chart').getContext('2d');
+      if (dailyChart) dailyChart.destroy();
+      dailyChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: daily.map(d => d.day),
+          datasets: [{
+            label: '调用',
+            data: daily.map(d => d.calls),
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59,130,246,0.1)',
+            fill: true,
+          }, {
+            label: '错误',
+            data: daily.map(d => d.errors),
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239,68,68,0.1)',
+            fill: true,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { labels: { color: '#94a3b8' } } },
+          scales: {
+            x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
+            y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    function renderToolChart(tools) {
+      const ctx = document.getElementById('tool-chart').getContext('2d');
+      if (toolChart) toolChart.destroy();
+      toolChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: tools.map(t => t.name),
+          datasets: [{
+            data: tools.map(t => t.calls),
+            backgroundColor: ['#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#ec4899','#14b8a6','#f97316','#06b6d4','#a855f7'],
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: { size: 11 } } } }
+        }
+      });
+    }
+
+    function renderToolTable(tools) {
+      const tbody = document.getElementById('tool-table-body');
+      tbody.innerHTML = tools.map(t => {
+        const errClass = t.errorRate > 10 ? 'red' : (t.errorRate > 0 ? 'yellow' : 'green');
+        return `<tr>
+          <td style="font-family:monospace;color:#3b82f6">${t.name}</td>
+          <td>${t.calls}</td>
+          <td><span class="badge ${errClass}">${t.errorRate}%</span></td>
+          <td>${t.avgDurationMs}ms</td>
+          <td>${t.p50Ms}ms</td>
+          <td>${t.p95Ms}ms</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderRecent(records) {
+      const list = document.getElementById('recent-list');
+      list.innerHTML = records.map(r => {
+        const isError = r.result === 'error';
+        const badge = isError ? '<span class="badge red">错误</span>' : '<span class="badge green">成功</span>';
+        const tool = r.toolName || r.type;
+        const time = r.ts ? new Date(r.ts).toLocaleString('zh-CN') : '';
+        const dur = r.durationMs ? `${r.durationMs}ms` : '';
+        return `<div class="recent-item">
+          <span class="tool">${tool}</span>
+          <span>${badge}</span>
+          <span>${dur}</span>
+          <span class="time">${time}</span>
+        </div>`;
+      }).join('');
+    }
+
+    loadData();
+    setInterval(loadData, 30000); // 30秒自动刷新
+  </script>
+</body>
+</html>

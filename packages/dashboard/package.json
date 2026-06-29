@@ -1,0 +1,27 @@
+{
+  "name": "@metago-ai/dashboard",
+  "version": "0.1.0",
+  "description": "MetaGO 能力度量仪表盘 - 基于 calls.jsonl 数据源的可视化面板",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "keywords": [
+    "metago",
+    "dashboard",
+    "metrics",
+    "analytics",
+    "visualization"
+  ],
+  "author": "易霄 / MetaGO Lightyear",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "metago": {
+    "type": "internal-tool",
+    "data_source": "~/.metago/logs/calls.jsonl",
+    "parentPackage": "@metago-ai/mcp-server"
+  }
+}

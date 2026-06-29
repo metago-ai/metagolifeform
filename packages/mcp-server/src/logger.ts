@@ -14,18 +14,23 @@
  *     "result"?: "ok" | "error",
  *     "durationMs"?: 123,
  *     "error"?: "message",
- *     "version": "1.1.4"
+ *     "version": "1.1.5"
  *   }
  *
  * 隐私合规：
  * - 调用参数默认不写入 calls.jsonl（仅记录 toolName + durationMs + result）
  * - 用户可通过环境变量 METAGO_LOG_ARGS=1 显式开启参数记录
  * - 完全禁用日志：METAGO_LOG_DISABLE=1
+ *
+ * 版本同步：VERSION 从 package.json 动态读取，避免硬编码不同步
  */
 
-import { appendFileSync, existsSync, mkdirSync } from "node:fs";
+import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { homedir } from "node:os";
-import { join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const LOG_DIR =
   process.env.METAGO_LOG_DIR || join(homedir(), ".metago", "logs");
@@ -35,7 +40,17 @@ const CALLS_FILE = join(LOG_DIR, "calls.jsonl");
 const LOG_DISABLED = process.env.METAGO_LOG_DISABLE === "1";
 const LOG_ARGS_ENABLED = process.env.METAGO_LOG_ARGS === "1";
 
-const VERSION = "1.1.4";
+// 从 package.json 动态读取版本号，避免硬编码不同步
+let VERSION = "unknown";
+try {
+  const pkgPath = join(__dirname, "..", "package.json");
+  const pkg = JSON.parse(readFileSync(pkgPath, "utf-8")) as { version?: string };
+  VERSION = pkg.version || "unknown";
+} catch {
+  // 静默失败：logger 不应阻塞主流程，使用 fallback
+}
+
+export { VERSION };
 
 function ensureLogDir(): void {
   if (LOG_DISABLED) return;

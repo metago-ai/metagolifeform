@@ -9,12 +9,12 @@ import { z } from "zod";
 import { SKILLS } from "./skills-data.js";
 import { PROMPTS, type PromptMessage } from "./prompts.js";
 import { TOOLKIT_TOOLS } from "./toolkit-data.js";
-import { logLifecycle, logCall } from "./logger.js";
+import { logLifecycle, logCall, VERSION } from "./logger.js";
 
 // 创建 MetaGO MCP Server 实例
 const server = new McpServer({
   name: "@metago-ai/mcp-server",
-  version: "1.1.5",
+  version: VERSION,
 });
 
 /**
