@@ -119,7 +119,7 @@ npm test
 
 - [ ] 根 package.json description 含"35项能力（22技能+15独有思维工具，7同名合并）"
 - [ ] mcp-server package.json description 同上
-- [ ] 无"42项"残留
+- [x] 无"42项"残留
 
 ### 3.3 自动化检测
 

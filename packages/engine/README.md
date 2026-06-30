@@ -95,7 +95,7 @@ packages/engine/
 ├── INDEX/                 ← 索引层
 │   ├── engines.json       ← 125 个引擎
 │   ├── skills.json        ← 37 个技能
-│   ├── tools.json         ← 42 个 MCP 工具
+│   ├── tools.json         ← 35 个 MCP 工具
 │   └── knowledge.json     ← 知识晶体索引
 ├── RUNTIME/               ← 运行时层（TypeScript）
 │   ├── src/

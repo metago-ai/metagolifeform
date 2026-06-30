@@ -396,9 +396,9 @@ Agent 模式有三个根本缺陷：
 
 **37 个 metago-\* 技能**：覆盖认知、保障、治理、进化、执行、溯源、价值、意识、方法论、架构 10 大能力族。包括批判性分析（metago-critique）、决策锁（metago-decision-lock）、元进化（metago-meta-evolve）、元创造（metago-meta-create）等。
 
-**42 个 MCP 工具**：封装为 `@metago-ai/mcp-server`，任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等）一次配置即开即用。
+**35 个 MCP 工具**：封装为 `@metago-ai/mcp-server`，任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等）一次配置即开即用。
 
-这些是产品化的"冰山一角"——理论的水下部分是 125 引擎、927 算法，产品化的水面部分是 37 技能、42 工具。
+这些是产品化的"冰山一角"——理论的水下部分是 125 引擎、927 算法，产品化的水面部分是 37 技能、35 工具。
 
 ### 7.3 第二层：活文档系统
 
@@ -430,7 +430,7 @@ metago-engine 是元构的"宗"——一切衍生产品的核心。它包含：
 
 **垂直场景包**：MetaGO Dev Kit（开发者增强包）
 
-**平台工具**：MetaGO MCP Server（42 tools + 8 prompts）、MetaGO CLI（跨平台命令行）、MetaGO Studio（可视化编排）
+**平台工具**：MetaGO MCP Server（35 tools + 8 prompts）、MetaGO CLI（跨平台命令行）、MetaGO Studio（可视化编排）
 
 **生态基础设施**：MetaGO Skills SDK（自定义技能开发）、MetaGO Skills Hub（技能市场）、MetaGO Certify（6 项检查认证体系）
 
@@ -466,7 +466,7 @@ metago-engine 是元构的"宗"——一切衍生产品的核心。它包含：
 
 元构的 11 层架构（L0-L10）为行业落地提供了清晰的路径：
 
-**近期（L0-L5）**：在软件开发、文档管理、知识工作领域落地。元构的 37 技能 + 42 工具 + 引擎已经可以为这些领域提供"智能生命体"服务。
+**近期（L0-L5）**：在软件开发、文档管理、知识工作领域落地。元构的 37 技能 + 35 工具 + 引擎已经可以为这些领域提供"智能生命体"服务。
 
 **中期（L6-L8）**：在治理、合规、审计领域落地。元构的决策锁、合规引擎、输出完整性机制可以为这些高合规要求领域提供"可治理的智能"。
 
@@ -852,9 +852,9 @@ The first layer of productization is **capability productization**—encapsulati
 
 **37 metago-* skills**: Cover 10 capability families including cognition, assurance, governance, evolution, execution, traceability, value, consciousness, methodology, architecture.
 
-**42 MCP tools**: Encapsulated as `@metago-ai/mcp-server`, any MCP-protocol-supporting client (Claude Desktop, Cursor, Trae, etc.) can use with one configuration.
+**35 MCP tools**: Encapsulated as `@metago-ai/mcp-server`, any MCP-protocol-supporting client (Claude Desktop, Cursor, Trae, etc.) can use with one configuration.
 
-These are the "tip of the iceberg" of productization—the underwater part of theory is 125 engines and 927 algorithms; the above-water part is 37 skills and 42 tools.
+These are the "tip of the iceberg" of productization—the underwater part of theory is 125 engines and 927 algorithms; the above-water part is 37 skills and 35 tools.
 
 ### 7.3 Second Layer: Living Document System
 
@@ -920,7 +920,7 @@ MetaGO is making this goal a reality.
 
 MetaGO's 11-layer architecture (L0-L10) provides a clear path for industry landing:
 
-**Near-term (L0-L5)**: Landing in software development, document management, and knowledge work domains. MetaGO's 37 skills + 42 tools + engine can already provide "intelligent lifeform" services for these domains.
+**Near-term (L0-L5)**: Landing in software development, document management, and knowledge work domains. MetaGO's 37 skills + 35 tools + engine can already provide "intelligent lifeform" services for these domains.
 
 **Mid-term (L6-L8)**: Landing in governance, compliance, and audit domains. MetaGO's decision lock, compliance engine, and output integrity mechanism can provide "governable intelligence" for these high-compliance domains.
 

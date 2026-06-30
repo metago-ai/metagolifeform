@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // MetaGO MCP Server 入口
-// 将 22 个元构技能封装为 MCP tools，8 个引导词封装为 MCP prompts
+// 将 35 项能力（22 元构技能与 20 思维工具合并去重）封装为 MCP tools，8 个引导词封装为 MCP prompts
 // 任何 MCP 客户端（Claude Desktop / Cursor / Trae 等）即开即用
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";

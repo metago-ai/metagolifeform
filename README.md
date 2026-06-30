@@ -137,7 +137,7 @@ cd metagolifeform
 
 **📦 包名**：`@metago-ai/mcp-server`
 **🔗 仓库目录**：[packages/mcp-server/](packages/mcp-server/)
-**🧰 能力概览**：**42 个 tools**（22 个元构技能 + 20 个元构思维工具）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
+**🧰 能力概览**：**35 个 tools**（22 个元构技能与 20 个元构思维工具合并去重）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
 **🔌 传输方式**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现的 stdio 传输，零运行时配置
 
 ### 20 个元构思维工具（v1.1.0 新增）

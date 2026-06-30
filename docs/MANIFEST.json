@@ -69,7 +69,7 @@
       "path": "docs/MCP_SERVER.md",
       "type": "tool",
       "priority": "high",
-      "description": "42个MCP工具 + 8个prompts的完整文档",
+      "description": "35个MCP工具 + 8个prompts的完整文档",
       "tags": ["mcp", "tools", "prompts"],
       "related": ["ARCHITECTURE"]
     },
@@ -124,7 +124,7 @@
     }
   },
   "mcp_tools": {
-    "total": 42,
+    "total": 35,
     "prompts": 8,
     "package": "@metago-ai/mcp-server",
     "version": "1.1.0"

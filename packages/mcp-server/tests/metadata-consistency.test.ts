@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect } from "vitest";
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { SKILLS } from "../src/skills-data.js";
 import { TOOLKIT_TOOLS } from "../src/toolkit-data.js";
@@ -129,6 +129,63 @@ describe("T8 - 元数据一致性", () => {
       const skillDirs = listSkillDirs();
       for (const skill of added) {
         expect(skillDirs, `新增技能 ${skill} 应在 skills/ 目录中存在`).toContain(skill);
+      }
+    });
+  });
+
+  describe("全仓库 MCP tools 数量漂移防护", () => {
+    /**
+     * 防止 "42" 作为 MCP tools 数量再次出现。
+     * 合法例外：D42 属性编号、package-lock hash、行号引用等。
+     * 仅匹配与 MCP tools 数量明确相关的模式。
+     */
+    const STALE_PATTERNS: RegExp[] = [
+      /42\s*(个|项)\s*(tools|MCP|能力|工具)/i,
+      /42\s*tools/i,
+      /tools.*42/i,
+      /数量\s*=\s*42/i,
+    ];
+
+    const EXCLUDE_FILES = new Set([
+      "metadata-consistency.test.ts", // 测试自身
+      "RELEASE-CHECKLIST.md",          // 记录"42已被35取代"的说明
+    ]);
+
+    function scanDir(dir: string, results: { file: string; line: number; text: string }[]) {
+      if (!existsSync(dir)) return;
+      const entries = readdirSync(dir);
+      for (const entry of entries) {
+        if (EXCLUDE_FILES.has(entry)) continue;
+        const fullPath = resolve(dir, entry);
+        const stat = statSync(fullPath);
+        if (stat.isDirectory()) {
+          // 跳过 node_modules, .git, dist
+          if (["node_modules", ".git", "dist", ".trae"].includes(entry)) continue;
+          scanDir(fullPath, results);
+        } else if (/\.(md|json)$/.test(entry)) {
+          const content = readFileSync(fullPath, "utf-8").split("\n");
+          content.forEach((line, idx) => {
+            for (const pattern of STALE_PATTERNS) {
+              if (pattern.test(line)) {
+                results.push({ file: fullPath, line: idx + 1, text: line.trim() });
+              }
+            }
+          });
+        }
+      }
+    }
+
+    it("全仓库不应出现 '42 tools' / '42 个能力' 等过时表述", () => {
+      const stale: { file: string; line: number; text: string }[] = [];
+      // 扫描仓库根目录的关键位置
+      scanDir(repoRoot, stale);
+      // 过滤掉测试文件自身和 RELEASE-CHECKLIST
+      const filtered = stale.filter(
+        (s) => !s.file.includes("metadata-consistency.test.ts") && !s.file.includes("RELEASE-CHECKLIST"),
+      );
+      if (filtered.length > 0) {
+        const msg = filtered.map((s) => `  ${s.file}:${s.line} → ${s.text}`).join("\n");
+        fail(`发现 ${filtered.length} 处过时的 "42" MCP tools 表述：\n${msg}`);
       }
     });
   });

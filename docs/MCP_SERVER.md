@@ -15,7 +15,7 @@
 | 传输方式 | stdio（`StdioServerTransport`） |
 | 运行时 | Node.js >= 18.0.0 |
 | 许可证 | MIT |
-| 能力 | 42 tools + 8 prompts |
+| 能力 | 35 tools + 8 prompts |
 
 ---
 
