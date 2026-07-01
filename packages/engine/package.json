@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/engine",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体。包含8公理+7属性+6协议的CONSTITUTION驱动层、125引擎+927算法的RUNTIME执行层、TypeScript SDK。让任何AI加载后从Agent跃迁为会进化的智能生命体。",
   "main": "RUNTIME/dist/index.js",
   "types": "SDK/types.d.ts",

@@ -4,7 +4,7 @@
 
 基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现，通过 stdio 传输与客户端通信。一次配置，即可让任意支持 MCP 的 AI 客户端获得元构生命体的决策锁、批判性分析、合规前置、元进化、行动计划、价值评估、伦理审查等核心能力。
 
-🌐 官网：https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/
+🌐 官网：https://metago.life
 
 ## 项目简介
 

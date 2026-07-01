@@ -21,7 +21,7 @@
   <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm" src="https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm&color=CB3837"></a>
   <a href="https://gitee.com/metago/metagolifeform/raw/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
   <a href="https://metago-ai.github.io/metago-website/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
-  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-42_tools_+_8_prompts-8A2BE2?logo=npm"></a>
+  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-35_tools_+_8_prompts-8A2BE2?logo=npm"></a>
   <a href="https://github.com/metago-ai/metagolifeform/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/metago-ai/metagolifeform/ci.yml?branch=main&logo=github-actions&label=CI"></a>
 </p>
 

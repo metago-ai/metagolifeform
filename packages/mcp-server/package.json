@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "MetaGO MCP Server - 将元构超级智能生命体的35项能力（22技能与20独有思维工具合并去重）封装为MCP工具，任何MCP协议客户端（Claude Desktop/Cursor/Trae等）即开即用。基于Model Context Protocol标准。",
   "type": "module",
   "main": "./dist/index.js",

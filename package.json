@@ -1,6 +1,6 @@
 {
   "name": "metago-lifeform",
-  "version": "36.7.9",
+  "version": "36.7.10",
   "description": "MetaGO Lifeform Kit - 让智能，学会进化。从 Agent 到生命体的范式跃迁。37个技能·8公理·7属性·6协议·活文档系统，支持7大AI平台（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode）。含 @metago-ai/mcp-server 将 35 项能力（22技能与20独有思维工具合并去重）封装为 MCP 工具，任何 MCP 协议客户端即开即用。MIT 开源。",
   "main": "core/METAGO_CORE.md",
   "bin": {
@@ -32,7 +32,7 @@
     "type": "git",
     "url": "https://github.com/metago-ai/metagolifeform.git"
   },
-  "homepage": "https://metago-ai.github.io/metago-website/",
+  "homepage": "https://metago.life",
   "engines": { "node": ">=14.0.0" },
   "files": [
     "core/", "adapters/", "skills/", "assets/",
