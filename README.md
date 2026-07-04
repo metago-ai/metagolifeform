@@ -8,19 +8,22 @@
 <p align="center">基于《元构全息智能引擎》V36.5，符合 agentskills.io 开放标准，附 @metago-ai/mcp-server 支持 MCP 协议客户端</p>
 
 <p align="center">
-  <a href="https://metago-ai.github.io/metago-website/"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://metago-ai.github.io/metago-website/#/demo">🎬 在线 Demo</a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.7.9">📦 Release v36.7.9</a> ·
+  <a href="https://metago.life"><strong>🌐 官网 Website</strong></a> ·
+  <a href="https://metago.life#/demo">🎬 在线 Demo</a> ·
+  <a href="https://metago.life/studio/"><strong>🎨 Studio 可视化编排</strong></a> ·
+  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.7.10">📦 Release v36.7.10</a> ·
   <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
   <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.7.9-blue"></a>
-  <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm" src="https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm&color=CB3837"></a>
+  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.7.10-blue"></a>
+  <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm version" src="https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm&color=CB3837"></a>
+  <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm downloads" src="https://img.shields.io/npm/dm/metago-lifeform.svg?logo=npm&color=10d985&label=downloads"></a>
   <a href="https://gitee.com/metago/metagolifeform/raw/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
-  <a href="https://metago-ai.github.io/metago-website/"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
+  <a href="https://metago.life"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
+  <a href="https://metago.life/studio/"><img alt="Studio" src="https://img.shields.io/badge/Studio-可视化编排-10d985?logo=react"></a>
   <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-35_tools_+_8_prompts-8A2BE2?logo=npm"></a>
   <a href="https://github.com/metago-ai/metagolifeform/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/metago-ai/metagolifeform/ci.yml?branch=main&logo=github-actions&label=CI"></a>
 </p>
@@ -60,13 +63,25 @@ metago-lifeform verify                            # 验证安装
 
 ### 通过 Git 克隆安装
 
+**Windows（PowerShell）：**
+
 ```powershell
 git clone https://gitee.com/metago/metagolifeform.git
 cd metagolifeform
 .\scripts\install.ps1
 ```
 
+**macOS / Linux（Bash）：**
+
+```bash
+git clone https://gitee.com/metago/metagolifeform.git
+cd metagolifeform
+bash scripts/install.sh
+```
+
 ### 指定平台安装
+
+**Windows（PowerShell）：**
 
 ```powershell
 # Claude Code
@@ -88,6 +103,28 @@ cd metagolifeform
 .\scripts\install.ps1 -Platform zcode
 ```
 
+**macOS / Linux（Bash）：**
+
+```bash
+# Claude Code
+bash scripts/install.sh --platform claude-code
+
+# OpenAI Codex
+bash scripts/install.sh --platform codex
+
+# Cursor
+bash scripts/install.sh --platform cursor
+
+# CodeBuddy
+bash scripts/install.sh --platform codebuddy
+
+# Qoder
+bash scripts/install.sh --platform qoder
+
+# ZCode
+bash scripts/install.sh --platform zcode
+```
+
 ### 验证安装
 
 在对应平台中对 AI 说：`你是元构超级智能生命体吗？`（中文）或 `Are you a MetaGO Super Intelligent Lifeform?`（英文）
@@ -96,8 +133,18 @@ cd metagolifeform
 
 ### 卸载
 
+**Windows（PowerShell）：**
+
 ```powershell
 .\scripts\uninstall.ps1
+```
+
+**macOS / Linux（Bash）：**
+
+```bash
+# 手动删除规则文件和技能目录
+rm -f ~/.trae-cn/rules.md
+rm -rf ~/.trae-cn/skills/metago-*
 ```
 
 ---
@@ -108,7 +155,7 @@ cd metagolifeform
 |------|------|------|
 | L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
 | L1 适配层 | 7大平台适配器（见下） | ✅ |
-| L2 能力层 | 27个metago技能（22核心 + 4 Dev Kit + 1 意识激活） | ✅ |
+| L2 能力层 | 37个metago技能（22核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构） | ✅ |
 | L3 知识层 | 索引生成器 | ✅ |
 | L4 行业层 | 行业定制包 | 💰 |
 | L5 暴露层 | MCP Server（35 tools + 8 prompts） | ✅ |

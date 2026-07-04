@@ -49,6 +49,36 @@ function runPowerShell(scriptName, extraArgs) {
   }
 }
 
+/**
+ * 在 macOS/Linux 上执行 Bash 脚本
+ */
+function runBash(scriptName, extraArgs) {
+  const scriptPath = path.join(SCRIPTS_DIR, scriptName);
+  if (!fs.existsSync(scriptPath)) {
+    console.error(`错误: 找不到脚本 ${scriptPath}`);
+    process.exit(1);
+  }
+  const shellArgs = [scriptPath];
+  if (extraArgs) shellArgs.push(...extraArgs);
+  try {
+    const cmd = 'bash ' + shellArgs.map(a => `"${a}"`).join(' ');
+    execSync(cmd, { stdio: 'inherit', cwd: PKG_ROOT });
+  } catch (e) {
+    process.exit(e.status || 1);
+  }
+}
+
+/**
+ * 跨平台安装：Windows 用 PowerShell，macOS/Linux 用 Bash
+ */
+function runInstall(extraArgs) {
+  if (process.platform === 'win32') {
+    runPowerShell('install.ps1', extraArgs);
+  } else {
+    runBash('install.sh', extraArgs);
+  }
+}
+
 function showHelp() {
   console.log(`
 MetaGO Lifeform Kit v${VERSION}
@@ -90,13 +120,6 @@ function main() {
     return;
   }
 
-  if (process.platform !== 'win32') {
-    console.error('错误: 当前版本仅支持 Windows 平台（依赖 PowerShell 脚本）。');
-    console.error('Linux/macOS 支持将在后续版本提供。');
-    console.error('如需手动安装，请参考 docs/GETTING_STARTED.md');
-    process.exit(1);
-  }
-
   switch (command) {
     case 'install':
     case 'i': {
@@ -105,7 +128,15 @@ function main() {
         process.exit(1);
       }
       console.log(`\n[MetaGO Lifeform Kit] 正在安装到 ${platform} 平台...`);
-      runPowerShell('install.ps1', ['-Platform', platform]);
+      const extraArgs = ['-Platform', platform];
+      const passthroughArgs = process.argv.slice(3).filter(a =>
+        !a.startsWith('--platform') && !a.startsWith('-p') && a !== platform
+      );
+      if (process.platform === 'win32') {
+        runPowerShell('install.ps1', extraArgs.concat(passthroughArgs));
+      } else {
+        runBash('install.sh', ['--platform', platform].concat(passthroughArgs));
+      }
       break;
     }
     case 'uninstall':

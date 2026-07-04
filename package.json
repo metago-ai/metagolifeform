@@ -1,13 +1,14 @@
 {
   "name": "metago-lifeform",
-  "version": "36.7.10",
-  "description": "MetaGO Lifeform Kit - 让智能，学会进化。从 Agent 到生命体的范式跃迁。37个技能·8公理·7属性·6协议·活文档系统，支持7大AI平台（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode）。含 @metago-ai/mcp-server 将 35 项能力（22技能与20独有思维工具合并去重）封装为 MCP 工具，任何 MCP 协议客户端即开即用。MIT 开源。",
+  "version": "36.7.11",
+  "description": "让智能，学会进化。从 Agent 到生命体的范式跃迁 — 37 技能 · 8 公理 · 7 属性 · 6 协议 · 决策锁治理 · 元进化能力 · 全链路溯源。支持 Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode 7 大 AI 编程平台。跨平台 CLI（Windows PowerShell + macOS/Linux Bash）。内置 MCP Server（35 tools + 8 prompts）即开即用。MIT 开源。",
   "main": "core/METAGO_CORE.md",
   "bin": {
     "metago-lifeform": "scripts/cli.js"
   },
   "scripts": {
     "install:trae": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
+    "install:trae:bash": "bash scripts/install.sh",
     "uninstall:trae": "powershell -ExecutionPolicy Bypass -File scripts/uninstall.ps1",
     "verify": "powershell -ExecutionPolicy Bypass -File scripts/verify.ps1",
     "list:skills": "powershell -Command \"Get-ChildItem skills -Directory | Select-Object Name\"",
@@ -42,6 +43,7 @@
     "version": "V36.5",
     "axioms": 8, "attributes": 7, "protocols": 6, "skills": 37,
     "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"],
+    "crossPlatform": true,
     "mcpServer": { "package": "@metago-ai/mcp-server", "tools": 35, "prompts": 8, "transport": "stdio" },
     "devKit": { "package": "@metago-ai/dev-kit", "skills": 8, "vertical": "developer", "status": "released" },
     "coreOpenSource": true, "industryPaid": true

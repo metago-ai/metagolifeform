@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# MetaGO Lifeform Kit 产品需求文档（PRD）
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# MetaGO Lifeform Kit 产品需求文档（PRD）
 
 > 让智能，学会进化。从 Agent 到生命体的范式跃迁。
 
