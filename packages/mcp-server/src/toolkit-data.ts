@@ -1,4 +1,4 @@
-// 元构思维工具元数据：20 个 metago-toolkit 思维工具，封装为 MCP tools
+// 元构思维工具元数据：22 个 metago-toolkit 思维工具，封装为 MCP tools
 // 来源：Trae 内部使用的 metago-toolkit，整合至 MCP Server 对外发布
 
 import { z } from "zod";

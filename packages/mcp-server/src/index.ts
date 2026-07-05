@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // MetaGO MCP Server 入口
-// 将 37 项能力（22 元构技能与 22 思维工具合并去重）封装为 MCP tools，8 个引导词封装为 MCP prompts
+// 将 39 项能力（37 元构技能与 20 思维工具合并去重）封装为 MCP tools，8 个引导词封装为 MCP prompts
 // 任何 MCP 客户端（Claude Desktop / Cursor / Trae 等）即开即用
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -48,7 +48,7 @@ function renderMessages(
 // 未去重会导致 MCP SDK 抛出 "Tool X is already registered" 异常，进程启动即崩溃。
 const registeredToolNames = new Set<string>();
 
-// 先注册 20 个思维工具（结构化参数，优先级高）
+// 先注册 22 个思维工具（结构化参数，优先级高）
 for (const tool of TOOLKIT_TOOLS) {
   if (registeredToolNames.has(tool.toolName)) {
     continue;
@@ -90,7 +90,7 @@ for (const tool of TOOLKIT_TOOLS) {
   );
 }
 
-// 再注册 22 个核心技能中独有的（跳过已在 TOOLKIT_TOOLS 中注册的 7 个同名工具）
+// 再注册 37 个核心技能中独有的（跳过已在 TOOLKIT_TOOLS 中注册的 7 个同名工具）
 for (const skill of SKILLS) {
   if (registeredToolNames.has(skill.toolName)) {
     continue;
