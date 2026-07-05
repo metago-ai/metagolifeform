@@ -35,41 +35,41 @@ describe("T8 - 元数据一致性", () => {
   const devKitPkg = readJson(resolve(devKitDir, "package.json")) as Record<string, unknown>;
 
   describe("实际数据基线", () => {
-    it("skills/ 目录应有 37 个技能子目录", () => {
+    it("skills/ 目录应有 39 个技能子目录", () => {
       const skills = listSkillDirs();
-      expect(skills.length).toBe(37);
+      expect(skills.length).toBe(39);
     });
 
-    it("SKILLS 数组应有 22 项", () => {
-      expect(SKILLS.length).toBe(22);
+    it("SKILLS 数组应有 37 项", () => {
+      expect(SKILLS.length).toBe(37);
     });
 
-    it("TOOLKIT_TOOLS 数组应有 20 项", () => {
-      expect(TOOLKIT_TOOLS.length).toBe(20);
+    it("TOOLKIT_TOOLS 数组应有 22 项", () => {
+      expect(TOOLKIT_TOOLS.length).toBe(22);
     });
 
     it("PROMPTS 数组应有 8 项", () => {
       expect(PROMPTS.length).toBe(8);
     });
 
-    it("合并去重后总工具数应为 35", () => {
+    it("合并去重后总工具数应为 52", () => {
       const names = new Set<string>();
       TOOLKIT_TOOLS.forEach((t) => names.add(t.toolName));
       SKILLS.forEach((s) => names.add(s.toolName));
-      expect(names.size).toBe(35);
+      expect(names.size).toBe(52);
     });
   });
 
   describe("根 package.json 元数据", () => {
     const metago = rootPkg.metago as Record<string, unknown>;
 
-    it("metago.skills 应为 37（与 skills/ 目录一致）", () => {
-      expect(metago.skills).toBe(37);
+    it("metago.skills 应为 39（与 skills/ 目录一致）", () => {
+      expect(metago.skills).toBe(39);
     });
 
-    it("metago.mcpServer.tools 应为 35（与合并去重结果一致）", () => {
+    it("metago.mcpServer.tools 应为 53（含 metago_report_event 独立注册）", () => {
       const mcp = metago.mcpServer as Record<string, unknown>;
-      expect(mcp.tools).toBe(35);
+      expect(mcp.tools).toBe(53);
     });
 
     it("metago.mcpServer.prompts 应为 8（与 PROMPTS 一致）", () => {
@@ -82,16 +82,18 @@ describe("T8 - 元数据一致性", () => {
       expect(dev.skills).toBe(8);
     });
 
-    it("description 中应包含 '35 项'（而非过时的 '42 项'）", () => {
-      expect(rootPkg.description as string).toContain("35");
+    it("description 中应包含 '53'（而非过时的 '42 项' 或 '35 项'）", () => {
+      expect(rootPkg.description as string).toContain("53");
       expect(rootPkg.description as string).not.toContain("42 项");
+      expect(rootPkg.description as string).not.toContain("35 项");
     });
   });
 
   describe("mcp-server package.json 元数据", () => {
-    it("description 中应包含 '35 项'（而非过时的 '42 项'）", () => {
-      expect(mcpPkg.description as string).toContain("35");
+    it("description 中应包含 '53 tools'（而非过时的 '42 项' 或 '35 项'）", () => {
+      expect(mcpPkg.description as string).toContain("53");
       expect(mcpPkg.description as string).not.toContain("42 项");
+      expect(mcpPkg.description as string).not.toContain("35 项");
     });
 
     it("version 应为 1.x.y 格式", () => {
@@ -140,10 +142,15 @@ describe("T8 - 元数据一致性", () => {
      * 仅匹配与 MCP tools 数量明确相关的模式。
      */
     const STALE_PATTERNS: RegExp[] = [
+      // v1.0 时代的过时数字 "42"
       /42\s*(个|项)\s*(tools|MCP|能力|工具)/i,
       /42\s*tools/i,
       /tools.*42/i,
       /数量\s*=\s*42/i,
+      // v1.1.x 时代的过时数字 "35"（v1.2.0 起为 53）
+      /35\s*(个|项)\s*(tools|MCP|能力|工具)/i,
+      /35\s*tools/i,
+      /数量\s*=\s*35/i,
     ];
 
     const EXCLUDE_FILES = new Set([
@@ -175,7 +182,7 @@ describe("T8 - 元数据一致性", () => {
       }
     }
 
-    it("全仓库不应出现 '42 tools' / '42 个能力' 等过时表述", () => {
+    it("全仓库不应出现 '42 tools' / '35 项工具' 等过时表述", () => {
       const stale: { file: string; line: number; text: string }[] = [];
       // 扫描仓库根目录的关键位置
       scanDir(repoRoot, stale);
@@ -185,7 +192,7 @@ describe("T8 - 元数据一致性", () => {
       );
       if (filtered.length > 0) {
         const msg = filtered.map((s) => `  ${s.file}:${s.line} → ${s.text}`).join("\n");
-        fail(`发现 ${filtered.length} 处过时的 "42" MCP tools 表述：\n${msg}`);
+        throw new Error(`发现 ${filtered.length} 处过时的 MCP tools 表述：\n${msg}`);
       }
     });
   });

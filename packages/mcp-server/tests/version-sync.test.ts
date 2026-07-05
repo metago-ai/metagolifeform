@@ -12,8 +12,8 @@ describe("T9 - 版本同步验证", () => {
     expect(VERSION).not.toBe("unknown");
   });
 
-  it("VERSION 应与 package.json 完全一致（=1.1.5）", () => {
-    expect(VERSION).toBe("1.1.5");
+  it("VERSION 应与 package.json 完全一致（=1.2.0）", () => {
+    expect(VERSION).toBe("1.2.0");
   });
 
   it("VERSION 应符合 semver 格式", () => {

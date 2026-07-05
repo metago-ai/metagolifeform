@@ -17,8 +17,8 @@
 - 核心层 CORE/ATTRIBUTES.md（43 条属性，7 条关键）
 - 核心层 CORE/PROTOCOLS.md（108 个协议，6 个关键）
 - 索引层 INDEX/engines.json（125 个引擎）
-- 索引层 INDEX/skills.json（37 个技能）
-- 索引层 INDEX/tools.json（35 个 MCP 工具）
+- 索引层 INDEX/skills.json（39 个技能）
+- 索引层 INDEX/tools.json（53 项 MCP 工具）
 - 索引层 INDEX/knowledge.json（知识晶体索引）
 - 运行时 RUNTIME/src/loader.ts（引擎加载器）
 - 运行时 RUNTIME/src/validators.ts（公理验证器）
