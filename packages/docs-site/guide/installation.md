@@ -8,6 +8,23 @@ MetaGO 支持 7 大 AI 开发平台。选择你的平台查看安装步骤。
 - npm 或 npx
 - 支持的 AI 平台之一（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）
 
+## 方式零：仅用 MCP Server（最简，无需克隆仓库）
+
+如果你只需要 53 个 MCP 工具，不需要安装技能和规则文件，可直接配置 npx 调用：
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+将上述 JSON 写入你平台的 MCP 配置文件（见下方配置文件位置表），重启平台即可。无需克隆仓库、无需手动构建。
+
 ## 方式一：从仓库克隆（推荐，功能最完整）
 
 ```bash
@@ -37,9 +54,15 @@ node scripts/cli.js setup-mcp --platform trae
 此命令会自动完成：
 1. 检查 Node.js >= 18
 2. npm install（安装 MCP Server 依赖）
-3. npm run build（构建 TypeScript）
-4. 配置平台的 MCP 服务器连接
+3. npm run build（构建 TypeScript，含旧构建自动检测）
+4. 配置平台的 MCP 服务器连接（自动备份现有配置）
 5. 验证工具数（应为 53）
+
+**特性**：
+- 旧构建自动检测：即使使用 `-SkipBuild` 参数，如果源码比构建产物新，会自动重建
+- 配置备份：写入前自动备份现有 MCP 配置到 `.backup-时间戳` 文件
+- JSON 容错：如果现有配置文件损坏（编码问题），自动备份并创建新配置
+- UTF-8 编码：使用 .NET API 精准控制编码，解决 PowerShell 5 中文乱码问题
 
 **安装完成后重启平台，在 MCP 面板中即可看到 53 个工具。**
 
@@ -80,12 +103,17 @@ npx metago-lifeform@latest install --platform trae
 
 各平台配置文件位置：
 
-| 平台 | 配置文件路径 |
-|------|-------------|
-| Trae | `%APPDATA%\Trae CN\User\mcp.json` |
-| Claude Desktop | `%APPDATA%\Claude\claude_desktop_config.json` |
-| Cursor | `.cursor/mcp.json`（项目根目录） |
-| ZCode | `%USERPROFILE%\.zcode\config\mcp.json` |
+| 平台 | 配置文件路径 | 作用域 |
+|------|-------------|--------|
+| Trae | `%APPDATA%\Trae CN\User\mcp.json` | 用户级（全局生效） |
+| Claude Desktop | `%APPDATA%\Claude\claude_desktop_config.json` | 用户级（全局生效） |
+| ZCode | `%USERPROFILE%\.zcode\config\mcp.json` | 用户级（全局生效） |
+| Codex | `%USERPROFILE%\.codex\config.json` | 用户级（全局生效） |
+| Cursor | `.cursor/mcp.json` | 项目级（需在项目根目录运行脚本） |
+| CodeBuddy | `.codebuddy/mcp.json` | 项目级（需在项目根目录运行脚本） |
+| Qoder | `.qoder/mcp.json` | 项目级（需在项目根目录运行脚本） |
+
+> 注意：项目级平台（Cursor/CodeBuddy/Qoder）的配置文件生成在运行 `setup-mcp` 命令时所在的目录。请在你的项目根目录中运行安装命令。
 
 ## 验证安装
 
