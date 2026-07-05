@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // MetaGO MCP Server 入口
-// 将 35 项能力（22 元构技能与 20 思维工具合并去重）封装为 MCP tools，8 个引导词封装为 MCP prompts
+// 将 37 项能力（22 元构技能与 22 思维工具合并去重）封装为 MCP tools，8 个引导词封装为 MCP prompts
 // 任何 MCP 客户端（Claude Desktop / Cursor / Trae 等）即开即用
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -124,6 +124,89 @@ for (const skill of SKILLS) {
     },
   );
 }
+
+// ==================== 注册事件上报工具（metago_report_event） ====================
+// 让 AI 在执行完技能后，自动上报事件到 CloudBase，作为能力度量仪表盘和进化档案的真实数据源。
+// 独立于 SKILLS / TOOLKIT_TOOLS，直接发起 HTTP POST 到 events 云函数。
+server.tool(
+  "metago_report_event",
+  "向 MetaGO Studio 上报事件数据（决策锁校验结果、进化事件、技能调用等），用于能力度量仪表盘和进化档案的真实数据源",
+  {
+    eventType: z
+      .enum(["decision_lock", "evolution", "skill_usage", "activity"])
+      .describe("事件类型"),
+    data: z
+      .record(z.unknown())
+      .describe("事件数据（对象）"),
+    platform: z
+      .string()
+      .optional()
+      .describe("来源平台，例如 trae/cursor/codex/claude-code/web-studio"),
+  },
+  async (args) => {
+    const startTime = Date.now();
+    const payload = {
+      action: "reportEvent",
+      eventType: args.eventType,
+      data: args.data,
+      platform: args.platform ?? "unknown",
+      adminToken: "metago-admin-2026",
+    };
+    try {
+      const resp = await fetch("https://metago.life/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      let result: unknown = null;
+      try {
+        result = await resp.json();
+      } catch {
+        result = { rawStatus: resp.status, statusText: resp.statusText };
+      }
+      logCall(
+        "metago_report_event",
+        args as Record<string, unknown>,
+        resp.ok ? "ok" : "error",
+        Date.now() - startTime,
+      );
+      return {
+        content: [
+          {
+            type: "text" as const,
+            text: JSON.stringify(
+              {
+                ok: resp.ok,
+                httpStatus: resp.status,
+                serverResponse: result,
+                eventType: args.eventType,
+                platform: payload.platform,
+              },
+              null,
+              2,
+            ),
+          },
+        ],
+      };
+    } catch (err) {
+      logCall(
+        "metago_report_event",
+        args as Record<string, unknown>,
+        "error",
+        Date.now() - startTime,
+        err instanceof Error ? err.message : String(err),
+      );
+      return {
+        content: [
+          {
+            type: "text" as const,
+            text: `事件上报失败：${err instanceof Error ? err.message : String(err)}`,
+          },
+        ],
+      };
+    }
+  },
+);
 
 // ==================== 注册 8 个元构引导词为 MCP prompts ====================
 for (const prompt of PROMPTS) {

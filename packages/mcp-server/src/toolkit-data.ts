@@ -527,4 +527,75 @@ export const TOOLKIT_TOOLS: ToolkitToolMeta[] = [
       dimensions: { required: false, schema: z.array(z.string()).describe("评估维度列表") },
     },
   },
+
+  // ==================== 交付质量族（2） ====================
+  {
+    id: "metago-delivery-gate",
+    toolName: "metago_delivery_gate",
+    description: "交付前原子验证门控。在宣告任务完成前强制执行三层验证清单（技术层 tsc/build/产物扫描 + 业务层 HTTP 可达/云函数可调/AI 对话端到端 + 链路层 exe 可下载/latest.yml 可访问），任何一项 FAIL 禁止宣告完成。",
+    category: "交付质量",
+    guide: `## 触发条件
+每次代码交付或任务完成前必须触发此工具，确保不可绕过运行时验证。
+
+## 强制执行清单
+
+### 第一关：技术层（自动化）
+- V1.1 tsc -b 0 错误
+- V1.2 vite build 成功
+- V1.3 产物无 localhost/mock 泄露
+
+### 第二关：业务层（端到端）
+- V2.1 Web 端 HTTP 200
+- V2.2 云函数 aiProxy 返回非空 data
+- V2.3 AI 对话端到端：发送消息 → 收到回复
+
+### 第三关：链路层
+- V3.1 桌面端 exe HTTP 200 + Content-Length > 80MB
+- V3.2 latest.yml HTTP 200
+
+### 第四关：缺陷猎杀（10 维度）
+- 僵尸功能 / 未持久化 / 假数据 / 错误处理 / 路由死链 / 类型安全 / 文案一致 / 废弃 API / 业务闭环 / 合规安全
+
+## 反绕过条款
+- 禁止只做 tsc + build
+- 禁止用"应该没问题"代替实际验证
+- 每一项 ✅ 必须附带执行证据
+- 任何一项 FAIL = 任务未完成
+
+## 执行方式
+\`\`\`bash
+npm run verify
+\`\`\``,
+    args: {
+      task_description: { required: false, schema: z.string().describe("当前交付任务的描述（可选）") },
+    },
+  },
+  {
+    id: "metago-discipline",
+    toolName: "metago_discipline",
+    description: "AI 自律执行协议。在输出任务完成前必须执行的五问自检：①是否运行 verify？②verify 是否有 FAIL？③报告含验证小节？④每项 ✅ 有证据？⑤做了业务层验证？任何一问答否禁止宣告完成。",
+    category: "交付质量",
+    guide: `## 触发条件
+每次 AI Agent 输出任务完成状态前触发，作为最后一道防线。
+
+## 五问自检
+1. 我运行了 npm run verify 吗？ → 如果否，立即运行
+2. verify 的输出中有 FAIL 吗？ → 如果是，立即修复，重新验证
+3. 交付报告末尾有运行时验证报告小节吗？ → 如果否，补充
+4. 每一项 ✅ 都附带了执行证据吗？ → 如果否，补充证据
+5. 我做业务层验证了吗？ → 如果只做了技术层，补做业务层
+
+## 反绕过识别
+以下行为是绕过：
+- "应该没问题" / "逻辑上正确" / "之前验证过" / "理论上没问题"
+- 只做 tsc + build
+- 清单全勾 ✅ 但无执行证据
+- 发现问题但隐瞒不报
+
+## 执行回路
+接收任务 → 执行 → tsc(硬门1) → build(硬门2) → verify(硬门3) → 部署 → HTTP验证(硬门4) → 报告 → 五问自检 → 宣告完成`,
+    args: {
+      task_description: { required: false, schema: z.string().describe("当前任务的描述（可选）") },
+    },
+  },
 ];

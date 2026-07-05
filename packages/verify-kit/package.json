@@ -1,0 +1,32 @@
+{
+  "name": "@metago-ai/verify-kit",
+  "version": "1.0.0",
+  "description": "AI 交付质量保证系统 —— 把 AI 自律从软约束变成硬门的强制门控框架。三层验证（技术/业务/链路）+ 五问自检 + 反绕过识别。",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai-quality", "delivery-gate", "verification",
+    "self-discipline", "metago", "ai-agent", "qa-automation"
+  ],
+  "author": "MetaGO <dev@metago.life>",
+  "license": "MIT",
+  "homepage": "https://metago.life",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/metago/metagolifeform.git",
+    "directory": "packages/verify-kit"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "AGENTS.template.md"
+  ],
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0"
+  }
+}
