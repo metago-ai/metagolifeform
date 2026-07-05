@@ -86,6 +86,7 @@ MetaGO Lifeform Kit v${VERSION}
 
 用法:
   metago-lifeform install [--platform <平台>]   安装到指定平台（默认: trae）
+  metago-lifeform setup-mcp [--platform <平台>]  安装并配置 MCP Server（53 tools）
   metago-lifeform uninstall                     卸载当前平台适配
   metago-lifeform verify                        验证安装是否成功
   metago-lifeform version                       显示版本号
@@ -137,6 +138,18 @@ function main() {
       } else {
         runBash('install.sh', ['--platform', platform].concat(passthroughArgs));
       }
+      break;
+    }
+    case 'setup-mcp':
+    case 'mcp': {
+      if (!PLATFORMS.includes(platform)) {
+        console.error(`错误: 不支持的平台 "${platform}"。支持的平台: ${PLATFORMS.join(', ')}`);
+        process.exit(1);
+      }
+      console.log(`\n[MetaGO MCP Server] 正在安装并配置到 ${platform} 平台...`);
+      const mcpArgs = ['-Platform', platform];
+      if (process.argv.includes('--skip-build')) mcpArgs.push('-SkipBuild');
+      runPowerShell('setup-mcp-server.ps1', mcpArgs);
       break;
     }
     case 'uninstall':

@@ -1,6 +1,6 @@
 # @metago-ai/mcp-server
 
-> MetaGO MCP Server —— 将元构超级智能生命体的 37 项能力（20 项思维工具 + 15 项核心技能 + 2 项交付质量工具，7 项同名工具合并为思维工具版本）封装为 MCP tools，8 条引导词封装为 MCP prompts，任何 MCP 客户端（Claude Desktop、Cursor、Trae 等）即开即用。
+> MetaGO MCP Server —— 将元构超级智能生命体的 53 项能力（22 项思维工具 + 30 项核心技能 + 1 项事件上报）封装为 MCP tools，8 条引导词封装为 MCP prompts，任何 MCP 客户端（Claude Desktop、Cursor、Trae、ZCode 等）即开即用。
 
 基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现，通过 stdio 传输与客户端通信。一次配置，即可让任意支持 MCP 的 AI 客户端获得元构生命体的决策锁、批判性分析、合规前置、元进化、行动计划、价值评估、伦理审查等核心能力。
 

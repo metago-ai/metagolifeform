@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
 .SYNOPSIS
     MetaGO Lifeform Kit 一键安装脚本（支持7大平台）
 
@@ -83,9 +83,9 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.5"
+$script:MetaGoVersion = "V36.6"
 
-# 全部37个技能清单
+# 全部39个技能清单（37个核心技能 + 2个交付质量技能）
 $script:AllSkills = @(
     "metago-action-plan",
     "metago-compliance",
@@ -123,7 +123,9 @@ $script:AllSkills = @(
     "metago-architecture-design",
     "metago-code-review-deep",
     "metago-refactor-suggest",
-    "metago-security-audit"
+    "metago-security-audit",
+    "metago-delivery-gate",
+    "metago-discipline"
 )
 
 # 解析 -Skills 参数

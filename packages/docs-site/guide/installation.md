@@ -4,102 +4,145 @@ MetaGO 支持 7 大 AI 开发平台。选择你的平台查看安装步骤。
 
 ## 前置要求
 
-- Node.js >= 16（推荐 18+）
+- Node.js >= 18（必须）
 - npm 或 npx
 - 支持的 AI 平台之一（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）
 
-## 一键安装（推荐）
-
-### Trae
+## 方式一：从仓库克隆（推荐，功能最完整）
 
 ```bash
-npx metago-lifeform@latest install:trae
+git clone https://gitee.com/metago/metagolifeform.git
+cd metagolifeform
 ```
 
-安装后重启 Trae，39 技能即生效。
+### 1. 安装技能 + 规则文件
 
-### Claude Code
+```powershell
+# Windows PowerShell
+npm run install:trae
+
+# 或指定平台
+node scripts/cli.js install --platform zcode
+```
+
+安装后重启平台，39 个技能即生效。
+
+### 2. 安装并配置 MCP Server（53 个工具）
+
+```powershell
+# Windows PowerShell
+node scripts/cli.js setup-mcp --platform trae
+```
+
+此命令会自动完成：
+1. 检查 Node.js >= 18
+2. npm install（安装 MCP Server 依赖）
+3. npm run build（构建 TypeScript）
+4. 配置平台的 MCP 服务器连接
+5. 验证工具数（应为 53）
+
+**安装完成后重启平台，在 MCP 面板中即可看到 53 个工具。**
+
+## 方式二：通过 npx 安装（仅技能 + 规则）
 
 ```bash
-npx metago-lifeform@latest install:claude-code
+npx metago-lifeform@latest install --platform trae
 ```
 
-### Cursor
+> 注意：npx 方式仅安装技能和规则文件，不包含 MCP Server 配置。如需 MCP 工具，请使用方式一。
 
-```bash
-npx metago-lifeform@latest install:cursor
-```
+## 各平台安装命令
 
-### Codex
+| 平台 | 安装命令 |
+|------|---------|
+| Trae | `node scripts/cli.js install --platform trae` |
+| Claude Code | `node scripts/cli.js install --platform claude-code` |
+| Cursor | `node scripts/cli.js install --platform cursor` |
+| Codex | `node scripts/cli.js install --platform codex` |
+| CodeBuddy | `node scripts/cli.js install --platform codebuddy` |
+| Qoder | `node scripts/cli.js install --platform qoder` |
+| ZCode | `node scripts/cli.js install --platform zcode` |
 
-```bash
-npx metago-lifeform@latest install:codex
-```
+## MCP Server 配置（手动方式）
 
-### CodeBuddy
-
-```bash
-npx metago-lifeform@latest install:codebuddy
-```
-
-### Qoder
-
-```bash
-npx metago-lifeform@latest install:qoder
-```
-
-### ZCode
-
-```bash
-npx metago-lifeform@latest install:zcode
-```
-
-## MCP Server 配置（可选）
-
-如果你想通过 MCP 协议使用 MetaGO 的 37 项能力，在 MCP 客户端配置中添加：
+如果自动配置失败，可手动在平台的 MCP 配置文件中添加：
 
 ```json
 {
   "mcpServers": {
     "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server@latest"]
+      "command": "node",
+      "args": ["C:/path/to/metagolifeform/packages/mcp-server/dist/index.js"]
     }
   }
 }
 ```
 
-支持的 MCP 客户端：
-- Claude Desktop
-- Cursor（Settings > MCP）
-- Trae（MCP 配置）
-- 任何支持 MCP 协议的客户端
+各平台配置文件位置：
+
+| 平台 | 配置文件路径 |
+|------|-------------|
+| Trae | `%APPDATA%\Trae CN\User\mcp.json` |
+| Claude Desktop | `%APPDATA%\Claude\claude_desktop_config.json` |
+| Cursor | `.cursor/mcp.json`（项目根目录） |
+| ZCode | `%USERPROFILE%\.zcode\config\mcp.json` |
 
 ## 验证安装
 
-安装后，运行验证脚本：
-
 ```bash
-npx metago-lifeform@latest verify
+# 验证技能安装
+node scripts/cli.js verify
+
+# 检查技能列表
+npm run list:skills
+
+# 验证 MCP Server 工具数（应为 53）
+node scripts/cli.js setup-mcp --platform trae
 ```
 
-或检查技能列表：
+应显示：
+- 39 个 `metago-*` 技能
+- 53 个 MCP 工具
 
+## 常见问题
+
+### Q: MCP 工具显示 "Tool not found"
+
+**原因**：MCP Server 未正确构建或配置。
+
+**解决方案**：
 ```bash
-npx metago-lifeform@latest list:skills
+cd packages/mcp-server
+npm install
+npm run build
+# 然后重新配置 MCP 服务器
 ```
 
-应显示 39 个 `metago-*` 技能。
+### Q: 工具数不足 53
+
+**原因**：`skills-data.ts` 或 `toolkit-data.ts` 不完整。
+
+**解决方案**：从仓库拉取最新代码：
+```bash
+git pull origin main
+cd packages/mcp-server
+npm run build
+```
+
+### Q: npm install 失败
+
+**解决方案**：
+1. 检查 Node.js 版本 >= 18：`node --version`
+2. 清理缓存：`npm cache clean --force`
+3. 删除 node_modules 后重试：`rm -rf node_modules && npm install`
 
 ## 卸载
 
 ```bash
-npx metago-lifeform@latest uninstall:trae
+node scripts/cli.js uninstall
 ```
-
-将对应平台替换为 `uninstall:claude-code` / `uninstall:cursor` 等。
 
 ## 下一步
 
 - [快速开始](./quickstart) — 5 分钟内调用第一个工具
-- [平台适配详情](./platform-trae) — 深入了解你的平台
+- [MCP Server 文档](../api/mcp-server) — 了解 53 个工具的详细说明
