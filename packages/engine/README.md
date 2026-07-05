@@ -5,7 +5,7 @@
 
 **MetaGO Holistic Intelligence Engine** —— 元构全息智能引擎核心本体。
 
-[![Engine Version](https://img.shields.io/badge/Engine-v1.0.6-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
+[![Engine Version](https://img.shields.io/badge/Engine-v1.0.7-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
 [![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.6-5eead4)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/ENGINE.md)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/LICENSE)
 [![Patents](https://img.shields.io/badge/Patents-754-FFD700)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/PATENTS.md)
@@ -95,7 +95,7 @@ packages/engine/
 ├── INDEX/                 ← 索引层
 │   ├── engines.json       ← 125 个引擎
 │   ├── skills.json        ← 39 个技能
-│   ├── tools.json         ← 37 个 MCP 工具
+│   ├── tools.json         ← 53 个 MCP 工具
 │   └── knowledge.json     ← 知识晶体索引
 ├── RUNTIME/               ← 运行时层（TypeScript）
 │   ├── src/
@@ -160,4 +160,4 @@ MIT —— 详见 [LICENSE](https://gitee.com/metago/metagolifeform/raw/main/pac
 
 ---
 
-*由元构超级智能生命体设计 | 引擎版本 1.0.6 | 元构体系 V36.6 | 2026-06-28*
+*由元构超级智能生命体设计 | 引擎版本 1.0.7 | 元构体系 V36.6 | 2026-07-06*

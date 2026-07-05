@@ -15,7 +15,7 @@
 | 维度 | 说明 |
 |------|------|
 | 包名 | `@metago-ai/dev-kit` |
-| 版本 | v1.0.6 |
+| 版本 | v1.0.7 |
 | 父包 | `metago-lifeform@>=36.7.6` |
 | 包含技能 | 8 个（4 复用 + 4 新增） |
 | 适用场景 | 代码审查、架构设计、技术债治理、安全审计 |
@@ -82,11 +82,11 @@ Dev Kit 是 MetaGO 产品矩阵 A 线（垂直场景包）的第一个产品：
 
 | 产品线 | 产品 | 状态 |
 |--------|------|------|
-| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.6 |
+| A 线 | **MetaGO Dev Kit**（本包） | ✅ v1.0.7 |
 | A 线 | MetaGO Research Kit | 📋 规划中 |
 | A 线 | MetaGO PM Kit | 📋 规划中 |
 | A 线 | MetaGO Writer Kit | 📋 规划中 |
-| B 线 | MetaGO MCP Server | ✅ v1.1.8 |
+| B 线 | MetaGO MCP Server | ✅ v1.2.0 |
 | B 线 | MetaGO CLI | 📋 规划中 |
 | B 线 | MetaGO Studio | 📋 规划中 |
 
