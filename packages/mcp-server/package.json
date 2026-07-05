@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "MetaGO MCP Server — 37 tools + 8 prompts 把元构超级智能生命体能力封装为 MCP 工具。新增交付质量族（metago_delivery_gate + metago_discipline）。任何 MCP 协议客户端（Claude Desktop/Cursor/Trae/Cline/Continue 等）即开即用。基于 Model Context Protocol 标准。",
   "type": "module",
   "main": "./dist/index.js",
