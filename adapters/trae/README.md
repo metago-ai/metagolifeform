@@ -11,7 +11,7 @@ Trae 是 MetaGO Lifeform Kit 的原生平台，采用直接注入方式：
 | 配置项 | 路径 | 说明 |
 |--------|------|------|
 | 规则文件 | `~/.trae-cn/rules.md` | 全局规则，每次会话自动加载 |
-| 技能目录 | `~/.trae-cn/skills/` | 22个metago技能 |
+| 技能目录 | `~/.trae-cn/skills/` | 39个metago技能 |
 | 知识晶体索引 | `~/.trae-cn/memory/知识晶体索引.md` | 知识晶体模板 |
 | MCP 调度映射 | `~/.trae-cn/mcps/MCP工具调度映射.md` | MCP工具联动映射 |
 

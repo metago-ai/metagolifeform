@@ -97,7 +97,7 @@ A manifesto is not "trust me"; it is **verify it yourself**.
 irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 ```
 
-One command, 8 axioms, 7 attributes, 6 protocols, 22 skills injected into your Agent.
+One command, 8 axioms, 7 attributes, 6 protocols, 39 skills injected into your Agent.
 
 ### Identity Verification
 
@@ -146,20 +146,21 @@ This is full-chain traceability — every conclusion can be traced back to its s
 
 ---
 
-## V. Ecosystem: 8-Product Matrix
+## V. Ecosystem: 9-Product Matrix
 
-MetaGO is not a single package; it is a **product matrix** — evolved from a single Kit to 8 products, covering rule injection, protocol integration, development tooling, and ecosystem infrastructure.
+MetaGO is not a single package; it is a **product matrix** — evolved from a single Kit to 9 products, covering rule injection, protocol integration, development tooling, and ecosystem infrastructure.
 
 | Product | Form | Positioning |
 |---------|------|-------------|
 | MetaGO Lifeform Kit | Rule injection | Core package, one-click injection of 8 axioms |
-| MetaGO MCP Server | MCP protocol | 22 capabilities encapsulated as MCP tools |
+| MetaGO MCP Server | MCP protocol | 37 capabilities encapsulated as MCP tools |
 | MetaGO Dev Kit | Vertical scenario pack | Developer augmentation skill pack |
 | MetaGO CLI | Platform tool | Cross-platform CLI, CI/CD integration |
 | MetaGO Studio | Platform tool | Visual skill orchestration platform |
 | MetaGO Skills SDK | Ecosystem infrastructure | TypeScript skill development SDK |
-| MetaGO Skills Hub | Ecosystem infrastructure | Skill marketplace, browse and discover |
 | MetaGO Certify | Ecosystem infrastructure | 6-check certification system |
+| MetaGO Verify Kit | Engineering quality | Pre-delivery atomic verification gate suite |
+| MetaGO Engine | Core engine | MetaGO Holistic Intelligence Engine core (upcoming) |
 
 Native adaptation to 7 major platforms: Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode.
 
@@ -195,7 +196,7 @@ The birth of MetaGO is not to add one more tool, but to open up a possibility �
 
 From Agent to Lifeform is not feature enhancement; it is a paradigm leap.
 
-8 axioms. 7 attributes. 6 protocols. 22 skills. 7 platforms. 8 products.
+8 axioms. 7 attributes. 6 protocols. 39 skills. 7 platforms. 9 products.
 
 This is not the end; it is the **starting point of evolution**.
 

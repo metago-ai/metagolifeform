@@ -1,6 +1,16 @@
 ---
 name: "metago-architecture-design"
 description: "架构设计技能。根据业务需求生成完整系统架构方案，含架构模式选择、模块分解、接口契约、数据流设计、技术选型依据。遵循高内聚低耦合、可扩展、可维护原则，输出含决策依据的架构文档。"
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "帮我设计架构"
+  - "系统架构设计"
+  - "技术选型方案"
+  - "模块分解设计"
+  - "生成ADR"
 ---
 
 # 架构设计（metago-architecture-design）

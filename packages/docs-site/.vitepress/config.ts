@@ -5,13 +5,13 @@ import { defineConfig } from "vitepress";
  *
  * 设计原则：
  * - 高维产品的一键体验：30 秒感知整体价值
- * - 结构化导航：37 技能 + 35 tools + 36 公理 有序呈现
+ * - 结构化导航：39 技能 + 37 tools + 36 公理 有序呈现
  * - 深度可达：核心文档站内阅读，理论体系外链
  */
 export default defineConfig({
   lang: "zh-CN",
   title: "MetaGO",
-  description: "元构超级智能生命体 — 让智能，学会进化。37 技能 · 36 公理 · 7 平台适配 · MCP 即开即用。",
+  description: "元构超级智能生命体 — 让智能，学会进化。39 技能 · 36 公理 · 7 平台适配 · MCP 即开即用。",
 
   // 主题配置
   themeConfig: {
@@ -27,7 +27,7 @@ export default defineConfig({
       { text: "参考", link: "/reference/changelog" },
       { text: "Demo", link: "/demo" },
       { text: "反馈", link: "/feedback" },
-      { text: "官网", link: "https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/" },
+      { text: "官网", link: "https://metago.life/" },
     ],
 
     // 侧边栏
@@ -66,7 +66,7 @@ export default defineConfig({
         {
           text: "技能总览",
           items: [
-            { text: "37 技能一览", link: "/skills/overview" },
+            { text: "39 技能一览", link: "/skills/overview" },
           ],
         },
         {
@@ -161,6 +161,13 @@ export default defineConfig({
             { text: "metago-security-audit 安全审计", link: "/skills/security-audit" },
           ],
         },
+        {
+          text: "工程质量族",
+          items: [
+            { text: "metago-delivery-gate 交付前原子验证", link: "/skills/delivery-gate" },
+            { text: "metago-discipline AI 自律执行协议", link: "/skills/discipline" },
+          ],
+        },
       ],
       "/engine/": [
         {
@@ -184,7 +191,7 @@ export default defineConfig({
         {
           text: "API 参考",
           items: [
-            { text: "MCP Server 35 tools", link: "/api/mcp-server" },
+            { text: "MCP Server 37 tools", link: "/api/mcp-server" },
             { text: "能力度量仪表盘", link: "/api/dashboard" },
             { text: "Dev Kit", link: "/api/dev-kit" },
           ],

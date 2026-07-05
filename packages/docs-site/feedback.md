@@ -39,7 +39,7 @@ outline: [2, 3]
 **填写要点**：
 - 描述解决的问题（不是直接要功能）
 - 说明使用场景和频率
-- 标注所属能力族（认知/保障/治理/进化/执行/溯源/价值/意识/方法论/架构/Dev Kit）
+- 标注所属能力族（认知/保障/治理/进化/执行/溯源/价值/意识/方法论/架构/工程质量族/Dev Kit）
 
 ### 💬 整体反馈
 
@@ -151,8 +151,8 @@ outline: [2, 3]
 | GitHub Issues | [metago-ai/metagolifeform](https://github.com/metago-ai/metagolifeform/issues) | 国际用户 / Bug / Feature |
 | Gitee Issues | [metago/metagolifeform](https://gitee.com/metago/metagolifeform/issues) | 国内用户 / 同步处理 |
 | 邮件 | metago@metago.life | 商务 / 安全 / 私密 |
-| 文档站 | [MetaGO 文档](https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/) | 文档查询 |
-| 官网 | [MetaGO 官网](https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/) | 产品介绍 |
+| 文档站 | [MetaGO 文档](https://metago.life/) | 文档查询 |
+| 官网 | [MetaGO 官网](https://metago.life/) | 产品介绍 |
 
 ---
 

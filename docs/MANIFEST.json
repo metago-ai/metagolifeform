@@ -1,9 +1,9 @@
 {
   "manifest_version": "1.0.0",
-  "metago_version": "V36.5",
-  "package_version": "36.7.0",
+  "metago_version": "V36.6",
+  "package_version": "36.7.13",
   "description": "MetaGO Lifeform Kit AI 加载清单 - 支持全息按需激活",
-  "last_updated": "2026-06-28",
+  "last_updated": "2026-07-05",
   "activation_rate": "<30%",
   "documents": [
     {
@@ -36,7 +36,7 @@
       "path": "docs/PRD.md",
       "type": "product",
       "priority": "high",
-      "description": "8大产品矩阵的产品规划与路线图",
+      "description": "9大产品矩阵的产品规划与路线图",
       "tags": ["product", "roadmap", "matrix"],
       "related": ["WHITEPAPER", "STRATEGY"]
     },
@@ -69,7 +69,7 @@
       "path": "docs/MCP_SERVER.md",
       "type": "tool",
       "priority": "high",
-      "description": "35个MCP工具 + 8个prompts的完整文档",
+      "description": "37个MCP工具 + 8个prompts的完整文档",
       "tags": ["mcp", "tools", "prompts"],
       "related": ["ARCHITECTURE"]
     },
@@ -108,7 +108,7 @@
     }
   ],
   "skills": {
-    "total": 37,
+    "total": 39,
     "families": {
       "cognition": 4,
       "assurance": 3,
@@ -120,14 +120,15 @@
       "consciousness": 1,
       "methodology": 5,
       "architecture": 5,
-      "dev_kit": 4
-    }
+      "engineering_quality": 2
+    },
+    "dev_kit": 4
   },
   "mcp_tools": {
-    "total": 35,
+    "total": 37,
     "prompts": 8,
     "package": "@metago-ai/mcp-server",
-    "version": "1.1.0"
+    "version": "1.1.8"
   },
   "platforms": [
     "trae",

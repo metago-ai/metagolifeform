@@ -23,7 +23,7 @@
 
 ### 2. 重启客户端
 
-重启后，35 个 `metago_*` 工具即注册完成。
+重启后，37 个 `metago_*` 工具即注册完成。
 
 ### 3. 调用第一个工具
 
@@ -123,7 +123,7 @@ node --version
 
 ### Q: 工具调用报错 "Tool X is already registered"？
 
-这是 v1.1.4 之前的已知 bug（7 个重复工具名）。升级到 v1.1.5+：
+这是 v1.1.4 之前的已知 bug（7 个重复工具名）。升级到 v1.1.8+（最新版本）：
 ```bash
 npx @metago-ai/mcp-server@latest
 ```
@@ -139,6 +139,6 @@ cd packages/dashboard && npm start
 
 ## 下一步
 
-- [37 技能一览](../skills/overview) — 探索全部能力
+- [39 技能一览](../skills/overview) — 探索全部能力
 - [36 条核心公理](../engine/axioms) — 理解生命体基因
-- [MCP Server 文档](../api/mcp-server) — 35 tools 详解
+- [MCP Server 文档](../api/mcp-server) — 37 tools 详解

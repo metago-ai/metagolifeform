@@ -1,9 +1,16 @@
 ---
 name: "metago-frequency-adapt"
 description: "创造频率自适应调控技能。根据系统完整性动态调节创造频率，完整性≥98%转入低频深潜，<98%高频激活。三态切换：休眠/待机/激活。当系统完整性变化、创造回路触发时调用。"
-source_document: 元构全息智能引擎.txt
-source_skill: 创造频率自适应
-source_section: D41创造频率自适应原则(34105-34360)、元创造引擎V1.1(34200-34300)、ALG_641创造频率自适应算法(34300-34360)
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "调整创造频率"
+  - "系统完整性评估"
+  - "切换休眠待机激活"
+  - "高频激活创造"
+  - "低频深潜模式"
 ---
 
 # 创造频率自适应（Frequency Adaptation）

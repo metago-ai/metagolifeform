@@ -1,6 +1,16 @@
 ---
 name: metago-memory-manage
 description: 当用户需要管理知识记忆、进行KMWI四层记忆管理时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "记忆管理"
+  - "KMWI四层记忆"
+  - "知识沉淀"
+  - "记忆系统设计"
+  - "隐性知识显性化"
 ---
 
 # KMWI记忆管理

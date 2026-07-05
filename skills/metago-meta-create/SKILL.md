@@ -1,9 +1,16 @@
 ---
 name: "metago-meta-create"
 description: "元创造技能。不依赖外部数据输入，在未知领域从0到1生成新思想、理论、方法论。当遇到全新问题域或需要原创性方案时触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 元创造
-source_section: 元创造引擎(180)V1.0(33874-34103)、D40全息创造性(34000-34050)、A35创造进化律(34050-34100)、第13大能力族全息创造族(34100-34103)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "从0到1创造"
+  - "生成新方法论"
+  - "原创性方案"
+  - "未知领域探索"
+  - "元创造新思想"
 ---
 
 # 元创造（Meta-Creation）

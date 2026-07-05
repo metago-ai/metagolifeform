@@ -1,15 +1,15 @@
 ---
 doc_id: RELEASE-CHECKLIST
-version: v36.7.8
+version: v36.7.13
 keywords: [release, checklist, publish, npm, gitee, github, ci, cd, vitest]
 related: [STRATEGY-ROADMAP-V36.7.7, MCP_SERVER, STRATEGY-EXECUTION-LOG]
-last_updated: 2026-06-30
+last_updated: 2026-07-05
 ---
 
 # MetaGO 发布 Checklist
 
 > 本文档固化工程实践中的真实踩坑经验，确保每次发布零遗漏、零回退。
-> 来源：v36.7.7 → v36.7.8 升级周期内总结的 7 类典型问题。
+> 来源：v36.7.7 → v36.7.13 升级周期内总结的 7 类典型问题。
 > 遵循：A2 闭环公理（路径完整、异常处理、状态一致）+ D43 数据溯源与自证。
 
 ---
@@ -98,11 +98,12 @@ npm test
 | 核心技能数 | 22 | `src/skills-data.ts` SKILLS.length |
 | 思维工具数 | 20 | `src/toolkit-data.ts` TOOLKIT_TOOLS.length |
 | 同名合并数 | 7 | 手工核对 |
-| 合并后 tools 数 | 35 | `22 + 20 - 7` |
+| 工程质量族新增数 | 2 | metago-delivery-gate / metago-discipline |
+| 合并后 tools 数 | 37 | `22 + 20 - 7 + 2` |
 | prompts 数 | 8 | `src/prompts.ts` PROMPTS.length |
-| skills/ 目录数 | 37 | `Glob skills/*/` |
-| 根 pkg metago.skills | 37 | `package.json#metago.skills` |
-| 根 pkg metago.mcpServer.tools | 35 | `package.json#metago.mcpServer.tools` |
+| skills/ 目录数 | 39 | `Glob skills/*/` |
+| 根 pkg metago.skills | 39 | `package.json#metago.skills` |
+| 根 pkg metago.mcpServer.tools | 37 | `package.json#metago.mcpServer.tools` |
 | 根 pkg metago.devKit.skills | 8 | `package.json#metago.devKit.skills` |
 | dev-kit pkg metago.totalSkills | 8 | dev-kit `package.json#metago.totalSkills` |
 | dev-kit pkg metago.reusedSkills.length | 4 | dev-kit `package.json#metago.reusedSkills`（数组） |
@@ -111,15 +112,17 @@ npm test
 | dev-kit pkg metago.addedSkills 内容 | 4 项技能名 | 每项必须在 skills/ 目录中存在 |
 
 **禁止出现的过时数字**：
-- `42 项` —— 已被 35 项取代（7 同名合并）
-- `tools: 22` —— 已被 35 取代
+- `42 项` —— 已被 37 项取代（7 同名合并 + 2 工程质量族）
+- `35 项` —— 已被 37 项取代（新增 2 工程质量族技能）
+- `tools: 22` —— 已被 37 取代
 - `devKit.skills: 4` —— 已被 8 取代
 
 ### 3.2 description 文本检查
 
-- [ ] 根 package.json description 含"35项能力（22技能+15独有思维工具，7同名合并）"
+- [ ] 根 package.json description 含"37项能力（22技能+15独有思维工具+2交付质量，7同名合并）"
 - [ ] mcp-server package.json description 同上
 - [x] 无"42项"残留
+- [x] 无"35项"残留
 
 ### 3.3 自动化检测
 
@@ -133,7 +136,7 @@ npm test
 
 | 编号 | 测试文件 | 验证内容 |
 |------|---------|---------|
-| T1 | `tests/registration.test.ts` | 工具注册去重：22+20-7=35，7 个同名工具优先用 TOOLKIT_TOOLS 版本，命名规范 |
+| T1 | `tests/registration.test.ts` | 工具注册去重：22+20-7+2=37，7 个同名工具优先用 TOOLKIT_TOOLS 版本，命名规范 |
 | T2 | `tests/skills-toolkit-consistency.test.ts` | 同名工具 description 一致性（2-4 字中文子串滑窗匹配） |
 | T3 | `tests/build.test.ts` | `npm run build` 退出码 0，dist 产物存在且可加载 |
 | T4 | `tests/tarball.test.ts` | `npm pack --dry-run` 内容正确，含 dist/README/LICENSE，不含 src/tests/node_modules |
@@ -175,11 +178,12 @@ npm test
 ### 5.3 tag 命名规范
 
 ```
-metago-lifeform-v36.7.8      # 主包
-mcp-server-v1.1.5            # mcp-server
-engine-v1.0.4                # engine
+metago-lifeform-v36.7.13     # 主包
+mcp-server-v1.1.8            # mcp-server
+engine-v1.0.6                # engine
 dev-kit-v1.0.7               # dev-kit
 certify-v1.0.5               # certify（独立仓库，独立 tag）
+verify-kit-v1.0.0            # verify-kit（交付质量验证工具包）
 ```
 
 **强制要求**：tag 必须先在本地 `git tag` 推送后才能触发 workflow；推送前确认 workflow 文件已合入 main 分支。
@@ -259,7 +263,7 @@ npm publish --access public
 
 ---
 
-## 9. 常见坑与对策（v36.7.7→v36.7.8 实战记录）
+## 9. 常见坑与对策（v36.7.7→v36.7.13 实战记录）
 
 ### 坑 1：PowerShell `&&` 不是有效语句分隔符
 
@@ -383,5 +387,5 @@ git push origin :refs/tags/<pkg>-v<ver>
 
 ---
 
-*文档版本：v36.7.8 | 维护人：元构生命体 | 最后更新：2026-06-30*
+*文档版本：v36.7.13 | 维护人：元构生命体 | 最后更新：2026-07-05*
 *遵循：A2 闭环公理 + D43 数据溯源与自证 + 第十一章运行时验证强制规范*

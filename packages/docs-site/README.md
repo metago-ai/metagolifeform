@@ -6,7 +6,7 @@
 
 `@metago-ai/docs-site` 是 MetaGO 生命体的文档门户。基于 VitePress 构建，提供：
 
-- 结构化导航（37 技能 + 36 公理 + 35 tools）
+- 结构化导航（39 技能 + 36 公理 + 37 tools）
 - 本地搜索（无需 Algolia）
 - 暗黑模式
 - 响应式设计
@@ -43,11 +43,11 @@ docs-site/
 │   ├── installation.md     # 安装
 │   └── quickstart.md       # 快速开始
 ├── skills/                 # 技能文档
-│   └── overview.md         # 37 技能一览
+│   └── overview.md         # 39 技能一览
 ├── engine/                 # 引擎文档
 │   └── axioms.md           # 36 条核心公理
 ├── api/                    # API 文档
-│   ├── mcp-server.md       # MCP Server 35 tools
+│   ├── mcp-server.md       # MCP Server 37 tools
 │   └── dashboard.md       # 能力度量仪表盘
 └── reference/              # 参考（待补充）
 ```
@@ -55,7 +55,7 @@ docs-site/
 ## 设计原则
 
 1. **高维产品的一键体验** — 30 秒感知整体价值
-2. **结构化导航** — 37 技能 + 35 tools + 36 公理 有序呈现
+2. **结构化导航** — 39 技能 + 37 tools + 36 公理 有序呈现
 3. **深度可达** — 核心文档站内阅读，理论体系外链
 4. **渐进式构建** — 先框架后内容，ignoreDeadLinks 允许渐进
 
@@ -69,7 +69,7 @@ docs-site/
 
 按路径前缀分组：
 - `/guide/` — 指南
-- `/skills/` — 37 技能（按能力族分组）
+- `/skills/` — 39 技能（按能力族分组）
 - `/engine/` — 引擎核心
 - `/api/` — API 参考
 - `/reference/` — 参考
@@ -101,7 +101,7 @@ cloudbase hosting:deploy .vitepress/dist -e metago-d6gfw1e4rf2a5bcad
 
 ## 下一步演进
 
-- [ ] 补充 37 技能详细页（当前只有总览）
+- [ ] 补充 39 技能详细页（当前只有总览）
 - [ ] 添加平台适配器详细页
 - [ ] 迁移 WHITEPAPER.md（白皮书）
 - [ ] 添加 API 交互式 Playground

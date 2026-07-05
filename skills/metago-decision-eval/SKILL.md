@@ -1,9 +1,16 @@
 ---
 name: "metago-decision-eval"
 description: "决策评估技能。评估决策质量和潜在风险。评估维度：逻辑完整性、证据充分性、风险可控性、替代方案、可执行性。返回0-100分及各维度评分。"
-source_document: 元构全息智能引擎.txt
-source_skill: 决策评估
-source_section: metago-decision-eval技能定义(241-245, 454-482)
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "评估这个决策"
+  - "决策风险分析"
+  - "多维度打分"
+  - "方案对比评估"
+  - "决策质量检查"
 ---
 
 # 决策评估（metago-decision-eval）

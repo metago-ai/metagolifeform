@@ -71,7 +71,7 @@ npm start
   "dailyStats": [
     { "day": "2026-06-30", "calls": 5, "errors": 1 }
   ],
-  "versionStats": { "1.1.5": 7 },
+  "versionStats": { "1.1.8": 7 },
   "recentRecords": [...]
 }
 ```
@@ -121,6 +121,6 @@ npm test
 
 ## 下一步
 
-- [MCP Server API](./mcp-server) — 35 tools 详解
+- [MCP Server API](./mcp-server) — 37 tools 详解
 - [快速开始](../guide/quickstart) — 5 分钟上手
-- [37 技能一览](../skills/overview) — 技能详解
+- [39 技能一览](../skills/overview) — 技能详解

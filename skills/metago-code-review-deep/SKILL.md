@@ -1,6 +1,16 @@
 ---
 name: "metago-code-review-deep"
 description: "深度代码审查技能。对代码进行多维度分级审查（Critical/Major/Minor/Info），覆盖逻辑正确性、安全漏洞、性能瓶颈、可维护性、风格一致性。基于元构批判性分析（metago-critique）和事实核查（metago-fact-check）能力，输出含修复建议的结构化审查报告。"
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "帮我做代码审查"
+  - "审查这段代码"
+  - "Code Review"
+  - "检查代码质量"
+  - "PR Review"
 ---
 
 # 深度代码审查（metago-code-review-deep）

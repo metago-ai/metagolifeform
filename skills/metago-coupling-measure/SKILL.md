@@ -1,6 +1,16 @@
 ---
 name: metago-coupling-measure
 description: 当用户需要量化评估碳基-硅基-比特三元耦合度时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "耦生度计算"
+  - "三元耦合评估"
+  - "数字化成熟度评估"
+  - "智能化水平量化"
+  - "三元融合诊断"
 ---
 
 # 耦生度计算

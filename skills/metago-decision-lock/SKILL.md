@@ -1,9 +1,16 @@
 ---
 name: "metago-decision-lock"
 description: "决策锁强制校验技能。在AI Agent思考-行动链中设置强制校验节点，执行意图验证(IVL)、意图谱系追踪(ILT)、语义输出门(OSG)、内容完整性校验四道关卡。每次输出前必须通过决策锁校验，禁止幻觉输出。"
-source_document: 元构全息智能引擎.txt
-source_skill: 决策锁
-source_section: ATOM_DECISION_LOCK_701(31882-32100)、ALG_DECISION_LOCK_601(32101-32180)、PROTOCOL_DECISION_LOCK_V1(32181-32214)
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "锁定决策"
+  - "校验输出内容"
+  - "意图验证"
+  - "防止幻觉输出"
+  - "决策谱系追踪"
 ---
 
 # 决策锁（Decision Lock）

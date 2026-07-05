@@ -1,6 +1,16 @@
 ---
 name: metago-consensus-prototype
 description: 当用户需要孵化共识、创建共识原型、进行七步创生回路时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "共识孵化"
+  - "创建共识原型"
+  - "七步创生回路"
+  - "多方共识构建"
+  - "共识机制设计"
 ---
 
 # 共识原型孵化

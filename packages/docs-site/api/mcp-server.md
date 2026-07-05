@@ -1,14 +1,14 @@
 # MCP Server API
 
-> `@metago-ai/mcp-server` v1.1.5 — 35 项能力封装为 MCP 工具，任何 MCP 客户端即开即用。
+> `@metago-ai/mcp-server` v1.1.8 — 37 项能力封装为 MCP 工具，任何 MCP 客户端即开即用。
 
 ## 概览
 
 | 项目 | 值 |
 |------|-----|
 | 包名 | `@metago-ai/mcp-server` |
-| 版本 | 1.1.5 |
-| 工具数 | 35（22 技能 + 15 独有思维工具，7 同名合并） |
+| 版本 | 1.1.8 |
+| 工具数 | 37（22 技能 + 20 独有思维工具 - 7 同名合并 + 2 工程质量族） |
 | Prompts | 8 |
 | 传输协议 | stdio |
 | Node.js | >= 18 |
@@ -48,7 +48,7 @@ npm install -g @metago-ai/mcp-server
 }
 ```
 
-## 35 个 Tools
+## 37 个 Tools
 
 ### 认知族（4）
 
@@ -107,9 +107,16 @@ npm install -g @metago-ai/mcp-server
 | `metago_negentropy_monitor` | `system` | 负熵监控 |
 | `metago_scene_term_replace` | `text`, `scene?` | 场景术语替换 |
 
+### 工程质量族（2）
+
+| 工具 | 参数 | 功能 |
+|------|------|------|
+| `metago_delivery_gate` | `task`, `changes?` | 交付前原子验证门控（技术层 + 业务层 + 链路层） |
+| `metago_discipline` | `report?` | AI 自律执行协议五问自检 |
+
 ### 独有思维工具（9）
 
-这些工具不在 37 技能中，是 MCP Server 独有的结构化思维工具：
+这些工具不在 39 技能中，是 MCP Server 独有的结构化思维工具：
 
 | 工具 | 功能 |
 |------|------|
@@ -198,5 +205,5 @@ MCP Server 内置双轨日志：
 ## 下一步
 
 - [能力度量仪表盘](./dashboard) — 查看调用统计
-- [37 技能一览](../skills/overview) — 技能详解
+- [39 技能一览](../skills/overview) — 技能详解
 - [快速开始](../guide/quickstart) — 5 分钟上手

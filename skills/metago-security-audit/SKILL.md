@@ -1,6 +1,16 @@
 ---
 name: "metago-security-audit"
 description: "安全审计技能。基于OWASP Top 10进行多维度安全审计，检测注入漏洞、认证授权缺陷、敏感信息泄露、依赖漏洞。输出含CVE引用、漏洞等级、修复方案的安全审计报告。遵循A36法律优先于效率原则。"
+version: "1.0.0"
+author: "MetaGO"
+category: "安全合规"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "安全审计"
+  - "漏洞扫描"
+  - "OWASP检查"
+  - "渗透测试"
+  - "依赖安全评估"
 ---
 
 # 安全审计（metago-security-audit）

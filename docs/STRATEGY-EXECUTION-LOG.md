@@ -12,7 +12,7 @@
 | 第1阶段 | 0-2 周 | MetaGO MCP Server | ✅ 已完成 |
 | 第2阶段 | 2-4 周 | MetaGO Dev Kit + 独立仓库 | ✅ 已完成 |
 | 第3阶段 | 4-8 周 | MetaGO CLI + MetaGO Studio MVP | ✅ 已完成 |
-| 第4阶段 | 8-12 周 | Skills SDK + Skills Hub + Certify | ✅ 已完成 |
+| 第4阶段 | 8-12 周 | Skills SDK + Skills Hub（已取消 2026-07-05）+ Certify | ✅ 已完成 |
 | 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+125引擎+验证器） | ✅ 已完成 |
 
 ---
@@ -218,7 +218,7 @@
 ## 第1阶段 Week 1-2：MCP Server（已完成 ✅）
 
 ### 交付物
-- `packages/mcp-server/`：完整的 MCP Server 实现，35 tools + 8 prompts
+- `packages/mcp-server/`：完整的 MCP Server 实现，37 tools + 8 prompts
 - npm 包：`@metago-ai/mcp-server`
 - 文档：`docs/MCP_SERVER.md`（262 行，面向终端用户的完整文档）
 - 修复官网"查看完整文档"按钮 404（按钮链接到 Gitee 的 docs/MCP_SERVER.md）
@@ -254,7 +254,7 @@
 
 ### 第1阶段（MCP Server）
 - [x] MCP Server 实现完成
-- [x] 35 tools 暴露（v1.1.0：22 skills 与 20 toolkit 合并去重）
+- [x] 37 tools 暴露（v1.1.8：22 skills 与 20 toolkit 合并去重 + 2 工程质量族）
 - [x] 8 prompts 暴露
 - [x] npm 包发布
 - [x] 文档完成
@@ -303,3 +303,18 @@
   - Gitee 推送 7 仓库全部成功
   - GitHub Contents API 上传 19 文件全部成功
   - npm publish 5 包全部成功
+
+### 2026-07-05：V36.6 引擎升级 + 工程质量族
+- 新增工程质量族（2 个技能）：`metago-delivery-gate`（交付前原子验证门控）+ `metago-discipline`（AI 自律执行协议）
+- 技能总数：37 → 39（22 核心技能 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量）
+- MCP 工具数：35 → 37（22 skills + 20 toolkit - 7 重叠 + 2 工程质量族 = 37）
+- 能力族：10 大 → 11 大（新增工程质量族）
+- 引擎版本：V36.5 → V36.6
+- metago-lifeform 包版本：v36.7.12 → v36.7.13
+- @metago-ai/mcp-server 版本：1.1.7 → 1.1.8
+- @metago-ai/engine 版本：1.0.5 → 1.0.6
+- @metago-ai/certify 版本：1.0.4 → 1.0.5
+- 新增产品：`@metago-ai/verify-kit@1.0.0`（交付前验证套件，产品矩阵 8 → 10）
+- 新增章节：AGENTS.md 第十一章（运行时验证原子级硬门）、第十二章（项目记忆强制读取）、第十三章（主动缺陷猎杀）、第十四章（交付前原子验证协议）、第十五章（AI 自律执行协议）
+- 新增脚本：`scripts/pre-delivery-verify.cjs`（一键运行 L1+L2+L3 验证）
+- 官方域名统一：metago.life（禁止 tcloudbaseapp）

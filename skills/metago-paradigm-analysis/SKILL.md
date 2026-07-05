@@ -1,6 +1,16 @@
 ---
 name: metago-paradigm-analysis
 description: 当用户需要分析技术范式、评估范式转移、进行WAM数学框架分析时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "范式分析"
+  - "WAM数学框架"
+  - "范式转移评估"
+  - "技术范式分析"
+  - "底层假设检验"
 ---
 
 # WAM范式分析

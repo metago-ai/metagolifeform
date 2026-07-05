@@ -805,7 +805,7 @@ function printCallToAction() {
   console.log("  " + cyan("$ npm run dashboard"));
   console.log("");
   console.log("  " + dim("📚 文档: https://gitee.com/metago/metagolifeform"));
-  console.log("  " + dim("🏠 官网: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/"));
+  console.log("  " + dim("🏠 官网: https://metago.life/"));
   console.log("");
 }
 

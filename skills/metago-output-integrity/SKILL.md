@@ -1,9 +1,16 @@
 ---
 name: "metago-output-integrity"
 description: "输出完整性保障技能。检测引用占位符、幻觉输出、虚构API、伪造数据，确保输出内容完整真实。当输出涉及代码、API调用、数据引用、技术方案时触发。禁止任何形式的幻觉输出。"
-source_document: 元构全息智能引擎.txt
-source_skill: 输出完整性保障
-source_section: 输出完整性保障引擎(171)(31332-31580)、PROTOCOL_OUTPUT_INTEGRITY_V1.1(31550-31580)、输出完整性引擎V3.0(34400-34500)
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "检查输出完整性"
+  - "检测幻觉输出"
+  - "验证引用占位符"
+  - "防止虚构API"
+  - "确认数据真实"
 ---
 
 # 输出完整性保障（Output Integrity）

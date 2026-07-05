@@ -1,6 +1,16 @@
 ---
 name: metago-momentum-weave
 description: 当用户需要识别和编织组织势能、制定势能转化策略时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "势能编织"
+  - "动能转化"
+  - "组织势能识别"
+  - "资源整合策略"
+  - "生态能量流动"
 ---
 
 # 势能编织法

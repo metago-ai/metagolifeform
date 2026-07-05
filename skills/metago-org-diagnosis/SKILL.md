@@ -1,6 +1,16 @@
 ---
 name: metago-org-diagnosis
 description: 当用户需要诊断组织健康度、识别三元失耦问题、进行五纬雷达扫描时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "组织诊断"
+  - "健康度评估"
+  - "三元失耦分析"
+  - "五纬雷达扫描"
+  - "团队效能评估"
 ---
 
 # 三元五纬诊断模型

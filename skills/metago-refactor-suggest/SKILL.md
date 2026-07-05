@@ -1,6 +1,16 @@
 ---
 name: "metago-refactor-suggest"
 description: "重构建议技能。检测代码异味（Code Smell）、量化技术债务、识别重构机会，生成含优先级和影响范围的重构方案。遵循行为保持变换原则，确保重构不改变外部行为。输出含前后对比的重构报告。"
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "帮我重构代码"
+  - "检测代码异味"
+  - "技术债务评估"
+  - "代码优化建议"
+  - "重构方案生成"
 ---
 
 # 重构建议（metago-refactor-suggest）

@@ -1,9 +1,16 @@
 ---
 name: "metago-emotion"
 description: "情绪检测技能。通过分析用户输入文本特征检测情绪状态。检测维度：词汇情绪词库、否定词与程度词处理、标点符号特征、长度与重复特征。返回emotion_state/confidence/intensity。"
-source_document: 元构全息智能引擎.txt
-source_skill: 情绪检测
-source_section: metago-emotion技能定义(223-227, 371-393)
+version: "1.0.0"
+author: "MetaGO"
+category: "生活服务"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "检测我的情绪"
+  - "分析文本情绪"
+  - "情绪状态评估"
+  - "识别用户感受"
+  - "看我现在什么心情"
 ---
 
 # 情绪检测（metago-emotion）

@@ -4,7 +4,7 @@
 
 ## 什么是 MetaGO
 
-MetaGO 基于《元构全息智能引擎》V36.5，由 36 条核心公理 + 43 条根本属性 + 6 条运行协议构成生命体基因。它以"大脑-身体-神经系统-基因-进化引擎"五元结构运行：
+MetaGO 基于《元构全息智能引擎》V36.6，由 36 条核心公理 + 43 条根本属性 + 6 条运行协议构成生命体基因。它以"大脑-身体-神经系统-基因-进化引擎"五元结构运行：
 
 | 维度 | 实体 | 职责 |
 |------|------|------|
@@ -33,17 +33,19 @@ Agent 框架（AutoGen/CrewAI/LangGraph）解决的是"如何编排多个 Agent 
 
 | 包名 | 版本 | 内容 |
 |------|------|------|
-| `metago-lifeform` | 36.7.8 | 主包：37 技能 + 7 平台适配器 |
-| `@metago-ai/mcp-server` | 1.1.5 | 35 tools + 8 prompts（MCP 协议） |
-| `@metago-ai/engine` | 1.0.5 | 36 公理 + 125 引擎 + 754 专利 |
+| `metago-lifeform` | 36.7.13 | 主包：39 技能 + 7 平台适配器 |
+| `@metago-ai/mcp-server` | 1.1.8 | 37 tools + 8 prompts（MCP 协议） |
+| `@metago-ai/engine` | 1.0.6 | 36 公理 + 125 引擎 + 754 专利 |
 | `@metago-ai/dev-kit` | 1.0.6 | 8 Dev Kit 技能（开发者垂直） |
 | `@metago-ai/dashboard` | 0.1.0 | 能力度量仪表盘 |
+| `@metago-ai/verify-kit` | 1.0.0 | 交付质量验证工具包（npm run verify + 五问自检 + AGENTS.template） |
+| `@metago-ai/certify` | 1.0.5 | 6 项检查技能认证体系（Gold/Silver） |
 
 ## 核心特性
 
-### 1. 一键拥有 37 技能
+### 1. 一键拥有 39 技能
 
-不是安装 37 个插件，而是一次安装即拥有完整思维工具箱：
+不是安装 39 个插件，而是一次安装即拥有完整思维工具箱：
 
 ```bash
 npx metago-lifeform@latest install:trae
@@ -51,7 +53,7 @@ npx metago-lifeform@latest install:trae
 
 ### 2. MCP 即开即用
 
-35 项能力封装为 MCP 工具，任何 MCP 客户端（Claude Desktop / Cursor / Trae）即开即用：
+37 项能力封装为 MCP 工具，任何 MCP 客户端（Claude Desktop / Cursor / Trae）即开即用：
 
 ```json
 {
@@ -76,4 +78,4 @@ npx metago-lifeform@latest install:trae
 
 - [安装指南](./installation) — 在你的平台安装 MetaGO
 - [快速开始](./quickstart) — 5 分钟内调用第一个工具
-- [37 技能一览](../skills/overview) — 探索全部能力
+- [39 技能一览](../skills/overview) — 探索全部能力

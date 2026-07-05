@@ -1,9 +1,16 @@
 ---
 name: "metago-self-check"
 description: "自我完整性检查技能。输出前自动执行维度覆盖、事实核查、历史一致性、夸大检测、可追问性等全面自检。任何超过500字的输出自动触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 自我完整性检查
-source_section: 全息工作流强制协议(8576-9850)、输出完整性检查规则、事实核查引擎(7946-8573)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "自检完整性"
+  - "输出前检查"
+  - "维度覆盖检查"
+  - "事实核查验证"
+  - "一致性检测"
 ---
 
 # 自我完整性检查（Self Integrity Check）

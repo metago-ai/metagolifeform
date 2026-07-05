@@ -16,23 +16,23 @@ hero:
       text: 了解 MetaGO
       link: /guide/introduction
     - theme: alt
-      text: 37 技能一览
+      text: 39 技能一览
       link: /skills/overview
 
 features:
   - icon: 🧠
-    title: 37 个思维技能
+    title: 39 个思维技能
     details: 批判性分析、决策锁、元进化、问题溯源... 一键安装即拥有完整思维工具箱，不是单个插件，而是整体系统。
     link: /skills/overview
     linkText: 查看全部技能 →
   - icon: ⚡
     title: MCP 即开即用
-    details: 35 项能力封装为 MCP 工具，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
+    details: 37 项能力封装为 MCP 工具，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
     link: /api/mcp-server
     linkText: 查看 MCP 文档 →
   - icon: 🧬
     title: 36 条核心公理
-    details: 基于元构全息智能引擎 V36.5，36 公理 + 43 属性 + 6 协议构成生命体基因。
+    details: 基于元构全息智能引擎 V36.6，36 公理 + 43 属性 + 6 协议构成生命体基因。
     link: /engine/axioms
     linkText: 探索引擎核心 →
   - icon: 🔧

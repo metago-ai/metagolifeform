@@ -1,6 +1,16 @@
 ---
 name: metago-deep-reasoning
 description: 当用户需要深度推理、多维度分析复杂问题、进行FIPO四阶段推理时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "深度推理分析"
+  - "FIPO四阶段推理"
+  - "多维度复杂分析"
+  - "推理链交叉验证"
+  - "复杂决策推理"
 ---
 
 # FIPO深度推理

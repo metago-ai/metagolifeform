@@ -1,6 +1,16 @@
 ---
 name: metago-value-assess
 description: 当用户需要评估项目/组织/方案的多维价值时触发，覆盖28个价值维度
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "价值评估"
+  - "多维价值雷达"
+  - "项目价值分析"
+  - "投资决策评估"
+  - "方案价值对比"
 ---
 
 # 28维价值评估

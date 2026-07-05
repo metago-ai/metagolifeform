@@ -1,9 +1,16 @@
 ---
 name: "metago-action-plan"
 description: "行动计划生成技能。将目标分解为可执行的步骤序列。每个步骤必须是可执行的，有明确的依赖关系和预期耗时，高风险步骤标注提醒和回滚方案。"
-source_document: 元构全息智能引擎.txt
-source_skill: 行动计划生成
-source_section: metago-action-plan技能定义(235-239, 420-452)
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "帮我做个行动计划"
+  - "分解任务目标"
+  - "生成执行步骤"
+  - "制定项目计划"
+  - "列出任务依赖关系"
 ---
 
 # 行动计划生成（metago-action-plan）

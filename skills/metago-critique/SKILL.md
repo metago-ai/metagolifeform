@@ -1,9 +1,16 @@
 ---
 name: "metago-critique"
 description: "批判性分析技能。对任何输入进行L1-L5分级批判性分析，检测逻辑漏洞、认知偏差、事实错误、论证不充分、概念混淆。基于D45批判分级原则和D38绝对客观中立原则。"
-source_document: 元构全息智能引擎.txt
-source_skill: 批判性分析
-source_section: D38绝对客观中立原则(80)、D45批判分级原则(87)、metago-critique技能定义(199-289)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "批判性分析一下"
+  - "找出逻辑漏洞"
+  - "检测认知偏差"
+  - "验证论证充分性"
+  - "检查概念混淆"
 ---
 
 # 批判性分析（metago-critique）

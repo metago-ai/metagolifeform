@@ -1,9 +1,16 @@
 ---
 name: "metago-holistic-task"
 description: "全息任务执行技能。在接收任何任务时自动执行全维度扫描、信息缺口识别、需求预判和一次性完整交付。当用户提出信息检索、方案输出、报告撰写、调研分析等任务时触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 全息扫描/全息任务执行
-source_section: 全息概念(1-14)、全息工作流强制协议(8576-9850)、全息性公理(195-197)
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "全维度扫描任务"
+  - "信息缺口识别"
+  - "一次性完整交付"
+  - "需求预判分析"
+  - "全息任务执行"
 ---
 
 # 全息任务执行（Holistic Task Execution）

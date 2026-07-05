@@ -1,9 +1,16 @@
 ---
 name: "metago-fact-check"
 description: "事实核查与合作伙伴状态标注技能。对所有涉及外部事实的陈述进行自动核查，标注合作伙伴关系状态，检测并修正夸大表述。当输出涉及合作、伙伴、企业、已建立、战略等关键词时触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 事实核查与合作伙伴状态标注
-source_section: ENGINE_FACTCHECK_19 事实核查引擎(7946-8573)、事实核查强制调用链(8421)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "核查这个事实"
+  - "验证信息真实性"
+  - "检测夸大表述"
+  - "事实核查检查"
+  - "标注信息来源可信度"
 ---
 
 # 事实核查（Fact Check）

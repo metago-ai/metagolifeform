@@ -1,9 +1,16 @@
 ---
 name: "metago-problem-trace"
 description: "问题无限溯源技能。对任何问题进行持续追问'为什么'直至找到可解根源，并自动映射到可解决方案领域。当遇到复杂问题需要深入分析根因时触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 问题无限溯源
-source_section: 知识归属强制溯源(139-142)、溯源公理(223-226)、易霄溯源论第12大元思想体系(17167-17630)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "根因分析"
+  - "5Why溯源"
+  - "找到根本原因"
+  - "深入分析问题"
+  - "追溯问题根源"
 ---
 
 # 问题无限溯源（Infinite Problem Trace）

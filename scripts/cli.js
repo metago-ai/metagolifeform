@@ -105,7 +105,7 @@ MetaGO Lifeform Kit v${VERSION}
   若回复包含【闭环分析】和元构公理引用，说明安装成功。
 
 文档:
-  官网: https://metago-d6gfw1e4rf2a5bcad-1257074864.tcloudbaseapp.com/
+  官网: https://metago.life/
   仓库: https://gitee.com/metago/metagolifeform
   GitHub: https://github.com/metago-ai/metagolifeform
   MCP Server: @metago-ai/mcp-server (npm)

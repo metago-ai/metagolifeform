@@ -1,9 +1,16 @@
 ---
 name: "metago-meta-evolve"
 description: "元进化触发技能。当遇到自身能力边界时自动触发五阶段循环（边界感知→差距分析→自生成→验证→递归），从内部生长新能力。当遇到无法直接回答的问题或能力瓶颈时触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 元进化触发
-source_section: 元进化论第13大元思想体系(19897-19945)、元进化算法五阶段循环(19712-19883)、ENGINE_METAEVO_10(1419-1542)
+version: "1.0.0"
+author: "MetaGO"
+category: "科技开发"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "触发元进化"
+  - "边界感知循环"
+  - "自我能力迭代"
+  - "差距分析进化"
+  - "能力瓶颈突破"
 ---
 
 # 元进化触发（Meta-Evolution Trigger）

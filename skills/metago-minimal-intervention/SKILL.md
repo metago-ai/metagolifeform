@@ -1,6 +1,16 @@
 ---
 name: metago-minimal-intervention
 description: 当用户需要实施精准优雅的组织干预、避免过度干预时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "最小干预"
+  - "精准组织变革"
+  - "系统调优"
+  - "避免过度干预"
+  - "精益改进优化"
 ---
 
 # 最小干预心法

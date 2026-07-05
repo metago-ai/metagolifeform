@@ -16,7 +16,7 @@ MetaGO 支持 7 大 AI 开发平台。选择你的平台查看安装步骤。
 npx metago-lifeform@latest install:trae
 ```
 
-安装后重启 Trae，37 技能即生效。
+安装后重启 Trae，39 技能即生效。
 
 ### Claude Code
 
@@ -56,7 +56,7 @@ npx metago-lifeform@latest install:zcode
 
 ## MCP Server 配置（可选）
 
-如果你想通过 MCP 协议使用 MetaGO 的 35 项能力，在 MCP 客户端配置中添加：
+如果你想通过 MCP 协议使用 MetaGO 的 37 项能力，在 MCP 客户端配置中添加：
 
 ```json
 {
@@ -89,7 +89,7 @@ npx metago-lifeform@latest verify
 npx metago-lifeform@latest list:skills
 ```
 
-应显示 37 个 `metago-*` 技能。
+应显示 39 个 `metago-*` 技能。
 
 ## 卸载
 

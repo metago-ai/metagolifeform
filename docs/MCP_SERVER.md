@@ -6,16 +6,16 @@
 
 ## 1. 简介
 
-**MetaGO MCP Server** 把元构超级智能生命体的 22 项核心能力封装为 MCP tools，把 8 条引导词封装为 MCP prompts。任何支持 [Model Context Protocol](https://modelcontextprotocol.io/) 的客户端（Claude Desktop、Cursor、Trae 等）一次配置即开即用，无需修改规则文件。
+**MetaGO MCP Server** 把元构超级智能生命体的 39 项核心能力封装为 MCP tools，把 8 条引导词封装为 MCP prompts。任何支持 [Model Context Protocol](https://modelcontextprotocol.io/) 的客户端（Claude Desktop、Cursor、Trae 等）一次配置即开即用，无需修改规则文件。
 
 | 项目 | 规格 |
 |------|------|
 | npm 包名 | `@metago-ai/mcp-server` |
-| 当前版本 | v1.1.0 |
+| 当前版本 | v1.1.8 |
 | 传输方式 | stdio（`StdioServerTransport`） |
 | 运行时 | Node.js >= 18.0.0 |
 | 许可证 | MIT |
-| 能力 | 35 tools + 8 prompts |
+| 能力 | 37 tools + 8 prompts |
 
 ---
 
@@ -99,7 +99,7 @@ cd packages/mcp-server && npm run build && npm start
 
 ---
 
-## 4. 22 个 Tools 列表
+## 4. 37 个 Tools 列表
 
 每个 tool 接收一个 `input` 字符串参数（待处理的内容/问题/代码），返回结构化结果。
 

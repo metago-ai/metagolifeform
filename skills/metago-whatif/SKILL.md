@@ -1,9 +1,16 @@
 ---
 name: "metago-whatif"
 description: "反事实推演技能。推演'如果...会怎样'的假设情景。识别当前状态的关键变量，设定假设条件，推演不同选择导致的不同结果，量化结果差异，给出最优建议。"
-source_document: 元构全息智能引擎.txt
-source_skill: 反事实推演
-source_section: metago-whatif技能定义(217-220, 353-370)、元进化五阶段(140-149)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "如果...会怎样"
+  - "反事实推演"
+  - "假设情景分析"
+  - "What If 推演"
+  - "情景模拟推演"
 ---
 
 # 反事实推演（metago-whatif）

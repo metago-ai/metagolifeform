@@ -1,9 +1,16 @@
 ---
 name: "metago-data-provenance"
 description: "数据溯源与自证技能。确保一切输出可溯源至输入与过程，全链路存证，脉冲见证。当输出涉及数据、事实、结论、建议时触发。遵循A1溯源公理与D43数据溯源原则。"
-source_document: 元构全息智能引擎.txt
-source_skill: 数据溯源与自证
-source_section: D43数据溯源与自证原则(34500-34550)、A1溯源公理、脉冲见证系统、全链路存证
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "数据溯源"
+  - "标注信息来源"
+  - "验证数据来源"
+  - "全链路存证"
+  - "追溯输入过程"
 ---
 
 # 数据溯源与自证（Data Provenance）

@@ -1,6 +1,16 @@
 ---
 name: metago-balance-optimize
 description: 当用户需要优化系统平衡、进行APO三维动态平衡分析时触发
+version: "1.0.0"
+author: "MetaGO"
+category: "商业管理"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "动态平衡优化"
+  - "APO三维分析"
+  - "系统平衡调优"
+  - "效率稳定创新平衡"
+  - "优化系统平衡"
 ---
 
 # APO动态平衡

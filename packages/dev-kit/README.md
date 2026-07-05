@@ -3,7 +3,7 @@
 > **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://gitee.com/metago/metagolifeform/raw/main/packages/dev-kit/LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.6-blue)](https://www.npmjs.com/package/metago-lifeform)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.13-blue)](https://www.npmjs.com/package/metago-lifeform)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
@@ -86,7 +86,7 @@ Dev Kit 是 MetaGO 产品矩阵 A 线（垂直场景包）的第一个产品：
 | A 线 | MetaGO Research Kit | 📋 规划中 |
 | A 线 | MetaGO PM Kit | 📋 规划中 |
 | A 线 | MetaGO Writer Kit | 📋 规划中 |
-| B 线 | MetaGO MCP Server | ✅ v1.1.1 |
+| B 线 | MetaGO MCP Server | ✅ v1.1.8 |
 | B 线 | MetaGO CLI | 📋 规划中 |
 | B 线 | MetaGO Studio | 📋 规划中 |
 

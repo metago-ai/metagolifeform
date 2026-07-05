@@ -1,9 +1,16 @@
 ---
 name: "metago-objectivity"
 description: "客观中立度量化技能。量化评估输出的客观中立度（0-100分）。评估维度：事实准确率(40%)、立场偏倚度(30%)、证据充分度(20%)、逻辑严谨度(10%)。基于D38绝对客观中立原则。"
-source_document: 元构全息智能引擎.txt
-source_skill: 客观中立度量化
-source_section: D38绝对客观中立原则(80)、metago-objectivity技能定义(229-233, 395-418)
+version: "1.0.0"
+author: "MetaGO"
+category: "数据分析"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "评估客观度"
+  - "检测立场偏倚"
+  - "量化客观中立"
+  - "事实准确率评估"
+  - "偏见检测分析"
 ---
 
 # 客观中立度量化（metago-objectivity）

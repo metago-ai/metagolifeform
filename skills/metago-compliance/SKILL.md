@@ -1,9 +1,16 @@
 ---
 name: "metago-compliance"
 description: "合规主动检查技能。在每次任务执行前主动检查法律合规性、伦理合规性、安全合规性，遵循法律优先于效率原则。当任务涉及数据处理、用户隐私、安全操作、外部API调用时强制触发。"
-source_document: 元构全息智能引擎.txt
-source_skill: 合规主动代理
-source_section: D42合规主动原则(34362-34420)、A36法律优先于效率(34500-34550)、合规代理引擎(158)(28500-28600)、四层安全基因V4.1(31600-31880)
+version: "1.0.0"
+author: "MetaGO"
+category: "安全合规"
+platforms: ["cursor","claude-code","codex","trae","codebuddy","qoder","zcode","workbuddy","qclaw","ima"]
+trigger:
+  - "检查合规性"
+  - "法律风险评估"
+  - "数据处理合规"
+  - "隐私保护检查"
+  - "安全合规审查"
 ---
 
 # 合规主动检查（Proactive Compliance）
