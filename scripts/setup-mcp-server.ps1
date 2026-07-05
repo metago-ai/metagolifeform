@@ -34,8 +34,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $script:ScriptDir = $PSScriptRoot
-$script:McpServerDir = Join-Path $script:ScriptDir "..\packages\mcp-server"
+$script:McpServerDir = (Resolve-Path (Join-Path $script:ScriptDir "..\packages\mcp-server")).Path
 $script:ExpectedTools = 53
+$script:OriginalWorkDir = (Get-Location).Path
 
 # ============================================================
 # 输出辅助函数
@@ -145,51 +146,81 @@ function Step2-InstallDeps {
         exit 1
     }
 
-    Write-Info "进入目录：$script:McpServerDir"
-    Set-Location $script:McpServerDir
-
-    if (Test-Path "node_modules") {
-        Write-Info "node_modules 已存在，跳过安装"
-    } else {
-        Write-Info "运行 npm install..."
-        & npm install 2>&1 | ForEach-Object { Write-Info $_ }
-        if ($LASTEXITCODE -ne 0) {
-            Write-Fail "npm install 失败"
-            exit 1
+    Push-Location $script:McpServerDir
+    try {
+        if (Test-Path "node_modules") {
+            Write-Info "node_modules 已存在，跳过安装"
+        } else {
+            Write-Info "运行 npm install..."
+            & npm install 2>&1 | ForEach-Object { Write-Info $_ }
+            if ($LASTEXITCODE -ne 0) {
+                Write-Fail "npm install 失败"
+                exit 1
+            }
         }
+        Write-Ok "依赖安装完成"
+    } finally {
+        Pop-Location
     }
-    Write-Ok "依赖安装完成"
 }
 
 # ============================================================
-# 步骤3：构建 TypeScript
+# 步骤3：构建 TypeScript（含旧构建检测）
 # ============================================================
 function Step3-Build {
     Write-Step "步骤 3/5：构建 TypeScript"
 
-    if ($SkipBuild) {
-        Write-Info "跳过构建（-SkipBuild）"
-        if (-not (Test-Path "dist\index.js")) {
-            Write-Fail "dist/index.js 不存在，必须先构建"
-            exit 1
+    $distIndex = Join-Path $script:McpServerDir "dist\index.js"
+    $srcSkills = Join-Path $script:McpServerDir "src\skills-data.ts"
+    $srcToolkit = Join-Path $script:McpServerDir "src\toolkit-data.ts"
+    $srcIndex = Join-Path $script:McpServerDir "src\index.ts"
+
+    # 检测旧构建：源码比 dist 更新时强制重建
+    $needRebuild = $false
+    if (-not (Test-Path $distIndex)) {
+        $needRebuild = $true
+    } else {
+        $distTime = (Get-Item $distIndex).LastWriteTime
+        foreach ($src in @($srcSkills, $srcToolkit, $srcIndex)) {
+            if (Test-Path $src) {
+                $srcTime = (Get-Item $src).LastWriteTime
+                if ($srcTime -gt $distTime) {
+                    $needRebuild = $true
+                    Write-Warn "检测到源码更新（$($srcTime) > 构建时间（$($distTime)），需要重新构建"
+                    break
+                }
+            }
         }
-        Write-Ok "使用已有构建产物"
+    }
+
+    if ($SkipBuild -and -not $needRebuild) {
+        Write-Info "跳过构建（-SkipBuild），使用已有构建产物"
+        Write-Ok "构建产物有效"
         return
     }
 
-    Write-Info "运行 npm run build..."
-    & npm run build 2>&1 | ForEach-Object { Write-Info $_ }
-    if ($LASTEXITCODE -ne 0) {
-        Write-Fail "构建失败"
-        exit 1
+    if ($SkipBuild -and $needRebuild) {
+        Write-Warn "虽然指定了 -SkipBuild，但检测到源码已更新，自动重新构建"
     }
 
-    if (-not (Test-Path "dist\index.js")) {
-        Write-Fail "构建产物 dist/index.js 不存在"
-        exit 1
-    }
+    Push-Location $script:McpServerDir
+    try {
+        Write-Info "运行 npm run build..."
+        & npm run build 2>&1 | ForEach-Object { Write-Info $_ }
+        if ($LASTEXITCODE -ne 0) {
+            Write-Fail "构建失败"
+            exit 1
+        }
 
-    Write-Ok "TypeScript 构建完成"
+        if (-not (Test-Path "dist\index.js")) {
+            Write-Fail "构建产物 dist/index.js 不存在"
+            exit 1
+        }
+
+        Write-Ok "TypeScript 构建完成"
+    } finally {
+        Pop-Location
+    }
 }
 
 # ============================================================
@@ -198,7 +229,13 @@ function Step3-Build {
 function Step4-ConfigurePlatform {
     Write-Step "步骤 4/5：配置 $Platform 平台 MCP 服务器"
 
-    $serverPath = (Resolve-Path "dist\index.js").Path
+    $serverPath = Join-Path $script:McpServerDir "dist\index.js"
+    if (-not (Test-Path $serverPath)) {
+        Write-Fail "构建产物不存在：$serverPath"
+        Write-Info "请去掉 -SkipBuild 重新运行以触发构建"
+        exit 1
+    }
+    $serverPath = (Resolve-Path $serverPath).Path
 
     $serverConfig = @{
         command = "node"
@@ -217,20 +254,20 @@ function Step4-ConfigurePlatform {
             Write-Info "Claude Desktop 配置文件：$configPath"
         }
         'cursor' {
-            $configPath = Join-Path (Get-Location).Path ".cursor\mcp.json"
-            Write-Info "Cursor MCP 配置文件：$configPath"
+            $configPath = Join-Path $script:OriginalWorkDir ".cursor\mcp.json"
+            Write-Info "Cursor MCP 配置文件：$configPath（项目级，基于运行目录）"
         }
         'zcode' {
             $configPath = "$env:USERPROFILE\.zcode\config\mcp.json"
             Write-Info "ZCode MCP 配置文件：$configPath"
         }
         'codebuddy' {
-            $configPath = Join-Path (Get-Location).Path ".codebuddy\mcp.json"
-            Write-Info "CodeBuddy MCP 配置文件：$configPath"
+            $configPath = Join-Path $script:OriginalWorkDir ".codebuddy\mcp.json"
+            Write-Info "CodeBuddy MCP 配置文件：$configPath（项目级，基于运行目录）"
         }
         'qoder' {
-            $configPath = Join-Path (Get-Location).Path ".qoder\mcp.json"
-            Write-Info "Qoder MCP 配置文件：$configPath"
+            $configPath = Join-Path $script:OriginalWorkDir ".qoder\mcp.json"
+            Write-Info "Qoder MCP 配置文件：$configPath（项目级，基于运行目录）"
         }
         'codex' {
             $configPath = "$env:USERPROFILE\.codex\config.json"
@@ -274,9 +311,12 @@ function Step5-VerifyTools {
 
     Write-Info "启动 MCP Server 并请求 tools/list..."
 
+    $serverPath = Join-Path $script:McpServerDir "dist\index.js"
+    $serverPathJs = $serverPath -replace '\\', '/'
+
     $testScript = @"
 const { spawn } = require('child_process');
-const child = spawn('node', ['dist/index.js'], { stdio: ['pipe', 'pipe', 'pipe'] });
+const child = spawn('node', ['$serverPathJs'], { stdio: ['pipe', 'pipe', 'pipe'] });
 let buffer = '';
 function send(msg) { child.stdin.write(JSON.stringify(msg) + '\n'); }
 child.stdout.on('data', (data) => {
