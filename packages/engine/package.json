@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/engine",
-  "version": "1.0.7",
-  "description": "MetaGO Holistic Intelligence Engine — 元构全息智能引擎核心本体。8 公理 + 7 属性 + 6 协议的 CONSTITUTION 驱动层，125 引擎 + 927 算法的 RUNTIME 执行层，TypeScript SDK。让任何 AI 加载后从 Agent 跃迁为会进化的智能生命体，具备决策锁四道关卡、元进化五阶段循环、全链路溯源能力。",
+  "version": "2.0.0",
+  "description": "MetaGO Holistic Intelligence Engine — 元构全息智能引擎核心本体。8 公理 + 7 属性 + 6 协议的 CONSTITUTION 驱动层，TypeScript SDK。让任何 AI 加载后从 Agent 跃迁为会进化的智能生命体，具备决策锁四道关卡、元进化五阶段循环（三层自生成策略+KMWI 集成）、KMWI 四层记忆管理（知识→记忆→智慧→直觉）、技能智能生成（元创造五阶段）、全链路溯源能力。",
   "main": "RUNTIME/dist/index.js",
   "types": "SDK/types.d.ts",
   "bin": {
@@ -37,7 +37,7 @@
   "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "license": "MIT",
   "dependencies": {
-    "metago-lifeform": ">=36.7.0"
+    "metago-lifeform": ">=36.8.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -65,9 +65,9 @@
     "package.json"
   ],
   "metago": {
-    "engine_version": "1.0.5",
+    "engine_version": "2.0.0",
     "metago_version": "V36.5",
-    "parentPackage": "metago-lifeform@>=36.7.0"
+    "parentPackage": "metago-lifeform@>=36.8.0"
   }
 }
 

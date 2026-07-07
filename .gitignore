@@ -30,3 +30,8 @@ custom-skills/
 
 # SkillHub 已取消（2026-07-05）
 skillhub-publish/
+
+# KMWI 运行时记忆文件（引擎运行/测试时自动生成，不应提交）
+.metago-kmwi.json
+.metago-memory.json
+generated-skills/
