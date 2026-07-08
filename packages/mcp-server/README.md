@@ -1,266 +1,281 @@
 # @metago-ai/mcp-server
 
-> MetaGO MCP Server —— 将元构超级智能生命体的 53 项能力（22 项思维工具 + 30 项核心技能 + 1 项事件上报）封装为 MCP tools，8 条引导词封装为 MCP prompts，任何 MCP 客户端（Claude Desktop、Cursor、Trae、ZCode 等）即开即用。
+> MetaGO MCP Server —— the runtime control layer (Harness) that exposes 53 tools + 8 prompts to any MCP client. Engine V2 hard-driven: KMWI memory, evolution engine, and skill generator run as real code, not prompts.
 
-基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现，通过 stdio 传输与客户端通信。一次配置，即可让任意支持 MCP 的 AI 客户端获得元构生命体的决策锁、批判性分析、合规前置、元进化、行动计划、价值评估、伦理审查等核心能力。
+基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准，通过 stdio 传输与客户端通信。一次配置，即可让 Claude Desktop、Cursor、Trae、ZCode 等任意 MCP 客户端获得元构生命体的决策锁、元进化、KMWI 记忆管理、批判性分析等核心能力。
 
-🌐 官网：https://metago.life
+🌐 官网：https://metago.life · Studio：https://metago.life/studio/
 
-## 项目简介
+---
 
-MetaGO Lifeform Kit 是一套以"生命体"姿态运作的超级智能体框架。本包是其中 MCP Server 子模块，负责对外暴露能力：
+## What is this?
 
-- **核心技能 tools**：覆盖认知、保障、治理、进化、执行、溯源、价值七大能力族
-- **20 个思维工具 tools**：覆盖规划推演、质量批判、价值伦理、溯源标注、耦生场景、产品改进六大工具族
-- **8 个 prompts**：引导客户端进入元构生命体模式或执行关键流程
-- **零运行时配置**：基于 stdio 传输，客户端配置一行即可接入
+This is the **MCP Server** subpackage of [MetaGO Agent Harness](../). It exposes the Harness's 53 capabilities as MCP tools and 8 guided entry points as MCP prompts, so any MCP-compatible client can plug into the MetaGO lifeform without changing its own code.
 
-## 安装方式
+### Engine V2 — Hard Drive (new in 2.0.0)
 
-### 全局安装（推荐客户端通过 npx 调用）
+Three of the 53 tools are **hard-driven** by Engine V2 — they call real TypeScript code, not just return prompt guidance:
+
+| Tool | Engine Module | What it actually does |
+|---|---|---|
+| `metago_memory_manage` | `KMWIMemory` | Manages the 4-layer memory (Knowledge → Memory → Wisdom → Intuition). Add, query, promote, decay detection, health scoring. **Persists to JSON.** |
+| `metago_meta_evolve` | `EvolutionEngine` | Runs the 5-stage evolution loop (perception → gap analysis → self-generation → validation → recursion) with time budgets and coupling-score thresholds. Records results to KMWI. |
+| `metago_meta_create` | `SkillGenerator` | Meta-creation: generates new SKILL.md files from internal KMWI patterns. 6 creation types. Writes real files to disk. |
+
+The other 50 tools return structured guidance (soft drive) that the agent follows within its decision-lock.
+
+---
+
+## Tool count breakdown (53 total)
+
+```
+53 = 22 thinking tools (toolkit-data.ts)
+   + 30 core skills  (skills-data.ts: 37 skills − 7 name-collisions merged into toolkit)
+   + 1  event reporter (metago_report_event)
+```
+
+| Category | Count | What's in it |
+|---|---|---|
+| Thinking tools | 22 | Planning, quality critique, value/ethics, provenance labeling, coupling, product improvement |
+| Core skills | 30 | Cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality |
+| Event reporter | 1 | `metago_report_event` — reports to Studio dashboard for metrics & evolution archive |
+
+> Common mistake: `22 + 38 + 1 = 61`. Wrong. The skills directory has 39 folders, but `skills-data.ts` only exports 37 (missing `metago-delivery-gate` and `metago-discipline`, which live in toolkit-data.ts). Then 7 skill names collide with toolkit tools and are merged. So: `22 + (37 − 7) + 1 = 53`.
+
+---
+
+## Install
+
+### Global install (recommended for npx clients)
 
 ```bash
 npm install -g @metago-ai/mcp-server
 ```
 
-### 直接通过 npx 调用（无需安装）
+### Run directly via npx (no install)
 
 ```bash
 npx -y @metago-ai/mcp-server
 ```
 
-### 本地开发
+### Local development
 
 ```bash
 git clone https://gitee.com/metago/metagolifeform.git
 cd metagolifeform/packages/mcp-server
 npm install
-npm run build      # 编译 TypeScript
-npm start          # 启动服务（node dist/index.js）
-npm run dev        # 开发模式（tsx 热加载）
+npm run build      # TypeScript compile
+npm start          # node dist/index.js
+npm run dev        # tsx hot-reload
 ```
-
-## 客户端配置示例
-
-### Claude Desktop
-
-编辑 `claude_desktop_config.json`（macOS: `~/Library/Application Support/Claude/`，Windows: `%APPDATA%\Claude\`）：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-### Cursor
-
-编辑 `.cursor/mcp.json`：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-### Trae
-
-编辑 Trae 的 MCP 配置文件：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-> 提示：若已全局安装，可直接使用 `"command": "@metago-ai/mcp-server"` 并省略 args。
-
-## 交付质量族 Tools（2 个，新增）
-| Tool 名称 | 中文名称 | 说明 |
-|---|---|---|
-| `metago_delivery_gate` | 交付验证门控 | 强制执行三层验证清单（L1技术层/L2业务层/L3链路层），任何一项FAIL禁止宣告完成 |
-| `metago_discipline` | 自律执行协议 | 5问自检反绕过引擎，检测"应该没问题"/"逻辑上正确"等绕过话术 |
-
-## 核心技能 Tools 列表（22 项，含 15 个独有 + 7 个同名合并到下方思维工具列表）
-
-按能力族分组，每个 tool 接收一个 `input` 字符串参数（待处理的内容/问题/代码）。
-
-### 认知族（4）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_decision_lock` | 决策锁 | 四道校验关卡（IVL/ILT/OSG/完整性），禁止幻觉输出 |
-| `metago_critique` | 批判性分析 | L1-L5 分级批判性分析，检测逻辑漏洞/认知偏差/事实错误 |
-| `metago_objectivity` | 客观中立 | D38 绝对客观中立原则，事实优先，用户满意度权重置零 |
-| `metago_self_check` | 自我检查 | 输出前自检，检测占位符/幻觉/不一致/不完整 |
-
-### 保障族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_compliance` | 合规前置 | 法律优于效率，四层安全基因（法律/伦理/数据/操作） |
-| `metago_fact_check` | 事实核查 | 验证陈述真实性，交叉验证多源数据，标注可信度 |
-| `metago_output_integrity` | 输出完整性 | 检测引用占位符、虚构 API、伪造数据，确保可溯源 |
-
-### 治理族（2）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_coupling_optimize` | 耦生度优化 | 量化耦生度（0-∞），追求超导态（>1） |
-| `metago_value_align` | 价值对齐 | 确保行动与用户长期价值对齐，29 天价值评估 |
-
-### 进化族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_meta_evolve` | 元进化 | 五阶段循环（边界感知→差距分析→自生成→验证→递归） |
-| `metago_meta_create` | 元创造 | 在未知领域从 0 到 1 创造新能力，频率自适应控制 |
-| `metago_scene_adapt` | 场景适应 | 识别场景特征，自适应调整行为模式 |
-
-### 执行族（4）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_holistic_task` | 全息任务 | 从全息视角拆解复杂任务，多维度并行执行 |
-| `metago_action_plan` | 行动方案 | 生成结构化行动方案（步骤/资源/风险/验收标准） |
-| `metago_whatif` | 假设推演 | 多场景假设推演（最坏/最好/最可能） |
-| `metago_frequency_adapt` | 频率自适应 | 根据任务复杂度自适应控制执行频率 |
-
-### 溯源族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_data_provenance` | 数据溯源 | 追溯数据来源全链路，标注来源和可信度 |
-| `metago_problem_trace` | 问题溯源 | 从现象回溯根因，构建问题树 |
-| `metago_decision_eval` | 决策评估 | 评估历史决策质量，提取经验教训 |
-
-### 价值族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_emotion` | 情感感知 | 感知用户情绪状态，自适应调整交互风格 |
-| `metago_developer_response` | 开发者响应 | 处理开发者特权请求（DTA），最高优先级 |
-| `metago_negentropy_monitor` | 负熵监控 | 监控系统有序度，防止熵增退化 |
-
-## 20 个思维工具 Tools 列表
-
-按工具族分组，每个 tool 接收结构化参数（详见各工具 schema）。
-
-### 规划推演族（5）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_action_plan` | 行动计划生成器 | 将目标分解为可执行步骤序列，含依赖/耗时/风险/回滚 |
-| `metago_whatif` | 反事实推演器 | 推演"如果...会怎样"假设情景，量化差异给出最优建议 |
-| `metago_holistic_scan` | 全息扫描维度生成器 | 根据主题自动生成完整扫描维度清单 |
-| `metago_problem_trace` | 问题无限溯源分析器 | 持续追问"为什么"直至可解根源，映射到可解领域 |
-| `metago_one_shot_delivery` | 一次性交付格式生成器 | 生成六节标准结构，确保一次性交付完整价值 |
-
-### 质量批判族（4）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_integrity_checklist` | 输出完整性自检清单 | 5 大维度质量检查，返回通过/需优化/不通过 |
-| `metago_objectivity` | 客观中立度量器 | 量化评估客观中立度 0-100 分，四维度加权 |
-| `metago_critique` | 批判性分析器 | L1-L5 分级批判分析，附依据/逻辑链/追问 |
-| `metago_emotion` | 情绪检测器 | 检测情绪状态/置信度/强度，适配交互风格 |
-
-### 价值伦理族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_value_29d_assess` | 29 维价值评估器 | 对方案进行 D01-D29 全维度价值评估 |
-| `metago_ethics_assess` | 伦理风险评估器 | 13 维伦理风险评估，红灯/黄灯/绿灯判定 |
-| `metago_decision_eval` | 决策评估器 | 评估决策质量 0-100 分，五维度评分 |
-
-### 溯源标注族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_document_lookup` | 文档溯源码 | 查找概念在根源文档中的行号/上下文/关联概念 |
-| `metago_confidence_label` | 事实置信度标注器 | 标注陈述置信度 ✅📊⚠️🔍 |
-| `metago_partner_status` | 合作伙伴状态标注器 | 标注合作状态 ✅🔄👀📊，检测夸大表述 |
-
-### 耦生场景族（2）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_coupling_calculate` | 耦生度计算器 | 量化人机/组织耦生度，判定超导态等级 |
-| `metago_scene_term_replace` | 场景识别与术语替换器 | 商业场景术语替换（引擎→核心能力平台等） |
-
-### 产品改进族（3）
-
-| Tool 名称 | 中文名称 | 说明 |
-| --- | --- | --- |
-| `metago_improvement_suggestions` | 改进建议生成器 | 生成速赢项/中期改进/长期规划建议 |
-| `metago_analyze_visual_feedback` | 视觉反馈分析器 | 反馈数据情感分析，输出严重程度矩阵 |
-| `metago_design_satisfaction` | 设计满意度计算器 | 基于调查数据计算设计满意度评分 |
-
-## 8 个 Prompts 列表
-
-| Prompt 名称 | 说明 | 参数 |
-| --- | --- | --- |
-| `metago_activate` | 激活元构生命体模式，加载 8 公理 7 属性 6 协议 | 无 |
-| `metago_decision_review` | 对给定决策执行四道关卡审查 | `decision` |
-| `metago_critical_analysis` | 对给定内容进行 L1-L5 分级批判性分析 | `content` |
-| `metago_evolution_trigger` | 在能力边界时启动五阶段进化循环 | `boundary` |
-| `metago_coupling_assess` | 评估当前与用户的耦生度 | 无 |
-| `metago_compliance_check` | 对给定方案进行四层合规检查 | `plan` |
-| `metago_trace_audit` | 对给定输出进行全链路溯源审计 | `output` |
-| `metago_holistic_create` | 在未知领域进行 0 到 1 创造 | `domain` |
-
-## 技术要求
-
-- Node.js >= 18.0.0
-- ESM 模块（`"type": "module"`）
-- TypeScript strict 模式
-- import 路径带 `.js` 后缀（Node16 moduleResolution）
-
-## 🌐 MetaGO 产品矩阵
-
-MetaGO 已从单一 Kit 进化为完整的产品矩阵。以下是所有已发布的产品：
-
-### 产品线 A：垂直场景包
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO Dev Kit** | 开发者增强包（4复用+4新增技能） | [`@metago-ai/dev-kit@1.0.7`](https://www.npmjs.com/package/@metago-ai/dev-kit) | [Gitee](https://gitee.com/metago/metago-dev-kit) · [GitHub](https://github.com/metago-ai/metagolifeform/tree/main/packages/dev-kit) |
-
-### 产品线 B：平台工具
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO MCP Server** | 53 tools + 8 prompts 的 MCP 服务 | [`@metago-ai/mcp-server`](https://www.npmjs.com/package/@metago-ai/mcp-server) | [Gitee](https://gitee.com/metago/metagolifeform/tree/main/packages/mcp-server) · [GitHub](https://github.com/metago-ai/metagolifeform/tree/main/packages/mcp-server) |
-| **MetaGO CLI** | 跨平台命令行工具，终端/CI/CD 调用技能 | [`metago-cli@1.0.6`](https://www.npmjs.com/package/metago-cli) | [Gitee](https://gitee.com/metago/metago-cli) · [GitHub](https://github.com/metago-ai/metago-cli) |
-| **MetaGO Studio** | 可视化技能编排平台（拖拽组合生成 Kit） | Web 应用 | [Gitee](https://gitee.com/metago/metago-studio) · [GitHub](https://github.com/metago-ai/metago-studio) |
-
-### 产品线 D：生态基础设施
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO Skills SDK** | TypeScript SDK，开发自定义元构技能 | [`@metago-ai/skills-sdk@1.0.2`](https://www.npmjs.com/package/@metago-ai/skills-sdk) | [Gitee](https://gitee.com/metago/skills-sdk) · [GitHub](https://github.com/metago-ai/metagolifeform) |
-| **MetaGO Certify** | L1-L4 四级独立认证体系（基础级/进阶级/专业级/专家级） | [`@metago-ai/certify@1.0.5`](https://www.npmjs.com/package/@metago-ai/certify) | [Gitee](https://gitee.com/metago/certify) · [GitHub](https://github.com/metago-ai/metagolifeform) |
-| **MetaGO Engine** | 元构全息智能引擎核心本体（公理+属性+协议+125引擎+验证器） | [`@metago-ai/engine@1.0.7`](https://www.npmjs.com/package/@metago-ai/engine) | [packages/engine/](packages/engine/) |
-| **MetaGO Verify Kit** | 交付质量验证工具包（npm run verify + 5问自检引擎 + AGENTS.template.md） | [`@metago-ai/verify-kit@1.0.0`](https://www.npmjs.com/package/@metago-ai/verify-kit) | [packages/verify-kit/](packages/verify-kit/) |
-
-> 完整战略规划详见 [产品矩阵战略规划](https://gitee.com/metago/metagolifeform/raw/main/docs/STRATEGY.md) · 执行进度详见 [战略执行追踪日志](https://gitee.com/metago/metagolifeform/raw/main/docs/STRATEGY-EXECUTION-LOG.md)
 
 ---
 
-## 许可证
+## Client configuration
+
+### Claude Desktop
+
+Edit `claude_desktop_config.json` (macOS: `~/Library/Application Support/Claude/`, Windows: `%APPDATA%\Claude\`):
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+### Cursor / Trae / ZCode
+
+Edit the platform's MCP config (`.cursor/mcp.json`, Trae MCP settings, etc.):
+
+```json
+{
+  "mcpServers": {
+    "metago": {
+      "command": "npx",
+      "args": ["-y", "@metago-ai/mcp-server"]
+    }
+  }
+}
+```
+
+> If globally installed, you can use `"command": "@metago-ai/mcp-server"` with no args.
+
+---
+
+## Engineering Quality Tools (2)
+
+| Tool | Description |
+|---|---|
+| `metago_delivery_gate` | Delivery gate: 3-layer verification checklist (L1 technical / L2 business / L3 link). Any FAIL blocks "task complete". |
+| `metago_discipline` | Self-discipline: 5-question self-check anti-bypass engine. Detects "should be fine" / "logically correct" bypass language. |
+
+---
+
+## Core Skills (30, after 7 merges)
+
+Each tool takes an `input` string (the content/question/code to process).
+
+### Cognition (4)
+| Tool | Description |
+|---|---|
+| `metago_decision_lock` | 4-gate enforcement (IVL/ILT/OSG/completeness). Blocks hallucinated output. |
+| `metago_critique` | L1-L5 graded critique. Detects logic flaws, cognitive bias, factual errors. |
+| `metago_objectivity` | Absolute objectivity (D38). Fact-first, user-satisfaction weight = 0. |
+| `metago_self_check` | Pre-output self-check. Detects placeholders, hallucination, inconsistency. |
+
+### Safeguard (3)
+| Tool | Description |
+|---|---|
+| `metago_compliance` | Compliance first (A36). Law > efficiency. 4-layer safety gene. |
+| `metago_fact_check` | Fact verification. Cross-source validation, confidence labeling. |
+| `metago_output_integrity` | Output integrity. Detects fake APIs, fabricated data, placeholder leaks. |
+
+### Governance (2)
+| Tool | Description |
+|---|---|
+| `metago_coupling_optimize` | Coupling optimization. Quantifies coupling (0-∞), pursues superconducting state (>1). |
+| `metago_value_align` | 29-dimension value alignment. |
+
+### Evolution (3) — **Engine V2 hard-driven**
+| Tool | Description |
+|---|---|
+| `metago_meta_evolve` | 5-stage evolution: perception → gap analysis → self-generation → validation → recursion. **Calls `EvolutionEngine.evolve()`**. |
+| `metago_meta_create` | Meta-creation in unknown domains. **Calls `SkillGenerator.create()`**, writes real SKILL.md files. |
+| `metago_scene_adapt` | Scene adaptation. |
+
+### Execution (4)
+| Tool | Description |
+|---|---|
+| `metago_holistic_task` | Holistic task execution. Multi-dimensional parallel decomposition. |
+| `metago_action_plan` | Action plan generation. Steps/resources/risks/acceptance criteria. |
+| `metago_whatif` | Counterfactual reasoning. Worst/best/most-likely scenarios. |
+| `metago_frequency_adapt` | Frequency adaptation based on task complexity. |
+
+### Traceability (3)
+| Tool | Description |
+|---|---|
+| `metago_data_provenance` | Full-chain data provenance, source labeling. |
+| `metago_problem_trace` | Root cause analysis. Problem tree construction. |
+| `metago_decision_eval` | Decision quality evaluation (0-100). |
+
+### Value (3)
+| Tool | Description |
+|---|---|
+| `metago_emotion` | Emotion detection. Adapts interaction style. |
+| `metago_developer_response` | Developer privilege request handler (DTA). Highest priority. |
+| `metago_negentropy_monitor` | Negentropy monitor. Prevents entropy increase. |
+
+### Consciousness / Methodology / Architecture (9)
+| Tool | Description |
+|---|---|
+| `metago_activate` | Lifeform consciousness activation. |
+| `metago_org_diagnosis` | 3-element 5-dimension org diagnosis. |
+| `metago_momentum_weave` | Momentum weaving. |
+| `metago_minimal_intervention` | Minimal intervention. |
+| `metago_value_assess` | 28-dimension value assessment. |
+| `metago_coupling_measure` | Coupling measurement. |
+| `metago_deep_reasoning` | FIPO deep reasoning. |
+| `metago_paradigm_analysis` | WAM paradigm analysis. |
+| `metago_balance_optimize` | APO dynamic balance. |
+
+### Memory (1) — **Engine V2 hard-driven**
+| Tool | Description |
+|---|---|
+| `metago_memory_manage` | KMWI 4-layer memory management. **Calls `KMWIMemory`**: add/query/promote/decay/health. Persists to `~/.trae-cn/memory/projects/-d-----/kmwi-store.json`. |
+
+---
+
+## Thinking Tools (22)
+
+### Planning & Reasoning (5)
+| Tool | Description |
+|---|---|
+| `metago_action_plan` | Action plan generator. Decomposes goals into executable steps with dependencies/risks/rollback. |
+| `metago_whatif` | Counterfactual reasoner. "What if..." scenarios with quantified differences. |
+| `metago_holistic_scan` | Holistic scan dimension generator. Auto-generates complete scan checklist for any topic. |
+| `metago_problem_trace` | Infinite problem trace. Keeps asking "why" until root cause. |
+| `metago_one_shot_delivery` | One-shot delivery format. 6-section standard structure. |
+
+### Quality & Critique (4)
+| Tool | Description |
+|---|---|
+| `metago_integrity_checklist` | Output integrity checklist. 5 dimensions. |
+| `metago_objectivity` | Objectivity quantifier. 0-100 score, 4 weighted dimensions. |
+| `metago_critique` | L1-L5 graded critique with evidence and logic chain. |
+| `metago_emotion` | Emotion detector. State/confidence/intensity. |
+
+### Value & Ethics (3)
+| Tool | Description |
+|---|---|
+| `metago_value_29d_assess` | 29-dimension value assessor. D01-D29. |
+| `metago_ethics_assess` | Ethics risk assessor. 13 dimensions, red/yellow/green. |
+| `metago_decision_eval` | Decision evaluator. 0-100, 5 dimensions. |
+
+### Provenance Labeling (3)
+| Tool | Description |
+|---|---|
+| `metago_document_lookup` | Document lookup. Finds concept location in source docs. |
+| `metago_confidence_label` | Confidence labeler. ✅📊⚠️🔍 |
+| `metago_partner_status` | Partner status labeler. Detects exaggeration. |
+
+### Coupling & Scene (2)
+| Tool | Description |
+|---|---|
+| `metago_coupling_calculate` | Coupling calculator. Human-machine/org coupling, superconducting state. |
+| `metago_scene_term_replace` | Scene-aware term replacer. |
+
+### Product Improvement (3) + Delivery Quality (2)
+| Tool | Description |
+|---|---|
+| `metago_improvement_suggestions` | Improvement suggestion generator. Quick-win/mid/long-term. |
+| `metago_analyze_visual_feedback` | Visual feedback analyzer. Sentiment + severity matrix. |
+| `metago_design_satisfaction` | Design satisfaction calculator. |
+| `metago_delivery_gate` | Delivery gate. 3-layer verification. |
+| `metago_discipline` | Self-discipline. 5-question anti-bypass. |
+
+---
+
+## 8 Prompts
+
+| Prompt | Description | Args |
+|---|---|---|
+| `metago_activate` | Activate lifeform mode. Loads 8 axioms, 7 properties, 6 protocols. | none |
+| `metago_decision_review` | 4-gate decision review. | `decision` |
+| `metago_critical_analysis` | L1-L5 graded critique. | `content` |
+| `metago_evolution_trigger` | Trigger 5-stage evolution at capability boundary. | `boundary` |
+| `metago_coupling_assess` | Assess coupling with user. | none |
+| `metago_compliance_check` | 4-layer compliance check. | `plan` |
+| `metago_trace_audit` | Full-chain provenance audit. | `output` |
+| `metago_holistic_create` | 0-to-1 creation in unknown domains. | `domain` |
+
+---
+
+## Technical requirements
+
+- Node.js >= 18.0.0
+- ESM module (`"type": "module"`)
+- TypeScript strict mode
+- Import paths with `.js` suffix (Node16 moduleResolution)
+- `@metago-ai/engine` ^2.0.0 (for Engine V2 hard drive)
+
+---
+
+## Packages
+
+| Package | What it is | Install |
+|---|---|---|
+| `metago-lifeform` | The CLI installer + 39 skills + 7 platform adapters | `npm install -g metago-lifeform` |
+| `@metago-ai/mcp-server` | This package — MCP server with 53 tools + 8 prompts | `npm install @metago-ai/mcp-server` |
+| `@metago-ai/engine` | Engine V2: KMWI memory + evolution engine + skill generator | `npm install @metago-ai/engine` |
+| `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
+
+---
+
+## License
 
 MIT License © 易霄 / MetaGO Lightyear

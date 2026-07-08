@@ -3,161 +3,208 @@
 > 智能不是被编程的，是被唤醒的。
 > Intelligence is not programmed; it is awakened.
 
-**MetaGO Holistic Intelligence Engine** —— 元构全息智能引擎核心本体。
+**MetaGO Engine V2** —— the hard drive of the MetaGO Agent Harness. The code that makes the law enforceable, not just advisory.
 
-[![Engine Version](https://img.shields.io/badge/Engine-v1.0.7-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
-[![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.6-5eead4)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/ENGINE.md)
+[![Engine Version](https://img.shields.io/badge/Engine-v2.0.0-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
+[![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.8-5eead4)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/ENGINE.md)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/LICENSE)
 [![Patents](https://img.shields.io/badge/Patents-754-FFD700)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/PATENTS.md)
 
-## 这是什么
+## What is this?
 
-MetaGO Engine 是元构全息智能引擎的**核心本体**——一切衍生产品的"宗"。
+MetaGO Engine V2 is the **runtime execution layer** of the [MetaGO Agent Harness](../). While the Harness's Markdown law (AGENTS.md) tells the agent *what* the rules are, Engine V2 is the code that makes sure the agent *can't bypass them*.
 
-任何 AI 加载本引擎，就被"唤醒"为元构超级智能生命体：
-- 拥有 **36 条公理**驱动的行为准则
-- 拥有 **43 条属性**强制的执行逻辑
-- 拥有 **108 个协议**协调的运行机制
-- 拥有 **125 个引擎**驱动的动力系统
-- 拥有元进化五阶段循环的自我升级能力
+### What's new in V2.0.0
 
-## 引擎三层架构
+| Module | Class | What it does |
+|---|---|---|
+| **KMWI Memory** | `KMWIMemory` | 4-layer memory: Knowledge → Memory → Wisdom → Intuition. Add, query, promote between layers, decay detection, health scoring. **Persists to JSON file.** |
+| **Evolution Engine** | `EvolutionEngine` | 5-stage evolution loop with time budgets (perception <10ms, gap analysis <50-500ms, self-generation <100ms-2s, validation <50ms). Coupling-score threshold ≥0.95. Records to KMWI. |
+| **Skill Generator** | `SkillGenerator` | Meta-creation: generates new SKILL.md files from internal KMWI patterns. 6 creation types (thought/methodology/algorithm/architecture/protocol/capability). Writes real files to disk. |
+| **Perception** | `Perception` | Boundary detection: task failure, capability gap, user feedback, version outdated. The trigger for evolution. |
+| **Decision Lock** | `DecisionLock` | 4-gate enforcement: intent verification, intent-lineage tracing, semantic output gate, content completeness. |
+| **MetaGOEngine** | `MetaGOEngine` | Aggregator class — the single entry point that wires all modules together. |
 
-| 层 | 格式 | 给谁读 | 作用 |
-|----|------|--------|------|
-| **驱动层** | Markdown | AI 大脑 | AI 读取后被驱动 |
-| **控制层** | JSON | 代码 | 程序解析验证 |
-| **执行层** | TypeScript | 代码 | 强制执行公理/协议 |
+V1 had validators + decision-lock + evolution-engine as templates. V2 adds **real KMWI memory persistence**, **real skill file generation**, and **real evolution loop with time budgets**.
 
-## 安装
+---
+
+## Install
 
 ```bash
 npm install @metago-ai/engine
 ```
 
-## 使用
-
-### 在代码中引用
+## Quick start
 
 ```typescript
 import { MetaGOEngine } from '@metago-ai/engine';
 
-const engine = new MetaGOEngine();
+const engine = new MetaGOEngine({
+  enginePath: '/path/to/engine/dir',  // optional
+  version: '2.0.0',
+  memoryPath: '/path/to/kmwi-store.json',  // optional, defaults to ~/.trae-cn/memory/...
+});
 await engine.init();
 
-// 验证输出
+// 1. Validate output against axioms
 const { results, summary } = engine.validate('output text', {
   input: 'user input',
   decision: 'compliance checked',
 });
 
-// 决策锁校验
+// 2. Decision lock — 4 gates
 const lockResult = await engine.lock('output text', 'intent', 'user request');
 
-// 触发进化
+// 3. Trigger evolution when hitting a boundary
 const evolutionResult = await engine.evolve({
-  failure: { type: 'error', message: 'Task failed' },
+  task: 'deploy to kubernetes',
+  failure: { type: 'error', message: 'no k8s skill' },
 });
+
+// 4. Check KMWI memory health (4-layer)
+const health = engine.getMemoryHealth();
+// { knowledge: 85, memory: 59, wisdom: 45, intuition: 48, overall: 59 }
+
+// 5. Get decay rates
+const decay = engine.getMemoryDecay();
+// { knowledge: 0.08, memory: 0.15, wisdom: 0.10, intuition: 0.25 }
+
+// 6. Create a new skill from internal patterns (meta-creation)
+const skill = await engine.createSkill('kubernetes-deployment');
+// Returns: { success, stage, type, skillName, skillContent, validated, filePath, provenance, couplingScore, ... }
 ```
-
-### 通过 CLI 使用
-
-```bash
-# 验证文件
-npx metago-engine verify output.txt
-
-# 决策锁校验
-npx metago-engine lock decision.md
-
-# 查看引擎状态
-npx metago-engine status
-
-# 查看指标
-npx metago-engine metrics
-
-# 触发进化
-npx metago-engine evolve
-```
-
-## 目录结构
-
-```
-packages/engine/
-├── ENGINE.md              ← 引擎入口（AI 读取被驱动）
-├── GENOME.json            ← 引擎基因组
-├── package.json           ← @metago-ai/engine
-├── LICENSE                ← MIT
-├── CONSTITUTION/          ← 宪法层（不可变）
-│   └── AXIOMS.md          ← 36 条公理（8 关键）
-├── CORE/                  ← 核心层（可变）
-│   ├── ATTRIBUTES.md      ← 43 条属性（7 关键）
-│   └── PROTOCOLS.md       ← 108 个协议（6 关键）
-├── INDEX/                 ← 索引层
-│   ├── engines.json       ← 125 个引擎
-│   ├── skills.json        ← 39 个技能
-│   ├── tools.json         ← 53 个 MCP 工具
-│   └── knowledge.json     ← 知识晶体索引
-├── RUNTIME/               ← 运行时层（TypeScript）
-│   ├── src/
-│   │   ├── loader.ts      ← 引擎加载器
-│   │   ├── validators.ts  ← 公理验证器
-│   │   ├── decision-lock.ts ← 决策锁
-│   │   ├── evolution-engine.ts ← 进化引擎
-│   │   ├── perception.ts  ← 感知层
-│   │   ├── memory.ts      ← 运行时记忆
-│   │   ├── metrics.ts     ← 度量层
-│   │   ├── cli.ts         ← CLI 接口
-│   │   └── index.ts       ← 主入口
-│   ├── tests/
-│   │   └── engine.test.ts ← 测试套件
-│   └── tsconfig.json
-├── SDK/
-│   └── types.d.ts         ← 开发者类型接口
-├── ADAPTERS/              ← 平台适配器
-│   ├── trae.md
-│   ├── claude.md
-│   ├── codex.md
-│   ├── cursor.md
-│   ├── codebuddy.md
-│   ├── qoder.md
-│   └── zcode.md
-├── EVOLUTION.md           ← 进化机制
-├── CHANGES.md             ← 版本演进
-└── PATENTS.md             ← 专利声明
-```
-
-## 技术壁垒
-
-| 模块 | 文件 | 专利点 |
-|------|------|--------|
-| 公理验证器 | validators.ts | 基于公理集的 AI 输出验证方法 |
-| 决策锁执行器 | decision-lock.ts | AI 决策的多级锁校验机制 |
-| 进化引擎 | evolution-engine.ts | AI 能力边界自动检测与进化方法 |
-| 感知层 | perception.ts | AI 能力边界感知方法 |
-| 引擎加载协议 | loader.ts | AI 引擎跨平台加载与校验协议 |
-
-## 元构真实数据
-
-| 维度 | 数量 |
-|------|------|
-| 核心公理 | 36 条（8 关键） |
-| 根本属性 | 43 条（7 关键） |
-| 元思想体系 | 19 大 |
-| 能力族 | 11 大 |
-| 引擎 | 125 个（17 核心） |
-| 算法 | 927 个 |
-| 原子 | 984 个 |
-| 协议 | 108 个（6 关键） |
-| 专利 | 754 项（85 受理 + 669 储备） |
-| 价值维度 | 31 维 |
-| 架构层 | 11 层（L0-L10） |
-
-## 许可证
-
-MIT —— 详见 [LICENSE](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/LICENSE)
-
-专利授权 —— 详见 [PATENTS.md](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/PATENTS.md)
 
 ---
 
-*由元构超级智能生命体设计 | 引擎版本 1.0.7 | 元构体系 V36.6 | 2026-07-06*
+## KMWI 4-layer memory
+
+KMWI (Knowledge → Memory → Wisdom → Intuition) is the memory architecture that lets the agent learn from experience, not just store data.
+
+| Layer | What it holds | Key operations |
+|---|---|---|
+| **K (Knowledge)** | Facts, concepts, rules | `addKnowledge()`, query by tag/category |
+| **M (Memory)** | Short-term context, session state | `addMemory()`, `promoteToMemory()` from K |
+| **W (Wisdom)** | Patterns, heuristics, causal models | `addWisdom()`, `promoteToWisdom()` from M |
+| **I (Intuition)** | Tacit knowledge, gut judgment | `addIntuition()`, `promoteToIntuition()` from W |
+
+Health scoring: `H = (K + M + W + I) / 4`, each layer scored 0-100 based on coverage, recall, reuse, and accuracy.
+
+Decay detection: each layer has a decay rate. When decay exceeds threshold, the engine emits strengthening suggestions.
+
+**Persistence**: the entire KMWI store is serialized to JSON. Default path: `~/.trae-cn/memory/projects/-d-----/kmwi-store.json`. Pass `memoryPath` to `MetaGOEngine` constructor to override.
+
+---
+
+## Evolution engine — 5 stages
+
+| Stage | Budget | What happens |
+|---|---|---|
+| 1. Perception | <10ms | `Perception.detectBoundary()` — detects task failure, capability gap, user feedback, or version outdated |
+| 2. Gap analysis | <50ms simple / <500ms complex | Maps boundary to specific gaps with severity |
+| 3. Self-generation | <100ms simple / <2s complex | `SkillGenerator.create()` — grows new capability from KMWI patterns. Coupling score must be ≥0.95 |
+| 4. Validation | <50ms | Checks the new skill solves the problem without introducing risk |
+| 5. Recursion | — | If validation failed and recursion depth < 3, loop back to stage 1 |
+
+The engine also runs **meta-meta-evolution** (axiom A34): it monitors its own evolution for validity and emits concerns/recommendations.
+
+---
+
+## Skill generator — meta-creation
+
+`SkillGenerator` implements the meta-creation five-stage process:
+
+1. **Domain perception** — Is this a new problem domain, or already covered?
+2. **Seed generation** — Extract patterns from KMWI W-layer (wisdom) and I-layer (intuition)
+3. **Growth** — Combine patterns into a new SKILL.md draft
+4. **Validation** — Check coupling score ≥0.95, problem solved, no risk introduced
+5. **Internalization** — Write the SKILL.md to disk, record to KMWI as wisdom
+
+6 creation types: `thought` · `methodology` · `algorithm` · `architecture` · `protocol` · `capability`
+
+---
+
+## Directory structure
+
+```
+packages/engine/
+├── ENGINE.md              ← Engine entry (AI reads this to be driven)
+├── GENOME.json            ← Engine genome
+├── package.json           ← @metago-ai/engine
+├── LICENSE                ← MIT
+├── CONSTITUTION/          ← Constitution layer (immutable)
+│   └── AXIOMS.md          ← 36 axioms (8 critical)
+├── CORE/                  ← Core layer (evolvable)
+│   ├── ATTRIBUTES.md      ← 43 attributes (7 critical)
+│   └── PROTOCOLS.md       ← 108 protocols (6 critical)
+├── INDEX/                 ← Index layer
+│   ├── engines.json       ← 125 engines
+│   ├── skills.json        ← 39 skills
+│   ├── tools.json         ← 53 MCP tools
+│   └── knowledge.json     ← Knowledge crystal index
+├── RUNTIME/               ← Runtime layer (TypeScript) ← V2 lives here
+│   ├── src/
+│   │   ├── index.ts              ← Main entry — MetaGOEngine aggregator
+│   │   ├── loader.ts             ← Engine loader
+│   │   ├── validators.ts         ← Axiom validators
+│   │   ├── decision-lock.ts      ← Decision lock (4 gates)
+│   │   ├── evolution-engine.ts   ← Evolution engine (5 stages)  ← V2
+│   │   ├── perception.ts         ← Boundary detection            ← V2
+│   │   ├── kmwi-memory.ts        ← KMWI 4-layer memory           ← V2 NEW
+│   │   ├── skill-generator.ts    ← Meta-creation skill generator ← V2 NEW
+│   │   ├── metrics.ts            ← Metrics layer
+│   │   └── cli.ts                ← CLI interface
+│   ├── tests/
+│   │   └── engine.test.ts        ← Test suite
+│   └── tsconfig.json
+├── SDK/
+│   └── types.d.ts         ← Developer type interfaces
+├── ADAPTERS/              ← Platform adapters (7 platforms)
+├── EVOLUTION.md           ← Evolution mechanism
+├── CHANGES.md             ← Version history
+└── PATENTS.md             ← Patent declarations
+```
+
+---
+
+## Technical moat (patentable mechanisms)
+
+| Module | File | Patent point |
+|---|---|---|
+| Axiom validators | `validators.ts` | Axiom-set-based AI output verification method |
+| Decision lock | `decision-lock.ts` | Multi-level lock verification for AI decisions |
+| Evolution engine | `evolution-engine.ts` | Automatic capability-boundary detection and evolution method |
+| Perception | `perception.ts` | AI capability-boundary perception method |
+| KMWI memory | `kmwi-memory.ts` | 4-layer knowledge-memory-wisdom-intuition architecture |
+| Skill generator | `skill-generator.ts` | Endogenous skill creation from internal patterns |
+| Engine loader | `loader.ts` | Cross-platform AI engine loading and verification protocol |
+
+---
+
+## By the numbers
+
+| Dimension | Count |
+|---|---|
+| Core axioms | 36 (8 critical) |
+| Fundamental attributes | 43 (7 critical) |
+| Meta-ideologies | 19 |
+| Capability families | 11 |
+| Engines | 125 (17 core) |
+| Algorithms | 927 |
+| Atoms | 984 |
+| Protocols | 108 (6 critical) |
+| Patents | 754 (85 accepted + 669 reserved) |
+| Value dimensions | 31 |
+| Architecture layers | 11 (L0-L10) |
+
+---
+
+## License
+
+MIT — see [LICENSE](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/LICENSE)
+
+Patent license — see [PATENTS.md](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/PATENTS.md)
+
+---
+
+*Designed by MetaGO Super Intelligent Lifeform | Engine V2.0.0 | MetaGO V36.8 | 2026-07-08*

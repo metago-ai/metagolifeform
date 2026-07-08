@@ -1,9 +1,9 @@
 {
   "name": "@metago-ai/engine",
-  "version": "2.0.0",
-  "description": "MetaGO Holistic Intelligence Engine — 元构全息智能引擎核心本体。8 公理 + 7 属性 + 6 协议的 CONSTITUTION 驱动层，TypeScript SDK。让任何 AI 加载后从 Agent 跃迁为会进化的智能生命体，具备决策锁四道关卡、元进化五阶段循环（三层自生成策略+KMWI 集成）、KMWI 四层记忆管理（知识→记忆→智慧→直觉）、技能智能生成（元创造五阶段）、全链路溯源能力。",
+  "version": "2.0.1",
+  "description": "MetaGO Agent Harness Engine V2 — 驭智层硬驱动。让法律从建议变为可执行：KMWI 四层记忆（知识→记忆→智慧→直觉，持久化 JSON）+ 元进化五阶段循环（边界感知→差距分析→自生成→验证→递归，含时间预算和耦生度阈值）+ 技能智能生成（元创造五阶段，写入真实 SKILL.md 文件）+ 决策锁四道关卡 + 全链路溯源。8 公理 + 7 属性 + 6 协议 CONSTITUTION 驱动。",
   "main": "RUNTIME/dist/index.js",
-  "types": "SDK/types.d.ts",
+  "types": "RUNTIME/dist/index.d.ts",
   "bin": {
     "metago-engine": "RUNTIME/dist/cli.js"
   },
