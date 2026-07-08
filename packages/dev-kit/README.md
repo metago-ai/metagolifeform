@@ -1,9 +1,9 @@
 # @metago-ai/dev-kit
 
-> **MetaGO Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
+> **MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Dev Kit** — 开发者垂直场景包，复用 4 个核心能力 + 叠加 4 个开发专用技能。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://gitee.com/metago/metagolifeform/raw/main/packages/dev-kit/LICENSE)
-[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.7.13-blue)](https://www.npmjs.com/package/metago-lifeform)
+[![Parent: metago-lifeform](https://img.shields.io/badge/Parent-metago--lifeform-36.8.2-blue)](https://www.npmjs.com/package/metago-lifeform)
 [![Skills: 8](https://img.shields.io/badge/Skills-8_(4_reused_+_4_added)-success)](#技能清单)
 
 ---
