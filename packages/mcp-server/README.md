@@ -1,6 +1,6 @@
 # @metago-ai/mcp-server
 
-> MetaGO MCP Server —— the runtime control layer (Harness) that exposes 53 tools + 8 prompts to any MCP client. Engine V2 hard-driven: KMWI memory, evolution engine, and skill generator run as real code, not prompts.
+> MetaGO MCP Server —— 智能体运行时控制层套件（驭智层）的 MCP 协议实现。暴露 53 tools + 8 prompts 给任意 MCP 客户端。Engine V2 硬驱动：KMWI 记忆、元进化引擎、技能生成器以真实代码运行，而非 prompt。
 
 基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准，通过 stdio 传输与客户端通信。一次配置，即可让 Claude Desktop、Cursor、Trae、ZCode 等任意 MCP 客户端获得元构生命体的决策锁、元进化、KMWI 记忆管理、批判性分析等核心能力。
 

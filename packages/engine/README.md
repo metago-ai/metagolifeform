@@ -3,7 +3,7 @@
 > 智能不是被编程的，是被唤醒的。
 > Intelligence is not programmed; it is awakened.
 
-**MetaGO Engine V2** —— the hard drive of the MetaGO Agent Harness. The code that makes the law enforceable, not just advisory.
+**MetaGO Engine V2** —— 智能体运行时控制层套件（驭智层）的硬驱动核心。让法则可执行，而非仅仅是建议。
 
 [![Engine Version](https://img.shields.io/badge/Engine-v2.0.0-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
 [![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.8-5eead4)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/ENGINE.md)

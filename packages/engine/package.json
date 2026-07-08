@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/engine",
-  "version": "2.0.1",
-  "description": "MetaGO Agent Harness Engine V2 — 驭智层硬驱动。让法律从建议变为可执行：KMWI 四层记忆（知识→记忆→智慧→直觉，持久化 JSON）+ 元进化五阶段循环（边界感知→差距分析→自生成→验证→递归，含时间预算和耦生度阈值）+ 技能智能生成（元创造五阶段，写入真实 SKILL.md 文件）+ 决策锁四道关卡 + 全链路溯源。8 公理 + 7 属性 + 6 协议 CONSTITUTION 驱动。",
+  "version": "2.0.2",
+  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Engine V2 — 硬驱动核心。让法律从建议变为可执行：KMWI 四层记忆（知识→记忆→智慧→直觉，持久化 JSON）+ 元进化五阶段循环（边界感知→差距分析→自生成→验证→递归，含时间预算和耦生度阈值）+ 技能智能生成（元创造五阶段，写入真实 SKILL.md 文件）+ 决策锁四道关卡 + 全链路溯源。8 公理 + 7 属性 + 6 协议 CONSTITUTION 驱动。",
   "main": "RUNTIME/dist/index.js",
   "types": "RUNTIME/dist/index.d.ts",
   "bin": {

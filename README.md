@@ -2,7 +2,7 @@
   <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="220">
 </p>
 
-# MetaGO Agent Harness — 驭智层
+# MetaGO Agent Harness — 智能体运行时控制层套件（驭智层）
 
 > **Not a chatbot. Not a copilot. A lifeform that holds itself to its own law.**
 > **The only AI agent that evolves its own evolution.**
@@ -16,7 +16,7 @@ MetaGO is an **AI Harness** — a runtime control layer that sits between the mo
 [![Platforms](https://img.shields.io/badge/Platforms-7-blue)](#supported-platforms)
 [![Skills](https://img.shields.io/badge/Skills-39-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-53_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
-[![Engine](https://img.shields.io/badge/Engine-V2.0.0-KMWI%2FEvolution%2FSkillGenerator-9cf)](packages/engine/)
+[![Engine](https://img.shields.io/badge/Engine-V2.0.0-blue)](packages/engine/)
 
 ---
 
@@ -213,5 +213,5 @@ MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration:
 
 ---
 
-*MetaGO Agent Harness — from Agent to lifeform.*
+*MetaGO Agent Harness — 智能体运行时控制层套件（驭智层）· from Agent to lifeform.*
 *Made by 元构光年（成都）人工智能科技有限公司.*
