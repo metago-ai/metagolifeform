@@ -1,4 +1,4 @@
-﻿﻿<#
+﻿﻿﻿﻿<#
 .SYNOPSIS
     MetaGO MCP Server 一键安装与配置脚本（V2 修复版）
 

@@ -1,7 +1,7 @@
 {
   "name": "metago-lifeform",
-  "version": "36.7.15",
-  "description": "让智能，学会进化。从 Agent 到生命体的范式跃迁 — 39 技能 · 8 公理 · 7 属性 · 6 协议 · 交付质量族 · 决策锁治理 · 元进化能力 · 全链路溯源。支持 7 大 AI 编程平台。内置 MCP Server（53 tools + 8 prompts）即开即用。MIT 开源。",
+  "version": "36.8.0",
+  "description": "让智能，学会进化。从 Agent 到生命体的范式跃迁 — 39 技能 · 8 公理 · 7 属性 · 6 协议 · 决策锁四道关卡 · 元进化五阶段循环 · KMWI 四层记忆 · 技能智能生成 · 全链路溯源。支持 7 大 AI 编程平台。内置 MCP Server（53 tools + 8 prompts）即开即用。MIT 开源。",
   "main": "core/METAGO_CORE.md",
   "bin": {
     "metago-lifeform": "scripts/cli.js"

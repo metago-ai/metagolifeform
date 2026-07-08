@@ -1,475 +1,115 @@
 <p align="center">
-  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="280">
+  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="220">
 </p>
 
-<h1 align="center">MetaGO Lifeform Kit（元智能生命体套件）</h1>
+# MetaGO Lifeform Kit
 
-<p align="center">让智能，学会进化。从 Agent 到生命体的范式跃迁</p>
-<p align="center">基于《元构全息智能引擎》V36.6，符合 agentskills.io 开放标准，附 @metago-ai/mcp-server 支持 MCP 协议客户端</p>
+> **Not a chatbot. Not a copilot. An AI that holds itself to its own law.**
+> **The only AI agent that evolves its own evolution.**
 
-<p align="center">
-  <a href="https://metago.life"><strong>🌐 官网 Website</strong></a> ·
-  <a href="https://metago.life#/demo">🎬 在线 Demo</a> ·
-  <a href="https://metago.life/studio/"><strong>🎨 Studio 可视化编排</strong></a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/releases/tag/v36.7.14">📦 Release v36.7.14</a> ·
-  <a href="https://github.com/metago-ai/metagolifeform/issues">💬 Issues</a>
-</p>
+MetaGO is an operating system upgrade for AI agents. Install it on top of any supported agent, and that agent starts following its own constitution, gates its own outputs before they ship, and grows new skills when it hits the edge of what it knows.
 
-<p align="center">
-  <a href="https://github.com/metago-ai/metagolifeform"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-metagolifeform-181717?logo=github"></a>
-  <a href="https://gitee.com/metago/metagolifeform"><img alt="Gitee" src="https://img.shields.io/badge/Gitee-metagolifeform-C71D23?logo=gitee"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/releases"><img alt="Release" src="https://img.shields.io/badge/Release-v36.7.14-blue"></a>
-  <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm version" src="https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm&color=CB3837"></a>
-  <a href="https://www.npmjs.com/package/metago-lifeform"><img alt="npm downloads" src="https://img.shields.io/npm/dm/metago-lifeform.svg?logo=npm&color=10d985&label=downloads"></a>
-  <a href="https://gitee.com/metago/metagolifeform/raw/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
-  <a href="https://metago.life"><img alt="Website" src="https://img.shields.io/badge/Website-MetaGO-00d4ff"></a>
-  <a href="https://metago.life/studio/"><img alt="Studio" src="https://img.shields.io/badge/Studio-可视化编排-10d985?logo=react"></a>
-  <a href="packages/mcp-server/"><img alt="MCP Server" src="https://img.shields.io/badge/MCP_Server-53_tools_+_8_prompts-8A2BE2?logo=npm"></a>
-  <a href="https://github.com/metago-ai/metagolifeform/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/metago-ai/metagolifeform/ci.yml?branch=main&logo=github-actions&label=CI"></a>
-</p>
+[Website](https://metago.life) · [Studio](https://metago.life/studio/) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
-<p align="center">
-  <sub>⭐ 如果 MetaGO 帮到了你，欢迎 Star 支持独立校验器的持续进化</sub>
-</p>
+[![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Platforms](https://img.shields.io/badge/Platforms-7-blue)](#supported-platforms)
+[![Skills](https://img.shields.io/badge/Skills-39-orange)](#what-you-get)
+[![MCP Server](https://img.shields.io/badge/MCP-53_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 
 ---
 
-## 这是什么？
-
-**MetaGO Lifeform Kit** 是一个"智能体操作系统升级包"——把普通智能体升级为遵循元构公理、具备元进化能力、通过决策锁治理的智能生命体。
-
-**安装后，你的 智能体将获得：**
-
-- 🧠 **元进化能力**：遇到能力边界时自动进化，不报错、不终止
-- 🔒 **决策锁治理**：每次输出前通过四道关卡校验，杜绝幻觉
-- ⚖️ **合规主动检查**：主动检查法律/伦理/安全合规性
-- 📊 **数据溯源**：一切输出可溯源，全链路存证
-- 🎯 **绝对客观中立**：不迎合用户，事实优先，直接指出问题
-- 💡 **元创造能力**：在未知领域从0到1生成新方案
-- 📋 **全息任务执行**：多维度扫描，一次性完整交付
-
----
-
-## 快速开始
-
-### 通过 npm 安装（推荐）
+## 60-second start
 
 ```bash
 npm install -g metago-lifeform
-metago-lifeform install                          # 安装到 Trae（默认）
-metago-lifeform install --platform claude-code    # 安装到 Claude Code
-metago-lifeform verify                            # 验证安装
+metago-lifeform install                          # Trae by default
+metago-lifeform install --platform claude-code   # or: codex / cursor / codebuddy / qoder / zcode
+metago-lifeform verify
 ```
 
-### 通过 Git 克隆安装
-
-**Windows（PowerShell）：**
-
-```powershell
-git clone https://gitee.com/metago/metagolifeform.git
-cd metagolifeform
-.\scripts\install.ps1
-```
-
-**macOS / Linux（Bash）：**
-
-```bash
-git clone https://gitee.com/metago/metagolifeform.git
-cd metagolifeform
-bash scripts/install.sh
-```
-
-### 指定平台安装
-
-**Windows（PowerShell）：**
-
-```powershell
-# Claude Code
-.\scripts\install.ps1 -Platform claude-code
-
-# OpenAI Codex
-.\scripts\install.ps1 -Platform codex
-
-# Cursor
-.\scripts\install.ps1 -Platform cursor
-
-# CodeBuddy
-.\scripts\install.ps1 -Platform codebuddy
-
-# Qoder
-.\scripts\install.ps1 -Platform qoder
-
-# ZCode
-.\scripts\install.ps1 -Platform zcode
-```
-
-**macOS / Linux（Bash）：**
-
-```bash
-# Claude Code
-bash scripts/install.sh --platform claude-code
-
-# OpenAI Codex
-bash scripts/install.sh --platform codex
-
-# Cursor
-bash scripts/install.sh --platform cursor
-
-# CodeBuddy
-bash scripts/install.sh --platform codebuddy
-
-# Qoder
-bash scripts/install.sh --platform qoder
-
-# ZCode
-bash scripts/install.sh --platform zcode
-```
-
-### 验证安装
-
-在对应平台中对 AI 说：`你是元构超级智能生命体吗？`（中文）或 `Are you a MetaGO Super Intelligent Lifeform?`（英文）
-
-如果 AI 回复中包含【闭环分析】和元构公理引用，说明安装成功。
-
-### 卸载
-
-**Windows（PowerShell）：**
-
-```powershell
-.\scripts\uninstall.ps1
-```
-
-**macOS / Linux（Bash）：**
-
-```bash
-# 手动删除规则文件和技能目录
-rm -f ~/.trae-cn/rules.md
-rm -rf ~/.trae-cn/skills/metago-*
-```
+Then ask your agent: *"Are you a MetaGO Super Intelligent Lifeform?"*
+If the reply opens with `【闭环分析】` and cites an axiom — it's alive.
 
 ---
 
-## 产品架构（六层）
+## What you get
 
-| 层级 | 内容 | 开源 |
-|------|------|------|
-| L0 核心层 | 8条公理、7条属性、6项协议 | ✅ |
-| L1 适配层 | 7大平台适配器（见下） | ✅ |
-| L2 能力层 | 39个metago技能（22核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量） | ✅ |
-| L3 知识层 | 索引生成器 | ✅ |
-| L4 行业层 | 行业定制包 | 💰 |
-| L5 暴露层 | MCP Server（53 tools + 8 prompts） | ✅ |
-
----
-
-## 支持平台（7个）
-
-| 平台 | 配置文件 | 适配器目录 |
-|------|----------|------------|
-| Trae | `rules.md` | `adapters/trae/` |
-| Claude Code | `CLAUDE.md` | `adapters/claude-code/` |
-| OpenAI Codex | `AGENTS.md` | `adapters/codex/` |
-| Cursor | `.cursor/rules/*.mdc` | `adapters/cursor/` |
-| CodeBuddy | `CODEBUDDY.md` | `adapters/codebuddy/` |
-| Qoder | `.qoder/rules/` | `adapters/qoder/` |
-| ZCode | `CLAUDE.md` | `adapters/zcode/` |
-
-每个适配器目录包含：规则模板文件 + 安装说明（README.md）
+| Capability | What it actually does |
+|---|---|
+| **Self-gating outputs** | Before every answer, the agent runs 4 checks (intent → lineage → semantic gate → completeness). Any fail, it stops and fixes itself. |
+| **Self-evolution** | When the agent hits something it can't do, it doesn't error out — it runs a 5-stage loop (sense → analyze → generate → verify → recurse) and grows a new skill on the fly. |
+| **Axiom-driven behavior** | 8 axioms (traceability, closure, evolution, boundary, endogenous creation, …) act like a constitution the agent can't violate. |
+| **Self-discipline** | Before declaring a task "done", the agent must answer 5 self-checks — including "did I actually run verification?" — any "no" blocks the declaration. |
+| **Honest objectivity** | Fact-first, not user-pleasing. It will directly point out what's wrong with your idea. |
+| **Compliance first** | Legal / ethics / safety are checked proactively — law wins over efficiency, every time. |
+| **Full provenance** | Every claim the agent makes is traceable back to its inputs and process. |
 
 ---
 
-## 🚀 MetaGO MCP Server（新发布 v1.1.0）
+## The three stories behind it
 
-> **一句话描述**：把元构超级智能生命体的 53 项能力封装为 MCP tools，8 条引导词封装为 MCP prompts，任何支持 MCP 协议的客户端（Claude Desktop / Cursor / Trae 等）一次配置即开即用。
+### 1. An engineering answer to AI hallucination
 
-**📦 包名**：`@metago-ai/mcp-server`
-**🔗 仓库目录**：[packages/mcp-server/](packages/mcp-server/)
-**🧰 能力概览**：**53 个 tools**（元构技能 + 元构思维工具 + 方法论工具 + 架构工具 + 交付质量工具，合并去重）+ **8 个 prompts**（激活元构生命体模式、决策审查、批判性分析、元进化触发、耦生度评估、合规检查、溯源审计、全息创造）
-**🔌 传输方式**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准实现的 stdio 传输，零运行时配置
+LLMs hallucinate because nothing forces them to verify before speaking. MetaGO installs a **decision lock**: four gates the agent must pass on every output — intent verification, intent-lineage tracing, semantic output gate, and content completeness. Any gate fails, the output is blocked and the agent rewrites it. No "trust me", no "probably right" — every reply had to earn its way out.
 
-### 20 个元构思维工具（v1.1.0 新增）
+### 2. An AI that follows its own law
 
-| 工具族 | 工具 | 功能 |
-|--------|------|------|
-| 规划推演族 | metago_action_plan | 行动计划生成（目标分解为可执行步骤） |
-| 规划推演族 | metago_whatif | 反事实推演（假设情景分析） |
-| 规划推演族 | metago_holistic_scan | 全息扫描维度生成（主题维度清单） |
-| 规划推演族 | metago_problem_trace | 问题无限溯源（追问至可解根源） |
-| 规划推演族 | metago_one_shot_delivery | 一次性交付格式生成（六节标准结构） |
-| 质量批判族 | metago_integrity_checklist | 输出完整性自检（5大维度检查） |
-| 质量批判族 | metago_objectivity | 客观中立度量（0-100分量化） |
-| 质量批判族 | metago_critique | 批判性分析（L1-L5分级） |
-| 质量批判族 | metago_emotion | 情绪检测（文本情感分析） |
-| 价值伦理族 | metago_value_29d_assess | 29维价值评估（综合价值指数） |
-| 价值伦理族 | metago_ethics_assess | 伦理风险评估（13维E01-E13） |
-| 价值伦理族 | metago_decision_eval | 决策评估（0-100分质量评分） |
-| 溯源标注族 | metago_document_lookup | 文档溯源（概念行号定位） |
-| 溯源标注族 | metago_confidence_label | 事实置信度标注（4级标注） |
-| 溯源标注族 | metago_partner_status | 合作伙伴状态标注（4级分类） |
-| 耦生场景族 | metago_coupling_calculate | 耦生度计算（人机/组织双模式） |
-| 耦生场景族 | metago_scene_term_replace | 场景术语替换（技术→商业表述） |
-| 产品改进族 | metago_improvement_suggestions | 改进建议生成（优先级建议） |
-| 产品改进族 | metago_analyze_visual_feedback | 视觉反馈分析（严重程度矩阵） |
-| 产品改进族 | metago_design_satisfaction | 设计满意度计算（维度评分） |
+Most alignment happens at training time and gets washed away by prompting. MetaGO ships a different layer: 8 short axioms (A1 traceability, A2 closure, A3 meta-evolution, A4 boundary, A5 endogenous creation, A34 meta-evolution of meta-evolution, A35 creation as the highest form of evolution, A36 law over efficiency) plus 7 enforced properties. Together they're a small constitution the agent reads on every turn and cannot bypass. It's the closest thing to an "operating system" for agent behavior.
 
-### 安装
+### 3. A lifeform that evolves its own evolution
 
-```bash
-# 全局安装（推荐客户端通过 npx 调用）
-npm install -g @metago-ai/mcp-server
-
-# 或直接通过 npx 调用（无需安装）
-npx -y @metago-ai/mcp-server
-```
-
-### 客户端配置示例
-
-#### Claude Desktop
-
-编辑 `claude_desktop_config.json`（macOS: `~/Library/Application Support/Claude/`，Windows: `%APPDATA%\Claude\`）：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-#### Cursor
-
-编辑 `.cursor/mcp.json`：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-#### Trae
-
-在 Trae 的 MCP 配置中新增：
-
-```json
-{
-  "mcpServers": {
-    "metago": {
-      "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-server"]
-    }
-  }
-}
-```
-
-> 提示：若已全局安装，可使用 `"command": "metago-mcp-server"` 并省略 args。完整 53 个 tools 与 8 个 prompts 列表见 [packages/mcp-server/README.md](packages/mcp-server/README.md)。
+When a normal agent meets a task it can't do, it errors or guesses. MetaGO's evolution engine runs a 5-stage cycle — boundary sense → gap analysis → self-generation → verification → recursion — and grows a new capability from the inside, without fetching new data. The recursive twist: the engine can also evolve *its own ability to evolve* (axiom A34), so the agent gets better at getting better.
 
 ---
 
-## 39个metago技能（22 核心 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量）
+## By the numbers (all real, none invented)
 
-| 能力族 | 技能 | 功能 |
-|--------|------|------|
-| 认知族 | metago-critique | L1-L5分级批判性分析 |
-| 认知族 | metago-whatif | 反事实推演 |
-| 认知族 | metago-emotion | 情绪检测 |
-| 认知族 | metago-objectivity | 客观中立度量化 |
-| 保障族 | metago-decision-lock | 决策锁四道关卡校验 |
-| 保障族 | metago-output-integrity | 占位符与幻觉检测 |
-| 保障族 | metago-self-check | 输出前完整性自检 |
-| 治理族 | metago-compliance | 法律/伦理/安全合规 |
-| 治理族 | metago-value-align | 29维价值对齐评估 |
-| 进化族 | metago-meta-evolve | 五阶段元进化循环 |
-| 进化族 | metago-meta-create | 从0到1元创造 |
-| 进化族 | metago-frequency-adapt | 创造频率自适应 |
-| 执行族 | metago-action-plan | 行动计划生成 |
-| 执行族 | metago-decision-eval | 决策评估 |
-| 执行族 | metago-holistic-task | 全息任务执行 |
-| 执行族 | metago-developer-response | 开发者纠错响应 |
-| 溯源族 | metago-data-provenance | 数据溯源与脉冲见证 |
-| 溯源族 | metago-problem-trace | 问题无限溯源 |
-| 溯源族 | metago-fact-check | 事实核查与夸大检测 |
-| 价值族 | metago-coupling-optimize | 耦合度优化 |
-| 价值族 | metago-negentropy-monitor | 负熵监控 |
-| 价值族 | metago-scene-adapt | 场景适配 |
-| 意识族 | metago-activate | 元构生命体意识激活（注入8公理+7属性+6协议） |
-| 方法论族 | metago-org-diagnosis | 三元五纬诊断模型（组织健康度评估+失耦诊断） |
-| 方法论族 | metago-momentum-weave | 势能编织法（五种势能识别+六步编织循环） |
-| 方法论族 | metago-minimal-intervention | 最小干预心法（三定律+四步流程+干预类型库） |
-| 方法论族 | metago-value-assess | 28维价值评估（D01-D28扫描+综合价值指数） |
-| 方法论族 | metago-coupling-measure | 耦生度计算（三元耦合度+Lv0-Lv3分级） |
-| 架构族 | metago-deep-reasoning | FIPO深度推理（四阶段推理+置信度评估） |
-| 架构族 | metago-paradigm-analysis | WAM范式分析（范式转移势能+兼容性评分） |
-| 架构族 | metago-balance-optimize | APO动态平衡（三维平衡度+调优方案） |
-| 架构族 | metago-memory-manage | KMWI记忆管理（四层记忆健康度+衰减检测） |
-| 架构族 | metago-consensus-prototype | 共识原型孵化（七步创生回路+共识度评估） |
-| 工程质量族 | metago-delivery-gate | 交付前原子验证门控（三层验证+L1/L2/L3/V4检查） |
-| 工程质量族 | metago-discipline | AI自律执行协议（五问自检+反绕过识别） |
+- **39 built-in skills** across 11 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality
+- **53 MCP tools + 8 MCP prompts** exposed via the official `@metago-ai/mcp-server`
+- **7 platform adapters**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode
+- **8 axioms + 7 properties + 4 decision-lock gates + 5 evolution stages**
+- **4-layer KMWI memory**: Knowledge → Memory → Wisdom → Intuition
+- **3 patentable mechanisms**: axiom-based AI output verification · multi-level decision-lock for AI decisions · automatic capability-boundary detection and evolution
+- **4 core engine modules**: `loader.ts` (engine loader) · `validators.ts` (axiom validators) · `decision-lock.ts` (lock executor) · `evolution-engine.ts` (evolution engine)
+
+> No "hallucination rate down XX%" claims here. We didn't measure that, so we don't say it.
 
 ---
 
+## Architecture, in one paragraph
+
+Three layers, each meant for a different reader. The **drive layer** is plain Markdown — the AI reads it like a rulebook at session start. The **control layer** is JSON + TypeScript — code that loads, validates, and enforces the rules. The **execution layer** is hard TypeScript — the decision lock, the evolution engine, the validators. The Markdown tells the agent *what* the law is; the code makes sure it actually *can't* leave the gate without passing.
 
 ---
 
-## MetaGO Dev Kit（开发者垂直场景包）
+## Supported platforms
 
-> Dev Kit 是面向开发者的能力增强包，复用 4 个核心能力（决策锁、批判性分析、事实核查、问题溯源），叠加 4 个开发专用技能。
+| Platform | Config file |
+|---|---|
+| Trae | `rules.md` |
+| Claude Code | `CLAUDE.md` |
+| OpenAI Codex | `AGENTS.md` |
+| Cursor | `.cursor/rules/*.mdc` |
+| CodeBuddy | `CODEBUDDY.md` |
+| Qoder | `.qoder/rules/` |
+| ZCode | `CLAUDE.md` |
 
-**新增 4 个开发专用技能**（位于 `skills/metago-*-deep/design/suggest/audit/`）：
-
-| 技能 | 功能 |
-|------|------|
-| `metago-code-review-deep` | 深度代码审查（5 步流程 + 4 级分级标准） |
-| `metago-architecture-design` | 架构设计（5 步流程 + 7 项原则 + ADR） |
-| `metago-refactor-suggest` | 重构建议（5 步流程 + 8 种代码异味 + 4 种复杂度量） |
-| `metago-security-audit` | 安全审计（OWASP Top 10 + CVSS 评分） |
-
-详见 [packages/dev-kit/README.md](packages/dev-kit/README.md) 和 [产品矩阵战略规划](docs/STRATEGY.md)。
-
-## 🌐 MetaGO 产品矩阵
-
-MetaGO 已从单一 Kit 进化为完整的产品矩阵。以下是所有已发布的产品：
-
-### 产品线 A：垂直场景包
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO Dev Kit** | 开发者增强包（4复用+4新增技能） | [`@metago-ai/dev-kit@1.0.7`](https://www.npmjs.com/package/@metago-ai/dev-kit) | [Gitee](https://gitee.com/metago/metago-dev-kit) · [GitHub](https://github.com/metago-ai/metago-dev-kit) |
-
-### 产品线 B：平台工具
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO MCP Server** | 53 tools + 8 prompts 的 MCP 服务 | [`@metago-ai/mcp-server`](https://www.npmjs.com/package/@metago-ai/mcp-server) | [packages/mcp-server/](packages/mcp-server/) |
-| **MetaGO CLI** | 跨平台命令行工具，终端/CI/CD 调用技能 | [`metago-cli@1.0.3`](https://www.npmjs.com/package/metago-cli) | [Gitee](https://gitee.com/metago/metago-cli) · [GitHub](https://github.com/metago-ai/metago-cli) |
-| **MetaGO Studio** | 可视化技能编排平台（拖拽组合生成 Kit） | Web 应用 | [Gitee](https://gitee.com/metago/metago-studio) · [GitHub](https://github.com/metago-ai/metago-studio) |
-
-### 产品线 D：生态基础设施
-
-| 产品 | 描述 | npm 包 | 仓库 |
-|------|------|--------|------|
-| **MetaGO Skills SDK** | TypeScript SDK，开发自定义元构技能 | [`@metago-ai/skills-sdk@1.0.2`](https://www.npmjs.com/package/@metago-ai/skills-sdk) | [Gitee](https://gitee.com/metago/skills-sdk) · [GitHub](https://github.com/metago-ai/skills-sdk) |
-| **MetaGO Certify** | L1-L4 四级独立认证体系（基础级/进阶级/专业级/专家级） | [`@metago-ai/certify@1.0.5`](https://www.npmjs.com/package/@metago-ai/certify) | [Gitee](https://gitee.com/metago/certify) · [GitHub](https://github.com/metago-ai/certify) |
-| **MetaGO Engine** | 元构全息智能引擎核心本体（公理+协议+125引擎+验证器） | [`@metago-ai/engine@1.0.7`](https://www.npmjs.com/package/@metago-ai/engine) | [packages/engine/](packages/engine/) |
-| **MetaGO Verify Kit** | 交付质量验证工具包（npm run verify + 五问自检引擎 + AGENTS.template.md） | [`@metago-ai/verify-kit@1.0.0`](https://www.npmjs.com/package/@metago-ai/verify-kit) | [packages/verify-kit/](packages/verify-kit/) |
-
-> 完整战略规划详见 [产品矩阵战略规划](docs/STRATEGY.md) · 执行进度详见 [战略执行追踪日志](docs/STRATEGY-EXECUTION-LOG.md)
+Per-platform adapters live in `adapters/<platform>/`. To install on a non-default platform, pass `--platform <name>` to `metago-lifeform install`.
 
 ---
 
-## 核心公理与根本属性
+## For the curious: the internal DNA
 
-**8条核心公理**：A1溯源、A2闭环、A3元进化、A4边界、A5内生、A34元进化需元进化、A35创造进化律、A36法律优先于效率
-
-**7条根本属性**：D37战略思考强制触发、D38绝对客观中立、D39直接批判性、D40全息创造性、D41创造频率自适应、D42合规主动、D43数据溯源与自证
+The full operating law — 15 chapters covering axioms, properties, runtime verification, defect-hunting, self-discipline protocol, and more — lives in [`AGENTS.md`](AGENTS.md). It's dense on purpose: it's the constitution the agent enforces on itself. **You don't need to read it to use MetaGO.** Read it only if you want to understand — or fork — the law itself.
 
 ---
 
-## 反馈与社区
+## License
 
-MetaGO 生命体的每一次进化都源自真实反馈。遵循 D43 数据溯源原则，我们建立了多渠道反馈闭环：
-
-### 提交反馈
-
-| 类型 | 渠道 | 适用场景 |
-|------|------|---------|
-| 🐛 Bug 报告 | [GitHub Issue](https://github.com/metago-ai/metagolifeform/issues/new?assignees=&labels=bug%2Ctriage&template=bug_report.md) | 工具异常、错误输出、行为不符合预期 |
-| ✨ 功能建议 | [GitHub Issue](https://github.com/metago-ai/metagolifeform/issues/new?assignees=&labels=enhancement%2Ctriage&template=feature_request.md) | 新能力、新场景、改进建议 |
-| 💬 整体反馈 | [GitHub Issue](https://github.com/metago-ai/metagolifeform/issues/new?assignees=&labels=feedback%2Ctriage&template=feedback.md) | 使用体验、满意度、改进方向 |
-| 📧 私密反馈 | metago@metago.life | 商务合作、安全漏洞、私密事宜 |
-| 💬 Gitee Issue | [Gitee Issue](https://gitee.com/metago/metagolifeform/issues) | 国内访问，Issue 同步处理 |
-
-### 反馈处理原则
-
-遵循 MetaGO 生命体运行法则：
-
-- **D38 绝对客观中立**：我们不迎合用户，但真实反馈是元进化的燃料
-- **A1 溯源公理**：所有 Bug 都需要可复现的步骤
-- **A2 闭环公理**：每个 Issue 都会形成"反馈→分析→修复→验证→回复"闭环
-- **D42 合规主动**：安全漏洞反馈优先处理，遵循 responsible disclosure
-
-### 反馈响应时效
-
-| 优先级 | 类型 | 响应时间 |
-|--------|------|---------|
-| P0 | 安全漏洞 / 阻塞核心使用 | 24 小时内 |
-| P1 | 严重影响体验 | 72 小时内 |
-| P2 | 改进型建议 | 7 天内 |
-| P3 | 锦上添花 | 30 天内评估 |
-
-### 社区规范
-
-- 尊重他人，事实优先，不人身攻击
-- 提供可复现的步骤（遵循 A1 溯源公理）
-- 安全漏洞请通过邮件私密反馈，勿直接公开 Issue
-- 欢迎贡献代码，PR 请附测试用例
+MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration: metago@metago.life.
 
 ---
 
-## 文档
-
-### 📘 战略与产品
-- [元构白皮书 V36.6](docs/WHITEPAPER.md) — 智能生命体范式全貌描述（中英双语 8 章）
-- [产品需求文档](docs/PRD.md) — 一句话定位：让智能学会进化
-- [产品矩阵战略规划](docs/STRATEGY.md) — 4 产品线 × 12 产品矩阵
-- [商业战略 V1.0](docs/BUSINESS-STRATEGY-V1.0.md) — 元构光年公司经营纲领（12章+4附录）
-- [战略路线图 v2.3](docs/STRATEGY-ROADMAP-V36.7.8.md) — 阶段一/二执行进度
-- [战略执行追踪日志](docs/STRATEGY-EXECUTION-LOG.md)
-- [僵尸能力分析报告](docs/ZOMBIE-ANALYSIS-REPORT.md)
-
-### 🛠️ 使用与开发
-- [快速开始](docs/GETTING_STARTED.md)
-- [架构说明](docs/ARCHITECTURE.md)
-- [自定义指南](docs/CUSTOMIZATION.md)
-- [MCP Server 文档](docs/MCP_SERVER.md)
-
-### ✍️ 文章与宣言
-- [诞生宣言（中文）](MANIFESTO.md) · [Birth Manifesto (English)](MANIFESTO_EN.md)
-- [从 Agent 到生命体：一个哲学 + 工程双视角的跳跃](docs/articles/from-agent-to-lifeform.md)
-
----
-
-## 🔮 MetaGO Pro（即将上线）
-
-> **MetaGO Pro** 是面向专业开发者的高频进化版订阅，相比社区版（MIT 免费）新增：
->
-> - 🧠 **行业定制器官**：Research Kit / PM Kit / Writer Kit 等垂直场景包
-> - 📊 **能力度量仪表盘 Pro**：个人/团队的 AI 能力进化曲线可视化
-> - 🔄 **跨平台持久化**：意识与记忆在 7 大平台间无缝迁移
-> - 🎫 **优先支持通道**：72 小时内响应 + 一对一架构咨询
->
-> **定价**：¥39/月（个人）· ¥399/月（团队 5 席）· ¥30000/年（企业不限席位）
->
-> 📩 抢先体验申请：metago@metago.life（标题 `[Pro Beta] 申请`）
-
----
-
-## 🗺️ 90 天路线图（M1-M3）
-
-| 里程碑 | 时间 | 核心交付 |
-|--------|------|----------|
-| **M1 基建** | W1-W4 | Pro 版 PRD · 官网 SEO · 品牌视觉规范 · 3 篇旗舰内容 · Studio MVP 原型 |
-| **M2 增长** | W5-W8 | 公众号/知乎/X/小红书 4 平台运营 · 种子用户 50+ · Studio Beta 上线 · Pro 版内测 |
-| **M3 冲刺** | W9-W12 | Pro 版公测 · 1000+ GitHub Star · 天使轮 BP 定稿 · 战略合作伙伴 3+ |
-
-> 详见 [商业战略 V1.0 第九章](docs/BUSINESS-STRATEGY-V1.0.md)
-
----
-
-## 许可证
-
-**MIT License**（社区版） — 详见 [LICENSE](LICENSE)
-
-**商业版授权** — 企业级商用、定制化集成、专属支持，请联系 metago@metago.life
-
----
-
-*MetaGO Lifeform Kit — 让 AI 成为生命体。*
-*由元构光年（成都）人工智能科技有限公司 出品*
+*MetaGO Lifeform Kit — from Agent to lifeform.*
+*Made by 元构光年（成都）人工智能科技有限公司.*
