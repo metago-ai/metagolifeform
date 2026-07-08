@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）MCP Server — 53 tools (22 思维工具 + 30 核心技能 + 1 事件上报) + 8 prompts。Engine V2 硬驱动：KMWI 四层记忆 + 元进化五阶段 + 技能智能生成调用真实代码。任何 MCP 协议客户端（Claude Desktop/Cursor/Trae/ZCode 等）即开即用。基于 Model Context Protocol 标准。",
   "type": "module",
   "main": "./dist/index.js",

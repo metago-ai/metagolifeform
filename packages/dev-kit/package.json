@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/dev-kit",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Dev Kit — 开发者垂直场景包，把 AI 升级为遵循决策锁治理的代码生命体。复用 4 个核心能力（决策锁/批判性分析/事实核查/问题溯源）+ 叠加 4 个开发专用技能：深度代码审查（5 步流程 + 4 级分级）、架构设计（5 步 + 7 原则 + ADR）、重构建议（8 种代码异味检测）、安全审计（OWASP Top 10 + CVSS 评分）。",
   "main": "README.md",
   "scripts": {
@@ -8,8 +8,15 @@
     "verify": "powershell -Command \"Get-ChildItem ../../skills/metago-code-review-deep,../../skills/metago-architecture-design,../../skills/metago-refactor-suggest,../../skills/metago-security-audit -Filter SKILL.md | Select-Object FullName\""
   },
   "keywords": [
-    "metago", "dev-kit", "developer", "code-review", "architecture",
-    "refactor", "security-audit", "agentskills", "ai-governance"
+    "metago",
+    "dev-kit",
+    "developer",
+    "code-review",
+    "architecture",
+    "refactor",
+    "security-audit",
+    "agentskills",
+    "ai-governance"
   ],
   "author": "易霄 / MetaGO Lightyear",
   "license": "MIT",
