@@ -1,4 +1,4 @@
-# MetaGO Lifeform Kit 自定义指南
+# MetaGO Agent Harness 自定义指南
 
 > 本文介绍如何添加自定义技能、修改规则、配置 MCP 调度、创建知识晶体索引、适配其他 AI 平台，以及自定义 MCP Server 的 tools 与 prompts。
 
@@ -18,7 +18,7 @@
 
 ## 添加自定义技能
 
-MetaGO Lifeform Kit 的技能采用标准 `SKILL.md` 格式，由 **YAML frontmatter** + **Markdown 正文** 构成。你可以为任何重复性任务创建自定义技能。
+MetaGO Agent Harness 的技能采用标准 `SKILL.md` 格式，由 **YAML frontmatter** + **Markdown 正文** 构成。你可以为任何重复性任务创建自定义技能。
 
 ### SKILL.md 格式说明
 
@@ -126,12 +126,12 @@ New-Item -ItemType Directory -Path "d:\元构能力\metago-lifeform\skills\metag
 
 ## 修改 rules.md
 
-`rules.md` 是 MetaGO Lifeform Kit 的统一规则加载入口，包含公理、属性、协议、技能索引与行业规则。
+`rules.md` 是 MetaGO Agent Harness 的统一规则加载入口，包含公理、属性、协议、技能索引与行业规则。
 
 ### rules.md 的结构
 
 ```markdown
-# MetaGO Lifeform Kit 规则
+# MetaGO Agent Harness 规则
 
 ## 一、核心公理（8 条）
 [A1-A36 公理定义]
@@ -190,7 +190,7 @@ New-Item -ItemType Directory -Path "d:\元构能力\metago-lifeform\skills\metag
 ```markdown
 ## 公理覆盖声明
 
-> 以下覆盖声明仅适用于本项目，不影响 MetaGO Lifeform Kit 的核心设计。
+> 以下覆盖声明仅适用于本项目，不影响 MetaGO Agent Harness 的核心设计。
 
 - A36 法律优先于效率：在本项目中，对于内部工具链操作，允许在合规评估通过后跳过强制审批环节
 ```
@@ -405,7 +405,7 @@ d:\元构能力\metago-lifeform\
 
 ## 平台适配
 
-MetaGO Lifeform Kit 已支持 7 大 AI 平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
+MetaGO Agent Harness 已支持 7 大 AI 平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
 
 ### 已支持平台（7个）
 
@@ -480,11 +480,11 @@ your-project/
 
 ```markdown
 ---
-description: MetaGO Lifeform Kit 规则
+description: MetaGO Agent Harness 规则
 globs: "**/*"
 ---
 
-# Cursor Rules for MetaGO Lifeform Kit
+# Cursor Rules for MetaGO Agent Harness
 
 ## 核心公理
 [8 条公理的简要说明]
@@ -1035,5 +1035,5 @@ description: "代码审查技能。对代码进行安全性、规范性、性能
 
 ---
 
-*MetaGO Lifeform Kit · 自定义指南*
+*MetaGO Agent Harness · 自定义指南*
 *文档版本：1.1 · 最后更新：2026-06-26（新增"自定义 MCP Server tools 与 prompts"章节）*

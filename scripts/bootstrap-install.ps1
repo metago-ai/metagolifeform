@@ -1,4 +1,4 @@
-# MetaGO Lifeform Kit - Bootstrap Installer (ASCII-only, no BOM)
+# MetaGO Agent Harness - Bootstrap Installer (ASCII-only, no BOM)
 # Usage: irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 #
 # This script downloads the repo and runs install.ps1 (which needs local files)
@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host ''
 Write-Host '========================================' -ForegroundColor Cyan
-Write-Host '  MetaGO Lifeform Kit - Bootstrap' -ForegroundColor Cyan
+Write-Host '  MetaGO Agent Harness - Bootstrap' -ForegroundColor Cyan
 Write-Host '========================================' -ForegroundColor Cyan
 Write-Host ''
 
@@ -21,7 +21,7 @@ if (Test-Path $targetDir) {
 }
 
 # 3. Clone the repository
-Write-Host '[2/4] Downloading MetaGO Lifeform Kit from Gitee...' -ForegroundColor Yellow
+Write-Host '[2/4] Downloading MetaGO Agent Harness from Gitee...' -ForegroundColor Yellow
 $cloneUrl = 'https://gitee.com/metago/metagolifeform.git'
 & git clone --depth 1 $cloneUrl $targetDir 2>&1 | ForEach-Object { Write-Host "  $_" }
 

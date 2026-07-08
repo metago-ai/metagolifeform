@@ -264,7 +264,7 @@ function generateMarkdownReport(stats, classification, dataPath, dataExists) {
     md += `当前 \`calls.jsonl\` 不存在或为空，无法做实际调用统计。\n`;
     md += `本报告转为**理论分析模式**，基于 35 个工具的设计意图做僵尸候选评估。\n\n`;
     md += `**建议操作**:\n`;
-    md += `1. 部署 MetaGO Lifeform Kit 到生产环境\n`;
+    md += `1. 部署 MetaGO Agent Harness 到生产环境\n`;
     md += `2. 收集至少 7 天的真实使用数据\n`;
     md += `3. 重新运行本分析器: \`node zombie-analyzer.mjs\`\n\n---\n\n`;
   }

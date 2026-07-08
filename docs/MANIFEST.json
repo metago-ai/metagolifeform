@@ -2,7 +2,7 @@
   "manifest_version": "1.0.0",
   "metago_version": "V36.6",
   "package_version": "36.7.13",
-  "description": "MetaGO Lifeform Kit AI 加载清单 - 支持全息按需激活",
+  "description": "MetaGO Agent Harness AI 加载清单 - 支持全息按需激活",
   "last_updated": "2026-07-05",
   "activation_rate": "<30%",
   "documents": [

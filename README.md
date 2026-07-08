@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Lifeform Kit" width="220">
+  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Agent Harness" width="220">
 </p>
 
 # MetaGO Agent Harness — 智能体运行时控制层套件（驭智层）
@@ -7,7 +7,7 @@
 > **Not a chatbot. Not a copilot. A lifeform that holds itself to its own law.**
 > **The only AI agent that evolves its own evolution.**
 
-MetaGO is an **AI Harness** — a runtime control layer that sits between the model and the user, turning a fluent speaker into a lifeform that *does the work, follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
+MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent, turning a fluent speaker into a lifeform that *does the work, follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
 
 [Website](https://metago.life) · [Studio](https://metago.life/studio/) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
@@ -34,9 +34,9 @@ If the reply opens with `【闭环分析】` and cites an axiom — it's alive.
 
 ---
 
-## What is an AI Harness?
+## What is an Agent Harness?
 
-A **Harness** (驭智层) is the runtime control layer above the model. The model is the raw intelligence; the Harness is what turns that intelligence into reliable, traceable, self-evolving work. It is *not* a prompt template, *not* a fine-tune, *not* a wrapper around an API. It is a small operating law the agent enforces on itself every turn.
+A **Harness** (驭智层) is the runtime control layer around the agent. The model is the raw intelligence; the Harness is what turns that intelligence into reliable, traceable, self-evolving work. It is *not* a prompt template, *not* a fine-tune, *not* a wrapper around an API. It is a small operating law the agent enforces on itself every turn.
 
 Think of it as the difference between a brilliant employee who winges it and one who works under a constitution: same brain, completely different output quality.
 

@@ -37,7 +37,7 @@ trigger:
 
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
-> 基于《元构全息智能引擎》V36.5，由 MetaGO Lifeform Kit 注入。
+> 基于《元构全息智能引擎》V36.5，由 MetaGO Agent Harness 注入。
 
 ---
 

@@ -27,7 +27,7 @@
 
 | 层次 | 名称 | 核心命题 | 对应产品 |
 |------|------|----------|----------|
-| **L1** | **本体论** | "MetaGO 是什么"——定义元构生命体的本质与边界 | Lifeform Kit 根包、MCP Server |
+| **L1** | **本体论** | "MetaGO 是什么"——定义元构生命体的本质与边界 | Agent Harness 根包、MCP Server |
 | **L2** | **进化论** | "MetaGO 如何生长"——定义能力进化的路径与机制 | CLI、Skills SDK |
 | **L3** | **能力论** | "MetaGO 能做什么"——按场景拆分能力，覆盖角色工作流 | Dev Kit、Research Kit、PM Kit、Writer Kit |
 | **L4** | **工业论** | "MetaGO 如何被生产与流通"——工业化、市场化、生态化 | Studio、Certify |
@@ -195,7 +195,7 @@
 | Dev Kit 技能与现有技能边界模糊 | 中 | 中 | 严格命名 `metago-*-deep/design` 区分通用与垂直；在 SKILL.md 中明确"复用"与"新增"标注 |
 | CLI 与 PowerShell 脚本功能重叠 | 高 | 低 | CLI 走跨平台 Node.js 路线，PowerShell 仅做平台规则注入；CLI 是"调用能力"，PowerShell 是"安装能力" |
 | Studio 开发周期长 | 高 | 高 | MVP 聚焦"可视化编排"单点，避免大而全；先 Web 后桌面 |
-| 用户混淆 Lifeform Kit 与 Dev Kit | 中 | 中 | 文档明确：Kit 是根包（含全部技能），Dev Kit 是子包（仅含开发技能）；可独立安装 Dev Kit |
+| 用户混淆 Agent Harness 与 Dev Kit | 中 | 中 | 文档明确：Kit 是根包（含全部技能），Dev Kit 是子包（仅含开发技能）；可独立安装 Dev Kit |
 | 跨产品线技术栈碎片化 | 中 | 中 | 统一 TypeScript 主语言；MCP 协议作为产品间通信标准 |
 
 ---

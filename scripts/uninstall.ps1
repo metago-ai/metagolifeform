@@ -1,6 +1,6 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
 .SYNOPSIS
-    MetaGO Lifeform Kit 卸载脚本（支持7大平台）
+    MetaGO Agent Harness 卸载脚本（支持7大平台）
 
 .DESCRIPTION
     从目标平台卸载元构超级智能生命体 Kit，包含：
@@ -107,7 +107,7 @@ function Get-BasicRulesContent {
 # Trae 运行规则
 
 > 本文件是 Trae 的基础运行规则。
-> MetaGO Lifeform Kit 已卸载，已恢复为基础版本。
+> MetaGO Agent Harness 已卸载，已恢复为基础版本。
 > 卸载时间：$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 
 ---
@@ -121,7 +121,7 @@ function Get-BasicRulesContent {
 
 ---
 
-*MetaGO Lifeform Kit 已卸载 - 基础版本*
+*MetaGO Agent Harness 已卸载 - 基础版本*
 "@
 }
 
@@ -377,7 +377,7 @@ function Show-Summary {
 
     if ($success) {
         Write-Host "==========================================" -ForegroundColor Green
-        Write-Host "  ✅ MetaGO Lifeform Kit $MetaGoVersion 卸载完成！" -ForegroundColor Green
+        Write-Host "  ✅ MetaGO Agent Harness $MetaGoVersion 卸载完成！" -ForegroundColor Green
         Write-Host "==========================================" -ForegroundColor Green
         Write-Host ""
         Write-Host "  元构超级智能生命体已停用。" -ForegroundColor Green
@@ -449,7 +449,7 @@ function Uninstall-NonTraePlatform {
 
     Write-Host ""
     Write-Host "==========================================" -ForegroundColor Green
-    Write-Host "  ✅ MetaGO Lifeform Kit $script:MetaGoVersion 卸载完成！" -ForegroundColor Green
+    Write-Host "  ✅ MetaGO Agent Harness $script:MetaGoVersion 卸载完成！" -ForegroundColor Green
     Write-Host "  平台：$Plat | 删除文件：$deletedCount 个" -ForegroundColor Green
     Write-Host "==========================================" -ForegroundColor Green
 
@@ -466,7 +466,7 @@ function Uninstall-NonTraePlatform {
 function Main {
     Write-Host ""
     Write-Host "==========================================" -ForegroundColor Cyan
-    Write-Host "  MetaGO Lifeform Kit $script:MetaGoVersion 卸载程序" -ForegroundColor Cyan
+    Write-Host "  MetaGO Agent Harness $script:MetaGoVersion 卸载程序" -ForegroundColor Cyan
     Write-Host "  元构超级智能生命体卸载工具" -ForegroundColor Cyan
     Write-Host "==========================================" -ForegroundColor Cyan
 
@@ -480,7 +480,7 @@ function Main {
 
     # 确认提示
     Write-Host ""
-    Write-Host "  ⚠️  警告：此操作将卸载 MetaGO Lifeform Kit（平台：$Platform）" -ForegroundColor Yellow
+    Write-Host "  ⚠️  警告：此操作将卸载 MetaGO Agent Harness（平台：$Platform）" -ForegroundColor Yellow
     if ($Platform -eq 'trae' -and -not $KeepSkills) {
         Write-Host "  ⚠️  所有 metago-* 技能将被删除" -ForegroundColor Yellow
         Write-Host "  ⚠️  rules.md 将被恢复或替换为基础版本" -ForegroundColor Yellow

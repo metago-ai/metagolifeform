@@ -10,7 +10,7 @@
 
 ## 这是什么？
 
-**MetaGO Dev Kit** 是 [MetaGO Lifeform Kit](https://www.npmjs.com/package/metago-lifeform) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 智能体在开发场景中具备工程级能力。
+**MetaGO Dev Kit** 是 [MetaGO Agent Harness](https://www.npmjs.com/package/metago-lifeform) 的垂直场景包之一，专门面向开发者。它复用 4 个核心元构能力（决策锁、批判性分析、事实核查、问题溯源），并叠加 4 个开发专用技能（深度代码审查、架构设计、重构建议、安全审计），让 智能体在开发场景中具备工程级能力。
 
 | 维度 | 说明 |
 |------|------|
@@ -29,10 +29,10 @@
 
 | 技能 | 来源 | 在 Dev Kit 中的作用 |
 |------|------|---------------------|
-| `metago-decision-lock` | Lifeform Kit | 强制校验代码审查/架构决策的输出 |
-| `metago-critique` | Lifeform Kit | L1-L5 分级批判代码方案 |
-| `metago-fact-check` | Lifeform Kit | 验证技术声明与依赖版本真实性 |
-| `metago-problem-trace` | Lifeform Kit | 溯源 bug 根因，构建问题树 |
+| `metago-decision-lock` | Agent Harness | 强制校验代码审查/架构决策的输出 |
+| `metago-critique` | Agent Harness | L1-L5 分级批判代码方案 |
+| `metago-fact-check` | Agent Harness | 验证技术声明与依赖版本真实性 |
+| `metago-problem-trace` | Agent Harness | 溯源 bug 根因，构建问题树 |
 
 ### 新增的开发专用技能（4 个）
 

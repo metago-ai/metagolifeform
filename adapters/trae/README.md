@@ -1,12 +1,12 @@
 # Trae 适配器（Trae Adapter）
 
-> MetaGO Lifeform Kit → Trae CN 平台适配层
+> MetaGO Agent Harness → Trae CN 平台适配层
 
 ---
 
 ## 适配方式
 
-Trae 是 MetaGO Lifeform Kit 的原生平台，采用直接注入方式：
+Trae 是 MetaGO Agent Harness 的原生平台，采用直接注入方式：
 
 | 配置项 | 路径 | 说明 |
 |--------|------|------|
@@ -58,4 +58,4 @@ Trae 平台相比其他平台额外支持：
 
 ---
 
-*MetaGO Lifeform Kit · Trae 适配器*
+*MetaGO Agent Harness · Trae 适配器*

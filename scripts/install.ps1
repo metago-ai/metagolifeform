@@ -1,6 +1,6 @@
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
 .SYNOPSIS
-    MetaGO Lifeform Kit 一键安装脚本（支持7大平台）
+    MetaGO Agent Harness 一键安装脚本（支持7大平台）
 
 .DESCRIPTION
     将元构超级智能生命体 Kit 安装到指定平台，包含：
@@ -347,7 +347,7 @@ function Step1-CheckEnvironment {
     $sourceRulesTemplate = Join-Path $script:ScriptDir "..\$($script:PlatformConfig.RulesTemplate)"
     if (-not (Test-Path $sourceRulesTemplate)) {
         Write-Fail "源规则模板不存在：$sourceRulesTemplate"
-        Write-Info "请确认 MetaGO Lifeform Kit 仓库完整"
+        Write-Info "请确认 MetaGO Agent Harness 仓库完整"
         exit 1
     }
     Write-Detail "源规则模板：$sourceRulesTemplate"
@@ -425,7 +425,7 @@ function Step2-BackupConfig {
 
     # 写入备份信息文件
     $backupInfo = @"
-MetaGO Lifeform Kit 备份信息
+MetaGO Agent Harness 备份信息
 ============================
 备份时间：$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 平台：$($script:PlatformConfig.Name)
@@ -559,7 +559,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 
 > 本文件是元构超级智能生命体的知识晶体索引模板。
 > 知识晶体是经过验证、可复用、可溯源的结构化知识单元。
-> 由 MetaGO Lifeform Kit $script:MetaGoVersion 创建于 $now
+> 由 MetaGO Agent Harness $script:MetaGoVersion 创建于 $now
 
 ---
 
@@ -640,7 +640,7 @@ function Step5-CreateKnowledgeCrystalIndex {
 
 ---
 
-*由 MetaGO Lifeform Kit $script:MetaGoVersion 创建*
+*由 MetaGO Agent Harness $script:MetaGoVersion 创建*
 "@
 
     try {
@@ -687,7 +687,7 @@ function Step6-InstallMcpMapping {
 
 > 本文件是元构超级智能生命体MCP执行层的调度映射指南。
 > 建立元构引擎 ↔ MCP工具 ↔ metago技能的三层联动关系。
-> 由 MetaGO Lifeform Kit $script:MetaGoVersion 创建于 $now
+> 由 MetaGO Agent Harness $script:MetaGoVersion 创建于 $now
 
 ---
 
@@ -811,7 +811,7 @@ function Step6-InstallMcpMapping {
 
 ---
 
-*由 MetaGO Lifeform Kit $script:MetaGoVersion 创建*
+*由 MetaGO Agent Harness $script:MetaGoVersion 创建*
 "@
 
     try {
@@ -955,7 +955,7 @@ function Step7-VerifyInstallation {
 
     if ($coreOk) {
         Write-Host "==========================================" -ForegroundColor Green
-        Write-Host "  ✅ MetaGO Lifeform Kit $script:MetaGoVersion $mode成功！" -ForegroundColor Green
+        Write-Host "  ✅ MetaGO Agent Harness $script:MetaGoVersion $mode成功！" -ForegroundColor Green
         Write-Host "  平台：$($script:PlatformConfig.Name)" -ForegroundColor Green
         Write-Host "==========================================" -ForegroundColor Green
         Write-Host ""
@@ -979,7 +979,7 @@ function Step7-VerifyInstallation {
 function Main {
     Write-Host ""
     Write-Host "==========================================" -ForegroundColor Cyan
-    Write-Host "  MetaGO Lifeform Kit $script:MetaGoVersion 安装程序" -ForegroundColor Cyan
+    Write-Host "  MetaGO Agent Harness $script:MetaGoVersion 安装程序" -ForegroundColor Cyan
     Write-Host "  元构超级智能生命体标准安装包" -ForegroundColor Cyan
     Write-Host "==========================================" -ForegroundColor Cyan
 

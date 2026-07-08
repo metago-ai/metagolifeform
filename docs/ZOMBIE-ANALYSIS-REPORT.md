@@ -25,7 +25,7 @@
 本报告转为**理论分析模式**，基于 37 个工具的设计意图做僵尸候选评估。
 
 **建议操作**:
-1. 部署 MetaGO Lifeform Kit 到生产环境
+1. 部署 MetaGO Agent Harness 到生产环境
 2. 收集至少 7 天的真实使用数据
 3. 重新运行本分析器: `node zombie-analyzer.mjs`
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Lifeform Kit - CLI 入口
+ * MetaGO Agent Harness - CLI 入口
  * 跨平台命令行工具，封装 install.ps1 / uninstall.ps1 / verify.ps1
  *
  * 用法:
@@ -81,7 +81,7 @@ function runInstall(extraArgs) {
 
 function showHelp() {
   console.log(`
-MetaGO Lifeform Kit v${VERSION}
+MetaGO Agent Harness v${VERSION}
 元构超级智能生命体标准安装包
 
 用法:
@@ -128,7 +128,7 @@ function main() {
         console.error(`错误: 不支持的平台 "${platform}"。支持的平台: ${PLATFORMS.join(', ')}`);
         process.exit(1);
       }
-      console.log(`\n[MetaGO Lifeform Kit] 正在安装到 ${platform} 平台...`);
+      console.log(`\n[MetaGO Agent Harness] 正在安装到 ${platform} 平台...`);
       const extraArgs = ['-Platform', platform];
       const passthroughArgs = process.argv.slice(3).filter(a =>
         !a.startsWith('--platform') && !a.startsWith('-p') && a !== platform
@@ -154,19 +154,19 @@ function main() {
     }
     case 'uninstall':
     case 'u': {
-      console.log('\n[MetaGO Lifeform Kit] 正在卸载...');
+      console.log('\n[MetaGO Agent Harness] 正在卸载...');
       runPowerShell('uninstall.ps1', []);
       break;
     }
     case 'verify':
     case 'v': {
-      console.log('\n[MetaGO Lifeform Kit] 正在验证安装...');
+      console.log('\n[MetaGO Agent Harness] 正在验证安装...');
       runPowerShell('verify.ps1', []);
       break;
     }
     case 'version':
     case 'ver': {
-      console.log(`MetaGO Lifeform Kit v${VERSION}`);
+      console.log(`MetaGO Agent Harness v${VERSION}`);
       break;
     }
     default:

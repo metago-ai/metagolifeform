@@ -1,9 +1,9 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
 .SYNOPSIS
-    MetaGO Lifeform Kit 安装验证脚本
+    MetaGO Agent Harness 安装验证脚本
 
 .DESCRIPTION
-    验证 MetaGO Lifeform Kit 是否正确安装在指定平台。
+    验证 MetaGO Agent Harness 是否正确安装在指定平台。
     检查规则文件、技能目录、知识晶体索引、MCP 调度映射的完整性。
 
 .PARAMETER Platform
@@ -65,7 +65,7 @@ function Write-Fail2 { param([string]$msg) Write-Host "  [FAIL] $msg" -Foregroun
 
 Write-Host ""
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "  MetaGO Lifeform Kit 安装验证" -ForegroundColor Cyan
+Write-Host "  MetaGO Agent Harness 安装验证" -ForegroundColor Cyan
 Write-Host "  平台：$($config.Name)" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
@@ -150,7 +150,7 @@ Write-Host ""
 Write-Host "==========================================" -ForegroundColor $(if ($failCount -eq 0) { 'Green' } else { 'Red' })
 if ($failCount -eq 0) {
     Write-Host "  ✅ 验证通过：$passCount 项全部成功" -ForegroundColor Green
-    Write-Host "  MetaGO Lifeform Kit 在 $($config.Name) 上运行正常" -ForegroundColor Green
+    Write-Host "  MetaGO Agent Harness 在 $($config.Name) 上运行正常" -ForegroundColor Green
 } else {
     Write-Host "  ❌ 验证失败：$failCount 项未通过" -ForegroundColor Red
     Write-Host "  请重新运行安装脚本" -ForegroundColor Yellow

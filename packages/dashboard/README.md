@@ -147,4 +147,4 @@ packages/dashboard/
 
 ---
 
-*由 MetaGO Lifeform Kit 生成 | 版本：0.1.0 | 最后更新：2026-06-30*
+*由 MetaGO Agent Harness 生成 | 版本：0.1.0 | 最后更新：2026-06-30*

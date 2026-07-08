@@ -83,7 +83,7 @@ const knowledgeItems = [
   },
   {
     id: `K-strategy-framework`,
-    content: '战略框架：元构光年 = AI Harness 范式创造者 + FDE 服务模式 + 一人公司。产品线=MetaGO Agent Harness（驭智层）；服务线=AI 原生开发服务（FDE 模式）。Harness=驾驭智能体的运行时控制层；FDE=前沿部署工程。',
+    content: '战略框架：元构光年 = Agent Harness 范式创造者 + FDE 服务模式 + 一人公司。产品线=MetaGO Agent Harness（驭智层）；服务线=AI 原生开发服务（FDE 模式）。Harness=驾驭智能体的运行时控制层；FDE=前沿部署工程。',
     category: 'strategy',
     tags: ['harness', 'fde', '战略', '驭智层'],
     createdAt: now,

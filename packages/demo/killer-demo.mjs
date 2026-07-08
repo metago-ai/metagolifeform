@@ -795,7 +795,7 @@ function printCallToAction() {
   console.log("");
   console.log("  " + bold("不是被动执行指令，而是主动感知、批判、合规、进化。"));
   console.log("");
-  console.log("  " + dim("想在自己的 AI 平台体验？安装 MetaGO Lifeform Kit:"));
+  console.log("  " + dim("想在自己的 AI 平台体验？安装 MetaGO Agent Harness:"));
   console.log("  " + cyan("$ npx metago-lifeform install"));
   console.log("");
   console.log("  " + dim("想让你的 MCP 客户端即开即用？安装 MCP Server:"));

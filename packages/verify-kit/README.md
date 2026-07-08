@@ -17,7 +17,7 @@
 - 任何使用 AI Agent 开发软件的团队
 - 任何需要"交付前质量门控"的 CI 流水线
 - 任何 LLM-based 自动化系统（Claude Code / Cursor / Trae / Codex / CodeBuddy / Qoder / ZCode）
-- MetaGO Lifeform Kit 的配套组件
+- MetaGO Agent Harness 的配套组件
 
 ## 安装
 
@@ -118,9 +118,9 @@ if (!report.allPassed) {
 
 **任何一问答"否" = 禁止宣告完成。**
 
-## 与 MetaGO Lifeform Kit 的关系
+## 与 MetaGO Agent Harness 的关系
 
-`verify-kit` 是 MetaGO Lifeform Kit 的独立组件，可独立使用，也可作为配套：
+`verify-kit` 是 MetaGO Agent Harness 的独立组件，可独立使用，也可作为配套：
 
 - 在 Trae / Cursor / Claude Code 等 IDE 中通过 MCP 调用 `metago_delivery_gate` 工具
 - 在 CI/CD 中通过 CLI 调用

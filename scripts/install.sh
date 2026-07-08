@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================
-# MetaGO Lifeform Kit 一键安装脚本（Bash 版，支持 macOS/Linux/WSL）
+# MetaGO Agent Harness 一键安装脚本（Bash 版，支持 macOS/Linux/WSL）
 # 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode
 #
 # 用法：
@@ -112,7 +112,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     --help|-h)
       echo ""
-      echo "  MetaGO Lifeform Kit 安装脚本 $METAGO_VERSION"
+      echo "  MetaGO Agent Harness 安装脚本 $METAGO_VERSION"
       echo "  用法: ./install.sh [选项]"
       echo ""
       echo "  选项:"
@@ -244,7 +244,7 @@ detect_platform() {
 # ============================================================
 echo ""
 echo "=========================================="
-echo "  MetaGO Lifeform Kit $METAGO_VERSION 安装程序"
+echo "  MetaGO Agent Harness $METAGO_VERSION 安装程序"
 echo "  元构超级智能生命体标准安装包（Bash 版）"
 echo "=========================================="
 
@@ -314,7 +314,7 @@ step "步骤 1/5：环境检查"
 SOURCE_RULES_TEMPLATE="$SCRIPT_DIR/../$PLATFORM_RULES_TEMPLATE"
 if [[ ! -f "$SOURCE_RULES_TEMPLATE" ]]; then
   fail "源规则模板不存在: $SOURCE_RULES_TEMPLATE"
-  echo "  请确认 MetaGO Lifeform Kit 仓库完整"
+  echo "  请确认 MetaGO Agent Harness 仓库完整"
   exit 1
 fi
 detail "规则模板: $SOURCE_RULES_TEMPLATE"
@@ -485,7 +485,7 @@ fi
 echo ""
 echo "=========================================="
 if [[ "$VERIFY_PASS" == true ]]; then
-  echo "  ✅ MetaGO Lifeform Kit $METAGO_VERSION 安装成功！"
+  echo "  ✅ MetaGO Agent Harness $METAGO_VERSION 安装成功！"
   echo "  平台: $PLATFORM_NAME"
   echo "=========================================="
   echo ""
