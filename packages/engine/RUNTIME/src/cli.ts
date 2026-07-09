@@ -50,7 +50,7 @@ async function main(): Promise<void> {
   }
 
   if (command === '-v' || command === '--version') {
-    console.log('MetaGO Engine v1.0.0 (Metago V36.5)');
+    console.log('MetaGO Engine v1.0.0 (Metago V36.8.3)');
     return;
   }
 

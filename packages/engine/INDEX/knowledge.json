@@ -1,5 +1,5 @@
 {
-  "version": "V36.5",
+  "version": "V36.8.3",
   "last_updated": "2026-06-28",
   "source_document": "元构全息智能引擎.txt",
   "source_lines": 34656,
@@ -10,7 +10,7 @@
     {
       "id": "version_evolution",
       "name": "版本演进索引",
-      "range": "V1.0 → V36.5",
+      "range": "V1.0 → V36.8.3",
       "nodes": 20
     },
     {

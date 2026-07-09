@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * MetaGO Lifeform 杀手级 Demo
  *
@@ -660,7 +660,7 @@ function runMetaEvolution(scenarioKey) {
 function printBanner(version) {
   console.log("");
   console.log(" " + bgBold(C.bgMagenta, ` MetaGO Lifeform 杀手级 Demo v${version} `));
-  console.log(" " + bgBold(C.bgMagenta, `  "让智能，学会进化" — 从 Agent 到生命体的范式跃迁  `));
+  console.log(" " + bgBold(C.bgMagenta, `  "让智能，学会进化" — 从智能体到生命体的范式跃迁  `));
   console.log("");
   console.log(dim("  本演示为零依赖本地模拟，按真实公理/属性/协议运行。"));
   console.log(dim("  不调用外部 AI 服务，不发起网络请求，运行 < 5 秒。"));

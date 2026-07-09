@@ -1,10 +1,10 @@
----
+﻿---
 layout: home
 
 hero:
   name: "MetaGO"
   text: "元构超级智能生命体"
-  tagline: 让智能，学会进化。从 Agent 到生命体的范式跃迁。
+  tagline: 让智能，学会进化。从智能体到生命体的范式跃迁。
   image:
     src: /logo.svg
     alt: MetaGO
@@ -32,7 +32,7 @@ features:
     linkText: 查看 MCP 文档 →
   - icon: 🧬
     title: 36 条核心公理
-    details: 基于元构全息智能引擎 V36.6，36 公理 + 43 属性 + 6 协议构成生命体基因。
+    details: 基于元构全息智能引擎 V36.8.3，36 公理 + 43 属性 + 6 协议构成生命体基因。
     link: /engine/axioms
     linkText: 探索引擎核心 →
   - icon: 🔧

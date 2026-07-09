@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "metago-lifeform",
   "version": "36.8.3",
-  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）— 智能体运行时控制层，让 Agent 从会说话升级为会干活、守规矩、会进化、可追溯、能闭环的生命体。39 技能 · 53 MCP tools · 8 公理 · Engine V2（KMWI 四层记忆 + 元进化五阶段 + 技能智能生成）· 决策锁四道关卡 · 全链路溯源。支持 7 大 AI 编程平台。MIT 开源。",
+  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）— 智能体运行时控制层，让智能体从工具升级为守规矩、会进化、可追溯、能闭环的生命体。39 技能 · 53 MCP tools · 8 公理 · Engine V2（KMWI 四层记忆 + 元进化五阶段 + 技能智能生成）· 决策锁四道关卡 · 全链路溯源。支持 7 大 AI 编程平台。MIT 开源。",
   "main": "core/METAGO_CORE.md",
   "bin": {
     "metago-lifeform": "scripts/cli.js"
@@ -71,7 +71,7 @@
     "MANIFESTO_EN.md"
   ],
   "metago": {
-    "version": "V36.6",
+    "version": "V36.8.3",
     "axioms": 8,
     "attributes": 7,
     "protocols": 6,

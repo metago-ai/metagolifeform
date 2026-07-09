@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * MetaGO 僵尸能力分析器（Zombie Capability Analyzer）
  *
@@ -34,7 +34,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// ==================== 工具注册表（35 个 MCP 工具）====================
+// ==================== 工具注册表（53 个 MCP 工具）====================
 
 const TOOL_REGISTRY = {
   // 22 个元构技能
@@ -262,7 +262,7 @@ function generateMarkdownReport(stats, classification, dataPath, dataExists) {
   if (!dataExists || stats.totalRecords === 0) {
     md += `## ⚠ 数据不足说明\n\n`;
     md += `当前 \`calls.jsonl\` 不存在或为空，无法做实际调用统计。\n`;
-    md += `本报告转为**理论分析模式**，基于 35 个工具的设计意图做僵尸候选评估。\n\n`;
+    md += `本报告转为**理论分析模式**，基于 53 个工具的设计意图做僵尸候选评估。\n\n`;
     md += `**建议操作**:\n`;
     md += `1. 部署 MetaGO Agent Harness 到生产环境\n`;
     md += `2. 收集至少 7 天的真实使用数据\n`;
@@ -383,7 +383,7 @@ function generateMarkdownReport(stats, classification, dataPath, dataExists) {
   }
 
   md += `## 9. 理论分析附录（基于设计意图，非数据驱动）\n\n`;
-  md += `> 本章节基于 35 个工具的设计意图做理论分析，不依赖 calls.jsonl 数据。\n`;
+  md += `> 本章节基于 53 个工具的设计意图做理论分析，不依赖 calls.jsonl 数据。\n`;
   md += `> 用于在数据不足时提供决策参考。遵循 D38 绝对客观中立：不主观判断价值，以设计意图为准。\n\n`;
 
   md += `### 9.1 被动触发工具（0 调用属于正常，不应判僵尸）\n\n`;

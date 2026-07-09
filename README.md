@@ -7,7 +7,9 @@
 > **Not a chatbot. Not a copilot. A lifeform that holds itself to its own law.**
 > **The only AI agent that evolves its own evolution.**
 
-MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent, turning a fluent speaker into a lifeform that *does the work, follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
+MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent, turning a tool into a lifeform that *follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
+
+> **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following (Harness) and self-evolving (Lifeform).**
 
 [Website](https://metago.life) · [Studio](https://metago.life/studio/) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
@@ -66,7 +68,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 5 self-checks — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.5: 8 axioms, 7 properties, 36 core axioms, 43 fundamental attributes. Not vibes — a constitution.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.8.3: 8 axioms, 7 properties, 36 core axioms, 43 fundamental attributes. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
 
 ---
@@ -180,7 +182,7 @@ Per-platform adapters live in `adapters/<platform>/`. To install on a non-defaul
 
 ## FDE — Forward Deployment Engineering
 
-Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a 3-person + AI team embedded in your site to deliver production-grade intelligent software, carrying the Harness paradigm as leverage.
+Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the Harness paradigm as leverage.
 
 - **5 stages**: requirements research → solution design → development & deployment → acceptance & delivery → operations & support
 - **5 roles**: tech lead, AI engineer, domain expert, AI agent, project manager

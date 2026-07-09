@@ -95,15 +95,15 @@ npm test
 
 | 字段 | 期望值 | 检查位置 |
 |------|--------|---------|
-| 核心技能数 | 22 | `src/skills-data.ts` SKILLS.length |
-| 思维工具数 | 20 | `src/toolkit-data.ts` TOOLKIT_TOOLS.length |
+| 核心技能数 | 37 | `src/skills-data.ts` SKILLS.length |
+| 思维工具数 | 22 | `src/toolkit-data.ts` TOOLKIT_TOOLS.length |
 | 同名合并数 | 7 | 手工核对 |
-| 工程质量族新增数 | 2 | metago-delivery-gate / metago-discipline |
-| 合并后 tools 数 | 37 | `22 + 20 - 7 + 2` |
+| 事件上报工具 | 1 | metago_report_event |
+| 合并后 tools 数 | 53 | `22 + 37 - 7 + 1` |
 | prompts 数 | 8 | `src/prompts.ts` PROMPTS.length |
 | skills/ 目录数 | 39 | `Glob skills/*/` |
 | 根 pkg metago.skills | 39 | `package.json#metago.skills` |
-| 根 pkg metago.mcpServer.tools | 37 | `package.json#metago.mcpServer.tools` |
+| 根 pkg metago.mcpServer.tools | 53 | `package.json#metago.mcpServer.tools` |
 | 根 pkg metago.devKit.skills | 8 | `package.json#metago.devKit.skills` |
 | dev-kit pkg metago.totalSkills | 8 | dev-kit `package.json#metago.totalSkills` |
 | dev-kit pkg metago.reusedSkills.length | 4 | dev-kit `package.json#metago.reusedSkills`（数组） |
@@ -112,15 +112,16 @@ npm test
 | dev-kit pkg metago.addedSkills 内容 | 4 项技能名 | 每项必须在 skills/ 目录中存在 |
 
 **禁止出现的过时数字**：
-- `42 项` —— 已被 37 项取代（7 同名合并 + 2 工程质量族）
-- `35 项` —— 已被 37 项取代（新增 2 工程质量族技能）
-- `tools: 22` —— 已被 37 取代
+- `42 项` —— 已被 53 项取代（22思维工具 + 37核心技能 - 7去重 + 1事件上报 = 53）
+- `35 项` —— 已被 53 项取代
+- `37 项 tools` —— 已被 53 项取代（新增 1 事件上报 metago_report_event）
+- `tools: 22` —— 已被 53 取代
 - `devKit.skills: 4` —— 已被 8 取代
 
 ### 3.2 description 文本检查
 
-- [ ] 根 package.json description 含"37项能力（22技能+15独有思维工具+2交付质量，7同名合并）"
-- [ ] mcp-server package.json description 同上
+- [x] 根 package.json description 含"39 技能"和"53 MCP tools"
+- [x] mcp-server package.json description 同上
 - [x] 无"42项"残留
 - [x] 无"35项"残留
 

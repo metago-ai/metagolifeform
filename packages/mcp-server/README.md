@@ -30,7 +30,7 @@ The other 50 tools return structured guidance (soft drive) that the agent follow
 
 ```
 53 = 22 thinking tools (toolkit-data.ts)
-   + 30 core skills  (skills-data.ts: 37 skills − 7 name-collisions merged into toolkit)
+   + 30 core skills  (39 skill folders, 37 exported in skills-data.ts − 7 name-collisions merged into toolkit)
    + 1  event reporter (metago_report_event)
 ```
 

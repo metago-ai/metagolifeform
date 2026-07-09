@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 # ============================================================
 # MetaGO Agent Harness 一键安装脚本（Bash 版，支持 macOS/Linux/WSL）
 # 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode
@@ -16,7 +16,7 @@
 set -e
 
 # 元数据
-METAGO_VERSION="V36.5"
+METAGO_VERSION="V36.8.3"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_SKILLS_DIR="$SCRIPT_DIR/../skills"
 SOURCE_ADAPTERS_DIR="$SCRIPT_DIR/../adapters"

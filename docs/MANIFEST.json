@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "metago_version": "V36.6",
+  "metago_version": "V36.8.3",
   "package_version": "36.7.13",
   "description": "MetaGO Agent Harness AI 加载清单 - 支持全息按需激活",
   "last_updated": "2026-07-05",
@@ -69,7 +69,7 @@
       "path": "docs/MCP_SERVER.md",
       "type": "tool",
       "priority": "high",
-      "description": "37个MCP工具 + 8个prompts的完整文档",
+      "description": "53个MCP工具 + 8个prompts的完整文档",
       "tags": ["mcp", "tools", "prompts"],
       "related": ["ARCHITECTURE"]
     },
