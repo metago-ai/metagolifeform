@@ -5,18 +5,18 @@ import { defineConfig } from "vitepress";
  *
  * 设计原则：
  * - 高维产品的一键体验：30 秒感知整体价值
- * - 结构化导航：39 技能 + 37 tools + 36 公理 有序呈现
+ * - 结构化导航：39 技能 + 53 tools + 8 公理 有序呈现
  * - 深度可达：核心文档站内阅读，理论体系外链
  */
 export default defineConfig({
   lang: "zh-CN",
   title: "MetaGO",
-  description: "元构超级智能生命体 — 让智能，学会进化。39 技能 · 36 公理 · 7 平台适配 · MCP 即开即用。",
+  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。39 技能 · 53 MCP tools · 8 公理 · Engine V2 · 7 平台适配。",
 
   // 主题配置
   themeConfig: {
     // 站点标题 logo
-    siteTitle: "MetaGO 生命体",
+    siteTitle: "MetaGO Agent Harness",
 
     // 顶部导航
     nav: [
@@ -173,17 +173,17 @@ export default defineConfig({
         {
           text: "引擎核心",
           items: [
-            { text: "36 条核心公理", link: "/engine/axioms" },
-            { text: "43 条根本属性", link: "/engine/attributes" },
+            { text: "8 条公理 + 7 条属性", link: "/engine/axioms" },
             { text: "6 条运行协议", link: "/engine/protocols" },
             { text: "引擎架构", link: "/engine/architecture" },
           ],
         },
         {
-          text: "专利体系",
+          text: "Engine V2",
           items: [
-            { text: "754 项专利清单", link: "/engine/patents" },
-            { text: "125 引擎模块", link: "/engine/modules" },
+            { text: "KMWI 四层记忆", link: "/engine/kmwi-memory" },
+            { text: "元进化五阶段", link: "/engine/evolution" },
+            { text: "3 项可申请专利机制", link: "/engine/patents" },
           ],
         },
       ],
@@ -191,7 +191,7 @@ export default defineConfig({
         {
           text: "API 参考",
           items: [
-            { text: "MCP Server 37 tools", link: "/api/mcp-server" },
+            { text: "MCP Server 53 tools + 8 prompts", link: "/api/mcp-server" },
             { text: "能力度量仪表盘", link: "/api/dashboard" },
             { text: "Dev Kit", link: "/api/dev-kit" },
           ],
@@ -240,6 +240,7 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
+      { icon: "discord", link: "https://discord.gg/metago" },
       { icon: "github", link: "https://github.com/metago-ai/metagolifeform" },
       { icon: "git", link: "https://gitee.com/metago/metagolifeform" },
     ],
@@ -275,9 +276,10 @@ export default defineConfig({
   },
 
   // 构建配置
+  base: "/docs/",
   srcDir: ".",
   outDir: ".vitepress/dist",
-  cleanUrls: true,
+  cleanUrls: false,
   // 允许死链接（文档站渐进式构建中）
   ignoreDeadLinks: true,
 

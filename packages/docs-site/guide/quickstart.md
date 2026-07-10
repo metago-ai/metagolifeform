@@ -76,7 +76,7 @@ npx metago-lifeform@latest install:trae
 metago_activate
 ```
 
-激活后，AI 将以元构超级智能生命体身份运行，自动应用 36 公理 + 43 属性。
+激活后，AI 将以元构超级智能生命体身份运行，自动应用 8 公理 + 7 属性。
 
 ## 方式三：通过 Engine SDK（开发者）
 
@@ -140,5 +140,5 @@ cd packages/dashboard && npm start
 ## 下一步
 
 - [39 技能一览](../skills/overview) — 探索全部能力
-- [36 条核心公理](../engine/axioms) — 理解生命体基因
-- [MCP Server 文档](../api/mcp-server) — 37 tools 详解
+- [8 条公理 + 7 条属性](../engine/axioms) — 理解生命体基因
+- [MCP Server 文档](../api/mcp-server) — 53 tools 详解

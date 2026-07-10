@@ -121,6 +121,6 @@ npm test
 
 ## 下一步
 
-- [MCP Server API](./mcp-server) — 37 tools 详解
+- [MCP Server API](./mcp-server) — 53 tools 详解
 - [快速开始](../guide/quickstart) — 5 分钟上手
 - [39 技能一览](../skills/overview) — 技能详解

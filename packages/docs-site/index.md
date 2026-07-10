@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "MetaGO"
-  text: "元构超级智能生命体"
-  tagline: 让智能，学会进化。从智能体到生命体的范式跃迁。
+  text: "Agent Harness（驭智层）"
+  tagline: 让 AI 学会自我进化。从工具到生命体的范式跃迁 — 39 技能 · 53 MCP tools · Engine V2。
   image:
     src: /logo.svg
     alt: MetaGO
@@ -27,12 +27,12 @@ features:
     linkText: 查看全部技能 →
   - icon: ⚡
     title: MCP 即开即用
-    details: 37 项能力封装为 MCP 工具，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
+    details: 53 项 MCP 工具 + 8 prompts，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
     link: /api/mcp-server
     linkText: 查看 MCP 文档 →
   - icon: 🧬
-    title: 36 条核心公理
-    details: 基于元构全息智能引擎 V36.8.3，36 公理 + 43 属性 + 6 协议构成生命体基因。
+    title: 8 条公理 + 7 条属性
+    details: 基于《元构全息智能引擎》V36.8，8 公理 + 7 属性 + 6 协议构成生命体基因。Engine V2 硬驱动执行。
     link: /engine/axioms
     linkText: 探索引擎核心 →
   - icon: 🔧
