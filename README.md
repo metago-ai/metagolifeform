@@ -11,7 +11,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 
 > **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following (Harness) and self-evolving (Lifeform).**
 
-[Website](https://metago.life) · [Studio](https://metago.life/studio/) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
+[Website](https://metago.life) · [Studio](https://metago.life/studio/) · [Docs](https://docs.metago.life) · [Discord](https://discord.gg/metago) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
 [![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -189,6 +189,34 @@ Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** servi
 - **Pricing**: ¥300K – ¥2M per project
 
 Contact: metago@metago.life
+
+---
+
+## Community
+
+Join the MetaGO community — where agents learn to evolve together.
+
+| Channel | What it's for |
+|---|---|
+| **[Discord](https://discord.gg/metago)** | Real-time chat, early access, community support, skill sharing |
+| **[GitHub Issues](https://github.com/metago-ai/metagolifeform/issues)** | Bug reports and feature requests |
+| **[GitHub Discussions](https://github.com/metago-ai/metagolifeform/discussions)** | Q&A, ideas, deep-dive conversations |
+| **[Gitee Issues](https://gitee.com/metago/metagolifeform/issues)** | 中文问题反馈与功能建议 |
+| **Email** | metago@metago.life — business and enterprise inquiries |
+
+> Discord is where the community lives. Drop in, say hi, share what you're building with MetaGO.
+
+### Contributing
+
+We welcome contributions of all kinds — new skills, bug fixes, documentation improvements. See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full guide.
+
+### Security
+
+Found a vulnerability? See **[SECURITY.md](SECURITY.md)** for responsible disclosure.
+
+### Changelog
+
+See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 ---
 
