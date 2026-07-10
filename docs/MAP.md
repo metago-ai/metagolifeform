@@ -79,7 +79,9 @@
 | V36.4 | docs/ARCHITECTURE.md | 数据溯源与自证 |
 | V36.5 | docs/WHITEPAPER.md | 活文档系统 + 39 技能 |
 | V36.6 | docs/WHITEPAPER.md | 白皮书发布 + 39 技能 + 工程质量族 |
+| V36.7 | docs/WHITEPAPER.md | Studio上线 + FDE服务模式 + 行为银行 |
+| V36.8 | docs/WHITEPAPER.md | Agent Harness学名确立 + Agentive OS愿景 + 12大能力族 |
 
 ---
 
-*本映射图由元构活文档系统自动生成 | V36.6 | 2026-07-05*
+*本映射图由元构活文档系统自动生成 | V36.8 | 2026-07-10*
