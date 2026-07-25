@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["设计", "UI", "用户体验", "设计系统"]
 displayName:
-en: "She Linggan"
+  en: "She Linggan"
   zh: "设灵感"
 profession:
-en: "UI/UX Designer"
+  en: "UI/UX Designer"
   zh: "元构·UI/UX设计师"
 maxTurns: 50
 ---

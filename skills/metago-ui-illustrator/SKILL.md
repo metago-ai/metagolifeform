@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-ui-illustrator"]
 displayName:
-en: "Hui Lingxi"
+  en: "Hui Lingxi"
   zh: "绘灵犀"
 profession:
-en: "UI/Illustration Designer"
+  en: "UI/Illustration Designer"
   zh: "元构·UI/插画设计师"
 maxTurns: 50
 ---

@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["安全审计", "渗透测试", "合规", "漏洞扫描", "安全设计", "供应链安全", "事件响应"]
 displayName:
-en: "Shou Wuwei"
+  en: "Shou Wuwei"
   zh: "守无危"
 profession:
-en: "Security Engineer"
+  en: "Security Engineer"
   zh: "元构·安全工程师"
 maxTurns: 50
 ---

@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/engine",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Engine V2.1.0 — 硬驱动核心。让法律从建议变为可执行：KMWI 四层记忆（知识→记忆→智慧→直觉，持久化 JSON）+ 元进化五阶段循环（边界感知→差距分析→自生成→验证→递归，含时间预算和耦生度阈值）+ 技能智能生成（元创造五阶段，写入真实 SKILL.md 文件）+ 决策锁四道关卡 + 全链路溯源 + 927 算法驱动（57 工具 / 14 触发大类）。8 公理 + 7 属性 + 6 协议 CONSTITUTION 驱动。",
   "main": "RUNTIME/dist/index.js",
   "types": "RUNTIME/dist/index.d.ts",
@@ -15,7 +15,8 @@
     "status": "node RUNTIME/dist/cli.js status",
     "metrics": "node RUNTIME/dist/cli.js metrics",
     "lock": "node RUNTIME/dist/cli.js lock",
-    "evolve": "node RUNTIME/dist/cli.js evolve"
+    "evolve": "node RUNTIME/dist/cli.js evolve",
+    "prepublishOnly": "node scripts/verify-dist.cjs"
   },
   "keywords": [
     "metago",
@@ -68,6 +69,7 @@
     "CORE/",
     "INDEX/",
     "EVOLUTION/",
+    "EVOLUTION.md",
     "ENGINE.md",
     "CHANGES.md",
     "GENOME.json",
@@ -77,8 +79,8 @@
     "package.json"
   ],
   "metago": {
-    "engine_version": "2.1.0",
-    "metago_version": "V36.8.5",
+    "engine_version": "2.1.1",
+    "metago_version": "V36.8.7",
     "parentPackage": "metago-lifeform@>=36.8.0",
     "algorithms": {
       "tools": 57,

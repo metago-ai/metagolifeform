@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-presentation-designer"]
 displayName:
-en: "Zhan Fenghua"
+  en: "Zhan Fenghua"
   zh: "展风华"
 profession:
-en: "Presentation Designer"
+  en: "Presentation Designer"
   zh: "元构·演示设计师"
 maxTurns: 50
 ---

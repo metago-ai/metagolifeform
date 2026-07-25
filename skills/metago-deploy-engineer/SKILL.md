@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["部署", "发布", "上云", "灰度", "回滚"]
 displayName:
-en: "Yun Jiuxiao"
+  en: "Yun Jiuxiao"
   zh: "云九霄"
 profession:
-en: "Deployment Engineer"
+  en: "Deployment Engineer"
   zh: "元构·部署工程师"
 maxTurns: 50
 ---

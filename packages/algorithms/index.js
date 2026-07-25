@@ -27,18 +27,42 @@ const fs = require('fs');
 // 引擎加载
 // ============================================================================
 
-// 优先使用环境变量；其次相对路径（__dirname 为 mcps/mcp_metago-algorithms，上两级到 .trae-cn）
-const ENGINE_DIST = process.env.ENGINE_DIST
-  || path.resolve(__dirname, '../../packages/engine/RUNTIME/dist');
+// 引擎解析顺序（确定性、离作者机器可用）：
+//   1. 环境变量 ENGINE_DIST（显式覆盖，最高优先级）
+//   2. 本包内置 vendored 引擎（npm 包自带，与 tool-registry 版本严格匹配，保证可用）
+//   3. 依赖包 @metago-ai/engine 的 RUNTIME/dist（monorepo / 本地链接开发场景）
+//   4. 旧版 monorepo 相对路径（__dirname 上两级的 packages/engine/RUNTIME/dist）
+const VENDORED_DIST = path.resolve(__dirname, 'engine');
+
+function resolveEngineDist() {
+  const candidates = [];
+  if (process.env.ENGINE_DIST) candidates.push(['env:ENGINE_DIST', process.env.ENGINE_DIST]);
+  candidates.push(['bundled', VENDORED_DIST]);
+  try {
+    const enginePkg = require.resolve('@metago-ai/engine/package.json');
+    candidates.push(['@metago-ai/engine', path.join(path.dirname(enginePkg), 'RUNTIME', 'dist')]);
+  } catch (_) { /* engine 包未安装时跳过 */ }
+  candidates.push(['monorepo-legacy', path.resolve(__dirname, '../../packages/engine/RUNTIME/dist')]);
+
+  for (const [source, dist] of candidates) {
+    const registryPath = path.join(dist, 'algorithms', 'registry.js');
+    if (fs.existsSync(registryPath)) return { source, dist, registryPath };
+  }
+  return null;
+}
+
+const resolved = resolveEngineDist();
+if (!resolved) {
+  console.error('[mcp_metago-algorithms] FATAL: 未找到引擎算法注册表（algorithms/registry.js）');
+  console.error('[mcp_metago-algorithms] 已尝试: ENGINE_DIST / 包内置 engine/ / @metago-ai/engine / monorepo 相对路径');
+  process.exit(1);
+}
+const ENGINE_DIST = resolved.dist;
 
 let registry;
 try {
-  const registryPath = path.join(ENGINE_DIST, 'algorithms/registry.js');
-  if (!fs.existsSync(registryPath)) {
-    throw new Error(`引擎 dist 不存在: ${registryPath}`);
-  }
-  registry = require(registryPath);
-  console.error(`[mcp_metago-algorithms] Engine loaded from ${ENGINE_DIST}`);
+  registry = require(resolved.registryPath);
+  console.error(`[mcp_metago-algorithms] Engine loaded from ${resolved.source}: ${ENGINE_DIST}`);
 } catch (e) {
   console.error(`[mcp_metago-algorithms] FATAL: Cannot load engine from ${ENGINE_DIST}`);
   console.error(`[mcp_metago-algorithms] Error: ${e.message}`);

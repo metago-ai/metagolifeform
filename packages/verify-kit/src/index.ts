@@ -204,7 +204,7 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
 
   return {
     timestamp: new Date().toISOString(),
-    version: '1.1.0',
+    version: '1.1.1',
     total: results.length,
     passed,
     failed,
@@ -649,8 +649,13 @@ function errMsg(e: unknown): string {
 }
 
 // ============ CLI 入口 ============
+// 注意：必须用 pathToFileURL 规范化 argv[1]，直接拼接 `file://${process.argv[1]}`
+// 在 Windows 上会因反斜杠与盘符导致比较失败，CLI 块永不执行（静默 exit 0）。
+import { pathToFileURL } from 'node:url'
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const invokedAsScript = !!process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+
+if (invokedAsScript) {
   const config: VerifyConfig = {
     tech: { tsc: true, build: false, artifactScan: true, npmAudit: true },
   }
@@ -662,5 +667,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       discipline.failures.forEach(f => console.error(`  - ${f}`))
       process.exit(1)
     }
+    console.error('\n✅ 自律检查通过，可宣告交付')
+  }).catch((e) => {
+    console.error(`\n❌ 验证执行器异常：${errMsg(e)}`)
+    process.exit(2)
   })
 }

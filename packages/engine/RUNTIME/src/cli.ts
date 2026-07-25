@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * MetaGO Engine - CLI 命令行接口
  * Command Line Interface

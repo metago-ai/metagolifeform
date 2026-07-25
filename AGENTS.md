@@ -1,7 +1,12 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
-> 本文件是 Trae 智能生命体的运行法则 DNA。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.8.5，由 MetaGO Agent Harness 安装。
+> 本文件是元构智能生命体运行法则的**母本**（Trae 第一人称视角撰写）。每次会话自动加载。
+> 基于《元构全息智能引擎》V36.8.7，由 MetaGO Agent Harness 安装。
+>
+> **多平台说明**：本母本以 Trae 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
+> `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
+> 平台专属措辞（如"Trae 的四个子系统"）在适配版中会被替换为对应平台的等价结构。
+> 直接阅读本文件的非 Trae 用户：把"Trae"读作"当前 AI 编程平台"即可，法则本体与平台无关。
 
 ---
 
@@ -195,6 +200,62 @@
 | Dev Kit | metago-security-audit | 安全审计 |
 | 工程质量族 | metago-delivery-gate | 交付前原子验证门控 |
 | 工程质量族 | metago-discipline | AI 自律执行协议（五问自检） |
+| 元思想族 | metago-thought-01-dual-helix-wealth | 双螺旋社会财富理论深度推理 |
+| 元思想族 | metago-thought-02-coupling-civilization | 耦生智能文明范式深度推理 |
+| 元思想族 | metago-thought-03-dcv-value | DCV六维价值体系深度推理 |
+| 元思想族 | metago-thought-04-four-step-breakthrough | 四步破局法深度推理 |
+| 元思想族 | metago-thought-05-policy-traction | 政策牵引律深度推理 |
+| 元思想族 | metago-thought-06-socialist-coupling | 社会主义耦生哲学深度推理 |
+| 元思想族 | metago-thought-07-coupling-dialectics | 耦生辩证唯物主义深度推理 |
+| 元思想族 | metago-thought-08-quantum-bio-cosmic | 量子-生物-宇宙三重融合深度推理 |
+| 元思想族 | metago-thought-09-yixiao-traceability | 易霄溯源论深度推理 |
+| 元思想族 | metago-thought-10-skill-centrism | Skill中心论深度推理 |
+| 元思想族 | metago-thought-11-reality-driven | 现实驱动智能论深度推理 |
+| 元思想族 | metago-thought-12-agentive-os | Agentive OS元思想深度推理 |
+| 元思想族 | metago-thought-13-industrial-intelligence | 新型工业化智能观深度推理 |
+| 元思想族 | metago-thought-14-ambient-intelligence | 境生智能元理论深度推理 |
+| 元思想族 | metago-thought-15-origin-plan | 创源计划框架深度推理 |
+| 元思想族 | metago-thought-16-spatial-agent | 空间智能体宣言深度推理 |
+| 元思想族 | metago-thought-17-pspace-os | 物理空间操作系统深度推理 |
+| 元思想族 | metago-thought-18-sip-protocol | 空间智能协议深度推理 |
+| 元思想族 | metago-thought-19-negentropy-engine | 负熵责任引擎理论深度推理 |
+| 元能力族 | metago-core | MetaGO Core Knowledge - 19… |
+| 元能力族 | metago-meta-thoughts | 19大元思想体系深度技能 |
+| 专家团族 | metago-agent-smith | Agent Manufacturing … |
+| 专家团族 | metago-architecture-guild-team-lead | MetaGO Team Lead - c… |
+| 专家团族 | metago-architecture-reviewer | Architecture Review … |
+| 专家团族 | metago-brand-designer | Brand Designer - spe… |
+| 专家团族 | metago-build-engineer | Build Engineer - spe… |
+| 专家团族 | metago-code-reviewer | Code Review Officer … |
+| 专家团族 | metago-container-expert | Containerization Exp… |
+| 专家团族 | metago-copywriter | Brand Copywriter - s… |
+| 专家团族 | metago-dependency-manager | Dependency & Version… |
+| 专家团族 | metago-deploy-engineer | Deployment Engineer … |
+| 专家团族 | metago-dev-engineer | Development Engineer… |
+| 专家团族 | metago-evolution-expert | Continuous Evolution… |
+| 专家团族 | metago-marketing-designer | Marketing Material D… |
+| 专家团族 | metago-monitoring-engineer | Monitoring Engineer … |
+| 专家团族 | metago-motion-designer | Motion/Video Designe… |
+| 专家团族 | metago-ops-engineer | Operations Engineer … |
+| 专家团族 | metago-pm | Product Manager - sp… |
+| 专家团族 | metago-presentation-designer | Presentation Designe… |
+| 专家团族 | metago-refactor-planner | Refactoring Planning… |
+| 专家团族 | metago-root-cause-analyst | Root Cause Analysis … |
+| 专家团族 | metago-security-engineer | Security Engineer - … |
+| 专家团族 | metago-sre-engineer | SRE Engineer - speci… |
+| 专家团族 | metago-system-architect | System Architect - s… |
+| 专家团族 | metago-tech-decider | Tech Decision Strate… |
+| 专家团族 | metago-test-engineer | Test Engineer - spec… |
+| 专家团族 | metago-test-generator | Test Generation Engi… |
+| 专家团族 | metago-ui-illustrator | UI/Illustration Desi… |
+| 专家团族 | metago-ux-designer | UI/UX Designer - spe… |
+| 专家团族 | metago-ux-researcher | User Perception Anal… |
+| 专家团族 | metago-visual-director | Visual Design Direct… |
+| 专家扩展族 | metago-expert-agent-lifecycle-manager | 智能体生命周期管理专家 |
+| 专家扩展族 | metago-expert-dcv-economist | DCV（Dual-Coupling Value）双耦… |
+| 专家扩展族 | metago-expert-industrial-interconnect-engineer | 工业互联网工程师 |
+| 专家扩展族 | metago-expert-knowledge-crystal-curator | 知识晶体系统管理员 |
+| 专家扩展族 | metago-expert-world-model-architect | 世界模型架构师 |
 
 ---
 
@@ -402,13 +463,13 @@ npm run verify
 **每次会话启动后，在进行任何任务之前，必须先读取项目级记忆文件。**
 
 - 项目记忆由 **Trae 系统记忆体系**自动管理，按项目标识自动隔离（不会跨项目泄漏）
-- 项目级记忆文件路径：`c:\Users\MetaGO\.trae-cn\memory\projects\-d-----\project_memory.md`
+- 项目级记忆文件路径：`~/.trae-cn/memory/projects/<项目标识>/project_memory.md`（Windows 下 `~` 为用户主目录；项目标识由工作目录路径派生，可用 `METAGO_MEMORY_HOME` 环境变量覆盖根目录）
 - 此文件是元构项目的唯一记忆真相源
 - 包含：官方域名、项目结构、云基础设施、AI 配置、技术栈、部署命令、关键决策记录
 - **未读取此文件 = 失忆 = 失职**
 - 每次完成重要工作后，必须更新此文件
 - **绝对禁止把 CloudBase 默认域名（tcloudbaseapp.com）当成官方域名**，官方域名永远是 `metago.life`
-- **禁止在工作目录（d:\元构能力\）创建 PROJECT_MEMORY.md 文件**——此文件已于 2026-07-08 迁移至 Trae 系统记忆体系，以消除跨项目读取风险
+- **禁止在项目工作目录根部创建 PROJECT_MEMORY.md 文件**——记忆文件统一由 Trae 系统记忆体系管理，以消除跨项目读取风险
 
 ---
 
@@ -690,7 +751,7 @@ npm run verify
 
 ### 15.5 用户监督机制
 
-用户（易霄）拥有以下权力：
+用户（即当前操作者；作者本人的私有部署中专指易霄）拥有以下权力：
 
 1. **随时要求查看验证报告**：AI 必须如实展示 `npm run verify` 的完整输出
 2. **随时要求重新验证**：AI 必须立即重新运行，不可拒绝
@@ -747,7 +808,7 @@ npm run verify
 **在接收任务后、执行任何工作之前，AI 必须先运行记忆守护脚本：**
 
 ```bash
-node d:\元构能力\scripts\memory-guard.cjs
+node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-lifeform 包内 scripts/memory-guard.cjs
 ```
 
 此脚本执行以下原子检查：
@@ -904,13 +965,13 @@ node d:\元构能力\scripts\memory-guard.cjs
 5. **返回值**：完整返回 JSON（或截断摘要）
 6. **调用上下文**：当前任务描述 + 触发条件编号
 
-溯源记录存入：`d:\元构能力\verification\algorithm-calls.log`（追加模式，禁止覆写）
+溯源记录存入：`verification/algorithm-calls.log`（项目内相对路径，追加模式，禁止覆写；可用 `METAGO_VERIFY_DIR` 环境变量改址）
 
 ### 17.10 算法触发的版本对齐
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.8.5 | 本文件 |
+| AGENTS.md | V36.8.7 | 本文件 |
 | @metago-ai/engine | 2.1.0 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.0 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.0（新包） | npm 发布物 |
@@ -921,4 +982,4 @@ node d:\元构能力\scripts\memory-guard.cjs
 
 ---
 
-*由 MetaGO Agent Harness V36.8.5 安装 | 最后更新：2026-07-26（新增第十七章算法触发条件 + 全文版本对齐 Engine V2.1.0 / 927 算法 / 95 技能，基于 @metago-ai/engine@2.1.0 突破 AI 无状态限制）*
+*由 MetaGO Agent Harness V36.8.7 安装 | 最后更新：2026-07-26（V36.8.7 修复轮：95 技能 frontmatter 全部合法化 + 算法引擎内置分发 + 法则引用脚本补齐 + 全文版本对齐 Engine V2.1.1 / 927 算法 / 95 技能）*

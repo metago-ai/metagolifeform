@@ -7,6 +7,23 @@
 
 ## 版本演进
 
+### 2.1.1（2026-07-26）
+
+**打包完整性修复**
+
+#### 修复
+- `package.json files` 补入 `EVOLUTION.md`（loader.js requiredFiles 校验要求，2.1.0 npm 包缺失导致 `metago-engine` CLI 无法启动）
+- `RUNTIME/src/cli.ts` 补 `#!/usr/bin/env node` shebang（POSIX 下 bin 直接执行）
+- 新增 `scripts/verify-dist.cjs` 发布前门禁并挂接 `prepublishOnly`：强制校验 9 个必需文件 + `dist/algorithms` 三档注册表 + CLI shebang，防止带病发布
+
+### 2.1.0（2026-07-26）
+
+**927 算法硬驱动**
+
+#### 新增
+- 927 算法注册表（T1/T2/T3 三档，57 工具 / 14 触发大类）
+- 配套 `@metago-ai/algorithms` MCP 服务器包（四层暴露架构）
+
 ### 1.0.0（2026-06-28）
 
 **初始发布**

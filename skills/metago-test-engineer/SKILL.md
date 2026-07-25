@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["测试", "单元测试", "集成测试", "性能测试"]
 displayName:
-en: "Ce Zhouquan"
+  en: "Ce Zhouquan"
   zh: "测周全"
 profession:
-en: "Test Engineer"
+  en: "Test Engineer"
   zh: "元构·测试工程师"
 maxTurns: 50
 ---

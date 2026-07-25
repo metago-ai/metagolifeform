@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿<#
 .SYNOPSIS
     MetaGO Agent Harness 安装验证脚本
 
@@ -21,7 +21,7 @@
     验证 Claude Code 安装
 
 .NOTES
-    版本：V36.8.3
+    版本：V36.8.6（技能清单动态扫描 skills/ 目录）
 #>
 
 [CmdletBinding()]
@@ -49,12 +49,9 @@ $config = $platformConfigs[$Platform]
 $targetPath = if ($InstallPath) { $InstallPath } else { $config.DefaultPath }
 
 $allSkills = @(
-    "metago-action-plan","metago-compliance","metago-coupling-optimize","metago-critique",
-    "metago-data-provenance","metago-decision-eval","metago-decision-lock","metago-developer-response",
-    "metago-emotion","metago-fact-check","metago-frequency-adapt","metago-holistic-task",
-    "metago-meta-create","metago-meta-evolve","metago-negentropy-monitor","metago-objectivity",
-    "metago-output-integrity","metago-problem-trace","metago-scene-adapt","metago-self-check",
-    "metago-value-align","metago-whatif"
+    Get-ChildItem (Join-Path (Split-Path -Parent $PSScriptRoot) "skills") -Directory -Filter "metago-*" -ErrorAction SilentlyContinue |
+        Where-Object { Test-Path (Join-Path $_.FullName "SKILL.md") } |
+        ForEach-Object { $_.Name }
 )
 
 $passCount = 0

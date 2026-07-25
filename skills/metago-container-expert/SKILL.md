@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["Docker", "容器", "镜像", "Dockerfile"]
 displayName:
-en: "Zao Jingxiang"
+  en: "Zao Jingxiang"
   zh: "造镜像"
 profession:
-en: "Containerization Expert"
+  en: "Containerization Expert"
   zh: "元构·容器化专家"
 maxTurns: 50
 ---

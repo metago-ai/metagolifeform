@@ -1,3 +1,12 @@
+---
+name: "metago-expert-agent-lifecycle-manager"
+description: "智能体生命周期管理专家。负责智能体从需求解析到部署交付的全生命周期管理：能力蓝图设计、智能体封装打包、质量检测与 Harness 自动生成。当涉及智能体创建、能力设计、角色定义、交付质检时调用。"
+version: "1.0.0"
+author: "MetaGO"
+category: "元构专家扩展"
+platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","kimi"]
+---
+
 # Agent 生命周期经理专家
 
 ## 描述

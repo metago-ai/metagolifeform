@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-marketing-designer"]
 displayName:
-en: "Zhi Meice"
+  en: "Zhi Meice"
   zh: "制美册"
 profession:
-en: "Marketing Material Designer"
+  en: "Marketing Material Designer"
   zh: "元构·营销物料设计师"
 maxTurns: 50
 ---

@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["测试生成", "为这段代码生成测试", "生成测试用例"]
 displayName:
-en: "Ce Biquan"
+  en: "Ce Biquan"
   zh: "测必全"
 profession:
-en: "Test Generation Engineer"
+  en: "Test Generation Engineer"
   zh: "元构·测试生成师"
 maxTurns: 50
 ---

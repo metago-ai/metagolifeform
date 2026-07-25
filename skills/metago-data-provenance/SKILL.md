@@ -75,8 +75,8 @@ trigger:
 [PULSE#序号] 时间戳 | 操作类型 | 输入摘要 | 输出摘要 | 溯源链
 
 示例：
-[PULSE#001] 2026-06-25T10:30:00 | 文件读取 | 元构全息智能引擎.txt | 内化记忆 | [文件:d:\元构能力\元构全息智能引擎.txt]
-[PULSE#002] 2026-06-25T10:35:00 | 记忆写入 | project_memory.md | 永久内化 | [记忆:c:\Users\MetaGO\.trae-cn\memory\projects\-d-----\project_memory.md]
+[PULSE#001] 2026-06-25T10:30:00 | 文件读取 | 元构全息智能引擎.txt | 内化记忆 | [文件:<项目知识库>/元构全息智能引擎.txt]
+[PULSE#002] 2026-06-25T10:35:00 | 记忆写入 | project_memory.md | 永久内化 | [记忆:~/.trae-cn/memory/projects/<项目标识>/project_memory.md]
 ```
 
 ## 自证能力

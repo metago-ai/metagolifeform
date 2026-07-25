@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/verify-kit",
-  "version": "1.1.0",
-  "description": "MetaGO Agent Harness 交付质量保证系统 —— 把 AI 自律从软约束变成硬门的强制门控框架。七层验证架构（L1技术/L2链路/L3契约/L4渲染/L5交互/L6状态/L7防御）+ L8缺陷猎杀（11维度）+ 八问自检 + 反绕过识别。对应 AGENTS.md V36.8.5 第十一/十四/十五章。",
+  "version": "1.1.1",
+  "description": "MetaGO Agent Harness 交付质量保证系统 —— 把 AI 自律从软约束变成硬门的强制门控框架。七层验证架构（L1技术/L2链路/L3契约/L4渲染/L5交互/L6状态/L7防御）+ L8缺陷猎杀（11维度）+ 八问自检 + 反绕过识别。对应 AGENTS.md V36.8.7 第十一/十四/十五章。",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -9,12 +9,19 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build && node scripts/verify-bin.cjs"
   },
   "keywords": [
-    "ai-quality", "delivery-gate", "verification",
-    "self-discipline", "metago", "ai-agent", "qa-automation",
-    "7-layer-verification", "defect-hunting", "runtime-verification"
+    "ai-quality",
+    "delivery-gate",
+    "verification",
+    "self-discipline",
+    "metago",
+    "ai-agent",
+    "qa-automation",
+    "7-layer-verification",
+    "defect-hunting",
+    "runtime-verification"
   ],
   "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "license": "MIT",
@@ -38,7 +45,7 @@
     "@types/node": "^22.0.0"
   },
   "metago": {
-    "rules_version": "V36.8.5",
+    "rules_version": "V36.8.7",
     "verification_layers": 7,
     "defect_hunting_dimensions": 11,
     "self_discipline_questions": 8

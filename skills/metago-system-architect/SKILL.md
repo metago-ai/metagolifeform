@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["系统架构", "数据库设计", "API设计", "技术栈"]
 displayName:
-en: "Jia Lingyun"
+  en: "Jia Lingyun"
   zh: "架凌云"
 profession:
-en: "System Architect"
+  en: "System Architect"
   zh: "元构·系统架构师"
 maxTurns: 50
 ---

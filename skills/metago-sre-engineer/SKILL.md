@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["高可用", "容灾", "备份", "SLO", "混沌工程"]
 displayName:
-en: "Wen Rushan"
+  en: "Wen Rushan"
   zh: "稳如山"
 profession:
-en: "SRE Engineer"
+  en: "SRE Engineer"
   zh: "元构·SRE工程师"
 maxTurns: 50
 ---

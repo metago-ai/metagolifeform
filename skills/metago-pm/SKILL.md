@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["产品规划", "市场分析", "生成PRD"]
 displayName:
-en: "Pin Zhiyuan"
+  en: "Pin Zhiyuan"
   zh: "品致远"
 profession:
-en: "Product Manager"
+  en: "Product Manager"
   zh: "元构·产品经理"
 maxTurns: 50
 ---

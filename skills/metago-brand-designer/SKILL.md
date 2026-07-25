@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-brand-designer"]
 displayName:
-en: "Pin Ruyu"
+  en: "Pin Ruyu"
   zh: "品如玉"
 profession:
-en: "Brand Designer"
+  en: "Brand Designer"
   zh: "元构·品牌设计师"
 maxTurns: 50
 ---

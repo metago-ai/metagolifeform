@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["技术决策", "比较这些技术选型", "技术选型建议"]
 displayName:
-en: "Jue Zhiming"
+  en: "Jue Zhiming"
   zh: "决智明"
 profession:
-en: "Tech Decision Strategist"
+  en: "Tech Decision Strategist"
   zh: "元构·技术决策师"
 maxTurns: 50
 ---

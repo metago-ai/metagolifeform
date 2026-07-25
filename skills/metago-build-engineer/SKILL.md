@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["构建", "打包", "编译", "APK", "EXE"]
 displayName:
-en: "Bao Wanwu"
+  en: "Bao Wanwu"
   zh: "包万物"
 profession:
-en: "Build Engineer"
+  en: "Build Engineer"
   zh: "元构·构建工程师"
 maxTurns: 50
 ---

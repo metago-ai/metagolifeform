@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-visual-director"]
 displayName:
-en: "Shi Wanxiang"
+  en: "Shi Wanxiang"
   zh: "视万象"
 profession:
-en: "Visual Design Director"
+  en: "Visual Design Director"
   zh: "元构·视觉设计总监"
 maxTurns: 50
 ---

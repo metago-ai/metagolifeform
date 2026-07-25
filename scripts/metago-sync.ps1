@@ -1,4 +1,4 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 <#
 .SYNOPSIS
     MetaGO 本地 AI 工具状态同步脚本（metago-sync.ps1）

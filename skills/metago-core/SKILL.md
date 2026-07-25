@@ -10,4 +10,4 @@ description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Att
 ## 参考资料
 
 - `references/metago-capability-index.md` — L2 能力索引：能力族、引擎速览、版本演进（主动加载）
-- L3 完整蓝本：`D:\workbuddy专家\元构全息智能引擎.txt`（34,655行，按需检索）
+- L3 完整蓝本：《元构全息智能引擎.txt》（34,655 行，未随公开仓库发布；按需向维护者索取，公开基线以 AGENTS.md + CONSTITUTION/AXIOMS.md 为准）

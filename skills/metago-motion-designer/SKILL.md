@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-motion-designer"]
 displayName:
-en: "Dong Qiankun"
+  en: "Dong Qiankun"
   zh: "动乾坤"
 profession:
-en: "Motion/Video Designer"
+  en: "Motion/Video Designer"
   zh: "元构·动效/视频设计师"
 maxTurns: 50
 ---

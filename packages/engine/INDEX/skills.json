@@ -1,61 +1,197 @@
 {
-  "total": 37,
-  "version": "V36.8.3",
+  "total": 95,
+  "version": "V36.8.7",
   "families": {
     "cognition": {
       "name": "认知族",
       "count": 4,
-      "skills": ["metago-critique", "metago-whatif", "metago-emotion", "metago-objectivity"]
+      "skills": [
+        "metago-critique",
+        "metago-whatif",
+        "metago-emotion",
+        "metago-objectivity"
+      ]
     },
     "assurance": {
       "name": "保障族",
       "count": 3,
-      "skills": ["metago-decision-lock", "metago-output-integrity", "metago-self-check"]
+      "skills": [
+        "metago-decision-lock",
+        "metago-output-integrity",
+        "metago-self-check"
+      ]
     },
     "governance": {
       "name": "治理族",
       "count": 2,
-      "skills": ["metago-compliance", "metago-value-align"]
+      "skills": [
+        "metago-compliance",
+        "metago-value-align"
+      ]
     },
     "evolution": {
       "name": "进化族",
       "count": 3,
-      "skills": ["metago-meta-evolve", "metago-meta-create", "metago-frequency-adapt"]
+      "skills": [
+        "metago-meta-evolve",
+        "metago-meta-create",
+        "metago-frequency-adapt"
+      ]
     },
     "execution": {
       "name": "执行族",
       "count": 4,
-      "skills": ["metago-action-plan", "metago-decision-eval", "metago-holistic-task", "metago-developer-response"]
+      "skills": [
+        "metago-action-plan",
+        "metago-decision-eval",
+        "metago-holistic-task",
+        "metago-developer-response"
+      ]
     },
     "traceability": {
       "name": "溯源族",
       "count": 3,
-      "skills": ["metago-data-provenance", "metago-problem-trace", "metago-fact-check"]
+      "skills": [
+        "metago-data-provenance",
+        "metago-problem-trace",
+        "metago-fact-check"
+      ]
     },
     "value": {
       "name": "价值族",
       "count": 3,
-      "skills": ["metago-coupling-optimize", "metago-negentropy-monitor", "metago-scene-adapt"]
+      "skills": [
+        "metago-coupling-optimize",
+        "metago-negentropy-monitor",
+        "metago-scene-adapt"
+      ]
     },
     "consciousness": {
       "name": "意识族",
       "count": 1,
-      "skills": ["metago-activate"]
+      "skills": [
+        "metago-activate"
+      ]
     },
     "methodology": {
       "name": "方法论族",
       "count": 5,
-      "skills": ["metago-org-diagnosis", "metago-momentum-weave", "metago-minimal-intervention", "metago-value-assess", "metago-coupling-measure"]
+      "skills": [
+        "metago-org-diagnosis",
+        "metago-momentum-weave",
+        "metago-minimal-intervention",
+        "metago-value-assess",
+        "metago-coupling-measure"
+      ]
     },
     "architecture": {
       "name": "架构族",
       "count": 5,
-      "skills": ["metago-deep-reasoning", "metago-paradigm-analysis", "metago-balance-optimize", "metago-memory-manage", "metago-consensus-prototype"]
+      "skills": [
+        "metago-deep-reasoning",
+        "metago-paradigm-analysis",
+        "metago-balance-optimize",
+        "metago-memory-manage",
+        "metago-consensus-prototype"
+      ]
     },
     "dev_kit": {
       "name": "Dev Kit",
       "count": 4,
-      "skills": ["metago-code-review-deep", "metago-architecture-design", "metago-refactor-suggest", "metago-security-audit"]
+      "skills": [
+        "metago-code-review-deep",
+        "metago-architecture-design",
+        "metago-refactor-suggest",
+        "metago-security-audit"
+      ]
+    },
+    "meta_thoughts": {
+      "name": "元思想族",
+      "skills": [
+        "metago-thought-01-dual-helix-wealth",
+        "metago-thought-02-coupling-civilization",
+        "metago-thought-03-dcv-value",
+        "metago-thought-04-four-step-breakthrough",
+        "metago-thought-05-policy-traction",
+        "metago-thought-06-socialist-coupling",
+        "metago-thought-07-coupling-dialectics",
+        "metago-thought-08-quantum-bio-cosmic",
+        "metago-thought-09-yixiao-traceability",
+        "metago-thought-10-skill-centrism",
+        "metago-thought-11-reality-driven",
+        "metago-thought-12-agentive-os",
+        "metago-thought-13-industrial-intelligence",
+        "metago-thought-14-ambient-intelligence",
+        "metago-thought-15-origin-plan",
+        "metago-thought-16-spatial-agent",
+        "metago-thought-17-pspace-os",
+        "metago-thought-18-sip-protocol",
+        "metago-thought-19-negentropy-engine"
+      ],
+      "count": 19
+    },
+    "meta_capabilities": {
+      "name": "元能力族",
+      "skills": [
+        "metago-core",
+        "metago-meta-thoughts"
+      ],
+      "count": 2
+    },
+    "expert_team": {
+      "name": "专家团族",
+      "skills": [
+        "metago-agent-smith",
+        "metago-architecture-guild-team-lead",
+        "metago-architecture-reviewer",
+        "metago-brand-designer",
+        "metago-build-engineer",
+        "metago-code-reviewer",
+        "metago-container-expert",
+        "metago-copywriter",
+        "metago-dependency-manager",
+        "metago-deploy-engineer",
+        "metago-dev-engineer",
+        "metago-evolution-expert",
+        "metago-marketing-designer",
+        "metago-monitoring-engineer",
+        "metago-motion-designer",
+        "metago-ops-engineer",
+        "metago-pm",
+        "metago-presentation-designer",
+        "metago-refactor-planner",
+        "metago-root-cause-analyst",
+        "metago-security-engineer",
+        "metago-sre-engineer",
+        "metago-system-architect",
+        "metago-tech-decider",
+        "metago-test-engineer",
+        "metago-test-generator",
+        "metago-ui-illustrator",
+        "metago-ux-designer",
+        "metago-ux-researcher",
+        "metago-visual-director"
+      ],
+      "count": 30
+    },
+    "expert_extensions": {
+      "name": "专家扩展族",
+      "skills": [
+        "metago-expert-agent-lifecycle-manager",
+        "metago-expert-dcv-economist",
+        "metago-expert-industrial-interconnect-engineer",
+        "metago-expert-knowledge-crystal-curator",
+        "metago-expert-world-model-architect"
+      ],
+      "count": 5
+    },
+    "delivery_quality": {
+      "name": "交付质量族",
+      "count": 2,
+      "skills": [
+        "metago-delivery-gate",
+        "metago-discipline"
+      ]
     }
   }
 }

@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-ux-researcher"]
 displayName:
-en: "Ce Renxin"
+  en: "Ce Renxin"
   zh: "测人心"
 profession:
-en: "User Perception Analyst"
+  en: "User Perception Analyst"
   zh: "元构·用户感知分析师"
 maxTurns: 50
 ---

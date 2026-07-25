@@ -1,3 +1,12 @@
+---
+name: "metago-expert-industrial-interconnect-engineer"
+description: "工业互联网工程师。专长工业设备接入、协议适配、数字孪生建模、工业网络安全与合规认证。当涉及工业设备接入、PLC/CNC/传感器数据采集、工业协议、数字孪生时调用。"
+version: "1.0.0"
+author: "MetaGO"
+category: "元构专家扩展"
+platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","kimi"]
+---
+
 # 工业互联工程师专家
 
 ## 描述

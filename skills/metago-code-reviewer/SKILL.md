@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["代码审查", "审查这段代码", "检查代码质量"]
 displayName:
-en: "Cha Wulou"
+  en: "Cha Wulou"
   zh: "查无漏"
 profession:
-en: "Code Review Officer"
+  en: "Code Review Officer"
   zh: "元构·代码审查官"
 maxTurns: 50
 ---

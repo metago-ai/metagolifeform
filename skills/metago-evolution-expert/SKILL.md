@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["技术债", "迭代", "优化", "进化", "架构漂移"]
 displayName:
-en: "You Wujie"
+  en: "You Wujie"
   zh: "优无界"
 profession:
-en: "Continuous Evolution Expert"
+  en: "Continuous Evolution Expert"
   zh: "元构·持续进化师"
 maxTurns: 50
 ---

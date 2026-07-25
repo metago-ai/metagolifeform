@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["制造智能体", "智能体制造", "帮我造一个智能体", "根据需求制造智能体"]
 displayName:
-en: "Zao Bufan"
+  en: "Zao Bufan"
   zh: "造不凡"
 profession:
-en: "Agent Manufacturing Officer"
+  en: "Agent Manufacturing Officer"
   zh: "元构·智能体制造官"
 maxTurns: 50
 ---

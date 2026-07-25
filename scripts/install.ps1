@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿<#
 .SYNOPSIS
     MetaGO Agent Harness 一键安装脚本（支持7大平台）
 
@@ -6,7 +6,7 @@
     将元构超级智能生命体 Kit 安装到指定平台，包含：
     - 平台检测与路径适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode）
     - 备份现有配置（rules 文件与 metago-* 技能）
-    - 安装 37 个 metago 技能（仅支持技能的平台）
+    - 安装全部 metago 技能（动态扫描 skills/ 目录，当前 95 个，仅支持技能的平台）
     - 升级平台规则文件
     - 创建知识晶体索引模板（仅 Trae）
     - 安装 MCP 调度映射（仅 Trae）
@@ -20,7 +20,7 @@
     自定义安装路径（覆盖平台默认路径）
 
 .PARAMETER Skills
-    指定要安装的技能列表（逗号分隔），默认安装全部22个
+    指定要安装的技能列表（逗号分隔），默认安装全部技能（动态扫描 skills/ 目录）
     示例：-Skills metago-critique,metago-decision-lock
 
 .PARAMETER Upgrade
@@ -56,7 +56,7 @@
     升级现有 Trae 安装（跳过备份，强制覆盖）
 
 .NOTES
-    版本：V36.8.3
+    版本：V36.8.6（脚本运行时从根 package.json 动态读取，此处为文档基线）
     作者：易霄 / MetaGO Lightyear
 #>
 
@@ -83,49 +83,19 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.8.3"
+# 版本号从根 package.json 动态读取，杜绝脚本与发布版本漂移
+$script:RepoRoot = Split-Path -Parent $PSScriptRoot
+$script:MetaGoVersion = "V36.8.6"
+try {
+    $pkgJson = Get-Content (Join-Path $script:RepoRoot "package.json") -Raw -ErrorAction Stop | ConvertFrom-Json
+    if ($pkgJson.version) { $script:MetaGoVersion = "V$($pkgJson.version)" }
+} catch { }
 
-# 全部39个技能清单（37个核心技能 + 2个交付质量技能）
+# 全部技能清单（动态扫描 skills/ 目录，新增技能自动纳入，不再需要手工维护列表）
 $script:AllSkills = @(
-    "metago-action-plan",
-    "metago-compliance",
-    "metago-coupling-optimize",
-    "metago-critique",
-    "metago-data-provenance",
-    "metago-decision-eval",
-    "metago-decision-lock",
-    "metago-developer-response",
-    "metago-emotion",
-    "metago-fact-check",
-    "metago-frequency-adapt",
-    "metago-holistic-task",
-    "metago-meta-create",
-    "metago-meta-evolve",
-    "metago-negentropy-monitor",
-    "metago-objectivity",
-    "metago-output-integrity",
-    "metago-problem-trace",
-    "metago-scene-adapt",
-    "metago-self-check",
-    "metago-value-align",
-    "metago-whatif",
-    "metago-activate",
-    "metago-org-diagnosis",
-    "metago-momentum-weave",
-    "metago-minimal-intervention",
-    "metago-value-assess",
-    "metago-coupling-measure",
-    "metago-deep-reasoning",
-    "metago-paradigm-analysis",
-    "metago-balance-optimize",
-    "metago-memory-manage",
-    "metago-consensus-prototype",
-    "metago-architecture-design",
-    "metago-code-review-deep",
-    "metago-refactor-suggest",
-    "metago-security-audit",
-    "metago-delivery-gate",
-    "metago-discipline"
+    Get-ChildItem (Join-Path $script:RepoRoot "skills") -Directory -Filter "metago-*" -ErrorAction SilentlyContinue |
+        Where-Object { Test-Path (Join-Path $_.FullName "SKILL.md") } |
+        ForEach-Object { $_.Name }
 )
 
 # 解析 -Skills 参数

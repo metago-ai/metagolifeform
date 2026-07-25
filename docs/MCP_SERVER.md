@@ -11,11 +11,11 @@
 | 项目 | 规格 |
 |------|------|
 | npm 包名 | `@metago-ai/mcp-server` |
-| 当前版本 | v1.1.8 |
+| 当前版本 | v1.3.0 |
 | 传输方式 | stdio（`StdioServerTransport`） |
 | 运行时 | Node.js >= 18.0.0 |
 | 许可证 | MIT |
-| 能力 | 37 tools + 8 prompts |
+| 能力 | 53 tools + 8 prompts（另有 @metago-ai/algorithms 提供 57 tools / 927 algorithms）|
 
 ---
 

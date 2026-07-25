@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["metago-copywriter"]
 displayName:
-en: "Yan Ruyu"
+  en: "Yan Ruyu"
   zh: "言如玉"
 profession:
-en: "Brand Copywriter"
+  en: "Brand Copywriter"
   zh: "元构·品牌文案师"
 maxTurns: 50
 ---

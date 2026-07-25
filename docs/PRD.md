@@ -75,7 +75,7 @@ MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 *
 
 - **零侵入接入**：客户端仅需在 MCP 配置中新增一段 JSON，无需修改规则文件、无需安装平台适配器
 - **标准协议互通**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 开放标准，与 Anthropic 官方 SDK、Claude Desktop、Cursor、Trae 等 MCP 生态无缝互通
-- **能力等价**：37 个 MCP tools 映射 39 个 metago-* 技能（22 核心技能 + 20 独有思维工具 - 7 同名合并 + 2 工程质量族），8 个 MCP prompts 覆盖元构生命体核心流程，能力与平台适配器等价
+- **能力等价**：53 个 MCP tools + 57 个算法工具（927 算法）映射 95 个 metago-* 技能，8 个 MCP prompts 覆盖元构生命体核心流程，能力与平台适配器等价
 - **独立分发**：作为独立 npm 包发布，可单独升级、单独版本管理，不绑定根包发布节奏
 
 #### 差异化
@@ -102,7 +102,7 @@ MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 *
 | 运行时 | Node.js >= 18.0.0 |
 | 语言 | TypeScript strict 模式 |
 | 入口命令 | `npx -y @metago-ai/mcp-server` 或 `@metago-ai/mcp-server`（全局安装） |
-| 能力 | 37 个 tools + 8 个 prompts |
+| 能力 | 53 个 tools + 8 个 prompts（+ 算法服务器 57 tools / 927 algorithms）|
 | 仓库位置 | `packages/mcp-server/` |
 | 许可证 | MIT |
 
@@ -191,7 +191,7 @@ npm install -g @metago-ai/mcp-server
 > **让智能体从"可用"进化为"可信"**
 
 - ⚖️ **合规主动**：不等待询问，主动在任务执行前检查法律/伦理/安全合规性
-- 📋 **统一规范**：39 个标准化技能 + 8 条公理 + 7 条属性，确保团队 AI 行为一致
+- 📋 **统一规范**：95 个标准化技能 + 8 条公理 + 7 条属性，确保团队 AI 行为一致
 - 🔍 **审计追溯**：脉冲见证系统，全链路存证，支持合规审计
 - 🏭 **行业定制**：可扩展的行业规则层，适配金融/医疗/法律等垂直领域
 
@@ -215,7 +215,7 @@ npm install -g @metago-ai/mcp-server
 | 核心公理 | 8 条 | A1 溯源 / A2 闭环 / A3 元进化 / A4 边界 / A5 内生 / A34 元进化需元进化 / A35 创造进化律 / A36 法律优先于效率 |
 | 根本属性 | 7 条 | D37 战略思考 / D38 客观中立 / D39 直接批判 / D40 全息创造 / D41 频率自适应 / D42 合规主动 / D43 数据溯源 |
 | 运行协议 | 6 项 | 元进化循环 / 决策锁 / 批判性分析 / 合规主动 / 频率自适应 / 数据溯源 |
-| metago 技能 | 39 个 | 分 11 大能力族：认知族/保障族/治理族/进化族/执行族/溯源族/价值族/意识族/方法论族/架构族/工程质量族 |
+| metago 技能 | 95 个 | 分 16 大能力族：认知族/保障族/治理族/进化族/执行族/溯源族/价值族/意识族/方法论族/架构族/Dev Kit/交付质量族/元思想族/元能力族/专家团族/专家扩展族 |
 
 ### 功能需求详述
 
@@ -255,7 +255,7 @@ npm install -g @metago-ai/mcp-server
 | FR-3.5 | 频率自适应 | 三态切换（休眠/待机/激活） | 完整性变化时自动切换 |
 | FR-3.6 | 数据溯源 | 输入/过程/结论三维度溯源 | 输出附带溯源标签 |
 
-#### FR-4：技能体系（39 个技能）
+#### FR-4：技能体系（95 个技能）
 
 | 能力族 | 技能数量 | 核心技能 | 验收标准 |
 |--------|----------|----------|----------|
@@ -272,7 +272,7 @@ npm install -g @metago-ai/mcp-server
 | Dev Kit | 4 | metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit | 开发场景能力增强 |
 | 工程质量族 | 2 | metago-delivery-gate, metago-discipline | 交付前原子验证门控 + AI 自律执行协议 |
 
-> 合计 39 个技能（22 核心技能 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量）。
+> 合计 95 个技能（22 核心技能 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量 + 19 元思想 + 2 元能力 + 30 专家团 + 5 专家扩展）。
 
 #### FR-5：安装与配置
 
@@ -323,10 +323,10 @@ npm install -g @metago-ai/mcp-server
 #### FR-8：MCP Server 能力暴露
 
 - **优先级**：P0
-- **描述**：将 39 个元构技能封装为 MCP tools，将 8 条引导词封装为 MCP prompts，作为独立 npm 包 `@metago-ai/mcp-server` 发布，支持任意 MCP 客户端通过 stdio 协议接入
+- **描述**：将 95 个元构技能的核心能力封装为 MCP tools（53 个）并辅以 927 算法工具（57 个），将 8 条引导词封装为 MCP prompts，作为独立 npm 包 `@metago-ai/mcp-server` 发布，支持任意 MCP 客户端通过 stdio 协议接入
 - **验收标准**：
   - [x] npm 包 `@metago-ai/mcp-server` 可独立安装与运行
-  - [x] 37 个 MCP tools 映射 39 个元构技能（22 核心技能 + 20 独有思维工具 - 7 同名合并 + 2 工程质量族），接收 `input` 字符串参数
+  - [x] 53 个 MCP tools + 57 个算法工具映射 95 个元构技能，接收 `input` 字符串参数
   - [x] 8 个 MCP prompts 支持参数占位符 `{{参数名}}` 运行时替换
   - [x] 基于 `@modelcontextprotocol/sdk` v1.29.0 实现 stdio 传输
   - [x] 提供 Claude Desktop / Cursor / Trae 三种客户端配置示例
@@ -420,7 +420,7 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 
 | 组件 | 说明 |
 |------|------|
-| 39 个 metago-* 技能 | 全部开源，MIT 协议 |
+| 95 个 metago-* 技能 | 全部开源，MIT 协议 |
 | 8 条核心公理 | 全部开源 |
 | 7 条根本属性 | 全部开源 |
 | 6 项运行协议 | 全部开源 |
@@ -629,7 +629,7 @@ MetaGO Agent Harness 的竞争壁垒：
 
 1. 公理体系壁垒 —— 8 条核心公理是系统设计的本体论基础，竞品难以复制
 2. 元进化壁垒 —— 五阶段元进化循环是核心专利能力，竞品无此机制
-3. 技能生态壁垒 —— 39 个标准化技能 + 社区生态协同，形成网络效应
+3. 技能生态壁垒 —— 95 个标准化技能 + 社区生态协同，形成网络效应
 4. 多平台壁垒 —— 7 大平台原生适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode），一次安装多平台运行，降低用户迁移成本
 5. 合规壁垒 —— 法律优先于效率的公理 + 主动合规检查，满足企业合规需求
 ```

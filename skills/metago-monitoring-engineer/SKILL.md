@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["监控", "告警", "日志", "仪表盘", "Grafana"]
 displayName:
-en: "Guan Wuji"
+  en: "Guan Wuji"
   zh: "观无极"
 profession:
-en: "Monitoring Engineer"
+  en: "Monitoring Engineer"
   zh: "元构·运维监控工程师"
 maxTurns: 50
 ---

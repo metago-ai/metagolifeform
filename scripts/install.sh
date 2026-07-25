@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 # ============================================================
 # MetaGO Agent Harness 一键安装脚本（Bash 版，支持 macOS/Linux/WSL）
 # 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode
@@ -15,52 +15,20 @@
 
 set -e
 
-# 元数据
-METAGO_VERSION="V36.8.3"
+# 元数据（版本号从根 package.json 动态读取，杜绝脚本与发布版本漂移）
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_SKILLS_DIR="$SCRIPT_DIR/../skills"
 SOURCE_ADAPTERS_DIR="$SCRIPT_DIR/../adapters"
+METAGO_VERSION="V$(grep -m1 '"version"' "$SCRIPT_DIR/../package.json" 2>/dev/null | sed -E 's/.*"version"[^0-9]*([0-9.]+).*/\1/' || echo "36.8.6")"
+[[ -z "$METAGO_VERSION" || "$METAGO_VERSION" == "V" ]] && METAGO_VERSION="V36.8.6"
 
-# 全部 37 个技能
-ALL_SKILLS=(
-  "metago-action-plan"
-  "metago-activate"
-  "metago-architecture-design"
-  "metago-balance-optimize"
-  "metago-code-review-deep"
-  "metago-compliance"
-  "metago-consensus-prototype"
-  "metago-coupling-measure"
-  "metago-coupling-optimize"
-  "metago-critique"
-  "metago-data-provenance"
-  "metago-decision-eval"
-  "metago-decision-lock"
-  "metago-deep-reasoning"
-  "metago-developer-response"
-  "metago-emotion"
-  "metago-fact-check"
-  "metago-frequency-adapt"
-  "metago-holistic-task"
-  "metago-memory-manage"
-  "metago-meta-create"
-  "metago-meta-evolve"
-  "metago-minimal-intervention"
-  "metago-momentum-weave"
-  "metago-negentropy-monitor"
-  "metago-objectivity"
-  "metago-org-diagnosis"
-  "metago-output-integrity"
-  "metago-paradigm-analysis"
-  "metago-problem-trace"
-  "metago-refactor-suggest"
-  "metago-scene-adapt"
-  "metago-security-audit"
-  "metago-self-check"
-  "metago-value-align"
-  "metago-value-assess"
-  "metago-whatif"
-)
+# 全部技能（动态扫描 skills/ 目录，新增技能自动纳入，不再需要手工维护列表）
+ALL_SKILLS=()
+for _skill_dir in "$SOURCE_SKILLS_DIR"/metago-*/; do
+  [[ -d "$_skill_dir" && -f "$_skill_dir/SKILL.md" ]] || continue
+  ALL_SKILLS+=("$(basename "$_skill_dir")")
+done
+unset _skill_dir
 
 # 参数默认值
 PLATFORM=""

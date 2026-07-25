@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["架构评审", "分析这个架构", "检测循环依赖"]
 displayName:
-en: "Gou Anlan"
+  en: "Gou Anlan"
   zh: "构安澜"
 profession:
-en: "Architecture Review Specialist"
+  en: "Architecture Review Specialist"
   zh: "元构·架构评审师"
 maxTurns: 50
 ---

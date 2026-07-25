@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["重构方案", "给出重构建议", "优化代码结构"]
 displayName:
-en: "You Zhijian"
+  en: "You Zhijian"
   zh: "优至简"
 profession:
-en: "Refactoring Planning Architect"
+  en: "Refactoring Planning Architect"
   zh: "元构·重构规划师"
 maxTurns: 50
 ---

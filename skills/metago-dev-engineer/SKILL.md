@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["生成代码", "开发", "编码", "调试"]
 displayName:
-en: "Ma Wujie"
+  en: "Ma Wujie"
   zh: "码无界"
 profession:
-en: "Development Engineer"
+  en: "Development Engineer"
   zh: "元构·开发工程师"
 maxTurns: 50
 ---

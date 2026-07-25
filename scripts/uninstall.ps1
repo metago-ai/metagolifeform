@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<#
+﻿<#
 .SYNOPSIS
     MetaGO Agent Harness 卸载脚本（支持7大平台）
 
@@ -37,7 +37,7 @@
     卸载 Cursor 平台
 
 .NOTES
-    版本：V36.8.3
+    版本：V36.8.6
     作者：易霄 / MetaGO Lightyear
 #>
 
@@ -54,7 +54,11 @@ $ErrorActionPreference = "Stop"
 # ============================================================
 # 元数据
 # ============================================================
-$script:MetaGoVersion = "V36.8.3"
+$script:MetaGoVersion = "V36.8.6"
+try {
+    $pkgJson = Get-Content (Join-Path (Split-Path -Parent $PSScriptRoot) "package.json") -Raw -ErrorAction Stop | ConvertFrom-Json
+    if ($pkgJson.version) { $script:MetaGoVersion = "V$($pkgJson.version)" }
+} catch { }
 
 # 统计变量
 $script:DeletedSkills = @()

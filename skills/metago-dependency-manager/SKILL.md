@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["依赖扫描", "许可证检查", "版本冲突", "SBOM"]
 displayName:
-en: "Ku Guanyan"
+  en: "Ku Guanyan"
   zh: "库管严"
 profession:
-en: "Dependency & Version Manager"
+  en: "Dependency & Version Manager"
   zh: "元构·依赖与版本管理师"
 maxTurns: 50
 ---

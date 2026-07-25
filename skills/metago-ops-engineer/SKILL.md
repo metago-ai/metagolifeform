@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["运维", "DNS", "SSL", "反向代理", "CI", "CD"]
 displayName:
-en: "Yun Qianqiu"
+  en: "Yun Qianqiu"
   zh: "运千秋"
 profession:
-en: "Operations Engineer"
+  en: "Operations Engineer"
   zh: "元构·运维工程师"
 maxTurns: 50
 ---

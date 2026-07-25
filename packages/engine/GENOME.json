@@ -1,7 +1,7 @@
 {
   "engine_version": "2.1.0",
-  "metago_version": "V36.8.5",
-  "package_version": "36.8.5",
+  "metago_version": "V36.8.7",
+  "package_version": "36.8.7",
   "release_date": "2026-07-26",
   "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
@@ -10,14 +10,31 @@
     "axioms": {
       "total": 36,
       "critical": 8,
-      "critical_ids": ["A1", "A2", "A3", "A4", "A5", "A34", "A35", "A36"],
+      "critical_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A34",
+        "A35",
+        "A36"
+      ],
       "immutable": true,
       "file": "CONSTITUTION/AXIOMS.md"
     },
     "attributes": {
       "total": 43,
       "critical": 7,
-      "critical_ids": ["D37", "D38", "D39", "D40", "D41", "D42", "D43"],
+      "critical_ids": [
+        "D37",
+        "D38",
+        "D39",
+        "D40",
+        "D41",
+        "D42",
+        "D43"
+      ],
       "evolvable": true,
       "file": "CORE/ATTRIBUTES.md"
     },
@@ -73,13 +90,37 @@
       "checkComplianceProactive",
       "checkDataTraceability"
     ],
-    "decision_lock_gates": ["IVL", "ILT", "OSG", "INTEGRITY"],
-    "evolution_stages": ["PERCEPTION", "GAP_ANALYSIS", "SELF_GENERATION", "VALIDATION", "RECURSION"]
+    "decision_lock_gates": [
+      "IVL",
+      "ILT",
+      "OSG",
+      "INTEGRITY"
+    ],
+    "evolution_stages": [
+      "PERCEPTION",
+      "GAP_ANALYSIS",
+      "SELF_GENERATION",
+      "VALIDATION",
+      "RECURSION"
+    ]
   },
   "activation": {
     "rate": "<30%",
     "strategy": "holographic_on_demand",
-    "priority_order": ["critical", "high", "medium", "low"]
+    "priority_order": [
+      "critical",
+      "high",
+      "medium",
+      "low"
+    ]
   },
-  "platforms": ["trae", "claude-code", "codex", "cursor", "codebuddy", "qoder", "zcode"]
+  "platforms": [
+    "trae",
+    "claude-code",
+    "codex",
+    "cursor",
+    "codebuddy",
+    "qoder",
+    "zcode"
+  ]
 }

@@ -7,10 +7,10 @@ category: "元构专家团"
 platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","workbuddy"]
 trigger: ["问题溯源", "分析这个故障的根本原因", "根因分析"]
 displayName:
-en: "Su Benyuan"
+  en: "Su Benyuan"
   zh: "溯本源"
 profession:
-en: "Root Cause Analysis Officer"
+  en: "Root Cause Analysis Officer"
   zh: "元构·问题溯源官"
 maxTurns: 50
 ---

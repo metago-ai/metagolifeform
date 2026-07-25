@@ -1,12 +1,12 @@
 # @metago-ai/verify-kit
 
 > **MetaGO Agent Harness 交付质量保证系统** —— 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控框架。
-> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.8.5 第十一/十四/十五章。
+> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.8.7 第十一/十四/十五章。
 
 [![npm](https://img.shields.io/npm/v/@metago-ai/verify-kit.svg?logo=npm)](https://www.npmjs.com/package/@metago-ai/verify-kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Layers](https://img.shields.io/badge/Verification-7_layers_+_L8_defect_hunting-blue)](#architecture)
-[![Rules](https://img.shields.io/badge/Rules-V36.8.5-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.8.7-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
 
 ---
 
