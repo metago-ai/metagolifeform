@@ -790,7 +790,7 @@ npm run verify
 
 **传统问题**：AI 是无状态的，每次会话"从零开始"，导致"承诺永久记录"不可信。
 
-**元构突破**：基于 @metago-ai/engine@2.1.0 的 KMWIMemory + EvolutionEngine V2 + Perception，创建"元构记忆生命体（MetaGO Memory Lifeform）"。把记忆可靠性从"依赖 AI 主动读取"提升到"不依赖 AI 主动读取"。
+**元构突破**：基于 @metago-ai/engine@2.1.1 的 KMWIMemory + EvolutionEngine V2 + Perception，创建"元构记忆生命体（MetaGO Memory Lifeform）"。把记忆可靠性从"依赖 AI 主动读取"提升到"不依赖 AI 主动读取"。
 
 ### 16.2 四层记忆架构
 
@@ -869,7 +869,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ## 第十七章 算法触发条件（mcp_metago-algorithms · 927 算法 / 57 工具）
 
-> 此章对应 `mcp_metago-algorithms` MCP 服务器（@metago-ai/engine@2.1.0 硬驱动）。
+> 此章对应 `mcp_metago-algorithms` MCP 服务器（@metago-ai/engine@2.1.1 硬驱动）。
 > 927 算法 = T1(300) + T2(400) + T3(227)，分布于 4 层 57 工具中。
 > 14 大类触发条件覆盖全部 57 工具，AI 必须按场景匹配调用。
 
@@ -972,9 +972,9 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
 | AGENTS.md | V36.8.7 | 本文件 |
-| @metago-ai/engine | 2.1.0 | 算法硬驱动 |
+| @metago-ai/engine | 2.1.1 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.0 | 57 工具 MCP 服务器 |
-| @metago-ai/algorithms | 1.0.0（新包） | npm 发布物 |
+| @metago-ai/algorithms | 1.0.1 | npm 发布物 |
 | 927 算法 | T1(300)+T2(400)+T3(227) | 算法实现 |
 | 14 触发条件 | 本第十七章 | 触发协议 |
 
