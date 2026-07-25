@@ -1,0 +1,29 @@
+{
+  "name": "list_algorithms",
+  "description": "列出算法列表，可按 tier（T1/T2/T3）或 family（COUPLING/VALUE/BIAS 等）过滤。返回 {total, algorithms}。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "tier": {
+        "type": "string",
+        "enum": [
+          "T1",
+          "T2",
+          "T3"
+        ],
+        "description": "按层级过滤"
+      },
+      "family": {
+        "type": "string",
+        "description": "按族过滤，如 COUPLING"
+      },
+      "limit": {
+        "type": "number",
+        "description": "返回数量限制"
+      }
+    },
+    "required": [],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "name": "@metago-ai/dev-kit",
-  "version": "1.0.9",
-  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Dev Kit — 开发者垂直场景包，把 AI 升级为遵循决策锁治理的代码生命体。复用 4 个核心能力（决策锁/批判性分析/事实核查/问题溯源）+ 叠加 4 个开发专用技能：深度代码审查（5 步流程 + 4 级分级）、架构设计（5 步 + 7 原则 + ADR）、重构建议（8 种代码异味检测）、安全审计（OWASP Top 10 + CVSS 评分）。",
-  "main": "README.md",
+  "version": "1.1.0",
+  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）Dev Kit — 开发者垂直场景包，把 AI 升级为遵循决策锁治理的代码生命体。复用 4 个核心能力（决策锁/批判性分析/事实核查/问题溯源）+ 叠加 4 个开发专用技能：深度代码审查（5 步流程 + 4 级分级）、架构设计（5 步 + 7 原则 + ADR）、重构建议（8 种代码异味检测）、安全审计（OWASP Top 10 + CVSS 评分）。V1.1.0 恢复为完整包，含 4 个 Dev Kit 技能 SKILL.md 实际代码。",
+  "main": "index.js",
   "scripts": {
-    "list": "echo 'Dev Kit skills: metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit'",
-    "verify": "powershell -Command \"Get-ChildItem ../../skills/metago-code-review-deep,../../skills/metago-architecture-design,../../skills/metago-refactor-suggest,../../skills/metago-security-audit -Filter SKILL.md | Select-Object FullName\""
+    "list": "node index.js --list",
+    "verify": "node index.js --verify"
   },
   "keywords": [
     "metago",
@@ -18,11 +18,12 @@
     "agentskills",
     "ai-governance"
   ],
-  "author": "易霄 / MetaGO Lightyear",
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "license": "MIT",
   "metago": {
     "type": "vertical-kit",
     "vertical": "developer",
+    "rules_version": "V36.8.5",
     "reusedSkills": [
       "metago-decision-lock",
       "metago-critique",
@@ -36,12 +37,23 @@
       "metago-security-audit"
     ],
     "totalSkills": 8,
-    "parentPackage": "metago-lifeform@>=36.7.5"
+    "parentPackage": "metago-lifeform@>=36.8.0"
   },
   "homepage": "https://metago.life",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/metago/metagolifeform.git",
+    "url": "https://github.com/metago-ai/metagolifeform.git",
     "directory": "packages/dev-kit"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/metago-ai/metagolifeform/issues",
+    "email": "researcher.yi@youfer.cn"
+  },
+  "files": [
+    "skills/",
+    "index.js",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ]
 }

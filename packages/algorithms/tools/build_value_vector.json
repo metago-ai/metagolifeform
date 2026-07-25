@@ -1,0 +1,18 @@
+{
+  "name": "build_value_vector",
+  "description": "构建价值向量。适用：多维度价值量化。返回价值向量。（算法 ID: ALG_T1_C_026）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "dimensions": {
+        "type": "object",
+        "description": "维度数据"
+      }
+    },
+    "required": [
+      "dimensions"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

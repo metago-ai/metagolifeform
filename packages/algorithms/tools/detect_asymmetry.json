@@ -1,0 +1,18 @@
+{
+  "name": "detect_asymmetry",
+  "description": "检测不对称耦生。适用：发现单向依赖。返回不对称对列表。（算法 ID: ALG_T1_C_023）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "pairs": {
+        "type": "object",
+        "description": "对列表"
+      }
+    },
+    "required": [
+      "pairs"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

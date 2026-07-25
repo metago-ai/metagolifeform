@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿#!/usr/bin/env node
 /**
  * MetaGO 僵尸能力分析器（Zombie Capability Analyzer）
  *

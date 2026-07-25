@@ -1,9 +1,9 @@
 {
-  "engine_version": "1.0.0",
-  "metago_version": "V36.8.3",
-  "package_version": "36.7.0",
-  "release_date": "2026-06-28",
-  "author": "易霄 / MetaGO Lightyear",
+  "engine_version": "2.1.0",
+  "metago_version": "V36.8.5",
+  "package_version": "36.8.5",
+  "release_date": "2026-07-26",
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
   "backward_compatibility": ">=1.0.0",
   "genome": {

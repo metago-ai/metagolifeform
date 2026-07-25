@@ -1,0 +1,23 @@
+{
+  "name": "euclidean_distance",
+  "description": "计算欧氏距离。适用：空间距离、KNN。返回 ≥0 的数值。（算法 ID: ALG_T1_C_004）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "向量 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "向量 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

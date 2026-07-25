@@ -1,0 +1,18 @@
+{
+  "name": "simplified_svd",
+  "description": "简化奇异值分解（SVD）。适用：矩阵分解、推荐系统。返回 U/S/V。（算法 ID: ALG_T1_C_029）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "matrix": {
+        "type": "object",
+        "description": "输入矩阵"
+      }
+    },
+    "required": [
+      "matrix"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

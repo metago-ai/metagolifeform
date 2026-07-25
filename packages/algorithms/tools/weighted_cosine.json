@@ -1,0 +1,28 @@
+{
+  "name": "weighted_cosine",
+  "description": "计算加权余弦相似度。适用：带权重的相似度计算。返回 [-1,1]。（算法 ID: ALG_T1_C_010）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "向量 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "向量 B"
+      },
+      "weights": {
+        "type": "array",
+        "description": "权重向量"
+      }
+    },
+    "required": [
+      "a",
+      "b",
+      "weights"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

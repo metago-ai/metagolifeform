@@ -1,0 +1,23 @@
+{
+  "name": "jaccard_coefficient",
+  "description": "计算两个集合的 Jaccard 相似系数（交集/并集）。适用：集合相似度。返回 [0,1]。（算法 ID: ALG_T1_C_002）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "集合 A（数组）"
+      },
+      "b": {
+        "type": "array",
+        "description": "集合 B（数组）"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

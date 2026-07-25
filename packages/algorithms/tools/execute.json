@@ -1,0 +1,23 @@
+{
+  "name": "execute",
+  "description": "异步执行任意算法（支持所有 927 算法）。当用户指定算法 ID 时使用。返回 {success, output, provenance, durationMs}。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "算法 ID，如 ALG_T1_C_001"
+      },
+      "input": {
+        "type": "object",
+        "description": "算法输入参数"
+      }
+    },
+    "required": [
+      "id",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

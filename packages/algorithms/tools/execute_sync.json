@@ -1,0 +1,23 @@
+{
+  "name": "execute_sync",
+  "description": "同步执行 T1 算法（300 个同步算法）。比 execute 更快，但不支持 async handler。返回 {success, output, provenance, durationMs}。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "算法 ID，如 ALG_T1_C_001"
+      },
+      "input": {
+        "type": "object",
+        "description": "算法输入参数"
+      }
+    },
+    "required": [
+      "id",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

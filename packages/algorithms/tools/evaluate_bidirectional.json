@@ -1,0 +1,23 @@
+{
+  "name": "evaluate_bidirectional",
+  "description": "双向耦生度评估。适用：分析双向关系强度。返回 {forward, backward, symmetric}。（算法 ID: ALG_T1_C_015）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "forward": {
+        "type": "object",
+        "description": "正向数据"
+      },
+      "backward": {
+        "type": "object",
+        "description": "反向数据"
+      }
+    },
+    "required": [
+      "forward",
+      "backward"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

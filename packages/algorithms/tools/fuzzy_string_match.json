@@ -1,0 +1,23 @@
+{
+  "name": "fuzzy_string_match",
+  "description": "模糊字符串匹配。适用：拼写纠错、模糊搜索。返回 [0,1]。（算法 ID: ALG_T1_C_011）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "字符串 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "字符串 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

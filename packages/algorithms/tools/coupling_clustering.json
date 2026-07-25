@@ -1,0 +1,23 @@
+{
+  "name": "coupling_clustering",
+  "description": "耦生聚类分析。适用：关系网络分组。返回聚类结果。（算法 ID: ALG_T1_C_025）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "entities": {
+        "type": "object",
+        "description": "实体列表"
+      },
+      "k": {
+        "type": "number",
+        "description": "聚类数"
+      }
+    },
+    "required": [
+      "entities",
+      "k"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

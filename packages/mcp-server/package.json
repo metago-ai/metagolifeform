@@ -1,7 +1,7 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.2.3",
-  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）MCP Server — 53 tools (22 思维工具 + 30 核心技能 + 1 事件上报) + 8 prompts。Engine V2 硬驱动：KMWI 四层记忆 + 元进化五阶段 + 技能智能生成调用真实代码。任何 MCP 协议客户端（Claude Desktop/Cursor/Trae/ZCode 等）即开即用。基于 Model Context Protocol 标准。",
+  "version": "1.3.0",
+  "description": "MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）MCP Server — 53 tools (22 思维工具 + 30 核心技能 + 1 事件上报) + 8 prompts。Engine V2.1.0 硬驱动：KMWI 四层记忆 + 元进化五阶段 + 技能智能生成调用真实代码 + 927 算法驱动（via @metago-ai/algorithms）。任何 MCP 协议客户端（Claude Desktop/Cursor/Trae/ZCode 等）即开即用。基于 Model Context Protocol 标准。",
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
@@ -28,10 +28,10 @@
     "cursor",
     "trae"
   ],
-  "author": "易霄 / MetaGO Lightyear",
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "license": "MIT",
   "dependencies": {
-    "@metago-ai/engine": "^2.0.0",
+    "@metago-ai/engine": "^2.1.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
     "zod": "^3.23.0"
   },
@@ -51,8 +51,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/metago/metagolifeform.git",
+    "url": "https://github.com/metago-ai/metagolifeform.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://gitee.com/metago/metagolifeform/tree/main/packages/mcp-server#readme"
+  "homepage": "https://metago.life",
+  "bugs": {
+    "url": "https://github.com/metago-ai/metagolifeform/issues",
+    "email": "researcher.yi@youfer.cn"
+  }
 }

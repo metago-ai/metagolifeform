@@ -1,0 +1,23 @@
+{
+  "name": "cosine_similarity",
+  "description": "计算两个向量的余弦相似度。适用：文本相似度、推荐系统、聚类。返回 [-1,1]，越接近 1 越相似。（算法 ID: ALG_T1_C_001）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "向量 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "向量 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

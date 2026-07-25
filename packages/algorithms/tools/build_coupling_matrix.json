@@ -1,0 +1,23 @@
+{
+  "name": "build_coupling_matrix",
+  "description": "构建耦生矩阵。适用：可视化关系网络。返回 NxN 矩阵。（算法 ID: ALG_T1_C_019）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "entities": {
+        "type": "object",
+        "description": "实体列表"
+      },
+      "relations": {
+        "type": "object",
+        "description": "关系列表"
+      }
+    },
+    "required": [
+      "entities",
+      "relations"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "cooccurrence_frequency",
+  "description": "共现频率计算。适用：关联分析、推荐。返回频率值。（算法 ID: ALG_T1_C_013）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "object",
+        "description": "项列表"
+      },
+      "window": {
+        "type": "object",
+        "description": "窗口大小"
+      }
+    },
+    "required": [
+      "items",
+      "window"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

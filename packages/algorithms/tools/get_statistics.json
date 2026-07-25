@@ -1,0 +1,11 @@
+{
+  "name": "get_statistics",
+  "description": "获取算法全局统计（总数/已实现数/各层级数/各族数）。无需参数。",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

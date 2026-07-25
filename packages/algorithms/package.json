@@ -1,0 +1,73 @@
+{
+  "name": "@metago-ai/algorithms",
+  "version": "1.0.0",
+  "description": "MetaGO Agent Harness — 927 算法 MCP 服务器（57 工具 / 14 触发大类 / 4 层架构）。L1 通用入口(3) + L2 检索发现(4) + L3 高频专用(30) + L4 族级工具(20)。Engine V2.1.0 硬驱动。覆盖耦生计算、价值评估、距离度量、相关分析、降维、安全审计、频域处理等 14 大触发类别。",
+  "main": "index.js",
+  "bin": {
+    "metago-algorithms": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node benchmark.js",
+    "benchmark": "node benchmark.js"
+  },
+  "keywords": [
+    "metago",
+    "algorithms",
+    "mcp",
+    "ai",
+    "lifeform",
+    "coupling",
+    "value-assessment",
+    "distance-metrics",
+    "correlation",
+    "dimensionality-reduction",
+    "security-audit",
+    "927-algorithms",
+    "57-tools",
+    "14-trigger-categories"
+  ],
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metago-ai/metagolifeform.git",
+    "directory": "packages/algorithms"
+  },
+  "homepage": "https://metago.life",
+  "bugs": {
+    "url": "https://github.com/metago-ai/metagolifeform/issues",
+    "email": "researcher.yi@youfer.cn"
+  },
+  "dependencies": {
+    "@metago-ai/engine": ">=2.1.0",
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "tools/",
+    "index.js",
+    "tool-registry.js",
+    "benchmark.js",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "metago": {
+    "server_version": "1.0.0",
+    "engine_version": "2.1.0",
+    "rules_version": "V36.8.5",
+    "tools_count": 57,
+    "algorithms_count": 927,
+    "trigger_categories": 14,
+    "architecture_layers": 4,
+    "layer_distribution": {
+      "L1_general_entry": 3,
+      "L2_retrieval_discovery": 4,
+      "L3_high_frequency": 30,
+      "L4_family_tools": 20
+    }
+  }
+}

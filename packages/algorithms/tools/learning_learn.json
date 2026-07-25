@@ -1,0 +1,23 @@
+{
+  "name": "learning_learn",
+  "description": "学习训练（49 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "description": "操作类型（算法名关键词），如 cosine/euclidean/pearson",
+        "default": "default"
+      },
+      "input": {
+        "type": "object",
+        "description": "算法输入参数"
+      }
+    },
+    "required": [
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

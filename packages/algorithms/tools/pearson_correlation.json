@@ -1,0 +1,23 @@
+{
+  "name": "pearson_correlation",
+  "description": "计算皮尔逊相关系数。适用：线性相关性分析。返回 [-1,1]。（算法 ID: ALG_T1_C_007）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "数据 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "数据 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

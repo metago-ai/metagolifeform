@@ -1,0 +1,18 @@
+{
+  "name": "get_algorithm_info",
+  "description": "获取算法元数据（ID/名称/族/层级/复杂度/输入输出 schema/描述）。当需要了解算法详情时使用。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "算法 ID"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

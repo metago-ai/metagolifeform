@@ -1,0 +1,28 @@
+{
+  "name": "normalize_coupling",
+  "description": "归一化耦生分数到 [0,1]。适用：标准化比较。返回归一化值。（算法 ID: ALG_T1_C_020）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "score": {
+        "type": "number",
+        "description": "原始分数"
+      },
+      "min": {
+        "type": "number",
+        "description": "最小值"
+      },
+      "max": {
+        "type": "number",
+        "description": "最大值"
+      }
+    },
+    "required": [
+      "score",
+      "min",
+      "max"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

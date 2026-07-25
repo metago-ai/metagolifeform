@@ -1,0 +1,23 @@
+{
+  "name": "chebyshev_distance",
+  "description": "计算切比雪夫距离（L∞ 范数）。适用：棋盘距离。返回 ≥0。（算法 ID: ALG_T1_C_006）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "向量 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "向量 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

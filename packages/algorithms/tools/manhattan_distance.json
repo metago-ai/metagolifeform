@@ -1,0 +1,23 @@
+{
+  "name": "manhattan_distance",
+  "description": "计算曼哈顿距离（L1 范数）。适用：网格距离。返回 ≥0。（算法 ID: ALG_T1_C_005）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "向量 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "向量 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "identify_strong_pairs",
+  "description": "识别强耦生对。适用：发现关键关系。返回强对列表。（算法 ID: ALG_T1_C_018）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "pairs": {
+        "type": "object",
+        "description": "对列表"
+      },
+      "threshold": {
+        "type": "number",
+        "description": "阈值"
+      }
+    },
+    "required": [
+      "pairs",
+      "threshold"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

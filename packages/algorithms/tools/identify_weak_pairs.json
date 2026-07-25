@@ -1,0 +1,23 @@
+{
+  "name": "identify_weak_pairs",
+  "description": "识别弱耦生对。适用：发现需要加强的关系。返回弱对列表。（算法 ID: ALG_T1_C_017）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "pairs": {
+        "type": "object",
+        "description": "对列表"
+      },
+      "threshold": {
+        "type": "number",
+        "description": "阈值"
+      }
+    },
+    "required": [
+      "pairs",
+      "threshold"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

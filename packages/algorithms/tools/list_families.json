@@ -1,0 +1,11 @@
+{
+  "name": "list_families",
+  "description": "列出所有 20 个算法族及其算法数量。无需参数。",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

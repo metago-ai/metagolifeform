@@ -1,0 +1,18 @@
+{
+  "name": "coupling_trend",
+  "description": "耦生趋势分析。适用：时间序列关系变化。返回趋势方向。（算法 ID: ALG_T1_C_024）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "timeSeries": {
+        "type": "object",
+        "description": "时间序列数据"
+      }
+    },
+    "required": [
+      "timeSeries"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

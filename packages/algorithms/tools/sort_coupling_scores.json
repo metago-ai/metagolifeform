@@ -1,0 +1,23 @@
+{
+  "name": "sort_coupling_scores",
+  "description": "排序耦生分数。适用：按强度排列关系。返回排序后的列表。（算法 ID: ALG_T1_C_021）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "scores": {
+        "type": "object",
+        "description": "分数列表"
+      },
+      "order": {
+        "type": "string",
+        "description": "排序顺序（asc/desc）"
+      }
+    },
+    "required": [
+      "scores",
+      "order"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

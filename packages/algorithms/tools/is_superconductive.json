@@ -1,0 +1,18 @@
+{
+  "name": "is_superconductive",
+  "description": "超导态判定（耦生度>1）。适用：识别超强耦合关系。返回 boolean。（算法 ID: ALG_T1_C_016）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "couplingScore": {
+        "type": "number",
+        "description": "耦生分数"
+      }
+    },
+    "required": [
+      "couplingScore"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

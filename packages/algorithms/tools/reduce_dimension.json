@@ -1,0 +1,23 @@
+{
+  "name": "reduce_dimension",
+  "description": "降维计算。适用：高维数据可视化。返回降维后数据。（算法 ID: ALG_T1_C_027）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "description": "高维数据"
+      },
+      "targetDim": {
+        "type": "number",
+        "description": "目标维度"
+      }
+    },
+    "required": [
+      "data",
+      "targetDim"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

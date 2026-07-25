@@ -1,0 +1,23 @@
+{
+  "name": "kendall_tau",
+  "description": "计算 Kendall Tau 秩相关系数。适用：序数变量相关性。返回 [-1,1]。（算法 ID: ALG_T1_C_009）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "array",
+        "description": "数据 A"
+      },
+      "b": {
+        "type": "array",
+        "description": "数据 B"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,131 +1,138 @@
 # @metago-ai/verify-kit
 
-> **AI 交付质量保证系统** —— 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控框架。
+> **MetaGO Agent Harness 交付质量保证系统** —— 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控框架。
+> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.8.5 第十一/十四/十五章。
 
-## 为什么需要这个包？
+[![npm](https://img.shields.io/npm/v/@metago-ai/verify-kit.svg?logo=npm)](https://www.npmjs.com/package/@metago-ai/verify-kit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Layers](https://img.shields.io/badge/Verification-7_layers_+_L8_defect_hunting-blue)](#architecture)
+[![Rules](https://img.shields.io/badge/Rules-V36.8.5-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
 
-所有 AI Agent（不只 MetaGO）都有一个共同问题：
+---
 
-> 规范写在系统提示词里，AI 知道要做运行时验证，但实际上只做了 `tsc + build` 就宣告"任务完成"。
+## Why this package exists
 
-**根因**：tsc/build 是硬门（不通过无法继续），验证是软约束（跳过也能"完成"）。
+All AI agents share one problem:
 
-`verify-kit` 把运行时验证从软约束变成硬门。
+> The rules say "run runtime verification before declaring done", but the agent only does `tsc + build` and calls it complete.
 
-## 适用场景
+This package turns verification from a **soft constraint** (the agent can skip it) into a **hard gate** (the agent cannot declare "done" without passing).
 
-- 任何使用 AI Agent 开发软件的团队
-- 任何需要"交付前质量门控"的 CI 流水线
-- 任何 LLM-based 自动化系统（Claude Code / Cursor / Trae / Codex / CodeBuddy / Qoder / ZCode）
-- MetaGO Agent Harness 的配套组件
+## Architecture — 7 layers + L8 defect hunting
 
-## 安装
+| Layer | Name | What it verifies | Severity |
+|------|------|-----------------|----------|
+| **L1** | Technical | tsc 0 errors · vite build · artifact scan · npm audit | P0 blocking |
+| **L2** | Link | HTTP reachability · cloud functions · sub-routes · CORS · CDN | P0 blocking |
+| **L3** | Contract | API field types · field names · required fields · error format · POST-GET consistency · enum values · version compat | P0 blocking |
+| **L4** | Rendering | No white screen · no crash · empty state · lazy load · DOM nodes · console zero error | P0 blocking |
+| **L5** | Interaction | Button feedback · input · dropdown · navigation · form submit · keyboard · loading | P1 important |
+| **L6** | State | Navigation retention · refresh retention · login state · draft retention · session switch · selected items | P1 important |
+| **L7** | Defense | Empty input · long input · XSS · concurrent · timeout · permission boundary · old data compat · injection | P0 blocking |
+| **L8** | Defect hunting | 11 dimensions: zombie features · unpersisted state · mock data · error handling · route deadlinks · type safety · copy consistency · deprecated API · business closure · compliance · terminology | P0 blocking |
+
+**All 8 layers pass = task complete. Any layer fails = task NOT complete.**
+
+## Install
 
 ```bash
-npm install --save-dev @metago-ai/verify-kit
+npm install @metago-ai/verify-kit
 ```
 
-## 使用
-
-### 1. 作为 CLI
-
-```bash
-# 执行完整验证
-npx metago-verify
-
-# 只检查技术层
-npx metago-verify --layer tech
-
-# 只检查业务层
-npx metago-verify --layer business
-```
-
-### 2. 作为 Node 模块
+## Use
 
 ```typescript
-import { runVerification, type VerifyConfig } from '@metago-ai/verify-kit'
+import { runVerification, disciplineCheck, SELF_DISCIPLINE_QUESTIONS } from '@metago-ai/verify-kit'
 
-const config: VerifyConfig = {
-  // 技术层
-  tech: {
-    tsc: true,
-    build: true,
-    artifactScan: true,
-  },
-  // 业务层
-  business: {
-    webUrl: 'https://your-app.com',
-    healthEndpoint: '/api/health',
-    pingMessage: { action: 'chat', message: 'ping' },
-  },
-  // 链路层
+const report = await runVerification({
+  tech: { tsc: true, build: true, artifactScan: true, npmAudit: true },
   links: [
-    { name: 'exe-download', url: 'https://your-app.com/download/app.exe', minSizeMB: 80 },
-    { name: 'update-yml', url: 'https://your-app.com/update/latest.yml' },
+    { name: 'web', url: 'https://metago.life', expectedStatus: 200 },
+    { name: 'exe', url: 'https://metago.life/download/app.exe', minSizeMB: 80 },
   ],
-}
+  contract: [
+    {
+      name: 'user-api',
+      endpoint: 'https://api.example.com/user',
+      method: 'GET',
+      assertions: [
+        { field: 'id', type: 'string', required: true },
+        { field: 'name', type: 'string', required: true },
+        { field: 'balance', type: 'number' },
+      ],
+    },
+  ],
+  rendering: { routes: ['/', '/dashboard', '/profile'], checkConsole: true, checkDom: true },
+  interaction: { buttons: ['submit', 'cancel'], inputs: ['email', 'password'] },
+  state: { loginState: true, refreshState: true, draftRetention: true },
+  defense: { emptyInput: true, xssTest: true, longInput: true, concurrentTest: true, permissionBoundary: true },
+  defectHunting: {
+    scanZombieFeatures: true, scanUnpersistedState: true, scanMockData: true,
+    scanErrorHandling: true, scanRouteDeadlinks: true, scanTypeSafety: true,
+    scanCopyConsistency: true, scanDeprecatedApi: true, scanBusinessClosure: true,
+    scanCompliance: true, scanTerminology: true,
+  },
+})
 
-const report = await runVerification(config)
-if (!report.allPassed) {
-  console.error('❌ 验证失败，禁止宣告任务完成')
+// Check if task can be declared complete
+const discipline = disciplineCheck(report)
+if (!discipline.canDeclareComplete) {
+  console.error('BLOCKED:', discipline.failures)
   process.exit(1)
 }
 ```
 
-### 3. 接入 CI/CD
+## CLI
 
-```yaml
-# .github/workflows/verify.yml
-- name: Pre-Delivery Verify
-  run: npx metago-verify
+```bash
+npx @metago-ai/verify-kit
+# or
+metago-verify
 ```
 
-### 4. 接入 AI Agent 系统提示词
+## The 8 self-discipline questions (V3)
 
-把 [AGENTS.template.md](./AGENTS.template.md) 的内容复制到你的 AI Agent 系统提示词中。
+Before declaring "task complete", the agent must answer all 8 questions. Any "no" blocks the declaration:
 
-## 三层验证架构
+1. Did I run `npm run verify`?
+2. Are there any FAILs in the verify output?
+3. Does my delivery report include the "7-layer verification report" section?
+4. Does every ✅ have execution evidence?
+5. Did I verify L3 contract layer? (not just curl status code, but field type/name/required)
+6. Did I verify L4 rendering layer? (browser check for white screen/crash/console errors)
+7. Did I verify L6 state + L7 defense layers? (refresh retention + abnormal input tests)
+8. Did I verify L5 interaction layer with browser_use agent? (click each button for UI feedback, with screenshots)
 
-| 层级 | 名称 | 内容 | 工具 |
-|------|------|------|------|
-| L1 | 技术层 | tsc / build / 产物扫描 | 自动化 |
-| L2 | 业务层 | HTTP 可达 / API 可调 / E2E 对话 | 自动化 + 半人工 |
-| L3 | 链路层 | 部署资源可访问 | HTTP HEAD |
+## Bypass detection
 
-**三层全部通过 = 允许宣告"任务完成"。任意一层失败 = 任务未完成。**
+The package includes 11 bypass patterns that, if detected in the agent's output, indicate the agent is trying to skip verification:
 
-## 反绕过机制
+- "应该没问题" / "should be fine"
+- "逻辑上正确" / "logically correct"
+- "之前验证过" / "verified before"
+- "纯人工跳过" / "manual skip"
+- "L3 只检查状态码 200 不校验字段"
+- "L5 标注纯人工跳过"
+- "用逻辑正确代替实际验证"
+- "发现问题但隐瞒不报"
+- ...and 3 more
 
-`verify-kit` 的核心创新不是检查本身，而是**反绕过机制**：
+```typescript
+import { detectBypass } from '@metago-ai/verify-kit'
 
-1. **强制证据**：每一项 ✅ 必须附带执行证据（命令输出、HTTP 状态码、AI 回复片段）
-2. **JSON 报告**：生成 `verify-report.json`，可供 CI 解析、可被 AI 系统提示词引用
-3. **退出码**：全部通过 `exit 0`，任意失败 `exit 1`（CI 自动拦截）
-4. **AI 自检协议**：配套 5 问自检清单，防止 AI 自己绕过
-
-## AI 自律执行协议（配套）
-
+const bypasses = detectBypass(agentOutput)
+if (bypasses.length > 0) {
+  console.error('BYPASS DETECTED:', bypasses)
+}
 ```
-接收任务 → 执行 → tsc（硬门1）→ build（硬门2）→ verify（硬门3）→ 部署 → HTTP 验证（硬门4）→ 报告 → 5 问自检 → 宣告完成
-```
 
-5 问自检（输出"任务完成"前必答）：
-1. 我运行了 `verify` 吗？
-2. verify 有 FAIL 吗？
-3. 报告含验证小节吗？
-4. 每项 ✅ 都有证据吗？
-5. 我做业务层验证了吗？
+## License
 
-**任何一问答"否" = 禁止宣告完成。**
+MIT © 2026 易霄 / 元构光年（成都）人工智能科技有限公司
 
-## 与 MetaGO Agent Harness 的关系
+## Links
 
-`verify-kit` 是 MetaGO Agent Harness 的独立组件，可独立使用，也可作为配套：
-
-- 在 Trae / Cursor / Claude Code 等 IDE 中通过 MCP 调用 `metago_delivery_gate` 工具
-- 在 CI/CD 中通过 CLI 调用
-- 在 MetaGO Agent 工作台中通过技能激活
-
-## 许可证
-
-MIT © MetaGO
+- [GitHub](https://github.com/metago-ai/metagolifeform/tree/main/packages/verify-kit)
+- [npm](https://www.npmjs.com/package/@metago-ai/verify-kit)
+- [Homepage](https://metago.life)
+- [Issues](https://github.com/metago-ai/metagolifeform/issues)
