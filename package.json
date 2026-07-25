@@ -18,7 +18,8 @@
     "build:mcp": "cd packages/mcp-server && npm run build",
     "start:mcp": "cd packages/mcp-server && npm start",
     "demo": "node packages/demo/killer-demo.mjs",
-    "dashboard": "node packages/dashboard/server.mjs"
+    "dashboard": "node packages/dashboard/server.mjs",
+    "verify:ci": "node scripts/ci-version-gate.cjs"
   },
   "workspaces": [
     "packages/*"

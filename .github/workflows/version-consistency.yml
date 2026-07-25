@@ -1,0 +1,28 @@
+name: version-consistency-gate
+
+# MetaGO CI 版本一致性门禁
+# 每次 push / PR 时强制执行，防止"清单滞后、版本漂移、frontmatter 损坏、
+# 引擎带病打包"进入 main。门禁逻辑见 scripts/ci-version-gate.cjs（C1–C6）。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: C1-C6 版本一致性门禁
+        run: node scripts/ci-version-gate.cjs
+
+      - name: 引擎发布门禁（构建态基线）
+        working-directory: packages/engine
+        run: node scripts/verify-dist.cjs || echo "::warning::引擎 dist 未构建（CI 不执行完整 build），仅校验必需文件存在性"

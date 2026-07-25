@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# MetaGO pre-push 钩子：push 前强制执行 CI 版本一致性门禁（C1–C6）。
+# 安装：cp scripts/git-hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# Gitee 没有强制的云端 CI 时，此钩子保证漂移在本地 push 前就被拦下。
+
+set -e
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+echo "[pre-push] 运行 MetaGO CI 版本门禁..."
+node "$REPO_ROOT/scripts/ci-version-gate.cjs"
