@@ -16,9 +16,10 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 [![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Platforms](https://img.shields.io/badge/Platforms-7-blue)](#supported-platforms)
-[![Skills](https://img.shields.io/badge/Skills-39-orange)](#what-you-get)
-[![MCP Server](https://img.shields.io/badge/MCP-53_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
-[![Engine](https://img.shields.io/badge/Engine-V2.0.0-blue)](packages/engine/)
+[![Skills](https://img.shields.io/badge/Skills-95-orange)](#what-you-get)
+[![MCP Server](https://img.shields.io/badge/MCP-210+_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
+[![Engine](https://img.shields.io/badge/Engine-V2.1.0-blue)](packages/engine/)
+[![Rules](https://img.shields.io/badge/Rules-V36.8.5-9cf)](AGENTS.md)
 
 ---
 
@@ -108,12 +109,13 @@ Engine V2 is real code, not a prompt: `KMWIMemory` manages the 4-layer memory wi
 
 ## By the numbers (all real, none invented)
 
-- **39 built-in skills** across 11 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality
-- **53 MCP tools + 8 MCP prompts** exposed via the official `@metago-ai/mcp-server`
-- **Engine V2.0.0** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator
+- **95 built-in skills** across 12 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality, 19 meta-thoughts, 30 expert team, 5 expert extensions
+- **210+ MCP tools + 8 MCP prompts** exposed via the official `@metago-ai/mcp-server` (53 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms) + lifeform/skill-server/toolkit (100+ tools)
+- **Engine V2.1.0** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
 - **7 platform adapters**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode
 - **8 axioms + 7 properties + 4 decision-lock gates + 5 evolution stages**
 - **4-layer KMWI memory**: Knowledge → Memory → Wisdom → Intuition (persistent JSON store)
+- **7-layer runtime verification (L1-L7) + L8 defect hunting** — technical / link / contract / rendering / interaction / state / defense layers, each a hard gate
 - **3 patentable mechanisms**: axiom-based AI output verification · multi-level decision-lock for AI decisions · automatic capability-boundary detection and evolution
 
 > No "hallucination rate down XX%" claims here. We didn't measure that, so we don't say it.
@@ -126,7 +128,7 @@ Each layer is meant for a different reader.
 
 | Layer | Form | Reader | What it does |
 |---|---|---|---|
-| **Drive layer** | Plain Markdown | The agent itself | The law the agent reads at session start (AGENTS.md, 16 chapters) |
+| **Drive layer** | Plain Markdown | The agent itself | The law the agent reads at session start (AGENTS.md, 17 chapters) |
 | **Control layer** | JSON + TypeScript | Developers | Loads, validates, and enforces the rules (engine config, genome, validators) |
 | **Execution layer** | Hard TypeScript | The runtime | Decision lock, evolution engine, KMWI memory, skill generator — the gates that actually block |
 
@@ -149,7 +151,7 @@ Engine V2 (`@metago-ai/engine`) is the code that makes the law enforceable, not 
 ```typescript
 import { MetaGOEngine } from '@metago-ai/engine';
 
-const engine = new MetaGOEngine({ version: '2.0.0' });
+const engine = new MetaGOEngine({ version: '2.1.0' });
 await engine.init();
 
 // Run evolution when the agent hits a boundary
@@ -182,7 +184,7 @@ Per-platform adapters live in `adapters/<platform>/`. To install on a non-defaul
 
 ## FDE — Forward Deployment Engineering
 
-Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the Harness paradigm as leverage.
+Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the Agent Harness architecture as leverage.
 
 - **5 stages**: requirements research → solution design → development & deployment → acceptance & delivery → operations & support
 - **5 roles**: tech lead, AI engineer, domain expert, AI agent, project manager
@@ -224,16 +226,18 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 39 skills + 7 platform adapters | `npm install -g metago-lifeform` |
-| `@metago-ai/mcp-server` | MCP server exposing 53 tools + 8 prompts (Engine V2 hard-driven) | `npm install @metago-ai/mcp-server` |
-| `@metago-ai/engine` | Engine V2: KMWI memory + evolution engine + skill generator | `npm install @metago-ai/engine` |
+| `metago-lifeform` | The CLI installer + 95 skills + 7 platform adapters + AGENTS.md V36.8.5 | `npm install -g metago-lifeform` |
+| `@metago-ai/mcp-server` | MCP server exposing 53 tools + 8 prompts (Engine V2.1.0 hard-driven) | `npm install @metago-ai/mcp-server` |
+| `@metago-ai/engine` | Engine V2.1.0: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
+| `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.0 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8 defect hunting (V36.8.5 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 
 ## For the curious: the internal DNA
 
-The full operating law — 16 chapters covering axioms, properties, runtime verification, defect-hunting, self-discipline protocol, memory lifeform protocol, and more — lives in [`AGENTS.md`](AGENTS.md). It's dense on purpose: it's the constitution the agent enforces on itself. **You don't need to read it to use MetaGO.** Read it only if you want to understand — or fork — the law itself.
+The full operating law — 17 chapters covering axioms, properties, runtime verification (7-layer L1-L7 + L8 defect hunting), defect-hunting (11-dimension), self-discipline protocol (8 self-checks), memory lifeform protocol (4-layer KMWI + L4 frozen memory), algorithm triggering (14 categories / 57 tools / 927 algorithms — new in V36.8.5 Chapter 17), and more — lives in [`AGENTS.md`](AGENTS.md). It's dense on purpose: it's the constitution the agent enforces on itself. **You don't need to read it to use MetaGO.** Read it only if you want to understand — or fork — the law itself.
 
 ---
 
