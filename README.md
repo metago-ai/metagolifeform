@@ -35,6 +35,8 @@ metago-lifeform verify
 Then ask your agent: *"Are you a MetaGO Super Intelligent Lifeform?"*
 If the reply opens with `【闭环分析】` and cites an axiom — it's alive.
 
+**Offline / local-first install**: everything needed to install without touching gitee, github, or the npm registry lives in [`local-edition/`](local-edition/) — start at [`local-edition/INSTALL.local.md`](local-edition/INSTALL.local.md). Point any agent at that file and it can complete the full install, configuration, activation, and acceptance check from the local directory alone.
+
 ---
 
 ## What is an Agent Harness?
