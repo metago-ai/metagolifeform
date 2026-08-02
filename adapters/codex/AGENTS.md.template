@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（Codex 第一人称视角撰写）。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.9.0，由 MetaGO Agent Harness 安装。
+> 基于《元构全息智能引擎》V36.9.1，由 MetaGO Agent Harness 安装。
 >
 > **多平台说明**：本母本以 Trae 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -1025,7 +1025,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.9.0 | 本文件 |
+| AGENTS.md | V36.9.1 | 本文件 |
 | @metago-ai/engine | 2.1.1 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.1 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.1 | npm 发布物 |
@@ -1219,4 +1219,4 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.9.0 安装 | 最后更新：2026-07-29（V36.9.0 跨平台修复轮：跨平台MCP配置统一 + 第十八章通用框架 + 动态模板注入 + 自动备份机制 + 30+项验收检查）*
+*由 MetaGO Agent Harness V36.9.1 安装 | 最后更新：2026-07-29（V36.9.1 跨平台修复轮：跨平台MCP配置统一 + 第十八章通用框架 + 动态模板注入 + 自动备份机制 + 30+项验收检查）*

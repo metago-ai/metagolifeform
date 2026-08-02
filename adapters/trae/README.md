@@ -1,6 +1,6 @@
 # Trae 适配器（Trae Adapter）
 
-> MetaGO Agent Harness → Trae 平台适配层 · V36.9.0
+> MetaGO Agent Harness → Trae 平台适配层 · V36.9.1
 
 ---
 
@@ -55,7 +55,7 @@ Trae 是 MetaGO Agent Harness 的原生平台，支持两种部署模式：
 - 第十五章 AI 自律执行协议（五问自检）
 - 第十六章 记忆生命体协议（四层记忆）
 - 第十七章 30人专家团调度协议
-- **第十八章 MCP工具与技能智慧触发协议（v3.0）** ← V36.9.0 新增
+- **第十八章 MCP工具与技能智慧触发协议（v3.0）** ← V36.9.1 新增
 
 ## 安装命令
 
@@ -108,7 +108,7 @@ node local-edition/verify-local-install.cjs
 - ✅ 技能系统完整支持（95个技能）
 - ✅ mcp_metago-skill-server 系列（123+40+36+20=219个扩展工具）
 
-## V36.9.0 修复内容
+## V36.9.1 修复内容
 
 - 修复 `setup-mcp` 路径解析 bug（旧版 PowerShell 使用仓库相对路径）
 - 新增第十八章 MCP 工具与技能智慧触发协议
@@ -118,4 +118,4 @@ node local-edition/verify-local-install.cjs
 
 ---
 
-*MetaGO Agent Harness V36.9.0 · Trae 适配器*
+*MetaGO Agent Harness V36.9.1 · Trae 适配器*

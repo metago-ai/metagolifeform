@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    MetaGO Agent Harness 一键卸载脚本（V36.9.0 - 转发到 cli.js）
+    MetaGO Agent Harness 一键卸载脚本（V36.9.1 - 转发到 cli.js）
 
 .DESCRIPTION
     支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode。

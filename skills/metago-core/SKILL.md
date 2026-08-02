@@ -5,11 +5,11 @@ description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Att
 
 # MetaGO 核心知识体系
 
-元构全息智能引擎（MetaGO）V36.9.0 的核心知识库。当专家团成员需要查询元思想体系、根本属性、核心公理、能力族、引擎规格等元构知识时，按下列真实存在的文件获取（公开基线）。
+元构全息智能引擎（MetaGO）V36.9.1 的核心知识库。当专家团成员需要查询元思想体系、根本属性、核心公理、能力族、引擎规格等元构知识时，按下列真实存在的文件获取（公开基线）。
 
 ## 参考资料（全部随仓库发布，实存可查）
 
-- `AGENTS.md`（仓库根）— 运行法则母本 V36.9.0，17 章：8 公理、7 属性、四道决策锁、五阶段元进化、KMWI 四层记忆、14 类算法触发条件
+- `AGENTS.md`（仓库根）— 运行法则母本 V36.9.1，17 章：8 公理、7 属性、四道决策锁、五阶段元进化、KMWI 四层记忆、14 类算法触发条件
 - `core/METAGO_CORE.md` — 核心纲要：19 元思想体系、43 根本属性、36 核心公理、13 能力族总览
 - `packages/engine/CONSTITUTION/AXIOMS.md` — 8 条关键公理完整条文（A6–A33 体系公理见蓝本，未发布）
 - `packages/engine/CORE/ATTRIBUTES.md` — 43 条根本属性定义

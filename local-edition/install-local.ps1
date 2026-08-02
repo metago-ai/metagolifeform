@@ -25,7 +25,7 @@ if ($Offline -or (Test-Path "$LE\portable\node_modules")) {
   if (Test-Path "$LE\portable\bin") { Copy-Item -Recurse -Force "$LE\portable\bin\*" $Prefix }
 } else {
   Write-Host "→ 路径B：tgz 安装（mcp-server/algorithms 的依赖需 npm registry）"
-  npm install -g "$LE\offline-packages\metago-lifeform-36.9.0.tgz" `
+  npm install -g "$LE\offline-packages\metago-lifeform-36.9.1.tgz" `
     "$LE\offline-packages\metago-ai-engine-2.1.1.tgz" `
     "$LE\offline-packages\metago-ai-mcp-server-1.3.1.tgz" `
     "$LE\offline-packages\metago-ai-algorithms-1.0.1.tgz" `

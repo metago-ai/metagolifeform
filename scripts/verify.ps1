@@ -1,11 +1,11 @@
 <#
 .SYNOPSIS
-    MetaGO Agent Harness 安装验证脚本（V36.9.0 - 转发到 cli.js）
+    MetaGO Agent Harness 安装验证脚本（V36.9.1 - 转发到 cli.js）
 
 .DESCRIPTION
     验证 MetaGO Agent Harness 是否正确安装在指定平台。
     所有逻辑已统一到 node cli.js verify 实现，包含：
-    - 法则文件存在性 / 无 BOM / 版本 V36.9.0 / 第十八章注入
+    - 法则文件存在性 / 无 BOM / 版本 V36.9.1 / 第十八章注入
     - 平台措辞替换正确性
     - MCP 配置合法性（metago + metago-algorithms）
     - 技能目录完整性

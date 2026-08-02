@@ -1,7 +1,7 @@
 {
   "manifest_version": "1.0.0",
-  "metago_version": "V36.9.0",
-  "package_version": "36.9.0",
+  "metago_version": "V36.9.1",
+  "package_version": "36.9.1",
   "description": "MetaGO Agent Harness AI 加载清单 - 支持全息按需激活",
   "last_updated": "2026-07-29",
   "activation_rate": "<30%",

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Lifeform V36.9.0 安装后验收脚本（8大类 30+ 检查项）
+ * MetaGO Lifeform V36.9.1 安装后验收脚本（8大类 30+ 检查项）
  *
  * 用法:
  *   node verify-local-install.cjs                          自动检测平台
@@ -17,7 +17,7 @@ const path = require('path');
 const os = require('os');
 const { execSync } = require('child_process');
 
-const EXPECTED_VERSION = '36.9.0';
+const EXPECTED_VERSION = '36.9.1';
 const EXPECTED_ENGINE = '2.1.1';
 const MIN_SKILLS = 90;
 const HOME = os.homedir();
@@ -220,7 +220,7 @@ function main() {
 
   console.log('');
   console.log('╔══════════════════════════════════════════════════════════╗');
-  console.log('║  MetaGO Lifeform V36.9.0 安装后验收                      ║');
+  console.log('║  MetaGO Lifeform V36.9.1 安装后验收                      ║');
   console.log('║  8 大类 · 30+ 检查项                                     ║');
   console.log('╚══════════════════════════════════════════════════════════╝');
   console.log('');
@@ -280,14 +280,14 @@ function main() {
   // ============ 类别 2: 版本正确性 ============
   console.log('─── 类别 2: 版本正确性 ───');
 
-  check('2.1', '法则版本为 V36.9.0', () => {
+  check('2.1', '法则版本为 V36.9.1', () => {
     if (!fileExists(paths.rulesFile)) return { pass: false, detail: '法则文件不存在' };
     const content = removeBOM(fs.readFileSync(paths.rulesFile, 'utf8'));
     const hasVersion = /V36\.8\.8/.test(content);
-    return { pass: hasVersion, detail: hasVersion ? 'V36.9.0' : '版本号未找到或不正确' };
+    return { pass: hasVersion, detail: hasVersion ? 'V36.9.1' : '版本号未找到或不正确' };
   });
 
-  check('2.2', '全局 metago-lifeform 版本为 36.9.0', () => {
+  check('2.2', '全局 metago-lifeform 版本为 36.9.1', () => {
     const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim();
     const pkgPath = path.join(globalRoot, 'metago-lifeform', 'package.json');
     const pkg = safeReadJSON(pkgPath);
@@ -305,7 +305,7 @@ function main() {
     return { pass: correct, detail: correct ? pkg.metago.engine.version : `期望 ${EXPECTED_ENGINE}, 实际 ${pkg.metago.engine.version}` };
   });
 
-  check('2.4', 'metago-lifeform --version 输出 36.9.0', () => {
+  check('2.4', 'metago-lifeform --version 输出 36.9.1', () => {
     try {
       const out = execSync('metago-lifeform --version', { encoding: 'utf8', timeout: 10000 }).trim();
       const correct = out.includes(EXPECTED_VERSION);
@@ -539,7 +539,7 @@ function main() {
   console.log('');
 
   if (failed.length === 0) {
-    console.log('  🎉 全部检查通过！MetaGO Lifeform V36.9.0 安装正确。');
+    console.log('  🎉 全部检查通过！MetaGO Lifeform V36.9.1 安装正确。');
     process.exit(0);
   } else {
     console.log(`  ⚠️  有 ${failed.length} 项未通过，请检查上方详细信息。`);

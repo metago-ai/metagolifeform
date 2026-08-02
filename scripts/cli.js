@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Agent Harness - CLI 入口 (V36.9.0)
+ * MetaGO Agent Harness - CLI 入口 (V36.9.1)
  * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/备份/验证
  *
  * 用法:
@@ -321,7 +321,7 @@ function backupNative(platform, installPath) {
     timestamp,
     platform,
     backupDir,
-    version: 'pre-36.9.0',
+    version: 'pre-36.9.1',
     files: filesToBackup.map(f => f.dest),
     createdAt: new Date().toISOString()
   };
@@ -635,10 +635,10 @@ function verifyNative(platform, installPath) {
     }
     
     if (/V36\.9\.0/.test(content)) {
-      console.log(`  [PASS] 法则版本: V36.9.0`); pass++;
+      console.log(`  [PASS] 法则版本: V36.9.1`); pass++;
     } else {
       const verMatch = content.match(/V\d+\.\d+\.\d+/);
-      console.log(`  [FAIL] 法则版本错误 (期望 V36.9.0, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
+      console.log(`  [FAIL] 法则版本错误 (期望 V36.9.1, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
     }
 
     if (/第十八章/.test(content) && !/\{\{MCP_SERVERS_TABLE\}\}/.test(content) && !/\{\{SKILLS_TABLE\}\}/.test(content)) {
@@ -709,7 +709,7 @@ function verifyNative(platform, installPath) {
 function showHelp() {
   console.log(`
 MetaGO Agent Harness v${VERSION}
-元构超级智能生命体标准安装包（跨平台版 V36.9.0）
+元构超级智能生命体标准安装包（跨平台版 V36.9.1）
 
 用法:
   metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup]

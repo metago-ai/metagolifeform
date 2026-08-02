@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    MetaGO MCP Server 配置脚本（V36.9.0 - 转发到 cli.js）
+    MetaGO MCP Server 配置脚本（V36.9.1 - 转发到 cli.js）
 
 .DESCRIPTION
     此脚本已统一到 node cli.js setup-mcp 实现，修复了旧版路径解析 bug。
@@ -54,7 +54,7 @@ if ($SkipBuild) {
 }
 
 Write-Host ""
-Write-Host "MetaGO MCP Config (V36.9.0)" -ForegroundColor Cyan
+Write-Host "MetaGO MCP Config (V36.9.1)" -ForegroundColor Cyan
 Write-Host "  Platform: $Platform" -ForegroundColor Gray
 Write-Host ""
 

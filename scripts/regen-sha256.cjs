@@ -32,7 +32,7 @@ function walkDir(dir, baseDir, results = []) {
 function main() {
   const files = walkDir(LOCAL_EDITION_DIR, LOCAL_EDITION_DIR);
   
-  let manifest = '# MetaGO Lifeform V36.9.0 Local Edition - SHA256 Manifest\n';
+  let manifest = '# MetaGO Lifeform V36.9.1 Local Edition - SHA256 Manifest\n';
   manifest += `# Generated: ${new Date().toISOString()}\n`;
   manifest += `# Total files: ${files.length}\n\n`;
 

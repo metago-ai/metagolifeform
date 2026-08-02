@@ -9,6 +9,11 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 
 ---
 
+## [36.9.1] — 2026-08-03
+
+### Fixed
+- 统一反馈邮箱为 researcher.yi@youfer.cn（README / CONTRIBUTING / SECURITY / ISSUE_TEMPLATE config.yml / docs-site feedback.md 共 9 处），npm 包 README 同步修复
+
 ## [36.9.0] — 2026-08-03
 
 ### Added（UDGK 通用交付门禁并入 + 六项修复轮）

@@ -275,7 +275,7 @@ function main() {
     const hasSkillsTable = !content.includes('{{SKILLS_TABLE}}');
     const hasNoPlaceholders = !content.includes('{{PLATFORM_NAME}}') && !content.includes('{{') ;
 
-    console.log(`  版本 V36.9.0: ${hasVersion ? '✅' : '❌'}`);
+    console.log(`  版本 V36.9.1: ${hasVersion ? '✅' : '❌'}`);
     console.log(`  无 BOM: ${!hasBOM ? '✅' : '❌'}`);
     console.log(`  第十八章: ${hasChapter18 ? '✅' : '❌'}`);
     console.log(`  MCP清单已注入: ${hasMcpTable ? '✅' : '❌'}`);
