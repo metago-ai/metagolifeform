@@ -27,7 +27,7 @@ body:
       label: 复现步骤
       description: 详细步骤，让我们能重现这个 Bug
       placeholder: |
-        1. 安装 @metago-ai/mcp-server v1.1.5
+        1. 安装 @metago-ai/mcp-server v1.3.1
         2. 在 Trae 中调用 metago_critique 工具
         3. 输入参数：{ "content": "..." }
         4. 观察输出：...
@@ -74,7 +74,7 @@ body:
     attributes:
       label: MetaGO 版本
       description: 运行 `npm list metago-lifeform` 或 `npm list @metago-ai/mcp-server` 获取版本号
-      placeholder: "例如：metago-lifeform@36.7.9 / @metago-ai/mcp-server@1.1.5"
+      placeholder: "例如：metago-lifeform@36.9.0 / @metago-ai/mcp-server@1.3.1"
     validations:
       required: true
 
