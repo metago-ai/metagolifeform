@@ -58,7 +58,7 @@ outline: [2, 3]
 
 **适用场景**：商务合作、安全漏洞（遵循 responsible disclosure）、私密事宜。
 
-**提交渠道**：metago@metago.life
+**提交渠道**：researcher.yi@youfer.cn
 
 **安全漏洞处理**：
 - 遵循 responsible disclosure 原则
@@ -150,7 +150,7 @@ outline: [2, 3]
 |------|------|---------|
 | GitHub Issues | [metago-ai/metagolifeform](https://github.com/metago-ai/metagolifeform/issues) | 国际用户 / Bug / Feature |
 | Gitee Issues | [metago/metagolifeform](https://gitee.com/metago/metagolifeform/issues) | 国内用户 / 同步处理 |
-| 邮件 | metago@metago.life | 商务 / 安全 / 私密 |
+| 邮件 | researcher.yi@youfer.cn | 商务 / 安全 / 私密 |
 | 文档站 | [MetaGO 文档](https://metago.life/) | 文档查询 |
 | 官网 | [MetaGO 官网](https://metago.life/) | 产品介绍 |
 

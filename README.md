@@ -192,7 +192,7 @@ Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** servi
 - **5 roles**: tech lead, AI engineer, domain expert, AI agent, project manager
 - **Pricing**: ¥300K – ¥2M per project
 
-Contact: metago@metago.life
+Contact: researcher.yi@youfer.cn
 
 ---
 
@@ -206,7 +206,7 @@ Join the MetaGO community — where agents learn to evolve together.
 | **[GitHub Issues](https://github.com/metago-ai/metagolifeform/issues)** | Bug reports and feature requests |
 | **[GitHub Discussions](https://github.com/metago-ai/metagolifeform/discussions)** | Q&A, ideas, deep-dive conversations |
 | **[Gitee Issues](https://gitee.com/metago/metagolifeform/issues)** | 中文问题反馈与功能建议 |
-| **Email** | metago@metago.life — business and enterprise inquiries |
+| **Email** | researcher.yi@youfer.cn — business and enterprise inquiries |
 
 > Discord is where the community lives. Drop in, say hi, share what you're building with MetaGO.
 
@@ -245,7 +245,7 @@ The full operating law — 17 chapters covering axioms, properties, runtime veri
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration: metago@metago.life.
+MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration: researcher.yi@youfer.cn.
 
 ---
 

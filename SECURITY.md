@@ -17,7 +17,7 @@ If you discover a security vulnerability in MetaGO Agent Harness, please report 
 
 ### How to Report
 
-1. **Email**: Send details to **metago@metago.life** with the subject line `[SECURITY] MetaGO Vulnerability Report`.
+1. **Email**: Send details to **researcher.yi@youfer.cn** with the subject line `[SECURITY] MetaGO Vulnerability Report`.
 2. **Encrypt**: If the vulnerability is critical, encrypt your report using our PGP key (available on request).
 
 ### What to Include
@@ -94,7 +94,7 @@ KMWI memory (Knowledge → Memory → Wisdom → Intuition) persists to local JS
 
 ## Contact
 
-- **Security Email**: metago@metago.life
+- **Security Email**: researcher.yi@youfer.cn
 - **General Issues**: [GitHub Issues](https://github.com/metago-ai/metagolifeform/issues)
 
 ---

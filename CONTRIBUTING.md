@@ -304,7 +304,7 @@ Only maintainers can push release tags. Contributors should not version-bump in 
 
 - **GitHub Issues** — Bugs and feature requests
 - **GitHub Discussions** — Questions and ideas
-- **Email** — metago@metago.life
+- **Email** — researcher.yi@youfer.cn
 
 ---
 
