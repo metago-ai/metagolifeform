@@ -15,7 +15,7 @@
 | 传输方式 | stdio（`StdioServerTransport`） |
 | 运行时 | Node.js >= 18.0.0 |
 | 许可证 | MIT |
-| 能力 | 53 tools + 8 prompts（另有 @metago-ai/algorithms 提供 57 tools / 927 algorithms）|
+| 能力 | 54 tools + 8 prompts（另有 @metago-ai/algorithms 提供 57 tools / 927 algorithms）|
 
 ---
 
@@ -99,7 +99,7 @@ cd packages/mcp-server && npm run build && npm start
 
 ---
 
-## 4. 37 个 Tools 列表
+## 4. 38 个核心技能 Tools 列表
 
 每个 tool 接收一个 `input` 字符串参数（待处理的内容/问题/代码），返回结构化结果。
 
@@ -159,6 +159,12 @@ cd packages/mcp-server && npm run build && npm start
 | `metago_emotion` | 情感感知 | 感知用户情绪状态，自适应调整交互风格 |
 | `metago_developer_response` | 开发者响应 | 处理开发者特权请求（DTA），最高优先级 |
 | `metago_negentropy_monitor` | 负熵监控 | 监控系统有序度，防止熵增退化 |
+
+### 工程质量族（1 · UDGK）
+
+| Tool 名称 | 中文名称 | 说明 |
+| --- | --- | --- |
+| `metago_delivery_gate` | UDGK 交付门禁 | 四重门禁（RTM 完整性 + 形态断言 + 视觉 diff + 报告生成），任何一项 FAIL 禁止宣告完成 |
 
 ---
 

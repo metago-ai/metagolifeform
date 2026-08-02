@@ -35,9 +35,9 @@ describe("T8 - 元数据一致性", () => {
   const devKitPkg = readJson(resolve(devKitDir, "package.json")) as Record<string, unknown>;
 
   describe("实际数据基线", () => {
-    it("skills/ 目录应有 39 个技能子目录", () => {
+    it("skills/ 目录应有 95 个技能子目录", () => {
       const skills = listSkillDirs();
-      expect(skills.length).toBe(39);
+      expect(skills.length).toBe(95);
     });
 
     it("SKILLS 数组应有 37 项", () => {
@@ -52,7 +52,7 @@ describe("T8 - 元数据一致性", () => {
       expect(PROMPTS.length).toBe(8);
     });
 
-    it("合并去重后总工具数应为 52", () => {
+    it("合并去重后总工具数应为 52（另加 metago_report_event 独立注册 = 53）", () => {
       const names = new Set<string>();
       TOOLKIT_TOOLS.forEach((t) => names.add(t.toolName));
       SKILLS.forEach((s) => names.add(s.toolName));
@@ -63,8 +63,8 @@ describe("T8 - 元数据一致性", () => {
   describe("根 package.json 元数据", () => {
     const metago = rootPkg.metago as Record<string, unknown>;
 
-    it("metago.skills 应为 39（与 skills/ 目录一致）", () => {
-      expect(metago.skills).toBe(39);
+    it("metago.skills 应为 95（与 skills/ 目录一致）", () => {
+      expect(metago.skills).toBe(95);
     });
 
     it("metago.mcpServer.tools 应为 53（含 metago_report_event 独立注册）", () => {

@@ -130,7 +130,7 @@ export const TOOLKIT_TOOLS: ToolkitToolMeta[] = [
 六节标准结构：①任务理解 ②全息扫描结果 ③完整性说明 ④预判与准备 ⑤下一步建议 ⑥信息来源。`,
     args: {
       task_context: { required: true, schema: z.string().describe("任务上下文，包含项目背景、当前阶段、需求分析") },
-      scan_results: { required: false, schema: z.record(z.unknown()).describe("全息扫描结果") },
+      scan_results: { required: false, schema: z.record(z.string(), z.unknown()).describe("全息扫描结果") },
       predictions: { required: false, schema: z.array(z.object({ question: z.string(), answer: z.string() })).describe("预判问题与答案列表") },
       suggestions: { required: false, schema: z.array(z.string()).describe("下一步建议列表") },
       sources: { required: false, schema: z.array(z.string()).describe("信息来源列表") },
@@ -250,7 +250,7 @@ export const TOOLKIT_TOOLS: ToolkitToolMeta[] = [
     args: {
       proposal: { required: true, schema: z.string().describe("待评估的方案或决策描述") },
       proposal_type: { required: false, schema: z.enum(["战略决策", "产品方案", "技术方案", "政策建议", "商业方案", "通用"]).describe("方案类型，影响权重，默认通用") },
-      custom_weights: { required: false, schema: z.record(z.unknown()).describe("自定义29维权重") },
+      custom_weights: { required: false, schema: z.record(z.string(), z.unknown()).describe("自定义29维权重") },
     },
   },
   {
@@ -523,7 +523,7 @@ export const TOOLKIT_TOOLS: ToolkitToolMeta[] = [
 设计满意度总分 + 维度得分表 + 基准对比 + 趋势分析 + 改进建议。`,
     args: {
       product_name: { required: true, schema: z.string().describe("产品名称") },
-      survey_results: { required: true, schema: z.record(z.unknown()).describe("调查结果数据") },
+      survey_results: { required: true, schema: z.record(z.string(), z.unknown()).describe("调查结果数据") },
       dimensions: { required: false, schema: z.array(z.string()).describe("评估维度列表") },
     },
   },
@@ -532,48 +532,35 @@ export const TOOLKIT_TOOLS: ToolkitToolMeta[] = [
   {
     id: "metago-delivery-gate",
     toolName: "metago_delivery_gate",
-    description: "交付前原子验证门控。在宣告任务完成前强制执行三层验证清单（技术层 tsc/build/产物扫描 + 业务层 HTTP 可达/云函数可调/AI 对话端到端 + 链路层 exe 可下载/latest.yml 可访问），任何一项 FAIL 禁止宣告完成。",
+    description: "UDGK 通用交付门禁检查（强制硬阀门）。在宣告任务完成前执行四重门禁：RTM 需求追踪矩阵完整性 + 形态断言（DOM） + 视觉 diff（像素对比） + 报告生成。任何一项 FAIL 禁止宣告任务完成。适用于任意项目/Agent 的交付前强制验证。",
     category: "交付质量",
     guide: `## 触发条件
-每次代码交付或任务完成前必须触发此工具，确保不可绕过运行时验证。
+任何任务宣告「完成」前必须触发此工具，禁止跳过。用户说「按 UDGK 执行」、「交付验证」、「任务完成」时强制激活。
 
-## 强制执行清单
+## 执行流程（6 步流水线）
+1. node scripts/init-delivery.cjs 初始化（生成 RTM 空表 + delivery.config.json + 目录骨架）
+2. 逐字读需求文档 → 填满 docs/rtm.md（一条需求缺失 = 禁止往下）
+3. 实现 → 每条需求写形态断言（复制 templates/form-assertions.spec.ts 到 e2e/asserts/）
+4. 截图基线 → node scripts/visual-regression.cjs --snapshot + --baseline
+5. node scripts/verify-delivery.cjs 四重门禁 → 出报告
+6. 报告全绿 + 证据截图 → 才允许宣告完成
 
-### 第一关：技术层（自动化）
-- V1.1 tsc -b 0 错误
-- V1.2 vite build 成功
-- V1.3 产物无 localhost/mock 泄露
-
-### 第二关：业务层（端到端）
-- V2.1 Web 端 HTTP 200
-- V2.2 云函数 aiProxy 返回非空 data
-- V2.3 AI 对话端到端：发送消息 → 收到回复
-
-### 第三关：链路层
-- V3.1 桌面端 exe HTTP 200 + Content-Length > 80MB
-- V3.2 latest.yml HTTP 200
-
-### 第四关：缺陷猎杀（10 维度）
-- 僵尸功能 / 未持久化 / 假数据 / 错误处理 / 路由死链 / 类型安全 / 文案一致 / 废弃 API / 业务闭环 / 合规安全
+## 四重门禁（任何一道不过 = 系统判定「未完成」）
+1. RTM 完整性：表头四列齐备（要求→代码→断言→证据）+ 无空要求 + 无空证据
+2. 形态断言：e2e/asserts/ 断言全部通过（把「长什么样」翻译成 DOM 断言，P0 阻断）
+3. 视觉 diff：current/ 与 baseline/ 像素差 ≤ 阈值（默认 2%），量化「界面真的变了没有」
+4. 报告生成：docs/delivery-report.md 全绿，证据链完整
 
 ## 反绕过条款
-- 禁止只做 tsc + build
-- 禁止用"应该没问题"代替实际验证
-- 每一项 ✅ 必须附带执行证据
+- 禁止「应该没问题」代替实际验证
+- 禁止跳过四重门禁任意一重
+- 禁止将「编译通过」等同于「形态达标」
+- 禁止不跑 verify-delivery.cjs 就宣告完成
+- 每一项 ✅ 必须附带执行证据（命令输出 / HTTP 状态码 / 截图 / 断言结果）
 - 任何一项 FAIL = 任务未完成
 
-## 执行流程
-1. 运行 npm run verify 执行全部检查
-2. 如有 FAIL 项，立即修复并重新验证
-3. 全部通过后，生成交付报告
-
 ## 输出格式
-交付报告必须包含运行时验证报告小节（L1 技术层 + L2 业务层 + L3 链路层 + L4 缺陷猎杀），每项 ✅ 附带执行证据（命令输出 / HTTP 状态码 / AI 回复片段）。
-
-## 执行命令
-\`\`\`bash
-npm run verify
-\`\`\``,
+四重门禁逐项 PASS/FAIL 及证据，全部 PASS 方允许宣告完成，任一 FAIL 必须回到对应步骤修复。执行命令：node scripts/udgk/verify-delivery.cjs。`,
     args: {
       task_description: { required: false, schema: z.string().describe("当前交付任务的描述（可选）") },
     },

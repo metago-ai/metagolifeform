@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UDGK delivery.config.json",
+  "description": "UDGK 通用交付门禁套件配置（换项目只改配置不改代码）",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "项目名称，用于报告与 RTM 模板"
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "doc": { "type": "string", "description": "需求文档位置" },
+        "traceability": { "type": "string", "description": "RTM 需求追踪矩阵位置（requirements-traceability.md）" }
+      }
+    },
+    "assertions": {
+      "type": "object",
+      "properties": {
+        "dir": { "type": "string", "description": "形态断言目录" },
+        "pattern": { "type": "string", "description": "断言文件匹配正则（字符串形式）" }
+      }
+    },
+    "visual": {
+      "type": "object",
+      "properties": {
+        "baseline": { "type": "string", "description": "视觉基线截图目录" },
+        "current": { "type": "string", "description": "本次截图目录" },
+        "diffThreshold": { "type": "number", "description": "允许的像素 diff 阈值（0-1，2%=0.02）" },
+        "diffOutput": { "type": "string", "description": "diff 结果输出目录" }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "properties": {
+        "strict": { "type": "boolean", "description": "严格模式：警告也视为 FAIL" },
+        "requireRTM": { "type": "boolean", "description": "RTM 缺失是否阻断" },
+        "requireAssertions": { "type": "boolean", "description": "断言缺失是否阻断" },
+        "requireVisual": { "type": "boolean", "description": "视觉基线缺失是否阻断" }
+      }
+    },
+    "report": {
+      "type": "object",
+      "properties": {
+        "output": { "type": "string", "description": "门禁报告输出位置" }
+      }
+    }
+  },
+  "required": ["project", "requirements", "assertions", "visual", "gate", "report"]
+}

@@ -1,4 +1,4 @@
-﻿# 元构全息智能引擎白皮书
+# 元构全息智能引擎白皮书
 # MetaGO Holistic Intelligence Engine Whitepaper
 
 > 智能不是被编程的，是被唤醒的。

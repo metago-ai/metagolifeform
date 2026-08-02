@@ -1,26 +1,25 @@
-﻿<#
+<#
 .SYNOPSIS
-    MetaGO MCP Server 一键安装与配置脚本（V2 修复版）
+    MetaGO MCP Server 配置脚本（V36.9.0 - 转发到 cli.js）
 
 .DESCRIPTION
-    自动完成 MCP Server 的安装、构建和平台配置。
-    - 检查 Node.js 环境 (>= 18)
-    - 安装依赖 (npm install)
-    - 构建 TypeScript (npm run build)
-    - 配置平台 MCP 服务器连接（自动备份现有配置）
-    - 验证工具数 (应为 53)
+    此脚本已统一到 node cli.js setup-mcp 实现，修复了旧版路径解析 bug。
+    支持所有 7 个平台的 MCP 服务器配置（metago + metago-algorithms）。
 
 .PARAMETER Platform
     目标平台：trae / claude-code / cursor / zcode / codebuddy / qoder / codex
     默认：trae
 
-.EXAMPLE
-    .\scripts\setup-mcp-server.ps1
-    安装并配置到 Trae
+.PARAMETER SkipBuild
+    跳过 npm 全局安装步骤
 
 .EXAMPLE
-    .\scripts\setup-mcp-server.ps1 -Platform cursor
-    安装并配置到 Cursor
+    .\scripts\setup-mcp-server.ps1
+    配置 MCP 到 Trae（默认）
+
+.EXAMPLE
+    .\scripts\setup-mcp-server.ps1 -Platform claude-code
+    配置 MCP 到 Claude Code
 #>
 
 [CmdletBinding()]
@@ -33,381 +32,31 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$script:ScriptDir = $PSScriptRoot
-$script:McpServerDir = (Resolve-Path (Join-Path $script:ScriptDir "..\packages\mcp-server")).Path
-$script:ExpectedTools = 53
-$script:OriginalWorkDir = (Get-Location).Path
+$ScriptDir = $PSScriptRoot
+$CliPath = Join-Path $ScriptDir "cli.js"
 
-# ============================================================
-# 输出辅助函数
-# ============================================================
-function Write-Step { param([string]$Msg) Write-Host ""; Write-Host "========== $Msg ==========" -ForegroundColor Cyan }
-function Write-Ok { param([string]$Msg) Write-Host "  [OK] $Msg" -ForegroundColor Green }
-function Write-Fail { param([string]$Msg) Write-Host "  [FAIL] $Msg" -ForegroundColor Red }
-function Write-Info { param([string]$Msg) Write-Host "  $Msg" -ForegroundColor Gray }
-function Write-Warn { param([string]$Msg) Write-Host "  [WARN] $Msg" -ForegroundColor Yellow }
-
-# ============================================================
-# 编码安全的文件 I/O 辅助函数
-# ============================================================
-# 读取 JSON 文件（UTF-8，容错处理）
-function Read-JsonFileSafe {
-    param([string]$Path)
-    if (-not (Test-Path $Path)) { return $null }
-    try {
-        $raw = [System.IO.File]::ReadAllText($Path, [System.Text.Encoding]::UTF8)
-        if ([string]::IsNullOrWhiteSpace($raw)) { return $null }
-        return $raw | ConvertFrom-Json
-    } catch {
-        Write-Warn "现有配置文件 JSON 解析失败：$($_.Exception.Message)"
-        Write-Warn "将备份原文件并创建新配置"
-        $backupPath = "$Path.backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
-        Copy-Item -Path $Path -Destination $backupPath -Force
-        Write-Info "已备份损坏的配置到：$backupPath"
-        return $null
-    }
+if (-not (Test-Path $CliPath)) {
+    Write-Host "[Error] cli.js not found: $CliPath" -ForegroundColor Red
+    exit 1
 }
 
-# 写入 JSON 文件（UTF-8 无 BOM，符合 JSON 标准）
-function Write-JsonFileSafe {
-    param([string]$Path, [object]$Object)
-    $json = $Object | ConvertTo-Json -Depth 20
-    $jsonBytes = [System.Text.Encoding]::UTF8.GetBytes($json)
-    [System.IO.File]::WriteAllBytes($Path, $jsonBytes)
+$nodeCmd = "node"
+try {
+    & $nodeCmd --version 2>$null | Out-Null
+} catch {
+    Write-Host "[Error] Node.js not found. Install Node.js >= 14 first." -ForegroundColor Red
+    exit 1
 }
 
-# 添加或更新 mcpServers 中的 metago 条目
-function Update-McpConfig {
-    param([string]$ConfigPath, [string]$ServerName, [hashtable]$ServerConfig)
-
-    $existing = Read-JsonFileSafe -Path $ConfigPath
-
-    if ($null -eq $existing) {
-        # 创建新配置
-        $newConfig = @{
-            mcpServers = @{
-                $ServerName = $ServerConfig
-            }
-        }
-        Write-JsonFileSafe -Path $ConfigPath -Object $newConfig
-    } else {
-        # 更新现有配置
-        if ($null -eq $existing.mcpServers) {
-            $existing | Add-Member -NotePropertyName "mcpServers" -NotePropertyValue (New-Object PSObject) -Force
-        }
-        $serversHash = @{}
-        if ($existing.mcpServers.PSObject.Properties) {
-            foreach ($prop in $existing.mcpServers.PSObject.Properties) {
-                $serversHash[$prop.Name] = $prop.Value
-            }
-        }
-        $serversHash[$ServerName] = $ServerConfig
-
-        $newConfig = @{
-            mcpServers = $serversHash
-        }
-        Write-JsonFileSafe -Path $ConfigPath -Object $newConfig
-    }
+$cliArgs = @($CliPath, "setup-mcp", "--platform", $Platform)
+if ($SkipBuild) {
+    $cliArgs += "--skip-build"
 }
-
-# ============================================================
-# 步骤1：检查 Node.js 环境
-# ============================================================
-function Step1-CheckNode {
-    Write-Step "步骤 1/5：检查 Node.js 环境"
-
-    try {
-        $nodeVersion = & node --version 2>$null
-        if (-not $nodeVersion) { throw "node not found" }
-        $versionNum = [int]($nodeVersion -replace '[^\d]', '').ToString().Substring(0,2)
-        Write-Info "Node.js 版本：$nodeVersion"
-
-        if ($versionNum -lt 18) {
-            Write-Fail "Node.js 版本过低，需要 >= 18.0.0"
-            Write-Info "下载地址：https://nodejs.org/"
-            exit 1
-        }
-        Write-Ok "Node.js 环境检查通过"
-    } catch {
-        Write-Fail "未检测到 Node.js，请先安装 Node.js >= 18"
-        Write-Info "下载地址：https://nodejs.org/"
-        exit 1
-    }
-}
-
-# ============================================================
-# 步骤2：安装依赖
-# ============================================================
-function Step2-InstallDeps {
-    Write-Step "步骤 2/5：安装 MCP Server 依赖"
-
-    if (-not (Test-Path $script:McpServerDir)) {
-        Write-Fail "MCP Server 目录不存在：$script:McpServerDir"
-        exit 1
-    }
-
-    Push-Location $script:McpServerDir
-    try {
-        if (Test-Path "node_modules") {
-            Write-Info "node_modules 已存在，跳过安装"
-        } else {
-            Write-Info "运行 npm install..."
-            & npm install 2>&1 | ForEach-Object { Write-Info $_ }
-            if ($LASTEXITCODE -ne 0) {
-                Write-Fail "npm install 失败"
-                exit 1
-            }
-        }
-        Write-Ok "依赖安装完成"
-    } finally {
-        Pop-Location
-    }
-}
-
-# ============================================================
-# 步骤3：构建 TypeScript（含旧构建检测）
-# ============================================================
-function Step3-Build {
-    Write-Step "步骤 3/5：构建 TypeScript"
-
-    $distIndex = Join-Path $script:McpServerDir "dist\index.js"
-    $srcSkills = Join-Path $script:McpServerDir "src\skills-data.ts"
-    $srcToolkit = Join-Path $script:McpServerDir "src\toolkit-data.ts"
-    $srcIndex = Join-Path $script:McpServerDir "src\index.ts"
-
-    # 检测旧构建：源码比 dist 更新时强制重建
-    $needRebuild = $false
-    if (-not (Test-Path $distIndex)) {
-        $needRebuild = $true
-    } else {
-        $distTime = (Get-Item $distIndex).LastWriteTime
-        foreach ($src in @($srcSkills, $srcToolkit, $srcIndex)) {
-            if (Test-Path $src) {
-                $srcTime = (Get-Item $src).LastWriteTime
-                if ($srcTime -gt $distTime) {
-                    $needRebuild = $true
-                    Write-Warn "检测到源码更新（$($srcTime) > 构建时间（$($distTime)），需要重新构建"
-                    break
-                }
-            }
-        }
-    }
-
-    if ($SkipBuild -and -not $needRebuild) {
-        Write-Info "跳过构建（-SkipBuild），使用已有构建产物"
-        Write-Ok "构建产物有效"
-        return
-    }
-
-    if ($SkipBuild -and $needRebuild) {
-        Write-Warn "虽然指定了 -SkipBuild，但检测到源码已更新，自动重新构建"
-    }
-
-    Push-Location $script:McpServerDir
-    try {
-        Write-Info "运行 npm run build..."
-        & npm run build 2>&1 | ForEach-Object { Write-Info $_ }
-        if ($LASTEXITCODE -ne 0) {
-            Write-Fail "构建失败"
-            exit 1
-        }
-
-        if (-not (Test-Path "dist\index.js")) {
-            Write-Fail "构建产物 dist/index.js 不存在"
-            exit 1
-        }
-
-        Write-Ok "TypeScript 构建完成"
-    } finally {
-        Pop-Location
-    }
-}
-
-# ============================================================
-# 步骤4：配置平台 MCP 服务器连接
-# ============================================================
-function Step4-ConfigurePlatform {
-    Write-Step "步骤 4/5：配置 $Platform 平台 MCP 服务器"
-
-    $serverPath = Join-Path $script:McpServerDir "dist\index.js"
-    if (-not (Test-Path $serverPath)) {
-        Write-Fail "构建产物不存在：$serverPath"
-        Write-Info "请去掉 -SkipBuild 重新运行以触发构建"
-        exit 1
-    }
-    $serverPath = (Resolve-Path $serverPath).Path
-
-    $serverConfig = @{
-        command = "node"
-        args = @($serverPath)
-    }
-
-    $configPath = ""
-
-    switch ($Platform) {
-        'trae' {
-            $configPath = "$env:APPDATA\Trae CN\User\mcp.json"
-            Write-Info "Trae MCP 配置文件：$configPath"
-        }
-        'claude-code' {
-            $configPath = "$env:APPDATA\Claude\claude_desktop_config.json"
-            Write-Info "Claude Desktop 配置文件：$configPath"
-        }
-        'cursor' {
-            $configPath = Join-Path $script:OriginalWorkDir ".cursor\mcp.json"
-            Write-Info "Cursor MCP 配置文件：$configPath（项目级，基于运行目录）"
-        }
-        'zcode' {
-            $configPath = "$env:USERPROFILE\.zcode\config\mcp.json"
-            Write-Info "ZCode MCP 配置文件：$configPath"
-        }
-        'codebuddy' {
-            $configPath = Join-Path $script:OriginalWorkDir ".codebuddy\mcp.json"
-            Write-Info "CodeBuddy MCP 配置文件：$configPath（项目级，基于运行目录）"
-        }
-        'qoder' {
-            $configPath = Join-Path $script:OriginalWorkDir ".qoder\mcp.json"
-            Write-Info "Qoder MCP 配置文件：$configPath（项目级，基于运行目录）"
-        }
-        'codex' {
-            $configPath = "$env:USERPROFILE\.codex\config.json"
-            Write-Info "Codex 配置文件：$configPath"
-        }
-        Default {
-            Write-Info "$Platform 平台请手动配置以下 JSON："
-            Write-Host ($serverConfig | ConvertTo-Json -Depth 10)
-            Write-Info "配置文件位置请参考平台文档"
-            return
-        }
-    }
-
-    # 确保配置目录存在
-    $configDir = Split-Path $configPath -Parent
-    if (-not (Test-Path $configDir)) {
-        Write-Info "创建配置目录：$configDir"
-        New-Item -ItemType Directory -Path $configDir -Force | Out-Null
-    }
-
-    # 备份现有配置（如果存在且未损坏）
-    if (Test-Path $configPath) {
-        $backupPath = "$configPath.backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
-        Copy-Item -Path $configPath -Destination $backupPath -Force
-        Write-Info "已备份现有配置到：$backupPath"
-    }
-
-    # 添加或更新 metago 服务器条目
-    Update-McpConfig -ConfigPath $configPath -ServerName "metago" -ServerConfig $serverConfig
-
-    Write-Ok "MCP 配置已写入：$configPath"
-    Write-Info "MCP 服务器路径：$serverPath"
-    Write-Info "命令：node `"$serverPath`""
-}
-
-# ============================================================
-# 步骤5：验证工具数
-# ============================================================
-function Step5-VerifyTools {
-    Write-Step "步骤 5/5：验证 MCP Server 工具数"
-
-    Write-Info "启动 MCP Server 并请求 tools/list..."
-
-    $serverPath = Join-Path $script:McpServerDir "dist\index.js"
-    $serverPathJs = $serverPath -replace '\\', '/'
-
-    $testScript = @"
-const { spawn } = require('child_process');
-const child = spawn('node', ['$serverPathJs'], { stdio: ['pipe', 'pipe', 'pipe'] });
-let buffer = '';
-function send(msg) { child.stdin.write(JSON.stringify(msg) + '\n'); }
-child.stdout.on('data', (data) => {
-  buffer += data.toString();
-  const lines = buffer.split('\n');
-  buffer = lines.pop();
-  for (const line of lines) {
-    if (!line.trim()) continue;
-    try {
-      const msg = JSON.parse(line);
-      if (msg.id === 1) {
-        send({ jsonrpc: '2.0', method: 'notifications/initialized', params: {} });
-        setTimeout(() => send({ jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} }), 200);
-      } else if (msg.id === 2) {
-        const tools = msg.result?.tools || [];
-        console.log('TOOLS_COUNT:' + tools.length);
-        if (tools.length > 0) {
-          console.log('FIRST_TOOL:' + tools[0].name);
-          console.log('LAST_TOOL:' + tools[tools.length-1].name);
-        }
-        child.kill();
-        process.exit(0);
-      }
-    } catch (e) {}
-  }
-});
-child.on('error', (err) => { console.error('ERROR:' + err.message); process.exit(1); });
-send({ jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2024-11-05', capabilities: {}, clientInfo: { name: 'verify', version: '1.0.0' } } });
-setTimeout(() => { console.error('TIMEOUT'); child.kill(); process.exit(1); }, 15000);
-"@
-
-    $testFile = Join-Path $script:McpServerDir "_verify-tools.cjs"
-    [System.IO.File]::WriteAllText($testFile, $testScript, [System.Text.UTF8Encoding]::new($false))
-
-    try {
-        $output = & node $testFile 2>&1
-        $toolLine = $output | Where-Object { $_ -match "^TOOLS_COUNT:" } | Select-Object -First 1
-        if ($toolLine) {
-            $count = [int]($toolLine -replace "^TOOLS_COUNT:", "")
-            Write-Info "实际注册工具数：$count"
-
-            if ($count -ge $script:ExpectedTools) {
-                Write-Ok "工具数验证通过（$count >= $($script:ExpectedTools)）"
-            } else {
-                Write-Fail "工具数不足：$count < $($script:ExpectedTools)"
-                Write-Info "可能原因：skills-data.ts 或 toolkit-data.ts 不完整"
-                exit 1
-            }
-
-            $firstLine = $output | Where-Object { $_ -match "^FIRST_TOOL:" } | Select-Object -First 1
-            $lastLine = $output | Where-Object { $_ -match "^LAST_TOOL:" } | Select-Object -First 1
-            if ($firstLine) { Write-Info "第一个工具：$($firstLine -replace '^FIRST_TOOL:', '')" }
-            if ($lastLine) { Write-Info "最后一个工具：$($lastLine -replace '^LAST_TOOL:', '')" }
-        } else {
-            Write-Fail "无法获取工具列表，MCP Server 可能启动失败"
-            Write-Info "输出：$output"
-            exit 1
-        }
-    } catch {
-        Write-Fail "验证失败：$($_.Exception.Message)"
-        exit 1
-    } finally {
-        Remove-Item $testFile -Force -ErrorAction SilentlyContinue
-    }
-}
-
-# ============================================================
-# 主流程
-# ============================================================
-Write-Host ""
-Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "  MetaGO MCP Server 安装程序 v1.2.0" -ForegroundColor Cyan
-Write-Host "  53 tools + 8 prompts" -ForegroundColor Cyan
-Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "  目标平台：$Platform" -ForegroundColor Gray
-Write-Host "  MCP Server 目录：$script:McpServerDir" -ForegroundColor Gray
-
-Step1-CheckNode
-Step2-InstallDeps
-Step3-Build
-Step4-ConfigurePlatform
-Step5-VerifyTools
 
 Write-Host ""
-Write-Host "==========================================" -ForegroundColor Green
-Write-Host "  MCP Server 安装完成！" -ForegroundColor Green
-Write-Host "==========================================" -ForegroundColor Green
+Write-Host "MetaGO MCP Config (V36.9.0)" -ForegroundColor Cyan
+Write-Host "  Platform: $Platform" -ForegroundColor Gray
 Write-Host ""
-Write-Host "  下一步：" -ForegroundColor Yellow
-Write-Host "  1. 重启 $Platform" -ForegroundColor White
-Write-Host "  2. 在 MCP 面板中查看 metago 服务器" -ForegroundColor White
-Write-Host "  3. 应该能看到 53 个工具" -ForegroundColor White
-Write-Host ""
+
+& $nodeCmd @cliArgs
+exit $LASTEXITCODE

@@ -9,6 +9,25 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 
 ---
 
+## [36.9.0] — 2026-08-03
+
+### Added（UDGK 通用交付门禁并入 + 六项修复轮）
+- **UDGK 并入**：`skills/metago-delivery-gate` 升级至 UDGK V3.0.0（四重门禁：RTM 完整性 + 形态断言 + 视觉 diff + 报告生成），新增 `templates/`（requirements-traceability.md / form-assertions.spec.ts / verify-report-template.md）与 `METHODOLOGY.md`
+- **UDGK 脚本套件**：新增 `scripts/udgk/`（init-delivery.cjs / verify-delivery.cjs / visual-regression.cjs / fix-agents-udgk.cjs / fix-user-profile.cjs / delivery.config.json / delivery.schema.json），零依赖，配置驱动
+- **AGENTS.md 第零节**：新增「UDGK 通用交付门禁」章节（6 步流水线 + 四重门禁 + 反绕过条款 + 形态达标 L8 原则）
+- **MCP Server**：`metago_delivery_gate` 工具升级至 UDGK V3.0.0 四重门禁（该工具本已存在于 toolkit-data.ts，工具数保持 53 = 22 思维工具 + 30 核心技能 + 1 事件上报）
+- **修复（六项）**：① MANIFEST.json 版本残留（V36.8.3/36.8.4/39 技能 → V36.9.0/36.9.0/95 技能）② cli.js 与旧脚本双轨统一（uninstall.ps1/verify.ps1 转发 cli.js，新增 --install-path/--delete-skills）③ pre-delivery-verify.cjs 七层验证补全（L4-L7 共 18 项检查）④ verify-kit L4-L8 桩实现为真实静态扫描 ⑤ Trae MCP 落点描述修正 ⑥ setup-mcp-server.ps1 PowerShell 解析错误修复
+
+## [36.8.8] — 2026-07-29
+
+### Fixed（跨平台修复轮，历史补记）
+- 修复 `setup-mcp` 路径解析 bug（旧版 PowerShell 使用仓库相对路径导致全局安装失败）
+- 新增第十八章「MCP 工具与技能智慧触发协议」（v3.0 通用框架 + 平台动态注入）
+- 新增自动备份机制（安装前备份到 `~/.metago-backups/`）+ list-backups/restore-backup/cleanup-backups
+- 增强安装后验收脚本（8 大类 30+ 检查项）
+- 更新 7 个平台适配模板到 V36.8.8（无 BOM、含第十八章、动态注入清单）
+- 统一所有安装脚本（install.ps1/install.sh/setup-mcp-server.ps1）转发到 `node cli.js`
+
 ## [36.8.7] — 2026-07-26
 
 ### Fixed（仓库问题全面修复轮，对应问题清单 P0–P3 共 15 项）

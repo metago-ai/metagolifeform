@@ -23,7 +23,7 @@
   "metago": {
     "type": "vertical-kit",
     "vertical": "developer",
-    "rules_version": "V36.8.7",
+    "rules_version": "V36.9.0",
     "reusedSkills": [
       "metago-decision-lock",
       "metago-critique",

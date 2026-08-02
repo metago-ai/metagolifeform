@@ -80,7 +80,7 @@
   ],
   "metago": {
     "engine_version": "2.1.1",
-    "metago_version": "V36.8.7",
+    "metago_version": "V36.9.0",
     "parentPackage": "metago-lifeform@>=36.8.0",
     "algorithms": {
       "tools": 57,

@@ -19,7 +19,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 [![Skills](https://img.shields.io/badge/Skills-95-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-210+_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 [![Engine](https://img.shields.io/badge/Engine-V2.1.1-blue)](packages/engine/)
-[![Rules](https://img.shields.io/badge/Rules-V36.8.7-9cf)](AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.9.0-9cf)](AGENTS.md)
 
 ---
 
@@ -71,7 +71,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 5 self-checks — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.8.7: 8 axioms, 7 properties, 36 core axioms, 43 fundamental attributes. Not vibes — a constitution.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.9.0: 8 axioms, 7 properties, 36 core axioms, 43 fundamental attributes. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
 
 ---
@@ -228,12 +228,12 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 95 skills + 7 platform adapters + AGENTS.md V36.8.7 | `npm install -g metago-lifeform` |
+| `metago-lifeform` | The CLI installer + 95 skills + 7 platform adapters + AGENTS.md V36.9.0 | `npm install -g metago-lifeform` |
 | `@metago-ai/mcp-server` | MCP server exposing 53 tools + 8 prompts (Engine V2.1.1 hard-driven) | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2.1.1: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
 | `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.1 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
-| `@metago-ai/verify-kit` | 7-layer runtime verification + L8 defect hunting (V36.8.7 spec) | `npm install @metago-ai/verify-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8 defect hunting (V36.9.0 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 

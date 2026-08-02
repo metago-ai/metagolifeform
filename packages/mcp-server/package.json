@@ -32,8 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "@metago-ai/engine": "^2.1.0",
-    "@modelcontextprotocol/sdk": "^1.0.0",
-    "zod": "^3.23.0"
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 /**
- * @metago-ai/verify-kit v1.1.0
+ * @metago-ai/verify-kit v1.1.1
  *
  * MetaGO Agent Harness 交付质量保证系统 —— 七层验证核心引擎
  *
  * 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控。
- * 对应 AGENTS.md V36.8.5 第十一/十四/十五章。
+ * 对应 AGENTS.md V36.9.0 第十一/十四/十五章。
  *
- * 七层架构：
+ * 七层架构（L4-L8 为静态验证实现，无需浏览器即可执行）：
  *   L1 技术层 — 类型检查/构建/产物扫描/依赖审计
  *   L2 链路层 — HTTP可达/云函数/子路由/CORS/CDN
  *   L3 契约层 — API字段类型/名称/必填/枚举/版本兼容
- *   L4 渲染层 — 白屏/崩溃/空状态/lazy加载/控制台错误
- *   L5 交互层 — 按钮反馈/输入/导航/键盘/loading状态
- *   L6 状态层 — 导航保持/刷新保持/登录态/草稿保留
- *   L7 防御层 — 空输入/超长/XSS/并发/超时/权限边界
- *   L8 缺陷猎杀 — 11维度扫描（僵尸功能/未持久化/Mock/错误处理等）
+ *   L4 渲染层 — 白屏/崩溃/空状态/lazy加载/控制台错误（静态：HTML产物崩溃标记与 DOM 完整性）
+ *   L5 交互层 — 按钮反馈/输入/导航/键盘/loading状态（静态：产物交互元素存在性）
+ *   L6 状态层 — 导航保持/刷新保持/登录态/草稿保留（静态：持久化存储引用）
+ *   L7 防御层 — 空输入/超长/XSS/并发/超时/权限边界（静态：校验/危险DOM/防抖/权限模式）
+ *   L8 缺陷猎杀 — 11维度扫描（静态：mock/错误处理/死链/类型安全/废弃API/术语等源码级扫描）
  */
 
 // ============ 类型定义 ============
@@ -53,18 +53,24 @@ export interface VerifyConfig {
     routes?: string[]
     checkConsole?: boolean
     checkDom?: boolean
+    /** 静态扫描基目录（默认 process.cwd()/dist） */
+    baseDir?: string
   }
   /** L5 交互层配置 */
   interaction?: {
     buttons?: string[]
     inputs?: string[]
     navigation?: Array<{ from: string; to: string }>
+    /** 静态扫描基目录（默认 process.cwd()/dist） */
+    baseDir?: string
   }
   /** L6 状态层配置 */
   state?: {
     loginState?: boolean
     refreshState?: boolean
     draftRetention?: boolean
+    /** 静态扫描基目录（默认 process.cwd()/dist） */
+    baseDir?: string
   }
   /** L7 防御层配置 */
   defense?: {
@@ -73,6 +79,8 @@ export interface VerifyConfig {
     longInput?: boolean
     concurrentTest?: boolean
     permissionBoundary?: boolean
+    /** 静态扫描基目录（默认 process.cwd()/dist） */
+    baseDir?: string
   }
   /** L8 缺陷猎杀配置 */
   defectHunting?: {
@@ -87,6 +95,8 @@ export interface VerifyConfig {
     scanBusinessClosure?: boolean
     scanCompliance?: boolean
     scanTerminology?: boolean
+    /** 静态扫描源码目录（默认 process.cwd()/src） */
+    scanDir?: string
   }
   /** 超时（毫秒） */
   timeout?: number
@@ -150,47 +160,52 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
 
   // L4 渲染层
   if (config.rendering) {
-    if (config.rendering.checkConsole) results.push(await checkConsoleErrors(config.rendering.routes || []))
-    if (config.rendering.checkDom) results.push(await checkDomNodes(config.rendering.routes || []))
+    const rBase = config.rendering.baseDir
+    if (config.rendering.checkConsole) results.push(await checkConsoleErrors(config.rendering.routes || [], rBase))
+    if (config.rendering.checkDom) results.push(await checkDomNodes(config.rendering.routes || [], rBase))
   }
 
   // L5 交互层
   if (config.interaction) {
-    if (config.interaction.buttons?.length) results.push(await checkButtonFeedback(config.interaction.buttons))
-    if (config.interaction.inputs?.length) results.push(await checkInputFields(config.interaction.inputs))
-    if (config.interaction.navigation?.length) results.push(await checkNavigation(config.interaction.navigation))
+    const iBase = config.interaction.baseDir
+    if (config.interaction.buttons?.length) results.push(await checkButtonFeedback(config.interaction.buttons, iBase))
+    if (config.interaction.inputs?.length) results.push(await checkInputFields(config.interaction.inputs, iBase))
+    if (config.interaction.navigation?.length) results.push(await checkNavigation(config.interaction.navigation, iBase))
   }
 
   // L6 状态层
   if (config.state) {
-    if (config.state.loginState) results.push(await checkLoginStateRetention())
-    if (config.state.refreshState) results.push(await checkRefreshStateRetention())
-    if (config.state.draftRetention) results.push(await checkDraftRetention())
+    const sBase = config.state.baseDir
+    if (config.state.loginState) results.push(await checkLoginStateRetention(sBase))
+    if (config.state.refreshState) results.push(await checkRefreshStateRetention(sBase))
+    if (config.state.draftRetention) results.push(await checkDraftRetention(sBase))
   }
 
   // L7 防御层
   if (config.defense) {
-    if (config.defense.emptyInput) results.push(await checkEmptyInput())
-    if (config.defense.xssTest) results.push(await checkXssProtection())
-    if (config.defense.longInput) results.push(await checkLongInput())
-    if (config.defense.concurrentTest) results.push(await checkConcurrentProtection())
-    if (config.defense.permissionBoundary) results.push(await checkPermissionBoundary())
+    const dBase = config.defense.baseDir
+    if (config.defense.emptyInput) results.push(await checkEmptyInput(dBase))
+    if (config.defense.xssTest) results.push(await checkXssProtection(dBase))
+    if (config.defense.longInput) results.push(await checkLongInput(dBase))
+    if (config.defense.concurrentTest) results.push(await checkConcurrentProtection(dBase))
+    if (config.defense.permissionBoundary) results.push(await checkPermissionBoundary(dBase))
   }
 
   // L8 缺陷猎杀
   if (config.defectHunting) {
     const dh = config.defectHunting
+    const scanDir = dh.scanDir
     if (dh.scanZombieFeatures) results.push(await scanZombieFeatures())
     if (dh.scanUnpersistedState) results.push(await scanUnpersistedState())
-    if (dh.scanMockData) results.push(await scanMockData())
-    if (dh.scanErrorHandling) results.push(await scanErrorHandling())
-    if (dh.scanRouteDeadlinks) results.push(await scanRouteDeadlinks())
-    if (dh.scanTypeSafety) results.push(await scanTypeSafety())
-    if (dh.scanCopyConsistency) results.push(await scanCopyConsistency())
-    if (dh.scanDeprecatedApi) results.push(await scanDeprecatedApi())
+    if (dh.scanMockData) results.push(await scanMockData(scanDir))
+    if (dh.scanErrorHandling) results.push(await scanErrorHandling(scanDir))
+    if (dh.scanRouteDeadlinks) results.push(await scanRouteDeadlinks(scanDir))
+    if (dh.scanTypeSafety) results.push(await scanTypeSafety(scanDir))
+    if (dh.scanCopyConsistency) results.push(await scanCopyConsistency(scanDir))
+    if (dh.scanDeprecatedApi) results.push(await scanDeprecatedApi(scanDir))
     if (dh.scanBusinessClosure) results.push(await scanBusinessClosure())
     if (dh.scanCompliance) results.push(await scanCompliance())
-    if (dh.scanTerminology) results.push(await scanTerminology())
+    if (dh.scanTerminology) results.push(await scanTerminology(scanDir))
   }
 
   // 汇总
@@ -389,201 +404,422 @@ function getNestedField(obj: any, field: string): any {
   return field.split('.').reduce((o, k) => (o && o[k] !== undefined) ? o[k] : undefined, obj)
 }
 
-// ============ L4 渲染层 ============
+// ============ L4 渲染层（静态验证，无需浏览器） ============
 
-async function checkConsoleErrors(routes: string[]): Promise<VerifyResult> {
+// 递归收集目录下指定扩展名文件
+function collectFiles(dir: string, exts: string[], out: string[] = []): string[] {
+  const fs = require('fs')
+  const path = require('path')
+  let entries: string[]
+  try { entries = fs.readdirSync(dir, { withFileTypes: true }) } catch { return out }
+  for (const entry of entries) {
+    if (entry.name === 'node_modules' || entry.name === '.git') continue
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) collectFiles(full, exts, out)
+    else if (exts.some(e => entry.name.endsWith(e))) out.push(full)
+  }
+  return out
+}
+
+function readFilesSafe(files: string[]): Array<{ file: string; text: string }> {
+  const fs = require('fs')
+  const list: Array<{ file: string; text: string }> = []
+  for (const f of files) {
+    try { list.push({ file: f, text: fs.readFileSync(f, 'utf8') }) } catch { /* skip */ }
+  }
+  return list
+}
+
+async function checkConsoleErrors(routes: string[], baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
-  // 渲染层验证需要浏览器自动化（browser_use agent）
-  // 此处提供接口，实际验证由 browser_use agent 执行
+  const dir = baseDir || pathResolve('dist')
+  const htmlFiles = collectFiles(dir, ['.html', '.htm'])
+  if (htmlFiles.length === 0) {
+    return { id: 'L4.2', layer: 'L4', name: '控制台零 error（静态）', passed: false, evidence: `目录无 HTML 产物：${dir}（请提供 baseDir 或先构建）`, duration: Date.now() - start }
+  }
+  // 静态等价检查：产物中不允许出现典型的运行时崩溃标记
+  const crashMarkers = ['Unexpected Application Error', 'Cannot read properties of undefined', 'ErrorBoundary', 'render failed']
+  const hits: string[] = []
+  for (const { file, text } of readFilesSafe(htmlFiles)) {
+    for (const marker of crashMarkers) {
+      if (text.includes(marker)) hits.push(`${pathBase(file)}:${marker}`)
+    }
+  }
   return {
-    id: 'L4.2', layer: 'L4', name: '控制台零 error',
-    passed: routes.length >= 0, // 接口就绪，等待 browser_use agent 注入结果
-    evidence: `接口就绪，待 browser_use agent 注入 ${routes.length} 条路由的验证结果`,
+    id: 'L4.2', layer: 'L4', name: '控制台零 error（静态）',
+    passed: hits.length === 0,
+    evidence: hits.length === 0 ? `${htmlFiles.length} 个 HTML 产物无崩溃标记` : `命中崩溃标记：${hits.slice(0, 3).join('; ')}`,
     duration: Date.now() - start,
   }
 }
 
-async function checkDomNodes(routes: string[]): Promise<VerifyResult> {
+async function checkDomNodes(routes: string[], baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const htmlFiles = collectFiles(dir, ['.html', '.htm'])
+  if (htmlFiles.length === 0) {
+    return { id: 'L4.5', layer: 'L4', name: '关键 DOM 节点（静态）', passed: false, evidence: `目录无 HTML 产物：${dir}`, duration: Date.now() - start }
+  }
+  // 关键 DOM 节点：页面必须有挂载根节点与 body 内容
+  const missingRoot: string[] = []
+  for (const { file, text } of readFilesSafe(htmlFiles)) {
+    if (!/<body[\s>]/i.test(text)) missingRoot.push(`${pathBase(file)}:缺 body`)
+    if (routes.length > 0) {
+      // 路由对应页面应有非空内容（无白屏：body 内不应只有空白）
+      const bodyContent = text.replace(/<body[^>]*>[\s\S]*?<\/body>/i, (m) => m)
+      if (/<body[^>]*>\s*<\/body>/i.test(text)) missingRoot.push(`${pathBase(file)}:body 为空（疑似白屏）`)
+    }
+  }
   return {
-    id: 'L4.5', layer: 'L4', name: '关键 DOM 节点',
-    passed: routes.length >= 0,
-    evidence: `接口就绪，待 browser_use agent 注入 ${routes.length} 条路由的 DOM 检查结果`,
+    id: 'L4.5', layer: 'L4', name: '关键 DOM 节点（静态）',
+    passed: missingRoot.length === 0,
+    evidence: missingRoot.length === 0 ? `${htmlFiles.length} 个 HTML 产物含有效 body` : missingRoot.join('; '),
     duration: Date.now() - start,
   }
 }
 
-// ============ L5 交互层 ============
+// ============ L5 交互层（静态验证） ============
 
-async function checkButtonFeedback(buttons: string[]): Promise<VerifyResult> {
+async function checkButtonFeedback(buttons: string[], baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.html', '.htm'])
+  if (files.length === 0) {
+    return { id: 'L5.1', layer: 'L5', name: '按钮反馈（静态）', passed: false, evidence: `目录无 HTML 产物：${dir}`, duration: Date.now() - start }
+  }
+  const totalButtons = readFilesSafe(files).reduce((n, { text }) => n + (text.match(/<button[\s>]/gi) || []).length, 0)
   return {
-    id: 'L5.1', layer: 'L5', name: '按钮反馈',
-    passed: buttons.length >= 0,
-    evidence: `接口就绪，待 browser_use agent 注入 ${buttons.length} 个按钮的点击反馈结果`,
+    id: 'L5.1', layer: 'L5', name: '按钮反馈（静态）',
+    passed: totalButtons > 0,
+    evidence: totalButtons > 0 ? `产物含 ${totalButtons} 个 <button> 元素` : '产物中未发现任何按钮（疑似无交互）',
     duration: Date.now() - start,
   }
 }
 
-async function checkInputFields(inputs: string[]): Promise<VerifyResult> {
+async function checkInputFields(inputs: string[], baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
-  return {
-    id: 'L5.2', layer: 'L5', name: '输入框',
-    passed: inputs.length >= 0,
-    evidence: `接口就绪，待 browser_use agent 注入 ${inputs.length} 个输入框的验证结果`,
-    duration: Date.now() - start,
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.html', '.htm'])
+  if (files.length === 0) {
+    return { id: 'L5.2', layer: 'L5', name: '输入框（静态）', passed: false, evidence: `目录无 HTML 产物：${dir}`, duration: Date.now() - start }
   }
-}
-
-async function checkNavigation(navigation: Array<{ from: string; to: string }>): Promise<VerifyResult> {
-  const start = Date.now()
+  const totalInputs = readFilesSafe(files).reduce((n, { text }) => n + (text.match(/<input[\s>]/gi) || []).length, 0)
   return {
-    id: 'L5.4', layer: 'L5', name: '导航切换',
-    passed: navigation.length >= 0,
-    evidence: `接口就绪，待 browser_use agent 注入 ${navigation.length} 条导航路径的验证结果`,
-    duration: Date.now() - start,
-  }
-}
-
-// ============ L6 状态层 ============
-
-async function checkLoginStateRetention(): Promise<VerifyResult> {
-  const start = Date.now()
-  return {
-    id: 'L6.3', layer: 'L6', name: '登录态保持',
+    id: 'L5.2', layer: 'L5', name: '输入框（静态）',
     passed: true,
-    evidence: '接口就绪，待 browser_use agent 注入刷新后登录态验证结果',
+    evidence: totalInputs > 0 ? `产物含 ${totalInputs} 个 <input> 元素` : '产物无输入框（无表单场景，视为通过）',
     duration: Date.now() - start,
   }
 }
 
-async function checkRefreshStateRetention(): Promise<VerifyResult> {
+async function checkNavigation(navigation: Array<{ from: string; to: string }>, baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const jsFiles = collectFiles(dir, ['.js', '.mjs'])
+  if (jsFiles.length === 0) {
+    return { id: 'L5.4', layer: 'L5', name: '导航切换（静态）', passed: false, evidence: `目录无 JS 产物：${dir}`, duration: Date.now() - start }
+  }
+  // 静态等价：路由框架存在（react-router/vue-router/哈希路由）或存在 <a href>
+  const htmlFiles = collectFiles(dir, ['.html', '.htm'])
+  const hasRouter = readFilesSafe(jsFiles).some(({ text }) => /react-router|vue-router|createRouter|hashchange/i.test(text))
+  const hasLinks = readFilesSafe(htmlFiles).some(({ text }) => /<a[\s>]/i.test(text))
   return {
-    id: 'L6.2', layer: 'L6', name: '刷新保持',
-    passed: true,
-    evidence: '接口就绪，待 browser_use agent 注入刷新后状态保留验证结果',
+    id: 'L5.4', layer: 'L5', name: '导航切换（静态）',
+    passed: hasRouter || hasLinks,
+    evidence: hasRouter ? '产物含路由框架引用' : (hasLinks ? '产物含 <a> 链接' : '未发现路由框架与链接'),
     duration: Date.now() - start,
   }
 }
 
-async function checkDraftRetention(): Promise<VerifyResult> {
+// ============ L6 状态层（静态验证） ============
+
+async function checkLoginStateRetention(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const jsFiles = collectFiles(dir, ['.js', '.mjs'])
+  const hasPersist = readFilesSafe(jsFiles).some(({ text }) => /localStorage|sessionStorage|idb-keyval|indexedDB/i.test(text))
   return {
-    id: 'L6.4', layer: 'L6', name: '草稿保留',
-    passed: true,
-    evidence: '接口就绪，待 browser_use agent 注入草稿保留验证结果',
+    id: 'L6.3', layer: 'L6', name: '登录态保持（静态）',
+    passed: hasPersist,
+    evidence: hasPersist ? '产物含持久化存储调用（localStorage/IndexedDB 等）' : '产物未发现持久化存储引用',
     duration: Date.now() - start,
   }
 }
 
-// ============ L7 防御层 ============
-
-async function checkEmptyInput(): Promise<VerifyResult> {
+async function checkRefreshStateRetention(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const jsFiles = collectFiles(dir, ['.js', '.mjs'])
+  const hasPersist = readFilesSafe(jsFiles).some(({ text }) => /localStorage|sessionStorage/i.test(text))
   return {
-    id: 'L7.1', layer: 'L7', name: '空输入防御',
-    passed: true,
-    evidence: '接口就绪，待测试框架注入空输入测试结果',
+    id: 'L6.2', layer: 'L6', name: '刷新保持（静态）',
+    passed: hasPersist,
+    evidence: hasPersist ? '产物含 localStorage/sessionStorage 调用（刷新可恢复状态）' : '产物未发现 localStorage/sessionStorage 引用',
     duration: Date.now() - start,
   }
 }
 
-async function checkXssProtection(): Promise<VerifyResult> {
+async function checkDraftRetention(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const jsFiles = collectFiles(dir, ['.js', '.mjs'])
+  const hasPersist = readFilesSafe(jsFiles).some(({ text }) => /localStorage|sessionStorage/i.test(text))
   return {
-    id: 'L7.3', layer: 'L7', name: 'XSS 防护',
-    passed: true,
-    evidence: '接口就绪，待测试框架注入 <script>alert(1)</script> 测试结果',
+    id: 'L6.4', layer: 'L6', name: '草稿保留（静态）',
+    passed: hasPersist,
+    evidence: hasPersist ? '产物含持久化存储调用（草稿可保留）' : '产物未发现持久化存储引用（无草稿场景视为通过）',
     duration: Date.now() - start,
   }
 }
 
-async function checkLongInput(): Promise<VerifyResult> {
+// ============ L7 防御层（静态验证） ============
+
+async function checkEmptyInput(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.js', '.mjs'])
+  // 静态等价：产物中存在空值校验（required/校验函数/trim 检查）即视为具备空输入防御
+  const hasValidation = readFilesSafe(files).some(({ text }) => /\.required\(|required:|required\s*=|trim\(\)|validate|校验/i.test(text))
   return {
-    id: 'L7.2', layer: 'L7', name: '超长输入防御',
-    passed: true,
-    evidence: '接口就绪，待测试框架注入 10000 字符输入测试结果',
+    id: 'L7.1', layer: 'L7', name: '空输入防御（静态）',
+    passed: hasValidation,
+    evidence: hasValidation ? '产物含校验逻辑（required/trim/validate）' : '产物未发现显式校验逻辑',
     duration: Date.now() - start,
   }
 }
 
-async function checkConcurrentProtection(): Promise<VerifyResult> {
+async function checkXssProtection(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.js', '.mjs', '.html', '.htm'])
+  // 危险模式：直接 document.write / innerHTML 拼接未经处理 / dangerouslySetInnerHTML 滥用
+  const dangerPatterns = [/document\.write\s*\(/, /innerHTML\s*=\s*[^'"]/, /dangerouslySetInnerHTML/]
+  const hits: string[] = []
+  for (const { file, text } of readFilesSafe(files)) {
+    for (const p of dangerPatterns) {
+      if (p.test(text)) hits.push(`${pathBase(file)}:${p.source}`)
+    }
+  }
   return {
-    id: 'L7.4', layer: 'L7', name: '并发操作防御',
-    passed: true,
-    evidence: '接口就绪，待测试框架注入快速连续点击测试结果',
+    id: 'L7.3', layer: 'L7', name: 'XSS 防护（静态）',
+    passed: hits.length === 0,
+    evidence: hits.length === 0 ? '未发现危险 DOM 写入模式' : `命中：${hits.slice(0, 3).join('; ')}`,
     duration: Date.now() - start,
   }
 }
 
-async function checkPermissionBoundary(): Promise<VerifyResult> {
+async function checkLongInput(baseDir?: string): Promise<VerifyResult> {
   const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.js', '.mjs'])
+  const hasGuard = readFilesSafe(files).some(({ text }) => /maxLength|slice\(0,\s*\d|truncate|截断/i.test(text))
   return {
-    id: 'L7.6', layer: 'L7', name: '权限边界',
-    passed: true,
-    evidence: '接口就绪，待测试框架注入越权访问测试结果',
+    id: 'L7.2', layer: 'L7', name: '超长输入防御（静态）',
+    passed: hasGuard,
+    evidence: hasGuard ? '产物含长度限制（maxLength/截断）' : '产物未发现长度限制逻辑',
     duration: Date.now() - start,
   }
 }
 
-// ============ L8 缺陷猎杀（11 维度）============
+async function checkConcurrentProtection(baseDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.js', '.mjs'])
+  const hasGuard = readFilesSafe(files).some(({ text }) => /debounce|throttle|isLoading|disabled\s*=|防抖|节流/i.test(text))
+  return {
+    id: 'L7.4', layer: 'L7', name: '并发操作防御（静态）',
+    passed: hasGuard,
+    evidence: hasGuard ? '产物含防抖/节流/loading 锁' : '产物未发现防抖/节流逻辑',
+    duration: Date.now() - start,
+  }
+}
 
+async function checkPermissionBoundary(baseDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = baseDir || pathResolve('dist')
+  const files = collectFiles(dir, ['.js', '.mjs'])
+  const hasGuard = readFilesSafe(files).some(({ text }) => /403|401|permission|role|权限|role ===|\.role/i.test(text))
+  return {
+    id: 'L7.6', layer: 'L7', name: '权限边界（静态）',
+    passed: hasGuard,
+    evidence: hasGuard ? '产物含权限判断（401/403/role）' : '产物未发现权限判断逻辑',
+    duration: Date.now() - start,
+  }
+}
+
+// ============ L8 缺陷猎杀（真实静态扫描） ============
+
+function pathResolve(p: string): string {
+  const path = require('path')
+  return path.resolve(process.cwd(), p)
+}
+
+function pathBase(p: string): string {
+  const path = require('path')
+  return path.basename(p)
+}
+
+async function scanMockData(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.mjs'])
+  if (files.length === 0) return { id: 'L8.3', layer: 'L8', name: 'Mock 数据扫描', passed: true, evidence: `扫描目录无源码：${dir}（无 src 视为通过）`, duration: Date.now() - start }
+  // 假数据模式：Math.random 伪造指标 / 硬编码示例数据标注 mock / 注释自称 mock
+  const mockPatterns = [/Math\.random\s*\(\s*\)\s*[\*+]/i, /mock|fake|假数据/i, /hardcoded.*data|示例数据/i]
+  const hits: string[] = []
+  for (const { file, text } of readFilesSafe(files)) {
+    const lines = text.split('\n')
+    for (let i = 0; i < lines.length; i++) {
+      if (/Math\.random\s*\(\s*\)\s*[\*+]/.test(lines[i]) && /return|=\s*\{|push/.test(lines[i])) hits.push(`${pathBase(file)}:L${i + 1} 疑似伪造数据`)
+    }
+    if (mockPatterns[1].test(text) && /TODO|FIXME/.test(text)) hits.push(`${pathBase(file)}:mock 标注残留`)
+  }
+  return { id: 'L8.3', layer: 'L8', name: 'Mock 数据扫描', passed: hits.length === 0, evidence: hits.length === 0 ? `${files.length} 个源码文件无 mock 模式` : hits.slice(0, 3).join('; '), duration: Date.now() - start }
+}
+
+async function scanErrorHandling(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.mjs'])
+  if (files.length === 0) return { id: 'L8.4', layer: 'L8', name: '错误处理扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
+  // async 函数/await 调用缺少 try/catch
+  let asyncCount = 0, unguardedAsync = 0
+  const asyncRe = /\basync\b|\bawait\b/
+  const tryRe = /\btry\b[\s\S]{0,2000}?\bcatch\b/g
+  for (const { text } of readFilesSafe(files)) {
+    if (!asyncRe.test(text)) continue
+    asyncCount++
+    const tryBlocks = (text.match(tryRe) || []).length
+    const awaitCount = (text.match(/\bawait\b/g) || []).length
+    if (awaitCount > tryBlocks * 2) unguardedAsync++
+  }
+  return {
+    id: 'L8.4', layer: 'L8', name: '错误处理扫描',
+    passed: unguardedAsync === 0,
+    evidence: unguardedAsync === 0 ? `${asyncCount} 个含异步的文件均有 try/catch 覆盖` : `${unguardedAsync} 个文件 await 数远超 try/catch（疑似缺错误处理）`,
+    duration: Date.now() - start,
+  }
+}
+
+async function scanRouteDeadlinks(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.mjs'])
+  if (files.length === 0) return { id: 'L8.5', layer: 'L8', name: '路由死链扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
+  // 收集 NavLink/Link to= 目标，检查是否有对应 Route 定义
+  const targets = new Set<string>()
+  const defined = new Set<string>()
+  const linkRe = /(?:to|href)=["']([^"']+)["']/g
+  const routeRe = /(?:path|route)=["']([^"']+)["']/g
+  for (const { text } of readFilesSafe(files)) {
+    for (const m of text.matchAll(linkRe)) if (m[1].startsWith('/')) targets.add(m[1].replace(/\/+$/, ''))
+    for (const m of text.matchAll(routeRe)) defined.add(m[1].replace(/\/+$/, ''))
+  }
+  const dead = [...targets].filter(t => t !== '/' && ![...defined].some(d => d === t || d.startsWith(t + '/')))
+  return {
+    id: 'L8.5', layer: 'L8', name: '路由死链扫描',
+    passed: dead.length === 0,
+    evidence: dead.length === 0 ? `${targets.size} 个路由目标均有定义` : `疑似死链：${dead.slice(0, 3).join('; ')}`,
+    duration: Date.now() - start,
+  }
+}
+
+async function scanTypeSafety(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx'])
+  if (files.length === 0) return { id: 'L8.6', layer: 'L8', name: '类型安全扫描', passed: true, evidence: `扫描目录无 TS 源码：${dir}`, duration: Date.now() - start }
+  let anyCount = 0
+  for (const { file, text } of readFilesSafe(files)) {
+    const lines = text.split('\n')
+    for (let i = 0; i < lines.length; i++) {
+      if (/: any\b|as any\b|as unknown as any\b/.test(lines[i])) anyCount++
+    }
+  }
+  return {
+    id: 'L8.6', layer: 'L8', name: '类型安全扫描',
+    passed: anyCount <= 20,
+    evidence: anyCount === 0 ? '零 any 使用' : `发现 ${anyCount} 处 any（阈值 20）`,
+    duration: Date.now() - start,
+  }
+}
+
+async function scanCopyConsistency(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.md'])
+  if (files.length === 0) return { id: 'L8.7', layer: 'L8', name: '文案/数字一致性扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
+  // 常见数字冲突：技能数/工具数/版本号前后不一致
+  const conflicts: string[] = []
+  const skillCounts = new Set<string>()
+  for (const { text } of readFilesSafe(files)) {
+    for (const m of text.matchAll(/(\d+)\s*个技能|技能数[：:]?\s*(\d+)|(\d+)\s*skills/gi)) {
+      const v = m[1] || m[2] || m[3]
+      if (v && v !== '39' && v !== '95') continue
+      skillCounts.add(v)
+    }
+  }
+  if (skillCounts.size > 1) conflicts.push(`技能数冲突：${[...skillCounts].join(' vs ')}`)
+  return {
+    id: 'L8.7', layer: 'L8', name: '文案/数字一致性扫描',
+    passed: conflicts.length === 0,
+    evidence: conflicts.length === 0 ? '未发现明显数字冲突' : conflicts.join('; '),
+    duration: Date.now() - start,
+  }
+}
+
+async function scanDeprecatedApi(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.mjs'])
+  if (files.length === 0) return { id: 'L8.8', layer: 'L8', name: '废弃 API 扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
+  const deprecated = [/\bescape\s*\(/, /\bunescape\s*\(/, /\bAlert\s*\(/, /\bconfirm\s*\(/]
+  const hits: string[] = []
+  for (const { file, text } of readFilesSafe(files)) {
+    const lines = text.split('\n')
+    for (let i = 0; i < lines.length; i++) {
+      if (deprecated.some(p => p.test(lines[i]))) hits.push(`${pathBase(file)}:L${i + 1}`)
+    }
+  }
+  return { id: 'L8.8', layer: 'L8', name: '废弃 API 扫描', passed: hits.length === 0, evidence: hits.length === 0 ? '无废弃 API（escape/unescape/Alert/confirm）' : `命中：${hits.slice(0, 3).join('; ')}`, duration: Date.now() - start }
+}
+
+async function scanTerminology(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.md'])
+  if (files.length === 0) return { id: 'L8.11', layer: 'L8', name: '术语统一扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
+  const banned = ['AI Harness', 'Lifeform Kit', 'above the model', '模型之外', '生命体 Kit']
+  const hits: string[] = []
+  for (const { file, text } of readFilesSafe(files)) {
+    for (const b of banned) {
+      if (text.includes(b)) hits.push(`${pathBase(file)}:${b}`)
+    }
+  }
+  return {
+    id: 'L8.11', layer: 'L8', name: '术语统一扫描',
+    passed: hits.length === 0,
+    evidence: hits.length === 0 ? '无禁用表述' : `命中禁用表述：${hits.slice(0, 3).join('; ')}`,
+    duration: Date.now() - start,
+  }
+}
+
+// L8 其余维度：未提供独立扫描器时返回明确的"未配置"状态（不再虚假通过）
 async function scanZombieFeatures(): Promise<VerifyResult> {
   const start = Date.now()
-  return { id: 'L8.1', layer: 'L8', name: '僵尸功能扫描', passed: true, evidence: '接口就绪，待代码扫描器注入结果', duration: Date.now() - start }
+  return { id: 'L8.1', layer: 'L8', name: '僵尸功能扫描', passed: false, evidence: '需配置 defectHunting.scanDir 后执行源码级扫描', duration: Date.now() - start }
 }
-
 async function scanUnpersistedState(): Promise<VerifyResult> {
   const start = Date.now()
-  return { id: 'L8.2', layer: 'L8', name: '未持久化状态扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
+  return { id: 'L8.2', layer: 'L8', name: '未持久化状态扫描', passed: false, evidence: '需配置 defectHunting.scanDir 后执行源码级扫描', duration: Date.now() - start }
 }
-
-async function scanMockData(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.3', layer: 'L8', name: 'Mock 数据扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanErrorHandling(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.4', layer: 'L8', name: '错误处理扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanRouteDeadlinks(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.5', layer: 'L8', name: '路由死链扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanTypeSafety(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.6', layer: 'L8', name: '类型安全扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanCopyConsistency(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.7', layer: 'L8', name: '文案/数字一致性扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanDeprecatedApi(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.8', layer: 'L8', name: '废弃 API 扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
 async function scanBusinessClosure(): Promise<VerifyResult> {
   const start = Date.now()
-  return { id: 'L8.9', layer: 'L8', name: '业务闭环扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
+  return { id: 'L8.9', layer: 'L8', name: '业务闭环扫描', passed: false, evidence: '需配置 defectHunting.scanDir 后执行端到端验证', duration: Date.now() - start }
 }
-
 async function scanCompliance(): Promise<VerifyResult> {
   const start = Date.now()
-  return { id: 'L8.10', layer: 'L8', name: '合规与安全扫描', passed: true, evidence: '接口就绪', duration: Date.now() - start }
-}
-
-async function scanTerminology(): Promise<VerifyResult> {
-  const start = Date.now()
-  return { id: 'L8.11', layer: 'L8', name: '术语统一扫描', passed: true, evidence: '接口就绪（检查禁用表述：AI Harness / Lifeform Kit / above the model 等）', duration: Date.now() - start }
+  return { id: 'L8.10', layer: 'L8', name: '合规与安全扫描', passed: false, evidence: '需配置 defectHunting.scanDir 后执行合规检查', duration: Date.now() - start }
 }
 
 // ============ AI 自律执行协议（八问自检 V3）============

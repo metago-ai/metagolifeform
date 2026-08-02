@@ -183,7 +183,7 @@ server.tool(
       .enum(["decision_lock", "evolution", "skill_usage", "activity"])
       .describe("事件类型"),
     data: z
-      .record(z.unknown())
+      .record(z.string(), z.unknown())
       .describe("事件数据（对象）"),
     platform: z
       .string()

@@ -1,12 +1,12 @@
 # @metago-ai/verify-kit
 
 > **MetaGO Agent Harness 交付质量保证系统** —— 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控框架。
-> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.8.7 第十一/十四/十五章。
+> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.9.0 第十一/十四/十五章。
 
 [![npm](https://img.shields.io/npm/v/@metago-ai/verify-kit.svg?logo=npm)](https://www.npmjs.com/package/@metago-ai/verify-kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Layers](https://img.shields.io/badge/Verification-7_layers_+_L8_defect_hunting-blue)](#architecture)
-[![Rules](https://img.shields.io/badge/Rules-V36.8.7-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.9.0-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
 
 ---
 
@@ -32,6 +32,8 @@ This package turns verification from a **soft constraint** (the agent can skip i
 | **L8** | Defect hunting | 11 dimensions: zombie features · unpersisted state · mock data · error handling · route deadlinks · type safety · copy consistency · deprecated API · business closure · compliance · terminology | P0 blocking |
 
 **All 8 layers pass = task complete. Any layer fails = task NOT complete.**
+
+> **L4-L8 为静态验证实现**（无需浏览器即可执行）：L4 检查 HTML 产物崩溃标记与 DOM 完整性、L5 检查产物交互元素存在性、L6 检查持久化存储引用、L7 检查校验/危险 DOM/防抖/权限模式、L8 对源码目录做 mock/错误处理/死链/类型安全/废弃 API/术语等 11 维度扫描。通过 `rendering.baseDir` / `interaction.baseDir` / `state.baseDir` / `defense.baseDir` / `defectHunting.scanDir` 指定扫描目标；未指定时默认扫描 `dist/`（产物层）与 `src/`（源码层）。需要浏览器注入的维度会明确返回"未配置"（passed:false），不再虚假通过。
 
 ## Install
 

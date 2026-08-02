@@ -1,4 +1,4 @@
-﻿# MetaGO Agent Harness 快速开始指南
+# MetaGO Agent Harness 快速开始指南
 
 > 让智能，学会进化。从智能体到生命体的范式跃迁。5 分钟完成安装。
 

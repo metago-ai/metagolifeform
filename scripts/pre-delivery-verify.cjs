@@ -8,12 +8,16 @@
  * 层级：
  *   L1 技术层：环境前置 / tsc 类型检查 / 构建 / 产物扫描（localhost·mock·密钥）/ 依赖审计
  *   L2 链路层：Web 可达性（仅 --web 时执行，需要网络；默认跳过并显式报告）
- *   L3 仓库完整性（本仓库专用）：技能 frontmatter / 法则引用脚本存在性 / 版本号一致性
+ *   L3 契约层（仓库自检）：技能 frontmatter / 法则引用脚本存在性 / 版本号一致性
+ *   L4 渲染层（仓库自检）：技能内容完整性 / 文档占位符残留
+ *   L5 交互层（仓库自检）：安装/卸载/验证脚本转发一致性 / 平台清单一致性
+ *   L6 状态层（仓库自检）：记忆守护脚本可用性 / 备份机制存在性
+ *   L7 防御层（仓库自检）：非法平台防御 / 空参数防御（cli.js 幂等性）
  *
  * 设计原则（14.4）：活文档、可独立运行、不依赖外部环境变量；发现新缺陷类型时必须把检查加进来。
  *
  * @author 易霄 / MetaGO Lightyear
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 const fs = require('fs');
@@ -158,6 +162,74 @@ const versionIssues = [];
 if (agentsVerM && agentsVerM[1] !== pkgVer) versionIssues.push(`AGENTS.md=V${agentsVerM[1]} vs package.json=${pkgVer}`);
 if (cliVerM && cliVerM[1] !== pkgVer) versionIssues.push(`cli.js=V${cliVerM[1]} vs package.json=${pkgVer}`);
 record('L3.3', '版本号跨文件一致性', versionIssues.length === 0, versionIssues.length ? versionIssues.join('；') : `统一 ${pkgVer}`);
+
+// ---------- L4 渲染层（仓库自检） ----------
+// L4.1 技能内容完整性：每个 SKILL.md 非空且含核心流程章节
+const emptySkills = [];
+for (const d of skillDirs) {
+  const md = path.join(skillsDir, d.name, 'SKILL.md');
+  if (!fs.existsSync(md)) continue;
+  const text = fs.readFileSync(md, 'utf8');
+  if (text.trim().length < 200) emptySkills.push(`${d.name}（内容过短 ${text.trim().length} 字符）`);
+  else if (!/^#{1,3}\s/m.test(text)) emptySkills.push(`${d.name}（缺少 Markdown 标题结构）`);
+}
+record('L4.1', `技能内容完整性（${skillDirs.length} 个技能）`, emptySkills.length === 0, emptySkills.length ? emptySkills.slice(0, 5).join('；') + (emptySkills.length > 5 ? ` 等 ${emptySkills.length} 项` : '') : '全部含完整内容');
+
+// L4.2 文档占位符残留：docs/*.md 中无未替换的 {{...}} 占位符
+// 注：AGENTS.md 是跨平台模板母本，含 {{PLATFORM_NAME}}/{{MCP_SERVERS_TABLE}} 等设计内占位符（安装时替换），豁免扫描
+const placeholderRe = /\{\{[A-Z_]+\}\}/;
+const docFiles = walk(path.join(ROOT, 'docs'), ['.md']);
+const placeholderFiles = [];
+for (const f of docFiles) {
+  let text;
+  try { text = fs.readFileSync(f, 'utf8'); } catch { continue; }
+  if (placeholderRe.test(text)) placeholderFiles.push(path.relative(ROOT, f));
+}
+record('L4.2', '文档占位符残留扫描（docs/，AGENTS.md 母本模板豁免）', placeholderFiles.length === 0, placeholderFiles.length ? `残留：${placeholderFiles.join(', ')}` : '无 {{...}} 占位符');
+
+// ---------- L5 交互层（仓库自检） ----------
+// L5.1 安装/卸载/验证脚本必须统一转发 cli.js（消除双轨）
+const forwardScripts = ['install.ps1', 'uninstall.ps1', 'verify.ps1', 'setup-mcp-server.ps1', 'install.sh'];
+const nonForwarding = forwardScripts.filter((s) => {
+  const p = path.join(ROOT, 'scripts', s);
+  if (!fs.existsSync(p)) return true; // 缺失视为未转发
+  const text = fs.readFileSync(p, 'utf8');
+  return !/cli\.js/.test(text);
+});
+record('L5.1', '脚本转发一致性（install/uninstall/verify/setup-mcp/install.sh → cli.js）', nonForwarding.length === 0, nonForwarding.length ? `未转发 cli.js：${nonForwarding.join(', ')}` : '5/5 全部统一转发');
+
+// L5.2 平台清单一致性：AGENTS.md 声明 7 平台 vs cli.js 实现 7 平台
+const cliJsText = fs.existsSync(path.join(ROOT, 'scripts', 'cli.js')) ? fs.readFileSync(path.join(ROOT, 'scripts', 'cli.js'), 'utf8') : '';
+const cliPlatforms = (cliJsText.match(/'(trae|claude-code|codex|cursor|codebuddy|qoder|zcode)'/g) || []).length;
+record('L5.2', '平台清单一致性（7 大平台）', cliPlatforms >= 7, cliPlatforms >= 7 ? 'cli.js 含 7 平台配置' : `cli.js 平台引用异常：${cliPlatforms}`);
+
+// ---------- L6 状态层（仓库自检） ----------
+// L6.1 记忆守护脚本可用性（第十六章 L4 冻记忆硬门）
+const memoryGuardPath = path.join(ROOT, 'scripts', 'memory-guard.cjs');
+const memoryGuardOk = fs.existsSync(memoryGuardPath);
+if (memoryGuardOk) {
+  try {
+    execFileSync('node', ['--check', memoryGuardPath], { timeout: 30000 });
+    record('L6.1', '记忆守护脚本（memory-guard.cjs）', true, '存在且语法正确');
+  } catch {
+    record('L6.1', '记忆守护脚本（memory-guard.cjs）', false, '存在但语法错误');
+  }
+} else {
+  record('L6.1', '记忆守护脚本（memory-guard.cjs）', false, '缺失');
+}
+
+// L6.2 备份机制存在性（cli.js 含 backupNative/listBackups）
+const hasBackup = /function backupNative/.test(cliJsText) && /function listBackups/.test(cliJsText);
+record('L6.2', '备份机制（cli.js backupNative/listBackups）', hasBackup, hasBackup ? '备份函数齐全' : '备份函数缺失');
+
+// ---------- L7 防御层（仓库自检） ----------
+// L7.1 非法平台防御：cli.js 对未知平台必须拒绝（exit 1）
+const invalidPlatformGuard = /不支持的平台/.test(cliJsText) && /process\.exit\(1\)/.test(cliJsText);
+record('L7.1', '非法平台防御（cli.js 拒绝未知平台）', invalidPlatformGuard, invalidPlatformGuard ? '含平台校验 + 退出码 1' : '缺少平台校验');
+
+// L7.2 空参数防御：cli.js 无命令/空参数时应输出 help 而非崩溃
+const helpFallback = /default:\s*\n\s*showHelp\(\);/.test(cliJsText) || /showHelp\(\);/.test(cliJsText);
+record('L7.2', '空参数防御（cli.js 默认回退 help）', helpFallback, helpFallback ? '含 help 兜底分支' : '缺少 help 兜底');
 
 // ---------- 汇总 ----------
 console.log('\n==========================================');

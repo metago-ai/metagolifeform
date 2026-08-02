@@ -59,7 +59,7 @@
   "metago": {
     "server_version": "1.0.1",
     "engine_version": "2.1.0",
-    "rules_version": "V36.8.7",
+    "rules_version": "V36.9.0",
     "tools_count": 57,
     "algorithms_count": 927,
     "trigger_categories": 14,
