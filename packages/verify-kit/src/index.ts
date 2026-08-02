@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * @metago-ai/verify-kit v1.1.1
+ * @metago-ai/verify-kit v1.1.2
  *
  * MetaGO Agent Harness 交付质量保证系统 —— 七层验证核心引擎
  *
@@ -219,7 +219,7 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
 
   return {
     timestamp: new Date().toISOString(),
-    version: '1.1.1',
+    version: '1.1.2',
     total: results.length,
     passed,
     failed,
@@ -410,7 +410,7 @@ function getNestedField(obj: any, field: string): any {
 function collectFiles(dir: string, exts: string[], out: string[] = []): string[] {
   const fs = require('fs')
   const path = require('path')
-  let entries: string[]
+  let entries: any[]
   try { entries = fs.readdirSync(dir, { withFileTypes: true }) } catch { return out }
   for (const entry of entries) {
     if (entry.name === 'node_modules' || entry.name === '.git') continue

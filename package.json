@@ -95,7 +95,7 @@
     "crossPlatform": true,
     "mcpServer": {
       "package": "@metago-ai/mcp-server",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "tools": 53,
       "prompts": 8,
       "transport": "stdio"
@@ -120,7 +120,7 @@
     },
     "verifyKit": {
       "package": "@metago-ai/verify-kit",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "layers": 7,
       "defect_hunting_dimensions": 11
     },

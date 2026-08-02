@@ -1,15 +1,15 @@
 # MetaGO Lifeform V36.9.0 Local Edition - SHA256 Manifest
-# Generated: 2026-08-02T19:53:07.967Z
+# Generated: 2026-08-02T20:16:10.754Z
 # Total files: 25
 
-408c32382d7a7f58680825e34e81bedc72c1fb8272e2667518a383797685cd5d  install-local.ps1  (2152 bytes)
-932499195aeca2bb30dd26d764138bdad524cd6f248c2b7e1037c4a18c69f2f9  install-local.sh  (2251 bytes)
+f7f8e2da627e4fb60e3e8604845965e7b0e3bf51897bb8367c4f28fa2e3ef091  install-local.ps1  (2152 bytes)
+5e7679656222800df8c7f33430b615441050f770aba9c3034c2c533461678a81  install-local.sh  (2251 bytes)
 bdf933c20dd824f45455de89dd36cb409d7c68d6dc54b7588809677bc599a4f1  INSTALL.local.md  (8817 bytes)
 b053415cf93d2d774ad6b4e69377dea58f64e0b5aebc9601ab95de7404717f10  offline-packages/metago-ai-algorithms-1.0.1.tgz  (348100 bytes)
 0dd4742e41341c48ff869e6b47035d08a176bd3c6fc7ad168c6b7f643b78f2fc  offline-packages/metago-ai-dev-kit-1.1.0.tgz  (10550 bytes)
 6f3d149cecbcbf3eb831d6676d3a2bde1413e582036edada2d812057708aa6c0  offline-packages/metago-ai-engine-2.1.1.tgz  (90504 bytes)
-e29c058652b474b1191953b8f0a1b368f26ba6bbe33614b038ca5cdaf52efd6c  offline-packages/metago-ai-mcp-server-1.3.0.tgz  (33533 bytes)
-137ac919d5800c3aa3554c35febcef10b39e34d1cbf56e5c59dfc69ee5f1679a  offline-packages/metago-ai-verify-kit-1.1.1.tgz  (14521 bytes)
+15bed6e65bdcfcc5a365bc7be49d253109ef7e4ebd355e339c0a334638091991  offline-packages/metago-ai-mcp-server-1.3.1.tgz  (33534 bytes)
+acc9509e53da85d98667935439f153398bab21c56205a01ba96c2f3bfde0dd13  offline-packages/metago-ai-verify-kit-1.1.2.tgz  (14643 bytes)
 4d224bfdb8844ac13a58f76eb8ac22d99e42aec6e5cf3cfd91d949f7978d6bbf  offline-packages/metago-lifeform-36.9.0.tgz  (469329 bytes)
 0ef1426a3aa48973d2b623fb6965c02a14099ba6abdd701630700f1ca454845e  portable/bin/metago-algorithms  (429 bytes)
 5a2c3360399ca4fa173c4b5a50506cf77ed005e78644c7ec60fcf89af0bab0fe  portable/bin/metago-algorithms.cmd  (345 bytes)

@@ -35,10 +35,10 @@ else
   echo "→ 路径B：tgz 安装（mcp-server/algorithms 的依赖需 npm registry）"
   npm install -g "$LE/offline-packages/metago-lifeform-36.9.0.tgz" \
     "$LE/offline-packages/metago-ai-engine-2.1.1.tgz" \
-    "$LE/offline-packages/metago-ai-mcp-server-1.3.0.tgz" \
+    "$LE/offline-packages/metago-ai-mcp-server-1.3.1.tgz" \
     "$LE/offline-packages/metago-ai-algorithms-1.0.1.tgz" \
     "$LE/offline-packages/metago-ai-dev-kit-1.1.0.tgz" \
-    "$LE/offline-packages/metago-ai-verify-kit-1.1.1.tgz"
+    "$LE/offline-packages/metago-ai-verify-kit-1.1.2.tgz"
 fi
 
 # 2. 法则 + 技能（调用 CLI 内建适配器）

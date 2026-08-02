@@ -495,7 +495,7 @@ function setupMcpAllPlatforms(platform, skipBuild, installPath) {
   if (!skipBuild) {
     console.log('  [MCP] 正在确保 @metago-ai/mcp-server 与 @metago-ai/algorithms 已安装...');
     try {
-      execSync('npm install -g @metago-ai/mcp-server@1.3.0 @metago-ai/algorithms@1.0.1', { stdio: 'inherit' });
+      execSync('npm install -g @metago-ai/mcp-server@1.3.1 @metago-ai/algorithms@1.0.1', { stdio: 'inherit' });
     } catch (e) {
       console.warn('  [警告] npm 全局安装失败，尝试继续（可能已安装）');
     }
