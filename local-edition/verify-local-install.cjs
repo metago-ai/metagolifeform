@@ -283,7 +283,7 @@ function main() {
   check('2.1', '法则版本为 V36.9.1', () => {
     if (!fileExists(paths.rulesFile)) return { pass: false, detail: '法则文件不存在' };
     const content = removeBOM(fs.readFileSync(paths.rulesFile, 'utf8'));
-    const hasVersion = /V36\.8\.8/.test(content);
+    const hasVersion = /V36\.9\.1/.test(content);
     return { pass: hasVersion, detail: hasVersion ? 'V36.9.1' : '版本号未找到或不正确' };
   });
 

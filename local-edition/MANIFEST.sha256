@@ -1,5 +1,5 @@
 # MetaGO Lifeform V36.9.1 Local Edition - SHA256 Manifest
-# Generated: 2026-08-02T20:46:52.307Z
+# Generated: 2026-08-04T01:35:16.580Z
 # Total files: 25
 
 6e7a44626f74af60fb9492c9dd5f424a37b20ec0afd95efe86ac2d2c2a48c03f  install-local.ps1  (2152 bytes)
@@ -26,4 +26,4 @@ dac8db8ea9a36beb0ed452e2c3bb4b9489517ef1306ac2e01107cdcd18bfe316  portable/bin/m
 77da87206f694d9c3e67f4453dad613dc0def1e8907f3b9ddbd656dc3d6a2589  portable/bin/metago-verify  (439 bytes)
 a3528dc02a547eb96004131488a3537e0251ce30df3af893b83bf33f4dd3c18f  portable/bin/metago-verify.cmd  (350 bytes)
 ac6ebc435b7965d1f9d85dc4a710f034c74301de8b9c859daea928bba94144d0  portable/bin/metago-verify.ps1  (905 bytes)
-bbae0bb4c1cfadb2549585641b72d5bd1c0107f94fc35e4e53cfd88675477443  verify-local-install.cjs  (23737 bytes)
+66075d0ff9fad7fce74d07edfd4664955b2928f6d58f6ed719534c8676bb1eb1  verify-local-install.cjs  (23737 bytes)
