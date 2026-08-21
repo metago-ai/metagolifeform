@@ -119,6 +119,15 @@ const PLATFORM_CONFIGS = {
   }
 };
 
+const HEAD_REPLACEMENTS = {
+  'claude-code': { 'Trae 第一人称视角撰写': 'Claude Code 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Claude Code 为运行时撰写', '把"Trae"读作': '把"Claude Code"读作' },
+  'codex': { 'Trae 第一人称视角撰写': 'Codex 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Codex 为运行时撰写', '把"Trae"读作': '把"Codex"读作' },
+  'cursor': { 'Trae 第一人称视角撰写': 'Cursor 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Cursor 为运行时撰写', '把"Trae"读作': '把"Cursor"读作' },
+  'codebuddy': { 'Trae 第一人称视角撰写': 'CodeBuddy 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 CodeBuddy 为运行时撰写', '把"Trae"读作': '把"CodeBuddy"读作' },
+  'qoder': { 'Trae 第一人称视角撰写': 'Qoder 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Qoder 为运行时撰写', '把"Trae"读作': '把"Qoder"读作' },
+  'zcode': { 'Trae 第一人称视角撰写': 'ZCode 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 ZCode 为运行时撰写', '把"Trae"读作': '把"ZCode"读作' },
+};
+
 const PHRASE_REPLACEMENTS = {
   'trae': {},
   'claude-code': {
@@ -229,6 +238,20 @@ function generatePlatformLaw(platformId, availableSkills) {
   for (const [from, to] of Object.entries(replacements)) {
     content = content.split(from).join(to);
   }
+  const headReplacements = HEAD_REPLACEMENTS[platformId] || {};
+  for (const [from, to] of Object.entries(headReplacements)) {
+    content = content.split(from).join(to);
+  }
+  // 反引号 skills 目录（母本用 `skills/` 反引号形式，PHRASE 表为无反引号版本）
+  content = content.split('Trae 的 `skills/` 目录').join(`${cfg.name} 的 \`skills/\` 目录`);
+  // 补充变体替换（PHRASE 表未覆盖的简写/反斜杠形式）
+  content = content.split('Trae 系统记忆体系').join(`${cfg.name} 记忆体系`);
+  content = content.split('Trae 系统记忆').join(`${cfg.name} 记忆体系`);
+  content = content.split('Trae 自动摘要').join(`${cfg.name} 自动摘要`);
+  content = content.split('Trae 平台').join(`${cfg.name} 平台`);
+  content = content.split('Trae 系统').join(`${cfg.name} 系统`);
+  content = content.split('.trae-cn\\').join(`.${platformId === 'trae' ? 'trae-cn' : platformId}\\`);
+  content = content.split('非 Trae 用户').join(`非 ${cfg.name} 用户`);
 
   content = content.replace(/\{\{PLATFORM_NAME\}\}/g, cfg.name);
   content = content.replace(/\{\{SKILLS_COUNT\}\}/g, String(availableSkills.length));
