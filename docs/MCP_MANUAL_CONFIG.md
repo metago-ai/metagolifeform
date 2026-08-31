@@ -9,7 +9,7 @@ MetaGO Lifeform 提供两个核心 MCP 服务器：
 | 服务器名称 | npm 包 | 命令 | 功能 |
 |-----------|--------|------|------|
 | metago | `@metago-ai/mcp-server` | `metago-mcp-server` | 核心思维工具（决策锁、自检、合规等 53 工具） |
-| metago-algorithms | `@metago-ai/mcp-algorithms` | `metago-algorithms` | 算法引擎（927 算法 + 57 工具） |
+| metago-algorithms | `@metago-ai/algorithms` | `metago-algorithms` | 算法引擎（927 算法 + 57 工具） |
 
 ## 方式一：命令垫片（推荐）
 
@@ -79,7 +79,7 @@ MetaGO Lifeform 提供两个核心 MCP 服务器：
     },
     "metago-algorithms": {
       "command": "npx",
-      "args": ["-y", "@metago-ai/mcp-algorithms@latest"]
+      "args": ["-y", "@metago-ai/algorithms@latest"]
     }
   }
 }
@@ -135,7 +135,7 @@ npm bin -g
 # 查找入口文件路径
 $globalRoot = npm root -g
 $mcpEntry = Join-Path $globalRoot "@metago-ai/mcp-server/dist/index.js"
-$algEntry = Join-Path $globalRoot "@metago-ai/mcp-algorithms/dist/index.js"
+$algEntry = Join-Path $globalRoot "@metago-ai/algorithms/index.js"
 ```
 
 ```json
@@ -198,7 +198,7 @@ metago-lifeform verify
 ### Q: metago-mcp-server 启动但没有工具？
 确保已正确安装 `@metago-ai/mcp-server` 包：
 ```powershell
-npm install -g @metago-ai/mcp-server @metago-ai/mcp-algorithms
+npm install -g @metago-ai/mcp-server @metago-ai/algorithms
 ```
 
 ### Q: Windows 上 .cmd 后缀需要写吗？

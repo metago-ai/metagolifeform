@@ -116,7 +116,7 @@ npm install -g @metago-ai/mcp-server
 
 ### 独有思维工具（9）
 
-这些工具不在 39 技能中，是 MCP Server 独有的结构化思维工具：
+这些工具不在 100 技能中，是 MCP Server 独有的结构化思维工具：
 
 | 工具 | 功能 |
 |------|------|
@@ -205,5 +205,5 @@ MCP Server 内置双轨日志：
 ## 下一步
 
 - [能力度量仪表盘](./dashboard) — 查看调用统计
-- [39 技能一览](../skills/overview) — 技能详解
+- [100 技能一览](../skills/overview) — 技能详解
 - [快速开始](../guide/quickstart) — 5 分钟上手

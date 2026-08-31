@@ -139,6 +139,6 @@ cd packages/dashboard && npm start
 
 ## 下一步
 
-- [39 技能一览](../skills/overview) — 探索全部能力
+- [100 技能一览](../skills/overview) — 探索全部能力
 - [8 条公理 + 7 条属性](../engine/axioms) — 理解生命体基因
 - [MCP Server 文档](../api/mcp-server) — 53 tools 详解

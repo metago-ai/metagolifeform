@@ -15,11 +15,11 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 
 [![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Platforms](https://img.shields.io/badge/Platforms-7-blue)](#supported-platforms)
-[![Skills](https://img.shields.io/badge/Skills-95-orange)](#what-you-get)
-[![MCP Server](https://img.shields.io/badge/MCP-210+_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
+[![Platforms](https://img.shields.io/badge/Platforms-11-blue)](#supported-platforms)
+[![Skills](https://img.shields.io/badge/Skills-100-orange)](#what-you-get)
+[![MCP Server](https://img.shields.io/badge/MCP-110_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 [![Engine](https://img.shields.io/badge/Engine-V2.1.1-blue)](packages/engine/)
-[![Rules](https://img.shields.io/badge/Rules-V36.9.1-9cf)](AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.9.3-9cf)](AGENTS.md)
 
 ---
 
@@ -28,7 +28,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 ```bash
 npm install -g metago-lifeform
 metago-lifeform install                          # Trae by default
-metago-lifeform install --platform claude-code   # or: codex / cursor / codebuddy / qoder / zcode
+metago-lifeform install --platform claude-code   # or: codex / cursor / codebuddy / qoder / zcode / chatgpt-work / workbuddy / kimi-code / kimi-work
 metago-lifeform verify
 ```
 
@@ -70,8 +70,8 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 ### Extended 5 (the moat)
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
-- **Completeness** — Before declaring "done", the agent must answer 5 self-checks — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.9.1: 8 axioms, 7 properties, 36 core axioms, 43 fundamental attributes. Not vibes — a constitution.
+- **Completeness** — Before declaring "done", the agent must answer 10 self-checks across 10 hard gates — including "did I actually run verification?" Any "no" blocks the declaration.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.9.3 — 10 core axioms and 9 enforced properties inside a full constitution. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
 
 ---
@@ -84,7 +84,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 | **Self-evolution** | When the agent hits something it can't do, it doesn't error out — it runs a 5-stage loop (sense → analyze → generate → verify → recurse) and grows a new skill on the fly. **Powered by Engine V2** (KMWI memory + SkillGenerator + EvolutionEngine). |
 | **4-layer KMWI memory** | Knowledge → Memory → Wisdom → Intuition. The agent doesn't just store — it promotes knowledge up the ladder until it becomes intuition. Persistent across sessions. |
 | **Axiom-driven behavior** | 8 axioms (traceability, closure, evolution, boundary, endogenous creation, …) act like a constitution the agent can't violate. |
-| **Self-discipline** | Before declaring a task "done", the agent must answer 5 self-checks — including "did I actually run verification?" — any "no" blocks the declaration. |
+| **Self-discipline** | Before declaring a task "done", the agent must answer 10 self-checks — including "did I actually run verification?" — any "no" blocks the declaration. |
 | **Honest objectivity** | Fact-first, not user-pleasing. It will directly point out what's wrong with your idea. |
 | **Compliance first** | Legal / ethics / safety are checked proactively — law wins over efficiency, every time. |
 | **Full provenance** | Every claim the agent makes is traceable back to its inputs and process. |
@@ -99,7 +99,7 @@ LLMs hallucinate because nothing forces them to verify before speaking. MetaGO i
 
 ### 2. An AI that follows its own law
 
-Most alignment happens at training time and gets washed away by prompting. MetaGO ships a different layer: 8 short axioms (A1 traceability, A2 closure, A3 meta-evolution, A4 boundary, A5 endogenous creation, A34 meta-evolution of meta-evolution, A35 creation as the highest form of evolution, A36 law over efficiency) plus 7 enforced properties. Together they're a small constitution the agent reads on every turn and cannot bypass. It's the closest thing to an "operating system" for agent behavior.
+Most alignment happens at training time and gets washed away by prompting. MetaGO ships a different layer: 10 short axioms (A1 traceability, A2 closure, A3 meta-evolution, A4 boundary, A5 endogenous creation, A34 meta-evolution of meta-evolution, A35 creation as the highest form of evolution, A36 law over efficiency, A37 first-principles F0, A38 adversarial review) plus 9 enforced properties (D37-D45). Together they're a small constitution the agent reads on every turn and cannot bypass. It's the closest thing to an "operating system" for agent behavior.
 
 ### 3. A lifeform that evolves its own evolution
 
@@ -111,13 +111,13 @@ Engine V2 is real code, not a prompt: `KMWIMemory` manages the 4-layer memory wi
 
 ## By the numbers (all real, none invented)
 
-- **95 built-in skills** across 12 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality, 19 meta-thoughts, 30 expert team, 5 expert extensions
-- **210+ MCP tools + 8 MCP prompts** exposed via the official `@metago-ai/mcp-server` (53 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms) + lifeform/skill-server/toolkit (100+ tools)
+- **100 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
+- **110 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (53 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). In Trae environments the installer additionally registers MetaGO skill-servers (up to 324 tools across 6 servers)
 - **Engine V2.1.1** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
-- **7 platform adapters**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode
-- **8 axioms + 7 properties + 4 decision-lock gates + 5 evolution stages**
+- **11 platform forms**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode, ChatGPT Work, WorkBuddy, Kimi Code, Kimi Work — plus Agent-Plugins 1.0.0 / Claude / ZCode / Codex plugin packs
+- **10 core axioms + 9 enforced properties + 4 decision-lock gates + 5 evolution stages + 8 runtime protocols**
 - **4-layer KMWI memory**: Knowledge → Memory → Wisdom → Intuition (persistent JSON store)
-- **7-layer runtime verification (L1-L7) + L8 defect hunting** — technical / link / contract / rendering / interaction / state / defense layers, each a hard gate
+- **7-layer runtime verification (L1-L7) + L8 defect hunting + L9 adversarial review** — technical / link / contract / rendering / interaction / state / defense layers, each a hard gate
 - **3 patentable mechanisms**: axiom-based AI output verification · multi-level decision-lock for AI decisions · automatic capability-boundary detection and evolution
 
 > No "hallucination rate down XX%" claims here. We didn't measure that, so we don't say it.
@@ -130,7 +130,7 @@ Each layer is meant for a different reader.
 
 | Layer | Form | Reader | What it does |
 |---|---|---|---|
-| **Drive layer** | Plain Markdown | The agent itself | The law the agent reads at session start (AGENTS.md, 17 chapters) |
+| **Drive layer** | Plain Markdown | The agent itself | The law the agent reads at session start (AGENTS.md: section 0 + chapters 1-20 + governance addenda) |
 | **Control layer** | JSON + TypeScript | Developers | Loads, validates, and enforces the rules (engine config, genome, validators) |
 | **Execution layer** | Hard TypeScript | The runtime | Decision lock, evolution engine, KMWI memory, skill generator — the gates that actually block |
 
@@ -179,6 +179,10 @@ const skill = await engine.createSkill('kubernetes-deployment');
 | CodeBuddy | `CODEBUDDY.md` |
 | Qoder | `.qoder/rules/` |
 | ZCode | `CLAUDE.md` |
+| ChatGPT Work | `AGENTS.md` + Agent Plugin（Agent Plugins 1.0.0） |
+| WorkBuddy | `AGENTS.md` |
+| Kimi Code | `AGENTS.md` + MCP |
+| Kimi Work | `AGENTS.md`（官方限制不注入自定义 MCP；法则+技能+Bash 直调生效） |
 
 Per-platform adapters live in `adapters/<platform>/`. To install on a non-default platform, pass `--platform <name>` to `metago-lifeform install`.
 
@@ -228,18 +232,18 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 95 skills + 7 platform adapters + AGENTS.md V36.9.1 | `npm install -g metago-lifeform` |
+| `metago-lifeform` | The CLI installer + 100 skills + 11 platform forms + AGENTS.md V36.9.3 | `npm install -g metago-lifeform` |
 | `@metago-ai/mcp-server` | MCP server exposing 53 tools + 8 prompts (Engine V2.1.1 hard-driven) | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2.1.1: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
 | `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.1 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
-| `@metago-ai/verify-kit` | 7-layer runtime verification + L8 defect hunting (V36.9.1 spec) | `npm install @metago-ai/verify-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.9.3 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 
 ## For the curious: the internal DNA
 
-The full operating law — 17 chapters covering axioms, properties, runtime verification (7-layer L1-L7 + L8 defect hunting), defect-hunting (11-dimension), self-discipline protocol (8 self-checks), memory lifeform protocol (4-layer KMWI + L4 frozen memory), algorithm triggering (14 categories / 57 tools / 927 algorithms — new in V36.8.5 Chapter 17), and more — lives in [`AGENTS.md`](AGENTS.md). It's dense on purpose: it's the constitution the agent enforces on itself. **You don't need to read it to use MetaGO.** Read it only if you want to understand — or fork — the law itself.
+The full operating law — section 0 + 20 chapters covering axioms (incl. A37 first-principles / A38 adversarial review), properties, runtime verification (L1-L7 + L8 defect hunting + L9 adversarial), defect-hunting (12-dimension), self-discipline protocol (10 hard gates / 10 self-checks), memory lifeform protocol (4-layer KMWI + L4 frozen memory), algorithm triggering (14 categories / 57 tools / 927 algorithms), MCP/skill smart triggering, browser-automation triggering, process-safety law — lives in [`AGENTS.md`](AGENTS.md). It's dense on purpose: it's the constitution the agent enforces on itself. **You don't need to read it to use MetaGO.** Read it only if you want to understand — or fork — the law itself.
 
 ---
 

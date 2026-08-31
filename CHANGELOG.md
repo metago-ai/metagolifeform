@@ -9,6 +9,45 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 
 ---
 
+## [36.9.3] — 2026-08-31（发行修复轮：zip 审计 → 仓库与发行包全面修复）
+
+### Added
+- **资产合流**：36.9.2 增强轮的 5 个技能（metago-first-principles / metago-adversarial-review / metago-arch / metago-completeness-guard / metago-veracity-guard）、completeness-kit、metago-veracity-kit、plugins 四格式插件包、local-edition 离线发行文档，自发行快照回灌仓库；技能总数 95 → **100**；INDEX/skills.json 重建至 100（C2 门禁转绿）
+- **templates/ 回归**：补齐法则 §0.1 引用的 `templates/requirements-traceability.md`、`templates/form-assertions.spec.ts`、`templates/verify-report-template.md` 与根 `METHODOLOGY.md`
+- **补齐被引用脚本**：`scripts/test-registration-uniqueness.cjs`（CONTRIBUTING 引用）、`scripts/sync-versions.ps1`（RELEASE-CHECKLIST §5 引用）
+- **占位目录说明**：industry/、tools/index-generator/、adapters/universal/ 增加 README，消除空目录
+
+### Fixed（P0 功能与安全）
+- **安全**：事件上报管理令牌从 mcp-server 源码硬编码改为 `METAGO_ADMIN_TOKEN` 环境变量注入（@metago-ai/mcp-server 1.3.1 → 1.3.2；scripts/metago-sync.ps1 同步外置）。历史公开包内令牌按已泄露处理：服务端密钥轮换与旧版 npm 包 deprecate 列为部署侧待办
+- `install-local.ps1` 路径 B 引用不存在的 `metago-lifeform-36.9.1.tgz`（Windows 离线一键安装必挂）→ 文件名对齐实包；平台 7→11；补 `-WithPlugin/-WithCompleteness` 与 sh 版对齐；技能数动态化
+- `cli.js`：`kimi-work` 平台 install/setup-mcp/verify 在 `mcpConfig=null` 时崩溃 → 空值守卫优雅跳过；project-local 非 Trae 平台误写 `.trae/` → 按平台映射；verify 技能阈值 39 与验收脚本 90 漂移 → 统一 90；zcode marketplace 硬编码 98 → 动态；setup-mcp 版本 pin 硬编码 → 读 package.json；`generatePlatformLaw` 移植 build-adapters 头部/变体替换（CLI 安装版 vs 模板生成版双源分叉根治）
+- `ci.yml`：packages/mcp-server 无锁文件时 `npm ci` 必失败 → `npm install`
+- `docs/UPGRADE.md` 通篇引导回 36.9.1（升级文档变降级陷阱）→ 更新为 36.9.3
+- `docs/MCP_MANUAL_CONFIG.md` 包名误写 `@metago-ai/mcp-algorithms`（照抄 npx 会 404）→ `@metago-ai/algorithms`
+- `INSTALL.local.md` 便携快照承诺如实化；`regen-sha256.cjs` 的 MANIFEST 行改 `sha256sum -c` 兼容格式；根级孤儿 `metago-lifeform-36.9.1.tgz` 清除
+
+### Fixed（一致性：消除同包多口径）
+- 技能数统一 **100**：package.json / README / 法则第十章（改 `{{SKILLS_COUNT}}` 动态注入并补 metago-arch / completeness-guard / veracity-guard 三行索引）/ 插件 manifest / INSTALL.local / GETTING_STARTED / 安装脚本提示语
+- 版本戳统一 **V36.9.3**：GENOME.json（含 engine_version 2.1.0→2.1.1、关键公理补 A37/A38、关键属性补 D44/D45）、4 个子包 rules_version、INDEX 三表、docs/MANIFEST.json、README 徽章、install 系脚本头注、package-lock、SECURITY 支持表
+- 法则母本：第二章补 A37/A38 公例行；§18.9/§18.10 由回灌渲染值还原为占位符（各平台按实际能力注入，kimi-work 不再虚报 2 服务器 110 工具）；架构治理规则路径去机器化（作者机绝对路径 → `{{ARCH_RULES_PATH}}`）
+- `core/METAGO_CORE.md`：V36.8.x → V36.9.3；公理 8→10、属性 7→9、协议 6→8（补 F0/AR）；连续 BOM 清除（同轮修 docs/ARCHITECTURE|PRD|STRATEGY、MANIFESTO、dashboard、demo 的 BOM 复发）
+- `verify-local-install.cjs` 法则/母本版本判定硬编码 → 动态读 package.json；`build-adapters.cjs` 平台 7→11、类别表 5 新技能归族；`sync-docs.ps1` docs 路径上跳一级 bug 修复；CONTRIBUTING 过时数（16 章→第0节+20章、TOTAL_TOOLS=35→53、项目结构树补全）；MAP.md 版本戳；WHITEPAPER/ARCHITECTURE/PRD/STRATEGY 加"历史快照"注；.gitee issue 模板平台枚举对齐
+- `fix-docs-terms.cjs` 标注为历史一次性迁移脚本；`test-v41-terminology.cjs` 豁免 `adapters/`（母本生成副本的"❌ 反例"行属定义引用，此前会被 C5 误报）
+
+### Known gaps（明示）
+- metago.life 事件 API 服务端密钥轮换 + npm 已发布 1.3.1 包 deprecate：需云端凭据，部署侧执行
+- 第十九章含作者机本地路径描述：属法则内容决策，本轮未改动
+
+## [36.9.2] — 2026-08-22（母本回灌 + 能力增强）
+
+### Added（第一性原理 + 对抗式审查能力增强轮 · 2026-08-08 + 治理套件轮）
+- **A37 第一性原理公理**：任何任务执行前必须先完成第一性原理拆解（剥离假设/惯例 → 事实基元 → 从基元重建方案），禁止沿用惯性方案；配套 D44 强制属性、4.7 强制触发协议、8.2 思维协议升级为 7 层（F0 前置）
+- **A38 对抗式审查公理**：凡测试/检查/审计/验证类任务必须切换攻击者视角执行（威胁建模 → 攻击面枚举 → 致命缺陷挖掘 → 红队报告 → 修复闭环），禁止自证式检查；配套 D45 强制属性、4.8 强制触发协议、UDGK 0.7 附加门禁、L9 对抗式审查报告小节、执行回路升级 10 道硬门、自检协议升级 10 问、13.2 扫描清单升级 12 维度
+- **新增技能 5 个**：08-08 轮 `metago-first-principles` + `metago-adversarial-review`；治理套件轮 `metago-arch`（SOLID/整洁架构治理）+ `metago-completeness-guard`（完整性治理）+ `metago-veracity-guard`（行为诚实）→ 技能总数 95 → **100**
+- **治理套件随包分发**：completeness-kit（验证引擎/活基线/缺口登记/雷达/强制门）+ metago-veracity-kit（宣称-行为对账）+ Agent Plugins 1.0.0 / claude / zcode / codex 四格式插件包 + local-edition 离线发行套件（INSTALL.local / install-local.* / verify-local-install / offline-packages / portable 垫片）
+- **引擎索引同步**：`packages/engine/INDEX/skills.json` 扩展新技能归族（发行快照曾滞后 97，36.9.3 重建至 100）
+- **全平台同步**：`scripts/build-adapters.cjs` 重新生成适配模板；README / INSTALL.local / GETTING_STARTED / metago-core 数字同步（同轮快照存在 97/98/99 多口径残留，36.9.3 根治）
+
 ## [36.9.1] — 2026-08-03
 
 ### Fixed
@@ -165,6 +204,9 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 
 | Version | Date | Key Milestone |
 |---------|------|---------------|
+| 36.9.3 | 2026-08-31 | 发行修复轮：资产合流/安全外置/一致性根治/门禁转绿 |
+| 36.9.2 | 2026-08-22 | A37/A38 能力增强 + 治理套件（100 技能） |
+| 36.9.0 | 2026-08-03 | UDGK 并入 + 六项修复 |
 | 36.8.4 | 2026-07-10 | Living doc sync, MANIFEST fix |
 | 36.8.3 | 2026-07-09 | Standard scientific name finalized |
 | 36.8.0 | 2026-07-08 | Harness paradigm + 8-dimension advantage |

@@ -1,29 +1,29 @@
 # MetaGO Lifeform V36.9.1 Local Edition - SHA256 Manifest
-# Generated: 2026-08-04T01:35:16.580Z
+# Generated: 2026-08-31T14:31:30.001Z
 # Total files: 25
 
-6e7a44626f74af60fb9492c9dd5f424a37b20ec0afd95efe86ac2d2c2a48c03f  install-local.ps1  (2152 bytes)
-027c17e4ee737c3cf4aea1bdb8a792a4b0dbbd82b3f32abcc9abbc6a6c8f628f  install-local.sh  (2251 bytes)
-a7b3798eb8b6b3c9859825baa8e0b4bdcb454b3af777417cb969b6776c627d75  INSTALL.local.md  (8817 bytes)
-b053415cf93d2d774ad6b4e69377dea58f64e0b5aebc9601ab95de7404717f10  offline-packages/metago-ai-algorithms-1.0.1.tgz  (348100 bytes)
-0dd4742e41341c48ff869e6b47035d08a176bd3c6fc7ad168c6b7f643b78f2fc  offline-packages/metago-ai-dev-kit-1.1.0.tgz  (10550 bytes)
-6f3d149cecbcbf3eb831d6676d3a2bde1413e582036edada2d812057708aa6c0  offline-packages/metago-ai-engine-2.1.1.tgz  (90504 bytes)
-15bed6e65bdcfcc5a365bc7be49d253109ef7e4ebd355e339c0a334638091991  offline-packages/metago-ai-mcp-server-1.3.1.tgz  (33534 bytes)
-acc9509e53da85d98667935439f153398bab21c56205a01ba96c2f3bfde0dd13  offline-packages/metago-ai-verify-kit-1.1.2.tgz  (14643 bytes)
-570829c204d5476869ac24dc9652f1f6b57e9a8f2b5ce17086f108ed19ee3cb8  offline-packages/metago-lifeform-36.9.1.tgz  (494047 bytes)
-0ef1426a3aa48973d2b623fb6965c02a14099ba6abdd701630700f1ca454845e  portable/bin/metago-algorithms  (429 bytes)
-5a2c3360399ca4fa173c4b5a50506cf77ed005e78644c7ec60fcf89af0bab0fe  portable/bin/metago-algorithms.cmd  (345 bytes)
-384fe585e234dbe0913d0a725c9e2f4f00ed58f2fdf12f2518f899c323580271  portable/bin/metago-algorithms.ps1  (885 bytes)
-7204b765252c8643e66657bc280664c134cd7f357781306e93f486514f903fd3  portable/bin/metago-engine  (443 bytes)
-23eafdc2b352ccf20c8f79b4fdea2483d1daca993c0fae29c276198b5b5a58f3  portable/bin/metago-engine.cmd  (352 bytes)
-7755736266878a3fe63161a6b4b100bc411e3970d2103551c7268a7838abb71c  portable/bin/metago-engine.ps1  (913 bytes)
-15895aeedfd54ac760b127dc2863c483c8ce72a3d81ff26e61cd88f6f76c5900  portable/bin/metago-lifeform  (429 bytes)
-bcdfe7a1a3c44fe31006f1f212869c52a4e0f6c472072311b91db8a3639ddb26  portable/bin/metago-lifeform.cmd  (345 bytes)
-0fdcd1e83ef1f3c94787209dd68879cf5f56bea7bf4d770eeea7c14daba4ee07  portable/bin/metago-lifeform.ps1  (885 bytes)
-b93ae095c9472b630e8a2170c862afa3a98cfb1b229c10df58545165ecd67b82  portable/bin/metago-mcp-server  (439 bytes)
-dac8db8ea9a36beb0ed452e2c3bb4b9489517ef1306ac2e01107cdcd18bfe316  portable/bin/metago-mcp-server.cmd  (350 bytes)
-995315a26c2480dc5d6f1f6871d23c947669ee9716763ed42cb2dda19a79b246  portable/bin/metago-mcp-server.ps1  (905 bytes)
-77da87206f694d9c3e67f4453dad613dc0def1e8907f3b9ddbd656dc3d6a2589  portable/bin/metago-verify  (439 bytes)
-a3528dc02a547eb96004131488a3537e0251ce30df3af893b83bf33f4dd3c18f  portable/bin/metago-verify.cmd  (350 bytes)
-ac6ebc435b7965d1f9d85dc4a710f034c74301de8b9c859daea928bba94144d0  portable/bin/metago-verify.ps1  (905 bytes)
-66075d0ff9fad7fce74d07edfd4664955b2928f6d58f6ed719534c8676bb1eb1  verify-local-install.cjs  (23737 bytes)
+f93c3263f1f1afddb13f375b6210f8e40fea5611683ae8908e9c50481ca5612c  install-local.ps1
+17846ea39145eb5652b807cec0b873816da258b5777cad78a098578e9255ee2d  install-local.sh
+aec3dceaf1df6616ba940afdc7cfb4780b931f79ad7bbf7665ea057fa23d238a  INSTALL.local.md
+b053415cf93d2d774ad6b4e69377dea58f64e0b5aebc9601ab95de7404717f10  offline-packages/metago-ai-algorithms-1.0.1.tgz
+0dd4742e41341c48ff869e6b47035d08a176bd3c6fc7ad168c6b7f643b78f2fc  offline-packages/metago-ai-dev-kit-1.1.0.tgz
+6f3d149cecbcbf3eb831d6676d3a2bde1413e582036edada2d812057708aa6c0  offline-packages/metago-ai-engine-2.1.1.tgz
+fac5e88a1bbd41c3bf57994b985011f615b31f966f0cce834c9220c7c8892367  offline-packages/metago-ai-mcp-server-1.3.2.tgz
+acc9509e53da85d98667935439f153398bab21c56205a01ba96c2f3bfde0dd13  offline-packages/metago-ai-verify-kit-1.1.2.tgz
+af3d464477cf2d693b25af153288c99dc71f567a2df13708d45491ffaae97818  offline-packages/metago-lifeform-36.9.3.tgz
+c124883753c0b8655b4c91140af958d4f00b825fe0e66e528da6be27e3b9b734  portable/bin/metago-algorithms
+5a2c3360399ca4fa173c4b5a50506cf77ed005e78644c7ec60fcf89af0bab0fe  portable/bin/metago-algorithms.cmd
+ae34f0af3034d2439647a933bfe25a64254a3fa5e9bbd7f08d8579e30ac175aa  portable/bin/metago-algorithms.ps1
+4f8c36433d67d879781436f7badce02677dd629032aa433a0d75da87a4c14598  portable/bin/metago-engine
+23eafdc2b352ccf20c8f79b4fdea2483d1daca993c0fae29c276198b5b5a58f3  portable/bin/metago-engine.cmd
+a130d6349dd5640aabad7758e4cdc7f32118e53676e1cb3119efe9a73d08cda0  portable/bin/metago-engine.ps1
+ad089680cc358304a4d1ed431c553a82ebdcb295d73cf7b544c3ba704a5f3761  portable/bin/metago-lifeform
+bcdfe7a1a3c44fe31006f1f212869c52a4e0f6c472072311b91db8a3639ddb26  portable/bin/metago-lifeform.cmd
+d9bd5e7b59fe342b0e7ae973b29e8cb4b652001abe5dd71d79a649e66cd8c482  portable/bin/metago-lifeform.ps1
+5bed060154f2a30e3d0227e7a4be84067c9d520b4d80a92b44f90081ee344718  portable/bin/metago-mcp-server
+dac8db8ea9a36beb0ed452e2c3bb4b9489517ef1306ac2e01107cdcd18bfe316  portable/bin/metago-mcp-server.cmd
+d282587cab375f55a98bfbd2200302586e6509493a1d1d2670f936eb092389d4  portable/bin/metago-mcp-server.ps1
+448d42870c40ea07186baab8c71b8981041ee1ae5f7d9765cf23462f7e07c3e2  portable/bin/metago-verify
+a3528dc02a547eb96004131488a3537e0251ce30df3af893b83bf33f4dd3c18f  portable/bin/metago-verify.cmd
+b9fea1922a78061bb2285c6004d81e90f19940a00b8c03f1d46481f6bbaed743  portable/bin/metago-verify.ps1
+af7289ba61a01a9306a810e8d819d7d0c1deac62430433cbb6f629bef37f5531  verify-local-install.cjs

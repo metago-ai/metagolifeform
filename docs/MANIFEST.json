@@ -1,9 +1,9 @@
 {
   "manifest_version": "1.0.0",
-  "metago_version": "V36.9.1",
-  "package_version": "36.9.1",
+  "metago_version": "V36.9.3",
+  "package_version": "36.9.3",
   "description": "MetaGO Agent Harness AI 加载清单 - 支持全息按需激活",
-  "last_updated": "2026-07-29",
+  "last_updated": "2026-08-31",
   "activation_rate": "<30%",
   "documents": [
     {
@@ -15,8 +15,16 @@
       "priority": "critical",
       "size_chars": 32620,
       "description": "元构全貌权威描述，百万字精华浓缩，中英双语8章",
-      "tags": ["whitepaper", "overview", "paradigm"],
-      "related": ["ARCHITECTURE", "PRD", "MANIFESTO"]
+      "tags": [
+        "whitepaper",
+        "overview",
+        "paradigm"
+      ],
+      "related": [
+        "ARCHITECTURE",
+        "PRD",
+        "MANIFESTO"
+      ]
     },
     {
       "id": "ARCHITECTURE",
@@ -26,8 +34,15 @@
       "type": "technical",
       "priority": "high",
       "description": "11层架构、125引擎、927算法、984原子的技术细节",
-      "tags": ["architecture", "engines", "algorithms"],
-      "related": ["WHITEPAPER", "MCP_SERVER"]
+      "tags": [
+        "architecture",
+        "engines",
+        "algorithms"
+      ],
+      "related": [
+        "WHITEPAPER",
+        "MCP_SERVER"
+      ]
     },
     {
       "id": "PRD",
@@ -37,8 +52,15 @@
       "type": "product",
       "priority": "high",
       "description": "9大产品矩阵的产品规划与路线图",
-      "tags": ["product", "roadmap", "matrix"],
-      "related": ["WHITEPAPER", "STRATEGY"]
+      "tags": [
+        "product",
+        "roadmap",
+        "matrix"
+      ],
+      "related": [
+        "WHITEPAPER",
+        "STRATEGY"
+      ]
     },
     {
       "id": "STRATEGY",
@@ -48,8 +70,14 @@
       "type": "strategy",
       "priority": "medium",
       "description": "产品矩阵战略规划与执行追踪",
-      "tags": ["strategy", "execution"],
-      "related": ["PRD", "STRATEGY-EXECUTION-LOG"]
+      "tags": [
+        "strategy",
+        "execution"
+      ],
+      "related": [
+        "PRD",
+        "STRATEGY-EXECUTION-LOG"
+      ]
     },
     {
       "id": "STRATEGY-EXECUTION-LOG",
@@ -59,8 +87,13 @@
       "type": "log",
       "priority": "low",
       "description": "战略执行进度追踪",
-      "tags": ["execution", "tracking"],
-      "related": ["STRATEGY"]
+      "tags": [
+        "execution",
+        "tracking"
+      ],
+      "related": [
+        "STRATEGY"
+      ]
     },
     {
       "id": "MCP_SERVER",
@@ -70,8 +103,14 @@
       "type": "tool",
       "priority": "high",
       "description": "53个MCP工具 + 8个prompts的完整文档",
-      "tags": ["mcp", "tools", "prompts"],
-      "related": ["ARCHITECTURE"]
+      "tags": [
+        "mcp",
+        "tools",
+        "prompts"
+      ],
+      "related": [
+        "ARCHITECTURE"
+      ]
     },
     {
       "id": "GETTING_STARTED",
@@ -81,8 +120,15 @@
       "type": "guide",
       "priority": "critical",
       "description": "快速开始安装与使用",
-      "tags": ["guide", "install", "quickstart"],
-      "related": ["ARCHITECTURE", "CUSTOMIZATION"]
+      "tags": [
+        "guide",
+        "install",
+        "quickstart"
+      ],
+      "related": [
+        "ARCHITECTURE",
+        "CUSTOMIZATION"
+      ]
     },
     {
       "id": "CUSTOMIZATION",
@@ -92,8 +138,13 @@
       "type": "guide",
       "priority": "medium",
       "description": "如何自定义元构技能与配置",
-      "tags": ["customization", "skills"],
-      "related": ["GETTING_STARTED"]
+      "tags": [
+        "customization",
+        "skills"
+      ],
+      "related": [
+        "GETTING_STARTED"
+      ]
     },
     {
       "id": "MAP",
@@ -103,8 +154,13 @@
       "type": "index",
       "priority": "medium",
       "description": "文档间交叉引用关系映射",
-      "tags": ["map", "cross-reference"],
-      "related": ["all"]
+      "tags": [
+        "map",
+        "cross-reference"
+      ],
+      "related": [
+        "all"
+      ]
     }
   ],
   "skills": {
@@ -135,18 +191,27 @@
     "version": "1.3.1"
   },
   "platforms": [
-    "trae",
-    "claude-code",
-    "codex",
-    "cursor",
-    "codebuddy",
-    "qoder",
-    "zcode"
+    "Trae",
+    "Claude Code",
+    "OpenAI Codex",
+    "Cursor",
+    "CodeBuddy",
+    "Qoder",
+    "ZCode",
+    "ChatGPT Work",
+    "WorkBuddy",
+    "Kimi Code",
+    "Kimi Work"
   ],
   "loading_rules": {
     "activation_rate": "<30%",
     "strategy": "holographic_on_demand",
-    "priority_order": ["critical", "high", "medium", "low"],
+    "priority_order": [
+      "critical",
+      "high",
+      "medium",
+      "low"
+    ],
     "cross_reference": "docs/MAP.md"
   }
 }

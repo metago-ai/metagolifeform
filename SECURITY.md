@@ -6,8 +6,8 @@ MetaGO Agent Harness is actively developed. Security fixes are applied to the la
 
 | Version | Supported |
 |---------|-----------|
-| 36.8.x  | Yes       |
-| < 36.8  | No        |
+| 36.9.x  | Yes       |
+| < 36.9  | No        |
 
 ## Reporting a Vulnerability
 
@@ -62,6 +62,8 @@ This prevents hallucinated, incomplete, or off-topic outputs from reaching the u
 **Law over efficiency.** The agent proactively checks legal, ethical, and safety compliance before executing any action. This is hardcoded into the operating law, not a runtime toggle.
 
 ### 3. No Hardcoded Secrets
+
+> *(36.9.3 安全修复：历史上唯一例外——事件上报管理令牌——已从 @metago-ai/mcp-server 1.3.2 与 scripts/metago-sync.ps1 源码移除，改为 `METAGO_ADMIN_TOKEN` 环境变量注入。已发布的旧包内该令牌按已泄露处理，服务端密钥轮换与旧版 deprecate 为部署侧跟进项。)*
 
 MetaGO does not embed any API keys, tokens, or credentials in the source code. All secrets are managed via environment variables or platform-native secret stores.
 

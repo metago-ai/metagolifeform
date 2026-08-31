@@ -1,6 +1,6 @@
 {
-  "total": 95,
-  "version": "V36.9.1",
+  "total": 100,
+  "version": "V36.9.3",
   "families": {
     "cognition": {
       "name": "认知族",
@@ -86,13 +86,15 @@
     },
     "architecture": {
       "name": "架构族",
-      "count": 5,
+      "count": 6,
       "skills": [
         "metago-deep-reasoning",
+        "metago-first-principles",
         "metago-paradigm-analysis",
         "metago-balance-optimize",
         "metago-memory-manage",
-        "metago-consensus-prototype"
+        "metago-consensus-prototype",
+        "metago-arch"
       ]
     },
     "dev_kit": {
@@ -187,11 +189,15 @@
     },
     "delivery_quality": {
       "name": "交付质量族",
-      "count": 2,
+      "count": 3,
       "skills": [
         "metago-delivery-gate",
-        "metago-discipline"
+        "metago-discipline",
+        "metago-adversarial-review",
+        "metago-completeness-guard",
+        "metago-veracity-guard"
       ]
     }
-  }
+  },
+  "last_updated": "2026-08-31"
 }

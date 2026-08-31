@@ -45,9 +45,9 @@
     "@types/node": "^22.0.0"
   },
   "metago": {
-    "rules_version": "V36.9.1",
+    "rules_version": "V36.9.3",
     "verification_layers": 7,
-    "defect_hunting_dimensions": 11,
+    "defect_hunting_dimensions": 12,
     "self_discipline_questions": 8
   }
 }

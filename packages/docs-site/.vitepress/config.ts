@@ -5,13 +5,13 @@ import { defineConfig } from "vitepress";
  *
  * 设计原则：
  * - 高维产品的一键体验：30 秒感知整体价值
- * - 结构化导航：39 技能 + 53 tools + 8 公理 有序呈现
+ * - 结构化导航：100 技能 + 110 MCP 工具（53+57）+ 927 算法 · 有序呈现
  * - 深度可达：核心文档站内阅读，理论体系外链
  */
 export default defineConfig({
   lang: "zh-CN",
   title: "MetaGO",
-  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。39 技能 · 53 MCP tools · 8 公理 · Engine V2 · 7 平台适配。",
+  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。100 技能 · 110 MCP 工具（53+57）/ 927 算法 · 10 核心公理 · Engine V2.1.1 · 11 平台形态。",
 
   // 主题配置
   themeConfig: {
@@ -66,7 +66,7 @@ export default defineConfig({
         {
           text: "技能总览",
           items: [
-            { text: "39 技能一览", link: "/skills/overview" },
+            { text: "100 技能一览", link: "/skills/overview" },
           ],
         },
         {

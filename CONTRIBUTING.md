@@ -40,7 +40,7 @@ MetaGO is not a typical npm package. It has three layers:
 
 Before contributing, please read:
 - [README.md](README.md) — What MetaGO is
-- [AGENTS.md](AGENTS.md) — The 16-chapter operating law (the constitution)
+- [AGENTS.md](AGENTS.md) — The operating law (section 0 + chapters 1-20; the constitution)
 - [MANIFESTO.md](MANIFESTO.md) — Why this exists
 
 ---
@@ -90,7 +90,7 @@ npm start
 metago-lifeform/
 ├── core/                   # The operating law (METAGO_CORE.md)
 ├── adapters/               # Platform adapters (trae, claude-code, codex, ...)
-├── skills/                 # 39 built-in skills (metago-* prefix)
+├── skills/                 # 100 built-in skills (metago-* prefix)
 │   ├── metago-critique/
 │   ├── metago-decision-lock/
 │   └── ...
@@ -98,12 +98,15 @@ metago-lifeform/
 │   ├── engine/             # @metago-ai/engine — Engine V2 (KMWI, Evolution, SkillGen)
 │   ├── mcp-server/         # @metago-ai/mcp-server — 53 MCP tools + 8 prompts
 │   ├── dev-kit/            # @metago-ai/dev-kit — Code review, architecture, refactor
+│   ├── algorithms/         # @metago-ai/algorithms — 927 algorithms / 57 MCP tools
+│   ├── verify-kit/         # @metago-ai/verify-kit — 7-layer verification + L8/L9 gates
+│   ├── docs-site/          # docs.metago.life content
 │   ├── dashboard/          # Capability metrics dashboard
 │   └── demo/               # Killer demo
 ├── scripts/                # CLI, install, verify, test scripts
 ├── docs/                   # Living document system (MANIFEST.json, MAP.md)
 ├── assets/                 # Logo and images
-├── AGENTS.md               # The 16-chapter operating law
+├── AGENTS.md               # The operating law (section 0 + chapters 1-20)
 ├── README.md
 ├── LICENSE
 └── package.json
@@ -261,7 +264,7 @@ Every PR must pass:
 ```bash
 node scripts/test-registration-uniqueness.cjs
 ```
-This ensures TOTAL_TOOLS=35 and DUPLICATES=0.
+This ensures the shipped MCP tool registrations are unique and complete (53 + 57 tools) with DUPLICATES=0.
 
 ### Engine V2 Tests
 

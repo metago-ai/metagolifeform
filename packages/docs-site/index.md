@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "MetaGO"
   text: "Agent Harness（驭智层）"
-  tagline: 让 AI 学会自我进化。从工具到生命体的范式跃迁 — 39 技能 · 53 MCP tools · Engine V2。
+  tagline: 让 AI 学会自我进化。从工具到生命体的范式跃迁 — 100 技能 · 110 MCP 工具（53+57）· Engine V2.1.1。
   image:
     src: /logo.svg
     alt: MetaGO
@@ -16,7 +16,7 @@ hero:
       text: 了解 MetaGO
       link: /guide/introduction
     - theme: alt
-      text: 39 技能一览
+      text: 100 技能一览
       link: /skills/overview
 
 features:

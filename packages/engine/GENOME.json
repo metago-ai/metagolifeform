@@ -1,8 +1,8 @@
 {
-  "engine_version": "2.1.0",
-  "metago_version": "V36.9.1",
-  "package_version": "36.9.1",
-  "release_date": "2026-07-26",
+  "engine_version": "2.1.1",
+  "metago_version": "V36.9.3",
+  "package_version": "36.9.3",
+  "release_date": "2026-08-31",
   "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
   "description": "MetaGO Holistic Intelligence Engine - 元构全息智能引擎核心本体",
   "backward_compatibility": ">=1.0.0",
@@ -18,7 +18,9 @@
         "A5",
         "A34",
         "A35",
-        "A36"
+        "A36",
+        "A37",
+        "A38"
       ],
       "immutable": true,
       "file": "CONSTITUTION/AXIOMS.md"
@@ -33,7 +35,9 @@
         "D40",
         "D41",
         "D42",
-        "D43"
+        "D43",
+        "D44",
+        "D45"
       ],
       "evolvable": true,
       "file": "CORE/ATTRIBUTES.md"
@@ -121,6 +125,10 @@
     "cursor",
     "codebuddy",
     "qoder",
-    "zcode"
+    "zcode",
+    "chatgpt-work",
+    "workbuddy",
+    "kimi-code",
+    "kimi-work"
   ]
 }

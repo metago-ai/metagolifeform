@@ -1,6 +1,6 @@
 ---
 doc_id: RELEASE-CHECKLIST
-version: v36.7.13
+version: v36.9.3
 keywords: [release, checklist, publish, npm, gitee, github, ci, cd, vitest]
 related: [STRATEGY-ROADMAP-V36.7.7, MCP_SERVER, STRATEGY-EXECUTION-LOG]
 last_updated: 2026-07-05
@@ -76,6 +76,11 @@ npm test
 - [ ] 所有测试文件都执行（无 silent skip）
 - [ ] `it.todo` 数量符合预期（软性提示，不计入失败）
 
+**36.9.3 起发布前强门（新增）**：
+- [ ] `node scripts/ci-version-gate.cjs` C1-C6 全绿（INDEX/版本戳/术语/frontmatter 一致性硬门）
+- [ ] `node scripts/test-registration-uniqueness.cjs` 通过（MCP 工具注册唯一性）
+- [ ] `powershell scripts/sync-versions.ps1` 检查模式 0 漂移（版本戳统一硬门）
+
 ### 2.3 子包构建矩阵
 
 | 子包 | 路径 | build 命令 | test 命令 |
@@ -101,8 +106,8 @@ npm test
 | 事件上报工具 | 1 | metago_report_event |
 | 合并后 tools 数 | 53 | `22 + 37 - 7 + 1` |
 | prompts 数 | 8 | `src/prompts.ts` PROMPTS.length |
-| skills/ 目录数 | 39 | `Glob skills/*/` |
-| 根 pkg metago.skills | 39 | `package.json#metago.skills` |
+| skills/ 目录数 | 100 | `Glob skills/*/` |
+| 根 pkg metago.skills | 100 | `package.json#metago.skills` |
 | 根 pkg metago.mcpServer.tools | 53 | `package.json#metago.mcpServer.tools` |
 | 根 pkg metago.devKit.skills | 8 | `package.json#metago.devKit.skills` |
 | dev-kit pkg metago.totalSkills | 8 | dev-kit `package.json#metago.totalSkills` |
@@ -120,7 +125,7 @@ npm test
 
 ### 3.2 description 文本检查
 
-- [x] 根 package.json description 含"39 技能"和"53 MCP tools"
+- [x] 根 package.json description 含"100 技能"和"110 MCP 工具（53+57）"
 - [x] mcp-server package.json description 同上
 - [x] 无"42项"残留
 - [x] 无"35项"残留

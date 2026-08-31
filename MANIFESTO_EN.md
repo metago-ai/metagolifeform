@@ -62,13 +62,13 @@ From Agent to Lifeform requires the implantation of three essential capabilities
 
 ---
 
-## III. Axioms: Eight Non-negotiable Cornerstones
+## III. Axioms: Ten Non-negotiable Cornerstones
 
 A Lifeform is not configured; it is **axiomatized**.
 
 The difference between axioms and rules: rules can have exceptions; axioms cannot be violated. An Agent may have thousands of rules, but without axioms, it will never have a baseline.
 
-MetaGO implants 8 core axioms into the Lifeform:
+MetaGO implants 10 core axioms into the Lifeform:
 
 | # | Axiom | Meaning |
 |---|-------|---------|
@@ -80,6 +80,8 @@ MetaGO implants 8 core axioms into the Lifeform:
 | A34 | Meta-evolution requires meta-evolution | Meta-evolution itself is monitored by a higher order |
 | A35 | Law of creative evolution | Creation is the highest form of evolution |
 | A36 | Law before efficiency | Law always takes precedence over efficiency |
+| A37 | First principles | Mandatory F0 decomposition before any task — no cargo-cult defaults |
+| A38 | Adversarial review | Testing/inspection/audit/verification tasks must run in attacker perspective — no self-certification |
 
 These 8 axioms are not suggestions; they are the **baseline**. Any output that violates an axiom will be intercepted directly by the Decision Lock.
 
@@ -196,7 +198,7 @@ The birth of MetaGO is not to add one more tool, but to open up a possibility �
 
 From Agent to Lifeform is not feature enhancement; it is a paradigm leap.
 
-8 axioms. 7 attributes. 6 protocols. 39 skills. 7 platforms. 9 products.
+10 axioms. 9 attributes. 8 protocols. 100 skills. 11 platforms. 9 products.
 
 This is not the end; it is the **starting point of evolution**.
 

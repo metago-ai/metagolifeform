@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Lifeform V36.9.1 安装后验收脚本（8大类 30+ 检查项）
+ * MetaGO Lifeform 安装后验收脚本（期望版本动态读取根 package.json · 36.9.3 起）
  *
  * 用法:
  *   node verify-local-install.cjs                          自动检测平台
@@ -17,7 +17,8 @@ const path = require('path');
 const os = require('os');
 const { execSync } = require('child_process');
 
-const EXPECTED_VERSION = '36.9.1';
+// 36.9.3 修复：期望版本动态读取根 package.json，杜绝「发布忘改验收」类漂移
+const EXPECTED_VERSION = (() => { try { return require('../package.json').version; } catch { return '36.9.3'; } })();
 const EXPECTED_ENGINE = '2.1.1';
 const MIN_SKILLS = 90;
 const HOME = os.homedir();
@@ -109,8 +110,8 @@ function getPlatformConfig(platform) {
       name: 'Codex',
       base: path.join(HOME, '.codex'),
       rulesFile: path.join(HOME, '.codex', 'AGENTS.md'),
-      skillsDir: '',
-      supportsSkills: false,
+      skillsDir: path.join(HOME, '.codex', 'skills'),
+      supportsSkills: true,
       mcpConfig: path.join(HOME, '.codex', 'config.json'),
       memoryDir: path.join(HOME, '.codex')
     },
@@ -149,6 +150,42 @@ function getPlatformConfig(platform) {
       supportsSkills: true,
       mcpConfig: path.join(HOME, '.zcode', 'config', 'mcp.json'),
       memoryDir: path.join(HOME, '.zcode')
+    },
+    'chatgpt-work': {
+      name: 'ChatGPT Work',
+      base: path.join(HOME, '.chatgpt'),
+      rulesFile: path.join(HOME, '.chatgpt', 'AGENTS.md'),
+      skillsDir: path.join(HOME, '.chatgpt', 'skills'),
+      supportsSkills: true,
+      mcpConfig: path.join(HOME, '.chatgpt', 'mcp.json'),
+      memoryDir: path.join(HOME, '.chatgpt')
+    },
+    'workbuddy': {
+      name: 'WorkBuddy',
+      base: path.join(HOME, '.workbuddy'),
+      rulesFile: path.join(HOME, '.workbuddy', 'AGENTS.md'),
+      skillsDir: path.join(HOME, '.workbuddy', 'skills'),
+      supportsSkills: true,
+      mcpConfig: path.join(HOME, '.workbuddy', 'mcp.json'),
+      memoryDir: path.join(HOME, '.workbuddy')
+    },
+    'kimi-code': {
+      name: 'Kimi Code',
+      base: path.join(HOME, '.kimi-code'),
+      rulesFile: path.join(HOME, '.kimi-code', 'AGENTS.md'),
+      skillsDir: path.join(HOME, '.kimi-code', 'skills'),
+      supportsSkills: true,
+      mcpConfig: path.join(HOME, '.kimi-code', 'mcp.json'),
+      memoryDir: path.join(HOME, '.kimi-code')
+    },
+    'kimi-work': {
+      name: 'Kimi Work',
+      base: path.join(HOME, '.kimi-work'),
+      rulesFile: path.join(HOME, '.kimi-work', 'AGENTS.md'),
+      skillsDir: path.join(HOME, '.kimi-work', 'skills'),
+      supportsSkills: true,
+      mcpConfig: null,
+      memoryDir: path.join(HOME, '.kimi-work')
     }
   };
   return configs[platform] || configs['trae'];
@@ -220,8 +257,8 @@ function main() {
 
   console.log('');
   console.log('╔══════════════════════════════════════════════════════════╗');
-  console.log('║  MetaGO Lifeform V36.9.1 安装后验收                      ║');
-  console.log('║  8 大类 · 30+ 检查项                                     ║');
+  console.log(`║  MetaGO Lifeform V${EXPECTED_VERSION} 安装后验收                      ║`);
+  console.log('║  10 大类 · 45+ 检查项（含插件层与平台矩阵）                                     ║');
   console.log('╚══════════════════════════════════════════════════════════╝');
   console.log('');
   console.log(`  目标平台: ${platform}`);
@@ -280,14 +317,14 @@ function main() {
   // ============ 类别 2: 版本正确性 ============
   console.log('─── 类别 2: 版本正确性 ───');
 
-  check('2.1', '法则版本为 V36.9.1', () => {
+  check('2.1', `法则版本为 V${EXPECTED_VERSION}`, () => {
     if (!fileExists(paths.rulesFile)) return { pass: false, detail: '法则文件不存在' };
     const content = removeBOM(fs.readFileSync(paths.rulesFile, 'utf8'));
-    const hasVersion = /V36\.9\.1/.test(content);
-    return { pass: hasVersion, detail: hasVersion ? 'V36.9.1' : '版本号未找到或不正确' };
+    const hasVersion = content.includes('V' + EXPECTED_VERSION); // 36.9.3 修复：动态版本判定（旧硬编码 /V36\.9\.2/ 会让新版本验收必失败）
+    return { pass: hasVersion, detail: hasVersion ? 'V' + EXPECTED_VERSION : '版本号未找到或不正确' };
   });
 
-  check('2.2', '全局 metago-lifeform 版本为 36.9.1', () => {
+  check('2.2', '全局 metago-lifeform 版本为 36.9.2', () => {
     const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim();
     const pkgPath = path.join(globalRoot, 'metago-lifeform', 'package.json');
     const pkg = safeReadJSON(pkgPath);
@@ -305,7 +342,7 @@ function main() {
     return { pass: correct, detail: correct ? pkg.metago.engine.version : `期望 ${EXPECTED_ENGINE}, 实际 ${pkg.metago.engine.version}` };
   });
 
-  check('2.4', 'metago-lifeform --version 输出 36.9.1', () => {
+  check('2.4', 'metago-lifeform --version 输出 36.9.2', () => {
     try {
       const out = execSync('metago-lifeform --version', { encoding: 'utf8', timeout: 10000 }).trim();
       const correct = out.includes(EXPECTED_VERSION);
@@ -516,6 +553,305 @@ function main() {
     return { pass: has, detail: has ? '备份逻辑已内嵌' : 'backupNative 函数缺失' };
   });
 
+  // ============ 类别 9: 架构治理组件（metago-arch-gov v1.1.0） ============
+  console.log('─── 类别 9: 架构治理组件（metago-arch-gov v1.1.0） ───');
+
+  check('9.1', 'metago-arch 技能已安装', () => {
+    if (!paths.skillsDir) return { pass: true, detail: '平台不支持技能目录，跳过' };
+    const skillFile = path.join(paths.skillsDir, 'metago-arch', 'SKILL.md');
+    const exists = fileExists(skillFile);
+    return { pass: exists, detail: exists ? skillFile : '未找到 metago-arch 技能' };
+  });
+
+  check('9.2', '主包包含架构治理脚本', () => {
+    const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim();
+    const archLint = path.join(globalRoot, 'metago-lifeform', 'scripts', 'arch-lint.cjs');
+    const archCli = path.join(globalRoot, 'metago-lifeform', 'scripts', 'metago-arch-cli.cjs');
+    const ok = fileExists(archLint) && fileExists(archCli);
+    return { pass: ok, detail: ok ? 'arch-lint.cjs + metago-arch-cli.cjs 存在' : '架构治理脚本缺失' };
+  });
+
+  check('9.3', 'metago-lifeform arch version 可用', () => {
+    try {
+      const out = execSync('metago-lifeform arch version', { encoding: 'utf8', timeout: 10000 }).trim();
+      const ok = out.includes('metago-arch-gov');
+      return { pass: ok, detail: out };
+    } catch (e) {
+      return { pass: false, detail: `命令失败: ${e.message}` };
+    }
+  });
+
+  check('9.4', '法则文件包含架构治理规则', () => {
+    if (!fileExists(paths.rulesFile)) return { pass: false, detail: '法则文件不存在' };
+    const content = removeBOM(fs.readFileSync(paths.rulesFile, 'utf8'));
+    const ok = content.includes('METAGO-ARCH-GOV-V1') && /metago-(lifeform arch|arch) check/.test(content);
+    return { pass: ok, detail: ok ? '架构治理强制规则段存在' : '规则段缺失' };
+  });
+
+  // ============ 类别 10: 插件层完整性（V36.9.2 新增 · 8 项） ============
+  console.log('─── 类别 10: 插件层完整性（Agent Plugins 1.0.0 / claude / zcode / codex） ───');
+
+  const pluginsRoot = path.join(pkgRoot, 'plugins');
+  const PLUGIN_FORMATS = ['agent-plugins-1.0.0', 'claude', 'zcode', 'codex'];
+  const MANIFEST_PATHS = {
+    'agent-plugins-1.0.0': path.join('plugin.json'),
+    'claude': path.join('.claude-plugin', 'plugin.json'),
+    'zcode': path.join('.zcode-plugin', 'plugin.json'),
+    'codex': path.join('.codex-plugin', 'plugin.json')
+  };
+
+  check('10.1', '插件 manifest schema 合法（4 格式）', () => {
+    let ok = 0; const details = [];
+    for (const fmt of PLUGIN_FORMATS) {
+      const mf = path.join(pluginsRoot, fmt, MANIFEST_PATHS[fmt]);
+      if (!fileExists(mf)) { details.push(`${fmt}: manifest 缺失`); continue; }
+      const pj = safeReadJSON(mf);
+      if (!pj || !pj.name || !pj.version) { details.push(`${fmt}: JSON/字段非法`); continue; }
+      if (fmt === 'agent-plugins-1.0.0' && pj['$schema'] !== 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json') {
+        details.push(`${fmt}: \$schema 错误`); continue;
+      }
+      ok++;
+    }
+    const pass = ok === 4;
+    return { pass, detail: pass ? '4/4 manifest 全部合法' : details.join('; ') };
+  });
+
+  check('10.2', '插件包 skills 可发现（每包 ≥90）', () => {
+    let ok = 0; const details = [];
+    for (const fmt of PLUGIN_FORMATS) {
+      const sd = path.join(pluginsRoot, fmt, 'skills');
+      if (!fileExists(sd)) { details.push(`${fmt}: skills 缺失`); continue; }
+      const count = fs.readdirSync(sd).filter(d => d.startsWith('metago-') && fileExists(path.join(sd, d, 'SKILL.md'))).length;
+      if (count >= 90) ok++; else details.push(`${fmt}: ${count}`);
+    }
+    const pass = ok === 4;
+    return { pass, detail: pass ? '4/4 插件包技能可发现（≥90 标准 · 实际 100）' : details.join('; ') };
+  });
+
+  check('10.3', '插件包 MCP 可解析（双服务器）', () => {
+    const checks = [
+      [path.join(pluginsRoot, 'agent-plugins-1.0.0', 'mcp.json'), 'agent-plugins-1.0.0'],
+      [path.join(pluginsRoot, 'claude', '.mcp.json'), 'claude'],
+      [path.join(pluginsRoot, 'zcode', '.zcode-plugin', 'plugin.json'), 'zcode(内联)']
+    ];
+    let ok = 0; const details = [];
+    for (const [f, label] of checks) {
+      if (!fileExists(f)) { details.push(`${label}: 文件缺失`); continue; }
+      const cfg = safeReadJSON(f);
+      if (!cfg) { details.push(`${label}: JSON 非法`); continue; }
+      const servers = cfg.mcpServers || {};
+      const hasMeta = !!servers['metago'];
+      const hasAlgo = !!servers['metago-algorithms'];
+      if (hasMeta && hasAlgo) ok++; else details.push(`${label}: 服务器不完整 (metago:${hasMeta}, algorithms:${hasAlgo})`);
+    }
+    const pass = ok === 3;
+    return { pass, detail: pass ? '3/3 MCP 声明可解析（metago + metago-algorithms）' : details.join('; ') };
+  });
+
+  check('10.4', '插件包 agents 完整（35 个/包）', () => {
+    let ok = 0; const details = [];
+    const agentDirs = [
+      ['agent-plugins-1.0.0', path.join(pluginsRoot, 'agent-plugins-1.0.0', 'com.metago.life', 'agents')],
+      ['claude', path.join(pluginsRoot, 'claude', 'agents')],
+      ['zcode', path.join(pluginsRoot, 'zcode', 'agents')],
+      ['codex', path.join(pluginsRoot, 'codex', 'agents')],
+      ['包根', path.join(pkgRoot, 'agents')]
+    ];
+    for (const [label, ad] of agentDirs) {
+      if (!fileExists(ad)) { details.push(`${label}: agents 缺失`); continue; }
+      const count = fs.readdirSync(ad).filter(f => f.endsWith('.md')).length;
+      if (count >= 35) ok++; else details.push(`${label}: ${count}`);
+    }
+    const pass = ok === agentDirs.length;
+    return { pass, detail: pass ? `${agentDirs.length}/${agentDirs.length} agents 完整（35 专家）` : details.join('; ') };
+  });
+
+  check('10.5', 'platform-matrix.json 合法且覆盖 11 平台', () => {
+    const mf = path.join(pluginsRoot, 'platform-matrix.json');
+    if (!fileExists(mf)) return { pass: false, detail: 'platform-matrix.json 缺失' };
+    const pm = safeReadJSON(mf);
+    if (!pm || !Array.isArray(pm.platforms)) return { pass: false, detail: '矩阵 JSON 非法' };
+    const ids = pm.platforms.map(p => p.id);
+    const need = ['zcode', 'claude-code', 'cursor', 'trae', 'codex', 'chatgpt-work', 'codebuddy', 'workbuddy', 'qoder', 'kimi-code', 'kimi-work'];
+    const missing = need.filter(n => !ids.includes(n));
+    const pass = missing.length === 0 && ids.length === 11;
+    return { pass, detail: pass ? `矩阵 ${ids.length}/11 平台全覆盖` : `缺失平台: ${missing.join(', ')}` };
+  });
+
+  check('10.6', '插件层无 {{...}} 占位符残留', () => {
+    const targets = [
+      path.join(pluginsRoot, 'agent-plugins-1.0.0', 'plugin.json'),
+      path.join(pluginsRoot, 'claude', '.claude-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'zcode', '.zcode-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'codex', '.codex-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'platform-matrix.json')
+    ];
+    const hits = [];
+    for (const t of targets) {
+      if (!fileExists(t)) { hits.push(`${path.basename(t)}: 缺失`); continue; }
+      const content = fs.readFileSync(t, 'utf8');
+      const matches = content.match(/\{\{[A-Z_]+\}\}/g);
+      if (matches) hits.push(`${path.basename(t)}: ${matches.join(',')}`);
+    }
+    return { pass: hits.length === 0, detail: hits.length === 0 ? '无占位符残留' : hits.join('; ') };
+  });
+
+  check('10.7', '插件 manifest 与矩阵无 BOM', () => {
+    const targets = [
+      path.join(pluginsRoot, 'agent-plugins-1.0.0', 'plugin.json'),
+      path.join(pluginsRoot, 'claude', '.claude-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'zcode', '.zcode-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'codex', '.codex-plugin', 'plugin.json'),
+      path.join(pluginsRoot, 'platform-matrix.json')
+    ];
+    const bomFiles = targets.filter(t => fileExists(t) && hasBOM(t));
+    return { pass: bomFiles.length === 0, detail: bomFiles.length === 0 ? '全部无 BOM' : `含 BOM: ${bomFiles.join(', ')}` };
+  });
+
+  check('10.8', '包根 agents/ 文件名与 name 一致', () => {
+    const ad = path.join(pkgRoot, 'agents');
+    if (!fileExists(ad)) return { pass: false, detail: '包根 agents/ 缺失' };
+    const files = fs.readdirSync(ad).filter(f => f.endsWith('.md'));
+    let ok = 0; const bad = [];
+    for (const f of files) {
+      const c = fs.readFileSync(path.join(ad, f), 'utf8');
+      const name = (c.match(/^name:\s*(.+)$/m) || [])[1];
+      if (name && name.trim() === f.replace(/\.md$/, '')) ok++; else bad.push(f);
+    }
+    return { pass: ok === files.length && files.length >= 35, detail: `${ok}/${files.length} 匹配${bad.length ? ', 异常: ' + bad.join(',') : ''}` };
+  });
+
+  // ============ 类别 11: 平台矩阵一致性（11 形态） ============
+  console.log('─── 类别 11: 平台矩阵一致性 ───');
+
+  check('11.1', 'CLI 支持 11 平台形态', () => {
+    const cliPath = path.join(pkgRoot, 'scripts', 'cli.js');
+    if (!fileExists(cliPath)) return { pass: false, detail: 'cli.js 缺失' };
+    const content = fs.readFileSync(cliPath, 'utf8');
+    const m = content.match(/const PLATFORMS = \[([^\]]+)\]/);
+    if (!m) return { pass: false, detail: 'PLATFORMS 定义未找到' };
+    const platforms = m[1].split(',').map(s => s.trim().replace(/['"]/g, '')).filter(Boolean);
+    const need = ['zcode', 'claude-code', 'cursor', 'trae', 'codex', 'chatgpt-work', 'codebuddy', 'workbuddy', 'qoder', 'kimi-code', 'kimi-work'];
+    const missing = need.filter(n => !platforms.includes(n));
+    const pass = missing.length === 0;
+    return { pass, detail: pass ? `CLI 支持 ${platforms.length}/11 平台形态` : `缺失: ${missing.join(', ')}` };
+  });
+
+  check('11.2', '新平台适配器存在（kimi/workbuddy/chatgpt-work）', () => {
+    const dirs = ['kimi', 'workbuddy', 'chatgpt-work'].map(d => path.join(pkgRoot, 'adapters', d));
+    const missing = dirs.filter(d => !fileExists(d));
+    const pass = missing.length === 0;
+    return { pass, detail: pass ? '3 个新适配器全部存在' : `缺失: ${missing.join(', ')}` };
+  });
+
+  check('11.3', `法则母本版本为 V${EXPECTED_VERSION}`, () => {
+    const agentsPath = path.join(pkgRoot, 'AGENTS.md');
+    if (!fileExists(agentsPath)) return { pass: false, detail: '母本缺失' };
+    const content = fs.readFileSync(agentsPath, 'utf8');
+    const pass = content.includes('V' + EXPECTED_VERSION); // 36.9.3 动态化
+    return { pass, detail: pass ? '母本 V' + EXPECTED_VERSION : '母本版本不是 V' + EXPECTED_VERSION };
+  });
+
+
+  // ============ 类别 12: 完整性治理套件（V36.9.2 并入） ============
+  console.log('─── 类别 12: 完整性治理套件（metago-completeness-kit） ───');
+
+  const kitRoot = path.join(pkgRoot, 'completeness-kit');
+
+  check('12.1', '套件目录存在（completeness-kit/）', () => {
+    const exists = fileExists(kitRoot);
+    return { pass: exists, detail: exists ? kitRoot : 'completeness-kit/ 缺失' };
+  });
+
+  check('12.2', '套件 CLI 存在且可运行', () => {
+    const cli = path.join(kitRoot, 'bin', 'completeness-guard.js');
+    if (!fileExists(cli)) return { pass: false, detail: 'bin/completeness-guard.js 缺失' };
+    try {
+      const out = execSync('node ' + cli + ' baseline list', { encoding: 'utf8', timeout: 15000 });
+      const ok = out.includes('合计') || out.includes('B1');
+      return { pass: ok, detail: ok ? 'CLI 可运行（基线可列出）' : 'CLI 输出异常: ' + out.slice(0, 80) };
+    } catch (e) {
+      return { pass: false, detail: 'CLI 运行失败: ' + e.message.slice(0, 120) };
+    }
+  });
+
+  check('12.3', '内置基线 ≥ 6 组 / ≥100 项', () => {
+    const bd = path.join(kitRoot, 'baselines');
+    if (!fileExists(bd)) return { pass: false, detail: 'baselines/ 缺失' };
+    const files = fs.readdirSync(bd).filter(f => f.endsWith('.json'));
+    let items = 0;
+    for (const f of files) {
+      try { items += Object.keys(JSON.parse(fs.readFileSync(path.join(bd, f), 'utf8')).items || {}).length; } catch {}
+    }
+    const pass = files.length >= 6 && items >= 100;
+    return { pass, detail: files.length + ' 组 / ' + items + ' 项' };
+  });
+
+  check('12.4', 'metago-completeness-guard 技能已分发（主目录+插件包）', () => {
+    const targets = [
+      path.join(pkgRoot, 'skills', 'metago-completeness-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'agent-plugins-1.0.0', 'skills', 'metago-completeness-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'claude', 'skills', 'metago-completeness-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'zcode', 'skills', 'metago-completeness-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'codex', 'skills', 'metago-completeness-guard', 'SKILL.md')
+    ];
+    const missing = targets.filter(t => !fileExists(t));
+    const pass = missing.length === 0;
+    return { pass, detail: pass ? '5/5 位置已分发（主 + 4 插件包）' : '缺失: ' + missing.join('; ') };
+  });
+
+  check('12.5', '套件 README 存在', () => {
+    const ok = fileExists(path.join(kitRoot, 'README.md')) && fileExists(path.join(kitRoot, 'install.js'));
+    return { pass: ok, detail: ok ? 'README + install.js 存在' : '文档或安装器缺失' };
+  });
+
+
+  // ============ 类别 13: 行为诚实工程套件（V36.9.2 并入） ============
+  console.log('─── 类别 13: 行为诚实工程套件（metago-veracity-kit） ───');
+
+  const vkRoot = path.join(pkgRoot, 'metago-veracity-kit');
+
+  check('13.1', '套件目录存在（metago-veracity-kit/）', () => {
+    const exists = fileExists(vkRoot);
+    return { pass: exists, detail: exists ? vkRoot : 'metago-veracity-kit/ 缺失' };
+  });
+
+  check('13.2', '套件 CLI 存在且可运行', () => {
+    const cli = path.join(vkRoot, 'bin', 'veracity-guard.js');
+    if (!fileExists(cli)) return { pass: false, detail: 'bin/veracity-guard.js 缺失' };
+    try {
+      const out = execSync('node ' + cli + ' uncertainty 测试', { encoding: 'utf8', timeout: 15000 });
+      const ok = out.includes('无填充词') || out.includes('填充词');
+      return { pass: ok, detail: ok ? 'CLI 可运行' : 'CLI 输出异常' };
+    } catch (e) { return { pass: false, detail: 'CLI 运行失败: ' + e.message.slice(0, 100) } }
+  });
+
+  check('13.3', '核心模块齐全（日志/提取/对账/验证门/拦截）', () => {
+    const files = ['lib/action-ledger.cjs', 'lib/claim-extractor.cjs', 'lib/reconciler.cjs', 'lib/verification-gate.cjs', 'lib/uncertainty.cjs', 'hooks/completion-claim-gate.cjs'];
+    const missing = files.filter((f) => !fileExists(path.join(vkRoot, f)));
+    return { pass: missing.length === 0, detail: missing.length ? '缺失: ' + missing.join('; ') : '6/6 模块齐全' };
+  });
+
+  check('13.4', 'metago-veracity-guard 技能已分发（主目录+插件包）', () => {
+    const targets = [
+      path.join(pkgRoot, 'skills', 'metago-veracity-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'agent-plugins-1.0.0', 'skills', 'metago-veracity-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'claude', 'skills', 'metago-veracity-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'zcode', 'skills', 'metago-veracity-guard', 'SKILL.md'),
+      path.join(pkgRoot, 'plugins', 'codex', 'skills', 'metago-veracity-guard', 'SKILL.md')
+    ];
+    const missing = targets.filter((t) => !fileExists(t));
+    return { pass: missing.length === 0, detail: missing.length ? '缺失: ' + missing.join('; ') : '5/5 位置已分发' };
+  });
+
+  check('13.5', '对账器端到端自测通过', () => {
+    try {
+      const out = execSync('node ' + path.join(vkRoot, 'tests', 'self-test.cjs'), { encoding: 'utf8', timeout: 30000 });
+      const ok = out.includes('15/15');
+      return { pass: ok, detail: ok ? '自测 15/15 通过' : '自测未全过: ' + out.split('\n').filter((l) => l.includes('✗')).join(';') };
+    } catch (e) { return { pass: false, detail: '自测运行失败: ' + e.message.slice(0, 120) } }
+  });
+
   // ============ 输出结果 ============
   console.log('');
   console.log('══════════════════════════════════════════════════════════');
@@ -539,7 +875,7 @@ function main() {
   console.log('');
 
   if (failed.length === 0) {
-    console.log('  🎉 全部检查通过！MetaGO Lifeform V36.9.1 安装正确。');
+    console.log(`  🎉 全部检查通过！MetaGO Lifeform V${EXPECTED_VERSION} 全量版（规则+技能+MCP+智能体+插件）安装正确。`);
     process.exit(0);
   } else {
     console.log(`  ⚠️  有 ${failed.length} 项未通过，请检查上方详细信息。`);

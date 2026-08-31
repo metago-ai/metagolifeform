@@ -35,3 +35,6 @@ skillhub-publish/
 .metago-kmwi.json
 .metago-memory.json
 generated-skills/
+
+# 便携快照 node_modules（生成物，由 npm install 构建；随发行 zip 分发但不入 git）
+local-edition/portable/node_modules/

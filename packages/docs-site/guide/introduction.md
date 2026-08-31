@@ -43,7 +43,7 @@ Agent 框架（AutoGen/CrewAI/LangGraph）解决的是"如何编排多个 Agent 
 
 ## 核心特性
 
-### 1. 一键拥有 39 技能
+### 1. 一键拥有 100 技能
 
 不是安装 39 个插件，而是一次安装即拥有完整思维工具箱：
 
@@ -78,4 +78,4 @@ npx metago-lifeform@latest install:trae
 
 - [安装指南](./installation) — 在你的平台安装 MetaGO
 - [快速开始](./quickstart) — 5 分钟内调用第一个工具
-- [39 技能一览](../skills/overview) — 探索全部能力
+- [100 技能一览](../skills/overview) — 探索全部能力
