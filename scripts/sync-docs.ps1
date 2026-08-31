@@ -1,4 +1,4 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 <#
 .SYNOPSIS
     MetaGO living-doc sync script (sync-docs.ps1)
@@ -43,7 +43,8 @@ $OutputEncoding = $utf8NoBom
 # --- locate docs/ and package.json via $PSScriptRoot (no Chinese literals) ---
 $scriptDir = $PSScriptRoot
 if (-not $scriptDir) { $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition }
-$docsDirObj = Resolve-Path -LiteralPath (Join-Path $scriptDir '..\..\docs')
+# 36.9.3 修复：docs 为仓库根直下（scripts/../docs）；旧写法 ..\..\docs 会跳出仓库
+$docsDirObj = Resolve-Path -LiteralPath (Join-Path $scriptDir '..\docs')
 $pkgPathObj = Resolve-Path -LiteralPath (Join-Path $scriptDir '..\package.json')
 $skillsDir  = Join-Path $scriptDir '..\skills'
 $docsDir    = $docsDirObj.Path

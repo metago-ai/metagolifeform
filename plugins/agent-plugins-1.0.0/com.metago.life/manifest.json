@@ -1,0 +1,32 @@
+{
+  "namespace": "com.metago.life",
+  "plugin": "metago-lifeform",
+  "version": "36.9.3",
+  "description": "元构专属扩展目录（Agent Plugins 1.0.0 规范：com.* 反域名命名空间，其他客户端忽略，仅元构生态读取）",
+  "components": {
+    "agents": {
+      "path": "agents",
+      "count": 35,
+      "format": "claude-compatible-subagent",
+      "note": "35 个元构专家团子智能体（品致远/设灵感等）。Agent Plugins 1.0.0 v1 不含 agents 组件，本目录供支持 subagent 的客户端（Claude Code/ZCode 系）直接加载。"
+    },
+    "law": {
+      "path": "law",
+      "note": "元构运行法则副本（AGENTS.md V36.9.3），供支持指令注入的客户端引用"
+    },
+    "commands": {
+      "path": "commands",
+      "format": "slash-command-markdown",
+      "note": "元构 slash 命令（安装后生成）"
+    },
+    "hooks": {
+      "path": "hooks",
+      "format": "decision-lock-hooks",
+      "note": "决策锁/合规钩子（仅支持 hooks 的客户端启用）"
+    }
+  },
+  "install": {
+    "npmLayer": "先安装 npm 全局层（6 个包），MCP 命令 metago-mcp-server / metago-algorithms 依赖 PATH",
+    "docs": "见本发行版 local-edition/INSTALL.local.md 与 docs/PLUGINS.md"
+  }
+}

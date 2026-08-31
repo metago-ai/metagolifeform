@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "ledger": {
+    "file": "~/.metago/veracity/action-ledger.jsonl",
+    "readonly": true,
+    "maxEntries": 10000
+  },
+  "reconcile": {
+    "windowMinutes": 120,
+    "thresholdPercent": 100
+  },
+  "verification": {
+    "listRequired": true,
+    "timeoutMs": 120000
+  },
+  "completionWords": ["已完成", "全部完成", "100%完成", "完美", "交付完成", "任务完成", "全部实现", "全部搞定", "圆满完成", "已经全部"],
+  "uncertaintyFillers": ["应该没问题", "应该可以", "大概没问题", "可能没问题", "应该是没问题", "理论上没问题", "应该能", "大概率没问题"]
+}

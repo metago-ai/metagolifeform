@@ -1,9 +1,9 @@
-<#
+﻿<#
 .SYNOPSIS
-    MetaGO Agent Harness 一键安装脚本（V36.9.1 - 转发到 cli.js）
+    MetaGO Agent Harness 一键安装脚本（V36.9.3 - 转发到 cli.js）
 
 .DESCRIPTION
-    支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode。
+    支持 11 大平台形态：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode / ChatGPT Work / WorkBuddy / Kimi Code / Kimi Work（逻辑统一在 cli.js，此脚本为转发壳）。
     所有逻辑已统一到 node cli.js install 实现，包含：
     - 自动备份旧配置到 ~/.metago-backups/
     - 动态生成平台法则（第十八章清单自动注入）

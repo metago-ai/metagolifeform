@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "metago": {
+      "command": "metago-mcp-server",
+      "args": []
+    },
+    "metago-algorithms": {
+      "command": "metago-algorithms",
+      "args": []
+    }
+  }
+}

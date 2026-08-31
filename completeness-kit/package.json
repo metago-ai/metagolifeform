@@ -1,0 +1,28 @@
+{
+  "name": "metago-completeness-kit",
+  "version": "1.0.0",
+  "description": "元构完整性治理套件（MetaGO Completeness Kit）— 把\"完整性\"从主观断言变成可安装、可配置、可强制生效的机器检查。验证引擎 + 活基线 + 完整性雷达 + 缺口登记册 + 强制门（hooks/CLI）。适用于任何 Agent 与任何交付物（架构方案/代码/文档/报告）。",
+  "bin": {
+    "completeness-guard": "bin/completeness-guard.js"
+  },
+  "main": "lib/engine.js",
+  "scripts": {
+    "verify": "node bin/completeness-guard.js verify",
+    "init": "node bin/completeness-guard.js init",
+    "gaps": "node bin/completeness-guard.js gaps",
+    "radar": "node bin/completeness-guard.js radar",
+    "declaration": "node bin/completeness-guard.js declaration"
+  },
+  "keywords": ["metago", "completeness", "governance", "verification", "quality-gate", "agent"],
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
+  "license": "MIT",
+  "engines": { "node": ">=16.0.0" },
+  "metago": {
+    "version": "1.0.0",
+    "component": "完整性治理套件（Completeness Kit）",
+    "governance": {
+      "layers": ["skill-injection", "config-enforcement", "hooks-hard-gate", "cli-gate"],
+      "forbiddenDeclarations": ["绝对完整", "100%完美", "100%完整", "不会再缺", "不可能有遗漏", "绝对100%"]
+    }
+  }
+}

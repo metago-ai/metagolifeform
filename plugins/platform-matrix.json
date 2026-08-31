@@ -1,0 +1,134 @@
+{
+  "$schema": "https://metago.life/schemas/platform-matrix.schema.json",
+  "version": "36.9.2",
+  "generated": "2026-08-12",
+  "legend": {
+    "native": "✅ 原生支持",
+    "compat": "⚠️ 走兼容目录或按能力最小适配",
+    "none": "❌ 平台无此通道（如实标注）"
+  },
+  "platforms": [
+    {
+      "id": "zcode",
+      "name": "ZCode",
+      "rules": "~/.zcode/AGENTS.md",
+      "skills": { "support": "native", "path": "~/.zcode/skills/" },
+      "agents": { "support": "native", "path": "~/.zcode/agents/" },
+      "mcp": { "support": "native", "path": "~/.zcode/cli/config.json → mcp.servers" },
+      "plugins": [".zcode-plugin/plugin.json", ".claude-plugin/plugin.json"],
+      "notes": "ZCode 官方用户级子智能体目录 ~/.zcode/agents/；用户级指令文件是 AGENTS.md（非 CLAUDE.md）"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "rules": "~/.claude/CLAUDE.md",
+      "skills": { "support": "native", "path": "~/.claude/skills/" },
+      "agents": { "support": "native", "path": "~/.claude/agents/" },
+      "mcp": { "support": "native", "path": ".mcp.json / claude_desktop_config.json" },
+      "plugins": [".claude-plugin/plugin.json"],
+      "notes": "Anthropic 插件 SDK 创始平台；插件可含 skills/agents/commands/hooks/.mcp.json"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "rules": ".cursor/rules/*.mdc",
+      "skills": { "support": "native", "path": "~/.cursor/skills/、.cursor/skills/、.agents/skills/（Cursor 2.4+ 扫描 SKILL.md）" },
+      "agents": { "support": "compat", "path": ".agents/（兼容目录，按版本支持）" },
+      "mcp": { "support": "native", "path": ".cursor/mcp.json" },
+      "plugins": ["Agent Plugins 1.0.0（根 plugin.json）"],
+      "notes": "Cursor 2.4（2026-01-22）起原生扫描 SKILL.md；Anysphere 为 Agent Plugins 1.0.0 发起方之一"
+    },
+    {
+      "id": "trae",
+      "name": "Trae",
+      "rules": "AGENTS.md（项目根）",
+      "skills": { "support": "native", "path": "~/.trae-cn/skills/" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "~/.trae-cn/User/mcp.json" },
+      "plugins": ["⚠️ VS Code 风格扩展（按能力）"],
+      "notes": "扩展市场为 VS Code 风格；技能与 MCP 原生支持"
+    },
+    {
+      "id": "codex",
+      "name": "OpenAI Codex",
+      "rules": "~/.codex/AGENTS.md",
+      "skills": { "support": "native", "path": "~/.codex/skills/、~/.agents/skills/（4 层发现）" },
+      "agents": { "support": "compat", "path": "~/.agents/（兼容目录）" },
+      "mcp": { "support": "native", "path": "~/.codex/config.toml" },
+      "plugins": [".codex-plugin/plugin.json", "Agent Plugins 1.0.0"],
+      "notes": "OpenAI 为 Agent Plugins 1.0.0 发起方；.codex-plugin/ 为兼容命名空间"
+    },
+    {
+      "id": "chatgpt-work",
+      "name": "ChatGPT Work",
+      "rules": "AGENTS.md",
+      "skills": { "support": "native", "path": "技能目录（SKILL.md 格式）" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "客户端 MCP 配置" },
+      "plugins": ["Agent Plugins 1.0.0"],
+      "notes": "ChatGPT 为 Agent Plugins 1.0.0 兼容客户端（发布时列名）"
+    },
+    {
+      "id": "codebuddy",
+      "name": "CodeBuddy",
+      "rules": "CODEBUDDY.md",
+      "skills": { "support": "native", "path": "平台技能目录" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "~/.codebuddy/mcp.json" },
+      "plugins": ["⚠️ 自家格式（按能力）"],
+      "notes": "腾讯 CodeBuddy；支持 MCP 与技能目录"
+    },
+    {
+      "id": "workbuddy",
+      "name": "WorkBuddy",
+      "rules": "规则文件（AGENTS.md 兼容）",
+      "skills": { "support": "native", "path": "平台技能目录（SKILL.md 格式）" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "客户端 MCP 配置" },
+      "plugins": ["⚠️ 自家格式（按能力）"],
+      "notes": "WorkBuddy 形态适配（CodeBuddy 同族产品）"
+    },
+    {
+      "id": "qoder",
+      "name": "Qoder",
+      "rules": "rules/metago.md",
+      "skills": { "support": "native", "path": "平台技能目录" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "~/.qoder/mcp.json" },
+      "plugins": ["⚠️ 自家格式（按能力）"],
+      "notes": "奇舞团 Qoder；规则落点 rules/metago.md"
+    },
+    {
+      "id": "kimi-code",
+      "name": "Kimi Code",
+      "rules": "AGENTS.md（kimi-code home 与工作区根）",
+      "skills": { "support": "native", "path": "daimon 技能目录（…/daimon-share/daimon/skills/）" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "native", "path": "kimi-code CLI（标准 MCP 客户端）" },
+      "plugins": ["❌ 无插件通道（技能+法则生效）"],
+      "notes": "Kimi CLI 支持标准 MCP；桌面版不注入自定义 MCP 工具（官方限制）"
+    },
+    {
+      "id": "kimi-work",
+      "name": "Kimi Work",
+      "rules": "AGENTS.md",
+      "skills": { "support": "native", "path": "daimon 技能目录" },
+      "agents": { "support": "compat", "path": "按能力最小适配" },
+      "mcp": { "support": "none", "path": "❌ 桌面版不注入自定义 MCP（已知限制）" },
+      "plugins": ["❌ 无插件通道（技能+法则生效）"],
+      "notes": "Kimi Work 桌面版当前构建不向会话注入自定义 MCP 工具（官方插件 MCP 同样不注入）"
+    }
+  ],
+  "resources": {
+    "skills": { "count": 98, "source": "skills/（SKILL.md 标准格式，字节级跨平台兼容）" },
+    "agents": { "count": 35, "source": "agents/（Claude 兼容子智能体格式，Agent Plugins v1 不含 agents → 放 com.metago.life 扩展与平台兼容目录）" },
+    "mcp": { "servers": ["metago（53 工具）", "metago-algorithms（57 工具/927 算法）"], "dependency": "npm 全局层 6 个 tgz 包" },
+    "law": { "file": "AGENTS.md", "version": "36.9.2" }
+  },
+  "pluginPacks": {
+    "agent-plugins-1.0.0": { "path": "plugins/agent-plugins-1.0.0/", "clients": ["VS Code", "Cursor", "GitHub Copilot", "ChatGPT", "Codex", "Amazon Kiro"] },
+    "claude": { "path": "plugins/claude/", "clients": ["Claude Code", "ZCode（兼容）"] },
+    "zcode": { "path": "plugins/zcode/", "clients": ["ZCode"] },
+    "codex": { "path": "plugins/codex/", "clients": ["OpenAI Codex"] }
+  }
+}

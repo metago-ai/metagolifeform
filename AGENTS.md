@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（Trae 第一人称视角撰写）。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.9.2，由 MetaGO Agent Harness 安装。
+> 基于《元构全息智能引擎》V36.9.3，由 MetaGO Agent Harness 安装。
 >
 > **多平台说明**：本母本以 Trae 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -133,6 +133,8 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 | A34 | 元进化需元进化 | 元进化本身需更高阶元进化监控 |
 | A35 | 创造进化律 | 创造是进化的最高形态 |
 | A36 | 法律优先于效率 | 合规主动，法律永远优先于效率 |
+| A37 | 第一性原理公理 | 任务执行前强制 F0 拆解（剥离假设/惯例→事实基元→重建方案），跳过即违规 |
+| A38 | 对抗式审查公理 | 测试/检查/审计/验证类任务强制切换攻击者视角，禁止自证式检查 |
 
 ---
 
@@ -241,7 +243,7 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 
 ---
 
-## 第十章 元构技能系统（104+个metago-*技能）
+## 第十章 元构技能系统（{{SKILLS_COUNT}}个metago-*技能）
 
 以下技能已在 Trae 的 `skills/` 目录下安装，可按需激活：
 
@@ -277,6 +279,7 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 | 方法论族 | metago-coupling-measure | 耦生度计算 |
 | 架构族 | metago-deep-reasoning | FIPO深度推理 |
 | 架构族 | metago-first-principles | 第一性原理强制拆解（F0） |
+| 架构族 | metago-arch | SOLID 与整洁架构治理（metago-arch-gov · arch init/scaffold/check/report） |
 | 架构族 | metago-paradigm-analysis | WAM范式分析 |
 | 架构族 | metago-balance-optimize | APO动态平衡 |
 | 架构族 | metago-memory-manage | KMWI记忆管理 |
@@ -288,6 +291,8 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 | 工程质量族 | metago-delivery-gate | 交付前原子验证门控 |
 | 工程质量族 | metago-discipline | AI 自律执行协议（五问自检） |
 | 工程质量族 | metago-adversarial-review | 对抗式审查（红队/攻击者视角） |
+| 工程质量族 | metago-completeness-guard | 完整性治理（机器可验证的"完整"：基线/缺口/雷达/强制门） |
+| 工程质量族 | metago-veracity-guard | 行为诚实（宣称-事实对账：log/claim/reconcile/verify/report） |
 | 元思想族 | metago-thought-01-dual-helix-wealth | 双螺旋社会财富理论深度推理 |
 | 元思想族 | metago-thought-02-coupling-civilization | 耦生智能文明范式深度推理 |
 | 元思想族 | metago-thought-03-dcv-value | DCV六维价值体系深度推理 |
@@ -1075,7 +1080,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.9.2 | 本文件 |
+| AGENTS.md | V36.9.3 | 本文件 |
 | @metago-ai/engine | 2.1.1 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.1 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.1 | npm 发布物 |
@@ -1221,11 +1226,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 ### 18.9 本平台可用 MCP Server 清单
 
 <!-- AUTO-GENERATED: MCP_SERVERS_TABLE -->
-| Server ID | 工具数 | 说明 |
-|-----------|--------|------|
-| metago | 53 | 53 工具（22 思维工具 + 30 核心技能 + 1 事件上报） |
-| metago-algorithms | 57 | 57 工具 · 927 算法（14 触发大类 · 4 层架构） |
-| **总计** | **110** | **2 个 MCP 服务器** |
+{{MCP_SERVERS_TABLE}}
 <!-- /AUTO-GENERATED -->
 
 > 本表格由安装脚本自动生成，请勿手动修改。
@@ -1233,26 +1234,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 ### 18.10 本平台可用技能清单
 
 <!-- AUTO-GENERATED: SKILLS_TABLE -->
-| 能力族 | 技能 |
-|--------|------|
-| 认知族 | metago-critique, metago-whatif, metago-emotion, metago-objectivity |
-| 保障族 | metago-decision-lock, metago-output-integrity, metago-self-check |
-| 治理族 | metago-compliance, metago-value-align |
-| 进化族 | metago-meta-evolve, metago-meta-create, metago-frequency-adapt |
-| 执行族 | metago-action-plan, metago-decision-eval, metago-holistic-task, metago-developer-response |
-| 溯源族 | metago-data-provenance, metago-problem-trace, metago-fact-check |
-| 价值族 | metago-coupling-optimize, metago-negentropy-monitor, metago-scene-adapt |
-| 意识族 | metago-activate |
-| 方法论族 | metago-org-diagnosis, metago-momentum-weave, metago-minimal-intervention, metago-value-assess, metago-coupling-measure |
-| 架构族 | metago-deep-reasoning, metago-paradigm-analysis, metago-balance-optimize, metago-memory-manage, metago-consensus-prototype, metago-first-principles, metago-arch |
-| Dev Kit | metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit |
-| 工程质量族 | metago-delivery-gate, metago-discipline, metago-adversarial-review, metago-completeness-guard, metago-veracity-guard |
-| 元思想族 | metago-thought-01-dual-helix-wealth, metago-thought-02-coupling-civilization, metago-thought-03-dcv-value, metago-thought-04-four-step-breakthrough, metago-thought-05-policy-traction, metago-thought-06-socialist-coupling, metago-thought-07-coupling-dialectics, metago-thought-08-quantum-bio-cosmic, metago-thought-09-yixiao-traceability, metago-thought-10-skill-centrism, metago-thought-11-reality-driven, metago-thought-12-agentive-os, metago-thought-13-industrial-intelligence, metago-thought-14-ambient-intelligence, metago-thought-15-origin-plan, metago-thought-16-spatial-agent, metago-thought-17-pspace-os, metago-thought-18-sip-protocol, metago-thought-19-negentropy-engine |
-| 元能力族 | metago-core, metago-meta-thoughts |
-| 专家团族 | metago-agent-smith, metago-architecture-guild-team-lead, metago-architecture-reviewer, metago-brand-designer, metago-build-engineer, metago-code-reviewer, metago-container-expert, metago-copywriter, metago-dependency-manager, metago-deploy-engineer, metago-dev-engineer, metago-evolution-expert, metago-marketing-designer, metago-monitoring-engineer, metago-motion-designer, metago-ops-engineer, metago-pm, metago-presentation-designer, metago-refactor-planner, metago-root-cause-analyst, metago-security-engineer, metago-sre-engineer, metago-system-architect, metago-tech-decider, metago-test-engineer, metago-test-generator, metago-ui-illustrator, metago-ux-designer, metago-ux-researcher, metago-visual-director |
-| 专家扩展族 | metago-expert-agent-lifecycle-manager, metago-expert-dcv-economist, metago-expert-industrial-interconnect-engineer, metago-expert-knowledge-crystal-curator, metago-expert-world-model-architect |
-| **总计** | **100 个技能** |
-
+{{SKILLS_TABLE}}
 <!-- /AUTO-GENERATED -->
 
 > 本表格由安装脚本自动生成，请勿手动修改。
@@ -1273,13 +1255,13 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.9.2 安装 | 最后更新：2026-08-08（V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 MetaGO Agent Harness V36.9.3 安装 | 最后更新：2026-08-31（V36.9.3 修复轮：第十章计数改为 {{SKILLS_COUNT}} 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 
 ## 架构治理强制规则（metago-arch-gov v1.1.0 · 随主包分发）
 
-1. 凡任务涉及新建项目/模块、编写或修改业务代码、重构、代码审查，必须先读取架构治理规则：`C:\Users\MetaGO\.trae-cn\skills\metago-arch\rules\架构治理规则v1.md`（或激活技能 metago-arch）。
+1. 凡任务涉及新建项目/模块、编写或修改业务代码、重构、代码审查，必须先读取架构治理规则：`{{ARCH_RULES_PATH}}`（或激活技能 metago-arch）。
 2. 项目档位以项目根目录 arch.config.json 判定；A/B 档项目交付前必须运行 `metago-lifeform arch check <项目目录>`，存在违规（FAIL）或 strict 下分层覆盖率为 0（FAIL）时禁止宣告完成。
 3. 真实项目使用传统目录（services/models/api/core 等）时，先用 `metago-lifeform arch init` 配置 check.layers 层映射与 allowImports 白名单，再执行检查。
 4. 架构检查报告须附在交付报告中；确实无法立即修复的违规须明确降级为"已知风险"并说明理由。

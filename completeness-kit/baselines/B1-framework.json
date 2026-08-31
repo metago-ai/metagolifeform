@@ -1,0 +1,26 @@
+{
+  "id": "B1-framework",
+  "name": "用户权威框架：AI 系统感知七层 + Agent Runtime Capability Stack",
+  "version": "1.0",
+  "items": {
+    "L0 身份层": ["L0 身份层", "身份"],
+    "L1 能力层": ["L1 能力层", "能力层"],
+    "L2 架构层": ["L2 架构层"],
+    "L3 环境层": ["L3 环境层", "环境感知"],
+    "L4 生态层": ["L4 生态层", "同事"],
+    "L5 平台层": ["L5 平台层", "平台"],
+    "L6 运作层": ["L6 运作层", "最佳实践"],
+    "自查询工具集": ["system_inspect", "health"],
+    "身份认知": ["身份认知", "Persona", "System Prompt"],
+    "环境感知": ["环境感知", "WorldState"],
+    "工具调用": ["工具调度器", "executeTool"],
+    "工具扩展MCP": ["MCP", "metago-algorithms"],
+    "智能体编排": ["编排模式", "orchestrator"],
+    "技能系统": ["技能系统", "SKILL.md", "技能创建器"],
+    "记忆系统": ["KMWI", "记忆引擎", "项目记忆"],
+    "输出生成Artifacts": ["Artifacts", "产物系统"],
+    "动态UI": ["A2UI", "生成式 UI", "交互式 UI"],
+    "质检治理": ["决策锁", "七层验证", "UDGK"],
+    "价值计量": ["贡献计量", "Contribution Ledger", "DCV"]
+  }
+}

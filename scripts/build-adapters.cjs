@@ -116,6 +116,39 @@ const PLATFORM_CONFIGS = {
       { name: 'metago', command: 'metago-mcp-server', tools: 53 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
+  },
+  'chatgpt-work': {
+    name: 'ChatGPT Work',
+    adapterDir: 'chatgpt-work',
+    templateFile: 'AGENTS.md.template',
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ]
+  },
+  'workbuddy': {
+    name: 'WorkBuddy',
+    adapterDir: 'workbuddy',
+    templateFile: 'rules.template.md',
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ]
+  },
+  'kimi-code': {
+    name: 'Kimi Code',
+    adapterDir: 'kimi',
+    templateFile: 'AGENTS.md.template',
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ]
+  },
+  'kimi-work': {
+    name: 'Kimi Work',
+    adapterDir: 'kimi',
+    templateFile: 'AGENTS.kimi-work.template',
+    mcpServers: []
   }
 };
 
@@ -126,6 +159,10 @@ const HEAD_REPLACEMENTS = {
   'codebuddy': { 'Trae 第一人称视角撰写': 'CodeBuddy 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 CodeBuddy 为运行时撰写', '把"Trae"读作': '把"CodeBuddy"读作' },
   'qoder': { 'Trae 第一人称视角撰写': 'Qoder 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Qoder 为运行时撰写', '把"Trae"读作': '把"Qoder"读作' },
   'zcode': { 'Trae 第一人称视角撰写': 'ZCode 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 ZCode 为运行时撰写', '把"Trae"读作': '把"ZCode"读作' },
+  'chatgpt-work': { 'Trae 第一人称视角撰写': 'ChatGPT Work 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 ChatGPT Work 为运行时撰写', '把"Trae"读作': '把"ChatGPT Work"读作' },
+  'workbuddy': { 'Trae 第一人称视角撰写': 'WorkBuddy 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 WorkBuddy 为运行时撰写', '把"Trae"读作': '把"WorkBuddy"读作' },
+  'kimi-code': { 'Trae 第一人称视角撰写': 'Kimi Code 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Kimi Code 为运行时撰写', '把"Trae"读作': '把"Kimi Code"读作' },
+  'kimi-work': { 'Trae 第一人称视角撰写': 'Kimi Work 第一人称视角撰写', '本母本以 Trae 为运行时撰写': '本母本以 Kimi Work 为运行时撰写', '把"Trae"读作': '把"Kimi Work"读作' },
 };
 
 const PHRASE_REPLACEMENTS = {
@@ -177,6 +214,38 @@ const PHRASE_REPLACEMENTS = {
     'Trae 的 skills/ 目录': 'ZCode 的 skills/ 目录',
     'Trae 平台': 'ZCode 平台',
     '.trae-cn/': '.zcode/'
+  },
+  'chatgpt-work': {
+    'Trae 系统中': 'ChatGPT Work 中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'ChatGPT Work 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'ChatGPT Work 记忆体系',
+    'Trae 的 skills/ 目录': 'ChatGPT Work 的 skills/ 目录',
+    'Trae 平台': 'ChatGPT Work 平台',
+    '.trae-cn/': '.chatgpt/'
+  },
+  'workbuddy': {
+    'Trae 系统中': 'WorkBuddy 中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'WorkBuddy 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'WorkBuddy 记忆体系',
+    'Trae 的 skills/ 目录': 'WorkBuddy 的 skills/ 目录',
+    'Trae 平台': 'WorkBuddy 平台',
+    '.trae-cn/': '.workbuddy/'
+  },
+  'kimi-code': {
+    'Trae 系统中': 'Kimi Code 中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'Kimi Code 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'Kimi Code 记忆体系',
+    'Trae 的 skills/ 目录': 'Kimi Code 的 skills/ 目录',
+    'Trae 平台': 'Kimi Code 平台',
+    '.trae-cn/': '.kimi-code/'
+  },
+  'kimi-work': {
+    'Trae 系统中': 'Kimi Work 中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'Kimi Work 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'Kimi Work 记忆体系',
+    'Trae 的 skills/ 目录': 'Kimi Work 的 skills/ 目录',
+    'Trae 平台': 'Kimi Work 平台',
+    '.trae-cn/': '.kimi-work/'
   }
 };
 
@@ -203,9 +272,9 @@ function generateSkillsTable(availableSkills) {
     '价值族': ['metago-coupling-optimize', 'metago-negentropy-monitor', 'metago-scene-adapt'],
     '意识族': ['metago-activate'],
     '方法论族': ['metago-org-diagnosis', 'metago-momentum-weave', 'metago-minimal-intervention', 'metago-value-assess', 'metago-coupling-measure'],
-    '架构族': ['metago-deep-reasoning', 'metago-paradigm-analysis', 'metago-balance-optimize', 'metago-memory-manage', 'metago-consensus-prototype'],
+    '架构族': ['metago-deep-reasoning', 'metago-first-principles', 'metago-arch', 'metago-paradigm-analysis', 'metago-balance-optimize', 'metago-memory-manage', 'metago-consensus-prototype'],
     'Dev Kit': ['metago-code-review-deep', 'metago-architecture-design', 'metago-refactor-suggest', 'metago-security-audit'],
-    '工程质量族': ['metago-delivery-gate', 'metago-discipline'],
+    '工程质量族': ['metago-delivery-gate', 'metago-discipline', 'metago-adversarial-review', 'metago-completeness-guard', 'metago-veracity-guard'],
   };
 
   const coreSkills = new Set();
@@ -255,6 +324,7 @@ function generatePlatformLaw(platformId, availableSkills) {
 
   content = content.replace(/\{\{PLATFORM_NAME\}\}/g, cfg.name);
   content = content.replace(/\{\{SKILLS_COUNT\}\}/g, String(availableSkills.length));
+  content = content.replace(/\{\{ARCH_RULES_PATH\}\}/g, 'skills/metago-arch/rules/架构治理规则v1.md');
   content = content.replace(/\{\{PLATFORM_MEMORY_PATH_PLACEHOLDER\}\}/g, `~/.${platformId === 'trae' ? 'trae-cn' : platformId}/`);
 
   const mcpTable = generateMcpServersTable(cfg.mcpServers);
@@ -298,7 +368,7 @@ function main() {
     const hasSkillsTable = !content.includes('{{SKILLS_TABLE}}');
     const hasNoPlaceholders = !content.includes('{{PLATFORM_NAME}}') && !content.includes('{{') ;
 
-    console.log(`  版本 V36.9.1: ${hasVersion ? '✅' : '❌'}`);
+    console.log(`  版本 V${pkgJson.version}: ${hasVersion ? '✅' : '❌'}`);
     console.log(`  无 BOM: ${!hasBOM ? '✅' : '❌'}`);
     console.log(`  第十八章: ${hasChapter18 ? '✅' : '❌'}`);
     console.log(`  MCP清单已注入: ${hasMcpTable ? '✅' : '❌'}`);

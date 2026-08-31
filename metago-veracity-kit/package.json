@@ -1,0 +1,21 @@
+{
+  "name": "metago-veracity-kit",
+  "version": "1.0.0",
+  "description": "元构行为诚实工程套件（MetaGO Veracity Kit）— 宣称-事实对账：行为日志引擎 + 宣称提取器 + 对账器 + 独立验证门 + 完成宣称硬拦截。对抗 LLM 自我报告不可靠与部分证据外推。",
+  "bin": { "veracity-guard": "bin/veracity-guard.js" },
+  "scripts": { "test": "node tests/self-test.cjs" },
+  "keywords": ["metago", "veracity", "honesty", "reconciliation", "anti-fraud", "agent"],
+  "author": "易霄 / 元构光年（成都）人工智能科技有限公司",
+  "license": "MIT",
+  "engines": { "node": ">=16.0.0" },
+  "metago": {
+    "version": "1.0.0",
+    "component": "行为诚实工程套件（Veracity Kit）",
+    "core": {
+      "ledger": "行为日志引擎（客观事实层）",
+      "reconciler": "宣称-事实对账器",
+      "gate": "独立验证门（不参与清单编写）",
+      "hook": "完成宣称硬拦截"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "B3-protocols",
+  "name": "协议标准（智能体协议三支柱 + UI 标准）",
+  "version": "1.0",
+  "items": {
+    "MCP": ["MCP"],
+    "AG-UI": ["AG-UI"],
+    "A2UI": ["A2UI"],
+    "A2A": ["A2A"],
+    "Open-JSON-UI": ["Open-JSON-UI"],
+    "json-render": ["json-render"],
+    "MCP Apps": ["MCP Apps", "ui://"],
+    "生成式UI": ["生成式 UI"],
+    "交互式UI": ["交互式 UI"],
+    "Catalog": ["Catalog"],
+    "Human-in-the-loop": ["中断", "human-in-the-loop"],
+    "Thinking Steps": ["思考过程", "message.reasoning"]
+  }
+}

@@ -42,6 +42,7 @@ const FORBIDDEN = [
 const EXEMPT = [
   /^AGENTS\.md$/i,
   /^CHANGELOG\.md$/i,
+  /^adapters[\\/]/i, // 36.9.3：适配模板是母本（已豁免）的生成副本，其"❌ 禁用反例"行属定义引用
   /^scripts[\\/]test-v41-terminology\.cjs$/i,
   /^docs[\\/]STRATEGY-EXECUTION-LOG\.md$/i,
 ];

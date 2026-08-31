@@ -1,3 +1,7 @@
+/**
+ * ⚠️ 历史一次性迁移脚本（36.8.7 概念定稿轮使用，目标串对应 packages/docs-site 当时旧文案）。
+ *    已执行完毕；勿在当前版本文案上重复执行。保留仅作迁移审计存证。
+ */
 const fs = require('fs');
 const path = require('path');
 

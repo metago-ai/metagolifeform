@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================
-# MetaGO Agent Harness 一键安装脚本（Bash 版 V36.9.1 - 转发到 cli.js）
-# 支持 macOS/Linux/WSL，7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode
+# MetaGO Agent Harness 一键安装脚本（Bash 版 V36.9.3 - 转发到 cli.js）
+# 支持 macOS/Linux/WSL，11 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode / ChatGPT Work / WorkBuddy / Kimi Code / Kimi Work
 #
 # 用法：
 #   ./install.sh                              默认平台（自动检测或 trae）
@@ -54,7 +54,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     --help|-h)
       echo ""
-      echo "MetaGO Agent Harness 安装脚本 V36.9.1"
+      echo "MetaGO Agent Harness 安装脚本 V36.9.3"
       echo "用法: ./install.sh [选项]"
       echo ""
       echo "选项:"

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "metago": {
+      "type": "stdio",
+      "command": "metago-mcp-server",
+      "args": []
+    },
+    "metago-algorithms": {
+      "type": "stdio",
+      "command": "metago-algorithms",
+      "args": []
+    }
+  }
+}

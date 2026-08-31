@@ -5,7 +5,7 @@
 - 操作系统：
 - AI 编程工具及版本：
 - MetaGO Agent Harness 版本：
-- 安装平台（trae/claude-code/codex/cursor/codebuddy/qoder/zcode）：
+- 安装平台（trae/claude-code/codex/cursor/codebuddy/qoder/zcode/chatgpt-work/workbuddy/kimi-code/kimi-work）：
 
 ## 问题描述
 

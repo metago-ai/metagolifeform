@@ -1,4 +1,4 @@
-# MetaGO Agent Harness - Bootstrap Installer (ASCII-only, no BOM)
+﻿# MetaGO Agent Harness - Bootstrap Installer (ASCII-only, no BOM)
 # Usage: irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 #
 # This script downloads the repo and runs install.ps1 (which needs local files)

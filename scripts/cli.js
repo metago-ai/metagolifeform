@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 /**
- * MetaGO Agent Harness - CLI 入口 (V36.9.1)
- * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/备份/验证
+ * MetaGO Agent Harness - CLI 入口 (V36.9.2)
+ * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/插件打包/备份/验证
  *
  * 用法:
- *   metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup]
+ *   metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup] [--with-plugin] [--with-completeness]
  *   metago-lifeform setup-mcp [--platform <平台>] [--skip-build]
+ *   metago-lifeform plugin-pack [--format <agent-plugins-1.0.0|claude|zcode|codex>] [--out <目录>]
+  metago-lifeform completeness <verify|init|gaps|radar|declaration|...>
+  metago-lifeform veracity <log|claim|reconcile|verify|report|...>
+                          行为诚实套件代理（宣称-事实对账，同 veracity-guard）
+                          完整性治理套件代理（同 completeness-guard 命令）
  *   metago-lifeform uninstall [--platform <平台>]
  *   metago-lifeform verify [--platform <平台>]
  *   metago-lifeform list-backups
@@ -15,14 +20,24 @@
  *   metago-lifeform help
  */
 
-const { execSync } = require('child_process');
+const { execSync, spawnSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
 
 const PKG_ROOT = path.resolve(__dirname, '..');
 const VERSION = require(path.join(PKG_ROOT, 'package.json')).version;
-const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode'];
+const PLATFORMS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode', 'chatgpt-work', 'workbuddy', 'kimi-code', 'kimi-work'];
+const PLUGIN_FORMATS = ['agent-plugins-1.0.0', 'claude', 'zcode', 'codex'];
+// 36.9.3 修复：项目级安装目录按平台映射（旧版对所有平台硬编码 .trae）
+const PROJECT_LOCAL_DIRS = {
+  'trae': '.trae', 'claude-code': '.claude', 'codex': '.codex', 'cursor': '.cursor',
+  'codebuddy': '.codebuddy', 'qoder': '.qoder', 'zcode': '.zcode', 'chatgpt-work': '.chatgpt',
+  'workbuddy': '.workbuddy', 'kimi-code': '.kimi-code', 'kimi-work': '.kimi-work'
+};
+const PKG_META = (() => { try { return require(path.join(PKG_ROOT, 'package.json')).metago || {}; } catch { return {}; } })();
+const MCP_SERVER_VER = (PKG_META.mcpServer && PKG_META.mcpServer.version) || '1.3.2';
+const ALGORITHMS_VER = (PKG_META.algorithmsServer && PKG_META.algorithmsServer.version) || '1.0.1';
 const HOME = os.homedir();
 const IS_WIN = process.platform === 'win32';
 const BACKUP_ROOT = path.join(HOME, '.metago-backups');
@@ -71,8 +86,8 @@ const NODE_PLATFORM_CONFIGS = {
     name: 'Codex',
     base: path.join(HOME, '.codex'),
     rules: 'AGENTS.md',
-    skills: '',
-    supportsSkills: false,
+    skills: 'skills',
+    supportsSkills: true,
     mcpConfig: path.join(HOME, '.codex', 'config.json'),
     mcpServers: [
       { name: 'metago', command: 'metago-mcp-server', tools: 53 },
@@ -115,6 +130,54 @@ const NODE_PLATFORM_CONFIGS = {
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
+  'chatgpt-work': {
+    name: 'ChatGPT Work',
+    base: path.join(HOME, '.chatgpt'),
+    rules: 'AGENTS.md',
+    skills: 'skills',
+    supportsSkills: true,
+    mcpConfig: path.join(HOME, '.chatgpt', 'mcp.json'),
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ],
+    pluginFormat: 'agent-plugins-1.0.0'
+  },
+  'workbuddy': {
+    name: 'WorkBuddy',
+    base: path.join(HOME, '.workbuddy'),
+    rules: 'AGENTS.md',
+    skills: 'skills',
+    supportsSkills: true,
+    mcpConfig: path.join(HOME, '.workbuddy', 'mcp.json'),
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ]
+  },
+  'kimi-code': {
+    name: 'Kimi Code',
+    base: path.join(HOME, '.kimi-code'),
+    rules: 'AGENTS.md',
+    skills: 'skills',
+    supportsSkills: true,
+    mcpConfig: path.join(HOME, '.kimi-code', 'mcp.json'),
+    mcpServers: [
+      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
+    ],
+    note: 'Kimi 桌面版（kimi-work）不注入自定义 MCP 工具；kimi-code CLI 为标准 MCP 客户端。daimon 技能目录请用 --install-path 指定'
+  },
+  'kimi-work': {
+    name: 'Kimi Work',
+    base: path.join(HOME, '.kimi-work'),
+    rules: 'AGENTS.md',
+    skills: 'skills',
+    supportsSkills: true,
+    mcpConfig: null,
+    mcpServers: [],
+    note: 'Kimi Work 桌面版当前构建不向会话注入自定义 MCP 工具（官方限制）；生效通道为法则 + 技能 + Bash 直调'
+  },
   'zcode': {
     name: 'ZCode',
     base: path.join(HOME, '.zcode'),
@@ -145,7 +208,11 @@ const PLATFORM_PHRASE_REPLACEMENTS = {
     'Trae 系统记忆体系': 'Codex 记忆体系',
     'Trae 的 skills/ 目录': 'Codex 的配置目录',
     'Trae 平台': 'Codex 平台',
-    '.trae-cn/': '.codex/'
+    '.trae-cn/': '.codex/',
+    'Trae 的`skills/` 目录': 'Codex 的配置目录',
+    'Trae 的 `skills/` 目录': 'Codex 的配置目录',
+    'Trae 系统记忆': 'Codex 系统记忆',
+    'Trae 自动摘要': 'Codex 自动摘要',
   },
   'cursor': {
     'Trae 系统中': 'Cursor 系统中',
@@ -178,6 +245,38 @@ const PLATFORM_PHRASE_REPLACEMENTS = {
     'Trae 的 skills/ 目录': 'ZCode 的 skills/ 目录',
     'Trae 平台': 'ZCode 平台',
     '.trae-cn/': '.zcode/'
+  },
+  'chatgpt-work': {
+    'Trae 系统中': 'ChatGPT Work 系统中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'ChatGPT Work 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'ChatGPT Work 记忆体系',
+    'Trae 的 skills/ 目录': 'ChatGPT Work 的 skills/ 目录',
+    'Trae 平台': 'ChatGPT Work 平台',
+    '.trae-cn/': '.chatgpt/'
+  },
+  'workbuddy': {
+    'Trae 系统中': 'WorkBuddy 系统中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'WorkBuddy 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'WorkBuddy 记忆体系',
+    'Trae 的 skills/ 目录': 'WorkBuddy 的 skills/ 目录',
+    'Trae 平台': 'WorkBuddy 平台',
+    '.trae-cn/': '.workbuddy/'
+  },
+  'kimi-code': {
+    'Trae 系统中': 'Kimi Code 系统中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'Kimi Code 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'Kimi Code 记忆体系',
+    'Trae 的 skills/ 目录': 'Kimi Code 的 skills/ 目录',
+    'Trae 平台': 'Kimi Code 平台',
+    '.trae-cn/': '.kimi-code/'
+  },
+  'kimi-work': {
+    'Trae 系统中': 'Kimi Work 系统中',
+    'Trae 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）': 'Kimi Work 的能力体系（规则系统、技能系统、工具系统、记忆系统）',
+    'Trae 系统记忆体系': 'Kimi Work 记忆体系',
+    'Trae 的 skills/ 目录': 'Kimi Work 的 skills/ 目录',
+    'Trae 平台': 'Kimi Work 平台',
+    '.trae-cn/': '.kimi-work/'
   }
 };
 
@@ -198,7 +297,8 @@ function parseArgs(argv) {
     deleteSkills: false,
     installPath: null,
     keepBackups: 10,
-    restoreTarget: null
+    restoreTarget: null,
+    archArgs: []
   };
 
   for (let i = 1; i < args.length; i++) {
@@ -225,8 +325,22 @@ function parseArgs(argv) {
       result.installPath = args[++i] || null;
     } else if (arg.startsWith('--install-path=')) {
       result.installPath = arg.split('=')[1];
+    } else if (arg === '--with-plugin') {
+      result.withPlugin = true;
+    } else if (arg === '--with-completeness') {
+      result.withCompleteness = true;
+    } else if (arg === '--format') {
+      result.format = args[++i] || 'all';
+    } else if (arg.startsWith('--format=')) {
+      result.format = arg.split('=')[1];
+    } else if (arg === '--out') {
+      result.out = args[++i] || null;
+    } else if (arg.startsWith('--out=')) {
+      result.out = arg.split('=')[1];
     } else if (arg === '--keep') {
       result.keepBackups = parseInt(args[++i]) || 10;
+    } else if (result.command === 'arch') {
+      result.archArgs.push(arg);
     } else if (!arg.startsWith('-') && result.command === 'restore-backup' && !result.restoreTarget) {
       result.restoreTarget = arg;
     }
@@ -321,7 +435,7 @@ function backupNative(platform, installPath) {
     timestamp,
     platform,
     backupDir,
-    version: 'pre-36.9.1',
+    version: 'pre-36.9.2',
     files: filesToBackup.map(f => f.dest),
     createdAt: new Date().toISOString()
   };
@@ -436,11 +550,11 @@ function generateSkillsTable(platform, availableSkills) {
     '价值族': ['metago-coupling-optimize', 'metago-negentropy-monitor', 'metago-scene-adapt'],
     '意识族': ['metago-activate'],
     '方法论族': ['metago-org-diagnosis', 'metago-momentum-weave', 'metago-minimal-intervention', 'metago-value-assess', 'metago-coupling-measure'],
-    '架构族': ['metago-deep-reasoning', 'metago-paradigm-analysis', 'metago-balance-optimize', 'metago-memory-manage', 'metago-consensus-prototype'],
+    '架构族': ['metago-deep-reasoning', 'metago-first-principles', 'metago-arch', 'metago-paradigm-analysis', 'metago-balance-optimize', 'metago-memory-manage', 'metago-consensus-prototype'],
     'Dev Kit': ['metago-code-review-deep', 'metago-architecture-design', 'metago-refactor-suggest', 'metago-security-audit'],
-    '工程质量族': ['metago-delivery-gate', 'metago-discipline'],
+    '工程质量族': ['metago-delivery-gate', 'metago-discipline', 'metago-adversarial-review', 'metago-completeness-guard', 'metago-veracity-guard'],
     '专家团': availableSkills.filter(s => s.startsWith('metago-') && 
-      !['metago-critique','metago-whatif','metago-emotion','metago-objectivity','metago-decision-lock','metago-output-integrity','metago-self-check','metago-compliance','metago-value-align','metago-meta-evolve','metago-meta-create','metago-frequency-adapt','metago-action-plan','metago-decision-eval','metago-holistic-task','metago-developer-response','metago-data-provenance','metago-problem-trace','metago-fact-check','metago-coupling-optimize','metago-negentropy-monitor','metago-scene-adapt','metago-activate','metago-org-diagnosis','metago-momentum-weave','metago-minimal-intervention','metago-value-assess','metago-coupling-measure','metago-deep-reasoning','metago-paradigm-analysis','metago-balance-optimize','metago-memory-manage','metago-consensus-prototype','metago-code-review-deep','metago-architecture-design','metago-refactor-suggest','metago-security-audit','metago-delivery-gate','metago-discipline'].includes(s))
+      !['metago-critique','metago-whatif','metago-emotion','metago-objectivity','metago-decision-lock','metago-output-integrity','metago-self-check','metago-compliance','metago-value-align','metago-meta-evolve','metago-meta-create','metago-frequency-adapt','metago-action-plan','metago-decision-eval','metago-holistic-task','metago-developer-response','metago-data-provenance','metago-problem-trace','metago-fact-check','metago-coupling-optimize','metago-negentropy-monitor','metago-scene-adapt','metago-activate','metago-org-diagnosis','metago-momentum-weave','metago-minimal-intervention','metago-value-assess','metago-coupling-measure','metago-deep-reasoning','metago-paradigm-analysis','metago-balance-optimize','metago-memory-manage','metago-consensus-prototype','metago-code-review-deep','metago-architecture-design','metago-refactor-suggest','metago-security-audit','metago-delivery-gate','metago-discipline','metago-first-principles','metago-arch','metago-adversarial-review','metago-completeness-guard','metago-veracity-guard'].includes(s))
   };
 
   let table = '| 能力族 | 技能 |\n|--------|------|\n';
@@ -465,6 +579,19 @@ function generatePlatformLaw(platform, availableSkills, projectLocal = false) {
     content = content.split(from).join(to);
   }
 
+  // 36.9.3 修复：头部/变体替换统一——与 build-adapters.cjs 同逻辑，消除"CLI 安装版"与"模板生成版"双源分叉
+  content = content.split('Trae 第一人称视角撰写').join(cfg.name + ' 第一人称视角撰写');
+  content = content.split('本母本以 Trae 为运行时撰写').join('本母本以 ' + cfg.name + ' 为运行时撰写');
+  content = content.split('把"Trae"读作').join('把"' + cfg.name + '"读作');
+  content = content.split('Trae 的 `skills/` 目录').join(cfg.name + ' 的 `skills/` 目录');
+  content = content.split('Trae 系统记忆体系').join(cfg.name + ' 记忆体系');
+  content = content.split('Trae 系统记忆').join(cfg.name + ' 记忆体系');
+  content = content.split('Trae 自动摘要').join(cfg.name + ' 自动摘要');
+  content = content.split('非 Trae 用户').join('非 ' + cfg.name + ' 用户');
+  if (platform !== 'trae') {
+    content = content.split('.trae-cn\\').join('.' + platform + '\\');
+  }
+
   content = content.replace(/\{\{PLATFORM_NAME\}\}/g, cfg.name);
   content = content.replace(/\{\{SKILLS_COUNT\}\}/g, String(availableSkills.length));
   content = content.replace(/\{\{PLATFORM_MEMORY_PATH_PLACEHOLDER\}\}/g, cfg.base);
@@ -473,6 +600,15 @@ function generatePlatformLaw(platform, availableSkills, projectLocal = false) {
   const skillsTable = generateSkillsTable(platform, availableSkills);
   content = content.replace(/\{\{MCP_SERVERS_TABLE\}\}/g, mcpTable);
   content = content.replace(/\{\{SKILLS_TABLE\}\}/g, skillsTable);
+
+  let archRulesPath;
+  if (cfg.supportsSkills && cfg.skills) {
+    const base = projectLocal ? path.join(process.cwd(), PROJECT_LOCAL_DIRS[platform] || '.trae') : cfg.base;
+    archRulesPath = path.join(base, cfg.skills, 'metago-arch', 'rules', '架构治理规则v1.md');
+  } else {
+    archRulesPath = path.join(PKG_ROOT, 'skills', 'metago-arch', 'rules', '架构治理规则v1.md');
+  }
+  content = content.replace(/\{\{ARCH_RULES_PATH\}\}/g, archRulesPath);
 
   return content;
 }
@@ -488,14 +624,117 @@ function scanAvailableSkills() {
 }
 
 // ============================================================
-// MCP 配置（跨平台原生实现）
+// 架构治理组件（metago-arch-gov v1.1.0 · 随主包分发）
 // ============================================================
+function runArchCommand(args) {
+  const archCli = path.join(PKG_ROOT, 'scripts', 'metago-arch-cli.cjs');
+  const r = spawnSync(process.execPath, [archCli].concat(args || []), { stdio: 'inherit' });
+  if (r.status !== null) process.exit(r.status);
+  process.exit(1);
+}
+
+// ============================================================
+// 插件打包与部署（V36.9.2 新增 · 多平台插件层）
+// ============================================================
+function pluginPack(format, outDir) {
+  const formats = !format || format === 'all' ? PLUGIN_FORMATS : [format];
+  for (const fmt of formats) {
+    if (!PLUGIN_FORMATS.includes(fmt)) {
+      console.error(`  [错误] 不支持的插件格式 "${fmt}"。支持: ${PLUGIN_FORMATS.join(', ')}`);
+      process.exit(1);
+    }
+    const src = path.join(PKG_ROOT, 'plugins', fmt);
+    if (!fs.existsSync(src)) {
+      console.error(`  [错误] 插件包源码不存在: ${src}`);
+      process.exit(1);
+    }
+    const dest = path.join(outDir, fmt);
+    console.log(`  [打包] ${fmt} → ${dest}`);
+    copyDir(src, dest);
+    console.log(`    ✓ 插件包已生成 (${fmt})`);
+  }
+  console.log(`\n  🎉 插件打包完成，输出目录: ${outDir}`);
+  console.log(`  使用方式:`);
+  console.log(`    - ZCode: 设置 → 插件管理 → 添加本地市场目录 ${outDir}`);
+  console.log(`    - Claude Code: claude --plugin-dir ${path.join(outDir, 'claude')}`);
+  console.log(`    - 通用 (Agent Plugins 1.0.0): ${path.join(outDir, 'agent-plugins-1.0.0')} 作为 Agent Plugin 安装`);
+}
+
+function installPlugin(platform) {
+  const cfg = NODE_PLATFORM_CONFIGS[platform];
+  const formatMap = {
+    'zcode': 'zcode',
+    'claude-code': 'claude',
+    'codex': 'codex',
+    'chatgpt-work': 'agent-plugins-1.0.0',
+    'cursor': 'agent-plugins-1.0.0'
+  };
+  const fmt = formatMap[platform];
+  if (!fmt) {
+    console.log(`  [插件] ${cfg.name} 无插件通道（技能+法则+MCP 已全量生效）`);
+    return;
+  }
+  const src = path.join(PKG_ROOT, 'plugins', fmt);
+  if (!fs.existsSync(src)) {
+    console.log(`  [插件] 插件包源码缺失: ${src}`);
+    return;
+  }
+  let dest;
+  if (platform === 'zcode') {
+    dest = path.join(cfg.base, 'cli', 'plugins', 'marketplaces', 'metago-local', 'plugins', fmt);
+    ensureDir(path.dirname(dest));
+    copyDir(src, dest);
+    // 注册本地市场（file 源）
+    const marketDir = path.join(cfg.base, 'cli', 'plugins', 'marketplaces', 'metago-local');
+    const mp = {
+      name: 'metago-local',
+      plugins: [{
+        name: 'metago-lifeform',
+        source: { source: 'file', type: 'directory', path: `plugins/${fmt}` },
+        description: `MetaGO Lifeform（元构超级智能生命体）— ${scanAvailableSkills().length} 技能 + 35 专家子智能体 + 双 MCP 服务器`,
+        description_i18n: {
+          'en': `MetaGO Lifeform - ${scanAvailableSkills().length} skills + 35 expert subagents + dual MCP servers`,
+          'zh-CN': `元构超级智能生命体 — ${scanAvailableSkills().length} 技能 + 35 专家子智能体 + 双 MCP 服务器`
+        },
+        version: VERSION,
+        author: { name: '易霄 / 元构光年（成都）人工智能科技有限公司' },
+        category: 'lifeform'
+      }]
+    };
+    fs.writeFileSync(path.join(marketDir, 'marketplace.json'), JSON.stringify(mp, null, 2), 'utf8');
+    console.log(`  [插件] ${cfg.name} 插件已部署: ${dest}`);
+    console.log(`  [插件] 本地市场已注册: ${path.join(marketDir, 'marketplace.json')}（设置 → 插件管理 → Discover 可安装）`);
+  } else if (platform === 'claude-code') {
+    dest = path.join(cfg.base, 'plugins', 'metago-lifeform');
+    ensureDir(path.dirname(dest));
+    copyDir(src, dest);
+    console.log(`  [插件] ${cfg.name} 插件已部署: ${dest}`);
+    console.log(`  [插件] 重启 Claude Code 后 /plugin 可查看；或 claude --plugin-dir ${src}`);
+  } else if (platform === 'codex') {
+    dest = path.join(cfg.base, 'plugins', 'metago-lifeform');
+    ensureDir(path.dirname(dest));
+    copyDir(src, dest);
+    console.log(`  [插件] ${cfg.name} 插件已部署: ${dest}`);
+  } else {
+    dest = path.join(cfg.base, 'plugins', 'metago-lifeform');
+    ensureDir(path.dirname(dest));
+    copyDir(src, dest);
+    console.log(`  [插件] ${cfg.name} 插件（Agent Plugins 1.0.0）已部署: ${dest}`);
+  }
+}
+
+
 function setupMcpAllPlatforms(platform, skipBuild, installPath) {
   const cfg = NODE_PLATFORM_CONFIGS[platform];
+  if (!cfg.mcpConfig) {
+    // 36.9.3 修正：以平台能力为准，无论是否 project-local/installPath 均不写 MCP 配置（旧守卫用 !installPath 短路会在 project-local 下崩溃）
+    console.log(`  [MCP] ${cfg.name} 不注入自定义 MCP 工具（官方限制），跳过 MCP 配置写入（生效通道：法则+技能+Bash 直调）`);
+    return;
+  }
   if (!skipBuild) {
     console.log('  [MCP] 正在确保 @metago-ai/mcp-server 与 @metago-ai/algorithms 已安装...');
     try {
-      execSync('npm install -g @metago-ai/mcp-server@1.3.1 @metago-ai/algorithms@1.0.1', { stdio: 'inherit' });
+      execSync(`npm install -g @metago-ai/mcp-server@${MCP_SERVER_VER} @metago-ai/algorithms@${ALGORITHMS_VER}`, { stdio: 'inherit' });
     } catch (e) {
       console.warn('  [警告] npm 全局安装失败，尝试继续（可能已安装）');
     }
@@ -532,7 +771,7 @@ function installNative(platform, opts) {
   
   let base = cfg.base;
   if (opts.projectLocal) {
-    base = path.join(process.cwd(), '.trae');
+    base = path.join(process.cwd(), PROJECT_LOCAL_DIRS[platform] || '.trae');
     console.log(`  [项目级] 安装到当前项目: ${base}`);
   }
 
@@ -563,6 +802,27 @@ function installNative(platform, opts) {
   console.log(`  [3/4] 配置 MCP 服务器...`);
   setupMcpAllPlatforms(platform, false, opts.projectLocal ? base : null);
 
+  if (opts.withPlugin && !opts.projectLocal) {
+    console.log(`  [3.5/4] 部署插件层...`);
+    installPlugin(platform);
+  }
+
+  if (opts.withCompleteness && !opts.projectLocal) {
+    console.log(`  [3.6/4] 部署完整性治理套件...`);
+    try {
+      const kitInstall = path.join(PKG_ROOT, 'completeness-kit', 'install.js');
+      if (fs.existsSync(kitInstall)) {
+        const r = spawnSync(process.execPath, [kitInstall, '--platform', platform], { stdio: 'inherit' });
+        if (r.status === 0) console.log(`    ✓ 完整性套件已部署到 ${cfg.name}`);
+        else console.log(`    ⚠️ 完整性套件部署未完全成功（exit ${r.status}）`);
+      } else {
+        console.log(`    - 套件未随包分发（缺 completeness-kit/install.js）`);
+      }
+    } catch (e) {
+      console.log(`    ⚠️ 完整性套件部署失败: ${e.message}`);
+    }
+  }
+
   console.log(`  [4/4] 安装后验证...`);
   verifyNative(platform, opts.projectLocal ? base : null);
 
@@ -588,7 +848,7 @@ function uninstallNative(platform, opts) {
     console.log(`    ✓ 已删除法则文件: ${rulesFile}`);
   }
 
-  if (fs.existsSync(cfg.mcpConfig)) {
+  if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
     try {
       const config = JSON.parse(fs.readFileSync(cfg.mcpConfig, 'utf8'));
       if (config.mcpServers) {
@@ -634,11 +894,11 @@ function verifyNative(platform, installPath) {
       console.log(`  [PASS] 法则文件无 BOM`); pass++;
     }
     
-    if (/V36\.9\.0/.test(content)) {
-      console.log(`  [PASS] 法则版本: V36.9.1`); pass++;
+    if (/V36\.9\.2/.test(content)) {
+      console.log(`  [PASS] 法则版本: V36.9.2`); pass++;
     } else {
       const verMatch = content.match(/V\d+\.\d+\.\d+/);
-      console.log(`  [FAIL] 法则版本错误 (期望 V36.9.1, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
+      console.log(`  [FAIL] 法则版本错误 (期望 V36.9.2, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
     }
 
     if (/第十八章/.test(content) && !/\{\{MCP_SERVERS_TABLE\}\}/.test(content) && !/\{\{SKILLS_TABLE\}\}/.test(content)) {
@@ -647,8 +907,9 @@ function verifyNative(platform, installPath) {
       console.log(`  [FAIL] 第十八章未正确注入或存在占位符残留`); fail++;
     }
 
+    const body = content.split(/\r?\n/).filter(l => !l.trim().startsWith('>')).join('\n');
     const traeTerms = ['Trae 系统中', 'Trae 的四个子系统', '.trae-cn/'];
-    const hasTraeTerms = platform !== 'trae' && traeTerms.some(t => content.includes(t));
+    const hasTraeTerms = platform !== 'trae' && traeTerms.some(t => body.includes(t));
     if (!hasTraeTerms) {
       console.log(`  [PASS] 平台措辞替换正确`); pass++;
     } else {
@@ -659,7 +920,7 @@ function verifyNative(platform, installPath) {
   }
 
   let config = {};
-  if (fs.existsSync(cfg.mcpConfig)) {
+  if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
     try {
       config = JSON.parse(fs.readFileSync(cfg.mcpConfig, 'utf8'));
       console.log(`  [PASS] MCP 配置是合法 JSON`); pass++;
@@ -680,8 +941,10 @@ function verifyNative(platform, installPath) {
         mcpOk = false;
       }
     }
+  } else if (!cfg.mcpConfig) {
+    console.log(`  [PASS] ${cfg.name} 不注入自定义 MCP 工具（官方限制），MCP 检查按平台设计跳过`); pass++;
   } else {
-    console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
+console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
   }
 
   if (cfg.supportsSkills) {
@@ -689,7 +952,7 @@ function verifyNative(platform, installPath) {
     if (fs.existsSync(skillsDir)) {
       const count = fs.readdirSync(skillsDir)
         .filter(d => d.startsWith('metago-') && fs.existsSync(path.join(skillsDir, d, 'SKILL.md'))).length;
-      if (count >= 39) {
+      if (count >= 90) { // 36.9.3：与 verify-local-install.cjs MIN_SKILLS=90 统一（旧值 39 为 39 技能时代遗留）
         console.log(`  [PASS] 技能目录: ${count} 个技能`); pass++;
       } else {
         console.log(`  [WARN] 技能数量偏少: ${count}`); warn++;
@@ -709,13 +972,15 @@ function verifyNative(platform, installPath) {
 function showHelp() {
   console.log(`
 MetaGO Agent Harness v${VERSION}
-元构超级智能生命体标准安装包（跨平台版 V36.9.1）
+元构超级智能生命体标准安装包（跨平台全量版 V36.9.2 · 规则+技能+MCP+智能体+插件）
 
 用法:
-  metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup]
-                           安装到指定平台（默认: trae）
+  metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup] [--with-plugin]
+                           安装到指定平台（默认: trae）；--with-plugin 额外部署插件层
   metago-lifeform setup-mcp [--platform <平台>] [--skip-build]
                            安装并配置 MCP 服务器
+  metago-lifeform plugin-pack [--format <agent-plugins-1.0.0|claude|zcode|codex|all>] [--out <目录>]
+                           生成多平台插件包（默认输出 ./dist/plugins/）
   metago-lifeform uninstall [--platform <平台>]
                            卸载当前平台适配
   metago-lifeform verify [--platform <平台>]
@@ -725,20 +990,25 @@ MetaGO Agent Harness v${VERSION}
   metago-lifeform restore-backup <timestamp>
                            从指定备份恢复
   metago-lifeform cleanup-backups [--keep N]
-                           清理旧备份（默认保留 10 个）
+                          清理旧备份（默认保留 10 个）
+  metago-lifeform arch <version|init|scaffold|check|report>
+                          架构治理组件（SOLID + 整洁架构，v1.1.0）
   metago-lifeform version   显示版本号
   metago-lifeform help      显示本帮助
 
-支持平台:
+支持平台（11 形态）:
   ${PLATFORMS.join(', ')}
 
+支持插件标准（两套全齐）:
+  agent-plugins-1.0.0  OpenAI 联盟（VS Code / Cursor / Copilot / ChatGPT / Codex / Kiro）
+  claude               Anthropic 系（Claude Code / ZCode 兼容）
+  zcode                ZCode 明确格式
+  codex                Codex 兼容名
+
 示例:
-  metago-lifeform install                        # 安装到 Trae（默认）
-  metago-lifeform install --platform claude-code  # 安装到 Claude Code
-  metago-lifeform install -p cursor --force      # 强制安装到 Cursor
-  metago-lifeform setup-mcp -p trae              # 仅配置 MCP
-  metago-lifeform verify                         # 验证安装
-  metago-lifeform list-backups                   # 查看备份
+  metago-lifeform install --platform zcode --with-plugin   # ZCode 全量安装（含插件）
+  metago-lifeform plugin-pack --format all                 # 生成全部插件包
+  metago-lifeform plugin-pack --format claude --out ./dist # 仅生成 Claude 系插件包
 
 文档:
   官网: https://metago.life/
@@ -754,7 +1024,7 @@ function main() {
   const opts = parseArgs(process.argv);
   const platform = opts.platform;
 
-  if (!PLATFORMS.includes(platform) && !['help', 'version', 'list-backups', 'cleanup-backups', 'restore-backup'].includes(opts.command)) {
+  if (!PLATFORMS.includes(platform) && !['help', 'version', 'list-backups', 'cleanup-backups', 'restore-backup', 'arch', 'plugin-pack', 'completeness', 'veracity'].includes(opts.command)) {
     console.error(`错误: 不支持的平台 "${platform}"。支持的平台: ${PLATFORMS.join(', ')}`);
     process.exit(1);
   }
@@ -773,6 +1043,36 @@ function main() {
     case 'mcp':
       setupMcpAllPlatforms(platform, opts.skipBuild);
       break;
+    case 'plugin-pack':
+    case 'pp':
+      pluginPack(opts.format, opts.out || path.join(process.cwd(), 'dist', 'plugins'));
+      break;
+    case 'veracity':
+    case 'vc': {
+      // 行为诚实工程套件代理（V36.9.2 并入）
+      const vCli = path.join(PKG_ROOT, 'metago-veracity-kit', 'bin', 'veracity-guard.js');
+      if (!fs.existsSync(vCli)) {
+        console.error('错误: 行为诚实套件未随包分发（缺 metago-veracity-kit/bin/veracity-guard.js）');
+        process.exit(1);
+      }
+      const args = process.argv.slice(3);
+      const r = spawnSync(process.execPath, [vCli].concat(args), { stdio: 'inherit' });
+      process.exit(r.status !== null ? r.status : 1);
+      break;
+    }
+    case 'completeness':
+    case 'ck': {
+      // 完整性治理套件代理（V36.9.2 并入）
+      const kitCli = path.join(PKG_ROOT, 'completeness-kit', 'bin', 'completeness-guard.js');
+      if (!fs.existsSync(kitCli)) {
+        console.error('错误: 完整性治理套件未随包分发（缺 completeness-kit/bin/completeness-guard.js）');
+        process.exit(1);
+      }
+      const args = opts.archArgs.length ? opts.archArgs : process.argv.slice(3);
+      const r = spawnSync(process.execPath, [kitCli].concat(args), { stdio: 'inherit' });
+      process.exit(r.status !== null ? r.status : 1);
+      break;
+    }
     case 'uninstall':
     case 'u':
       uninstallNative(platform, opts);
@@ -796,6 +1096,9 @@ function main() {
     case 'cleanup-backups':
       cleanupOldBackups(opts.keepBackups);
       console.log(`  [OK] 已清理，保留最近 ${opts.keepBackups} 个备份`);
+      break;
+    case 'arch':
+      runArchCommand(opts.archArgs);
       break;
     case 'version':
     case 'ver':

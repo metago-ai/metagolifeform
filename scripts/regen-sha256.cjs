@@ -16,6 +16,8 @@ function sha256File(filePath) {
 }
 
 function walkDir(dir, baseDir, results = []) {
+  // 36.9.3：portable/node_modules 为生成物（由 npm install 保证），不纳入逐文件清单
+  if (path.basename(dir) === "node_modules") return results;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
@@ -39,7 +41,8 @@ function main() {
   for (const file of files.sort((a, b) => a.relPath.localeCompare(b.relPath))) {
     const hash = sha256File(file.fullPath);
     const size = fs.statSync(file.fullPath).size;
-    manifest += `${hash}  ${file.relPath}  (${size} bytes)\n`;
+    // 36.9.3 修复：去掉 "(N bytes)" 后缀，保持 `sha256sum -c` 机器可校验格式
+  manifest += `${hash}  ${file.relPath}\n`;
   }
 
   fs.writeFileSync(MANIFEST_PATH, manifest, 'utf8');
