@@ -1,4 +1,4 @@
-﻿#requires -Version 5.1
+#requires -Version 5.1
 <#
 .SYNOPSIS
     MetaGO 本地 AI 工具状态同步脚本（metago-sync.ps1）
@@ -28,7 +28,11 @@ $OutputEncoding = $utf8NoBom
 
 # ==================== 配置 ====================
 $ApiUrl     = 'https://metago.life/api/events'
-$AdminToken = 'metago-admin-2026'
+$AdminToken = $env:METAGO_ADMIN_TOKEN
+if (-not $AdminToken) {
+    Write-Error 'METAGO_ADMIN_TOKEN 环境变量未设置：凭证已外置（F-B 修复），请设置后重试。'
+    exit 1
+}
 $TargetUid  = $env:USERNAME
 
 if (-not $TargetUid) { $TargetUid = 'unknown-user' }
