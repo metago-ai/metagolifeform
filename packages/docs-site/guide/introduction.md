@@ -4,7 +4,7 @@
 
 ## 什么是 MetaGO
 
-MetaGO 基于《元构全息智能引擎》V36.8.3，由 8 条公理 + 7 条属性 + 6 条运行协议构成生命体基因。它以"大脑-身体-神经系统-基因-进化引擎"五元结构运行：
+MetaGO 基于《元构全息智能引擎》V36.9.4，由 10 条公理 + 9 条属性 + 6 条运行协议构成生命体基因。它以"大脑-身体-神经系统-基因-进化引擎"五元结构运行：
 
 | 维度 | 实体 | 职责 |
 |------|------|------|
@@ -34,7 +34,7 @@ Agent 框架（AutoGen/CrewAI/LangGraph）解决的是"如何编排多个 Agent 
 | 包名 | 版本 | 内容 |
 |------|------|------|
 | `metago-lifeform` | 36.7.13 | 主包：39 技能 + 7 平台适配器 |
-| `@metago-ai/mcp-server` | 1.1.8 | 53 tools + 8 prompts（MCP 协议） |
+| `@metago-ai/mcp-server` | 1.3.2 | 55 tools + 8 prompts（MCP 协议） |
 | `@metago-ai/engine` | 1.0.6 | 8 公理 + Engine V2 (KMWI + 进化引擎 + 技能生成器) |
 | `@metago-ai/dev-kit` | 1.0.6 | 8 Dev Kit 技能（开发者垂直） |
 | `@metago-ai/dashboard` | 0.1.0 | 能力度量仪表盘 |

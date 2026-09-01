@@ -6,7 +6,7 @@
 
 `@metago-ai/docs-site` 是 MetaGO 生命体的文档门户。基于 VitePress 构建，提供：
 
-- 结构化导航（100 技能 + 10 核心公理 + 110 MCP 工具）
+- 结构化导航（100 技能 + 10 核心公理 + 112 MCP 工具）
 - 本地搜索（无需 Algolia）
 - 暗黑模式
 - 响应式设计
@@ -45,9 +45,9 @@ docs-site/
 ├── skills/                 # 技能文档
 │   └── overview.md         # 100 技能一览
 ├── engine/                 # 引擎文档
-│   └── axioms.md           # 8 条公理 + 7 条属性
+│   └── axioms.md           # 10 条公理 + 9 条属性
 ├── api/                    # API 文档
-│   ├── mcp-server.md       # MCP Server 53 tools
+│   ├── mcp-server.md       # MCP Server 55 tools
 │   └── dashboard.md       # 能力度量仪表盘
 └── reference/              # 参考（待补充）
 ```
@@ -55,7 +55,7 @@ docs-site/
 ## 设计原则
 
 1. **高维产品的一键体验** — 30 秒感知整体价值
-2. **结构化导航** — 100 技能 + 110 MCP 工具 + 10 核心公理 有序呈现
+2. **结构化导航** — 100 技能 + 112 MCP 工具 + 10 核心公理 有序呈现
 3. **深度可达** — 核心文档站内阅读，理论体系外链
 4. **渐进式构建** — 先框架后内容，ignoreDeadLinks 允许渐进
 

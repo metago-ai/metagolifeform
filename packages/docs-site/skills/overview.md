@@ -147,12 +147,12 @@ MetaGO 的 100 个技能分为 16 个能力族，每个族解决一类核心问�
 
 ## 与 MCP tools 的关系
 
-100 技能中，22 个被封装为 MCP tools（结构化参数），加上 20 个独有思维工具，7 个同名工具在 MCP 中合并（TOOLKIT_TOOLS 优先），加上 2 个工程质量族工具，共 53 tools（公式：110 tools = mcp-server 53（22 思维工具 + 30 核心技能 + 1 事件上报）+ algorithms 57（927 算法，Engine V2 硬驱动））。
+100 技能中，22 个被封装为 MCP tools（结构化参数），加上 22 个独有思维工具，7 个同名工具在 MCP 中合并（TOOLKIT_TOOLS 优先），加上 2 个工程质量族工具，共 55 tools（公式：112 tools = mcp-server 55（22 思维工具 + 32 核心技能 + 1 事件上报）+ algorithms 57（927 算法，Engine V2 硬驱动））。
 
 详见 [MCP Server 文档](../api/mcp-server)。
 
 ## 下一步
 
 - [安装 MetaGO](../guide/installation) — 开始使用这些技能
-- [8 条公理 + 7 条属性](../engine/axioms) — 理解技能背后的法则
-- [MCP Server 53 tools](../api/mcp-server) — 通过 MCP 协议调用
+- [10 条公理 + 9 条属性](../engine/axioms) — 理解技能背后的法则
+- [MCP Server 55 tools](../api/mcp-server) — 通过 MCP 协议调用

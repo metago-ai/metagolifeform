@@ -5,13 +5,13 @@ import { defineConfig } from "vitepress";
  *
  * 设计原则：
  * - 高维产品的一键体验：30 秒感知整体价值
- * - 结构化导航：100 技能 + 110 MCP 工具（53+57）+ 927 算法 · 有序呈现
+ * - 结构化导航：100 技能 + 112 MCP 工具（55+57）+ 927 算法 · 有序呈现
  * - 深度可达：核心文档站内阅读，理论体系外链
  */
 export default defineConfig({
   lang: "zh-CN",
   title: "MetaGO",
-  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。100 技能 · 110 MCP 工具（53+57）/ 927 算法 · 10 核心公理 · Engine V2.1.1 · 11 平台形态。",
+  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。100 技能 · 112 MCP 工具（55+57）/ 927 算法 · 10 核心公理 · Engine V2.1.1 · 11 平台形态。",
 
   // 主题配置
   themeConfig: {
@@ -173,7 +173,7 @@ export default defineConfig({
         {
           text: "引擎核心",
           items: [
-            { text: "8 条公理 + 7 条属性", link: "/engine/axioms" },
+            { text: "10 条公理 + 9 条属性", link: "/engine/axioms" },
             { text: "6 条运行协议", link: "/engine/protocols" },
             { text: "引擎架构", link: "/engine/architecture" },
           ],
@@ -191,7 +191,7 @@ export default defineConfig({
         {
           text: "API 参考",
           items: [
-            { text: "MCP Server 53 tools + 8 prompts", link: "/api/mcp-server" },
+            { text: "MCP Server 55 tools + 8 prompts", link: "/api/mcp-server" },
             { text: "能力度量仪表盘", link: "/api/dashboard" },
             { text: "Dev Kit", link: "/api/dev-kit" },
           ],

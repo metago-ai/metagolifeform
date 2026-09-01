@@ -10,7 +10,7 @@ MetaGO 支持 7 大 AI 开发平台。选择你的平台查看安装步骤。
 
 ## 方式零：仅用 MCP Server（最简，无需克隆仓库）
 
-如果你只需要 53 个 MCP 工具，不需要安装技能和规则文件，可直接配置 npx 调用：
+如果你只需要 55 个 MCP 工具，不需要安装技能和规则文件，可直接配置 npx 调用：
 
 ```json
 {
@@ -44,7 +44,7 @@ node scripts/cli.js install --platform zcode
 
 安装后重启平台，100 个技能即生效。
 
-### 2. 安装并配置 MCP Server（53 个工具）
+### 2. 安装并配置 MCP Server（55 个工具）
 
 ```powershell
 # Windows PowerShell
@@ -64,7 +64,7 @@ node scripts/cli.js setup-mcp --platform trae
 - JSON 容错：如果现有配置文件损坏（编码问题），自动备份并创建新配置
 - UTF-8 编码：使用 .NET API 精准控制编码，解决 PowerShell 5 中文乱码问题
 
-**安装完成后重启平台，在 MCP 面板中即可看到 53 个工具。**
+**安装完成后重启平台，在 MCP 面板中即可看到 55 个工具。**
 
 ## 方式二：通过 npx 安装（仅技能 + 规则）
 
@@ -130,7 +130,7 @@ node scripts/cli.js setup-mcp --platform trae
 
 应显示：
 - 39 个 `metago-*` 技能
-- 53 个 MCP 工具
+- 55 个 MCP 工具
 
 ## 常见问题
 
@@ -173,4 +173,4 @@ node scripts/cli.js uninstall
 ## 下一步
 
 - [快速开始](./quickstart) — 5 分钟内调用第一个工具
-- [MCP Server 文档](../api/mcp-server) — 了解 53 个工具的详细说明
+- [MCP Server 文档](../api/mcp-server) — 了解 55 个工具的详细说明
