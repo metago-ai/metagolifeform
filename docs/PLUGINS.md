@@ -1,6 +1,6 @@
-# MetaGO Lifeform 多平台插件层（V36.9.3）
+# MetaGO Lifeform 多平台插件层（V36.9.4）
 
-> 本发行版为**全量版**：一个包内含 规则（AGENTS.md）+ 100 技能 + 110 MCP 工具（53+57/927 算法）+ 35 专家智能体 + 多平台插件层，适配 11 个平台形态，两套插件标准全齐。
+> 本发行版为**全量版**：一个包内含 规则（AGENTS.md）+ 100 技能 + 112 MCP 工具（55+57/927 算法）+ 35 专家智能体 + 多平台插件层，适配 11 个平台形态，两套插件标准全齐。
 
 ## 1. 插件层结构
 
@@ -8,7 +8,7 @@
 plugins/
 ├── agent-plugins-1.0.0/        ← 标准①：Agent Plugins 1.0.0（OpenAI 联盟）
 │   ├── plugin.json              根清单（$schema + name + version 等 10 字段）
-│   ├── skills/                  98 个 SKILL.md（字节级跨平台兼容）
+│   ├── skills/                  100 个 SKILL.md（字节级跨平台兼容）
 │   ├── mcp.json                 双服务器声明（type: stdio + 命令名）
 │   └── com.metago.life/         反域名扩展目录（agents 35 个 + manifest + README）
 ├── claude/                     ← 标准②：Anthropic 系（.claude-plugin/）

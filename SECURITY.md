@@ -64,6 +64,8 @@ This prevents hallucinated, incomplete, or off-topic outputs from reaching the u
 ### 3. No Hardcoded Secrets
 
 > *(36.9.3 安全修复：历史上唯一例外——事件上报管理令牌——已从 @metago-ai/mcp-server 1.3.2 与 scripts/metago-sync.ps1 源码移除，改为 `METAGO_ADMIN_TOKEN` 环境变量注入。已发布的旧包内该令牌按已泄露处理，服务端密钥轮换与旧版 deprecate 为部署侧跟进项。)*
+>
+> *(36.9.4 加固：发布门禁 C13 对发行包（dist / tgz / 便携快照）执行全包字节级密钥模式扫描，`metago-admin-` 等令牌类模式必须零命中才能出包；全局扫描脚本 `scripts/secret-scan.cjs` 供任意工作区复用。)*
 
 MetaGO does not embed any API keys, tokens, or credentials in the source code. All secrets are managed via environment variables or platform-native secret stores.
 

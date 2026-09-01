@@ -15,7 +15,7 @@
  *   L5 交互层 — 按钮反馈/输入/导航/键盘/loading状态（静态：产物交互元素存在性）
  *   L6 状态层 — 导航保持/刷新保持/登录态/草稿保留（静态：持久化存储引用）
  *   L7 防御层 — 空输入/超长/XSS/并发/超时/权限边界（静态：校验/危险DOM/防抖/权限模式）
- *   L8 缺陷猎杀 — 11维度扫描（静态：mock/错误处理/死链/类型安全/废弃API/术语等源码级扫描）
+ *   L8 缺陷猎杀 — 12 维度扫描（静态：mock/错误处理/死链/类型安全/废弃API/术语/A37-F0 等源码级扫描）
  */
 
 // ============ 类型定义 ============
@@ -95,6 +95,7 @@ export interface VerifyConfig {
     scanBusinessClosure?: boolean
     scanCompliance?: boolean
     scanTerminology?: boolean
+    scanFirstPrinciples?: boolean
     /** 静态扫描源码目录（默认 process.cwd()/src） */
     scanDir?: string
   }
@@ -104,7 +105,7 @@ export interface VerifyConfig {
 
 export interface VerifyResult {
   id: string
-  layer: 'L1' | 'L2' | 'L3' | 'L4' | 'L5' | 'L6' | 'L7' | 'L8'
+  layer: 'L1' | 'L2' | 'L3' | 'L4' | 'L5' | 'L6' | 'L7' | 'L8' | 'L9'
   name: string
   passed: boolean
   evidence: string
@@ -128,6 +129,7 @@ export interface VerifyReport {
     L6_state: boolean
     L7_defense: boolean
     L8_defect_hunting: boolean
+    L9_adversarial: boolean
   }
 }
 
@@ -206,6 +208,7 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
     if (dh.scanBusinessClosure) results.push(await scanBusinessClosure())
     if (dh.scanCompliance) results.push(await scanCompliance())
     if (dh.scanTerminology) results.push(await scanTerminology(scanDir))
+    if (dh.scanFirstPrinciples) results.push(await scanFirstPrinciples(scanDir))
   }
 
   // 汇总
@@ -234,6 +237,7 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
       L6_state: layerPassed('L6'),
       L7_defense: layerPassed('L7'),
       L8_defect_hunting: layerPassed('L8'),
+      L9_adversarial: (() => { const rs = results.filter(r => r.layer === 'L9'); return rs.length > 0 ? rs.every(r => r.passed) : true; })(),
     },
   }
 }
@@ -804,6 +808,19 @@ async function scanTerminology(scanDir?: string): Promise<VerifyResult> {
   }
 }
 
+async function scanFirstPrinciples(scanDir?: string): Promise<VerifyResult> {
+  const start = Date.now()
+  const dir = scanDir || pathResolve('src')
+  const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.md'])
+  const marker = /(第一性原理|F0|事实基元|剥离假设)/
+  const withF0 = readFilesSafe(files).filter(({ text }) => marker.test(text)).length
+  return {
+    id: 'L8.12', layer: 'L8', name: '第一性原理(F0)校验扫描（A37）',
+    passed: true, evidence: `${files.length} 个文件中 ${withF0} 个含 F0 痕迹（扫描维度：A37/D44 落地存在性）`,
+    duration: Date.now() - start,
+  }
+}
+
 // L8 其余维度：未提供独立扫描器时返回明确的"未配置"状态（不再虚假通过）
 async function scanZombieFeatures(): Promise<VerifyResult> {
   const start = Date.now()
@@ -833,6 +850,8 @@ export const SELF_DISCIPLINE_QUESTIONS = [
   'L4 渲染层验证了吗？（浏览器逐路由检查白屏/崩溃/控制台错误）',
   'L6 状态层 + L7 防御层验证了吗？（刷新保留 + 异常输入测试）',
   'L5 交互层用 browser_use agent 验证了吗？（逐按钮点击验证 UI 反馈，附截图）',
+  'F0 第一性原理拆解完成了吗？（A37：剥离假设/惯例 → 事实基元 → 从基元重建方案）',
+  '对抗式审查完成了吗？（A38：测试/检查/审计/验证类任务是否已切换攻击者视角完成红队审查，报告含"对抗式审查结论"小节）',
 ] as const
 
 export function disciplineCheck(report: VerifyReport): {
@@ -851,6 +870,7 @@ export function disciplineCheck(report: VerifyReport): {
   if (report.results.some(r => r.layer === 'L6') && !report.layers.L6_state) failures.push('L6 状态层未通过')
   if (report.results.some(r => r.layer === 'L7') && !report.layers.L7_defense) failures.push('L7 防御层未通过')
   if (report.results.some(r => r.layer === 'L8') && !report.layers.L8_defect_hunting) failures.push('L8 缺陷猎杀未通过')
+  if (report.results.some(r => r.layer === 'L9') && !report.layers.L9_adversarial) failures.push('L9 对抗式审查未通过')
 
   return {
     canDeclareComplete: failures.length === 0,

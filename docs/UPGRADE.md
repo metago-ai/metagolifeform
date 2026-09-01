@@ -1,6 +1,11 @@
 # MetaGO Lifeform 升级指南
 
-本文档说明如何从旧版本升级到 V36.9.3。
+本文档说明如何从旧版本升级到 **V36.9.4**（当前版本）。
+
+> **36.9.4 升级路径（当前）**：`npm install -g metago-lifeform@36.9.4`（或使用 `metagolifeform-local-v36.9.4.zip` 解压安装）。
+> 36.9.4 为发布级修复轮：Codex 改用 `~/.codex/config.toml`（TOML 段级读写）、根级 agents/ 回填、verify 版本动态化、引擎宪法补 A37/A38/D44/D45、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径、根级 SHA256SUMS.txt。
+>
+> 🔖 **历史章节**：以下 36.9.3 及更早的升级说明保留为历史存档，不再适用于当前版本。
 
 ## 升级前必读
 

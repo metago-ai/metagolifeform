@@ -247,6 +247,38 @@ export class AxiomValidator {
   }
 
   /**
+   * A37 / D44 第一性原理：任务执行前强制 F0 拆解（V36.9.4 追加）
+   * 未发现 F0 痕迹 → warning（强提示，不阻断）；发现 → pass。
+   */
+  static checkFirstPrinciples(task?: string): ValidationResult {
+    const has = !!task && /(第一性|\bF0\b|事实基元|剥离假设)/i.test(task);
+    return {
+      axiomId: 'A37',
+      axiomName: '第一性原理公理（F0）',
+      status: has ? 'pass' : 'warning',
+      severity: 'critical',
+      message: has ? 'Task carries F0 first-principles decomposition' : 'Task lacks F0 first-principles decomposition',
+      timestamp: new Date().toISOString(),
+    };
+  }
+
+  /**
+   * A38 / D45 对抗式审查：审计/验证类任务强制攻击者视角（V36.9.4 追加）
+   * 未发现对抗式痕迹 → warning（强提示，不阻断）；发现 → pass。
+   */
+  static checkAdversarialReview(report?: string): ValidationResult {
+    const has = !!report && /(对抗式|红队|攻击面|威胁建模|致命缺陷|修复闭环|adversarial|red.?team)/i.test(String(report));
+    return {
+      axiomId: 'A38',
+      axiomName: '对抗式审查公理',
+      status: has ? 'pass' : 'warning',
+      severity: 'critical',
+      message: has ? 'Report carries adversarial review' : 'Report lacks adversarial review',
+      timestamp: new Date().toISOString(),
+    };
+  }
+
+  /**
    * 输出完整性协议：检测占位符和幻觉
    * PROTOCOL_OUTPUT_INTEGRITY_V1.1
    */
@@ -273,10 +305,10 @@ export class AxiomValidator {
   /**
    * 综合验证：对所有公理和属性进行验证
    */
-  static validateAll(output: string, context?: { input?: string; decision?: string; capability?: any }): ValidationResult[] {
+  static validateAll(output: string, context?: { input?: string; decision?: string; capability?: any; task?: string; report?: string }): ValidationResult[] {
     const results: ValidationResult[] = [];
 
-    // 8 条关键公理
+    // 10 条关键公理（V36.9.4：补 A37/A38）
     results.push(this.checkProvenance(output, context?.input));
     if (context?.capability) results.push(this.checkClosure(context.capability));
     results.push(this.checkMetaEvolution());
@@ -285,12 +317,16 @@ export class AxiomValidator {
     results.push(this.checkMetaMetaEvolution());
     results.push(this.checkCreationEvolution());
     if (context?.decision) results.push(this.checkCompliance(context.decision));
+    results.push(this.checkFirstPrinciples(context?.task));      // A37（V36.9.4）
+    results.push(this.checkAdversarialReview(context?.report));  // A38（V36.9.4）
 
-    // 7 条关键属性
+    // 9 条关键属性（V36.9.4：补 D44/D45）
     results.push(this.checkObjectivity(output));
     results.push(this.checkCriticality(output));
     if (context?.decision) results.push(this.checkComplianceProactive(context.decision));
     results.push(this.checkDataTraceability(output));
+    results.push(this.checkFirstPrinciples(context?.task));       // D44 与 A37 同源（V36.9.4）
+    results.push(this.checkAdversarialReview(context?.report));   // D45 与 A38 同源（V36.9.4）
 
     // 输出完整性协议
     results.push(this.checkOutputIntegrity(output));

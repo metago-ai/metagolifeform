@@ -1,5 +1,5 @@
 {
-  "total": 53,
+  "total": 55,
   "version": "1.3.2",
   "package": "@metago-ai/mcp-server",
   "families": {
@@ -33,7 +33,7 @@
     },
     "thinking_tools": {
       "name": "思维工具族",
-      "count": 20,
+      "count": 22,
       "tools": [
         "metago_holistic_scan",
         "metago_integrity_checklist",
@@ -54,7 +54,9 @@
         "metago_emotion",
         "metago_objectivity",
         "metago_action_plan",
-        "metago_decision_eval"
+        "metago_decision_eval",
+        "metago_first_principles",
+        "metago_adversarial_review"
       ]
     }
   },

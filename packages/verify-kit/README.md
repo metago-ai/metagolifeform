@@ -29,7 +29,7 @@ This package turns verification from a **soft constraint** (the agent can skip i
 | **L5** | Interaction | Button feedback · input · dropdown · navigation · form submit · keyboard · loading | P1 important |
 | **L6** | State | Navigation retention · refresh retention · login state · draft retention · session switch · selected items | P1 important |
 | **L7** | Defense | Empty input · long input · XSS · concurrent · timeout · permission boundary · old data compat · injection | P0 blocking |
-| **L8** | Defect hunting | 11 dimensions: zombie features · unpersisted state · mock data · error handling · route deadlinks · type safety · copy consistency · deprecated API · business closure · compliance · terminology | P0 blocking |
+| **L8** | Defect hunting | 12 dimensions: zombie features · unpersisted state · mock data · error handling · route deadlinks · type safety · copy consistency · deprecated API · business closure · compliance · terminology | P0 blocking |
 
 **All 8 layers pass = task complete. Any layer fails = task NOT complete.**
 
@@ -92,9 +92,9 @@ npx @metago-ai/verify-kit
 metago-verify
 ```
 
-## The 8 self-discipline questions (V3)
+## The 10 self-discipline questions (V3 · 36.9.4)
 
-Before declaring "task complete", the agent must answer all 8 questions. Any "no" blocks the declaration:
+Before declaring "task complete", the agent must answer all 10 questions. Any "no" blocks the declaration:
 
 1. Did I run `npm run verify`?
 2. Are there any FAILs in the verify output?
@@ -104,6 +104,10 @@ Before declaring "task complete", the agent must answer all 8 questions. Any "no
 6. Did I verify L4 rendering layer? (browser check for white screen/crash/console errors)
 7. Did I verify L6 state + L7 defense layers? (refresh retention + abnormal input tests)
 8. Did I verify L5 interaction layer with browser_use agent? (click each button for UI feedback, with screenshots)
+9. Did I complete the F0 first-principles decomposition? (A37: strip assumptions/conventions → fact primitives → rebuild the plan)
+10. Did I complete the adversarial review? (A38: for test/check/audit/verification tasks, switched to attacker perspective with a red-team report including the "adversarial review conclusion" section)
+
+> **L9 对抗式审查小节（A38 · 强制）**：本包产出的交付报告若属于测试/检查/审计/验证类，报告末尾必须含 "L9 对抗式审查结论" 小节（角色切换 / 威胁建模 / 致命缺陷挖掘 / 修复闭环）；缺失 = `disciplineCheck` 的 L9 门禁 FAIL，禁止宣告完成。
 
 ## Bypass detection
 

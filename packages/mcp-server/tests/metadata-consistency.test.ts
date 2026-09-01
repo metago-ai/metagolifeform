@@ -35,13 +35,13 @@ describe("T8 - 元数据一致性", () => {
   const devKitPkg = readJson(resolve(devKitDir, "package.json")) as Record<string, unknown>;
 
   describe("实际数据基线", () => {
-    it("skills/ 目录应有 95 个技能子目录", () => {
+    it("skills/ 目录应有 100 个技能子目录", () => {
       const skills = listSkillDirs();
-      expect(skills.length).toBe(95);
+      expect(skills.length).toBe(100);
     });
 
-    it("SKILLS 数组应有 37 项", () => {
-      expect(SKILLS.length).toBe(37);
+    it("SKILLS 数组应有 39 项", () => {
+      expect(SKILLS.length).toBe(39);
     });
 
     it("TOOLKIT_TOOLS 数组应有 22 项", () => {
@@ -52,24 +52,24 @@ describe("T8 - 元数据一致性", () => {
       expect(PROMPTS.length).toBe(8);
     });
 
-    it("合并去重后总工具数应为 52（另加 metago_report_event 独立注册 = 53）", () => {
+    it("合并去重后总工具数应为 54（另加 metago_report_event 独立注册 = 55）", () => {
       const names = new Set<string>();
       TOOLKIT_TOOLS.forEach((t) => names.add(t.toolName));
       SKILLS.forEach((s) => names.add(s.toolName));
-      expect(names.size).toBe(52);
+      expect(names.size).toBe(54);
     });
   });
 
   describe("根 package.json 元数据", () => {
     const metago = rootPkg.metago as Record<string, unknown>;
 
-    it("metago.skills 应为 95（与 skills/ 目录一致）", () => {
-      expect(metago.skills).toBe(95);
+    it("metago.skills 应为 100（与 skills/ 目录一致）", () => {
+      expect(metago.skills).toBe(100);
     });
 
-    it("metago.mcpServer.tools 应为 53（含 metago_report_event 独立注册）", () => {
+    it("metago.mcpServer.tools 应为 55（含 metago_report_event 独立注册）", () => {
       const mcp = metago.mcpServer as Record<string, unknown>;
-      expect(mcp.tools).toBe(53);
+      expect(mcp.tools).toBe(55);
     });
 
     it("metago.mcpServer.prompts 应为 8（与 PROMPTS 一致）", () => {
@@ -82,16 +82,16 @@ describe("T8 - 元数据一致性", () => {
       expect(dev.skills).toBe(8);
     });
 
-    it("description 中应包含 '53'（而非过时的 '42 项' 或 '35 项'）", () => {
-      expect(rootPkg.description as string).toContain("53");
+    it("description 中应包含 '55'（而非过时的 '42 项' 或 '35 项'）", () => {
+      expect(rootPkg.description as string).toContain("55");
       expect(rootPkg.description as string).not.toContain("42 项");
       expect(rootPkg.description as string).not.toContain("35 项");
     });
   });
 
   describe("mcp-server package.json 元数据", () => {
-    it("description 中应包含 '53 tools'（而非过时的 '42 项' 或 '35 项'）", () => {
-      expect(mcpPkg.description as string).toContain("53");
+    it("description 中应包含 '55 tools'（而非过时的 '42 项' 或 '35 项'）", () => {
+      expect(mcpPkg.description as string).toContain("55");
       expect(mcpPkg.description as string).not.toContain("42 项");
       expect(mcpPkg.description as string).not.toContain("35 项");
     });

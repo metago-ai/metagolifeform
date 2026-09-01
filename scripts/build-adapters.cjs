@@ -54,7 +54,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'trae',
     templateFile: 'rules.template.md',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 },
       { name: 'mcp_metago-skill-server', command: 'metago-skill-server', tools: 123 },
       { name: 'mcp_metago-skill-server-2', command: 'metago-skill-server-2', tools: 40 },
@@ -68,7 +68,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'claude-code',
     templateFile: 'CLAUDE.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -77,7 +77,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'codex',
     templateFile: 'AGENTS.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -86,7 +86,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'cursor',
     templateFile: 'metago.mdc.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -95,7 +95,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'codebuddy',
     templateFile: 'CODEBUDDY.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -104,7 +104,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'qoder',
     templateFile: 'metago-rules.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -113,7 +113,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'zcode',
     templateFile: 'CLAUDE.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -122,7 +122,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'chatgpt-work',
     templateFile: 'AGENTS.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -131,7 +131,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'workbuddy',
     templateFile: 'rules.template.md',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -140,7 +140,7 @@ const PLATFORM_CONFIGS = {
     adapterDir: 'kimi',
     templateFile: 'AGENTS.md.template',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },

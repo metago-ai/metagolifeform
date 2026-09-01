@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（Trae 第一人称视角撰写）。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.9.3，由 MetaGO Agent Harness 安装。
+> 基于《元构全息智能引擎》V36.9.4，由 MetaGO Agent Harness 安装。
 >
 > **多平台说明**：本母本以 Trae 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -1080,7 +1080,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.9.3 | 本文件 |
+| AGENTS.md | V36.9.4 | 本文件 |
 | @metago-ai/engine | 2.1.1 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.1 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.1 | npm 发布物 |
@@ -1255,7 +1255,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.9.3 安装 | 最后更新：2026-08-31（V36.9.3 修复轮：第十章计数改为 {{SKILLS_COUNT}} 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 MetaGO Agent Harness V36.9.4 安装 | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 {{SKILLS_COUNT}} 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 
@@ -1340,9 +1340,9 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ### 19.6 能力清单校准（D43 数据准确）
 
-本章注入后，本环境 MCP 能力现状为 **3 个 MCP 服务器 / 134 个工具**：
-`metago`（53 工具） + `metago-algorithms`（57 工具） + `playwright`（24 个 browser_* 工具）。
-第十八章 §18.9 的自动生成表（2 服务器 / 110 工具）未含 playwright，凡出现矛盾处以本章为准。
+本章注入后，本环境 MCP 能力现状为 **3 个 MCP 服务器 / 136 个工具**：
+`metago`（55 工具） + `metago-algorithms`（57 工具） + `playwright`（24 个 browser_* 工具）。
+第十八章 §18.9 的自动生成表（2 服务器 / 112 工具）未含 playwright，凡出现矛盾处以本章为准。
 
 ## 第二十章 进程清理铁律（防宿主自杀 · 2026-08-18 事故）
 
@@ -1400,7 +1400,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 ### MCP 工具集（6 组）
 | 服务器 | 工具数 | 用途 |
 |--------|--------|------|
-| metago | 53 | 核心工具（记忆/进化/决策锁/价值评估） |
+| metago | 55 | 核心工具（记忆/进化/决策锁/价值评估） |
 | metago-algorithms | 57 | 927 算法（相似度/相关性/耦合度等） |
 | codex | 1 | 织工 Codex（代码生成/分析，subagent 委托） |
 | playwright | 24 | 浏览器自动化（截图/点击/填表） |

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Agent Harness - CLI 入口 (V36.9.2)
+ * MetaGO Agent Harness - CLI 入口 (V36.9.4)
  * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/插件打包/备份/验证
  *
  * 用法:
@@ -21,6 +21,7 @@
  */
 
 const { execSync, spawnSync } = require('child_process');
+const tomlMcp = require('./mcp-toml.cjs'); // 36.9.4: Codex config.toml 读写
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
@@ -61,7 +62,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: appSupport('Trae CN', 'User', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 },
       { name: 'mcp_metago-skill-server', command: 'metago-skill-server', tools: 123 },
       { name: 'mcp_metago-skill-server-2', command: 'metago-skill-server-2', tools: 40 },
@@ -78,7 +79,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: appSupport('Claude', 'claude_desktop_config.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -88,9 +89,11 @@ const NODE_PLATFORM_CONFIGS = {
     rules: 'AGENTS.md',
     skills: 'skills',
     supportsSkills: true,
-    mcpConfig: path.join(HOME, '.codex', 'config.json'),
+    // 36.9.4: Codex CLI 使用 config.toml（TOML 格式）；旧值 config.json 是 Codex 不读的文件
+    mcpConfig: path.join(HOME, '.codex', 'config.toml'),
+    mcpFileFormat: 'toml',
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -102,7 +105,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: appSupport('Cursor', 'User', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -114,7 +117,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: path.join(HOME, '.codebuddy', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -126,7 +129,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: false,
     mcpConfig: path.join(HOME, '.qoder', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -138,7 +141,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: path.join(HOME, '.chatgpt', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ],
     pluginFormat: 'agent-plugins-1.0.0'
@@ -151,7 +154,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: path.join(HOME, '.workbuddy', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   },
@@ -163,7 +166,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: path.join(HOME, '.kimi-code', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ],
     note: 'Kimi 桌面版（kimi-work）不注入自定义 MCP 工具；kimi-code CLI 为标准 MCP 客户端。daimon 技能目录请用 --install-path 指定'
@@ -186,7 +189,7 @@ const NODE_PLATFORM_CONFIGS = {
     supportsSkills: true,
     mcpConfig: path.join(HOME, '.zcode', 'config', 'mcp.json'),
     mcpServers: [
-      { name: 'metago', command: 'metago-mcp-server', tools: 53 },
+      { name: 'metago', command: 'metago-mcp-server', tools: 55 },
       { name: 'metago-algorithms', command: 'metago-algorithms', tools: 57, algorithms: 927 }
     ]
   }
@@ -756,6 +759,14 @@ function setupMcpAllPlatforms(platform, skipBuild, installPath) {
     };
   }
 
+  // 36.9.4: TOML 平台（Codex）走段级写入，其余平台沿用 JSON 分支
+  if (cfg.mcpFileFormat === 'toml') {
+    tomlMcp.upsertTomlMcp(configPath, cfg.mcpServers);
+    console.log(`  [OK] MCP 配置已写入（TOML）: ${configPath}`);
+    const totalTools = cfg.mcpServers.reduce((sum, s) => sum + s.tools, 0);
+    console.log(`  服务器: ${cfg.mcpServers.length} 个 MCP 服务器，共 ${totalTools} 工具`);
+    return;
+  }
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
   console.log(`  [OK] MCP 配置已写入: ${configPath}`);
   const totalTools = cfg.mcpServers.reduce((sum, s) => sum + s.tools, 0);
@@ -800,7 +811,7 @@ function installNative(platform, opts) {
   }
 
   console.log(`  [3/4] 配置 MCP 服务器...`);
-  setupMcpAllPlatforms(platform, false, opts.projectLocal ? base : null);
+  setupMcpAllPlatforms(platform, opts.skipBuild || false, opts.projectLocal ? base : null);
 
   if (opts.withPlugin && !opts.projectLocal) {
     console.log(`  [3.5/4] 部署插件层...`);
@@ -848,7 +859,10 @@ function uninstallNative(platform, opts) {
     console.log(`    ✓ 已删除法则文件: ${rulesFile}`);
   }
 
-  if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
+  if (cfg.mcpFileFormat === 'toml' && cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
+    tomlMcp.removeTomlMcp(cfg.mcpConfig, cfg.mcpServers.map(s => s.name));
+    console.log(`    ✓ 已从 MCP 配置（TOML）移除服务器`);
+  } else if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
     try {
       const config = JSON.parse(fs.readFileSync(cfg.mcpConfig, 'utf8'));
       if (config.mcpServers) {
@@ -894,11 +908,12 @@ function verifyNative(platform, installPath) {
       console.log(`  [PASS] 法则文件无 BOM`); pass++;
     }
     
-    if (/V36\.9\.2/.test(content)) {
-      console.log(`  [PASS] 法则版本: V36.9.2`); pass++;
+    // 36.9.4: 期望版本动态读根 package.json（旧硬编码 V36.9.2 会让新版本误报 FAIL）
+    if (content.includes('V' + VERSION)) {
+      console.log(`  [PASS] 法则版本: V${VERSION}`); pass++;
     } else {
       const verMatch = content.match(/V\d+\.\d+\.\d+/);
-      console.log(`  [FAIL] 法则版本错误 (期望 V36.9.2, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
+      console.log(`  [FAIL] 法则版本错误 (期望 V${VERSION}, 实际 ${verMatch ? verMatch[0] : '未知'})`); fail++;
     }
 
     if (/第十八章/.test(content) && !/\{\{MCP_SERVERS_TABLE\}\}/.test(content) && !/\{\{SKILLS_TABLE\}\}/.test(content)) {
@@ -919,6 +934,13 @@ function verifyNative(platform, installPath) {
     console.log(`  [FAIL] 法则文件不存在: ${rulesFile}`); fail++;
   }
 
+  if (cfg.mcpFileFormat === 'toml') {
+    if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig) && tomlMcp.hasTomlMcp(cfg.mcpConfig, cfg.mcpServers.slice(0, 2).map(s => s.name))) {
+      console.log('  [PASS] MCP 配置（TOML）含 metago 服务器段'); pass++;
+    } else {
+      console.log(`  [FAIL] MCP 配置（TOML）缺失 metago 服务器段: ${cfg.mcpConfig}`); fail++;
+    }
+  } else {
   let config = {};
   if (cfg.mcpConfig && fs.existsSync(cfg.mcpConfig)) {
     try {
@@ -946,6 +968,7 @@ function verifyNative(platform, installPath) {
   } else {
 console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
   }
+  }
 
   if (cfg.supportsSkills) {
     const skillsDir = path.join(base, cfg.skills);
@@ -972,7 +995,7 @@ console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
 function showHelp() {
   console.log(`
 MetaGO Agent Harness v${VERSION}
-元构超级智能生命体标准安装包（跨平台全量版 V36.9.2 · 规则+技能+MCP+智能体+插件）
+元构超级智能生命体标准安装包（跨平台全量版 V36.9.4 · 规则+技能+MCP+智能体+插件）
 
 用法:
   metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup] [--with-plugin]

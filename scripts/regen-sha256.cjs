@@ -8,6 +8,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const LOCAL_EDITION_DIR = path.resolve(__dirname, '..', 'local-edition');
+const PKG_VERSION = (() => { try { return require(path.resolve(__dirname, '..', 'package.json')).version; } catch { return 'unknown'; } })(); // 36.9.4: 版本戳动态化（旧字面量 V36.9.1 会随版本漂移）
 const MANIFEST_PATH = path.join(LOCAL_EDITION_DIR, 'MANIFEST.sha256');
 
 function sha256File(filePath) {
@@ -34,7 +35,7 @@ function walkDir(dir, baseDir, results = []) {
 function main() {
   const files = walkDir(LOCAL_EDITION_DIR, LOCAL_EDITION_DIR);
   
-  let manifest = '# MetaGO Lifeform V36.9.1 Local Edition - SHA256 Manifest\n';
+  let manifest = `# MetaGO Lifeform V${PKG_VERSION} Local Edition - SHA256 Manifest\n`;
   manifest += `# Generated: ${new Date().toISOString()}\n`;
   manifest += `# Total files: ${files.length}\n\n`;
 

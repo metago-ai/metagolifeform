@@ -122,7 +122,7 @@ for (const tool of TOOLKIT_TOOLS) {
   );
 }
 
-// 再注册 37 个核心技能中独有的（跳过已在 TOOLKIT_TOOLS 中注册的 7 个同名工具）
+// 再注册 39 个核心技能中独有的（跳过已在 TOOLKIT_TOOLS 中注册的 7 个同名工具）
 // Engine V2 硬驱动：metago_memory_manage / metago_meta_evolve / metago_meta_create 调用真实代码
 for (const skill of SKILLS) {
   if (registeredToolNames.has(skill.toolName)) {

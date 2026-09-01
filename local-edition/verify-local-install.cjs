@@ -91,7 +91,8 @@ function getPlatformConfig(platform) {
     'trae': {
       name: 'Trae',
       base: path.join(HOME, '.trae-cn'),
-      rulesFile: path.join(HOME, '.trae-cn', 'builtin', 'work', 'AGENTS.md'),
+      // 36.9.4 修复：与 cli.js 落点对齐（旧值 builtin/work/AGENTS.md 是遗留内置位，与安装器写入的 rules.md 不一致 → 合格安装必判 1.1 FAIL）
+      rulesFile: path.join(HOME, '.trae-cn', 'rules.md'),
       skillsDir: path.join(HOME, '.trae-cn', 'skills'),
       supportsSkills: true,
       mcpConfig: appSupport('Trae CN', 'User', 'mcp.json'),
@@ -100,7 +101,8 @@ function getPlatformConfig(platform) {
     'claude-code': {
       name: 'Claude Code',
       base: path.join(HOME, '.claude'),
-      rulesFile: path.join(HOME, 'CLAUDE.md'),
+      // 36.9.4 修复：与 cli.js 落点对齐（.claude/CLAUDE.md；旧值 HOME/CLAUDE.md 位置错误）
+      rulesFile: path.join(HOME, '.claude', 'CLAUDE.md'),
       skillsDir: path.join(HOME, '.claude', 'skills'),
       supportsSkills: true,
       mcpConfig: appSupport('Claude', 'claude_desktop_config.json'),
@@ -112,7 +114,9 @@ function getPlatformConfig(platform) {
       rulesFile: path.join(HOME, '.codex', 'AGENTS.md'),
       skillsDir: path.join(HOME, '.codex', 'skills'),
       supportsSkills: true,
-      mcpConfig: path.join(HOME, '.codex', 'config.json'),
+      // 36.9.4: Codex CLI 实际读取 config.toml（旧 config.json 是 Codex 不读的文件）
+      mcpConfig: path.join(HOME, '.codex', 'config.toml'),
+      mcpFileFormat: 'toml',
       memoryDir: path.join(HOME, '.codex')
     },
     'cursor': {
@@ -136,7 +140,8 @@ function getPlatformConfig(platform) {
     'qoder': {
       name: 'Qoder',
       base: path.join(HOME, '.qoder'),
-      rulesFile: path.join(HOME, '.qoder', 'metago-rules.md'),
+      // 36.9.4 修复：与 cli.js 落点对齐（旧值 metago-rules.md 与安装器 rules/metago.md 不一致）
+      rulesFile: path.join(HOME, '.qoder', 'rules', 'metago.md'),
       skillsDir: '',
       supportsSkills: false,
       mcpConfig: path.join(HOME, '.qoder', 'mcp.json'),
@@ -324,7 +329,7 @@ function main() {
     return { pass: hasVersion, detail: hasVersion ? 'V' + EXPECTED_VERSION : '版本号未找到或不正确' };
   });
 
-  check('2.2', '全局 metago-lifeform 版本为 36.9.2', () => {
+  check('2.2', `全局 metago-lifeform 版本为 ${EXPECTED_VERSION}`, () => {
     const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim();
     const pkgPath = path.join(globalRoot, 'metago-lifeform', 'package.json');
     const pkg = safeReadJSON(pkgPath);
@@ -342,7 +347,7 @@ function main() {
     return { pass: correct, detail: correct ? pkg.metago.engine.version : `期望 ${EXPECTED_ENGINE}, 实际 ${pkg.metago.engine.version}` };
   });
 
-  check('2.4', 'metago-lifeform --version 输出 36.9.2', () => {
+  check('2.4', `metago-lifeform --version 输出 ${EXPECTED_VERSION}`, () => {
     try {
       const out = execSync('metago-lifeform --version', { encoding: 'utf8', timeout: 10000 }).trim();
       const correct = out.includes(EXPECTED_VERSION);
@@ -447,20 +452,30 @@ function main() {
   // ============ 类别 6: MCP 配置 ============
   console.log('─── 类别 6: MCP 配置 ───');
 
-  check('6.1', 'mcp.json 包含 metago 服务器', () => {
-    if (!fileExists(paths.mcpConfig)) return { pass: true, detail: `${platform} 平台跳过 mcp.json 检查` };
-    const cfg = safeReadJSON(paths.mcpConfig);
-    if (!cfg) return { pass: false, detail: 'mcp.json 解析失败' };
-    const mcpServers = cfg.mcpServers || {};
+  check('6.1', 'MCP 配置包含 metago 服务器', () => {
+    if (!fileExists(paths.mcpConfig)) return { pass: true, detail: `${platform} 平台跳过 mcp 检查` };
+    if (getPlatformConfig(platform).mcpFileFormat === 'toml') {
+      const text = removeBOM(fs.readFileSync(paths.mcpConfig, 'utf8'));
+      const has = /^\[mcp_servers\.metago\]/m.test(text);
+      return { pass: has, detail: has ? 'metago 段已配置' : '未找到 [mcp_servers.metago] 段' };
+    }
+    const cfgJ = safeReadJSON(paths.mcpConfig);
+    if (!cfgJ) return { pass: false, detail: 'mcp.json 解析失败' };
+    const mcpServers = cfgJ.mcpServers || {};
     const has = Object.keys(mcpServers).some(k => k.includes('metago') && !k.includes('skill') && !k.includes('toolkit') && !k.includes('algorithms'));
     return { pass: has, detail: has ? 'metago 已配置' : '未找到 metago MCP 服务器' };
   });
 
-  check('6.2', 'mcp.json 包含 metago-algorithms 服务器', () => {
-    if (!fileExists(paths.mcpConfig)) return { pass: true, detail: `${platform} 平台跳过 mcp.json 检查` };
-    const cfg = safeReadJSON(paths.mcpConfig);
-    if (!cfg) return { pass: false, detail: 'mcp.json 解析失败' };
-    const mcpServers = cfg.mcpServers || {};
+  check('6.2', 'MCP 配置包含 metago-algorithms 服务器', () => {
+    if (!fileExists(paths.mcpConfig)) return { pass: true, detail: `${platform} 平台跳过 mcp 检查` };
+    if (getPlatformConfig(platform).mcpFileFormat === 'toml') {
+      const text = removeBOM(fs.readFileSync(paths.mcpConfig, 'utf8'));
+      const has = /^\[mcp_servers\.metago-algorithms\]/m.test(text);
+      return { pass: has, detail: has ? 'metago-algorithms 段已配置' : '未找到 [mcp_servers.metago-algorithms] 段' };
+    }
+    const cfgJ = safeReadJSON(paths.mcpConfig);
+    if (!cfgJ) return { pass: false, detail: 'mcp.json 解析失败' };
+    const mcpServers = cfgJ.mcpServers || {};
     const has = Object.keys(mcpServers).some(k => k.includes('algorithms'));
     return { pass: has, detail: has ? 'metago-algorithms 已配置' : '未找到 metago-algorithms MCP 服务器' };
   });

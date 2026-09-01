@@ -140,7 +140,7 @@ packages/engine/
 ├── INDEX/                 ← Index layer
 │   ├── engines.json       ← 125 engines
 │   ├── skills.json        ← 39 skills
-│   ├── tools.json         ← 53 MCP tools
+│   ├── tools.json         ← 55 MCP tools
 │   └── knowledge.json     ← Knowledge crystal index
 ├── RUNTIME/               ← Runtime layer (TypeScript) ← V2 lives here
 │   ├── src/

@@ -96,7 +96,7 @@ metago-lifeform/
 │   └── ...
 ├── packages/
 │   ├── engine/             # @metago-ai/engine — Engine V2 (KMWI, Evolution, SkillGen)
-│   ├── mcp-server/         # @metago-ai/mcp-server — 53 MCP tools + 8 prompts
+│   ├── mcp-server/         # @metago-ai/mcp-server — 55 MCP tools + 8 prompts
 │   ├── dev-kit/            # @metago-ai/dev-kit — Code review, architecture, refactor
 │   ├── algorithms/         # @metago-ai/algorithms — 927 algorithms / 57 MCP tools
 │   ├── verify-kit/         # @metago-ai/verify-kit — 7-layer verification + L8/L9 gates
@@ -264,7 +264,7 @@ Every PR must pass:
 ```bash
 node scripts/test-registration-uniqueness.cjs
 ```
-This ensures the shipped MCP tool registrations are unique and complete (53 + 57 tools) with DUPLICATES=0.
+This ensures the shipped MCP tool registrations are unique and complete (55 + 57 tools) with DUPLICATES=0.
 
 ### Engine V2 Tests
 

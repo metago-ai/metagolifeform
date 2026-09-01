@@ -108,7 +108,7 @@ npx metago-lifeform@latest install --platform trae
 | Trae | `%APPDATA%\Trae CN\User\mcp.json` | 用户级（全局生效） |
 | Claude Desktop | `%APPDATA%\Claude\claude_desktop_config.json` | 用户级（全局生效） |
 | ZCode | `%USERPROFILE%\.zcode\config\mcp.json` | 用户级（全局生效） |
-| Codex | `%USERPROFILE%\.codex\config.json` | 用户级（全局生效） |
+| Codex | `%USERPROFILE%\.codex\config.toml` | 用户级（全局生效） |
 | Cursor | `.cursor/mcp.json` | 项目级（需在项目根目录运行脚本） |
 | CodeBuddy | `.codebuddy/mcp.json` | 项目级（需在项目根目录运行脚本） |
 | Qoder | `.qoder/mcp.json` | 项目级（需在项目根目录运行脚本） |

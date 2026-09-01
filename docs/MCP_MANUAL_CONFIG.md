@@ -8,7 +8,7 @@ MetaGO Lifeform 提供两个核心 MCP 服务器：
 
 | 服务器名称 | npm 包 | 命令 | 功能 |
 |-----------|--------|------|------|
-| metago | `@metago-ai/mcp-server` | `metago-mcp-server` | 核心思维工具（决策锁、自检、合规等 53 工具） |
+| metago | `@metago-ai/mcp-server` | `metago-mcp-server` | 核心思维工具（决策锁、自检、合规等 55 工具） |
 | metago-algorithms | `@metago-ai/algorithms` | `metago-algorithms` | 算法引擎（927 算法 + 57 工具） |
 
 ## 方式一：命令垫片（推荐）
@@ -185,7 +185,7 @@ metago-lifeform verify
 | CodeBuddy | `~/.codebuddy/mcp.json` | 全局 |
 | Qoder | `~/.qoder/mcp.json` | 全局 |
 | ZCode | `~/.zcode/config/mcp.json` | 全局 |
-| Codex | `~/.codex/config.json` | 全局 |
+| Codex | `~/.codex/config.toml` | 全局 |
 
 ## 常见问题
 

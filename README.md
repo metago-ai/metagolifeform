@@ -19,7 +19,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 [![Skills](https://img.shields.io/badge/Skills-100-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-110_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 [![Engine](https://img.shields.io/badge/Engine-V2.1.1-blue)](packages/engine/)
-[![Rules](https://img.shields.io/badge/Rules-V36.9.3-9cf)](AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.9.4-9cf)](AGENTS.md)
 
 ---
 
@@ -71,7 +71,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 10 self-checks across 10 hard gates — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.9.3 — 10 core axioms and 9 enforced properties inside a full constitution. Not vibes — a constitution.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.9.4 — 10 core axioms and 9 enforced properties inside a full constitution. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
 
 ---
@@ -112,7 +112,7 @@ Engine V2 is real code, not a prompt: `KMWIMemory` manages the 4-layer memory wi
 ## By the numbers (all real, none invented)
 
 - **100 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
-- **110 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (53 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). In Trae environments the installer additionally registers MetaGO skill-servers (up to 324 tools across 6 servers)
+- **110 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (55 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). In Trae environments the installer additionally registers MetaGO skill-servers (up to 324 tools across 6 servers)
 - **Engine V2.1.1** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
 - **11 platform forms**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode, ChatGPT Work, WorkBuddy, Kimi Code, Kimi Work — plus Agent-Plugins 1.0.0 / Claude / ZCode / Codex plugin packs
 - **10 core axioms + 9 enforced properties + 4 decision-lock gates + 5 evolution stages + 8 runtime protocols**
@@ -232,12 +232,12 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 100 skills + 11 platform forms + AGENTS.md V36.9.3 | `npm install -g metago-lifeform` |
-| `@metago-ai/mcp-server` | MCP server exposing 53 tools + 8 prompts (Engine V2.1.1 hard-driven) | `npm install @metago-ai/mcp-server` |
+| `metago-lifeform` | The CLI installer + 100 skills + 11 platform forms + AGENTS.md V36.9.4 | `npm install -g metago-lifeform` |
+| `@metago-ai/mcp-server` | MCP server exposing 55 tools + 8 prompts (Engine V2.1.1 hard-driven) | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2.1.1: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
 | `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.1 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
-| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.9.3 spec) | `npm install @metago-ai/verify-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.9.4 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 

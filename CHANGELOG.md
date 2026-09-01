@@ -9,6 +9,26 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 
 ---
 
+## [36.9.4] — 2026-09-01（发布级修复轮：Codex TOML / agents 回填 / 引擎宪法同步 / 11 平台矩阵）
+
+### Fixed（发布级 P0/P1）
+- **P0-1 Codex MCP 路径**：`scripts/cli.js` 与 `local-edition/verify-local-install.cjs` 的 Codex MCP 配置从 `~/.codex/config.json` 改为 `~/.codex/config.toml`；新增 `scripts/mcp-toml.cjs`（零依赖 TOML 段级读写：插入/更新/删除/校验，保留既有内容与注释），`setup-mcp`/`verify`/`uninstall` 三命令按平台格式（toml/json/none）分派。
+- **P0-2 根级 agents/ 回填**：35 个专家子智能体 `.md` 回填仓库根 `agents/`；frontmatter name 与文件名全部一致；与 plugins 四格式副本哈希对拍全等。
+- **P1-1 verify 版本动态化**：`scripts/cli.js` 期望版本改读根 `package.json`（旧硬编码 V36.9.2 使新版本必误报 FAIL）；T4 单测（36.9.4 法则 PASS / 36.9.3 法则 FAIL）通过。
+- **P0-4 引擎宪法同步**：`packages/engine/CONSTITUTION/AXIOMS.md` 补 A37/A38、`CORE/ATTRIBUTES.md` 补 D44/D45；validator 接入 GENOME critical_ids 校验链；MCP 工具 53→55（新增 metago_first_principles / metago_adversarial_review，全链口径联动）；verify-kit 缺陷猎杀 11→12 维、自检 8→10 问、报告加 L9 对抗式审查小节。
+- **P1-2 口径统一**：docs/MANIFEST.json（100 技能 / 1.3.2）、MCP_SERVER.md、PLUGINS.md、UPGRADE.md（加历史章节注）、MAP/GETTING_STARTED/RELEASE-CHECKLIST、plugins 四格式 manifest + platform-matrix（36.9.4/100/10 公理）、adapters README、metago-activate 五副本（10 公理/9 属性）、core/METAGO_CORE、README 徽章、package-lock。
+- **P1-6 根级 SHA256SUMS.txt**：发布脚本在 zip 内生成全文件清单，`sha256sum -c` 自校验（阶段 5 随交付物产出）。
+- **P0-3 离线子包戳**：engine/algorithms/dev-kit/verify-kit 四个 tgz 内 `metago.*_version` 戳补丁至 V36.9.4（零代码改动，重打后 MANIFEST.sha256 已再生成）。
+
+### Changed
+- 新增 `docs/PLATFORMS.md`：11 平台 × 资源 × 落点承诺矩阵（与 RELEASE-NOTES 一致）。
+- `scripts/ci-version-gate.cjs` 扩展 C7-C13（agents 一致性 / codex toml / verify 无硬编码 / 离线戳 / 插件口径 / SHA256SUMS / 全包密钥零残留）。
+
+### Removed
+- `metago-admin-2026` 类硬编码密钥模式在 dist/tgz/便携快照全包字节级扫描为零残留（C13）。
+
+---
+
 ## [36.9.3] — 2026-08-31（发行修复轮：zip 审计 → 仓库与发行包全面修复）
 
 ### Added

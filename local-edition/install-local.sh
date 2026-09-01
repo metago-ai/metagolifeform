@@ -36,7 +36,7 @@ if [ "$OFFLINE" = "1" ] || [ -d "$LE/portable/node_modules" ]; then
   [ -d "$LE/portable/bin" ] && cp -r "$LE/portable/bin/." "$PREFIX/" || true
 else
   echo "→ 路径B：tgz 安装（mcp-server/algorithms 的依赖需 npm registry）"
-  npm install -g "$LE/offline-packages/metago-lifeform-36.9.3.tgz" \
+  npm install -g "$LE/offline-packages/metago-lifeform-36.9.4.tgz" \
     "$LE/offline-packages/metago-ai-engine-2.1.1.tgz" \
     "$LE/offline-packages/metago-ai-mcp-server-1.3.2.tgz" \
     "$LE/offline-packages/metago-ai-algorithms-1.0.1.tgz" \

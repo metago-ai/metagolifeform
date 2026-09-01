@@ -1,6 +1,6 @@
 # @metago-ai/mcp-server
 
-> MetaGO MCP Server —— 智能体运行时控制层套件（驭智层）的 MCP 协议实现。暴露 53 tools + 8 prompts 给任意 MCP 客户端。Engine V2 硬驱动：KMWI 记忆、元进化引擎、技能生成器以真实代码运行，而非 prompt。
+> MetaGO MCP Server —— 智能体运行时控制层套件（驭智层）的 MCP 协议实现。暴露 55 tools + 8 prompts 给任意 MCP 客户端。Engine V2 硬驱动：KMWI 记忆、元进化引擎、技能生成器以真实代码运行，而非 prompt。
 
 基于 [Model Context Protocol](https://modelcontextprotocol.io/) 标准，通过 stdio 传输与客户端通信。一次配置，即可让 Claude Desktop、Cursor、Trae、ZCode 等任意 MCP 客户端获得元构生命体的决策锁、元进化、KMWI 记忆管理、批判性分析等核心能力。
 
@@ -10,11 +10,11 @@
 
 ## What is this?
 
-This is the **MCP Server** subpackage of [MetaGO Agent Harness](../). It exposes the Harness's 53 capabilities as MCP tools and 8 guided entry points as MCP prompts, so any MCP-compatible client can plug into the MetaGO lifeform without changing its own code.
+This is the **MCP Server** subpackage of [MetaGO Agent Harness](../). It exposes the Harness's 55 capabilities as MCP tools and 8 guided entry points as MCP prompts, so any MCP-compatible client can plug into the MetaGO lifeform without changing its own code.
 
 ### Engine V2 — Hard Drive (new in 2.0.0)
 
-Three of the 53 tools are **hard-driven** by Engine V2 — they call real TypeScript code, not just return prompt guidance:
+Three of the 55 tools are **hard-driven** by Engine V2 — they call real TypeScript code, not just return prompt guidance:
 
 | Tool | Engine Module | What it actually does |
 |---|---|---|
@@ -26,10 +26,10 @@ The other 50 tools return structured guidance (soft drive) that the agent follow
 
 ---
 
-## Tool count breakdown (53 total)
+## Tool count breakdown (55 total)
 
 ```
-53 = 22 thinking tools (toolkit-data.ts)
+55 = 22 thinking tools (toolkit-data.ts)
    + 30 core skills  (39 skill folders, 37 exported in skills-data.ts − 7 name-collisions merged into toolkit)
    + 1  event reporter (metago_report_event)
 ```
@@ -37,10 +37,10 @@ The other 50 tools return structured guidance (soft drive) that the agent follow
 | Category | Count | What's in it |
 |---|---|---|
 | Thinking tools | 22 | Planning, quality critique, value/ethics, provenance labeling, coupling, product improvement |
-| Core skills | 30 | Cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality |
+| Core skills | 32 | Cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality |
 | Event reporter | 1 | `metago_report_event` — reports to Studio dashboard for metrics & evolution archive |
 
-> Common mistake: `22 + 38 + 1 = 61`. Wrong. The skills directory has 39 folders, but `skills-data.ts` only exports 37 (missing `metago-delivery-gate` and `metago-discipline`, which live in toolkit-data.ts). Then 7 skill names collide with toolkit tools and are merged. So: `22 + (37 − 7) + 1 = 53`.
+> Common mistake: `22 + 38 + 1 = 61`. Wrong. The skills directory has 39 folders, but `skills-data.ts` only exports 39 (missing `metago-delivery-gate` and `metago-discipline`, which live in toolkit-data.ts — note: 36.9.4 added `metago-first-principles` and `metago-adversarial-review` to skills-data.ts). Then 7 skill names collide with toolkit tools and are merged. So: `22 + (39 − 7) + 1 = 55`.
 
 ---
 
@@ -270,7 +270,7 @@ Each tool takes an `input` string (the content/question/code to process).
 | Package | What it is | Install |
 |---|---|---|
 | `metago-lifeform` | The CLI installer + 39 skills + 7 platform adapters | `npm install -g metago-lifeform` |
-| `@metago-ai/mcp-server` | This package — MCP server with 53 tools + 8 prompts | `npm install @metago-ai/mcp-server` |
+| `@metago-ai/mcp-server` | This package — MCP server with 55 tools + 8 prompts | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2: KMWI memory + evolution engine + skill generator | `npm install @metago-ai/engine` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": "1.0.0",
-  "metago_version": "V36.9.3",
-  "package_version": "36.9.3",
+  "metago_version": "V36.9.4",
+  "package_version": "36.9.4",
   "description": "MetaGO Agent Harness AI 加载清单 - 支持全息按需激活",
   "last_updated": "2026-08-31",
   "activation_rate": "<30%",
@@ -164,7 +164,7 @@
     }
   ],
   "skills": {
-    "total": 95,
+    "total": 100,
     "families": {
       "cognition": 4,
       "assurance": 3,
@@ -175,8 +175,8 @@
       "value": 3,
       "consciousness": 1,
       "methodology": 5,
-      "architecture": 5,
-      "engineering_quality": 2,
+      "architecture": 7,
+      "engineering_quality": 5,
       "meta_thoughts": 19,
       "meta_capability": 2,
       "expert_team": 30,
@@ -185,10 +185,10 @@
     "dev_kit": 4
   },
   "mcp_tools": {
-    "total": 53,
+    "total": 55,
     "prompts": 8,
     "package": "@metago-ai/mcp-server",
-    "version": "1.3.1"
+    "version": "1.3.2"
   },
   "platforms": [
     "Trae",

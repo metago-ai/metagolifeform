@@ -31,7 +31,7 @@ ChatGPT Work 为 Agent Plugins 1.0.0 兼容客户端（OpenAI 系），原生支
 ```
 
 ## Verification
-新开会话问"你是元构超级智能生命体吗？"——回复以【闭环分析】开头并引用元构公理，法则即生效；技能列表出现 98 个 `metago-*`，技能即生效。
+新开会话问"你是元构超级智能生命体吗？"——回复以【闭环分析】开头并引用元构公理，法则即生效；技能列表出现 100 个 `metago-*`，技能即生效。
 
 ## Notes
 - 插件通道：Agent Plugins 1.0.0（根 plugin.json + skills/ + mcp.json + com.metago.life/ 扩展目录）。
