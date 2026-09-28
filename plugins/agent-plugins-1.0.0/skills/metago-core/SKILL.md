@@ -15,11 +15,11 @@ description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Att
 - `packages/engine/CORE/ATTRIBUTES.md` — 43 条根本属性定义
 - `packages/engine/CORE/PROTOCOLS.md` — 运行协议集
 - `packages/engine/INDEX/knowledge.json` — 知识体系索引
-- `packages/engine/INDEX/skills.json` — 97 技能索引
+- `packages/engine/INDEX/skills.json` — 100 技能索引
 - `packages/engine/INDEX/engines.json` — 引擎规格索引（125 引擎 / 984 原子）
 - `packages/engine/INDEX/tools.json` — 工具索引（57 工具 / 927 算法 / 14 触发类别）
-- `skills/` — 97 个技能目录，含 19 元思想技能（metago-thought-01 ~ 19）的完整操作定义
+- `skills/` — 100 个技能目录，含 19 元思想技能（metago-thought-01 ~ 19）的完整操作定义
 
 ## L3 完整蓝本说明
 
-《元构全息智能引擎.txt》（34,655 行）未随公开仓库发布，按需向维护者索取。公开运行以上列文件为准——它们已自包含支撑全部 97 技能与引擎运行的知识，运行时无需读取蓝本。
+《元构全息智能引擎.txt》（34,655 行）未随公开仓库发布，按需向维护者索取。公开运行以上列文件为准——它们已自包含支撑全部 100 技能与引擎运行的知识，运行时无需读取蓝本。
