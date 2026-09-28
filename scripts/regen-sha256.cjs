@@ -8,7 +8,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const LOCAL_EDITION_DIR = path.resolve(__dirname, '..', 'local-edition');
-const PKG_VERSION = (() => { try { return require(path.resolve(__dirname, '..', 'package.json')).version; } catch { return 'unknown'; } })(); // 36.9.4: 版本戳动态化（旧字面量 V36.9.1 会随版本漂移）
+const PKG_VERSION = (() => { try { return require(path.resolve(__dirname, '..', 'package.json')).version; } catch { return 'unknown'; } })(); // 36.9.6: 版本戳动态化（旧字面量 V36.9.6 会随版本漂移）
 const MANIFEST_PATH = path.join(LOCAL_EDITION_DIR, 'MANIFEST.sha256');
 
 function sha256File(filePath) {
@@ -17,7 +17,7 @@ function sha256File(filePath) {
 }
 
 function walkDir(dir, baseDir, results = []) {
-  // 36.9.3：portable/node_modules 为生成物（由 npm install 保证），不纳入逐文件清单
+  // 36.9.6：portable/node_modules 为生成物（由 npm install 保证），不纳入逐文件清单
   if (path.basename(dir) === "node_modules") return results;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
@@ -42,7 +42,7 @@ function main() {
   for (const file of files.sort((a, b) => a.relPath.localeCompare(b.relPath))) {
     const hash = sha256File(file.fullPath);
     const size = fs.statSync(file.fullPath).size;
-    // 36.9.3 修复：去掉 "(N bytes)" 后缀，保持 `sha256sum -c` 机器可校验格式
+// 36.9.3 修复：去掉 "(N bytes)" 后缀，保持 `sha256sum -c` 机器可校验格式
   manifest += `${hash}  ${file.relPath}\n`;
   }
 

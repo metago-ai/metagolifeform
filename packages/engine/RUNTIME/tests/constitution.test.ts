@@ -1,10 +1,10 @@
 /**
- * MetaGO Engine — A37/A38/D44/D45 宪法校验接入测试（T6 · 36.9.4）
+ * MetaGO Engine — A37/A38/D44/D45 宪法校验接入测试（T6 · 36.9.6）
  */
 import { describe, it, expect } from "vitest";
 import { AxiomValidator } from "../src/validators.js";
 
-describe("A37/A38/D44/D45 宪法校验（V36.9.4）", () => {
+describe("A37/A38/D44/D45 宪法校验（V36.9.6）", () => {
   it("A37 checkFirstPrinciples：含 F0 痕迹 → pass", () => {
     const r = AxiomValidator.checkFirstPrinciples("任务：修复登录 bug。F0 拆解：剥离假设→事实基元→重建方案");
     expect(r.axiomId).toBe("A37");

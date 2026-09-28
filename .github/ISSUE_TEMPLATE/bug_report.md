@@ -74,7 +74,7 @@ body:
     attributes:
       label: MetaGO 版本
       description: 运行 `npm list metago-lifeform` 或 `npm list @metago-ai/mcp-server` 获取版本号
-      placeholder: "例如：metago-lifeform@36.9.1 / @metago-ai/mcp-server@1.3.1"
+      placeholder: "例如：metago-lifeform@36.9.6 / @metago-ai/mcp-server@1.3.1"
     validations:
       required: true
 

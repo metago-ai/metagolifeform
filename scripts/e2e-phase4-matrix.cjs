@@ -40,7 +40,7 @@ for (const p of PLATFORMS) {
     const lawOk = fs.existsSync(rulesPath);
     const law = lawOk ? fs.readFileSync(rulesPath, 'utf8') : '';
     const noPlaceholder = !/\{\{[A-Z_]+}}/.test(law);
-    const verOk = law.includes('V36.9.4');
+    const verOk = law.includes('V36.9.6');
     const skillsPath = path.join(SANDBOX, BASE[p], 'skills');
     const skillCount = fs.existsSync(skillsPath) ? fs.readdirSync(skillsPath).filter(d => d.startsWith('metago-')).length : -1;
     row.install = r.status === 0 && lawOk && noPlaceholder && verOk;

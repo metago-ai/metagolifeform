@@ -44,7 +44,7 @@ function tomlWellFormed(text) {
 fs.rmSync(SANDBOX, { recursive: true, force: true });
 fs.mkdirSync(path.join(SANDBOX, '.codex'), { recursive: true });
 const seed = [
-  '# 36.9.4 沙盒预置：既有用户配置（必须保留）',
+  '# 36.9.6 沙盒预置：既有用户配置（必须保留）',
   '',
   '[model_providers.anthropic]',
   'name = "Anthropic"',
@@ -85,10 +85,10 @@ log(/skills = true/.test(tomlText2), '幂等：内容仍保留');
 // ---------- 3. verify 动态版本 + TOML MCP 校验 ----------
 console.log('=== 1-4/1-5 verify --platform codex ===');
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'),
-  '# 元构超级智能生命体运行法则\n*由 MetaGO Agent Harness V36.9.4 安装*\n第十八章已正确注入\n{{PLACEHOLDER_KEEP}}\n'.replace('\n{{PLACEHOLDER_KEEP}}\n', '\n'), 'utf8');
-// 构造可过 verify 的最小法则：含 V36.9.4 + 第十八章注入 + 无 Trae 措辞 + 技能目录
+  '# 元构超级智能生命体运行法则\n*由 MetaGO Agent Harness V36.9.6 安装*\n第十八章已正确注入\n{{PLACEHOLDER_KEEP}}\n'.replace('\n{{PLACEHOLDER_KEEP}}\n', '\n'), 'utf8');
+// 构造可过 verify 的最小法则：含 V36.9.6 + 第十八章注入 + 无 Trae 措辞 + 技能目录
 const law = [
-  '> 基于《元构全息智能引擎》V36.9.4。',
+  '> 基于《元构全息智能引擎》V36.9.6。',
   '',
   '## 第十八章 MCP工具与技能智慧触发协议',
   '',
@@ -99,24 +99,24 @@ const law = [
   '',
   'metago-critique',
   '',
-  '*由 MetaGO Agent Harness V36.9.4 安装*',
+  '*由 MetaGO Agent Harness V36.9.6 安装*',
 ].join('\n');
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'), law, 'utf8');
 fs.mkdirSync(path.join(SANDBOX, '.codex', 'skills', 'metago-critique'), { recursive: true });
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'skills', 'metago-critique', 'SKILL.md'), '# metago-critique\n', 'utf8');
 r = runCli(['verify', '--platform', 'codex']);
 const vout = r.stdout + r.stderr;
-log(/\[PASS\] 法则版本: V36\.9\.4/.test(vout), 'verify 版本 PASS（动态 V36.9.4）', '');
+log(/\[PASS\] 法则版本: V36\.9\.4/.test(vout), 'verify 版本 PASS（动态 V36.9.6）', '');
 log(/\[PASS\] MCP 配置（TOML）含 metago 服务器段/.test(vout), 'verify MCP TOML 分支 PASS');
 log(/\[PASS\] 第三十八章被替换/.test(vout) || /\[PASS\] 第十八章已正确注入/.test(vout), 'verify 第十八章注入 PASS');
 
 // T4: 旧版本法则 → FAIL
-fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'), law.split('V36.9.4').join('V36.9.3'), 'utf8');
+fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'), law.split('V36.9.6').join('V36.9.6'), 'utf8');
 r = runCli(['verify', '--platform', 'codex']);
 const vout4 = r.stdout + r.stderr;
 const t4ok = /\[FAIL\] 法则版本错误/.test(vout4);
 if (!t4ok) console.log('--- T4 OUTPUT ---\n' + vout4 + '\n--- END ---');
-log(t4ok, 'T4：V36.9.3 法则被正确判 FAIL');
+log(t4ok, 'T4：V36.9.6 法则被正确判 FAIL');
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'), law, 'utf8');
 
 // ---------- 4. uninstall（TOML 段删除） ----------

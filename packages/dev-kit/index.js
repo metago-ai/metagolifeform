@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * @metago-ai/dev-kit v1.1.0
+ * @metago-ai/dev-kit v1.1.2
  *
  * MetaGO Agent Harness — Dev Kit 入口
  * 开发者垂直场景包：4 个核心能力复用 + 4 个开发专用技能
@@ -24,7 +24,7 @@ const REUSED_SKILLS = [
 ];
 
 function listSkills() {
-  console.log('MetaGO Dev Kit v1.1.0 — Developer Vertical Skills\n');
+  console.log('MetaGO Dev Kit v1.1.2 — Developer Vertical Skills\n');
   console.log('Added Skills (4):');
   DEV_SKILLS.forEach((s, i) => console.log(`  ${i + 1}. ${s}`));
   console.log('\nReused Skills (4):');

@@ -197,7 +197,7 @@ server.tool(
       eventType: args.eventType,
       data: args.data,
       platform: args.platform ?? "unknown",
-      // 36.9.3 安全修复：管理令牌外置（旧值硬编码违反 SECURITY.md §3；已入公开包的旧值必须视为泄露并在服务端轮换）
+// 36.9.3 安全修复：管理令牌外置（旧值硬编码违反 SECURITY.md §3；已入公开包的旧值必须视为泄露并在服务端轮换）
       adminToken: process.env.METAGO_ADMIN_TOKEN || "",
     };
     try {

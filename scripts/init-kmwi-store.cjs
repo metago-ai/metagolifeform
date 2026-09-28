@@ -61,7 +61,7 @@ const now = new Date().toISOString();
 const knowledgeItems = [
   {
     id: 'K-metago-harness',
-    content: 'MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）：95 技能 + 53 MCP tools + 8 prompts + 算法服务器（57 tools / 927 algorithms）+ Engine V2（KMWI/EvolutionEngine/SkillGenerator/DecisionLock）。',
+    content: 'MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）：100 技能 + 53 MCP tools + 8 prompts + 算法服务器（57 tools / 927 algorithms）+ Engine V2（KMWI/EvolutionEngine/SkillGenerator/DecisionLock）。',
     category: 'product',
     tags: ['metago', 'harness', 'engine'],
     createdAt: now, updatedAt: now, confidence: 1.0, sources: ['AGENTS.md'],

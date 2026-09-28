@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Agent Harness - CLI 入口 (V36.9.4)
+ * MetaGO Agent Harness - CLI 入口 (V36.9.6)
  * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/插件打包/备份/验证
  *
  * 用法:
@@ -21,7 +21,7 @@
  */
 
 const { execSync, spawnSync } = require('child_process');
-const tomlMcp = require('./mcp-toml.cjs'); // 36.9.4: Codex config.toml 读写
+const tomlMcp = require('./mcp-toml.cjs'); // 36.9.6: Codex config.toml 读写
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
@@ -37,8 +37,8 @@ const PROJECT_LOCAL_DIRS = {
   'workbuddy': '.workbuddy', 'kimi-code': '.kimi-code', 'kimi-work': '.kimi-work'
 };
 const PKG_META = (() => { try { return require(path.join(PKG_ROOT, 'package.json')).metago || {}; } catch { return {}; } })();
-const MCP_SERVER_VER = (PKG_META.mcpServer && PKG_META.mcpServer.version) || '1.3.2';
-const ALGORITHMS_VER = (PKG_META.algorithmsServer && PKG_META.algorithmsServer.version) || '1.0.1';
+const MCP_SERVER_VER = (PKG_META.mcpServer && PKG_META.mcpServer.version) || '1.3.4';
+const ALGORITHMS_VER = (PKG_META.algorithmsServer && PKG_META.algorithmsServer.version) || '1.0.3';
 const HOME = os.homedir();
 const IS_WIN = process.platform === 'win32';
 const BACKUP_ROOT = path.join(HOME, '.metago-backups');
@@ -89,7 +89,7 @@ const NODE_PLATFORM_CONFIGS = {
     rules: 'AGENTS.md',
     skills: 'skills',
     supportsSkills: true,
-    // 36.9.4: Codex CLI 使用 config.toml（TOML 格式）；旧值 config.json 是 Codex 不读的文件
+    // 36.9.6: Codex CLI 使用 config.toml（TOML 格式）；旧值 config.json 是 Codex 不读的文件
     mcpConfig: path.join(HOME, '.codex', 'config.toml'),
     mcpFileFormat: 'toml',
     mcpServers: [
@@ -438,7 +438,7 @@ function backupNative(platform, installPath) {
     timestamp,
     platform,
     backupDir,
-    version: 'pre-36.9.2',
+    version: 'pre-36.9.6',
     files: filesToBackup.map(f => f.dest),
     createdAt: new Date().toISOString()
   };
@@ -582,7 +582,7 @@ function generatePlatformLaw(platform, availableSkills, projectLocal = false) {
     content = content.split(from).join(to);
   }
 
-  // 36.9.3 修复：头部/变体替换统一——与 build-adapters.cjs 同逻辑，消除"CLI 安装版"与"模板生成版"双源分叉
+// 36.9.3 修复：头部/变体替换统一——与 build-adapters.cjs 同逻辑，消除"CLI 安装版"与"模板生成版"双源分叉
   content = content.split('Trae 第一人称视角撰写').join(cfg.name + ' 第一人称视角撰写');
   content = content.split('本母本以 Trae 为运行时撰写').join('本母本以 ' + cfg.name + ' 为运行时撰写');
   content = content.split('把"Trae"读作').join('把"' + cfg.name + '"读作');
@@ -730,7 +730,7 @@ function installPlugin(platform) {
 function setupMcpAllPlatforms(platform, skipBuild, installPath) {
   const cfg = NODE_PLATFORM_CONFIGS[platform];
   if (!cfg.mcpConfig) {
-    // 36.9.3 修正：以平台能力为准，无论是否 project-local/installPath 均不写 MCP 配置（旧守卫用 !installPath 短路会在 project-local 下崩溃）
+// 36.9.3 修正：以平台能力为准，无论是否 project-local/installPath 均不写 MCP 配置（旧守卫用 !installPath 短路会在 project-local 下崩溃）
     console.log(`  [MCP] ${cfg.name} 不注入自定义 MCP 工具（官方限制），跳过 MCP 配置写入（生效通道：法则+技能+Bash 直调）`);
     return;
   }
@@ -759,7 +759,7 @@ function setupMcpAllPlatforms(platform, skipBuild, installPath) {
     };
   }
 
-  // 36.9.4: TOML 平台（Codex）走段级写入，其余平台沿用 JSON 分支
+  // 36.9.6: TOML 平台（Codex）走段级写入，其余平台沿用 JSON 分支
   if (cfg.mcpFileFormat === 'toml') {
     tomlMcp.upsertTomlMcp(configPath, cfg.mcpServers);
     console.log(`  [OK] MCP 配置已写入（TOML）: ${configPath}`);
@@ -908,7 +908,7 @@ function verifyNative(platform, installPath) {
       console.log(`  [PASS] 法则文件无 BOM`); pass++;
     }
     
-    // 36.9.4: 期望版本动态读根 package.json（旧硬编码 V36.9.2 会让新版本误报 FAIL）
+    // 36.9.6: 期望版本动态读根 package.json（旧硬编码 V36.9.6 会让新版本误报 FAIL）
     if (content.includes('V' + VERSION)) {
       console.log(`  [PASS] 法则版本: V${VERSION}`); pass++;
     } else {
@@ -975,7 +975,7 @@ console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
     if (fs.existsSync(skillsDir)) {
       const count = fs.readdirSync(skillsDir)
         .filter(d => d.startsWith('metago-') && fs.existsSync(path.join(skillsDir, d, 'SKILL.md'))).length;
-      if (count >= 90) { // 36.9.3：与 verify-local-install.cjs MIN_SKILLS=90 统一（旧值 39 为 39 技能时代遗留）
+      if (count >= 90) { // 36.9.6：与 verify-local-install.cjs MIN_SKILLS=90 统一（旧值 39 为 39 技能时代遗留）
         console.log(`  [PASS] 技能目录: ${count} 个技能`); pass++;
       } else {
         console.log(`  [WARN] 技能数量偏少: ${count}`); warn++;
@@ -995,7 +995,7 @@ console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
 function showHelp() {
   console.log(`
 MetaGO Agent Harness v${VERSION}
-元构超级智能生命体标准安装包（跨平台全量版 V36.9.4 · 规则+技能+MCP+智能体+插件）
+元构超级智能生命体标准安装包（跨平台全量版 V36.9.6 · 规则+技能+MCP+智能体+插件）
 
 用法:
   metago-lifeform install [--platform <平台>] [--project-local] [--force] [--skip-backup] [--with-plugin]
@@ -1072,7 +1072,7 @@ function main() {
       break;
     case 'veracity':
     case 'vc': {
-      // 行为诚实工程套件代理（V36.9.2 并入）
+// 行为诚实工程套件代理（V36.9.2 并入）
       const vCli = path.join(PKG_ROOT, 'metago-veracity-kit', 'bin', 'veracity-guard.js');
       if (!fs.existsSync(vCli)) {
         console.error('错误: 行为诚实套件未随包分发（缺 metago-veracity-kit/bin/veracity-guard.js）');
@@ -1085,7 +1085,7 @@ function main() {
     }
     case 'completeness':
     case 'ck': {
-      // 完整性治理套件代理（V36.9.2 并入）
+// 完整性治理套件代理（V36.9.2 并入）
       const kitCli = path.join(PKG_ROOT, 'completeness-kit', 'bin', 'completeness-guard.js');
       if (!fs.existsSync(kitCli)) {
         console.error('错误: 完整性治理套件未随包分发（缺 completeness-kit/bin/completeness-guard.js）');

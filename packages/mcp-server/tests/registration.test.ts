@@ -33,16 +33,16 @@ describe("T1 - 工具注册去重", () => {
     registeredTools.push({ toolName: skill.toolName, source: "skill" });
   }
 
-  it("SKILLS 数组长度应为 37", () => {
-    expect(SKILLS.length).toBe(37);
+  it("SKILLS 数组长度应为 39", () => {
+    expect(SKILLS.length).toBe(39);
   });
 
   it("TOOLKIT_TOOLS 数组长度应为 22", () => {
     expect(TOOLKIT_TOOLS.length).toBe(22);
   });
 
-  it("合并去重后总工具数应为 52（22 toolkit + 30 独有 skill）", () => {
-    expect(registeredTools.length).toBe(52);
+  it("合并去重后总工具数应为 54（22 toolkit + 32 独有 skill）", () => {
+    expect(registeredTools.length).toBe(54);
   });
 
   it("所有 toolName 必须唯一（无重复）", () => {

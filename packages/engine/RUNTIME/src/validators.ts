@@ -247,7 +247,7 @@ export class AxiomValidator {
   }
 
   /**
-   * A37 / D44 第一性原理：任务执行前强制 F0 拆解（V36.9.4 追加）
+* A37 / D44 第一性原理：任务执行前强制 F0 拆解（V36.9.4 追加）
    * 未发现 F0 痕迹 → warning（强提示，不阻断）；发现 → pass。
    */
   static checkFirstPrinciples(task?: string): ValidationResult {
@@ -263,7 +263,7 @@ export class AxiomValidator {
   }
 
   /**
-   * A38 / D45 对抗式审查：审计/验证类任务强制攻击者视角（V36.9.4 追加）
+* A38 / D45 对抗式审查：审计/验证类任务强制攻击者视角（V36.9.4 追加）
    * 未发现对抗式痕迹 → warning（强提示，不阻断）；发现 → pass。
    */
   static checkAdversarialReview(report?: string): ValidationResult {
@@ -308,7 +308,7 @@ export class AxiomValidator {
   static validateAll(output: string, context?: { input?: string; decision?: string; capability?: any; task?: string; report?: string }): ValidationResult[] {
     const results: ValidationResult[] = [];
 
-    // 10 条关键公理（V36.9.4：补 A37/A38）
+    // 10 条关键公理（V36.9.6：补 A37/A38）
     results.push(this.checkProvenance(output, context?.input));
     if (context?.capability) results.push(this.checkClosure(context.capability));
     results.push(this.checkMetaEvolution());
@@ -317,16 +317,16 @@ export class AxiomValidator {
     results.push(this.checkMetaMetaEvolution());
     results.push(this.checkCreationEvolution());
     if (context?.decision) results.push(this.checkCompliance(context.decision));
-    results.push(this.checkFirstPrinciples(context?.task));      // A37（V36.9.4）
-    results.push(this.checkAdversarialReview(context?.report));  // A38（V36.9.4）
+    results.push(this.checkFirstPrinciples(context?.task));      // A37（V36.9.6）
+    results.push(this.checkAdversarialReview(context?.report));  // A38（V36.9.6）
 
-    // 9 条关键属性（V36.9.4：补 D44/D45）
+    // 9 条关键属性（V36.9.6：补 D44/D45）
     results.push(this.checkObjectivity(output));
     results.push(this.checkCriticality(output));
     if (context?.decision) results.push(this.checkComplianceProactive(context.decision));
     results.push(this.checkDataTraceability(output));
-    results.push(this.checkFirstPrinciples(context?.task));       // D44 与 A37 同源（V36.9.4）
-    results.push(this.checkAdversarialReview(context?.report));   // D45 与 A38 同源（V36.9.4）
+    results.push(this.checkFirstPrinciples(context?.task));       // D44 与 A37 同源（V36.9.6）
+    results.push(this.checkAdversarialReview(context?.report));   // D45 与 A38 同源（V36.9.6）
 
     // 输出完整性协议
     results.push(this.checkOutputIntegrity(output));

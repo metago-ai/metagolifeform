@@ -172,7 +172,7 @@ cd packages/mcp-server && npm run build && npm start
 
 | Prompt 名称 | 说明 | 参数 |
 | --- | --- | --- |
-| `metago_activate` | 激活元构生命体模式，加载 8 公理 7 属性 6 协议 | 无 |
+| `metago_activate` | 激活元构生命体模式，加载 10 公理 9 属性 6 协议 | 无 |
 | `metago_decision_review` | 对给定决策执行四道关卡审查 | `decision` |
 | `metago_critical_analysis` | 对给定内容进行 L1-L5 分级批判性分析 | `content` |
 | `metago_evolution_trigger` | 在能力边界时启动五阶段进化循环 | `boundary` |

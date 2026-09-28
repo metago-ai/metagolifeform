@@ -9,13 +9,13 @@
  *   C4 版本号跨文件一致：根 package.json == AGENTS.md == GENOME.json == 各包 metago.rules_version/metago_version
  *   C5 V4.1 术语统一（调用 test-v41-terminology.cjs）
  *   C6 引擎包打包基线：package.json files 含 EVOLUTION.md 与 RUNTIME/dist/
- *   C7 根级 agents/ 存在且=35、frontmatter 名==文件名、与 plugins 四副本哈希一致（36.9.4 新增）
- *   C8 Codex 配置=config.toml 且 setup-mcp/verify 存在 toml 分支标记（36.9.4 新增）
- *   C9 cli.js verify 无硬编码版本号（正则断言，36.9.4 新增）
- *   C10 离线子包 tgz 内 metago 戳==主包版本（36.9.4 新增）
- *   C11 plugins 四 manifest + platform-matrix 版本/技能数==主包口径（36.9.4 新增）
- *   C12 根级 SHA256SUMS.txt 存在且清单内文件可解析（36.9.4 新增 · 发布包由阶段 5 产出）
- *   C13 全包字节级扫描：metago-admin- 及密钥类模式零命中（36.9.4 新增；*.md 文档与 CHANGELOG 豁免——历史叙述非密钥嵌入）
+*   C7 根级 agents/ 存在且=35、frontmatter 名==文件名、与 plugins 四副本哈希一致（36.9.4 新增）
+*   C8 Codex 配置=config.toml 且 setup-mcp/verify 存在 toml 分支标记（36.9.4 新增）
+*   C9 cli.js verify 无硬编码版本号（正则断言，36.9.4 新增）
+*   C10 离线子包 tgz 内 metago 戳==主包版本（36.9.4 新增）
+*   C11 plugins 四 manifest + platform-matrix 版本/技能数==主包口径（36.9.4 新增）
+*   C12 根级 SHA256SUMS.txt 存在且清单内文件可解析（36.9.4 新增 · 发布包由阶段 5 产出）
+*   C13 全包字节级扫描：metago-admin- 及密钥类模式零命中（36.9.4 新增；*.md 文档与 CHANGELOG 豁免——历史叙述非密钥嵌入）
  *
  * 用法：node scripts/ci-version-gate.cjs
  * 用于：GitHub Actions / Gitee Go / 本地 pre-push hook
@@ -109,7 +109,7 @@ const files = engPkg.files || [];
 check('C6', files.includes('EVOLUTION.md') && files.includes('RUNTIME/dist/'),
   files.includes('EVOLUTION.md') ? '引擎 files 基线就绪' : '引擎 files 缺 EVOLUTION.md');
 
-// ---------- C7 根级 agents/ 一致性（36.9.4） ----------
+// ---------- C7 根级 agents/ 一致性（36.9.6） ----------
 const crypto = require('crypto');
 function sha(file) { return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'); }
 const agentsRoot = path.join(ROOT, 'agents');
@@ -133,7 +133,7 @@ if (c7ok) {
 }
 check('C7', c7ok, c7detail);
 
-// ---------- C8 Codex config.toml 分支（36.9.4） ----------
+// ---------- C8 Codex config.toml 分支（36.9.6） ----------
 const cliText = fs.readFileSync(path.join(ROOT, 'scripts/cli.js'), 'utf8');
 const vliText = fs.readFileSync(path.join(ROOT, 'local-edition/verify-local-install.cjs'), 'utf8');
 const c8ok =
@@ -146,15 +146,15 @@ const c8ok =
   !vliText.includes("'.codex', 'config.json'");
 check('C8', c8ok, c8ok ? 'Codex=config.toml + TOML 分支齐备' : 'Codex TOML 分支不完整（检查 cli.js/verify-local-install.cjs）');
 
-// ---------- C9 cli.js verify 无硬编码版本号（36.9.4） ----------
+// ---------- C9 cli.js verify 无硬编码版本号（36.9.6） ----------
 const c9ok =
   cliText.includes("content.includes('V' + VERSION)") &&
   !/V36\.9\.\d/.test(cliText.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '').replace(/36\.9\.4: /g, '36.9.x: /')) === true ? true : false;
 // 简化判定：verify 区域必须动态；历史注释里的 V36.9.x 允许存在
-const c9ok2 = cliText.includes("content.includes('V' + VERSION)") && !cliText.includes('/V36\\.9\\.2/.test(content)') && !cliText.includes('期望 V36.9.2');
+const c9ok2 = cliText.includes("content.includes('V' + VERSION)") && !cliText.includes('/V36\\.9\\.2/.test(content)') && !cliText.includes('期望 V36.9.6');
 check('C9', c9ok2, c9ok2 ? 'verify 版本判定动态化' : 'verify 存在硬编码版本号');
 
-// ---------- C10 离线子包 tgz 戳（36.9.4） ----------
+// ---------- C10 离线子包 tgz 戳（36.9.6） ----------
 function tgzPkg(tgzName) {
   const { execFileSync } = require('child_process');
   const out = execFileSync('tar', ['-xOf', path.join(ROOT, 'local-edition/offline-packages', tgzName), 'package/package.json'], { encoding: 'utf8', stdio: 'pipe' });
@@ -163,24 +163,24 @@ function tgzPkg(tgzName) {
 const pkgVerB = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 let c10ok = true; const c10d = [];
 try {
-  const e = tgzPkg('metago-ai-engine-2.1.1.tgz');
+  const e = tgzPkg('metago-ai-engine-2.1.3.tgz');
   if (e.metago && e.metago.metago_version === `V${pkgVerB}`) { c10d.push(`engine=${e.metago.metago_version}`); } else { c10ok = false; c10d.push(`engine=${e.metago && e.metago.metago_version}`); }
-  for (const [n, f] of [['metago-ai-algorithms-1.0.1.tgz', 'algorithms'], ['metago-ai-dev-kit-1.1.0.tgz', 'dev-kit'], ['metago-ai-verify-kit-1.1.2.tgz', 'verify-kit']]) {
+  for (const [n, f] of [['metago-ai-algorithms-1.0.3.tgz', 'algorithms'], ['metago-ai-dev-kit-1.1.2.tgz', 'dev-kit'], ['metago-ai-verify-kit-1.1.4.tgz', 'verify-kit']]) {
     const o = tgzPkg(n);
     if (o.metago && o.metago.rules_version === `V${pkgVerB}`) { c10d.push(`${f}=${o.metago.rules_version}`); } else { c10ok = false; c10d.push(`${f}=${o.metago && o.metago.rules_version}`); }
   }
-  const m = tgzPkg('metago-ai-mcp-server-1.3.2.tgz');
+  const m = tgzPkg('metago-ai-mcp-server-1.3.4.tgz');
   const stamp = m.metago && (m.metago.metago_version || m.metago.rules_version);
-  if (m.version === '1.3.2' && (!stamp || stamp === `V${pkgVerB}`)) c10d.push(`mcp-server=v${m.version}`); else { c10ok = false; c10d.push(`mcp-server=v${m.version}`); }
+  if (m.version === '1.3.4' && (!stamp || stamp === `V${pkgVerB}`)) c10d.push(`mcp-server=v${m.version}`); else { c10ok = false; c10d.push(`mcp-server=v${m.version}`); }
   const main = fs.readdirSync(path.join(ROOT, 'local-edition/offline-packages')).find((f) => /^metago-lifeform-.*\.tgz$/.test(f));
   if (main) {
     const mp = tgzPkg(main);
-    if (mp.version !== pkgVerB) { c10ok = false; c10d.push(`main=${mp.version}(期望${pkgVerB})`); } else c10d.push(`main=36.9.4`);
+    if (mp.version !== pkgVerB) { c10ok = false; c10d.push(`main=${mp.version}(期望${pkgVerB})`); } else c10d.push(`main=36.9.6`);
   } else c10d.push('main tgz 待阶段 3 后重打（当前无）');
 } catch (e) { c10ok = false; c10d.push('异常:' + e.message.slice(0, 80)); }
 check('C10', c10ok, c10d.join('；'));
 
-// ---------- C11 plugins 四 manifest + platform-matrix（36.9.4） ----------
+// ---------- C11 plugins 四 manifest + platform-matrix（36.9.6） ----------
 const pmJson = JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/platform-matrix.json'), 'utf8'));
 const c11checks = [
   pmJson.version === pkgVerB && pmJson.resources.skills.count === 100 && pmJson.resources.law.version === pkgVerB,
@@ -192,10 +192,15 @@ const c11checks = [
 ];
 check('C11', c11checks.every(Boolean), c11checks.every(Boolean) ? `四 manifest + matrix=${pkgVerB}/100 技能` : '插件口径漂移');
 
-// ---------- C12 根级 SHA256SUMS.txt（36.9.4；发布包在阶段 5 产出） ----------
+// ---------- C12 根级 SHA256SUMS.txt（36.9.6；发布包在阶段 5 产出） ----------
 const sumsCandidates = [
   path.join(ROOT, 'SHA256SUMS.txt'),
-  'D:/DH工作区/_release-3694/metagolifeform-v36.9.4/SHA256SUMS.txt',
+  process.env.METAGO_RELEASE_STAGE
+    ? path.join(process.env.METAGO_RELEASE_STAGE,
+                'metagolifeform-v' + JSON.parse(fs.readFileSync(
+                  path.join(ROOT, 'package.json'), 'utf8')).version,
+                'SHA256SUMS.txt')
+    : path.join(ROOT, '_release-stage', 'SHA256SUMS.txt'),
 ].filter(fs.existsSync);
 let c12ok = sumsCandidates.length > 0;
 let c12d = c12ok ? '' : 'SHA256SUMS.txt 待发布产出（阶段 5）';
@@ -212,7 +217,7 @@ if (c12ok) {
 }
 check('C12', c12ok, c12d);
 
-// ---------- C13 密钥字节扫描（36.9.4；*.md 文档/CHANGELOG 豁免为历史叙述） ----------
+// ---------- C13 密钥字节扫描（36.9.6；*.md 文档/CHANGELOG 豁免为历史叙述） ----------
 const { execFileSync: exec2 } = require('child_process');
 const secretPattern = /metago-admin-[0-9A-Za-z-]{4,}|sk-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}/;
 const pemBlockPattern = /-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----[^]*?-----END [A-Z0-9 ]*PRIVATE KEY-----/;

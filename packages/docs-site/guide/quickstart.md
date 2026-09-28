@@ -76,7 +76,7 @@ npx metago-lifeform@latest install:trae
 metago_activate
 ```
 
-激活后，AI 将以元构超级智能生命体身份运行，自动应用 8 公理 + 7 属性。
+激活后，AI 将以元构超级智能生命体身份运行，自动应用 10 公理 + 9 属性。
 
 ## 方式三：通过 Engine SDK（开发者）
 

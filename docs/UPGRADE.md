@@ -1,23 +1,23 @@
 # MetaGO Lifeform 升级指南
 
-本文档说明如何从旧版本升级到 **V36.9.4**（当前版本）。
+本文档说明如何从旧版本升级到 **V36.9.6**（当前版本）。
 
-> **36.9.4 升级路径（当前）**：`npm install -g metago-lifeform@36.9.4`（或使用 `metagolifeform-local-v36.9.4.zip` 解压安装）。
-> 36.9.4 为发布级修复轮：Codex 改用 `~/.codex/config.toml`（TOML 段级读写）、根级 agents/ 回填、verify 版本动态化、引擎宪法补 A37/A38/D44/D45、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径、根级 SHA256SUMS.txt。
+> **36.9.6 升级路径（当前）**：`npm install -g metago-lifeform@36.9.6`（或使用 `metagolifeform-local-v36.9.6.zip` 解压安装）。
+> 36.9.6 为发布级修复轮：Codex 改用 `~/.codex/config.toml`（TOML 段级读写）、根级 agents/ 回填、verify 版本动态化、引擎宪法补 A37/A38/D44/D45、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径、根级 SHA256SUMS.txt。
 >
-> 🔖 **历史章节**：以下 36.9.3 及更早的升级说明保留为历史存档，不再适用于当前版本。
+> 🔖 **历史章节**：以下 36.9.6 及更早的升级说明保留为历史存档，不再适用于当前版本。
 
 ## 升级前必读
 
-V36.9.3 是发行修复版本，主要变更：安全令牌外置（@metago-ai/mcp-server 1.3.2）、离线安装链路修复、100 技能/11 平台一致性根治。
+V36.9.6 是发行修复版本，主要变更：安全令牌外置（@metago-ai/mcp-server 1.3.4）、离线安装链路修复、100 技能/11 平台一致性根治。
 
-V36.9.1 是跨平台修复版本，主要变更：
+V36.9.6 是跨平台修复版本，主要变更：
 - **修复**：`setup-mcp` 路径解析 bug（旧版 PowerShell 脚本使用仓库相对路径导致全局安装失败）
 - **新增**：第十八章 MCP工具与技能智慧触发协议（v3.0 通用框架 + 平台动态注入）
 - **新增**：自动备份机制（安装前备份到 `~/.metago-backups/<时间戳>/`）
 - **新增**：`list-backups` / `restore-backup` / `cleanup-backups` 备份管理命令
 - **增强**：安装后验收脚本（8大类 30+ 检查项）
-- **更新**：所有平台适配模板到 V36.9.3（无BOM、含第十八章、动态注入清单，11 平台形态）
+- **更新**：所有平台适配模板到 V36.9.6（无BOM、含第十八章、动态注入清单，11 平台形态）
 - **统一**：所有安装脚本（install.ps1/install.sh/setup-mcp-server.ps1）均转发到 `node cli.js` 统一逻辑
 
 ## 标准升级流程（推荐）
@@ -29,7 +29,7 @@ V36.9.1 是跨平台修复版本，主要变更：
 npm uninstall -g metago-lifeform
 
 # 2. 安装新版本
-npm install -g metago-lifeform@36.9.3
+npm install -g metago-lifeform@36.9.6
 
 # 3. 重新安装到目标平台（会自动备份旧配置）
 metago-lifeform install --platform trae --force
@@ -50,7 +50,7 @@ metago-lifeform verify
 npm uninstall -g metago-lifeform
 
 # 2. 安装新版本
-npm install -g metago-lifeform@36.9.3
+npm install -g metago-lifeform@36.9.6
 
 # 3. 重新安装到目标平台
 metago-lifeform install --platform claude-code --force
@@ -66,10 +66,10 @@ node "$(npm root -g)/metago-lifeform/local-edition/verify-local-install.cjs"
 
 ```powershell
 # 解压压缩包
-Expand-Archive -Path metagolifeform-local-v36.9.3.zip -DestinationPath .
+Expand-Archive -Path metagolifeform-local-v36.9.6.zip -DestinationPath .
 
 # 进入目录
-cd metagolifeform-v36.9.1
+cd metagolifeform-v36.9.6
 
 # 运行本地安装脚本（Windows）
 .\local-edition\install-local.ps1
@@ -80,7 +80,7 @@ cd metagolifeform-v36.9.1
 
 ## 升级回滚（如遇问题）
 
-V36.9.1 引入自动备份机制，安装前会自动备份旧配置：
+V36.9.6 引入自动备份机制，安装前会自动备份旧配置：
 
 ```powershell
 # 查看可用备份
@@ -126,7 +126,7 @@ metago-lifeform install --platform <你的平台> --force
 ### Q: 离线安装后 metago-lifeform 命令不可用？
 确保已全局安装 npm 包：
 ```powershell
-npm install -g .\local-edition\offline-packages\metago-lifeform-36.9.3.tgz
+npm install -g .\local-edition\offline-packages\metago-lifeform-36.9.6.tgz
 ```
 
 ### Q: 如何确认升级成功？

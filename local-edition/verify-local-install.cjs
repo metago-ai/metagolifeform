@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Lifeform 安装后验收脚本（期望版本动态读取根 package.json · 36.9.3 起）
+* MetaGO Lifeform 安装后验收脚本（期望版本动态读取根 package.json · 36.9.3 起）
  *
  * 用法:
  *   node verify-local-install.cjs                          自动检测平台
@@ -18,7 +18,7 @@ const os = require('os');
 const { execSync } = require('child_process');
 
 // 36.9.3 修复：期望版本动态读取根 package.json，杜绝「发布忘改验收」类漂移
-const EXPECTED_VERSION = (() => { try { return require('../package.json').version; } catch { return '36.9.3'; } })();
+const EXPECTED_VERSION = (() => { try { return require('../package.json').version; } catch { return '36.9.6'; } })();
 const EXPECTED_ENGINE = '2.1.1';
 const MIN_SKILLS = 90;
 const HOME = os.homedir();
@@ -91,7 +91,7 @@ function getPlatformConfig(platform) {
     'trae': {
       name: 'Trae',
       base: path.join(HOME, '.trae-cn'),
-      // 36.9.4 修复：与 cli.js 落点对齐（旧值 builtin/work/AGENTS.md 是遗留内置位，与安装器写入的 rules.md 不一致 → 合格安装必判 1.1 FAIL）
+// 36.9.4 修复：与 cli.js 落点对齐（旧值 builtin/work/AGENTS.md 是遗留内置位，与安装器写入的 rules.md 不一致 → 合格安装必判 1.1 FAIL）
       rulesFile: path.join(HOME, '.trae-cn', 'rules.md'),
       skillsDir: path.join(HOME, '.trae-cn', 'skills'),
       supportsSkills: true,
@@ -101,7 +101,7 @@ function getPlatformConfig(platform) {
     'claude-code': {
       name: 'Claude Code',
       base: path.join(HOME, '.claude'),
-      // 36.9.4 修复：与 cli.js 落点对齐（.claude/CLAUDE.md；旧值 HOME/CLAUDE.md 位置错误）
+// 36.9.4 修复：与 cli.js 落点对齐（.claude/CLAUDE.md；旧值 HOME/CLAUDE.md 位置错误）
       rulesFile: path.join(HOME, '.claude', 'CLAUDE.md'),
       skillsDir: path.join(HOME, '.claude', 'skills'),
       supportsSkills: true,
@@ -114,7 +114,7 @@ function getPlatformConfig(platform) {
       rulesFile: path.join(HOME, '.codex', 'AGENTS.md'),
       skillsDir: path.join(HOME, '.codex', 'skills'),
       supportsSkills: true,
-      // 36.9.4: Codex CLI 实际读取 config.toml（旧 config.json 是 Codex 不读的文件）
+      // 36.9.6: Codex CLI 实际读取 config.toml（旧 config.json 是 Codex 不读的文件）
       mcpConfig: path.join(HOME, '.codex', 'config.toml'),
       mcpFileFormat: 'toml',
       memoryDir: path.join(HOME, '.codex')
@@ -140,7 +140,7 @@ function getPlatformConfig(platform) {
     'qoder': {
       name: 'Qoder',
       base: path.join(HOME, '.qoder'),
-      // 36.9.4 修复：与 cli.js 落点对齐（旧值 metago-rules.md 与安装器 rules/metago.md 不一致）
+// 36.9.4 修复：与 cli.js 落点对齐（旧值 metago-rules.md 与安装器 rules/metago.md 不一致）
       rulesFile: path.join(HOME, '.qoder', 'rules', 'metago.md'),
       skillsDir: '',
       supportsSkills: false,
@@ -325,7 +325,7 @@ function main() {
   check('2.1', `法则版本为 V${EXPECTED_VERSION}`, () => {
     if (!fileExists(paths.rulesFile)) return { pass: false, detail: '法则文件不存在' };
     const content = removeBOM(fs.readFileSync(paths.rulesFile, 'utf8'));
-    const hasVersion = content.includes('V' + EXPECTED_VERSION); // 36.9.3 修复：动态版本判定（旧硬编码 /V36\.9\.2/ 会让新版本验收必失败）
+const hasVersion = content.includes('V' + EXPECTED_VERSION); // 36.9.3 修复：动态版本判定（旧硬编码 /V36\.9\.2/ 会让新版本验收必失败）
     return { pass: hasVersion, detail: hasVersion ? 'V' + EXPECTED_VERSION : '版本号未找到或不正确' };
   });
 
@@ -603,7 +603,7 @@ function main() {
     return { pass: ok, detail: ok ? '架构治理强制规则段存在' : '规则段缺失' };
   });
 
-  // ============ 类别 10: 插件层完整性（V36.9.2 新增 · 8 项） ============
+// ============ 类别 10: 插件层完整性（V36.9.2 新增 · 8 项） ============
   console.log('─── 类别 10: 插件层完整性（Agent Plugins 1.0.0 / claude / zcode / codex） ───');
 
   const pluginsRoot = path.join(pkgRoot, 'plugins');
@@ -763,12 +763,12 @@ function main() {
     const agentsPath = path.join(pkgRoot, 'AGENTS.md');
     if (!fileExists(agentsPath)) return { pass: false, detail: '母本缺失' };
     const content = fs.readFileSync(agentsPath, 'utf8');
-    const pass = content.includes('V' + EXPECTED_VERSION); // 36.9.3 动态化
+const pass = content.includes('V' + EXPECTED_VERSION); // 36.9.3 动态化
     return { pass, detail: pass ? '母本 V' + EXPECTED_VERSION : '母本版本不是 V' + EXPECTED_VERSION };
   });
 
 
-  // ============ 类别 12: 完整性治理套件（V36.9.2 并入） ============
+// ============ 类别 12: 完整性治理套件（V36.9.2 并入） ============
   console.log('─── 类别 12: 完整性治理套件（metago-completeness-kit） ───');
 
   const kitRoot = path.join(pkgRoot, 'completeness-kit');
@@ -821,7 +821,7 @@ function main() {
   });
 
 
-  // ============ 类别 13: 行为诚实工程套件（V36.9.2 并入） ============
+// ============ 类别 13: 行为诚实工程套件（V36.9.2 并入） ============
   console.log('─── 类别 13: 行为诚实工程套件（metago-veracity-kit） ───');
 
   const vkRoot = path.join(pkgRoot, 'metago-veracity-kit');

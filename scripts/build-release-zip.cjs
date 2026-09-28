@@ -3,11 +3,17 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
-const ROOT = 'D:/DH工作区/metagolifeform';
-const STAGE = 'D:/DH工作区/_release-3694';
-const TOP = 'metagolifeform-v36.9.4';
+// 36.9.6：去除作者机硬编码路径，按脚本自身位置解析，可用环境变量覆盖
+const ROOT = path.resolve(__dirname, '..');
+const VERSION = require(path.join(ROOT, 'package.json')).version;
+const STAGE = process.env.METAGO_RELEASE_STAGE
+  || path.resolve(ROOT, '..', '_release-stage');
+const TOP = 'metagolifeform-v' + VERSION;
 const DST = path.join(STAGE, TOP);
-const ZIP = 'C:/Users/MetaGO/Desktop/元构产品安装包/产品安装包/metagolifeform-local-v36.9.4.zip';
+const OUTDIR = process.env.METAGO_RELEASE_OUT
+  || path.resolve(ROOT, '..', '_release-out');
+const ZIP = path.join(OUTDIR, 'metagolifeform-local-v' + VERSION + '.zip');
+fs.mkdirSync(OUTDIR, { recursive: true });
 
 fs.rmSync(STAGE, { recursive: true, force: true });
 fs.mkdirSync(DST, { recursive: true });
@@ -48,7 +54,7 @@ function listFiles(d) {
 }
 const files = listFiles(DST).filter(f => path.relative(DST, f).replace(/\\/g, '/') !== 'SHA256SUMS.txt').map(f => path.relative(DST, f).replace(/\\/g, '/')).sort();
 const lines = files.map(f => crypto.createHash('sha256').update(fs.readFileSync(path.join(DST, f))).digest('hex') + '  ' + f);
-fs.writeFileSync(path.join(DST, 'SHA256SUMS.txt'), '# MetaGO Lifeform V36.9.4 发行包哈希清单\n' + '# 校验：sha256sum -c SHA256SUMS.txt\n' + lines.join('\n') + '\n', 'utf8');
+fs.writeFileSync(path.join(DST, 'SHA256SUMS.txt'), '# MetaGO Lifeform V36.9.6 发行包哈希清单\n' + '# 校验：sha256sum -c SHA256SUMS.txt\n' + lines.join('\n') + '\n', 'utf8');
 console.log('SHA256SUMS lines:', files.length);
 
 // 自校验：逐行重算哈希比对（Win 无 sha256sum，用 Node 实现等价校验）

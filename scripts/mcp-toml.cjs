@@ -1,6 +1,6 @@
 'use strict'
 /**
- * mcp-toml.cjs — Codex config.toml 的 MCP 服务器段读写（36.9.4）
+ * mcp-toml.cjs — Codex config.toml 的 MCP 服务器段读写（36.9.6）
  * 保守文本操作：只在 [mcp_servers.xxx] 段边界内插入/更新/删除，保留文件其余
  * 内容与注释（段边界 = 行首 '[' 且不位于 inline 注释内）。零外部依赖。
  */

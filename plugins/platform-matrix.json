@@ -1,6 +1,6 @@
 {
   "$schema": "https://metago.life/schemas/platform-matrix.schema.json",
-  "version": "36.9.4",
+  "version": "36.9.6",
   "generated": "2026-08-12",
   "legend": {
     "native": "✅ 原生支持",
@@ -123,7 +123,7 @@
     "skills": { "count": 100, "source": "skills/（SKILL.md 标准格式，字节级跨平台兼容）" },
     "agents": { "count": 35, "source": "agents/（Claude 兼容子智能体格式，Agent Plugins v1 不含 agents → 放 com.metago.life 扩展与平台兼容目录）" },
     "mcp": { "servers": ["metago（53 工具）", "metago-algorithms（57 工具/927 算法）"], "dependency": "npm 全局层 6 个 tgz 包" },
-    "law": { "file": "AGENTS.md", "version": "36.9.4" }
+    "law": { "file": "AGENTS.md", "version": "36.9.6" }
   },
   "pluginPacks": {
     "agent-plugins-1.0.0": { "path": "plugins/agent-plugins-1.0.0/", "clients": ["VS Code", "Cursor", "GitHub Copilot", "ChatGPT", "Codex", "Amazon Kiro"] },

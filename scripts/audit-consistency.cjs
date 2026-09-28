@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * audit-consistency.cjs — 口径一致性扫描器（V36.9.4 · 阶段 2/6 交付）
+ * audit-consistency.cjs — 口径一致性扫描器（V36.9.6 · 阶段 2/6 交付）
  * 五类口径：版本 / 技能数 / 工具数 / 公理与属性 / 平台数。
  * 事实源：根 package.json（version / metago.mcpServer.tools / metago.axioms）。
  * 豁免清单（历史快照区，不参与扫描）：
@@ -16,7 +16,7 @@ const ROOT = path.resolve(__dirname, '..');
 function rd(p) { return fs.readFileSync(path.join(ROOT, p), 'utf8'); }
 function jd(p) { return JSON.parse(rd(p)); }
 const rootPkg = jd('package.json');
-const V = rootPkg.version;                 // 36.9.4
+const V = rootPkg.version;                 // 36.9.6
 const VX = 'V' + V;
 const TOOLS = rootPkg.metago.mcpServer.tools;   // 53（阶段 3 后 55，自动跟随）
 const AXIOMS = rootPkg.metago.axioms;           // 10
@@ -102,7 +102,7 @@ const toolsJson = jd('packages/engine/INDEX/tools.json');
 const tTotal = (toolsJson.total !== undefined) ? toolsJson.total : (toolsJson.tools ? toolsJson.tools.length : null);
 chk(tTotal === TOOLS, `工具: INDEX/tools.json total=${tTotal} != ${TOOLS}`);
 chk(manifestJ.mcp_tools.total === TOOLS, `工具: docs/MANIFEST.json mcp_tools.total=${manifestJ.mcp_tools.total} != ${TOOLS}`);
-chk(manifestJ.mcp_tools.version === '1.3.2', `工具: MANIFEST mcp 版本=${manifestJ.mcp_tools.version}`);
+chk(manifestJ.mcp_tools.version === '1.3.4', `工具: MANIFEST mcp 版本=${manifestJ.mcp_tools.version}`);
 countIn('scripts/cli.js', `tools: ${TOOLS}`, 10, `工具: cli.js 平台常量 tools:${TOOLS} 出现次数不足（10 个可注入 MCP 平台 + kimi-work 无）`);
 countIn('scripts/build-adapters.cjs', `tools: ${TOOLS}`, 1, '工具: build-adapters.cjs tools 常量缺失');
 // 描述性总工具数（110/112）

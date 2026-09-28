@@ -1,12 +1,12 @@
 # @metago-ai/verify-kit
 
 > **MetaGO Agent Harness 交付质量保证系统** —— 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控框架。
-> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.9.1 第十一/十四/十五章。
+> **七层验证架构 + L8 缺陷猎杀** — 对应 AGENTS.md V36.9.6 第十一/十四/十五章。
 
 [![npm](https://img.shields.io/npm/v/@metago-ai/verify-kit.svg?logo=npm)](https://www.npmjs.com/package/@metago-ai/verify-kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Layers](https://img.shields.io/badge/Verification-7_layers_+_L8_defect_hunting-blue)](#architecture)
-[![Rules](https://img.shields.io/badge/Rules-V36.9.1-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.9.6-9cf)](https://github.com/metago-ai/metagolifeform/blob/main/AGENTS.md)
 
 ---
 
@@ -92,7 +92,7 @@ npx @metago-ai/verify-kit
 metago-verify
 ```
 
-## The 10 self-discipline questions (V3 · 36.9.4)
+## The 10 self-discipline questions (V3 · 36.9.6)
 
 Before declaring "task complete", the agent must answer all 10 questions. Any "no" blocks the declaration:
 

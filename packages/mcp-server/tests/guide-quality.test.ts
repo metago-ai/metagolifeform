@@ -40,8 +40,8 @@ const UNIQUE_TOOLS = ALL_TOOLS.filter(
 );
 
 describe("T6 - guide 文本质量扫描", () => {
-  it("去重后总工具数应为 52", () => {
-    expect(UNIQUE_TOOLS.length).toBe(52);
+  it("去重后总工具数应为 54", () => {
+    expect(UNIQUE_TOOLS.length).toBe(54);
   });
 
   for (const tool of UNIQUE_TOOLS) {

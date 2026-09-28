@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "MetaGO"
   text: "Agent Harness（驭智层）"
-  tagline: 让 AI 学会自我进化。从工具到生命体的范式跃迁 — 100 技能 · 112 MCP 工具（55+57）· Engine V2.1.1。
+  tagline: 让 AI 学会自我进化。从工具到生命体的范式跃迁 — 100 技能 · 112 MCP 工具（55+57）· Engine V2.1.3。
   image:
     src: /logo.svg
     alt: MetaGO
@@ -32,7 +32,7 @@ features:
     linkText: 查看 MCP 文档 →
   - icon: 🧬
     title: 10 条公理 + 9 条属性
-    details: 基于《元构全息智能引擎》V36.9.4，10 公理 + 9 属性 + 6 协议构成生命体基因。Engine V2 硬驱动执行。
+    details: 基于《元构全息智能引擎》V36.9.6，10 公理 + 9 属性 + 6 协议构成生命体基因。Engine V2 硬驱动执行。
     link: /engine/axioms
     linkText: 探索引擎核心 →
   - icon: 🔧

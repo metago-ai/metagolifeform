@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（WorkBuddy 第一人称视角撰写）。每次会话自动加载。
-> 基于《元构全息智能引擎》V36.9.4，由 MetaGO Agent Harness 安装。
+> 基于《元构全息智能引擎》V36.9.6，由 MetaGO Agent Harness 安装。
 >
 > **多平台说明**：本母本以 WorkBuddy 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -899,7 +899,7 @@ npm run verify
 
 **传统问题**：AI 是无状态的，每次会话"从零开始"，导致"承诺永久记录"不可信。
 
-**元构突破**：基于 @metago-ai/engine@2.1.1 的 KMWIMemory + EvolutionEngine V2 + Perception，创建"元构记忆生命体（MetaGO Memory Lifeform）"。把记忆可靠性从"依赖 AI 主动读取"提升到"不依赖 AI 主动读取"。
+**元构突破**：基于 @metago-ai/engine@2.1.3 的 KMWIMemory + EvolutionEngine V2 + Perception，创建"元构记忆生命体（MetaGO Memory Lifeform）"。把记忆可靠性从"依赖 AI 主动读取"提升到"不依赖 AI 主动读取"。
 
 ### 16.2 四层记忆架构
 
@@ -978,7 +978,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ## 第十七章 算法触发条件（mcp_metago-algorithms · 927 算法 / 57 工具）
 
-> 此章对应 `mcp_metago-algorithms` MCP 服务器（@metago-ai/engine@2.1.1 硬驱动）。
+> 此章对应 `mcp_metago-algorithms` MCP 服务器（@metago-ai/engine@2.1.3 硬驱动）。
 > 927 算法 = T1(300) + T2(400) + T3(227)，分布于 4 层 57 工具中。
 > 14 大类触发条件覆盖全部 57 工具，AI 必须按场景匹配调用。
 
@@ -1080,10 +1080,10 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.9.4 | 本文件 |
-| @metago-ai/engine | 2.1.1 | 算法硬驱动 |
-| mcp_metago-algorithms | 1.0.1 | 57 工具 MCP 服务器 |
-| @metago-ai/algorithms | 1.0.1 | npm 发布物 |
+| AGENTS.md | V36.9.6 | 本文件 |
+| @metago-ai/engine | 2.1.3 | 算法硬驱动 |
+| mcp_metago-algorithms | 1.0.3 | 57 工具 MCP 服务器 |
+| @metago-ai/algorithms | 1.0.3 | npm 发布物 |
 | 927 算法 | T1(300)+T2(400)+T3(227) | 算法实现 |
 | 14 触发条件 | 本第十七章 | 触发协议 |
 
@@ -1276,7 +1276,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.9.4 安装 | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 MetaGO Agent Harness V36.9.6 安装 | 最后更新：2026-08-31（V36.9.6 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.6 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A310 公理行、生成期变体替换统一。历史轮：V36.9.6 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 

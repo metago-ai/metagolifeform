@@ -11,7 +11,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   lang: "zh-CN",
   title: "MetaGO",
-  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。100 技能 · 112 MCP 工具（55+57）/ 927 算法 · 10 核心公理 · Engine V2.1.1 · 11 平台形态。",
+  description: "MetaGO Agent Harness（驭智层）— 让 AI 学会自我进化。100 技能 · 112 MCP 工具（55+57）/ 927 算法 · 10 核心公理 · Engine V2.1.3 · 11 平台形态。",
 
   // 主题配置
   themeConfig: {

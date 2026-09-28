@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env pwsh
+#!/usr/bin/env pwsh
 $basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent
 
 $exe=""
@@ -11,17 +11,17 @@ $ret=0
 if (Test-Path "$basedir/node$exe") {
   # Support pipeline input
   if ($MyInvocation.ExpectingInput) {
-    $input | & "$basedir/node$exe"  "$basedir/node_modules/@metago-ai/mcp-server/dist/index.js" $args
+    $input | & "$basedir/node$exe"  "$basedir/../@metago-ai/mcp-server/dist/index.js" $args
   } else {
-    & "$basedir/node$exe"  "$basedir/node_modules/@metago-ai/mcp-server/dist/index.js" $args
+    & "$basedir/node$exe"  "$basedir/../@metago-ai/mcp-server/dist/index.js" $args
   }
   $ret=$LASTEXITCODE
 } else {
   # Support pipeline input
   if ($MyInvocation.ExpectingInput) {
-    $input | & "node$exe"  "$basedir/node_modules/@metago-ai/mcp-server/dist/index.js" $args
+    $input | & "node$exe"  "$basedir/../@metago-ai/mcp-server/dist/index.js" $args
   } else {
-    & "node$exe"  "$basedir/node_modules/@metago-ai/mcp-server/dist/index.js" $args
+    & "node$exe"  "$basedir/../@metago-ai/mcp-server/dist/index.js" $args
   }
   $ret=$LASTEXITCODE
 }

@@ -40,7 +40,7 @@ The other 50 tools return structured guidance (soft drive) that the agent follow
 | Core skills | 32 | Cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture, engineering quality |
 | Event reporter | 1 | `metago_report_event` — reports to Studio dashboard for metrics & evolution archive |
 
-> Common mistake: `22 + 38 + 1 = 61`. Wrong. The skills directory has 39 folders, but `skills-data.ts` only exports 39 (missing `metago-delivery-gate` and `metago-discipline`, which live in toolkit-data.ts — note: 36.9.4 added `metago-first-principles` and `metago-adversarial-review` to skills-data.ts). Then 7 skill names collide with toolkit tools and are merged. So: `22 + (39 − 7) + 1 = 55`.
+> Common mistake: `22 + 38 + 1 = 61`. Wrong. The skills directory has 39 folders, but `skills-data.ts` only exports 39 (missing `metago-delivery-gate` and `metago-discipline`, which live in toolkit-data.ts — note: 36.9.6 added `metago-first-principles` and `metago-adversarial-review` to skills-data.ts). Then 7 skill names collide with toolkit tools and are merged. So: `22 + (39 − 7) + 1 = 55`.
 
 ---
 

@@ -1,7 +1,7 @@
 ﻿#requires -Version 5.1
 <#
 .SYNOPSIS
-    MetaGO 版本戳同步脚本（sync-versions.ps1 · 36.9.3 新增，RELEASE-CHECKLIST §5 引用）
+MetaGO 版本戳同步脚本（sync-versions.ps1 · 36.9.3 新增，RELEASE-CHECKLIST §5 引用）
 .DESCRIPTION
     以根 package.json version 为唯一事实源，同步所有版本戳：
     AGENTS.md（基于…V）、GENOME.json、INDEX 表、docs/MANIFEST.json、各子包 rules_version/metago_version。

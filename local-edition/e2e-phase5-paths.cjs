@@ -32,7 +32,7 @@ log(fs.existsSync(path.join(SAND, '.trae-cn', 'rules.md')), 'A 法则落点', pa
 log(fs.existsSync(path.join(SAND, '.trae-cn', 'skills')), 'A 技能目录');
 log(fs.existsSync(path.join(PREFIX, 'node_modules', 'metago-lifeform', 'package.json')), 'A 全局树含 metago-lifeform');
 const gv = spawnSync('node', [path.join(PREFIX, 'node_modules', 'metago-lifeform', 'scripts', 'cli.js'), 'version'], { env, encoding: 'utf8' });
-log(gv.stdout.includes('36.9.4'), 'A CLI 版本 36.9.4', (gv.stdout || '').trim().split('\n').pop());
+log(gv.stdout.includes('36.9.6'), 'A CLI 版本 36.9.6', (gv.stdout || '').trim().split('\n').pop());
 const mcpA = path.join(SAND, 'AppData', 'Roaming', 'Trae CN', 'User', 'mcp.json');
 let mcpOk = false;
 if (fs.existsSync(mcpA)) { try { const j = JSON.parse(fs.readFileSync(mcpA, 'utf8')); mcpOk = !!(j.mcpServers && j.mcpServers.metago); } catch {} }
@@ -62,7 +62,7 @@ const rc = spawnSync('node', [path.join(ROOT, 'scripts', 'cli.js'), 'install', '
   cwd: ROOT, env, encoding: 'utf8', timeout: 300000,
 });
 log(rc.status === 0, 'C 退出码 0', 'status=' + rc.status);
-log(fs.existsSync(path.join(SAND, '.trae-cn', 'rules.md')) && fs.readFileSync(path.join(SAND, '.trae-cn', 'rules.md'), 'utf8').includes('V36.9.4'), 'C 法则 V36.9.4');
+log(fs.existsSync(path.join(SAND, '.trae-cn', 'rules.md')) && fs.readFileSync(path.join(SAND, '.trae-cn', 'rules.md'), 'utf8').includes('V36.9.6'), 'C 法则 V36.9.6');
 
 const pass = results.filter(x => x.ok).length;
 console.log(`\n=== 汇总：${pass}/${results.length} ===`);

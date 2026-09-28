@@ -1,6 +1,6 @@
 # Trae 适配器（Trae Adapter）
 
-> MetaGO Agent Harness → Trae 平台适配层 · V36.9.4
+> MetaGO Agent Harness → Trae 平台适配层 · V36.9.6
 
 ---
 
@@ -118,4 +118,4 @@ node local-edition/verify-local-install.cjs
 
 ---
 
-*MetaGO Agent Harness V36.9.4 · Trae 适配器*
+*MetaGO Agent Harness V36.9.6 · Trae 适配器*

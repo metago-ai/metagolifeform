@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "metago-lifeform",
-  "version": "36.9.4",
+  "version": "36.9.6",
   "description": "MetaGO Lifeform（元构超级智能生命体）— 100 个 Agent Skills + 2 个 MCP 服务器（110 工具/927 算法）。规则、技能、MCP、智能体四层全量注入：元构十大核心公理运行法则、决策锁四道关卡、七层交付验证、927 算法引擎。兼容 Agent Plugins 1.0.0 标准的任何客户端（VS Code / Cursor / GitHub Copilot / ChatGPT / Codex / Amazon Kiro）。",
   "author": {
     "name": "易霄 / 元构光年（成都）人工智能科技有限公司",

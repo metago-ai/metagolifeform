@@ -1,6 +1,6 @@
 ---
 doc_id: RELEASE-CHECKLIST
-version: v36.9.4
+version: v36.9.6
 keywords: [release, checklist, publish, npm, gitee, github, ci, cd, vitest]
 related: [STRATEGY-ROADMAP-V36.7.7, MCP_SERVER, STRATEGY-EXECUTION-LOG]
 last_updated: 2026-07-05
