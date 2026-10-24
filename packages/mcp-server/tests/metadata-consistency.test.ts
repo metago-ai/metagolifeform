@@ -35,9 +35,9 @@ describe("T8 - 元数据一致性", () => {
   const devKitPkg = readJson(resolve(devKitDir, "package.json")) as Record<string, unknown>;
 
   describe("实际数据基线", () => {
-    it("skills/ 目录应有 100 个技能子目录", () => {
+    it("skills/ 目录应有 112 个技能子目录", () => {
       const skills = listSkillDirs();
-      expect(skills.length).toBe(100);
+      expect(skills.length).toBe(112);
     });
 
     it("SKILLS 数组应有 39 项", () => {
@@ -63,8 +63,8 @@ describe("T8 - 元数据一致性", () => {
   describe("根 package.json 元数据", () => {
     const metago = rootPkg.metago as Record<string, unknown>;
 
-    it("metago.skills 应为 100（与 skills/ 目录一致）", () => {
-      expect(metago.skills).toBe(100);
+    it("metago.skills 应为 112（与 skills/ 目录一致）", () => {
+      expect(metago.skills).toBe(112);
     });
 
     it("metago.mcpServer.tools 应为 55（含 metago_report_event 独立注册）", () => {
@@ -188,7 +188,13 @@ describe("T8 - 元数据一致性", () => {
       scanDir(repoRoot, stale);
       // 过滤掉测试文件自身和 RELEASE-CHECKLIST
       const filtered = stale.filter(
-        (s) => !s.file.includes("metadata-consistency.test.ts") && !s.file.includes("RELEASE-CHECKLIST"),
+        (s) =>
+          !s.file.includes("metadata-consistency.test.ts") &&
+          !s.file.includes("RELEASE-CHECKLIST") &&
+          // 历史文档卷：其数字是「撰写时点的历史事实」（如「原子从 300 增长至 535」），
+          // 属版本演进记录，不是现行的过时表述，故豁免。
+          !s.file.includes("元构全息文档体系") &&
+          !s.file.includes("附录卷"),
       );
       if (filtered.length > 0) {
         const msg = filtered.map((s) => `  ${s.file}:${s.line} → ${s.text}`).join("\n");
