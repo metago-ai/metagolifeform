@@ -170,24 +170,41 @@ jobs:
             echo "✓ ${NPM_NAME}@${VERSION} not yet published, will publish"
           fi
 
-      - name: Verify NPM_TOKEN present
+      - name: Diagnose auth (仅诊断，不阻塞：token 失效时仍可走 OIDC)
         run: |
+          set +e
           if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "::error::NPM_TOKEN secret is empty or not set"
-            exit 1
+            echo "::warning::NPM_TOKEN 为空，将使用 OIDC Trusted Publishing"
+          else
+            echo "NPM_TOKEN length: ${#NODE_AUTH_TOKEN}"
+            if npm whoami >/dev/null 2>&1; then
+              echo "::notice::NPM_TOKEN 有效（whoami 通过）"
+            else
+              echo "::warning::NPM_TOKEN 无效或已过期，将尝试 OIDC Trusted Publishing"
+            fi
           fi
-          echo "NPM_TOKEN length: ${#NODE_AUTH_TOKEN}"
-          npm whoami || echo "::warning::npm whoami failed (token may be expired)"
+          exit 0
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to NPM
+      - name: Publish to NPM (token 优先，失效则走 OIDC Trusted Publishing)
         if: steps.check.outputs.published == 'false'
-        run: npm publish --access public
+        run: |
+          set +e
+          if [ -n "$NODE_AUTH_TOKEN" ] && npm whoami >/dev/null 2>&1; then
+            echo "::notice::NODE_AUTH_TOKEN 有效，使用 token 发布"
+            npm publish --access public
+            rc=$?
+          else
+            echo "::notice::NODE_AUTH_TOKEN 缺失或已失效，改用 OIDC Trusted Publishing（需 npmjs 已配置 trusted publisher）"
+            unset NODE_AUTH_TOKEN
+            unset npm_config_//registry.npmjs.org/:_authToken || true
+            npm publish --access public --provenance
+            rc=$?
+          fi
+          exit $rc
         working-directory: ${{ needs.resolve.outputs.directory }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Summary
         run: |
           VERSION="${{ steps.check.outputs.final_version }}"
