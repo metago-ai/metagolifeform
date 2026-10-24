@@ -33,22 +33,15 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org/
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: packages/mcp-server
+      - name: Install dependencies (root workspaces)
+        run: npm install --workspaces --include-workspace-root
 
-      - name: Install engine devDependencies
-        run: npm install
-        working-directory: packages/engine
+      - name: Build engine first (mcp-server 的 src/index.ts 依赖 @metago-ai/engine 类型声明)
+        run: npm run build --workspace=@metago-ai/engine
 
       - name: Type check & Build mcp-server
-        run: |
-          npm run build
-        working-directory: packages/mcp-server
-
-      - name: Build engine
         run: npm run build
-        working-directory: packages/engine
+        working-directory: packages/mcp-server
 
       - name: Run mcp-server tests
         run: npm test
@@ -90,9 +83,9 @@ jobs:
 
       - name: Install & Build mcp-server
         run: |
-          npm install
-          npm run build
-        working-directory: packages/mcp-server
+          npm install --workspaces --include-workspace-root
+          npm run build --workspace=@metago-ai/engine
+          npm run build --workspace=@metago-ai/mcp-server
 
       - name: Verify tarball (npm pack --dry-run)
         run: npm pack --dry-run --json
