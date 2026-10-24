@@ -205,7 +205,7 @@ export class KMWIMemory {
       // whole M layer (which made getHealth() divide by an empty layer and
       // memory_manage throw on a missing `length`).
       const memories = snapshot.memories
-        || (snapshot as unknown as { memory?: KMWIItem[] }).memory
+        || (snapshot as unknown as { memory?: MemoryItem[] }).memory
         || [];
       for (const item of memories) this.memories.set(item.id, item);
       for (const item of snapshot.wisdom || []) this.wisdom.set(item.id, item);
