@@ -170,9 +170,20 @@ jobs:
             echo "✓ ${NPM_NAME}@${VERSION} not yet published, will publish"
           fi
 
-      - name: Publish to NPM
+      - name: Verify NPM_TOKEN present
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is empty or not set"
+            exit 1
+          fi
+          echo "NPM_TOKEN length: ${#NODE_AUTH_TOKEN}"
+          npm whoami || echo "::warning::npm whoami failed (token may be expired)"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+- name: Publish to NPM
         if: steps.check.outputs.published == 'false'
-        run: npm publish --provenance --access public
+        run: npm publish --access public
         working-directory: ${{ needs.resolve.outputs.directory }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
