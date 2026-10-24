@@ -1,7 +1,7 @@
 {
   "namespace": "com.metago.life",
   "plugin": "metago-lifeform",
-  "version": "36.9.6",
+  "version": "36.11.0",
   "description": "元构专属扩展目录（Agent Plugins 1.0.0 规范：com.* 反域名命名空间，其他客户端忽略，仅元构生态读取）",
   "components": {
     "agents": {

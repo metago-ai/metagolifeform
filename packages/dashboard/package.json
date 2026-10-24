@@ -23,5 +23,6 @@
     "type": "internal-tool",
     "data_source": "~/.metago/logs/calls.jsonl",
     "parentPackage": "@metago-ai/mcp-server"
-  }
+  },
+  "private": true
 }

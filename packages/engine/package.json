@@ -69,7 +69,6 @@
     "CONSTITUTION/",
     "CORE/",
     "INDEX/",
-    "EVOLUTION/",
     "EVOLUTION.md",
     "ENGINE.md",
     "CHANGES.md",
@@ -77,7 +76,9 @@
     "PATENTS.md",
     "README.md",
     "LICENSE",
-    "package.json"
+    "package.json",
+    "atoms/",
+    "scripts/"
   ],
   "metago": {
     "engine_version": "2.1.3",

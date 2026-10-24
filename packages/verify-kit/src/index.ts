@@ -222,7 +222,7 @@ export async function runVerification(config: VerifyConfig): Promise<VerifyRepor
 
   return {
     timestamp: new Date().toISOString(),
-    version: '1.1.2',
+    version: '1.1.4',
     total: results.length,
     passed,
     failed,
@@ -759,7 +759,7 @@ async function scanCopyConsistency(scanDir?: string): Promise<VerifyResult> {
   for (const { text } of readFilesSafe(files)) {
     for (const m of text.matchAll(/(\d+)\s*个技能|技能数[：:]?\s*(\d+)|(\d+)\s*skills/gi)) {
       const v = m[1] || m[2] || m[3]
-      if (v && v !== '39' && v !== '95') continue
+      if (v && v !== '112' && v !== '100') continue
       skillCounts.add(v)
     }
   }
