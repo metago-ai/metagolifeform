@@ -238,7 +238,7 @@ if (c12ok) {
   const rootDir = path.dirname(sumsPath);
   const lines = fs.readFileSync(sumsPath, 'utf8').split(/\r?\n/).filter((l) => l.trim() && !l.startsWith('#'));
   const bad = lines.filter((l) => {
-    const m = /^([0-9a-f]{64})\s+\*?\.?\/?(.+?)\s*$/.exec(l.trim());
+    const m = /^([0-9a-f]{64})\s+\*?(?:\.\/)?(.+?)\s*$/.exec(l.trim());
     return !m || !fs.existsSync(path.join(rootDir, m[2]));
   });
   c12ok = bad.length === 0 && lines.length > 0;

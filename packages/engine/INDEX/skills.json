@@ -86,7 +86,7 @@
     },
     "architecture": {
       "name": "架构族",
-      "count": 6,
+      "count": 7,
       "skills": [
         "metago-deep-reasoning",
         "metago-first-principles",
@@ -189,7 +189,7 @@
     },
     "delivery_quality": {
       "name": "交付质量族",
-      "count": 3,
+      "count": 5,
       "skills": [
         "metago-delivery-gate",
         "metago-discipline",
@@ -197,7 +197,31 @@
         "metago-completeness-guard",
         "metago-veracity-guard"
       ]
+    },
+    "yili": {
+      "name": "易理族",
+      "count": 11,
+      "skills": [
+        "metago-shushu",
+        "metago-shushu-calculus",
+        "metago-shushu-diagnose",
+        "metago-shushu-zeri",
+        "metago-hetu-luoshu",
+        "metago-liuyao",
+        "metago-qimen",
+        "metago-bazi",
+        "metago-taiyi",
+        "metago-yijing",
+        "metago-ziwei"
+      ]
+    },
+    "product": {
+      "name": "产品族",
+      "count": 1,
+      "skills": [
+        "metago-fabric-guide"
+      ]
     }
   },
-  "last_updated": "2026-08-31"
+  "last_updated": "2026-10-24"
 }
