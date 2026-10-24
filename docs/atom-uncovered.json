@@ -1,0 +1,516 @@
+{
+ "total": 597,
+ "compute": 50,
+ "factory": 473,
+ "constraint": 5,
+ "external": 2,
+ "covered": 525,
+ "missing": [
+  "ATOM_POLICY_TRANSLATE_101",
+  "ATOM_POLICY_MONEY_102",
+  "ATOM_POLICY_MATCH_103",
+  "ATOM_POLICY_DEADLINE_104",
+  "ATOM_POLICY_CHANGE_105",
+  "ATOM_POLICY_COMPARE_106",
+  "ATOM_POLICY_APPLY_108",
+  "ATOM_TECH_DEMYSTIFY_201",
+  "ATOM_TECH_MAP_203",
+  "ATOM_TECH_ROADMAP_205",
+  "ATOM_NEWS_HOOK_301",
+  "ATOM_NEWS_SUMMARY_304",
+  "ATOM_EMOTION_RECOG_502",
+  "ATOM_SECURE_LOCK_201",
+  "ATOM_SECURITY_RISK_601",
+  "ATOM_SECURITY_AUDIT_602",
+  "ATOM_SECURITY_ENCRYPT_603",
+  "ATOM_SECURITY_DECRYPT_604",
+  "ATOM_SECURITY_VERIFY_605",
+  "ATOM_CONTRIB_PROVE_206",
+  "ATOM_SCIENTIFIC_PIPE_210",
+  "ATOM_SCIENTIFIC_PAPER_211",
+  "ATOM_SCIENTIFIC_EXP_212",
+  "ATOM_SCIENTIFIC_VALIDATE_213",
+  "ATOM_PARALLEL_SIM_214",
+  "ATOM_PARALLEL_TUNE_215",
+  "ATOM_SYMBOL_EXPLAIN_205",
+  "ATOM_SYMBOL_VISUAL_206",
+  "ATOM_SWARM_CONSENSUS_217",
+  "ATOM_TRAFFIC_COORD_207",
+  "ATOM_PEOPLE_CAPTURE_001",
+  "ATOM_PEOPLE_INTENT_003",
+  "ATOM_PEOPLE_TARGET_004",
+  "ATOM_PEOPLE_SILENT_005",
+  "ATOM_PEOPLE_BIO_006",
+  "ATOM_PEOPLE_QUANTUM_008",
+  "ATOM_PEOPLE_SUPERPOSITION_009",
+  "ATOM_PEOPLE_COLLAPSE_010",
+  "ATOM_PEOPLE_FEEDBACK_011",
+  "ATOM_PEOPLE_LEARN_012",
+  "ATOM_QUANTUM_ENCODE_013",
+  "ATOM_QUANTUM_EXECUTE_014",
+  "ATOM_QUANTUM_SIMULATE_015",
+  "ATOM_QUANTUM_AMPLIFY_016",
+  "ATOM_QUANTUM_PROTECT_018",
+  "ATOM_QUANTUM_MEASURE_019",
+  "ATOM_BIO_EMOTION_022",
+  "ATOM_BIO_SPECIES_025",
+  "ATOM_COSMIC_DISTRIBUTE_030",
+  "ATOM_COSMIC_GRAVITY_032",
+  "ATOM_COSMIC_LEGACY_035",
+  "ATOM_COSMIC_RECEIVE_036",
+  "ATOM_FUSION_Q_C_039",
+  "ATOM_FUSION_VOID_Q_041",
+  "ATOM_FUSION_TAO_DAILY_043",
+  "ATOM_PROTO_QCP_049",
+  "ATOM_PROTO_BCP_050",
+  "ATOM_PROTO_CCP_051",
+  "ATOM_PROTO_QBCP_052",
+  "ATOM_PROTO_BCCP_053",
+  "ATOM_PROTO_QCCP_054",
+  "ATOM_RES_IDEA_MULTIPLY_056",
+  "ATOM_RES_EMERGE_TRIGGER_057",
+  "ATOM_RES_NON_TECH_058",
+  "ATOM_RES_IDEA_WITNESS_059",
+  "ATOM_RES_META_GUIDE_060",
+  "ATOM_RES_FRICTION_061",
+  "ATOM_RES_DIALOGUE_062",
+  "ATOM_RES_QUANTUM_LOCK_063",
+  "ATOM_RES_EMERGE_FORECAST_064",
+  "ATOM_RES_COUPLING_ENHANCE_065",
+  "ATOM_RES_NEGENTROPY_066"
+ ],
+ "missingDetail": [
+  {
+   "id": "ATOM_POLICY_TRANSLATE_101",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_MONEY_102",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_MATCH_103",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_DEADLINE_104",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_CHANGE_105",
+   "action": "监控/预警",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_COMPARE_106",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_POLICY_APPLY_108",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_TECH_DEMYSTIFY_201",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_TECH_MAP_203",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_TECH_ROADMAP_205",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_NEWS_HOOK_301",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_NEWS_SUMMARY_304",
+   "action": "生成/创造",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_EMOTION_RECOG_502",
+   "action": "识别/检测",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURE_LOCK_201",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURITY_RISK_601",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURITY_AUDIT_602",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURITY_ENCRYPT_603",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURITY_DECRYPT_604",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SECURITY_VERIFY_605",
+   "action": "治理/审查",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_CONTRIB_PROVE_206",
+   "action": "生成/创造",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_PIPE_210",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_PAPER_211",
+   "action": "存储/检索",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_EXP_212",
+   "action": "生成/创造",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_VALIDATE_213",
+   "action": "治理/审查",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PARALLEL_SIM_214",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PARALLEL_TUNE_215",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SYMBOL_EXPLAIN_205",
+   "action": "生成/创造",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SYMBOL_VISUAL_206",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_SWARM_CONSENSUS_217",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_TRAFFIC_COORD_207",
+   "action": "同步/融合",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_CAPTURE_001",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_INTENT_003",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_TARGET_004",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_SILENT_005",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_BIO_006",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_QUANTUM_008",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_SUPERPOSITION_009",
+   "action": "生成/创造",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_COLLAPSE_010",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_FEEDBACK_011",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PEOPLE_LEARN_012",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_ENCODE_013",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_EXECUTE_014",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_SIMULATE_015",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_AMPLIFY_016",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_PROTECT_018",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_QUANTUM_MEASURE_019",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_BIO_EMOTION_022",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_BIO_SPECIES_025",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_COSMIC_DISTRIBUTE_030",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_COSMIC_GRAVITY_032",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_COSMIC_LEGACY_035",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_COSMIC_RECEIVE_036",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_FUSION_Q_C_039",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_FUSION_VOID_Q_041",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_FUSION_TAO_DAILY_043",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_QCP_049",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_BCP_050",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_CCP_051",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_QBCP_052",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_BCCP_053",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_PROTO_QCCP_054",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_IDEA_MULTIPLY_056",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_EMERGE_TRIGGER_057",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_NON_TECH_058",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_IDEA_WITNESS_059",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_META_GUIDE_060",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_FRICTION_061",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_DIALOGUE_062",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_QUANTUM_LOCK_063",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_EMERGE_FORECAST_064",
+   "action": "预测/推演",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_COUPLING_ENHANCE_065",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_RES_NEGENTROPY_066",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  }
+ ]
+}

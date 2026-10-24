@@ -1,0 +1,52 @@
+{
+ "$schema": "https://metago.life/schemas/completeness.config.schema.json",
+ "version": "1.0.0",
+ "target": {
+  "type": "law",
+  "doc": "AGENTS.md",
+  "version": "V36.11.0",
+  "minSections": 20
+ },
+ "baselines": {
+  "dirs": [
+   "C:\\Users\\MetaGO\\AppData\\Roaming\\npm\\node_modules\\metago-completeness-kit\\baselines"
+  ],
+  "enabled": [
+   "B1-framework",
+   "B2-industry-standard",
+   "B3-protocols",
+   "B4-self-dissection",
+   "B5-metago-law",
+   "B6-competitors",
+   "B7-user-custom"
+  ]
+ },
+ "enforcement": {
+  "level": "hard",
+  "forbiddenDeclarations": [
+   "绝对完整",
+   "100%完美",
+   "100%完整",
+   "不会再缺",
+   "不可能有遗漏",
+   "绝对100%"
+  ],
+  "requireReportOnComplete": true,
+  "hooks": {
+   "enabled": true,
+   "platforms": [
+    "zcode",
+    "claude-code"
+   ],
+   "preToolUseGuard": true,
+   "stopVerify": true
+  }
+ },
+ "radar": {
+  "enabled": true,
+  "scanIntervalDays": 7
+ },
+ "gaps": {
+  "file": "completeness-gaps.json"
+ }
+}

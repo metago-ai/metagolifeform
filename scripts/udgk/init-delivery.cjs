@@ -99,7 +99,7 @@ const rtmTemplate = `# 需求追踪矩阵（RTM）· ${configTemplate.project}
  * ------------------------------------------------------------------------- */
 const dirs = [
   'docs',
-  path.dirname(configTemplate.assertions.dir),
+  configTemplate.assertions.dir,   /* DEF-041 修复：原先用 path.dirname() 只建了父目录 e2e/ */
   configTemplate.visual.baseline,
   configTemplate.visual.current,
   configTemplate.visual.diffOutput,

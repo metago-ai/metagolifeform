@@ -13,6 +13,15 @@
       "dimensions"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "dimensions": {
+          "经济": 0.8,
+          "社会": 0.6,
+          "环境": 0.7
+        }
+      }
+    ]
   }
 }

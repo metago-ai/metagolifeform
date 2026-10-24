@@ -1,0 +1,124 @@
+{
+  "name": "value_assess",
+  "description": "价值评估（65 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "aggregateSixDimValue",
+          "normalizeValueVector",
+          "calculateDCVWeights",
+          "behaviorBankScore",
+          "holographicCreditScore",
+          "valueAlignment",
+          "detectValueConflicts",
+          "prioritizeValues",
+          "valueDecay",
+          "valueGain",
+          "valueTransfer",
+          "valueBalance",
+          "compareMultiDimValues",
+          "buildValueMatrix",
+          "valueTrend",
+          "valueRiskAssessment",
+          "valueROI",
+          "valueDensity",
+          "valueEntropy",
+          "valueCoverage",
+          "valueDepth",
+          "valueBreadth",
+          "valueStability",
+          "valueConfidence",
+          "valueTrace",
+          "valueAudit",
+          "valueCalibration",
+          "valueMapping",
+          "valueProjection",
+          "comprehensiveValueAssessment",
+          "dcvWeightedAggregate",
+          "valueFlowTrace",
+          "stakeholderBalance",
+          "valueBankReconcile",
+          "valueDecayModel",
+          "valueRiskMatrix",
+          "valueAttribution",
+          "valueExponentialSmoothing",
+          "valueBenchmark",
+          "valueHealthIndex",
+          "valueArbitration",
+          "valueLock",
+          "valueAuditChain",
+          "valueDensityAnalysis",
+          "valueOptimizationSuggest",
+          "valueEquity",
+          "valueLifecycle",
+          "valueCoupling",
+          "valueNPV",
+          "valueComprehensiveRating",
+          "DCV 六维价值体系",
+          "价值对齐度评估",
+          "价值冲突检测",
+          "价值衰减模型",
+          "价值增益计算",
+          "价值转移机制",
+          "价值平衡分析",
+          "价值审计方法",
+          "价值溯源链",
+          "价值校准流程",
+          "价值投影方法",
+          "价值密度度量",
+          "价值熵分析",
+          "价值深度评估",
+          "价值广度评估"
+        ],
+        "description": "族内算法选择：传算法名（如 aggregateSixDimValue）。路由规则是按名称/ID/关键词子串匹配 族 VALUE 的 65 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "aggregateSixDimValue",
+        "input": [
+          {
+            "name": "d1",
+            "weight": 0.3,
+            "rawValue": 80,
+            "min": 0,
+            "max": 100
+          },
+          {
+            "name": "d2",
+            "weight": 0.4,
+            "rawValue": 60,
+            "min": 0,
+            "max": 100
+          },
+          {
+            "name": "d3",
+            "weight": 0.3,
+            "rawValue": 90,
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    ]
+  }
+}

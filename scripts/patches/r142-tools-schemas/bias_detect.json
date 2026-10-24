@@ -1,0 +1,113 @@
+{
+  "name": "bias_detect",
+  "description": "偏见检测（65 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "driftScore",
+          "deviationVector",
+          "deviationDirection",
+          "deviationMagnitude",
+          "deviationTrend",
+          "deviationAccumulation",
+          "thresholdAlert",
+          "anomalyDetection",
+          "outlierDetection",
+          "distributionShift",
+          "conceptDrift",
+          "dataDrift",
+          "modelDrift",
+          "behaviorDrift",
+          "valueDrift",
+          "performanceDegradation",
+          "accuracyDrop",
+          "recallDrop",
+          "precisionDrop",
+          "f1ScoreDrop",
+          "deviationAttribution",
+          "deviationRootCause",
+          "deviationImpact",
+          "deviationRisk",
+          "deviationCorrection",
+          "deviationCompensation",
+          "deviationCalibration",
+          "deviationMonitor",
+          "deviationReport",
+          "deviationEarlyWarning",
+          "multiSourceBiasAggregate",
+          "biasCascadeDetect",
+          "biasRootCause",
+          "biasCorrectionStrategy",
+          "biasCorrelation",
+          "biasAccumulationMonitor",
+          "biasHeatmap",
+          "biasPropagationPath",
+          "biasThresholdAdapt",
+          "biasReportGenerate",
+          "biasSelfHeal",
+          "biasTraceChain",
+          "biasImpactScope",
+          "biasCompensator",
+          "biasStatisticalTest",
+          "biasSeasonality",
+          "biasSpatialDistribution",
+          "biasAlertLevel",
+          "biasCausalInference",
+          "biasComprehensiveAssessment",
+          "漂移分数量化",
+          "偏差向量分析",
+          "异常检测方法",
+          "离群点识别",
+          "分布偏移检测",
+          "概念漂移检测",
+          "数据漂移监控",
+          "模型漂移诊断",
+          "行为漂移检测",
+          "价值漂移监测",
+          "性能退化分析",
+          "偏差归因分析",
+          "偏差根因定位",
+          "偏差修正策略",
+          "偏差预警机制"
+        ],
+        "description": "族内算法选择：传算法名（如 driftScore）。路由规则是按名称/ID/关键词子串匹配 族 BIAS 的 65 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "driftScore",
+        "input": {
+          "expected": [
+            1,
+            2,
+            3
+          ],
+          "actual": [
+            1,
+            2,
+            3
+          ]
+        }
+      }
+    ]
+  }
+}

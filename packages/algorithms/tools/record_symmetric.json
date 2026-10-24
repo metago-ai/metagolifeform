@@ -5,12 +5,18 @@
     "type": "object",
     "properties": {
       "entityA": {
-        "type": "object",
-        "description": "实体 A"
+        "type": "string",
+        "description": "实体标识，如 \"a\"（也接受 {id:\"a\"}）",
+        "examples": [
+          "a"
+        ]
       },
       "entityB": {
-        "type": "object",
-        "description": "实体 B"
+        "type": "string",
+        "description": "实体标识，如 \"b\"（也接受 {id:\"b\"}）",
+        "examples": [
+          "b"
+        ]
       },
       "score": {
         "type": "number",
@@ -23,6 +29,13 @@
       "score"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "entityA": "a",
+        "entityB": "b",
+        "score": 0.8
+      }
+    ]
   }
 }

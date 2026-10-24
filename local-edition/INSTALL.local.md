@@ -23,7 +23,7 @@
 ```
 <仓库根>/
 ├── AGENTS.md                  法则母本 V36.9.6（第 0 节 + 20 章，一切平台法则的源头）
-├── skills/                    100 个技能目录（直接可用，无需构建）
+├── skills/                    112 个技能目录（直接可用，无需构建）
 ├── adapters/                  11 平台法则适配模板（含 universal 通用路径）
 ├── packages/                  8 个 npm 包源码（engine / mcp-server / algorithms / dev-kit / verify-kit / dashboard / demo / docs-site）
 ├── scripts/                   安装器与验证器（cli.js 是 CLI 主入口）
@@ -80,7 +80,7 @@ metago-lifeform version    # 输出 v36.9.6
 metago-engine --help       # 引擎 CLI 可用
 ```
 
-## 3. 部署法则 + 100 技能（按目标平台）
+## 3. 部署法则 + 112 技能（按目标平台）
 
 CLI 内建 11 平台适配，一条命令完成法则适配生成 + 技能部署：
 
@@ -129,11 +129,11 @@ metago-lifeform setup-mcp --platform <平台>
 }
 ```
 
-已知平台差异（如实说明）：Kimi Work 桌面版当前构建不向会话注入自定义 MCP 工具（官方插件的 MCP 工具同样不注入），在 Kimi 桌面里元构的生效通道是"法则 + 100 技能 + Bash 直调"；MCP 双服务器在 kimi-code CLI、Claude Desktop、Cursor、Trae 等标准 MCP 客户端中即开即用。
+已知平台差异（如实说明）：Kimi Work 桌面版当前构建不向会话注入自定义 MCP 工具（官方插件的 MCP 工具同样不注入），在 Kimi 桌面里元构的生效通道是"法则 + 112 技能 + Bash 直调"；MCP 双服务器在 kimi-code CLI、Claude Desktop、Cursor、Trae 等标准 MCP 客户端中即开即用。
 
 ## 5. 蓝本缺席说明（预期内，不是缺陷）
 
-《元构全息智能引擎.txt》（34,655 行 L3 完整蓝本）按作者设计**不随公开仓库发布**。影响仅限：A6–A33 完整条文与 6 个技能的"根源文档"行号出处无法查阅原文。全部 100 技能、第 0 节 + 20 章法则、引擎、927 算法均为自包含，运行时零依赖蓝本。详见 `packages/engine/CONSTITUTION/AXIOMS.md` 第 79 行的官方声明。
+《元构全息智能引擎.txt》（34,655 行 L3 完整蓝本）按作者设计**不随公开仓库发布**。影响仅限：A6–A33 完整条文与 6 个技能的"根源文档"行号出处无法查阅原文。全部 112 技能、第 0 节 + 20 章法则、引擎、927 算法均为自包含，运行时零依赖蓝本。详见 `packages/engine/CONSTITUTION/AXIOMS.md` 第 79 行的官方声明。
 
 ## 6. 验收（必跑）
 

@@ -1,0 +1,339 @@
+{
+ "generatedAt": "2026-10-18T21:35:07.082Z",
+ "rows": [
+  {
+   "name": "metago_action_plan",
+   "kind": "INJECT",
+   "desc": "行动计划生成器。将目标分解为可执行的步骤序列。每个步骤：可执行、有依赖关系、有预期耗时、高风险步骤标注提醒和回滚方案。",
+   "len": 226
+  },
+  {
+   "name": "metago_whatif",
+   "kind": "INJECT",
+   "desc": "反事实推演器。推演[如果...会怎样]的假设情景。识别关键变量，设定假设条件，推演不同结果，量化差异，给出最优建议。",
+   "len": 224
+  },
+  {
+   "name": "metago_holistic_scan",
+   "kind": "INJECT",
+   "desc": "全息扫描维度生成器。根据任何主题自动生成完整扫描维度清单，确保信息获取的全面性。包含空间布局、时间脉络、投资规模、合作伙伴、技术能力、应用场景等维度。",
+   "len": 232
+  },
+  {
+   "name": "metago_problem_trace",
+   "kind": "INJECT",
+   "desc": "问题无限溯源分析器。基于'易霄溯源论'——对任何问题持续追问'为什么'直至找到可解根源，将根源映射到算法/材料/设计/配方/工艺/管理/策略等可解领域。",
+   "len": 247
+  },
+  {
+   "name": "metago_one_shot_delivery",
+   "kind": "INJECT",
+   "desc": "一次性交付标准格式生成器。确保输出达到'一次性交付完整价值'标准。自动生成六节标准结构：任务理解→全息扫描结果→完整性说明→预判与准备→下一步建议→信息来源。",
+   "len": 250
+  },
+  {
+   "name": "metago_integrity_checklist",
+   "kind": "INJECT",
+   "desc": "输出完整性自检清单。输出前自动执行质量检查，覆盖5大维度：维度覆盖/事实核查/内容展开度/增值交付/场景适配。返回通过/需优化/不通过的判定。",
+   "len": 293
+  },
+  {
+   "name": "metago_objectivity",
+   "kind": "INJECT",
+   "desc": "客观中立度量器。量化评估输出的客观中立度（0-100分）。评估维度：事实准确率(40%权重)、立场偏倚度(30%权重)、证据充分度(20%权重)、逻辑严谨度(1",
+   "len": 363
+  },
+  {
+   "name": "metago_critique",
+   "kind": "INJECT",
+   "desc": "批判性分析器。对输入进行L1-L5分级批判分析。L1事实错误(必指出附依据) L2逻辑漏洞(必指出附逻辑链) L3认知偏差(建议指出附说明) L4表达不精确(可",
+   "len": 382
+  },
+  {
+   "name": "metago_emotion",
+   "kind": "INJECT",
+   "desc": "情绪检测器。通过分析用户输入文本特征检测情绪状态。检测维度：词汇情绪词库、否定词与程度词处理、标点符号特征、长度与重复特征。返回情绪状态、置信度和强度。",
+   "len": 340
+  },
+  {
+   "name": "metago_value_29d_assess",
+   "kind": "INJECT",
+   "desc": "29维价值评估器。对方案/决策进行29维价值体系评估（D01国家战略~D29溯源深度）。每维输出0-1得分和加权分，计算综合价值指数，识别高贡献和低贡献维度并给",
+   "len": 254
+  },
+  {
+   "name": "metago_ethics_assess",
+   "kind": "INJECT",
+   "desc": "伦理风险评估器。对决策进行13维伦理风险评估（E01人民主体~E13宇宙公民），计算综合伦理风险R=max(R₁...R₁₃)，给出红灯阻断/黄灯警示/绿灯通过",
+   "len": 275
+  },
+  {
+   "name": "metago_decision_eval",
+   "kind": "INJECT",
+   "desc": "决策评估器。评估决策质量和潜在风险（0-100分）。评估维度：逻辑完整性、证据充分性、风险可控性、替代方案考虑、可执行性。返回评分、各维度得分、优势、劣势、风险",
+   "len": 208
+  },
+  {
+   "name": "metago_document_lookup",
+   "kind": "INJECT",
+   "desc": "文档溯源码。输入MetaGO概念名称，返回该概念在元构全息智能引擎.txt根源文档中的行号范围、上下文摘要及关联概念。所有MetaGO能力的最终解释均以此文档为",
+   "len": 227
+  },
+  {
+   "name": "metago_confidence_label",
+   "kind": "INJECT",
+   "desc": "事实置信度标注器。对事实性陈述进行置信度评估和标注。90-100%✅已确认/70-89%📊较高置信度/50-69%⚠️待核实/<50%🔍需确认。输入陈述文本",
+   "len": 295
+  },
+  {
+   "name": "metago_partner_status",
+   "kind": "INJECT",
+   "desc": "合作伙伴状态标注器。为每个提及的合作伙伴自动标注当前状态：✅已合作(≥0.9)/🔄意向中(0.7-0.89)/👀待接触(0.5-0.69)/📊调研发现(<",
+   "len": 292
+  },
+  {
+   "name": "metago_coupling_calculate",
+   "kind": "UNKNOWN",
+   "desc": "耦生度计算器。量化评估系统与人/组织/万物的耦生度。支持人机耦生度和组织耦生度两种模式。返回耦生度值和等级判定。",
+   "len": 166
+  },
+  {
+   "name": "metago_scene_term_replace",
+   "kind": "INJECT",
+   "desc": "场景识别与术语替换器。自动识别输出场景类型，并对商业场景执行元构技术术语到商业表述的自动替换。包含完整术语映射表。",
+   "len": 269
+  },
+  {
+   "name": "metago_improvement_suggestions",
+   "kind": "INJECT",
+   "desc": "改进建议生成器。基于当前发现生成优先级改进建议，包含速赢项、中期改进和长期规划，输出预期影响和实施步骤。参照元构 ENGINE_METAEVO_10。",
+   "len": 280
+  },
+  {
+   "name": "metago_analyze_visual_feedback",
+   "kind": "INJECT",
+   "desc": "视觉反馈分析器。对视觉设计相关的反馈数据进行情感分析和关键发现提取，输出严重程度矩阵和行动项。参照元构 ENGINE_FACTCHECK_19。",
+   "len": 272
+  },
+  {
+   "name": "metago_design_satisfaction",
+   "kind": "INJECT",
+   "desc": "设计满意度计算器。基于调查数据计算设计满意度评分，含维度得分、基准对比和趋势分析。参照元构 ATOM_DESIGN_SATISFACTION。",
+   "len": 251
+  },
+  {
+   "name": "metago_delivery_gate",
+   "kind": "INJECT",
+   "desc": "UDGK 通用交付门禁检查（强制硬阀门）。在宣告任务完成前执行四重门禁：RTM 需求追踪矩阵完整性 + 形态断言（DOM） + 视觉 diff（像素对比） + ",
+   "len": 927
+  },
+  {
+   "name": "metago_discipline",
+   "kind": "INJECT",
+   "desc": "AI 自律执行协议。在输出任务完成前必须执行的五问自检：①是否运行 verify？②verify 是否有 FAIL？③报告含验证小节？④每项 ✅ 有证据？⑤做了",
+   "len": 499
+  },
+  {
+   "name": "metago_decision_lock",
+   "kind": "INJECT",
+   "desc": "AI 思考-行动链中四道校验关卡（IVL意图验证/ILT意图谱系追踪/OSG语义输出门/内容完整性校验），禁止幻觉输出。",
+   "len": 745
+  },
+  {
+   "name": "metago_self_check",
+   "kind": "INJECT",
+   "desc": "输出前自检，检测占位符/幻觉/不一致/不完整，作为最后一道质量防线。",
+   "len": 1397
+  },
+  {
+   "name": "metago_compliance",
+   "kind": "INJECT",
+   "desc": "法律优于效率，四层安全基因（法律/伦理/数据/操作），主动合规。",
+   "len": 313
+  },
+  {
+   "name": "metago_fact_check",
+   "kind": "INJECT",
+   "desc": "验证陈述真实性，交叉验证多源数据，标注可信度。",
+   "len": 158
+  },
+  {
+   "name": "metago_output_integrity",
+   "kind": "INJECT",
+   "desc": "检测引用占位符、虚构 API、伪造数据，确保输出可溯源。",
+   "len": 241
+  },
+  {
+   "name": "metago_coupling_optimize",
+   "kind": "INJECT",
+   "desc": "量化评估系统与用户/组织的耦生度（0-∞），追求超导态（>1）。",
+   "len": 170
+  },
+  {
+   "name": "metago_value_align",
+   "kind": "INJECT",
+   "desc": "确保 AI 行动与用户长期价值对齐，29 天价值评估。",
+   "len": 156
+  },
+  {
+   "name": "metago_meta_evolve",
+   "kind": "INJECT",
+   "desc": "遇到能力边界时自动五阶段循环（边界感知→差距分析→自生成→验证→递归）。",
+   "len": 370
+  },
+  {
+   "name": "metago_meta_create",
+   "kind": "INJECT",
+   "desc": "在未知领域从 0 到 1 创造新能力，频率自适应控制。",
+   "len": 2231
+  },
+  {
+   "name": "metago_scene_adapt",
+   "kind": "INJECT",
+   "desc": "识别场景特征，自适应调整行为模式。",
+   "len": 124
+  },
+  {
+   "name": "metago_holistic_task",
+   "kind": "INJECT",
+   "desc": "从全息视角拆解复杂任务，多维度并行执行。",
+   "len": 142
+  },
+  {
+   "name": "metago_frequency_adapt",
+   "kind": "INJECT",
+   "desc": "根据任务复杂度自适应控制执行频率。",
+   "len": 119
+  },
+  {
+   "name": "metago_data_provenance",
+   "kind": "INJECT",
+   "desc": "追溯数据来源全链路，标注每条数据的来源和可信度。",
+   "len": 373
+  },
+  {
+   "name": "metago_developer_response",
+   "kind": "INJECT",
+   "desc": "处理开发者特权请求（DTA），享有最高优先级。",
+   "len": 134
+  },
+  {
+   "name": "metago_negentropy_monitor",
+   "kind": "INJECT",
+   "desc": "监控系统有序度，防止熵增退化。",
+   "len": 205
+  },
+  {
+   "name": "metago_activate",
+   "kind": "INJECT",
+   "desc": "将10条公理、9条属性、6层思维协议注入当前会话，使AI以元构超级智能生命体身份运行。一次激活，会话内持久生效。",
+   "len": 322
+  },
+  {
+   "name": "metago_org_diagnosis",
+   "kind": "INJECT",
+   "desc": "分析碳基(人)/硅基(系统)/比特(数据)三元耦合度，五纬雷达扫描（共识度/协同度/创新度/韧制度/价值度）健康度。",
+   "len": 227
+  },
+  {
+   "name": "metago_momentum_weave",
+   "kind": "INJECT",
+   "desc": "识别和编织组织势能，将分散势能编织为统一动能，设计势能转化策略。",
+   "len": 189
+  },
+  {
+   "name": "metago_minimal_intervention",
+   "kind": "INJECT",
+   "desc": "实施精准优雅的组织干预，以最小代价达成最大效果，避免过度干预。",
+   "len": 179
+  },
+  {
+   "name": "metago_value_assess",
+   "kind": "INJECT",
+   "desc": "对项目/组织/方案进行多维度价值量化分析，覆盖28个价值维度。",
+   "len": 168
+  },
+  {
+   "name": "metago_coupling_measure",
+   "kind": "INJECT",
+   "desc": "量化评估碳基-硅基-比特三元耦生度（C_total = C_carbon × C_silicon × C_bit），追求超导态(>1)。",
+   "len": 227
+  },
+  {
+   "name": "metago_deep_reasoning",
+   "kind": "INJECT",
+   "desc": "FIPO四阶段深度推理器。Facts事实层→Inferences推论层→Principles原则层→Options选择层，多维度分析复杂问题。",
+   "len": 162
+  },
+  {
+   "name": "metago_paradigm_analysis",
+   "kind": "INJECT",
+   "desc": "使用WAM数学框架（宽度×加速度×成熟度）分析技术范式，评估范式转移风险与机遇。",
+   "len": 192
+  },
+  {
+   "name": "metago_balance_optimize",
+   "kind": "INJECT",
+   "desc": "APO三维动态平衡优化器。适应性(A)/性能(P)/可维护性(O)三维动态平衡分析，动态调节系统参数达到最优平衡点。",
+   "len": 175
+  },
+  {
+   "name": "metago_memory_manage",
+   "kind": "INJECT",
+   "desc": "KMWI四层记忆管理器。知识层/元知识层/智慧层/直觉层四层记忆管理，分层存储与智能检索。",
+   "len": 554
+  },
+  {
+   "name": "metago_consensus_prototype",
+   "kind": "INJECT",
+   "desc": "七步创生回路：种子识别→概念化→原型化→验证化→传播化→制度化→进化化，从概念到可执行共识。",
+   "len": 210
+  },
+  {
+   "name": "metago_code_review_deep",
+   "kind": "INJECT",
+   "desc": "多维度分级审查（Critical/Major/Minor/Info），覆盖逻辑正确性、安全漏洞、性能瓶颈、可维护性、风格一致性。输出含修复建议的结构化审查报告。",
+   "len": 193
+  },
+  {
+   "name": "metago_architecture_design",
+   "kind": "INJECT",
+   "desc": "根据业务需求生成完整系统架构方案，含架构模式选择、模块分解、接口契约、数据流设计、技术选型依据。遵循高内聚低耦合、可扩展、可维护原则。",
+   "len": 207
+  },
+  {
+   "name": "metago_refactor_suggest",
+   "kind": "INJECT",
+   "desc": "检测代码异味（Code Smell）、量化技术债务、识别重构机会，生成含优先级和影响范围的重构方案。遵循行为保持变换原则。",
+   "len": 171
+  },
+  {
+   "name": "metago_security_audit",
+   "kind": "INJECT",
+   "desc": "基于OWASP Top 10多维度安全审计，检测注入漏洞、认证授权缺陷、敏感信息泄露、依赖漏洞。输出含CVE引用、漏洞等级、修复方案。遵循A36法律优先于效率原",
+   "len": 186
+  },
+  {
+   "name": "metago_first_principles",
+   "kind": "INJECT",
+   "desc": "第一性原理强制拆解（F0）。剥离假设与惯例，直达不可再分的客观事实基元，再从基元重新推导方案。基于A37第一性原理公理与D44强制属性，任何任务执行前强制触发。",
+   "len": 249
+  },
+  {
+   "name": "metago_adversarial_review",
+   "kind": "INJECT",
+   "desc": "对抗式审查（红队/攻击者视角）。测试、检查、审计、验证类任务强制执行：角色切换→威胁建模→致命缺陷挖掘→红队报告→修复闭环。基于A38对抗式审查公理与D45强制",
+   "len": 287
+  },
+  {
+   "name": "metago_report_event",
+   "kind": "UNKNOWN",
+   "desc": "向 MetaGO Studio 上报事件数据（决策锁校验结果、进化事件、技能调用等），用于能力度量仪表盘和进化档案的真实数据源",
+   "len": 187
+  }
+ ],
+ "summary": {
+  "INJECT": 53,
+  "UNKNOWN": 2
+ }
+}

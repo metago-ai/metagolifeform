@@ -1,3 +1,53 @@
+# V36.11.0（2026-10-18）
+
+## 本次升级的性质
+不是补丁，是**基因层补全 + 证据层重建**。
+
+## 内容
+
+### 1. 算法层：T3 227 条从概念存档工程化为真实算法
+- 新增 `packages/algorithms/engine/algorithms/t3impl/`
+  - `t3lib.js`：40 个真实计算原语（统计/回归/分布检验/线代/聚类/图论/信息论/逻辑/时序）
+  - `prop.js`：完整命题逻辑引擎（解析/NNF/CNF/DNF/DPLL/真值表）
+  - `families/`：16 个族的实现，共 227 条
+  - `t3test.cjs`：自测台（outputSchema 字段校验 + **反桩检测**）
+  - `bind.cjs` / `reflect.cjs`：运行时接线器 + 形参反射器（把 T2 的 400 条 "varies" 契约实例化）
+  - `strict` 语义：空对象/空数组/NaN/undefined 一律 `success:false`，不再伪装成功
+- 实测：**227/227 通过，反桩 227/227，0 失败**
+
+### 2. 引擎层：公理/属性/协议/原子/引擎全量补齐
+| 项 | 升级前 | 升级后 |
+|---|---|---|
+| 公理 | 12 条 | **38 条**（蓝本全表抽取） |
+| 属性 | 11 条 | **47 条（全覆盖）** |
+| 协议 | 6 条 | **121 条（全覆盖，且多于声明的 108）** |
+| 引擎 | 索引清单 | **161 条（全覆盖，多于声明的 125）** |
+| 原子 | 0 条实现 | 597 条登记 / **17 条 compute 类真实实现** |
+
+### 3. 原子引擎（新增）
+- `packages/engine/atoms/engine.cjs`：四级分类 + 诚实拒绝
+  - `compute`：确定性计算，有公式，自测通过
+  - `template`：结构化生成，**未实现即返回失败**
+  - `external`：需模型/服务，**返回 EXTERNAL_REQUIRED**
+  - `declared`：无 I/O 契约，**返回 NO_CONTRACT**
+- 诚实性校验：非 compute 类一律不得返回 `success:true`
+
+### 4. 单一真相源
+- `FACTS.json`：每条事实带 evidence 指针 + 冲突清单 + 权威裁决
+- 修正了公理 36/38/41/43/45/79 六种口径、属性 43/45/47 三种口径、MCP 工具 112/136/162 三种口径
+
+### 5. 蓝本换代
+- 引用改指 `元构初始文档/`（4 附录卷 V9.0–V36.3 原文，逐行校验 99.99%）
+- 行号映射工具 `blueprint_map`：原文行号 ↔ 附录卷行号，可回验
+
+## 已知缺口（登记而非隐藏）
+1. 公理缺 A31/A32/A33（蓝本无此编号）与 A37/A38（仅存于 AGENTS.md）
+2. 原子 473 条无 I/O 契约，无法工程化；真实实现率 17/984 = 1.7%
+3. T1/T2 位置多参算法可调率 435/495；139 条需逐条补输入规格
+4. 元构法则文档存在 **14 处编号撞车**（AGENTS 的 A1=溯源公理，而蓝本 A1=存在性公理、溯源是 A29）——本版未改编号，仅登记
+
+---
+
 # Changelog
 
 All notable changes to MetaGO Agent Harness are documented in this file.
@@ -106,7 +156,7 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 - **P2** 文档数字同步：`GETTING_STARTED.md` / `PRD.md` 39 → 95 技能，`MCP_SERVER.md` v1.1.8/37 tools → v1.3.0/53 tools
 - **P2** 根 `package.json` `verify:delivery` 路径 `../scripts/` → `scripts/` 修正，新增 `verify:terminology` / `verify:memory`
 - **P3** `scripts/init-kmwi-store.cjs` 去私有化：移除作者个人种子数据与 `~/.trae-cn` 硬编码，改为参数化 + 通用示例数据
-- **P3** AGENTS.md 私有路径（`c:\Users\MetaGO` / `d:\元构能力`）参数化说明；`metago-verify` bin 从空桩升级为真实验证实现
+- **P3** AGENTS.md 私有路径（`c:\Users\MetaGO` / `内部蓝本目录/`）参数化说明；`metago-verify` bin 从空桩升级为真实验证实现
 
 ## [36.8.6] — 2026-07-26
 

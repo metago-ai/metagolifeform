@@ -1,0 +1,161 @@
+{
+ "generatedAt": "2026-10-19T06:34:44",
+ "total": 19,
+ "passed": 19,
+ "failed": 0,
+ "verdict": "PASS",
+ "results": [
+  {
+   "name": "全量回归 42 项",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\metago-build\\full-regression.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "通过 42 ｜ 失败 0",
+   "sec": 150.2
+  },
+  {
+   "name": "包验收 34 项",
+   "cmd": "node D:\\DSH-Official\\home\\scripts\\verify-package.cjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "通过 34 ｜ 失败 0",
+   "sec": 2.6
+  },
+  {
+   "name": "契约校验 597 条",
+   "cmd": "node D:\\metago-build\\outbound\\v36.10.0\\metagolifeform-v36.11.0\\packages\\engine\\atoms\\contract-validator.cjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "总判定：PASS",
+   "sec": 0.1
+  },
+  {
+   "name": "52 条蓝本原子 L1/L2/L3",
+   "cmd": "node D:\\metago-build\\verify_blueprint_atoms2.mjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "L-3 有语义：52 / 52",
+   "sec": 0.1
+  },
+  {
+   "name": "三形式等价",
+   "cmd": "node D:\\metago-build\\verify_three_forms2.mjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "三形式全一致：5 / 5",
+   "sec": 0.3
+  },
+  {
+   "name": "T3 绑定统计",
+   "cmd": "node D:\\metago-build\\check_t3_binding.cjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "bound 227 / total 227",
+   "sec": 0.1
+  },
+  {
+   "name": "MCP L3 语义 30 项",
+   "cmd": "node D:\\DSH-Official\\home\\scripts\\mcp-tools-semantic.cjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "语义 30/30",
+   "sec": 0.1
+  },
+  {
+   "name": "MCP 112 工具可调用",
+   "cmd": "node scripts/mcp-tools-callable.cjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "可调用 112 ｜ 不可调用 0",
+   "sec": 15.9
+  },
+  {
+   "name": "记忆体状态自检",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\DSH-Official\\home\\scripts\\lifeform-status-audit.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "公理 10",
+   "sec": 0.1
+  },
+  {
+   "name": "引用审计",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/reference_audit2.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "悬空引用 0 处",
+   "sec": 0.4
+  },
+  {
+   "name": "预设描述同步",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\metago-build\\sync-preset-desc.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "总判定：PASS",
+   "sec": 0.1
+  },
+  {
+   "name": "法则版本表核对",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\DSH-Official\\home\\scripts\\sync-law-versions.py --c",
+   "rc": 0,
+   "ok": true,
+   "hit": "总判定：PASS",
+   "sec": 0.1
+  },
+  {
+   "name": "补丁自愈 20 组",
+   "cmd": "node scripts/reapply-patches.cjs --check",
+   "rc": 0,
+   "ok": true,
+   "hit": "需处理 0",
+   "sec": 0.1
+  },
+  {
+   "name": "全脚本语法门",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/scripts-syntax-gate.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "语法失败：0",
+   "sec": 3.3
+  },
+  {
+   "name": "干净环境 19 项",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\metago-build\\clean_env_verify2.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "总判定：PASS",
+   "sec": 20.9
+  },
+  {
+   "name": "CWD 无关性",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\metago-build\\cwd_independence.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "总判定：PASS",
+   "sec": 82.0
+  },
+  {
+   "name": "对抗式审查 7 面",
+   "cmd": "node D:\\metago-build\\adversarial_review.mjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "CRITICAL 0",
+   "sec": 0.2
+  },
+  {
+   "name": "25 项总账对账",
+   "cmd": "node D:\\metago-build\\reconcile_25.mjs",
+   "rc": 0,
+   "ok": true,
+   "hit": "对账完成：26 / 26",
+   "sec": 0.0
+  },
+  {
+   "name": "完整性治理门",
+   "cmd": "C:\\Users\\MetaGO\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe D:\\DSH-Official\\home\\scripts\\completeness-gate.py",
+   "rc": 0,
+   "ok": true,
+   "hit": "PASS",
+   "sec": 0.1
+  }
+ ]
+}

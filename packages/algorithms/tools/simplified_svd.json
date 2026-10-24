@@ -5,14 +5,56 @@
     "type": "object",
     "properties": {
       "matrix": {
-        "type": "object",
-        "description": "输入矩阵"
+        "type": "array",
+        "description": "输入矩阵：**二维数组** [[1,2],[3,4],[5,7]]（算法用 matrix.length / matrix[0].length）",
+        "examples": [
+          {
+            "size": 2,
+            "matrix": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "labels": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      },
+      "iterations": {
+        "description": "幂迭代次数，默认 100；该算法用随机初始化，迭代不足时结果不稳定",
+        "type": "number"
       }
     },
     "required": [
       "matrix"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "matrix": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            7
+          ]
+        ],
+        "iterations": 50
+      }
+    ]
   }
 }

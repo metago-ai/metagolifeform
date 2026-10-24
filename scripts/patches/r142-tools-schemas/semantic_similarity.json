@@ -1,0 +1,29 @@
+{
+  "name": "semantic_similarity",
+  "description": "语义相似度计算。适用：自然语言语义匹配。返回 [0,1]。（算法 ID: ALG_T1_C_012）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "string",
+        "description": "文本 A（**字符串**，不是数组；算法内部自行分词）"
+      },
+      "b": {
+        "type": "string",
+        "description": "文本 B（**字符串**，不是数组）"
+      }
+    },
+    "required": [
+      "a",
+      "b"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "a": "机器学习和人工智能",
+        "b": "深度学习与神经网络"
+      }
+    ]
+  }
+}

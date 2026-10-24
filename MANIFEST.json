@@ -1,0 +1,276 @@
+{
+  "name": "metagolifeform",
+  "version": "36.11.0",
+  "builtAt": "2026-10-24T22:36:36.751Z",
+  "base": "36.9.6",
+  "totals": {
+    "files": 1652,
+    "bytes": 17564934
+  },
+  "byTop": {
+    ".github": {
+      "files": 7,
+      "bytes": 19519
+    },
+    ".gitignore": {
+      "files": 1,
+      "bytes": 655
+    },
+    "AGENTS.md": {
+      "files": 1,
+      "bytes": 111182
+    },
+    "CHANGELOG.md": {
+      "files": 1,
+      "bytes": 21728
+    },
+    "CONTRIBUTING.md": {
+      "files": 1,
+      "bytes": 9603
+    },
+    "DELIVERY-REPORT.md": {
+      "files": 1,
+      "bytes": 69371
+    },
+    "DELIVERY-VERIFY.md": {
+      "files": 1,
+      "bytes": 3152
+    },
+    "FACTS.json": {
+      "files": 1,
+      "bytes": 182558
+    },
+    "LICENSE": {
+      "files": 1,
+      "bytes": 1103
+    },
+    "MANIFEST.json": {
+      "files": 1,
+      "bytes": 4319
+    },
+    "MANIFESTO.md": {
+      "files": 1,
+      "bytes": 8188
+    },
+    "MANIFESTO_EN.md": {
+      "files": 1,
+      "bytes": 9498
+    },
+    "METHODOLOGY.md": {
+      "files": 1,
+      "bytes": 2343
+    },
+    "NUMBERING-ALIGNMENT.md": {
+      "files": 1,
+      "bytes": 5363
+    },
+    "PATCHES.md": {
+      "files": 1,
+      "bytes": 15863
+    },
+    "READ-ME-FIRST.md": {
+      "files": 1,
+      "bytes": 4757
+    },
+    "README.md": {
+      "files": 1,
+      "bytes": 17151
+    },
+    "REGRESSION-REPORT.md": {
+      "files": 1,
+      "bytes": 1037
+    },
+    "RELEASE-NOTES.md": {
+      "files": 1,
+      "bytes": 5991
+    },
+    "SECURITY.md": {
+      "files": 1,
+      "bytes": 4534
+    },
+    "SHA256SUMS.txt": {
+      "files": 1,
+      "bytes": 912300
+    },
+    "UPGRADE-NOTES.md": {
+      "files": 1,
+      "bytes": 33637
+    },
+    "VERSION": {
+      "files": 1,
+      "bytes": 8
+    },
+    "VERSIONS.json": {
+      "files": 1,
+      "bytes": 4912
+    },
+    "adapters": {
+      "files": 22,
+      "bytes": 1109894
+    },
+    "agents": {
+      "files": 35,
+      "bytes": 71760
+    },
+    "assets": {
+      "files": 4,
+      "bytes": 24509
+    },
+    "completeness-gaps.json": {
+      "files": 1,
+      "bytes": 2888
+    },
+    "completeness-kit": {
+      "files": 22,
+      "bytes": 46117
+    },
+    "completeness-radar.json": {
+      "files": 1,
+      "bytes": 866
+    },
+    "completeness.config.json": {
+      "files": 1,
+      "bytes": 976
+    },
+    "core": {
+      "files": 1,
+      "bytes": 4242
+    },
+    "delivery.config.json": {
+      "files": 1,
+      "bytes": 597
+    },
+    "docs": {
+      "files": 50,
+      "bytes": 2522719
+    },
+    "full-regression.py": {
+      "files": 1,
+      "bytes": 8199
+    },
+    "industry": {
+      "files": 1,
+      "bytes": 369
+    },
+    "local-edition": {
+      "files": 28,
+      "bytes": 4096537
+    },
+    "metago-veracity-kit": {
+      "files": 12,
+      "bytes": 30613
+    },
+    "package-lock.json": {
+      "files": 1,
+      "bytes": 193358
+    },
+    "package.json": {
+      "files": 1,
+      "bytes": 4930
+    },
+    "packages": {
+      "files": 377,
+      "bytes": 3837428
+    },
+    "patches": {
+      "files": 2,
+      "bytes": 36792
+    },
+    "plugins": {
+      "files": 583,
+      "bytes": 1650413
+    },
+    "scripts": {
+      "files": 355,
+      "bytes": 2058504
+    },
+    "skills": {
+      "files": 117,
+      "bytes": 383533
+    },
+    "templates": {
+      "files": 3,
+      "bytes": 3395
+    },
+    "tools": {
+      "files": 1,
+      "bytes": 378
+    },
+    "verify-package.cjs": {
+      "files": 1,
+      "bytes": 25012
+    },
+    "包状态说明.md": {
+      "files": 1,
+      "bytes": 2133
+    }
+  },
+  "overlays": [
+    {
+      "from": "packages/algorithms/engine/algorithms/t3impl",
+      "to": "packages/algorithms/engine/algorithms/t3impl"
+    },
+    {
+      "from": "packages/engine/CONSTITUTION/AXIOMS.md",
+      "to": "packages/engine/CONSTITUTION/AXIOMS.md"
+    },
+    {
+      "from": "packages/engine/CORE/ATTRIBUTES.md",
+      "to": "packages/engine/CORE/ATTRIBUTES.md"
+    },
+    {
+      "from": "packages/engine/CORE/PROTOCOLS.md",
+      "to": "packages/engine/CORE/PROTOCOLS.md"
+    },
+    {
+      "from": "packages/engine/CORE/ATOMS.md",
+      "to": "packages/engine/CORE/ATOMS.md"
+    },
+    {
+      "from": "packages/engine/INDEX/ENGINES.md",
+      "to": "packages/engine/INDEX/ENGINES.md"
+    },
+    {
+      "from": "packages/engine/atoms",
+      "to": "packages/engine/atoms"
+    },
+    {
+      "from": "FACTS.json",
+      "to": "FACTS.json"
+    },
+    {
+      "from": "NUMBERING-ALIGNMENT.md",
+      "to": "NUMBERING-ALIGNMENT.md"
+    },
+    {
+      "from": "READ-ME-FIRST.md",
+      "to": "READ-ME-FIRST.md"
+    },
+    {
+      "from": "@BP@/附录卷-原子契约补全-V36.11.md",
+      "to": "docs/附录卷-原子契约补全-V36.11.md"
+    },
+    {
+      "from": "@BP@/总索引-V36.11.md",
+      "to": "docs/总索引-V36.11.md"
+    },
+    {
+      "from": "../mcp-e2e.cjs",
+      "to": "scripts/mcp-e2e.cjs"
+    },
+    {
+      "from": "../nan-scanner.cjs",
+      "to": "scripts/nan-scanner.cjs"
+    },
+    {
+      "from": "PROGRESS.md",
+      "to": "UPGRADE-NOTES.md"
+    }
+  ],
+  "assertions": [
+    "packages/algorithms/.../t3impl/t3test.cjs  → 227/227 T3 通过 + 反桩",
+    "packages/algorithms/.../t3impl/verify-all.cjs → 接线 + 契约 + 严格执行",
+    "packages/engine/atoms/verify.cjs → 原子 compute 类自测 + 诚实性校验"
+  ],
+  "regenerateNote": "本文件由 manifest 重建脚本生成：遍历仓库工作区（排除 node_modules/.git/.gitee）统计真实文件数与字节数，替代此前过期的 6007/34.07MB 快照。"
+}

@@ -51,7 +51,7 @@
 - [x] 建立独立 Gitee/GitHub 仓库 `metago-dev-kit`（作为独立 npm 包 `@metago-ai/dev-kit` 发布）
   - Gitee: https://gitee.com/metago/metago-dev-kit
   - GitHub: https://github.com/metago-ai/metago-dev-kit
-  - 本地目录: `d:\元构能力\metago-dev-kit\`
+  - 本地目录: `<LEGACY_SOURCE>\metago-dev-kit\`
   - 文件: README.md + package.json + LICENSE + scripts/install.ps1 + 4 个 SKILL.md
 - [x] 发布 `@metago-ai/dev-kit@1.0.2` 到 npm（独立包名）
   - npm: https://www.npmjs.com/package/@metago-ai/dev-kit
@@ -75,7 +75,7 @@
 ### 交付物
 - **Gitee 仓库**：https://gitee.com/metago/skills-hub（commit db6bb6c）
 - **GitHub 仓库**：https://github.com/metago-ai/skills-hub（23 文件 Contents API）
-- **本地目录**：`d:\元构能力\skills-hub\`
+- **本地目录**：`<LEGACY_SOURCE>\skills-hub\`
 - **构建验证**：`npm run build` 成功（962ms，dist/ 输出 263KB JS + 25KB CSS）
 
 ### 实现的功能
@@ -117,7 +117,7 @@
   - 包大小：13.3 kB / 19 文件 / shasum: 3d56f792
 - **Gitee 仓库**：https://gitee.com/metago/skills-sdk（commit beda5f2）
 - **GitHub 仓库**：https://github.com/metago-ai/skills-sdk
-- **本地目录**：`d:\元构能力\skills-sdk\`
+- **本地目录**：`<LEGACY_SOURCE>\skills-sdk\`
 
 ### 核心 API（4 大模块）
 | 模块 | API | 功能 |
@@ -147,7 +147,7 @@
 ### 交付物
 - **Gitee 仓库**：https://gitee.com/metago/metago-studio（commit fde17c3）
 - **GitHub 仓库**：https://github.com/metago-ai/metago-studio（22 文件 Contents API）
-- **本地目录**：`d:\元构能力\metago-studio\`
+- **本地目录**：`<LEGACY_SOURCE>\metago-studio\`
 - **构建验证**：`npm run build` 成功（557ms，dist/ 输出 225KB JS + 21KB CSS）
 
 ### 实现的功能
@@ -177,7 +177,7 @@
   - 包大小：11.4 kB / 12 文件 / shasum: dbac6b4f
 - **Gitee 仓库**：https://gitee.com/metago/metago-cli（commit e1ac361）
 - **GitHub 仓库**：https://github.com/metago-ai/metago-cli（14 文件 Contents API）
-- **本地目录**：`d:\元构能力\metago-cli\`
+- **本地目录**：`<LEGACY_SOURCE>\metago-cli\`
 
 ### 实现的命令（6 个）
 | 命令 | 别名 | 功能 |

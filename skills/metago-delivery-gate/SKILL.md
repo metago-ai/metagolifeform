@@ -93,4 +93,4 @@ trigger:
 - 与 `metago-discipline` 协同：交付门控 + 五问自检组成完整质量闭环
 - 与 `metago-decision-lock` 协同：关键交付节点触发决策锁校验
 - 与 `metago-output-integrity` 协同：验证报告中无幻觉 ✅
-- 与 `metago-delivery-gate`（本技能 V1.0.0 升级）：四重门禁覆盖原三层验证清单，且新增形态验证维度
+- 相比本技能 V1.0.0 历史版本：四重门禁覆盖原三层验证清单，且新增形态验证维度（原表述为「与自身协同」，属自引用笔误）

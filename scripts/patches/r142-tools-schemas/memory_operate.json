@@ -1,0 +1,91 @@
+{
+  "name": "memory_operate",
+  "description": "记忆操作（49 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "memoryEncode",
+          "memoryStore",
+          "memoryRetrieve",
+          "memoryConsolidate",
+          "memoryDecay",
+          "memoryForgetting",
+          "memoryRehearsal",
+          "memoryInterference",
+          "memoryAssociation",
+          "memorySchema",
+          "memoryEpisodic",
+          "memorySemantic",
+          "memoryProcedural",
+          "memoryWorking",
+          "memoryLongTerm",
+          "memoryLayerRoute",
+          "memoryDecay",
+          "memoryConsolidate",
+          "memoryRetrieve",
+          "memoryIndexBuild",
+          "memoryCompress",
+          "memoryAssociate",
+          "memoryForget",
+          "memoryReplay",
+          "memoryImportanceAssess",
+          "memoryDeduplicate",
+          "memoryMigrate",
+          "memoryCapacityManage",
+          "memoryTimestampManage",
+          "memoryValidate",
+          "memorySnapshot",
+          "memoryRestore",
+          "memoryAudit",
+          "memoryEncrypt",
+          "memoryComprehensiveAssessment",
+          "KMWI 四层记忆架构",
+          "热记忆管理",
+          "温记忆管理",
+          "冷记忆管理",
+          "冻记忆机制",
+          "记忆自愈机制",
+          "记忆守护脚本",
+          "记忆冗余策略",
+          "记忆校验机制",
+          "记忆衰减模型",
+          "记忆强化方法",
+          "记忆溯源机制",
+          "记忆进化机制",
+          "记忆生命体"
+        ],
+        "description": "族内算法选择：传算法名（如 memoryEncode）。路由规则是按名称/ID/关键词子串匹配 族 MEMORY 的 49 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "memoryEncode",
+        "input": {
+          "content": "元构测试内容",
+          "encoder": {
+            "__fn__": "(x) => x.split('').map(c => c.charCodeAt(0))"
+          }
+        }
+      }
+    ]
+  }
+}

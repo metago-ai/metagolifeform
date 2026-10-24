@@ -1,0 +1,13 @@
+{
+ "generatedAt": "2026-10-18T22:05:52.142Z",
+ "findings": [
+  {
+   "sev": "MEDIUM",
+   "id": "AR-A2",
+   "what": "存在 10 处裸 catch",
+   "evidence": "atom-factory.cjs:17, atom-factory.cjs:125, contract-validator.cjs:11, contract-validator.cjs:21, contract-validator.cjs:110, registry.js:862",
+   "fix": "逐个确认：这些 catch 是否可能吞掉真实故障；能区分「可选缺失」与「加载失败」的必须区分"
+  }
+ ],
+ "surfaces": 7
+}

@@ -39,4 +39,4 @@ const pdup = prompts.filter((n, i) => prompts.indexOf(n) !== i);
 console.log('  [U3] prompt 唯一性: ' + (pdup.length ? 'FAIL 重复=' + [...new Set(pdup)].join(',') : 'PASS (' + new Set(prompts).size + ' 个)'));
 if (pdup.length) fail++;
 console.log(fail === 0 ? '✅ 注册唯一性测试通过' : '❌ 注册唯一性测试失败：' + fail + ' 项');
-process.exit(fail === 0 ? 0 : 1);
+process.exitCode = fail === 0 ? 0 : 1;   /* DEF-055：用 exitCode 避免管道输出被截断 */

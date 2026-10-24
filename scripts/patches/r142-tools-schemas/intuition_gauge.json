@@ -1,0 +1,110 @@
+{
+  "name": "intuition_gauge",
+  "description": "直觉度量（49 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "patternRecognitionIntuition",
+          "heuristicIntuition",
+          "associativeIntuition",
+          "sixthSense",
+          "intuitionConfidence",
+          "intuitionCalibration",
+          "expertIntuition",
+          "patternMatching",
+          "intuitionTrigger",
+          "intuitionAggregation",
+          "intuitionDecay",
+          "intuitionConflict",
+          "intuitionLearning",
+          "intuitionProvenance",
+          "intuitionValidation",
+          "fuseIntuitionSignals",
+          "rapidPatternMatch",
+          "assessIntuitionConfidence",
+          "heuristicDecision",
+          "intuitionDecay",
+          "calibrateIntuition",
+          "abstractPattern",
+          "detectIntuitionConflict",
+          "rankIntuitions",
+          "traceIntuitionSource",
+          "suppressLowConfidence",
+          "amplifyHighConfidence",
+          "countPatternFrequency",
+          "searchIntuitionPath",
+          "intuitionStateMachine",
+          "retrieveIntuitionMemory",
+          "mergeIntuitions",
+          "evaluateIntuitionTrigger",
+          "learnFromFeedback",
+          "comprehensiveIntuitionAssessment",
+          "直觉感知机制",
+          "直觉判断方法",
+          "直觉决策框架",
+          "直觉学习方法",
+          "直觉验证方法",
+          "直觉溯源机制",
+          "直觉进化机制",
+          "模式识别方法",
+          "启发式方法",
+          "经验直觉",
+          "专家直觉",
+          "创造直觉",
+          "危险直觉",
+          "机会直觉"
+        ],
+        "description": "族内算法选择：传算法名（如 patternRecognitionIntuition）。路由规则是按名称/ID/关键词子串匹配 族 INTUITION 的 49 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "patternRecognitionIntuition",
+        "input": {
+          "input": [
+            1,
+            0,
+            0.5
+          ],
+          "patterns": [
+            {
+              "features": [
+                1,
+                0,
+                0.4
+              ],
+              "weight": 0.9
+            },
+            {
+              "features": [
+                0,
+                1,
+                0.2
+              ],
+              "weight": 0.3
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "name": "frequency_process",
+  "description": "频率处理（48 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "computeIntegrity",
+          "frequencyState",
+          "frequencyAdapt",
+          "lowFrequencyDive",
+          "highFrequencyActivate",
+          "frequencyDecay",
+          "frequencyOscillation",
+          "frequencyResonance",
+          "frequencySpectrum",
+          "frequencyPhase",
+          "frequencyAmplitude",
+          "frequencyModulation",
+          "frequencySynchronization",
+          "frequencyHarmonics",
+          "frequencyBandwidth",
+          "frequencyStateMachine",
+          "frequencyAdaptiveControl",
+          "frequencyResonanceDetect",
+          "frequencyLock",
+          "frequencyHarmonicAnalysis",
+          "frequencySpectralDensity",
+          "frequencyPhaseDiff",
+          "frequencyModulate",
+          "frequencyFilter",
+          "frequencyPeriodDetect",
+          "frequencySweep",
+          "frequencySynchronize",
+          "frequencyJitterAnalyze",
+          "frequencyDecay",
+          "frequencyAmplify",
+          "frequencyMix",
+          "frequencyThresholdAlert",
+          "frequencyCalibrate",
+          "frequencyStatistics",
+          "frequencyComprehensiveAssessment",
+          "频率自适应调控",
+          "高频激活模式",
+          "低频深潜模式",
+          "频率切换机制",
+          "频率监测系统",
+          "频率校准方法",
+          "频率共振现象",
+          "频率衰减模型",
+          "频率阈值设计",
+          "频率稳态维持",
+          "频率涌现现象",
+          "频率耦合机制",
+          "频率谱分析"
+        ],
+        "description": "族内算法选择：传算法名（如 computeIntegrity）。路由规则是按名称/ID/关键词子串匹配 族 FREQUENCY 的 48 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "computeIntegrity",
+        "input": [
+          {
+            "name": "x",
+            "target": 1,
+            "value": 1,
+            "weight": 1,
+            "gap": 1
+          },
+          {
+            "name": "x",
+            "target": 1,
+            "value": 1,
+            "weight": 1,
+            "gap": 1
+          },
+          {
+            "name": "x",
+            "target": 1,
+            "value": 1,
+            "weight": 1,
+            "gap": 1
+          },
+          {
+            "name": "x",
+            "target": 1,
+            "value": 1,
+            "weight": 1,
+            "gap": 1
+          }
+        ]
+      }
+    ]
+  }
+}

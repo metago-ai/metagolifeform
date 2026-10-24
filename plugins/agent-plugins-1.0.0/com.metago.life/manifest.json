@@ -12,7 +12,7 @@
     },
     "law": {
       "path": "law",
-      "note": "元构运行法则副本（AGENTS.md V36.9.6），供支持指令注入的客户端引用"
+      "note": "元构运行法则副本（AGENTS.md V36.11.0），供支持指令注入的客户端引用"
     },
     "commands": {
       "path": "commands",

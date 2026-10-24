@@ -6,18 +6,63 @@
     "properties": {
       "operation": {
         "type": "string",
-        "description": "操作类型（算法名关键词），如 cosine/euclidean/pearson",
-        "default": "default"
+        "enum": [
+          "aggregateAuditLogs",
+          "generateAuditReport",
+          "detectAuditAnomaly",
+          "checkAuditCompliance",
+          "analyzeAuditTimeline",
+          "identifyAuditPatterns",
+          "verifyAuditPermissions",
+          "verifyAuditIntegrity",
+          "buildAuditTraceChain",
+          "assessAuditRisk",
+          "analyzeAuditFrequency",
+          "analyzeAuditVariance",
+          "extractKeyAuditEvents",
+          "summarizeAuditStatistics",
+          "analyzeAuditCorrelation",
+          "evaluateAuditPerformance",
+          "forecastAuditTrend",
+          "cleanupAuditLogs",
+          "verifyAuditEncryption",
+          "comprehensiveAuditAssessment"
+        ],
+        "description": "族内算法选择：传算法名（如 aggregateAuditLogs）。路由规则是按名称/ID/关键词子串匹配 族 AUDIT 的 20 个算法，匹配不上则用族内第一个。"
       },
       "input": {
-        "type": "object",
-        "description": "算法输入参数"
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
       }
     },
     "required": [
+      "operation",
       "input"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "aggregateAuditLogs",
+        "input": {
+          "entries": [
+            1,
+            2,
+            3
+          ],
+          "groupBy": [
+            1,
+            2,
+            3
+          ]
+        }
+      }
+    ]
   }
 }

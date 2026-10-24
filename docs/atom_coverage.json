@@ -1,0 +1,12 @@
+{
+ "total": 597,
+ "bySrc": {
+  "元创造V36.11": 473,
+  "蓝本原有契约": 124
+ },
+ "computeCovered": 50,
+ "factoryCovered": 597,
+ "covered": 597,
+ "missing": [],
+ "missingDetail": []
+}

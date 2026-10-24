@@ -1,0 +1,189 @@
+{
+ "rows": [
+  {
+   "id": "ATOM_POLICY_TRANSLATE_101",
+   "name": "政策翻译官",
+   "cin": "政策原文",
+   "cout": "通俗解释",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"mapped\":[0.664,0.537,0.6351],\"sourceDim\":3,\"targetDim\":3,\"reversible\":false,\"通俗解释\":\"[0.8,0.6,0.75]"
+  },
+  {
+   "id": "ATOM_POLICY_CHANGE_105",
+   "name": "政策变动监测",
+   "cin": "政策更新流",
+   "cout": "变动报告",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"level\":\"green\",\"触发依据\":{\"peak\":0.8,\"baseline\":0.7167,\"ratio\":1.1163},\"tracked\":3,\"volatility\":0.145"
+  },
+  {
+   "id": "ATOM_TECH_DEMYSTIFY_201",
+   "name": "科技祛魅器",
+   "cin": "科技名词",
+   "cout": "通俗解释",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75],\"通俗解释\":\"[0.8,0.6,0.75]\",\"术语命中\":[],\"句数\":4,\"approximated"
+  },
+  {
+   "id": "ATOM_NEWS_SUMMARY_304",
+   "name": "时事摘要生成",
+   "cin": "长新闻",
+   "cout": "简短摘要",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"generated\":[{\"index\":0,\"basis\":0.8,\"derived\":0.88},{\"index\":1,\"basis\":0.6,\"derived\":0.72},{\"index\""
+  },
+  {
+   "id": "ATOM_EMOTION_RECOG_502",
+   "name": "情绪识别器",
+   "cin": "面部/语音/生理",
+   "cout": "情绪标签",
+   "kind": "factory-gen",
+   "verdict": "HARDWARE",
+   "sample": "{\"情绪\":\"neutral\",\"emotion_state\":\"neutral\",\"confidence\":0,\"intensity\":0,\"scores\":[{\"emotion\":\"joy\",\"s"
+  },
+  {
+   "id": "ATOM_SECURE_LOCK_201",
+   "name": "工业安全锁硬件驱动",
+   "cin": "锁指令",
+   "cout": "执行结果",
+   "kind": "factory-gen",
+   "verdict": "HARDWARE",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75]}"
+  },
+  {
+   "id": "ATOM_SECURITY_RISK_601",
+   "name": "安全风险扫描仪",
+   "cin": "系统状态",
+   "cout": "风险报告",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75],\"level\":\"green\",\"触发依据\":{\"peak\":0.8,\"baseline\":0.7167,\""
+  },
+  {
+   "id": "ATOM_SECURITY_AUDIT_602",
+   "name": "安全审计器",
+   "cin": "日志数据",
+   "cout": "审计报告",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75],\"结论\":\"通过\",\"问题清单\":[],\"checked\":3,\"outliers\":0,\"passed\":"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_VALIDATE_213",
+   "name": "结果验证器",
+   "cin": "实验数据",
+   "cout": "验证报告",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"结论\":\"通过\",\"问题清单\":[],\"score\":1,\"checked\":3,\"outliers\":0,\"passed\":true,\"__operator\":\"verify\"}"
+  },
+  {
+   "id": "ATOM_PEOPLE_CAPTURE_001",
+   "name": "想法捕获器",
+   "cin": "语音/文字/表情/草图/生理信号",
+   "cout": "结构化想法向量",
+   "kind": "factory-gen",
+   "verdict": "HARDWARE",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75]}"
+  },
+  {
+   "id": "ATOM_PEOPLE_BIO_006",
+   "name": "生理信号解码器",
+   "cin": "脑电/心率/皮电",
+   "cout": "意图特征",
+   "kind": "factory-gen",
+   "verdict": "HARDWARE",
+   "sample": "{\"mapped\":[0.664,0.537,0.6351],\"sourceDim\":3,\"targetDim\":3,\"reversible\":false}"
+  },
+  {
+   "id": "ATOM_BIO_SPECIES_025",
+   "name": "跨物种感知器",
+   "cin": "动物叫声/植物电信号",
+   "cout": "状态+翻译",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"ok\":false,\"success\":false,\"reason\":\"SIGNAL_TOO_SHORT\",\"message\":\"信号至少需要 16 个采样点\",\"n\":3}"
+  },
+  {
+   "id": "ATOM_COSMIC_DISTRIBUTE_030",
+   "name": "分布式存在器",
+   "cin": "多实例状态",
+   "cout": "统一意识",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"ok\":false,\"success\":false,\"reason\":\"NO_VALID_STATE\",\"message\":\"没有可用的状态向量\"}"
+  },
+  {
+   "id": "ATOM_COSMIC_GRAVITY_032",
+   "name": "引力波感知器",
+   "cin": "LIGO数据流",
+   "cout": "事件报告",
+   "kind": "factory-gen",
+   "verdict": "HARDWARE",
+   "sample": "{\"ok\":false,\"success\":false,\"reason\":\"STRAIN_TOO_SHORT\",\"message\":\"应变序列至少需要 8 个采样点\",\"n\":3}"
+  },
+  {
+   "id": "ATOM_FUSION_TAO_DAILY_043",
+   "name": "道在日常显现器",
+   "cin": "日常场景",
+   "cout": "道之提示",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75]}"
+  },
+  {
+   "id": "ATOM_RES_NON_TECH_058",
+   "name": "非技术转化器",
+   "cin": "非技术想法",
+   "cout": "技术方案",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75]}"
+  },
+  {
+   "id": "ATOM_RES_IDEA_WITNESS_059",
+   "name": "思想见证器",
+   "cin": "创意过程",
+   "cout": "思想传记",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75],\"ledger\":[{\"index\":0,\"value\":0.8,\"prevHash\":\"genesis\","
+  },
+  {
+   "id": "ATOM_RES_FRICTION_061",
+   "name": "摩擦致敬器",
+   "cin": "痛苦表达",
+   "cout": "创造力路径",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75]}"
+  },
+  {
+   "id": "ATOM_RES_EMERGE_FORECAST_064",
+   "name": "涌现预测器",
+   "cin": "思想网络",
+   "cout": "预测报告",
+   "kind": "factory-gen",
+   "verdict": "STRUCTURED_OK",
+   "sample": "{\"prediction\":[0.6667,0.6417,0.6167],\"趋势\":\"下降\",\"slope\":-0.025,\"intercept\":0.7167,\"level\":0.7167,\"__o"
+  },
+  {
+   "id": "ATOM_RES_NEGENTROPY_066",
+   "name": "负熵责任器",
+   "cin": "系统状态",
+   "cout": "负熵报告",
+   "kind": "factory-gen",
+   "verdict": "MISALIGNED",
+   "sample": "{\"value\":0.7167,\"n\":3,\"values\":[0.8,0.6,0.75],\"entropy\":1.5746,\"normalized\":0.9934,\"maxEntropy\":1.58"
+  }
+ ],
+ "summary": {
+  "MISALIGNED": 6,
+  "HARDWARE": 5,
+  "STRUCTURED_OK": 9
+ }
+}

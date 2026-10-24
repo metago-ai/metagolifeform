@@ -42,7 +42,7 @@ npm run install:trae
 node scripts/cli.js install --platform zcode
 ```
 
-安装后重启平台，100 个技能即生效。
+安装后重启平台，112 个技能即生效。
 
 ### 2. 安装并配置 MCP Server（55 个工具）
 

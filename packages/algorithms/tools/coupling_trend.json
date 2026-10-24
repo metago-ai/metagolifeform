@@ -5,14 +5,32 @@
     "type": "object",
     "properties": {
       "timeSeries": {
-        "type": "object",
-        "description": "时间序列数据"
+        "type": "array",
+        "description": "时间序列：数字数组 [0.3,0.5,0.7]，或 [{time,score}] 数组",
+        "examples": [
+          [
+            0.3,
+            0.5,
+            0.7,
+            0.9
+          ]
+        ]
       }
     },
     "required": [
       "timeSeries"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "timeSeries": [
+          0.3,
+          0.5,
+          0.7,
+          0.9
+        ]
+      }
+    ]
   }
 }

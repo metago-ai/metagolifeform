@@ -11,7 +11,7 @@
 
 ### 法则（kimi-code，手动两步）
 1. 将适配副本 `AGENTS.md.template` 放到 kimi-code home（`…/runtime/kimi-code/home/AGENTS.md`）和工作区根。
-2. 将 `skills/metago-*` 共 100 个技能目录复制到 daimon 技能目录（`…/daimon-share/daimon/skills/`）。
+2. 将 `skills/metago-*` 共 112 个技能目录复制到 daimon 技能目录（`…/daimon-share/daimon/skills/`）。
 
 ### MCP（kimi-code CLI 可用）
 标准 MCP 客户端注册（等价配置）：

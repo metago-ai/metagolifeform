@@ -5,24 +5,65 @@
     "type": "object",
     "properties": {
       "items": {
-        "type": "object",
-        "description": "项列表"
+        "type": "array",
+        "description": "项集合：二维数组 [[\"a\",\"b\"],[\"a\",\"c\"]]（每个子数组是一次事件的共现项）"
       },
       "timestamps": {
-        "type": "object",
-        "description": "时间戳列表"
+        "type": "array",
+        "description": "每次事件的时间戳 [0, 1000]"
       },
       "halfLife": {
-        "type": "object",
-        "description": "半衰期"
+        "type": "number",
+        "description": "半衰期（毫秒），如 5000"
+      },
+      "item1": {
+        "type": "string",
+        "description": "**要计算共现的第一个项**，如 \"a\"（算法必需，缺失则匹配不到任何共现）"
+      },
+      "item2": {
+        "type": "string",
+        "description": "**要计算共现的第二个项**，如 \"b\"（算法必需）"
+      },
+      "now": {
+        "type": "number",
+        "description": "**计算衰减的参照时刻**（毫秒）。省略时用当前时间 Date.now()；若 timestamps 给的是相对时刻而非真实时间戳，必须显式传 now，否则时间差极大会让衰减权重趋近 0"
       }
     },
     "required": [
       "items",
       "timestamps",
+      "item1",
+      "item2",
       "halfLife"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "items": [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "b",
+            "c"
+          ]
+        ],
+        "timestamps": [
+          0,
+          100,
+          200
+        ],
+        "item1": "a",
+        "item2": "b",
+        "halfLife": 5000,
+        "now": 1000
+      }
+    ]
   }
 }

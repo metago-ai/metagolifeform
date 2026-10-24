@@ -1,0 +1,102 @@
+{
+  "name": "conflict_resolve",
+  "description": "冲突解决（49 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "conflictDetection",
+          "conflictIntensity",
+          "contradictionIdentification",
+          "dialecticalAnalysis",
+          "conflictMediation",
+          "consensusSeeking",
+          "compromiseGeneration",
+          "conflictEscalationPrediction",
+          "conflictDeescalation",
+          "multiPartyGameEquilibrium",
+          "paretoImprovement",
+          "nashEquilibrium",
+          "zeroSumDetection",
+          "winWinStrategy",
+          "conflictProvenance",
+          "calculateConflictIntensity",
+          "analyzeConflictRootCause",
+          "assessPartyInfluence",
+          "findCompromisePoint",
+          "predictConflictEscalation",
+          "deescalateConflict",
+          "calculatePositionDistance",
+          "detectConflictCoalitions",
+          "selectMediator",
+          "evaluateResolution",
+          "recognizeConflictPattern",
+          "assessConflictImpact",
+          "prioritizeConflicts",
+          "planConflictResolution",
+          "modelPartyEmotion",
+          "calculateCoolingPeriod",
+          "reviewConflict",
+          "preventionMeasures",
+          "detectConflictSignals",
+          "comprehensiveConflictAssessment",
+          "冲突识别方法",
+          "冲突分析方法",
+          "冲突转化策略",
+          "冲突调解方法",
+          "冲突仲裁机制",
+          "冲突升级机制",
+          "冲突降级策略",
+          "冲突预防机制",
+          "冲突溯源方法",
+          "冲突记忆机制",
+          "冲突进化机制",
+          "利益冲突管理",
+          "价值冲突处理",
+          "资源冲突解决"
+        ],
+        "description": "族内算法选择：传算法名（如 conflictDetection）。路由规则是按名称/ID/关键词子串匹配 族 CONFLICT 的 49 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "conflictDetection",
+        "input": {
+          "parties": [
+            {
+              "position": 1,
+              "id": "s0"
+            },
+            {
+              "position": 1,
+              "id": "s1"
+            },
+            {
+              "position": 1,
+              "id": "s2"
+            }
+          ],
+          "threshold": 2
+        }
+      }
+    ]
+  }
+}

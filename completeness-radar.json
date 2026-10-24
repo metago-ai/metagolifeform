@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "lastScan": null,
+  "watch": {
+    "standards": [
+      "Agent Plugins 规范版本更新（agent-plugins.org）",
+      "AG-UI 规范版本更新（docs.ag-ui.com）",
+      "A2UI 规范版本更新（a2ui.org）",
+      "Agent Skills 规范更新（agentskills.io）",
+      "MCP 规范版本更新（modelcontextprotocol.io）",
+      "A2A 协议进展（Google）"
+    ],
+    "competitors": [
+      "ZCode 新版本功能（zcode.z.ai）",
+      "Codex 新功能（OpenAI）",
+      "Trae Work 新功能（字节）",
+      "Kimi Work 新功能（月之暗面）",
+      "Cursor 新功能（Anysphere）",
+      "ChatGPT Work 新功能"
+    ],
+    "ecosystem": [
+      "元构发行版升级（metago-lifeform 新版本）",
+      "元构 112 技能/927 算法更新",
+      "新开源 Agent UI/编排框架"
+    ]
+  },
+  "findings": []
+}

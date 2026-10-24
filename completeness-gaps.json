@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "gaps": [
+    {
+      "id": "G01",
+      "desc": "[B1-framework] 行业基线中 34 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：L0 身份层、L1 能力层、L2 架构层、L3 环境层、L4 生态层、L5 平台层…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.546Z",
+      "resolvedAt": null
+    },
+    {
+      "id": "G02",
+      "desc": "[B2-industry-standard] 行业基线中 46 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：对话工作台、会话管理、目标模式、长上下文、模型选择器、Monaco编辑器…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.604Z",
+      "resolvedAt": null
+    },
+    {
+      "id": "G03",
+      "desc": "[B3-protocols] 行业基线中 22 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：AG-UI、A2UI、A2A、Open-JSON-UI、json-render、MCP Apps…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.665Z",
+      "resolvedAt": null
+    },
+    {
+      "id": "G04",
+      "desc": "[B4-self-dissection] 行业基线中 40 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：感知层、行动层、记忆层、协作层、会话管理、任务系统…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.724Z",
+      "resolvedAt": null
+    },
+    {
+      "id": "G05",
+      "desc": "[B5-metago-law] 行业基线中 2 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：溯源、溯源",
+      "status": "resolved",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.784Z",
+      "resolvedAt": "2026-10-18T19:13:51.048Z"
+    },
+    {
+      "id": "G06",
+      "desc": "[B6-competitors] 行业基线中 28 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：Agent工作台、目标模式、长上下文、编辑器终端Git、模型聚合、BYOK…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.842Z",
+      "resolvedAt": null
+    },
+    {
+      "id": "G07",
+      "desc": "[B7-user-custom] 行业基线中 18 项未被 AGENTS.md 覆盖（已知边界，非缺陷）：S1 多文件输入(POSIX 多操作数)、S2 四项计数指标(任务规格2)、S3 JSON 输出与 schema(任务规格3)、S4 合计行(任务规格4)、S5 stdin 输入(任务规格5)、S6 错误与退出码(任务规格6)…",
+      "status": "open",
+      "source": "基线比对",
+      "plan": "按需扩展法则",
+      "createdAt": "2026-10-18T19:13:18.902Z",
+      "resolvedAt": null
+    }
+  ]
+}

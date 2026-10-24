@@ -50,7 +50,9 @@ function git(cmd) {
 // ---------- M-L4-1 git remote 凭据 ----------
 const remotes = git('remote -v');
 if (remotes === null) {
-  check('M-L4-1', 'Git remote URL 凭据', 'fail', '当前目录不是 git 仓库或 git 不可用');
+  /* DEF-067：$DSH_HOME 本就可能是非 git 部署，凭证可来自 credentials.json / project_memory.md，
+     此处降为 warn（可恢复），只有「git 在但无 remote」才需处理 */
+  check('M-L4-1', 'Git remote URL 凭据', 'warn', '当前目录不是 git 仓库——凭证改由凭据文件/系统管理器提供', true);
 } else {
   const urls = [...new Set(remotes.split('\n').map((l) => l.split(/\s+/)[1]).filter(Boolean))];
   if (urls.length === 0) {
@@ -141,4 +143,4 @@ if (asJson) {
   console.log(hardFails === 0 ? '  ✅ L4 冻记忆层可用' : '  ❌ 存在需人工修复的记忆缺失');
 }
 
-process.exit(hardFails === 0 ? 0 : 1);
+process.exitCode = hardFails === 0 ? 0 : 1;   /* DEF-055：用 exitCode 避免管道输出被截断 */

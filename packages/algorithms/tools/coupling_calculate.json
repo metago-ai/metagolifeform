@@ -6,18 +6,108 @@
     "properties": {
       "operation": {
         "type": "string",
-        "description": "操作类型（算法名关键词），如 cosine/euclidean/pearson",
-        "default": "default"
+        "enum": [
+          "cosineSimilarity",
+          "jaccardCoefficient",
+          "diceCoefficient",
+          "euclideanDistance",
+          "manhattanDistance",
+          "chebyshevDistance",
+          "pearsonCorrelation",
+          "spearmanCorrelation",
+          "kendallTau",
+          "weightedCosineSimilarity",
+          "fuzzyStringMatch",
+          "semanticSimilarity",
+          "cooccurrenceFrequency",
+          "timeDecayCooccurrence",
+          "evaluateBidirectionalCoupling",
+          "isSuperconductive",
+          "identifyWeakPairs",
+          "identifyStrongPairs",
+          "buildCouplingMatrix",
+          "normalizeCoupling",
+          "sortCouplingScores",
+          "recordSymmetric",
+          "detectAsymmetry",
+          "couplingTrend",
+          "couplingClustering",
+          "buildValueVector",
+          "reduceDimension",
+          "extractPrincipalComponent",
+          "simplifiedSVD",
+          "covariance",
+          "trilayerCoupling",
+          "buildCouplingGraph",
+          "couplingCentrality",
+          "couplingShortestPath",
+          "couplingStateTransition",
+          "couplingStability",
+          "couplingResonance",
+          "couplingEntropy",
+          "couplingDecay",
+          "couplingEnhance",
+          "couplingRiskAlert",
+          "couplingCommunity",
+          "couplingSymmetrize",
+          "couplingDistribution",
+          "couplingHierarchicalAggregate",
+          "couplingGini",
+          "couplingForecast",
+          "couplingAnomalyInjection",
+          "couplingPropagation",
+          "couplingComprehensiveAssessment",
+          "双螺旋社会财富理论",
+          "耦生度量化评估",
+          "超导态判定",
+          "耦生对称性",
+          "耦生衰减模型",
+          "耦生矩阵构造",
+          "耦生聚类分析",
+          "耦生趋势分析",
+          "耦生归一化方法",
+          "耦生维度分解",
+          "耦生共振现象",
+          "耦生相变机制",
+          "耦生能级模型",
+          "耦生图谱表示",
+          "耦生熵度量"
+        ],
+        "description": "族内算法选择：传算法名（如 cosineSimilarity）。路由规则是按名称/ID/关键词子串匹配 族 COUPLING 的 65 个算法，匹配不上则用族内第一个。"
       },
       "input": {
-        "type": "object",
-        "description": "算法输入参数"
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
       }
     },
     "required": [
+      "operation",
       "input"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "cosineSimilarity",
+        "input": {
+          "a": [
+            0.9,
+            0.4,
+            0.7
+          ],
+          "b": [
+            0.5,
+            0.8,
+            0.2
+          ]
+        }
+      }
+    ]
   }
 }

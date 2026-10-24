@@ -5,19 +5,45 @@
     "type": "object",
     "properties": {
       "items": {
-        "type": "object",
-        "description": "项列表"
+        "type": "array",
+        "description": "序列集合：二维数组 [[\"a\",\"b\",\"c\"],[\"a\",\"b\"]]（每个子数组是一条序列）"
       },
-      "window": {
-        "type": "object",
-        "description": "窗口大小"
+      "item1": {
+        "type": "string",
+        "description": "**要计算共现的第一个项**，如 \"a\"（缺省时从 items 推导为第一个不同项）"
+      },
+      "item2": {
+        "type": "string",
+        "description": "**要计算共现的第二个项**，如 \"b\"（缺省时从 items 推导为第二个不同项）"
       }
     },
     "required": [
-      "items",
-      "window"
+      "items"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "items": [
+          [
+            "a",
+            "b",
+            "c"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "item1": "a",
+        "item2": "b"
+      }
+    ]
   }
 }

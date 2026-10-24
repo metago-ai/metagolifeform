@@ -199,7 +199,15 @@ export class KMWIMemory {
       const snapshot: KMWISnapshot = JSON.parse(content);
 
       for (const item of snapshot.knowledge || []) this.knowledge.set(item.id, item);
-      for (const item of snapshot.memories || []) this.memories.set(item.id, item);
+      // `memories` is the canonical key. `memory` (singular) is what
+      // scripts/init-kmwi-store.cjs wrote before it was aligned with this class —
+      // reading both keeps stores created by that script from silently losing the
+      // whole M layer (which made getHealth() divide by an empty layer and
+      // memory_manage throw on a missing `length`).
+      const memories = snapshot.memories
+        || (snapshot as unknown as { memory?: KMWIItem[] }).memory
+        || [];
+      for (const item of memories) this.memories.set(item.id, item);
       for (const item of snapshot.wisdom || []) this.wisdom.set(item.id, item);
       for (const item of snapshot.intuitions || []) this.intuitions.set(item.id, item);
       this.history = snapshot.history || [];
@@ -846,7 +854,11 @@ export class KMWIMemory {
   private computeExplicitRatio(): number {
     const intuitions = Array.from(this.intuitions.values());
     if (intuitions.length === 0) return 0;
-    const explicit = intuitions.filter(i => i.explicitForm.length > 0).length;
+    // `explicitForm` is a string on items this class creates, but a store written by
+    // an older seed script has no such field at all — reading `.length` off undefined
+    // threw out of getHealth(), which is what made memory_manage fail on seeded
+    // stores. Absent evidence of explicitness is 0, not a crash.
+    const explicit = intuitions.filter(i => (i.explicitForm || '').length > 0).length;
     return explicit / intuitions.length;
   }
 

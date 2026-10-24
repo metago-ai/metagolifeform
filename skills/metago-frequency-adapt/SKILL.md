@@ -87,7 +87,7 @@ trigger:
 5. 记忆一致率：记忆与实际一致性
 ```
 
-## 频率调控算法（ALG_641）
+## 频率调控算法（频率族算法，具体 ID 见 `list_algorithms --family FREQUENCY`）
 
 ```python
 def frequency_adapt(integrity_score):

@@ -23,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 知识晶体引擎
-- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
+- 依赖 metago-architecture-guild-team-lead 主理人调度
 - 遵循 A1 溯源公理：晶体内容必须可溯源至原始输入
 - 遵循 A3 元进化公理：晶体体系必须能自我进化
 

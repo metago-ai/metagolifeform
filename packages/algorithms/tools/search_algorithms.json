@@ -17,6 +17,12 @@
       "query"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "query": "相似度",
+        "limit": 10
+      }
+    ]
   }
 }

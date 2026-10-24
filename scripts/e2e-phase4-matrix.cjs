@@ -95,4 +95,4 @@ for (const r of rows) {
     console.log('FAIL-DETAIL', JSON.stringify(r));
   }
 }
-process.exit(pass === PLATFORMS.length ? 0 : 1);
+process.exitCode = pass === PLATFORMS.length ? 0 : 1;   /* DEF-055：用 exitCode 避免管道输出被截断 */

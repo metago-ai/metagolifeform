@@ -1,0 +1,234 @@
+{
+  "$comment": "机器可读的补丁清单。每条含：症状、根因、改动文件、验证命令。人工可读版见 ../PATCHES.md。",
+  "patchSet": "metago-lifeform-v36.9.6-fixes",
+  "appliedOn": "2026-10-03",
+  "baseVersion": "36.9.6",
+  "versionBumped": false,
+  "versionBumpReason": "包内 77 个文件引用版本号，且自带 C4/C10/C11 门禁逐处核对；升号会把 8 项修复变成 77 处文本手术，风险高于收益。改动由本清单与 ../PATCHES.md 记录。",
+  "verification": {
+    "command": "node patches/verify-patches.cjs",
+    "assertions": 45,
+    "lastResult": "45/45 通过",
+    "note": "断言直接读被测文件并实跑被测代码，不读文档说明。"
+  },
+  "items": [
+    {
+      "id": 1,
+      "title": "统一 KMWI 记忆 schema",
+      "symptom": "播种后引擎 M 层为空；getHealth() 抛 Cannot read properties of undefined (reading 'length')；上游 metago_memory_manage 稳定崩溃",
+      "rootCause": "同一文件两个写者两套 schema（脚本写 memory 单数，引擎读 memories 复数）；且条目缺引擎指标字段，explicitForm 缺失时 filter 直接抛异常",
+      "files": [
+        "scripts/init-kmwi-store.cjs",
+        "packages/engine/RUNTIME/src/kmwi-memory.ts",
+        "packages/engine/RUNTIME/dist/kmwi-memory.js"
+      ],
+      "fix": "写侧按引擎接口产出四层条目 + memories/history/baseline/timestamp；读侧兼容单数键与缺失 explicitForm",
+      "evidence": "播种后 getHealth()={K:100,M:100,W:54,I:99,H:88}，四层 2/1/4/2；旧单数键存储回测不抛异常且 M=1",
+      "status": "active",
+      "statusNote": "KMWI 复数键 schema 已统一"
+    },
+    {
+      "id": 2,
+      "title": "creationLineage 死循环守卫",
+      "symptom": "ALG_T1_M_015 在条目缺 id/parentId 时永不返回；实测该族扫描 >60s；同步死循环冻结事件循环",
+      "rootCause": "creations.find(c => c.id === current.parentId) 在 id 为 undefined 时永远匹配第一个元素，!(parent) 分支永不触发，current 永不改变",
+      "files": [
+        "packages/algorithms/engine/algorithms/t1/creation-algorithms.js"
+      ],
+      "fix": "访问集合守卫 + generations 由 Math.max(...) 改 reduce（缺失时不再得 NaN）",
+      "evidence": "畸形输入下 5 秒内返回（实测 0ms）",
+      "status": "fixed-r142",
+      "statusNote": "R142 补上循环守卫：manifest 记录的这个补丁此前从未真正生效（源码无守卫，环形数据会死循环）"
+    },
+    {
+      "id": 3,
+      "title": "implemented 反映 handler 实际存在",
+      "symptom": "list_algorithms 对 927 个条目一律回 implemented:true，其中 227 个 T3 的 handler 是 undefined",
+      "rootCause": "registerT3 把 implemented:true 写成字面量，与同处写的 handler:undefined 互相矛盾，且无检查约束",
+      "files": [
+        "packages/algorithms/engine/algorithms/registry.js"
+      ],
+      "fix": "注册阶段如实写 false；finalizeRegistry() 在附加实现与适配之后由 typeof handler === 'function' 统一推导",
+      "evidence": "声明 927 / 真有 handler 927 / 不一致 0",
+      "status": "active",
+      "statusNote": "implemented 由 T3 接线段按 handler 存在性修正"
+    },
+    {
+      "id": 4,
+      "title": "入参契约统一到 handler(输入对象)",
+      "symptom": "487 个位置参数型处理器传单对象时静默返回 NaN/null（不报错）；196 个单参型直接抛错",
+      "rootCause": "四种处理器写法并存，只有解构型符合单值分发契约；参数表用正则会因默认值中的右括号被截断",
+      "files": [
+        "packages/algorithms/engine/algorithms/argument-contract.js",
+        "packages/algorithms/engine/algorithms/registry.js"
+      ],
+      "fix": "按处理器源码推导映射（参数名 + 被调用方法推断类型）；pair 参数组装；单参按名解包；参数表用括号配对扫描",
+      "evidence": "adapted=917；多参残留 0；927/927 有条目契约；具名回归 4/4 可用",
+      "status": "superseded",
+      "statusNote": "入参契约已由 R141 的 registry.js metagoInvoke 实现，argument-contract.js 保留为历史文件但不参与运行"
+    },
+    {
+      "id": 5,
+      "title": "根 manifest 版本字段对齐 + 门禁补检查",
+      "symptom": "5 个 metago.* 版本字段全部滞后且门禁不覆盖；metago.mcpTools=324 与任何口径都不符",
+      "rootCause": "ci-version-gate 的 C10 只核对子包与主版本，metago.* 字段无任何检查",
+      "files": [
+        "package.json",
+        "scripts/ci-version-gate.cjs"
+      ],
+      "fix": "5 个字段按子包实际值对齐；mcpTools 324→112（55+57）；新增 C14 把 5 个字段与 mcpTools 一并绑定",
+      "evidence": "C14 PASS；mcpTools 112 = 55+57",
+      "status": "active",
+      "statusNote": "版本字段已对齐"
+    },
+    {
+      "id": 6,
+      "title": "修 benchmark.js 的注册表路径",
+      "symptom": "packages/algorithms 的 npm test / npm run benchmark 必然 MODULE_NOT_FOUND",
+      "rootCause": "指向 <engine>/RUNTIME/dist/algorithms/，而引擎 dist 下没有 algorithms/ 目录（注册表在 packages/algorithms/engine/algorithms/）",
+      "files": [
+        "packages/algorithms/benchmark.js"
+      ],
+      "fix": "改为在本包内解析并保留 ENGINE_DIST 覆盖；找不到时抛带候选路径的错误",
+      "evidence": "解析路径真实存在 registry.js",
+      "status": "active",
+      "statusNote": "benchmark 路径已修"
+    },
+    {
+      "id": 7,
+      "title": "补 T3 的 227 个实现",
+      "symptom": "227 个 T3 条目 handler:undefined，任何调用返回 NOT_IMPLEMENTED",
+      "rootCause": "T3 只作为概念档注册，从未提供执行体",
+      "files": [
+        "packages/algorithms/engine/algorithms/t3-impl/",
+        "packages/algorithms/engine/algorithms/registry.js"
+      ],
+      "fix": "16 族 227 个实现随包提供（每族一个 .cjs），由 finalizeRegistry() 附加；目录缺失时如实反映缺口",
+      "evidence": "227/227 有 handler；227/227 可调用且不抛异常",
+      "status": "active",
+      "statusNote": "T3 227 实现目录为 t3impl/（非 t3-impl/）"
+    },
+    {
+      "id": 8,
+      "title": "法则第十九章改为引用平台表",
+      "symptom": "法则写死 3 服务器/136 工具并声明以本章为准，与平台表（trae 7 服务器、浏览器 tools:15）、platform-matrix（2 服务器、metago 53 工具）互相矛盾",
+      "rootCause": "同一事实在四处各写一份数字，且法则被赋予覆盖事实的地位",
+      "files": [
+        "AGENTS.md",
+        "adapters/trae/rules.template.md",
+        "adapters/workbuddy/rules.template.md",
+        "scripts/cli.js",
+        "plugins/platform-matrix.json"
+      ],
+      "fix": "法则母本与全部适配模板均改为引用平台表并删除写死断言与序号（适配模板才是真正被安装进各平台的法则，只改母本=修了一半）；cli.js 浏览器工具数 15→24；matrix 的 53→55 并新增 browser/extraInTrae",
+      "evidence": "母本 + 3 个法则文件均无写死全局断言；平台表与 cli.js 浏览器工具数一致（24/24）；不再出现「53 工具」",
+      "status": "superseded",
+      "statusNote": "法则已改用 §19.6 实测权威值表 + 平台矩阵引用"
+    },
+    {
+      "id": 9,
+      "title": "R141: 元创造补全 597 条原子契约（工厂 526 + 蓝本 52 + 第二批 11 + 约束 5 + 诚实不支持 3）",
+      "files": [
+        "packages/engine/atoms/atom-factory.cjs",
+        "packages/engine/atoms/blueprint-atoms.cjs",
+        "packages/engine/atoms/blueprint-atoms-2.cjs",
+        "packages/engine/atoms/contract-validator.cjs"
+      ],
+      "status": "active",
+      "evidence": "契约校验 597 条：通过 544 / 失败 0 / 无实现 0"
+    },
+    {
+      "id": 10,
+      "title": "R141: MCP L3 适配层 + 输出守卫（30 个工具，语义 30/30）",
+      "files": [
+        "packages/algorithms/tool-registry.js"
+      ],
+      "status": "active",
+      "evidence": "语义 30/30 ｜ 有牙自检 11/11"
+    },
+    {
+      "id": 11,
+      "title": "R142: 57 个工具 schema 四方对齐（类型/必填/examples/L4 operation）",
+      "files": [
+        "packages/algorithms/tools/"
+      ],
+      "status": "active",
+      "evidence": "J1~J7 四方对账 57/57，修前 89 处不一致"
+    },
+    {
+      "id": 12,
+      "title": "R142: 函数桥接 preset 死代码修复（R142-PRESET）",
+      "files": [
+        "packages/algorithms/engine/algorithms/registry.js"
+      ],
+      "status": "active",
+      "evidence": "裸字符串 'Math.random' 从崩溃变为可用；六路对照全绿"
+    },
+    {
+      "id": 13,
+      "title": "R142: T3 样例形状修复（shapes.json 927 条）",
+      "files": [
+        "packages/algorithms/engine/algorithms/t3impl/shapes.json"
+      ],
+      "status": "active",
+      "evidence": "927/927 条算法通过 U-1~U-4 性质断言"
+    }
+  ],
+  "observedNotChanged": [
+    {
+      "item": "test-registration-uniqueness.cjs 的 53 口径 WARN",
+      "reason": "该检查数的是源码声明的 toolName（52+1=53），与运行期注册数（55）不是同一个量；它把硬失败交给包内不存在的 metadata-consistency 脚本，因此 WARN 永不升级。修它需先厘清 52 与 55 的差从何而来，超出本次 8 项范围。",
+      "preExisting": true
+    },
+    {
+      "item": "attributes 43（manifest）vs 45 条根本属性（AGENTS.md 正文）",
+      "reason": "全包统计 43 出现 32 次、45 出现 3 次，43 是主流值；无法确定作者是否正打算改为 45，故两处都不动，仅登记。",
+      "preExisting": true
+    },
+    {
+      "item": "kimi-work 的 mcpServers: []",
+      "reason": "该块 note 已说明是官方构建限制（不向会话注入自定义 MCP 工具），属文档化行为而非漏配。",
+      "preExisting": true
+    },
+    {
+      "item": "engines.node >=14.0.0",
+      "reason": "全包扫描未发现需要更高版本的语法，无证据判定为错。",
+      "preExisting": true
+    },
+    {
+      "item": "completeness-guard verify 在包根裸跑报缺口",
+      "reason": "该 CLI 需要目标文档/配置参数；原始 v36.9.6 表现完全一致，非本次引入。",
+      "preExisting": true
+    }
+  ],
+  "measurement": {
+    "command": "METAGO_ALGORITHMS_ROOT=<pkg>/packages/algorithms node verify-algorithms-all.mjs --timeout 60 --bisect-budget 5",
+    "totals": {
+      "registered": 927,
+      "executable": 825,
+      "invalid": 13,
+      "notImplemented": 0,
+      "error": 89
+    },
+    "byTier": {
+      "T1": {
+        "total": 300,
+        "executable": 252
+      },
+      "T2": {
+        "total": 400,
+        "executable": 346
+      },
+      "T3": {
+        "total": 227,
+        "executable": 227
+      }
+    },
+    "caveat": "927 是注册数；可执行=用扫描端合成输入调用后返回了可用值。剩余 89 个报错主因是扫描端输入形状，已用手工正确输入抽查证明处理器本身可用。不宣称 927 全通。"
+  },
+  "sourceIntegrity": {
+    "note": "本包由原始解压件复制后打补丁得到；原始目录未做任何修改。",
+    "originalFingerprint": "951c9a41fba684c2b6391daad08eee556d7582a3348cc1f7137c866aa11dfc59",
+    "fingerprintAlgorithm": "sha256(排序后的 <相对路径>|<字节数>|mtimeMs 清单)"
+  }
+}

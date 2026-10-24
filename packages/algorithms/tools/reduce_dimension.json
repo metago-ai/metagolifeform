@@ -5,12 +5,31 @@
     "type": "object",
     "properties": {
       "data": {
-        "type": "object",
-        "description": "高维数据"
+        "type": "array",
+        "description": "**一维数值数组**，如 [1,2,3,4,5,6]（不是二维；本算法对一维序列分段求均值）",
+        "examples": [
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              2,
+              3,
+              4
+            ],
+            [
+              3,
+              4,
+              5
+            ]
+          ]
+        ]
       },
       "targetDim": {
         "type": "number",
-        "description": "目标维度"
+        "description": "目标段数（把序列切成 targetDim 段求均值）"
       }
     },
     "required": [
@@ -18,6 +37,22 @@
       "targetDim"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "targetDim": 2
+      }
+    ],
+    "description": "一维序列分组平均：把数值序列按 targetDim 切成若干段、每段取均值。注意：这不是 PCA 式降维（无投影与基变换），本算法名 reduceDimension 与实现语义不完全一致，以上描述以实现为准。"
   }
 }

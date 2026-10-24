@@ -446,14 +446,28 @@ function creationLineage(creations) {
     for (const c of creations)
         if (c.fitness > best.fitness)
             best = c;
+    /* R142-fix：原实现无循环守卫 —— 若数据有环（A.parentId=B、B.parentId=A）
+       这个 while 永不退出，整进程拖死。manifest 里「补丁 2·死循环守卫」
+       在 R142 之前从未真正生效（实测装机与包内两份都没有守卫）。
+       现在加两道：visited 防环 + 深度上限防超深链；命中时写入 provenance，不静默截断。 */
     const bestChain = [best.id];
     let current = best;
+    const visited = new Set([best.id]);
+    let lineageGuard = 0;
+    const MAX_DEPTH = 10000;
     while (current.parentId !== null) {
+        if (visited.has(current.parentId)) { lineageGuard = 1; break; }        // 环
+        if (bestChain.length >= MAX_DEPTH) { lineageGuard = 2; break; }        // 超深
+        visited.add(current.parentId);
         bestChain.unshift(current.parentId);
         const parent = creations.find(c => c.id === current.parentId);
         if (!parent)
             break;
         current = parent;
+    }
+    if (lineageGuard) {
+        // 守卫命中：ringGuarded=1 表示检测到环，=2 表示达到深度上限
+        globalThis.__metagoLineageGuard = lineageGuard;
     }
     return {
         tree,

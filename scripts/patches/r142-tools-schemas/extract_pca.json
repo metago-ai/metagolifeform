@@ -1,0 +1,44 @@
+{
+  "name": "extract_pca",
+  "description": "主成分提取（PCA）。适用：特征提取、降维。返回主成分。（算法 ID: ALG_T1_C_028）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "description": "样本矩阵（二维数组，每行一个样本）[[1,2,3],[2,4,6],[3,6,9]]"
+      }
+    },
+    "required": [
+      "data"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "data": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            6,
+            9
+          ],
+          [
+            4,
+            8,
+            12
+          ]
+        ]
+      }
+    ]
+  }
+}

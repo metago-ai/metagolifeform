@@ -1,0 +1,41 @@
+{
+  "name": "record_symmetric",
+  "description": "记录对称耦生关系。适用：双向等权关系存储。返回记录结果。（算法 ID: ALG_T1_C_022）",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "entityA": {
+        "type": "string",
+        "description": "实体标识，如 \"a\"（也接受 {id:\"a\"}）",
+        "examples": [
+          "a"
+        ]
+      },
+      "entityB": {
+        "type": "string",
+        "description": "实体标识，如 \"b\"（也接受 {id:\"b\"}）",
+        "examples": [
+          "b"
+        ]
+      },
+      "score": {
+        "type": "number",
+        "description": "分数"
+      }
+    },
+    "required": [
+      "entityA",
+      "entityB",
+      "score"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "entityA": "a",
+        "entityB": "b",
+        "score": 0.8
+      }
+    ]
+  }
+}

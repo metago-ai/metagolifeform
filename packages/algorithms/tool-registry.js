@@ -246,10 +246,358 @@ const L3_ID_MAP = {
   covariance: 'ALG_T1_C_030',
 };
 
+/* ==== METAGO-R141-L3-ADAPT ==== */
+/*
+ * R141 MCP L3 工具参数适配层
+ *
+ * 背景：30 个 L3 工具的 MCP schema 与算法真实形参大面积不匹配。
+ *   3 项对齐 / 18 项需改名组装 / 9 项 schema 本身与算法语义冲突。
+ *
+ * 规则：每个工具一条适配函数，返回「算法期望的 input」。
+ *   · 算法单形参 → 返回该参数的裸值
+ *   · 算法多形参 → 返回位置参数数组（executor 侧由 metagoInvoke 展开）
+ */
+var L3_ADAPT = {
+    // ── A 类：单形参，同名 ───────────────────────────────────────
+    is_superconductive: function (a) { return a.couplingScore; },
+    coupling_trend: function (a) {
+        var ts = a.timeSeries;
+        if (!Array.isArray(ts)) return ts;
+        if (ts.length && ts[0] && typeof ts[0] === 'object' && ts[0].score !== undefined) return ts;
+        return ts.map(function (v, i) {
+            return (v && typeof v === 'object') ? { time: i, score: (v.score !== undefined ? v.score : v) } : { time: i, score: v };
+        });
+    },
+    build_value_vector: function (a) {
+        var d = a.dimensions;
+        if (Array.isArray(d)) return d;
+        if (d && typeof d === 'object') {
+            return Object.keys(d).map(function (k) {
+                var v = d[k];
+                return (v && typeof v === 'object' && v.value !== undefined)
+                    ? { name: v.name !== undefined ? v.name : k, value: v.value, weight: v.weight !== undefined ? v.weight : 1 }
+                    : { name: k, value: v, weight: 1 };
+            });
+        }
+        return d;
+    },
+    covariance: function (a) {
+        if (Array.isArray(a.samples)) return a.samples;
+        var xa = Array.isArray(a.a) ? a.a : [], yb = Array.isArray(a.b) ? a.b : [];
+        var n = Math.min(xa.length, yb.length);
+        var out = [];
+        for (var i = 0; i < n; i++) out.push({ x: xa[i], y: yb[i] });
+        return out;
+    },
+
+    // ── B 类：单形参 pair 对象，由 {a,b} 组装 ─────────────────────
+    cosine_similarity: function (a) { return { a: a.a, b: a.b }; },
+    jaccard_coefficient: function (a) { return { a: a.a, b: a.b }; },
+    dice_coefficient: function (a) { return { a: a.a, b: a.b }; },
+    euclidean_distance: function (a) { return { a: a.a, b: a.b }; },
+    manhattan_distance: function (a) { return { a: a.a, b: a.b }; },
+    chebyshev_distance: function (a) { return { a: a.a, b: a.b }; },
+    pearson_correlation: function (a) { return { a: a.a, b: a.b }; },
+    spearman_correlation: function (a) { return { a: a.a, b: a.b }; },
+    kendall_tau: function (a) { return { a: a.a, b: a.b }; },
+
+    // ── B 类：多形参，按位置组装 ─────────────────────────────────
+    weighted_cosine: function (a) { return [{ a: a.a, b: a.b }, a.weights]; },
+    fuzzy_string_match: function (a) { return [a.a, a.b]; },
+    semantic_similarity: function (a) {
+        /* R142 类型守卫：schema 声明 a/b 为 string。
+           实测传数组不报错但静默返回 score:0 —— 那是假结果，必须明确拒绝。 */
+        var x = a.a, y = a.b;
+        function kind(v) { return Array.isArray(v) ? 'array' : (v === null ? 'null' : typeof v); }
+        if (typeof x !== 'string') throw new Error('[R142-TYPE] semantic_similarity.a 必须是 string，收到 ' + kind(x));
+        if (typeof y !== 'string') throw new Error('[R142-TYPE] semantic_similarity.b 必须是 string，收到 ' + kind(y));
+        return [x, y];
+    },
+    evaluate_bidirectional: function (a) { return [a.forward, a.backward]; },
+    identify_weak_pairs: function (a) { return [toCouplingMatrix(a.pairs !== undefined ? a.pairs : a.matrix), a.threshold !== undefined ? a.threshold : 0.3]; },
+    identify_strong_pairs: function (a) { return [toCouplingMatrix(a.pairs !== undefined ? a.pairs : a.matrix), a.threshold]; },
+    sort_coupling_scores: function (a) {
+        var desc = (a.order === 'asc') ? false : (a.order === 'desc' ? true : (a.descending !== undefined ? a.descending : true));
+        return [a.scores !== undefined ? a.scores : a.entries, desc];
+    },
+    coupling_clustering: function (a) {
+        var th;
+        if (typeof a.threshold === 'number') th = a.threshold;
+        else if (typeof a.k === 'number') th = (a.k > 0 && a.k <= 1) ? a.k : 0.5;
+        else th = 0.5;
+        return [toCouplingMatrix(a.entities !== undefined ? a.entities : a.matrix), th];
+    },
+    reduce_dimension: function (a) { return [a.data !== undefined ? a.data : a.vector, a.targetDim]; },
+    record_symmetric: function (a) {
+        var store = (a.store && typeof a.store.set === 'function') ? a.store : new Map();
+        var ea = a.entityA, eb = a.entityB;
+        var ai = (ea && typeof ea === 'object') ? (ea.id !== undefined ? ea.id : ea) : ea;
+        var bi = (eb && typeof eb === 'object') ? (eb.id !== undefined ? eb.id : eb) : eb;
+        return [store, ai, bi, a.score];
+    },
+    simplified_svd: function (a) { return [a.matrix, a.iterations]; },
+    /* R141-fix：算法 extractPrincipalComponent(vectors) 是**单参**，
+       metagoInvoke 对单参是 handler(input) 原样传、不展开。
+       原实现 return [a.data] 多包了一层 → handler 收到 [data]（三层嵌套）
+       → vectors[0]=data、dim=4、col=[[1,2,3]] → 算出 {index:0, variance:-1}（错）。
+       实测：去掉包装后 {index:2, variance:11.25} 才对。 */
+    extract_pca: function (a) { return (a.data !== undefined) ? a.data : a.vectors; },
+    build_coupling_matrix: function (a) {
+        // schema: {entities:[{id,name}], relations:[{from,to,weight}] | [[from,to,weight]]}
+        // 算法:  buildCouplingMatrix(labels, scoreFn)
+        //       handler 的调用是 scoreFn(labels[i], labels[j]) —— 传的是 **label 值**，不是索引。
+        //
+        // R141-fix：原实现把 scoreFn 的形参当索引用（labels[i]），与 handler 的调用方式相反，
+        // 导致 li = labels["A"] = undefined；再叠加 String(undefined)==="undefined" 的假匹配，
+        // 数组形式的关系会把所有权重错加（非对角全 3），对象形式则全部丢失（非对角全 0）。
+        // 现在：scoreFn 直接接收两个 label 值；关系支持 {from,to,weight} / [from,to,weight] / {source,target,weight}。
+        var ents = a.entities || [];
+        var rels = a.relations || [];
+        var labels = ents.map(function (e) { return (e && e.id !== undefined) ? e.id : e; });
+        var known = {};
+        labels.forEach(function (l) { known[String(l)] = true; });
+
+        var norm = rels.map(function (r) {
+            if (!r) return null;
+            var f, t, w;
+            if (Array.isArray(r)) { f = r[0]; t = r[1]; w = r[2]; }
+            else {
+                f = (r.from !== undefined) ? r.from : r.source;
+                t = (r.to !== undefined) ? r.to : r.target;
+                w = r.weight;
+            }
+            return {
+                f: String(f), t: String(t),
+                w: (typeof w === 'number' && isFinite(w)) ? w : null,   // 缺失/非法权重记 null，不静默当 1
+            };
+        }).filter(Boolean);
+
+        var dropped = norm.filter(function (r) { return r.w === null; }).length;
+
+        var scoreFn = function (li, lj) {          // ← 参数是 label 值（与 handler 一致）
+            var a1 = String(li), b1 = String(lj);
+            // label 不合法就返回 0，绝不假匹配
+            if (!known[a1] || !known[b1]) return 0;
+            var wi = 0, wj = 0, hasI = false, hasJ = false;
+            norm.forEach(function (r) {
+                if (r.w === null) return;          // 没权重的关系不参与（不猜 1）
+                if (r.f === a1 && r.t === b1) { wi += r.w; hasI = true; }
+                if (r.f === b1 && r.t === a1) { wj += r.w; hasJ = true; }
+            });
+            /* 对称化规则（不能无条件 (wi+wj)/2）：
+               双向都有 → 取平均；只有单向 → 直接用该方向的值；都没有 → 0。
+               无条件除以 2 会把所有单向关系的权重减半——那是错的。 */
+            if (hasI && hasJ) return (wi + wj) / 2;
+            if (hasI) return wi;
+            if (hasJ) return wj;
+            return 0;
+        };
+        scoreFn.__r141Meta = { relationCount: norm.length, droppedNoWeight: dropped };
+        return [labels, scoreFn];
+    },
+    detect_asymmetry: function (a) {
+        return [toCouplingMatrix(a.pairs !== undefined ? a.pairs : a.matrix),
+            a.tolerance !== undefined ? a.tolerance : 0.01];
+    },
+    normalize_coupling: function (a) {
+        // schema 已改为 {scores: number[]}；兼容旧式 {score,min,max}
+        if (Array.isArray(a.scores)) return a.scores;
+        if (typeof a.score === 'number') return [a.score];
+        return a.scores;
+    },
+    cooccurrence_frequency: function (a) {
+        // 算法: cooccurrenceFrequency(sequences, item1, item2)
+        if (Array.isArray(a.sequences) && a.item1 !== undefined) return [a.sequences, a.item1, a.item2];
+        // 兼容 schema {items, window}：items 视为单序列，取前两项
+        var seq = Array.isArray(a.items) ? a.items : [];
+        var flat = seq.map(function (x) { return Array.isArray(x) ? x : [x]; });
+        var uniq = [];
+        flat.forEach(function (s) { s.forEach(function (t) { if (uniq.indexOf(t) < 0) uniq.push(t); }); });
+        return [flat, uniq[0], uniq[1]];
+    },
+    time_decay_cooccurrence: function (a) {
+        // 算法: timeDecayCooccurrence(events, item1, item2, halfLifeMs, now)
+        // events 元素必须是 { items: [...], time: number }
+        /* R142-fix：原实现有三个硬编码
+           · 忽略 a.item1 / a.item2（恒用 items 里前两个不同项）
+           · now 硬编码 Date.now() —— 与相对时间戳（0/100/200）相差半个世纪
+             → weight = 0.5^(1.79e12/5000) ≈ 0 → score 恒 0，且 success:true
+           现在：item1/item2 尊重调用方；now 缺省取「事件时间戳最大值」
+                （对相对时间戳这才是符合直觉的「现在」，衰减才有意义）。 */
+        function __cnvNow(evs, a2) {
+            if (typeof a2.now === 'number') return a2.now;
+            var mx = -Infinity;
+            for (var i = 0; i < evs.length; i++) {
+                var t = evs[i] && evs[i].time;
+                if (typeof t === 'number' && isFinite(t) && t > mx) mx = t;
+            }
+            return (mx === -Infinity) ? Date.now() : mx;
+        }
+        if (Array.isArray(a.events) && a.events[0] && a.events[0].items) {
+            return [a.events,
+                a.item1 !== undefined ? a.item1 : undefined,
+                a.item2 !== undefined ? a.item2 : undefined,
+                a.halfLifeMs !== undefined ? a.halfLifeMs : a.halfLife,
+                __cnvNow(a.events, a)];
+        }
+        var items = Array.isArray(a.items) ? a.items : [];
+        var ts = Array.isArray(a.timestamps) ? a.timestamps : [];
+        var evs = items.map(function (it, i) {
+            return { items: Array.isArray(it) ? it : [it], time: ts[i] !== undefined ? ts[i] : i };
+        });
+        var at = [];
+        evs.forEach(function (e) { e.items.forEach(function (k) { if (at.indexOf(k) < 0) at.push(k); }); });
+        var hl = (typeof a.halfLife === 'number') ? a.halfLife : (typeof a.halfLifeMs === 'number' ? a.halfLifeMs : 3600000);
+        return [evs,
+            a.item1 !== undefined ? a.item1 : at[0],
+            a.item2 !== undefined ? a.item2 : at[1],
+            hl,
+            __cnvNow(evs, a)];
+    },
+};
+
+function toCouplingMatrix(input) {
+    if (input && typeof input === 'object' && !Array.isArray(input) && typeof input.size === 'number' && Array.isArray(input.matrix)) {
+        return input;
+    }
+    var m = input;
+    if (m && typeof m === 'object' && !Array.isArray(m) && Array.isArray(m.matrix)) m = m.matrix;
+    if (!Array.isArray(m)) m = [];
+    var size = m.length;
+    var labels = [];
+    for (var i = 0; i < size; i++) labels.push(String(i));
+    var fixed = [];
+    for (var r = 0; r < size; r++) {
+        var row = Array.isArray(m[r]) ? m[r] : [];
+        var nr = [];
+        for (var c = 0; c < size; c++) nr.push(typeof row[c] === 'number' ? row[c] : 0);
+        fixed.push(nr);
+    }
+    return { size: size, matrix: fixed, labels: labels };
+}
+
+
+/* ════ R142 必填参数守卫 ════
+   问题：缺必填参数时算法内部直接取 a.x.length 崩，
+        报 "Cannot read properties of undefined (reading 'length')"——
+        调用方看不出缺哪个字段、该给什么类型（实测 19/30 工具如此）。
+   做法：在适配器入口按 schema 的 required + type 校验，抛可读错误。
+   范围：只校验 required 中的字段，以及传了但类型明显不对的字段。
+        可选字段不校验（缺失是合法的）。
+   缓存的 schema 表在首次调用时构建，避免每次读盘。 */
+var __R142_SCHEMAS = null;
+function __r142Schemas() {
+    if (__R142_SCHEMAS) return __R142_SCHEMAS;
+    var fs = require('fs'), path = require('path');
+    var dir = path.join(__dirname, 'tools');
+    var out = {};
+    try {
+        fs.readdirSync(dir).forEach(function (f) {
+            if (!/\.json$/.test(f)) return;
+            try {
+                var d = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+                var a = d.arguments || d.inputSchema || {};
+                out[f.replace(/\.json$/, '')] = { props: a.properties || {}, required: a.required || [] };
+            } catch (e) { /* 单个 schema 坏了不影响其他工具 */ }
+        });
+    } catch (e) { /* tools 目录不存在时不校验，退回原行为 */ }
+    __R142_SCHEMAS = out;
+    return out;
+}
+function __r142Kind(v) {
+    if (v === null) return 'null';
+    if (Array.isArray(v)) return 'array';
+    if (typeof v === 'number') return Number.isInteger(v) ? 'integer' : 'number';
+    return typeof v;
+}
+function __r142Guard(toolName, args) {
+    var sch = __r142Schemas()[toolName];
+    if (!sch) return;
+    var a = (args && typeof args === 'object' && !Array.isArray(args)) ? args : {};
+    var missing = [];
+    sch.required.forEach(function (k) {
+        if (a[k] === undefined) missing.push(k);
+    });
+    if (missing.length) {
+        var hints = missing.map(function (k) {
+            var p = sch.props[k] || {};
+            return k + (p.type ? '(' + JSON.stringify(p.type) + ')' : '');
+        });
+        throw new Error('[R142-ARGS] ' + toolName + ' 缺必填参数：' + hints.join('、')
+            + '。完整参数形状见该工具的 schema examples。');
+    }
+    var wrong = [];
+    Object.keys(sch.props).forEach(function (k) {
+        if (a[k] === undefined) return;
+        var t = sch.props[k].type;
+        if (!t) return;
+        var kinds = Array.isArray(t) ? t : [t];
+        var actual = __r142Kind(a[k]);
+        var normalized = kinds.map(function (x) {
+            return (x === 'float' || x === 'int' || x === 'integer') ? 'number' : x;
+        });
+        if (actual === 'integer' && normalized.indexOf('number') >= 0) return;
+        if (normalized.indexOf(actual) < 0) {
+            wrong.push(k + ' 期望 ' + JSON.stringify(t) + ' 实际 ' + actual);
+        }
+    });
+    if (wrong.length) {
+        throw new Error('[R142-ARGS] ' + toolName + ' 参数类型不符：' + wrong.join('；'));
+    }
+}
+
+function adaptL3Args(toolName, args) {
+    __r142Guard(toolName, args);   // R142：必填 + 类型校验，让错误信息可读
+    var fn = L3_ADAPT[toolName];
+    if (!fn) return { ok: false, error: '无适配器: ' + toolName };
+    try {
+        return { ok: true, input: fn(args || {}) };
+    } catch (e) {
+        return { ok: false, error: '适配失败: ' + e.message };
+    }
+}
+
+function isEmptyShell(out) {
+    if (out === null || out === undefined) return true;
+    if (Array.isArray(out)) return out.length === 0;
+    if (typeof out !== 'object') return false;
+    var keys = Object.keys(out).filter(function (k) { return k !== 'provenance'; });
+    if (keys.length === 0) return true;
+    return keys.every(function (k) {
+        var v = out[k];
+        if (v === null || v === undefined) return true;
+        if (Array.isArray(v)) return v.length === 0;
+        if (typeof v === 'object') return Object.keys(v).length === 0;
+        if (typeof v === 'string') return v.trim() === '';
+        return false;
+    });
+}
+/* ==== /METAGO-R141-L3-ADAPT ==== */
+
 function createL3Handler(toolName, algorithmId) {
   return async (args, registry) => {
     const startTime = Date.now();
-    const result = registry.executeAlgorithmSync(algorithmId, args);
+    /* R141：先适配参数形状，再执行 */
+    const ad = adaptL3Args(toolName, args);
+    if (!ad.ok) {
+      return {
+        success: false,
+        error: ad.error,
+        provenance: ['[mcp_metago-algorithms] ' + toolName, '[R141-L3-ADAPT] ' + ad.error],
+        durationMs: Date.now() - startTime,
+      };
+    }
+    const result = registry.executeAlgorithmSync(algorithmId, ad.input);
+    /* R141：输出守卫——空壳不得报成功 */
+    if (result && result.success === true && isEmptyShell(result.output)) {
+      return {
+        success: false,
+        error: 'invalid_output: 算法返回空结果（可能是入参形状不匹配）',
+        provenance: (result.provenance || []).concat(['[R141-OUTPUT-GUARD] empty shell blocked']),
+        durationMs: Date.now() - startTime,
+        output: result.output,
+      };
+    }
     return enrichResult(result, algorithmId, registry, toolName, startTime);
   };
 }

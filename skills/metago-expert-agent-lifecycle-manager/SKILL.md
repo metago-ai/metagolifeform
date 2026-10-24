@@ -23,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 智能体工厂引擎
-- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
+- 依赖 metago-architecture-guild-team-lead 主理人调度
 - 遵循 A2 闭环公理：智能体能力必须形成闭环
 - 遵循 A3 元进化公理：智能体必须能进化自身能力
 - 遵循术语规范：使用"智能体"（中文）或"AI Agent"（英文），禁用违规格式

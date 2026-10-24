@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-10-19T12:48:29.441Z",
+  "positionalTotal": 495,
+  "callable": 474,
+  "callableRate": 1,
+  "viaShapeFile": 474,
+  "notCallable": 0,
+  "functionParamSkipped": 21,
+  "byTier": {
+    "T1": [
+      194,
+      210
+    ],
+    "T2": [
+      280,
+      285
+    ]
+  },
+  "shapeFileEntries": 927
+}

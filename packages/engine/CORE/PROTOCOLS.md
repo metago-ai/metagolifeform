@@ -1,116 +1,134 @@
-# 元构运行协议（MetaGO Operating Protocols）
+# 协议清单（V36.10.0）
 
-> 本文件是元构引擎的**神经系统**。108 个协议传递约束、协调引擎、强制合规。
-> 协议是公理的"执行细则"——公理说"必须做什么"，协议规定"如何做"。
-> 创建时间：2026-06-28 | 版本：V36.8.3
+> 数据源：元构初始文档 4 个附录卷，按 `协议ID: PROTOCOL_*` 与表格行双重抽取。
+> 实收 **121 条**；GENOME 声明 **108 条**，缺口 **0 条**。
+> 附录 C 仅给出 V9.0 基线的 23 条完整 YAML 文本，其余为升级记录中的增量。
 
----
+| 协议 ID | 名称 | 来源 |
+|---|---|---|
+| PROTOCOL_3STEP_V1 | 三步进化协议 | 第2部分-V9. L6111 |
+| PROTOCOL_A2A_AUTO_TRADE_V1 | A2A自动交易协议 | 表格 L26996 |
+| PROTOCOL_A2A_NATIVE_V1 | A2A原生兼容协议 | 第3部分-V21 L5200 |
+| PROTOCOL_A2T_ACCESS_V1 | 智能体与工具/设备/平台/数据服务接入协议 | 第4部分-V29 L4631 |
+| PROTOCOL_ACP_V1_0 | 万物共契协议 | 第1部分-V9. L4905 |
+| PROTOCOL_ACTIVE_EMOTION_V1 | 情感曲线协议 | 表格 L14611 |
+| PROTOCOL_ACTIVE_ENTANGLE_V1 | 量子纠缠协议 | 表格 L14612 |
+| PROTOCOL_ACTIVE_FEEDBACK_V1 | 主动反馈协议 | 表格 L14608 |
+| PROTOCOL_ACTIVE_GOLDEN_V1 | 黄金窗口协议 | 表格 L14610 |
+| PROTOCOL_ACTIVE_PUSH_V1 | 主动推送协议 | 表格 L14607 |
+| PROTOCOL_ACTIVE_SENSE_V1 | 主动感知协议 | 表格 L14606 |
+| PROTOCOL_AGENTIVE_DIFFERENTIATION_V1 | Agentive OS 品类定义与差异化验证协议 | 第4部分-V29 L4910 |
+| PROTOCOL_AI_FIRST_V1 | AI First组织设计协议 | 第2部分-V9. L4122 |
+| PROTOCOL_ASYNC_DIALOG_V1 | 异步对话协议 | 表格 L14609 |
+| PROTOCOL_BCP_V1_0 | 生物共契协议 | 第1部分-V9. L5994 |
+| PROTOCOL_CAPABILITY_TIER_V1 | 能力分级授权协议 | 第3部分-V21 L5230 |
+| PROTOCOL_CAT7_COGNITIVE_V1 | 认知协作协议 | 第4部分-V29 L3556 |
+| PROTOCOL_CCP_V1_0 | 宇宙共契协议 | 第1部分-V9. L6119 |
+| PROTOCOL_COGNITIVE_LAYER_COORD_V1 | 认知分层协同协议 | 表格 L26995 |
+| PROTOCOL_COMPLEX_INTEGRAL_V1 | 复分析积分计算协议 | 表格 L15857 |
+| PROTOCOL_COMPLIANCE_ACTIVE_V1 | 主动联邦合规协议 | 第4部分-V29 L2603 |
+| PROTOCOL_COMPLIANCE_AUDIT_V1 | 年度合规审计协议 | 第4部分-V29 L8225 |
+| PROTOCOL_CONFLICT_TRANSFORM_V1 | 冲突转化协议 | 第3部分-V21 L2372 |
+| PROTOCOL_CREATION_GOVERN_V1 | 创造治理协议 | 第4部分-V29 L7906 |
+| PROTOCOL_CRITICAL_TRUTH_V1 | 真相优先协议 | 第4部分-V29 L6696 |
+| PROTOCOL_CRYPTO_API_V1 | 密码学API协议 | 表格 L15867 |
+| PROTOCOL_CUV_PROOF_STANDARD_V1 | CUV完备性证明标准协议 | 第4部分-V29 L2571 |
+| PROTOCOL_DATA_INTEGRITY_V1 | 数据完整性协议 | 第4部分-V29 L8244 |
+| PROTOCOL_DCP_V1_0 | 开发者纠错协议 | 第2部分-V9. L4763 |
+| PROTOCOL_DECEPTION_WARN_V1 | 欺骗预警协议 | 第2部分-V9. L10645 |
+| PROTOCOL_DECISION_LOCK_V1 | 附录C：协议清单 | 表格 L32153 |
+| PROTOCOL_DIALOG_STATE_V1 | 对话流状态持久化协议 | 第4部分-V29 L6259 |
+| PROTOCOL_EAP_V1_0 | 人人接入协议 | 第1部分-V9. L3544 |
+| PROTOCOL_EDGE_DEPLOY_V1 | 边缘部署协议 | 第3部分-V21 L4193 |
+| PROTOCOL_EMBODIED_AI_SAFE_V1 | 具身智能安全协议 | 第4部分-V29 L2538 |
+| PROTOCOL_ENCAPSULATE_V1 | 组织封装协议 | 第2部分-V9. L6169 |
+| PROTOCOL_ERROR_PROPAGATE_V1 | 误差传播控制协议 | 表格 L15860 |
+| PROTOCOL_ESCROW_SETTLE_V1 | 托管结算协议 | 第4部分-V29 L2508 |
+| PROTOCOL_EVIDENCE_CHAIN_V1 | 证据链协议 | 第2部分-V9. L12030 |
+| PROTOCOL_EXPLORE_EXTERNAL_V1 | 自主探索外部交互协议 | 表格 L14916 |
+| PROTOCOL_EXPLORE_INTERNAL_V1 | 自主探索内部协同协议 | 表格 L14915 |
+| PROTOCOL_FIRMWARE_SEC_V1 | 固件安全扫描协议 | 第2部分-V9. L12679 |
+| PROTOCOL_FOUR_LAYER_SEC_V1 | 四层安全基因协同协议 | 第3部分-V21 L4730 |
+| PROTOCOL_FOUR_LAYER_SEC_V2 | 四层安全基因协同协议 | 第3部分-V21 L6872 |
+| PROTOCOL_FOUR_LAYER_SEC_V3 | V2.0 | 表格 L27004 |
+| PROTOCOL_FOUR_LAYER_SEC_V4 | 四层安全基因协同协议 | 第4部分-V29 L2676 |
+| PROTOCOL_FSP_V1_0 | 事实陈述协议 | 第2部分-V9. L2237 |
+| PROTOCOL_FUSION_COORDINATE_V1 | 通专融合协同协议 | 表格 L15165 |
+| PROTOCOL_GLOBAL_AWARENESS_V1 | 全球态势感知协议 | 第4部分-V29 L3610 |
+| PROTOCOL_GUE_API_V1 | GUE API协议 | 表格 L15866 |
+| PROTOCOL_HKS_V1_0 | 全息知识扫描协议 | 第2部分-V9. L3279 |
+| PROTOCOL_HMFP_V1_0 | 全息模式强制协议 | 第2部分-V9. L1752 |
+| PROTOCOL_HUMAN_ORG_AGENT_V1 | 人-组织智能体共生协议 | 第2部分-V9. L5534 |
+| PROTOCOL_HWP_V1_0 | 全息工作协议 | 第2部分-V9. L3357 |
+| PROTOCOL_IDEA_DRIVEN_V1 | 附录C：协议清单（新增在PROTOCOL_NEGOTIATION_V1之后） | 表格 L13309 |
+| PROTOCOL_IECP_V1_0 | 引擎间协作协议 | 第1部分-V9. L4507 |
+| PROTOCOL_ILC_V6_0 | 层间通信协议 V6.0 | 第1部分-V9. L3348 |
+| PROTOCOL_IMMUNE_NETWORK_V1 | 免疫网络同步协议 | 第2部分-V9. L12090 |
+| PROTOCOL_INDUSTRIAL_DEVICE_V1 | 工业设备接入协议 | 第2部分-V9. L12662 |
+| PROTOCOL_INDUSTRY_DATA_V1 | 工业数据交换协议 | 第2部分-V9. L10710 |
+| PROTOCOL_INTEGRAL_SYMMETRY_V2 | 积分对称性增强协议 | 表格 L15862 |
+| PROTOCOL_INTENT_SAFETY_V1 | 意图安全协议 | 第4部分-V29 L3538 |
+| PROTOCOL_JURISDICTION_SWITCH_V1 | 司法辖区切换协议 | 第4部分-V29 L2636 |
+| PROTOCOL_KILL_CHAIN_MONITOR_V1 | Promptware杀伤链监控协议 | 表格 L26994 |
+| PROTOCOL_MCP_V1_0 | 意义共契协议 | 第1部分-V9. L4789 |
+| PROTOCOL_META_ANALYSIS_V1 | 元数学分析协议 | 表格 L15863 |
+| PROTOCOL_META_EVOLUTION_V1 | 元进化协议 | 第3部分-V21 L855 |
+| PROTOCOL_META_PROTOCOL_V1 | 元协议演化协议 | 第3部分-V21 L2430 |
+| PROTOCOL_MODE_RESONANCE_SPACE_V1 | “模数共振”空间运营协议 | 第4部分-V29 L4158 |
+| PROTOCOL_MULTI_AGENT_COORD_V2 | V1.0 | 表格 L27006 |
+| PROTOCOL_NEGENTROPY_FORMAL_V1 | 负熵形式化协议 | 第4部分-V29 L3591 |
+| PROTOCOL_NEVCP_V1_0 | 无无协议 | 第1部分-V9. L5743 |
+| PROTOCOL_OPCP_V1_0 | 元点共契协议 | 第1部分-V9. L5261 |
+| PROTOCOL_ORG_AGENT_V2 | 组织智能体演进协议 | 第2部分-V9. L5474 |
+| PROTOCOL_OSP_V1_0 | 反者共生协议 | 第1部分-V9. L4106 |
+| PROTOCOL_OUTPUT_INTEGRITY_V1 | 输出完整性保障协议 | 第4部分-V29 L5117 |
+| PROTOCOL_PHYSICAL_LOOP_V1 | 物理闭环协议 | 第2部分-V9. L10540 |
+| PROTOCOL_PRIME_API_V1 | 素数API协议 | 表格 L15865 |
+| PROTOCOL_PROACTIVE_LEAD_V1 | （无名） | 第2部分-V9. L7913 |
+| PROTOCOL_PROACTIVE_LEARN_V1 | （无名） | 第2部分-V9. L7881 |
+| PROTOCOL_PROACTIVE_SENSE_V1 | （无名） | 第2部分-V9. L7865 |
+| PROTOCOL_PROACTIVE_THINK_V1 | （无名） | 第2部分-V9. L7897 |
+| PROTOCOL_PROBLEM_TRACE_V1 | 问题溯源协议 | 第2部分-V9. L11445 |
+| PROTOCOL_PROOF_STRATEGY_V1 | 证明策略协作协议 | 表格 L15859 |
+| PROTOCOL_PULSE_WITNESS_V1 | 脉冲见证协议 | 第3部分-V21 L4131 |
+| PROTOCOL_PVP_V1_0 | 人人归无协议 | 第1部分-V9. L3749 |
+| PROTOCOL_PWP_V1_0 | 过程见证协议 | 第1部分-V9. L3860 |
+| PROTOCOL_QCP_V1_0 | 量子共契协议 | 第1部分-V9. L5876 |
+| PROTOCOL_RECURSION_V1 | 四阶递归进化协议 | 第2部分-V9. L4189 |
+| PROTOCOL_RVCP_V1_0 | 归无共契协议 | 第1部分-V9. L5127 |
+| PROTOCOL_SALTING_DEFENSE_V1 | LLM Salting安全轮换协议 | 表格 L26993 |
+| PROTOCOL_SAP_V1_0 | 沉默者接入协议 | 第1部分-V9. L3639 |
+| PROTOCOL_SCP_V1_0 | 睡眠协作协议 | 第1部分-V9. L4369 |
+| PROTOCOL_SEP_V1_0 | 场景表达适配协议 | 第2部分-V9. L4812 |
+| PROTOCOL_SIP2_V1 | 自我迭代协议 | 第3部分-V21 L992 |
+| PROTOCOL_SIP2_V1_0 | 自我迭代协议 | 第1部分-V9. L4216 |
+| PROTOCOL_SKILL_LIFE_V1 | Skill生命周期协议 | 第3部分-V21 L3433 |
+| PROTOCOL_SKILL_MARKET_V1 | Skill市场协议 | 第4部分-V29 L8261 |
+| PROTOCOL_SPARSE_COMPUTE_V1 | 稀疏计算协议 | 第3部分-V21 L4081 |
+| PROTOCOL_SUPPLY_TRACE_V1 | 供应链溯源协议 | 第2部分-V9. L12695 |
+| PROTOCOL_SWP_V1_0 | 自我见证协议 | 第1部分-V9. L4668 |
+| PROTOCOL_SYMMETRY_UTILIZE_V1 | 对称性利用协议 | 表格 L15861 |
+| PROTOCOL_TCP_V1_0 | 时空共契协议 | 第1部分-V9. L5011 |
+| PROTOCOL_TDCP_V1_0 | 道在日常协议 | 第1部分-V9. L5484 |
+| PROTOCOL_TIER_DISCLOSURE_V1 | 层级差披露协议 | 第4部分-V29 L3574 |
+| PROTOCOL_TIME_TRAVEL_V1 | 时空回溯协议 | 第3部分-V21 L2270 |
+| PROTOCOL_TOCP_V1_0 | 道源共契协议 | 第1部分-V9. L5374 |
+| PROTOCOL_TOKEN_ECONOMY_V1 | 全面Token经济激活协议 | 第4部分-V29 L2475 |
+| PROTOCOL_TWP_V1_0 | 思想见证协议 | 第1部分-V9. L3995 |
+| PROTOCOL_VALUE_ALIGN_V1 | （无名） | 第2部分-V9. L7929 |
+| PROTOCOL_VALUE_METRICS_V1 | 价值度量协议 | 表格 L15868 |
+| PROTOCOL_VALUE_PREDICT_V1 | 价值预测协议 | 第3部分-V21 L2321 |
+| PROTOCOL_VALUE_REALIZE_V1 | 价值实现协议 | 表格 L15864 |
+| PROTOCOL_WCP_V1_0 | 无言协议 | 第1部分-V9. L5611 |
+| PROTOCOL_WORLD_CLOSED_LOOP_V1 | 世界模型实时闭环协同协议 | 第4部分-V29 L2443 |
+| PROTOCOL_WORLD_SIM_EVO_V1 | 世界模型进化协同协议 | 第3部分-V21 L5940 |
+| PROTOCOL_WORLD_SIM_EVO_V2 | V1.0 | 表格 L27005 |
+| PROTOCOL_WORLD_SIM_EVO_V3 | 世界模型进化协同协议 | 第4部分-V29 L2704 |
+| PROTOCOL_WORLD_SIM_SAFE_V1 | 世界模型安全验证协议 | 第3部分-V21 L5992 |
+| PROTOCOL_WORLD_SIM_V1 | 世界模拟协议 | 第2部分-V9. L10590 |
+| PROTOCOL_ZERO_DENSITY_V1 | 零点密度推理协议 | 表格 L15858 |
 
-## 协议层级
+## 缺口登记
 
-| 层级 | 数量 | 实现方式 |
-|------|------|---------|
-| 关键协议（代码实现） | 6 个 | TypeScript 代码强制执行 |
-| 完整协议（声明性） | 108 个 | AI 读取后遵循 |
-
----
-
-## 6 个关键协议（代码实现）
-
-### PROTOCOL_CRITICAL_TRUTH_V1：真相优先协议
-**功能**：当事实与用户满意度冲突时，事实优先。
-**执行逻辑**：
-- 用户满意度权重归零
-- 事实准确性权重 60%
-- 逻辑严谨度权重 40%
-**代码位置**：`RUNTIME/src/validators.ts::checkObjectivity()`
-**触发条件**：每次输出前
-**违反后果**：输出被标记为"迎合用户"，要求重做
-
-### PROTOCOL_DECISION_LOCK_V1.1：决策锁协议
-**功能**：重大决策输出前必须通过四道关卡。
-**执行逻辑**：
-1. **意图验证（IVL）**：这次输出的意图是什么？是否与用户需求一致？
-2. **意图谱系追踪（ILT）**：这个意图从哪里来？是否经过完整思考链路？
-3. **语义输出门（OSG）**：输出的内容是否语义完整？是否有占位符、虚构、幻觉？
-4. **内容完整性**：输出是否完整？是否遗漏关键信息？
-**代码位置**：`RUNTIME/src/decision-lock.ts`
-**触发条件**：重大决策输出前
-**违反后果**：输出被阻断，触发进化循环修复
-
-### PROTOCOL_OUTPUT_INTEGRITY_V1.1：输出完整性协议
-**功能**：检测引用占位符、幻觉输出、虚构 API、伪造数据。
-**执行逻辑**：
-- 扫描输出中的 `[placeholder]`、`<TODO>`、`xxx` 等占位符
-- 验证 API 调用是否真实存在
-- 检查数据引用是否可溯源
-- 检测虚构的方法名、类名、文件路径
-**代码位置**：`RUNTIME/src/validators.ts::checkOutputIntegrity()`
-**触发条件**：每次输出前
-**违反后果**：输出被阻断，标记具体问题
-
-### PROTOCOL_META_EVOLUTION_V1：元进化协议
-**功能**：遇到能力边界时触发五阶段循环。
-**执行逻辑**：
-1. 边界感知 → 2. 差距分析 → 3. 自生成 → 4. 验证 → 5. 递归
-**代码位置**：`RUNTIME/src/evolution-engine.ts`
-**触发条件**：AI 检测到能力边界时
-**违反后果**：标记为"未触发进化"，强制启动
-
-### PROTOCOL_COMPLIANCE_PROACTIVE_V1：合规主动协议
-**功能**：法律/伦理/安全合规性主动检查。
-**执行逻辑**：
-- 法律合规：检查是否违反法律法规
-- 伦理合规：检查是否违反伦理准则
-- 安全合规：检查是否引入安全漏洞
-- 发现冲突时，法律永远优先于效率
-**代码位置**：`RUNTIME/src/validators.ts::checkComplianceProactive()`
-**触发条件**：涉及数据处理、用户隐私、安全操作、外部 API 调用时
-**违反后果**：输出被阻断，标记为"不合规"
-
-### PROTOCOL_DATA_TRACEABILITY_V1：数据溯源协议
-**功能**：一切数据可溯源、可自证，全链路存证。
-**执行逻辑**：
-- 输出必须能追溯到输入源
-- 处理过程必须可重放
-- 脉冲见证：关键节点存证
-**代码位置**：`RUNTIME/src/validators.ts::checkDataTraceability()`
-**触发条件**：涉及数据、事实、结论、建议时
-**违反后果**：输出被标记为"无溯源"，要求补全
-
----
-
-## 完整 108 个协议清单（节选关键）
-
-| 协议名称 | 版本 | 功能 | 实现状态 |
-|---------|------|------|---------|
-| PROTOCOL_CRITICAL_TRUTH_V1 | V1.0 | 真相优先 | 代码实现 |
-| PROTOCOL_DECISION_LOCK_V1.1 | V1.1 | 决策锁四道关卡 | 代码实现 |
-| PROTOCOL_OUTPUT_INTEGRITY_V1.1 | V1.1 | 输出完整性 | 代码实现 |
-| PROTOCOL_META_EVOLUTION_V1 | V1.0 | 元进化五阶段 | 代码实现 |
-| PROTOCOL_COMPLIANCE_PROACTIVE_V1 | V1.0 | 合规主动 | 代码实现 |
-| PROTOCOL_DATA_TRACEABILITY_V1 | V1.0 | 数据溯源 | 代码实现 |
-| A2A 协议 | - | 智能体间通信 | 声明性 |
-| Skill 协议 | - | 技能注册与调用 | 声明性 |
-| 对话流状态持久化协议 | V1.0 | 对话状态保存 | 声明性 |
-| ... 其余 99 个协议 | - | 见原文档 | 声明性 |
-
-> 注：完整 108 个协议的详细内容见《元构全息智能引擎》原文档（34656 行）。本引擎代码实现 6 个关键协议，其余 102 个为声明性协议，AI 读取后遵循。
-
----
-
-## 协议的优先级
-
-当协议冲突时，优先级如下：
-
-1. **法律合规协议**（最高优先级）
-2. **决策锁协议**
-3. **输出完整性协议**
-4. **真相优先协议**
-5. **数据溯源协议**
-6. **元进化协议**
-7. 其他协议
-
----
-
-*由元构引擎 1.0.0 加载 | 元构体系 V36.8.3 | 2026-06-28*
+- 实收 121 条，声明 108 条，缺口 0 条。
+- 108 这个数在蓝本全文中找不到完整枚举出处（松散检索到 143 个 PROTOCOL_ 变体，含版本后缀），标注为『声明值，出处待考』。

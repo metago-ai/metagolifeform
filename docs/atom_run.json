@@ -1,0 +1,50 @@
+{
+ "total": 597,
+ "ok": 586,
+ "noNumeric": 0,
+ "err": 4,
+ "nullAtoms": [
+  {
+   "id": "ATOM_VOID_WITNESS_150",
+   "action": "见证「放下」是否真的发生",
+   "domain": "无效条目 > 有效条目 → 未完成归无；标记废弃却仍被引用 → 残留",
+   "src": "元创造V36.11"
+  },
+  {
+   "id": "ATOM_WORD_BEING_153",
+   "action": "输出是否忠实于输入、未加修饰",
+   "domain": "含绝对化表述（绝对/100%/完美/必然…）→ 违背；声称已验证但无输入依据 → 违背",
+   "src": "元创造V36.11"
+  },
+  {
+   "id": "ATOM_WORD_DECIDE_151",
+   "action": "置信不足时正确的决策是「不决策」",
+   "domain": "置信度 < 阈值却给出决策 → 违背；无置信度却给结论 → 违背",
+   "src": "元创造V36.11"
+  },
+  {
+   "id": "ATOM_WORD_DISSOLVE_152",
+   "action": "消解人为制造的二元对立",
+   "domain": "同一对象同时属 category 与 antiCategory → 违背；声明二元分类却无对象落入 → 违背",
+   "src": "元创造V36.11"
+  },
+  {
+   "id": "ATOM_WORD_TEACH_154",
+   "action": "以结构/示范传达，而非说教文本",
+   "domain": "说教用语 ≥2 处且无示例无结构 → 违背；纯文字说明 >40 字无结构 → 违背",
+   "src": "元创造V36.11"
+  },
+  {
+   "id": "ATOM_ACCESSIBLE_SIGN_507",
+   "action": "转换/映射",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  },
+  {
+   "id": "ATOM_BIO_NEURAL_021",
+   "action": "—",
+   "domain": "—",
+   "src": "蓝本原有契约"
+  }
+ ]
+}

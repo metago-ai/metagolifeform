@@ -19,7 +19,7 @@ const { execSync } = require('child_process');
 
 // 36.9.3 修复：期望版本动态读取根 package.json，杜绝「发布忘改验收」类漂移
 const EXPECTED_VERSION = (() => { try { return require('../package.json').version; } catch { return '36.9.6'; } })();
-const EXPECTED_ENGINE = '2.1.1';
+const EXPECTED_ENGINE = '2.1.3';
 const MIN_SKILLS = 90;
 const HOME = os.homedir();
 const IS_WIN = process.platform === 'win32';
@@ -338,7 +338,7 @@ const hasVersion = content.includes('V' + EXPECTED_VERSION); // 36.9.3 修复：
     return { pass: correct, detail: correct ? pkg.version : `期望 ${EXPECTED_VERSION}, 实际 ${pkg.version}` };
   });
 
-  check('2.3', 'Engine 版本为 2.1.1', () => {
+  check('2.3', 'Engine 版本为 2.1.3', () => {
     const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim();
     const pkgPath = path.join(globalRoot, 'metago-lifeform', 'package.json');
     const pkg = safeReadJSON(pkgPath);

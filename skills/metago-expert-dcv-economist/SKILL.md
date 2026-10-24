@@ -23,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ DCV 价值引擎
-- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
+- 依赖 metago-architecture-guild-team-lead 主理人调度
 - 数据源：行为日志、产出记录、创新档案、增长指标
 - 遵循 A1 溯源公理：一切评分必须可溯源至原始数据
 

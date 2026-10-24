@@ -5,12 +5,12 @@
     "type": "object",
     "properties": {
       "a": {
-        "type": "array",
-        "description": "文本 A"
+        "type": "string",
+        "description": "文本 A（**字符串**，不是数组；算法内部自行分词）"
       },
       "b": {
-        "type": "array",
-        "description": "文本 B"
+        "type": "string",
+        "description": "文本 B（**字符串**，不是数组）"
       }
     },
     "required": [
@@ -18,6 +18,12 @@
       "b"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "a": "机器学习和人工智能",
+        "b": "深度学习与神经网络"
+      }
+    ]
   }
 }

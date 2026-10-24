@@ -68,7 +68,10 @@ const NODE_PLATFORM_CONFIGS = {
       { name: 'mcp_metago-skill-server-2', command: 'metago-skill-server-2', tools: 40 },
       { name: 'mcp_metago-skill-server-3', command: 'metago-skill-server-3', tools: 36 },
       { name: 'mcp_metago-toolkit', command: 'metago-toolkit', tools: 20 },
-      { name: 'integrated_browser', command: 'npx', args: ['@playwright/mcp@latest'], tools: 15 }
+      // tools=24：@playwright/mcp v0.0.79 实际暴露 24 个 browser_* 工具（安装记录与
+      // 现网活体实测均为 24）。此处原写 15（更早版本计数），而该字段会被安装流程消费并
+      // 写进法则 §18.9 的服务器表与工具总数——留着旧值等于把错数字印进法则。
+      { name: 'integrated_browser', command: 'npx', args: ['@playwright/mcp@latest'], tools: 24 }
     ]
   },
   'claude-code': {

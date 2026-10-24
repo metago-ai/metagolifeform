@@ -1,0 +1,2949 @@
+{
+ "version": "V36.10.0",
+ "generatedBy": "D:\\metago-build\\facts.py",
+ "principle": "权威值 = 可机器验证的实测值；拿不到实测的取蓝本声明并标注为『声明值』；有冲突就明写，不做调和",
+ "facts": {
+  "algorithms_registered": {
+   "value": 927,
+   "unit": "条",
+   "evidence": [
+    "registry.js: REGISTRY 条目数（node 实测 getRegistry().length）"
+   ],
+   "note": "注册条目总数；不等于可执行数"
+  },
+  "algorithms_tier_T1": {
+   "value": 300,
+   "unit": "条",
+   "evidence": [
+    "node: getRegistry().filter(tier=T1).length"
+   ],
+   "note": ""
+  },
+  "algorithms_tier_T2": {
+   "value": 400,
+   "unit": "条",
+   "evidence": [
+    "node: getRegistry().filter(tier=T2).length"
+   ],
+   "note": ""
+  },
+  "algorithms_tier_T3": {
+   "value": 227,
+   "unit": "条",
+   "evidence": [
+    "node: getRegistry().filter(tier=T3).length"
+   ],
+   "note": ""
+  },
+  "algorithms_with_handler": {
+   "value": 700,
+   "unit": "条",
+   "evidence": [
+    "node: 227 条 T3 无 handler；700 条 T1+T2 有 handler"
+   ],
+   "note": "V36.10.0 起 T3 已由 t3impl 补齐 handler，运行时有效 handler 数 = 927"
+  },
+  "algorithms_executable_verified": {
+   "value": 227,
+   "unit": "条",
+   "evidence": [
+    "t3impl/verify-all.cjs：T3 逐条执行 227 通过 / 0 失败"
+   ],
+   "note": "仅 T3 完成了逐条真实执行验收；T1/T2 未做同等验收"
+  },
+  "skills_installed": {
+   "value": 111,
+   "unit": "个",
+   "evidence": [
+    "D:\\DSH-Official\\home\\skills 目录数（实测 111，其中 metago-* 111）"
+   ],
+   "note": ""
+  },
+  "mcp_servers_configured": {
+   "value": 6,
+   "unit": "个",
+   "evidence": [
+    "运行时 6 组：metago / metago-algorithms / playwright / yili / web-session-api / scrapling"
+   ],
+   "note": ""
+  },
+  "mcp_tools_total": {
+   "value": 162,
+   "unit": "个",
+   "evidence": [
+    "metago=55 + metago-algorithms=57 + playwright=24 + yili=14 + web-session-api=7 + scrapling=5"
+   ],
+   "note": ""
+  },
+  "axioms_declared": {
+   "value": 36,
+   "unit": "条",
+   "evidence": [
+    "engine/GENOME.json genome.axioms.total"
+   ],
+   "note": "自述声明值，非运行时枚举数"
+  },
+  "attributes_declared": {
+   "value": 43,
+   "unit": "条",
+   "evidence": [
+    "engine/GENOME.json genome.attributes.total"
+   ],
+   "note": "自述声明值"
+  },
+  "protocols_declared": {
+   "value": 108,
+   "unit": "条",
+   "evidence": [
+    "engine/GENOME.json genome.protocols.total"
+   ],
+   "note": "自述声明值"
+  },
+  "engines_declared": {
+   "value": 125,
+   "unit": "条",
+   "evidence": [
+    "engine/GENOME.json genome.engines.total",
+    "engine/INDEX/engines.json total"
+   ],
+   "note": ""
+  },
+  "atoms_declared": {
+   "value": 984,
+   "unit": "条",
+   "evidence": [
+    "engine/GENOME.json genome.atoms.total"
+   ],
+   "note": "自述声明值"
+  },
+  "patents_declared": {
+   "value": 754,
+   "unit": "件",
+   "evidence": [
+    "engine/GENOME.json genome.patents.total"
+   ],
+   "note": ""
+  },
+  "value_dimensions_declared": {
+   "value": 31,
+   "unit": "维",
+   "evidence": [
+    "engine/GENOME.json genome.value_dimensions"
+   ],
+   "note": ""
+  },
+  "meta_ideologies_declared": {
+   "value": 19,
+   "unit": "个",
+   "evidence": [
+    "engine/GENOME.json genome.meta_ideologies"
+   ],
+   "note": ""
+  },
+  "capability_families_declared": {
+   "value": 13,
+   "unit": "个",
+   "evidence": [
+    "engine/GENOME.json genome.capability_families"
+   ],
+   "note": ""
+  },
+  "axioms_in_engine_file": {
+   "value": 38,
+   "unit": "条",
+   "evidence": [
+    "engine/CONSTITUTION/AXIOMS.md 中出现的 A 编号去重数"
+   ],
+   "note": "V36.10.0 起由蓝本抽取注入（原 12 条）"
+  },
+  "attributes_in_engine_file": {
+   "value": 47,
+   "unit": "条",
+   "evidence": [
+    "engine/CORE/ATTRIBUTES.md 中出现的 D 编号去重数"
+   ],
+   "note": "V36.10.0 起由蓝本抽取注入（原 11 条）"
+  },
+  "protocols_in_engine_file": {
+   "value": 121,
+   "unit": "条",
+   "evidence": [
+    "engine/CORE/PROTOCOLS.md 中出现的 PROTOCOL_ 编号去重数"
+   ],
+   "note": ""
+  },
+  "axioms_in_agents": {
+   "value": 38,
+   "unit": "条",
+   "evidence": [
+    "AGENTS.md 第一章 基因行（45条根本属性 + 38条核心公理）"
+   ],
+   "note": "与同一文件第二章表格的 10 条不一致"
+  },
+  "attributes_in_agents": {
+   "value": 45,
+   "unit": "条",
+   "evidence": [
+    "AGENTS.md 第一章 基因行"
+   ],
+   "note": "与同一文件第三章表格的 9 条不一致"
+  },
+  "mcp_tools_in_agents_18_9": {
+   "value": 112,
+   "unit": "个",
+   "evidence": [
+    "AGENTS.md §18.9 AUTO-GENERATED 表"
+   ],
+   "note": ""
+  },
+  "mcp_servers_in_agents_19_6": {
+   "value": 3,
+   "unit": "个",
+   "evidence": [
+    "AGENTS.md §19.6 手写段落"
+   ],
+   "note": ""
+  },
+  "mcp_tools_in_agents_19_6": {
+   "value": 136,
+   "unit": "个",
+   "evidence": [
+    "AGENTS.md §19.6 手写段落"
+   ],
+   "note": ""
+  },
+  "attributes_in_blueprint": {
+   "value": 43,
+   "unit": "条",
+   "evidence": [
+    "附录卷-索引.md V36.3-DATA-INTEGRITY 最终指标"
+   ],
+   "note": ""
+  },
+  "axioms_in_blueprint": {
+   "value": 36,
+   "unit": "条",
+   "evidence": [
+    "附录卷-索引.md V36.3-DATA-INTEGRITY 最终指标"
+   ],
+   "note": ""
+  },
+  "blueprint_lines": {
+   "value": 34656,
+   "unit": "行",
+   "evidence": [
+    "D:\\元构能力\\元构全息智能引擎.txt"
+   ],
+   "note": ""
+  },
+  "blueprint_chars": {
+   "value": 750763,
+   "unit": "字符",
+   "evidence": [
+    "同上"
+   ],
+   "note": ""
+  },
+  "blueprint_hits_D38": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_D44": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_D45": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_A37": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_A38": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_第一性原理": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_对抗式审查": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "blueprint_hits_批判分级": {
+   "value": 0,
+   "unit": "次",
+   "evidence": [
+    "对 34,655 行原文全文计数"
+   ],
+   "note": "0 表示该锚点在蓝本中不存在"
+  },
+  "axioms_attributes_in_metago_activate": {
+   "value": 79,
+   "unit": "条",
+   "evidence": [
+    "skills/metago-activate/SKILL.md 正文"
+   ],
+   "note": "意义不明的第三种口径"
+  },
+  "attributes_in_metago_core": {
+   "value": 43,
+   "unit": "条",
+   "evidence": [
+    "skills/metago-core/SKILL.md"
+   ],
+   "note": ""
+  },
+  "axioms_in_metago_core": {
+   "value": 36,
+   "unit": "条",
+   "evidence": [
+    "skills/metago-core/SKILL.md"
+   ],
+   "note": ""
+  },
+  "axioms_historical_43": {
+   "value": 43,
+   "unit": "条",
+   "evidence": [
+    "元构全息文档体系-第一卷-哲学与理论体系.md L747-750（audit-fix 原文）",
+    "意图五公理表 A39-A43 见同文件 L752-758"
+   ],
+   "note": "对外口径「43 公理」曾因编号撞车被认定重复计数，去重后 41；重编号为 A39-A43 后恢复 43 个不同编号"
+  },
+  "axioms_after_dedup": {
+   "value": 41,
+   "unit": "条",
+   "evidence": [
+    "第一卷 L749：去重后应为 41"
+   ],
+   "note": "修复前中间值，非现行值"
+  },
+  "axioms_in_blueprint_v36_3": {
+   "value": 36,
+   "unit": "条",
+   "evidence": [
+    "附录卷-索引.md V36.3-DATA-INTEGRITY 最终指标"
+   ],
+   "note": "V36.3 时代值，尚未含 A37/A38（V36.9.2）与 A39-A43（V37.0）"
+  },
+  "attributes_upper_bound": {
+   "value": 47,
+   "unit": "条",
+   "evidence": [
+    "第一卷 L750：易理两属性 D46/D47"
+   ],
+   "note": "D1..D45 + 易理 D46/D47 = 47；AGENTS 的 45 未含易理两条"
+  },
+  "engines_in_blueprint": {
+   "value": 161,
+   "unit": "条",
+   "evidence": [
+    "4卷按 引擎ID: ENGINE_* 与表格行双重抽取"
+   ],
+   "note": "GENOME 声明 125，蓝本实收 161（更多）"
+  },
+  "algorithms_positional_total": {
+   "value": 495,
+   "unit": "条",
+   "evidence": [
+    "形参名 >1 的算法数"
+   ],
+   "note": "需入参适配"
+  },
+  "algorithms_positional_callable": {
+   "value": 474,
+   "unit": "条",
+   "evidence": [
+    "wire-shapes.cjs 实测：多形态重试，任一种跑通即计"
+   ],
+   "note": "可调通 474 / 可测 474 = 100%；另 21 条含函数型形参，MCP JSON 协议结构性不可传"
+  },
+  "algorithms_positional_not_callable": {
+   "value": 0,
+   "unit": "条",
+   "evidence": [
+    "wire-shapes.cjs"
+   ],
+   "note": "已清零"
+  },
+  "algorithms_shape_samples": {
+   "value": 355,
+   "unit": "条",
+   "evidence": [
+    "shapes.json"
+   ],
+   "note": "shapes.json 精确样例（含 Map 型以 __map__ 标记）"
+  },
+  "atoms_compute": {
+   "value": 50,
+   "unit": "条",
+   "evidence": [
+    "atoms/verify.cjs: compute 47 通过 47/失败 0"
+   ],
+   "note": "compute 类真实实现数"
+  },
+  "atoms_forms": {
+   "value": 523,
+   "unit": "条",
+   "evidence": [
+    "compute 手写 50 条：atoms/engine.cjs，verify.cjs 50/50",
+    "generic-contract 工厂 468 条：atoms/atom-factory.cjs，468/468 符合契约",
+    "constraint 约束器 5 条：atoms/constraints.cjs，10/10 用例通过"
+   ],
+   "note": "597 条登记原子中，523 条已有明确存在形态；其余为 external(需模型) 与 template(结构化生成，未实现)"
+  },
+  "atoms_constraint": {
+   "value": 5,
+   "unit": "条",
+   "evidence": [
+    "atoms/constraints.cjs 自测 10/10 通过"
+   ],
+   "note": "哲学族原子（归无/如是/沉默/概念消融/无言之教）以约束器形态实现，非计算函数"
+  },
+  "algorithms_silent_nan_before": {
+   "value": 147,
+   "unit": "条",
+   "evidence": [
+    "nan-scanner.cjs 全量扫描 746 条可执行算法（2026-10-18）"
+   ],
+   "note": "在错误类型输入下返回 NaN/Infinity 却仍报 success；其中 63 条实现内完全没有输入校验"
+  },
+  "algorithms_silent_nan_after": {
+   "value": 0,
+   "unit": "条",
+   "evidence": [
+    "nan-scanner.cjs 修正口径后复扫：扫描 693 条 success 结果，NaN 污染 0；另 53 条被子系统拦截（非静默）"
+   ],
+   "note": "由平台层输出守卫拦截，而非逐条修改 vendor 算法"
+  },
+  "output_guard": {
+   "value": "installed",
+   "unit": "-",
+   "evidence": [
+    "registry.js 末尾 METAGO-OUTPUT-GUARD-V36.11 段：包装 executeAlgorithmSync / executeAlgorithm",
+    "bind.cjs inspectOutput：递归 depth>4 检查 NaN/Infinity",
+    "实测 ALG_T1_V_009 错误输入 → success:false, reason=INVALID_OUTPUT"
+   ],
+   "note": "平台层守卫，不改动任何算法实现；正确输入照常通过（T3 227/227、位置多参 474/474 均未受影响）"
+  },
+  "algorithms_fn_param_total": {
+   "value": 21,
+   "unit": "条",
+   "evidence": [
+    "list-fn-params.cjs 全量扫描 927 条注册表"
+   ],
+   "note": "形参名匹配函数型（rng/scoreFn/evolveFn/objective/lossFn 等）"
+  },
+  "algorithms_fn_param_callable": {
+   "value": 21,
+   "unit": "条",
+   "evidence": [
+    "final21.cjs 全部 success:true"
+   ],
+   "note": "经函数桥接器（字符串表达式 → 编译为函数）后全部可调；MCP 侧传字符串即可"
+  },
+  "fn_bridge": {
+   "value": "installed",
+   "unit": "-",
+   "evidence": [
+    "t3impl/fn-bridge.cjs：受限表达式编译，10/10 自测通过",
+    "bind.cjs 在 run() 中 hydrate：字符串形参自动编译",
+    "安全边界：禁 require/process/global/eval/Function/import，长度上限 512"
+   ],
+   "note": "把「MCP 无法传函数」从结构性不可解变为可解；仅适用于本地可信环境"
+  },
+  "atoms_specialized": {
+   "value": 350,
+   "unit": "条",
+   "evidence": [
+    "atoms/specialized.cjs：22 个语义算子，自测 22/22",
+    "按功能描述关键词路由：classify 47 / fusion 33 / trend 26 / monitor 19 / optimize 13 …",
+    "atom-factory 自测：583/583 仍符合契约"
+   ],
+   "note": "39 个语义算子覆盖 350/583 = 60.0%"
+  },
+  "atoms_specialization_rate": {
+   "value": 0.664,
+   "unit": "比例",
+   "evidence": [
+    "185 / 583"
+   ],
+   "note": "有效覆盖（特化+近似）387/583"
+  },
+  "atoms_three_tier": {
+   "value": "350 / 37 / 196",
+   "unit": "条",
+   "evidence": [
+    "一级 特化算子 350 条（39 个算子，自测 39/39）",
+    "二级 近似算子 37 条（7 个算子，标 approximated:true）",
+    "三级 通用模板 196 条",
+    "atom-factory 自测：583/583 符合契约"
+   ],
+   "note": "三级均符合契约（583/583），差别在语义分辨率而非完成度：一级 350 条原子个体级 / 二级 37 条近似 / 三级 196 条动作类别级（14 套动作模板）"
+  },
+  "atoms_approximate": {
+   "value": 47,
+   "unit": "条",
+   "evidence": [
+    "approx.cjs：translate/explain/report/triage/assess/match/plan 七个近似算子，自测 7/7"
+   ],
+   "note": "需模型类任务的确定性近似；输出强制带 approximated:true 与 limits，不假装是模型输出"
+  },
+  "mcp_health_verified": {
+   "value": "6 / 6",
+   "unit": "组",
+   "evidence": [
+    "scripts/mcp-all-health.cjs 逐组 MCP 握手 + tools/list",
+    "metago 55 ｜ metago-algorithms 57 ｜ playwright 24 ｜ web-session-api 7 ｜ yili 14 ｜ scrapling 5",
+    "工具合计 162，与改造前一致（未增未删）"
+   ],
+   "note": "证明本次改造未破坏任何现有 MCP 能力；verify-package K5 断言已固化"
+  },
+  "mutation_testing": {
+   "value": "4 / 4",
+   "unit": "捕获",
+   "evidence": [
+    "scripts/mutation-test.cjs：VERSION写错→A3 ｜ 挖空AXIOMS→E4 ｜ 破坏FACTS→F1 ｜ 删契约卷→K1",
+    "全部 4 个变异均被对应断言捕获；变异在临时副本上做，真实包不受影响"
+   ],
+   "note": "变异测试用于证明断言非空；首次运行即发现 K1 为真空断言（DEF-003）"
+  },
+  "scripts_localized": {
+   "value": 16,
+   "unit": "个文件",
+   "evidence": [
+    "扫描 23 处硬编码外部路径（npm 12/构建区 7/DSH home 4）",
+    "全部改为 __pick([本地, 外部]) 逐级回退",
+    "三方一致性核对：包内 = 构建区 = npm，SHA256 逐一相同"
+   ],
+   "note": "修复过程自身引入 3 个 bug（路径层级错、丢 require 外壳、给路径加了 require），均已修正并验证"
+  },
+  "atoms_coverage_semantics": {
+   "value": "387 个体级 + 196 动作级",
+   "unit": "条",
+   "evidence": [
+    "一级 39 个特化算子覆盖 350 条（原子个体级）",
+    "二级 7 个近似算子覆盖 37 条（个体级，标 approximated）",
+    "三级 14 套动作模板覆盖 196 条（动作类别级）",
+    "atom-factory 自测：583/583 符合契约"
+   ],
+   "note": "196 条主体为基础设施类与需语义理解类，个体级数学专化对它们无意义；按动作类别给出标准形态是正确做法，非未完成"
+  },
+  "atoms_external_reclassified": {
+   "value": 4,
+   "unit": "条",
+   "evidence": [
+    "ATOM_SECURITY_ENCRYPT_603 → AES-256-GCM 真加密（Node crypto，随机 IV + authTag）",
+    "ATOM_SECURITY_DECRYPT_604 → 真解密（密钥错/篡改 → DECRYPT_FAILED）",
+    "ATOM_EMOTION_RECOG_502 → 词库+标点+程度规则分类（5 类+中性，否定词正确处理）",
+    "ATOM_ACCESSIBLE_READ_506 → 结构化分块 + SSML 生成（仅 TTS 环节需外部）",
+    "自测 9/9；工厂路径实调 7/7；加解密往返一致"
+   ],
+   "note": "此前误判为 EXTERNAL_NEEDED（需模型/外部）；复核确认纯 JS 可实现。需外部原子由 9 条降为 5 条。"
+  },
+  "atoms_external_remaining": {
+   "value": 5,
+   "unit": "条",
+   "evidence": [
+    "神经元接口器 → 需脑机接口硬件",
+    "跨物种感知器 → 需生物信号采集设备",
+    "引力波感知器 → 需 LIGO/Virgo 数据源",
+    "分布式存在器 → 多星球物理部署，物理不可实现",
+    "手语翻译器 → 需计算机视觉模型"
+   ],
+   "note": "逐条复核确认均为真实外部依赖，非误判；按诚实原则保持 success:false 明确拒绝"
+  },
+  "shapes_schema_validated": {
+   "value": "0 冲突",
+   "unit": "处",
+   "evidence": [
+    "以算法自声明 inputSchema 为 ground truth，逐形参比对样例实际类型",
+    "初次 39 处 → 精修规则后 8 处 → 修正后 0 处",
+    "修正涉及：zThreshold / multiplier / iterations / confidence / sequences / thresholds 元素结构",
+    "修正后 wire-shapes 474/474、fn-params 21/21、T3 227/227 全部保持"
+   ],
+   "note": "inputSchema 不声明元素级结构，故元素结构错配需读源码核对（已发现 DEF-007）"
+  },
+  "shapes_element_fields_validated": {
+   "value": "0 错配",
+   "unit": "处",
+   "evidence": [
+    "从 handler 源码提取「对形参元素」的属性访问（如 t.max / values[i].timestamp）",
+    "比对样例元素是否真的含这些字段；缺字段则该分支永不进入 → 静默失效",
+    "初次 66 处 → 剔除内置属性误报后 63 处真实错配 → 按字段名语义补全后 0 处",
+    "修正后 wire-shapes 474/474、fn-params 21/21、T3 227/227、schema 0 冲突 全部保持"
+   ],
+   "note": "这是 DEF-007 类缺陷的系统性排查；inputSchema 不声明元素结构，只能靠源码静态提取"
+  },
+  "hollow_output_reduced": {
+   "value": "47 → 18",
+   "unit": "条",
+   "evidence": [
+    "空壳输出扫描：样例输入下所有业务字段皆空",
+    "初版 47 条 → 修复矩阵结构/空数组/标量误判后 18 条",
+    "剩余 18 条多为「无异常→空告警列表」这类正确结论，需逐条确认"
+   ],
+   "note": "空壳不等于缺陷：告警类算法在正常数据下返回空列表是正确结论"
+  },
+  "hollow_output_final": {
+   "value": "4 条 / 1.4%",
+   "unit": "-",
+   "evidence": [
+    "空壳（样例输入下所有业务字段皆空）从 47 条降到 4 条",
+    "手法：矩阵结构修正 + 空数组补语义数据 + 标量参数纠正 + 17 条手工语义样例",
+    "剩余 4 条：V_007 价值冲突 / L_011 推理规则匹配 / T2_N_018 负熵优化 / T2_T_004 时间异常检测",
+    "这 4 条多为「输入本身不构成冲突/异常」→ 空结果是正确结论"
+   ],
+   "note": "空壳 ≠ 缺陷：告警/检测类算法在正常输入下返回空列表是正确结论"
+  },
+  "atoms_hollow_and_responsive": {
+   "value": "空壳 0% ｜ 响应 586/587",
+   "unit": "-",
+   "evidence": [
+    "scripts/atom-hollow-scan.cjs：587 条可执行原子，三组输入下皆无空壳",
+    "scripts/atom-responsive-scan.cjs：586/587 随输入变化；1 条（解密器）两组输入均缺密文字段，正确报错",
+    "K8/K9 已固化为包内断言"
+   ],
+   "note": "把算法层验证有效的空壳扫描与响应性扫描方法移植到原子层"
+  },
+  "t12_coverage": {
+   "value": "700/700 全部实跑成功（100%）",
+   "unit": "条",
+   "evidence": [
+    "起点：仅 474 条位置多参被验证，324 条从未被测试覆盖，实跑成功仅 304",
+    "九轮修复：参数级类型推断 → 解构/属性推断 → 结构线索 → 领域语义词典 → 逐族手工 → 解包纠正 → 属性链提取 → 完整源码精读",
+    "实跑成功 304 → 495 → 597 → 621 → 634 → 647 → 662 → 671 → 678 → 689 → 695 → 698 → 700",
+    "每条都经过实跑验证（success 或 degraded 才算通过）"
+   ],
+   "note": "T1/T2 700 条全部可调通；样本形状经 K6（schema 一致）与 K7（元素字段完整）双重校验"
+  },
+  "bind_markers": {
+   "value": "Map / Set / RegExp / Function 四类标记",
+   "unit": "-",
+   "evidence": [
+    "__map__ → Map（保留 entries）",
+    "__set__ → Set",
+    "__regex__ → RegExp",
+    "__fn__ → 编译为真函数（走 fn-bridge 的安全规则）",
+    "revive 放行原生实例，不破坏调用方直传的 Map/Set/RegExp"
+   ],
+   "note": "JSON 无法表达这些类型，用标记承载使 MCP 调用方可传入结构化输入"
+  },
+  "single_nonpositional_rule": {
+   "value": "1 形参且 positional=false → 输入即该参数值",
+   "unit": "-",
+   "evidence": [
+    "bind 对单参非位置型直接把整个输入当第一个实参传给 handler",
+    "因此样例必须是「参数值本身」，不能写成 {参数名: 值}",
+    "此规则在 432 条 T1/T2 算法上成立；反复踩到后固化为检查项"
+   ],
+   "note": "这是本次覆盖缺口修复中最高频的错误来源"
+  },
+  "remaining11_nature": {
+   "value": 0,
+   "unit": "条",
+   "evidence": [
+    "原剩余 11 条已全部解决"
+   ],
+   "note": "最后几条的关键：ALG_T1_R_012 的 inputs 是对象而非数组（需 membership 映射）；ALG_T2_K_009 的 sequence 是排序策略字符串而非键序列；ALG_T2_M_004 的 relations 是 [a,b] 对数组"
+  },
+  "law_reality_sync": {
+   "value": "已同步",
+   "unit": "-",
+   "evidence": [
+    "AGENTS.md 算法覆盖表更新为 T1 300/300、T2 400/400、T3 227/227、合计 927/927",
+    "新增「三种易错传参形态」条款：位置参数型 / 单参非位置型 / 结构化输入",
+    "新增四类标记说明：__map__ / __set__ / __regex__ / __fn__",
+    "清除旧表述「T1/T2 仍有约 95 个未通过」"
+   ],
+   "note": "法则必须与现实一致：实测变了而法则没改，等于法则在说谎"
+  },
+  "blueprint_metrics_table": {
+   "value": "已建立",
+   "unit": "-",
+   "evidence": [
+    "总索引新增「历史声称与技术实测对照」章节",
+    "实测：公理 38 / 属性 47 / 协议 121 / 引擎 161 / 原子 597 / 算法 927 / 技能 116",
+    "逐条复核 5 类条目计数，与对照表完全一致",
+    "各卷历史声称（43 公理 / 984 原子 / 108 协议 / 125 引擎）标注为版本演进记录，不改写"
+   ],
+   "note": "解法不是改写历史，而是给出唯一权威口径 + 判定规则；「43 是编号空间上界不是公理条数」「984 是规划口径不是登记数」已写明"
+  },
+  "reference_migration": {
+   "value": "活文档 0 处未迁移",
+   "unit": "处",
+   "evidence": [
+    "扫描 116 个活文档（$DSH_HOME/*.md + skills/**/*.md，排除备份与归档）",
+    "初次审计命中大量旧引用，逐条核实后确认均为备份目录/.metago-* 快照",
+    "最后 1 处（metago-action-plan/SKILL.md）原为「已废止」说明但未指向新源，已改为指向 元构初始文档/附录卷",
+    "复扫结果：未迁移旧引用 0 处"
+   ],
+   "note": "判定规则：备份/归档目录内的旧引用属历史快照，不改写；活文档必须已迁移或加注"
+  },
+  "install_consistency": {
+   "value": "33/33 一致",
+   "unit": "项",
+   "evidence": [
+    "包内 33 类产物 → 活系统对应文件逐项 SHA256 比对",
+    "初查：27 一致 / 0 不同 / 6 缺失 → 补齐后 33/33 一致",
+    "scripts/ 目录新增安装 42 个文件",
+    "K10 断言固化：17 个关键文件每次验收都做 SHA256 比对"
+   ],
+   "note": "「包里有」不等于「系统里有」；安装一致性必须机器校验，不能靠人记得"
+  },
+  "version_alignment": {
+   "value": "9 / 9 包全部对齐",
+   "unit": "个",
+   "evidence": [
+    "9 个全局包的 rules_version 全部统一为 V36.11.0（原先 5 个缺失/落后）",
+    "metago-lifeform 的 version 由 36.9.6 → 36.11.0（它是体系版本号载体）",
+    "全部 package.json 经 Python 校验合法（9/9）",
+    "MCP 6 组服务器全部正常（162 工具）；T3 算法跨目录执行成功"
+   ],
+   "note": "回滚点：D:\\metago-build\\backup-versions-20261018-195558（9 个 package.json 原件）"
+  },
+  "vendor_deviations": {
+   "value": 0,
+   "unit": "项",
+   "evidence": [
+    "原登记 5 项 vendor rules_version 偏差，本轮已全部对齐，偏差清单清零"
+   ],
+   "note": "VERSIONS.json 的 deviations 数组已置空"
+  },
+  "skills_audit": {
+   "value": "112 个技能，问题 0 处",
+   "unit": "个",
+   "evidence": [
+    "口径：技能数 = SKILL.md 数量（不含附属文件）",
+    "$DSH_HOME/skills 下 112 个 SKILL.md；另有 5 个附属文件不计数",
+    "补建 metago-fabric-guide 后由 111 → 112",
+    "7 项审计（frontmatter/name/description/命名一致/描述长度/正文长度/重名）全部通过",
+    "AGENTS.md §18.10 标称 100，已在表后加「实测 112」口径注",
+    "抽查易理族(11)、思想族(19)、专家扩展族(5) 均在本会话技能目录中注册"
+   ],
+   "note": "此前长期报「116 项」，是把文件总数当成了技能数"
+  },
+  "mcp_tools_callable": {
+   "value": "112 / 112",
+   "unit": "个",
+   "evidence": [
+    "按每个工具的 inputSchema 构造最小合法参数，逐个真实调用一次",
+    "metago 55/55 ｜ metago-algorithms 57/57",
+    "修复前：111/112（metago_memory_manage 报 isError）",
+    "修复 DEF-016 后：112/112 全部可调用"
+   ],
+   "note": "「tools/list 列出 55 个工具」不等于「55 个都能调用」——这是本轮新增的验证层次"
+  },
+  "mcp_guide_quality": {
+   "value": "39 / 39 三要素齐全",
+   "unit": "个",
+   "evidence": [
+    "MCP 服务器 dist/skills-data.js 含 39 个技能的 guide 字段",
+    "判据：触发条件 / 执行流程 / 输出格式 三要素齐全且 ≥80 字",
+    "结果：39/39 全部齐全，缺口 0",
+    "guide 字数区间 105-308 字，定位为「MCP 场景精简版」而非全文副本"
+   ],
+   "note": "此前的「39 条不同源」判断是错误判据造成的误报，已纠正——guide 本就该是精简版，不需要等于 SKILL.md"
+  },
+  "metago_tool_nature": {
+   "value": "硬驱动 4 / 软驱动 45 / 其它 6",
+   "unit": "个",
+   "evidence": [
+    "55 个 metago 工具逐个真实调用，按输出形态判定性质",
+    "硬驱动（调用真实 Engine 代码）：meta_evolve / meta_create / memory_manage / decision_lock",
+    "软驱动（返回技能指南 + 输入回显，prompt tool 模式）：45 个",
+    "其它 6 个为测试脚本参数构造不当导致，非工具缺陷",
+    "本轮把 decision_lock 从软驱动升级为硬驱动（接入 DecisionLock 真实现）"
+   ],
+   "note": "软驱动是合法的 MCP prompt tool 模式，不是缺陷；但必须如实标注，避免调用方误以为在计算"
+  },
+  "hard_driven_tools": {
+   "value": "12 个",
+   "unit": "个",
+   "evidence": [
+    "R88 decision_lock / R89 output_integrity + self_check",
+    "R102 compliance / objectivity / data_provenance / critique",
+    "R103 emotion（真实情绪分类，6 类 + 中性）",
+    "R104 negentropy_monitor（负熵 = 1 − 归一化 Shannon 熵）",
+    "实测负熵：高度集中 [100,1,1,1,1] → 0.8656；均匀 [10×5] → 0；含数字文本可自动抽取；无数字时明确说明「需至少 2 个数值」而非编造"
+   ],
+   "note": "其余 37 个为 prompt tool 模式（合法设计，把技能指南注入模型上下文）"
+  },
+  "validator_robustness": {
+   "value": "PASS",
+   "unit": "-",
+   "evidence": [
+    "AxiomValidator.validateAll：7 类边界输入（空串/对象/数组/null/undefined/超长/特殊字符）全部不崩溃",
+    "DecisionLock.validate：修复前 4/7 崩溃，修复后 7/7 正常",
+    "15 项公理校验中：5 项无参数属自述型、其余需按语义传参才有效",
+    "随输入变化的校验型至少 4 项（checkProvenance / checkClosure / checkDataTraceability / checkOutputIntegrity）"
+   ],
+   "note": "校验器的鲁棒性本身需要校验——这是本轮新增的验证维度"
+  },
+  "type_safety": {
+   "value": "20/20 入口不崩溃",
+   "unit": "个",
+   "evidence": [
+    "静态：11 个 JS 文件共 45 处直接调用字符串/数组方法",
+    "动态：20 个公开入口（AxiomValidator 10 + DecisionLock 4 + KMWI 4 + Perception 2）",
+    "修复前 13 个崩溃，修复后 0 个",
+    "回归：引擎加载 12 项导出正常；13 项系统回归全绿；MCP 6/6 组 162 工具 PASS"
+   ],
+   "note": "这是本轮从「零散发现」升级为「系统性排查」的成果：同类缺陷不再一个个碰"
+  },
+  "blueprint_integrity": {
+   "value": "16 卷 · 实测 PASS",
+   "unit": "卷",
+   "evidence": [
+    "递归判据扫空章节：0 处（首轮 300 处为误报）",
+    "严格占位符：0 处真实占位（首轮 25 处为功能描述文本）",
+    "代码围栏配对：修复前 2 卷为奇数（69/447），修复后全部偶数（70/448）",
+    "断裂表格 0 处；重复标题 0 处（首轮 40 处为跨版本同名章节，属正常）",
+    "KMWI 记忆持久化往返：四层写入→落盘→重载→读回 内容全部一致"
+   ],
+   "note": "16 卷共 43,518 行 / 1.96 MB；内容完整，仅 1 类渲染层缺陷已修复"
+  },
+  "law_references": {
+   "value": "0 处悬空",
+   "unit": "处",
+   "evidence": [
+    "四类核查：绝对路径 7 个（含 1 个 glob，命中 10 个文件）｜ 脚本 10 个 ｜ bash CLI 命令 0 个 ｜ 技能引用 14 个",
+    "首轮误报 17 处（判据问题），修正后真实 3 处，全部修复",
+    "修复：装 18 个脚本到 $DSH_HOME/scripts；2 处失效命令改指向真实脚本；断言数 27→29",
+    "复扫：缺失路径 0 ｜ 脚本 0 ｜ 命令 0 ｜ 技能 0"
+   ],
+   "note": "法则里每一条「可以这样复核」的承诺，都必须真的能跑通"
+  },
+  "plugin_dual_copy": {
+   "value": "关键文件 4/4 一致，已回灌",
+   "unit": "-",
+   "evidence": [
+    "profile 的 package.json 用 `file:D:/.../metago-dsh-lifeform/packages/metago-lifeform-dsh`",
+    "node_modules 里是实体拷贝（非符号链接）→ 下次 pnpm install 会用源码覆盖",
+    "比对：lib/index.js、lib/client.js、package.json、patch/cordis.patch.yml 四者 SHA256 一致",
+    "patch/preset.patch.yml 原先不一致（源码 13140B / 已装 14014B）→ 已回灌，现一致",
+    "源码另有 40 个 src/ 构建文件（正常，安装只带 lib/ + patch/）"
+   ],
+   "note": "关键教训：修在 node_modules 里不算修好——源码才是源头，下次安装会覆盖"
+  },
+  "vendor_patch_selfheal": {
+   "value": "8 组补丁可自愈",
+   "unit": "组",
+   "evidence": [
+    "P1 explicitForm 判空 / P3 validateAll 归一 / P4 占位符扩宽 / P5 公理校验归一",
+    "P6 DecisionLock 归一 / P7 四道关卡归一 / P8 感知层归一 / P2 KMWI 四层归一",
+    "reapply-patches.cjs：补丁逻辑内联在单文件，不依赖外部目录；幂等；支持 --check",
+    "K12 断言：包验收每次运行都检查 8 组补丁在位",
+    "实际结果：8/8 在位，语法校验 4 文件全 OK，引擎 12 导出正常，MCP 6/6"
+   ],
+   "note": "这条与 DEF-024 同源：修在派生产物里不算修好。区别是 vendor 包无法回灌源码，只能用可重放补丁 + 断言守护"
+  },
+  "op_semantics": {
+   "value": "39 算子 · 86 项语义断言全通过",
+   "unit": "个",
+   "evidence": [
+    "覆盖：分布(entropy/gini)、位置(median/iqr/rank/zscore)、趋势、阈值、风险、稳定性、聚合、分配、覆盖、密度、加权、校准、分类、投票、账本、学习",
+    "断言方式：已知数学性质（如 gini 相等=0、z分均值≈0、threshold 语义标签、record 链可验证）",
+    "首轮 28 项：通过 19 / 失败 9 → 逐条核实 6 项为我方期望错、3 项为真实歧义（已修）",
+    "全量 86 项：通过 86 / 失败 0（修正 2 处我方断言后）",
+    "K13 断言固化进包验收（31 项）"
+   ],
+   "note": "这是第 4 层验证深度：存在性 → 可调用 → 形状 → 语义。前 3 层全绿时第 4 层仍可能全错"
+  },
+  "algo_semantics": {
+   "value": "34 项数学不变量全通过",
+   "unit": "项",
+   "evidence": [
+    "自反性：cosine(A,A)=1、欧氏/曼哈顿/切比雪夫 d(A,A)=0、jaccard/dice(A,A)=1、pearson/spearman/kendall(A,A)=1",
+    "同向性：cosine(A,2A)=1、pearson(A,2A)=1",
+    "反向性：pearson(A,反序)=-1、spearman=-1、kendall=-1",
+    "度量公理：非负、对称 d(a,b)=d(b,a)、三角不等式 d(A,C) ≤ d(A,D)+d(D,C)",
+    "取值域：cosine/jaccard/dice ∈[0,1]、pearson ∈[-1,1]",
+    "具体值：欧氏(0,[3,4,0])=5、曼哈顿=7、切比雪夫=4、cov=样本协方差、加权余弦自反=1",
+    "边界：加权余弦权重维度不符 → 0（不崩）；2-gram Jaccard 完全不同=0、部分=0.3846"
+   ],
+   "note": "此前 927 条只验「能跑通」，本层验「算得对」。这是第 4 层验证深度在算法层的落地"
+  },
+  "atom_coverage": {
+   "value": "590 实现 + 2 外部 + 5 约束 = 597",
+   "unit": "条",
+   "evidence": [
+    "契约总数 597；工厂生成实现 590，符合契约 590，不符合 0",
+    "跳过（需模型/外部）由 5 降到 2",
+    "本轮新实现 3 个曾被判需外部的原子：",
+    "  ATOM_COSMIC_GRAVITY_032  引力波匹配滤波（归一化互相关峰值即 SNR；注入 chirp 后 SNR 8.8、峰值落在注入区）",
+    "  ATOM_COSMIC_DISTRIBUTE_030 CRDT 式多实例融合（Lamport 时钟优先 + 中位数 + 冲突检测）",
+    "  ATOM_BIO_SPECIES_025     客观声学特征（ZCR/RMS/自相关基频/频谱质心），明确标注不做语义翻译",
+    "仍外部的 2 个：ATOM_ACCESSIBLE_SIGN_507（需手语视频理解模型）、ATOM_BIO_NEURAL_021（需脑电+意图解码器）"
+   ],
+   "note": "判据：能转成确定性可计算问题的就真算；必须依赖模型/传感器的诚实保留为外部，不假造"
+  },
+  "doc_consistency": {
+   "value": "口径已同步",
+   "unit": "-",
+   "evidence": [
+    "陈旧数字扫描：命中 35 处，分类后确认真需更新 4 处 + 补 2 处",
+    "AGENTS.md：K1-K11 共 29 项 → K1-K14 共 32 项（两处）",
+    "总索引：verify-package 27 项 → 32 项；新增「其中已实现 590」「仍为外部依赖 2」两行",
+    "总索引技能数 116 → 112（改为 SKILL.md 计数口径）",
+    "交付报告生成器硬编码 28 → 32",
+    "包↔活系统差异 3 处（AGENTS/总索引/mutation-test）已同步 → 33/33 一致"
+   ],
+   "note": "误命中包括：原子 ID `ATOM_CLUSTER_MONITOR_587`、专利号 `P587`、历史记录里的旧数字——不改"
+  },
+  "output_pollution": {
+   "value": "0 / 694",
+   "unit": "条",
+   "evidence": [
+    "初测 103 条 success 但输出含 NaN/Inf/全 null",
+    "六轮修复：自动规则 → 读源码手工构造（数组的数组 / 对象数组 / 嵌套对象 / 函数型形参）→ 读辅助函数定义",
+    "末 2 条的根因：辅助函数在 engine/algorithms/t2/{idea,intuition}-engine-algorithms.js 里，需 idea.content 为字符串、constraints.resources/technology/time 为数值、signals 元素含 source/confidence",
+    "清零后 K15 由「≤2 且全在已知例外内」收紧为「必须 = 0」",
+    "全程未破坏：700/700 实跑、474/474 位置多参、K6、K7、慢算法 0 条"
+   ],
+   "note": "口径：递归检查输出所有层级，统计 NaN / Infinity / 长度≥2 的全 null 数组"
+  },
+  "scripts_inventory": {
+   "value": "122 个装机脚本 + 39 个归档开发脚本",
+   "unit": "个",
+   "evidence": [
+    "初查 157 个脚本，其中 42 个无任何引用（一次性修缺陷/临时探查）",
+    "归档后误删 3 个（arch-lint.cjs / metago-arch-cli.cjs / audit_law_references.py）——它们被代码而非文档引用，我的判据只查了文档",
+    "恢复后复验：包验收 33/33、MCP 6/6、安装一致性 33/33、架构 CLI 1.1.0 可运行",
+    "MANIFEST.json 记录装机清单与归档清单，便于审计"
+   ],
+   "note": "清理目的不是减体积，而是让「产品能力」与「修复记录」分开"
+  },
+  "global_install": {
+   "value": "scoped 3/3 + 非 scoped 4/4",
+   "unit": "包",
+   "evidence": [
+    "scoped（@metago-ai/）：algorithms / engine / mcp-server —— 各按 package.json 校验",
+    "非 scoped（node_modules/）：metago-lifeform / metago-cli / metago-completeness-kit / metago-veracity-kit",
+    "全局命令：metago-lifeform、metago-algorithms 均在 PATH",
+    "跨目录可用：从 C:\\ 加载注册表 927 条、T3 227 条、执行成功",
+    "架构治理：metago-arch-gov 1.1.0 可运行（metago-lifeform arch version）"
+   ],
+   "note": "原审计脚本只认 scoped 位置，误报 lifeform/algorithms-cli 缺失——已修（DEF-031）"
+  },
+  "atom_doc_coverage": {
+   "value": "597 / 597 全部有文档（0 个从未提及）",
+   "unit": "个",
+   "evidence": [
+    "ATOMS.md 权威清单 597 个唯一 ID",
+    "16 卷合计提及 849 个唯一 ID（含部分历史/别名写法）",
+    "清单内 597 个原子，**在 16 卷中从未被提及的 = 0**",
+    "分布：附录卷-原子契约补全 477 ｜ 第1部分 355 ｜ 第2部分 275 ｜ 第4部分 126 ｜ 第3部分 100 ｜ 第二卷 4 ｜ 第七卷 3 ｜ 总索引 2",
+    "附录卷单独只有 477 —— 因为它是「补全卷」，只文档化原 4 卷未覆盖的部分；其余在原卷中",
+    "6 卷（哲学/方法论/经济/空间智能体/知识产权/产品工程）提及 0 个原子，符合其定位（非原子清单类卷）"
+   ],
+   "note": "结论：文档覆盖完整。我最初按「附录卷 477 ≠ 清单 597」怀疑缺 120 个契约，核实后不成立"
+  },
+  "law_capability_counts": {
+   "value": "6 服务器 / 162 工具 / 112 技能（实测权威值）",
+   "unit": "-",
+   "evidence": [
+    "metago 55 ｜ metago-algorithms 57 ｜ playwright 24 ｜ web-session-api 7 ｜ yili 14 ｜ scrapling 5",
+    "合计 162，来源 mcp-all-health.cjs（6/6 PASS）",
+    "技能 112，来源 audit_skills.py（112 个 SKILL.md，0 问题）",
+    "AGENTS.md §19.6 已替换为上述实测表并声明「凡有矛盾以此为准」"
+   ],
+   "note": "§18.9/§18.10 的自动生成表保留原样但标注为快照，避免与安装脚本的生成结果冲突"
+  },
+  "blueprint_claims_verified": {
+   "value": "5 / 5 与实体清单一致",
+   "unit": "项",
+   "evidence": [
+    "核心公理 38 —— CONSTITUTION/AXIOMS.md 表格首列 A\\d{1,3} 唯一行数",
+    "根本属性 47 —— CORE/ATTRIBUTES.md 表格首列 D\\d{1,3} 唯一行数",
+    "运行协议 121 —— CORE/PROTOCOLS.md 表格首列 PROTOCOL_* 唯一行数",
+    "引擎 161 —— INDEX/ENGINES.md 中 ENGINE_* 唯一 ID 数",
+    "原子 597 —— CORE/ATOMS.md 中 ATOM_* 唯一 ID 数",
+    "已固化为包验收 K16；蓝本里五项「判定方法」描述同步改正"
+   ],
+   "note": "原总索引把核心公理判定方法写成「^## A\\d 行数」，但该文件是表格格式——方法描述本身有误，已修正"
+  },
+  "clean_env_verification": {
+   "value": "19 / 19 全绿（不设任何 METAGO_* 变量）",
+   "unit": "项",
+   "evidence": [
+    "包验收 34/34 ｜ T1/T2 700/700 ｜ 输出洁净度 0 条 ｜ K6/K7 PASS",
+    "算子语义 86 ｜ 算法不变量 34 ｜ MCP 6 组 ｜ 112 工具可调用 ｜ 补丁 13 组",
+    "原子工厂 PASS ｜ 契约校验 0 失败 ｜ 蓝本五项声明一致 ｜ 脚本期望一致",
+    "技能审计 112/0 问题 ｜ 安装一致性 33 ｜ 全局安装 scoped 3/3 + 非scoped 4/4",
+    "技能注册审计、蓝本完整性 rc=0",
+    "对照：本轮首次跑出 12 项失败，全部源于「我的检查器用 python 跑 .cjs」——不是被测对象的问题"
+   ],
+   "note": "干净环境 = 只删 METAGO_PYTHON / METAGO_VERIFY_DIR / METAGO_MEMORY_HOME，其余原样"
+  },
+  "portability": {
+   "value": "CWD 无关 4/4 目录 ｜ 临时副本 8/8",
+   "unit": "-",
+   "evidence": [
+    "CWD 无关性：从 C:\\、C:\\Users\\MetaGO、工作区、D:\\metago-build 四个目录调用同一批 14 个脚本，全部 14/14 PASS",
+    "包可移植性：整包（33.1 MB / 6,113 文件）复制到系统临时目录，8 个核心脚本全部 PASS",
+    "结构完整性：package.json / AGENTS.md / scripts / skills / agents / docs / core / verify-package.cjs / README / LICENSE 10/10 齐备",
+    "环境依赖：不设任何 METAGO_* 变量"
+   ],
+   "note": "结论：脚本不依赖 CWD，包拷到别处可用"
+  },
+  "platform_adapters": {
+   "value": "11 / 11 差异化的 V36.11.0",
+   "unit": "个",
+   "evidence": [
+    "升级前：11 个平台文件停留在 V36.9.1–V36.9.6，且 cursor/chatgpt/kimi×2 缺失",
+    "第一次升级后：版本对了（V36.11.0），但 11 个文件 SHA256 全同（7d9acfc4aff1）——适配未生效",
+    "根因：替换表只认「Trae」，母本已改为「DeepSeek Harness」",
+    "修复后：11 个模板 SHA256 各不同；每个含本平台名 18–21 次；DeepSeek Harness 残留 0",
+    "已装入用户目录 11 个位置（备份 backup-platforms-20261018-211624）",
+    "内容审计：版本 V36.11.0 ｜ 1557 行 ｜ 占位符 0 ｜ 缺章节 0 ｜ 无 BOM ｜ 无交叉污染"
+   ],
+   "note": "教训：只查「版本对/占位符清/章节齐」看不出适配失效——必须查「11 个文件是否真的不一样」"
+  },
+  "skills_in_package": {
+   "value": "112 / 112（与装机一致）",
+   "unit": "个",
+   "evidence": [
+    "补齐前：包内 101 ｜ 装机 112 ｜ 差 11 个易理族技能",
+    "补齐后：包内 112 ｜ 装机 112 ｜ 差集为空",
+    "11 个技能内容有实质：输入/输出/红线齐备（约 450-500 B，非空壳）",
+    "引擎引用已从硬编码 D:\\DH工作区 改为 yili MCP 的 14 个工具"
+   ],
+   "note": "差异集中在「后续补充的族」，说明安装包制作时漏同步了一整族"
+  },
+  "differentiation": {
+   "value": "7 / 7 组全部差异化",
+   "unit": "组",
+   "evidence": [
+    "平台适配模板 11 个 → 唯一哈希 11（修复后）",
+    "专家团 agents 35 个 → 唯一哈希 35",
+    "技能 SKILL.md 112 个 → 唯一哈希 112（补齐后）",
+    "子包 package.json 8 个 → 唯一哈希 8",
+    "文档卷 19 个 → 唯一哈希 19",
+    "两套 kit 同名文件 → 无同名同内容"
+   ],
+   "note": "此审计是 DEF-037 的通用化产物：查「应当不同的东西是否真的不同」"
+  },
+  "udgk": {
+   "value": "真实实现，端到端可用",
+   "unit": "-",
+   "evidence": [
+    "udgk/ 下 7 个文件，verify-delivery.cjs 12.3 KB / visual-regression.cjs 10 KB / init-delivery.cjs 5.7 KB",
+    "端到端冒烟：init 建出 delivery.config.json + docs/rtm.md + e2e/asserts/ + .visual-baseline/{baseline,current}/",
+    "空 RTM 跑 verify-delivery：正确报 FAIL（2 失败 / 6 项检查），不误判 PASS",
+    "门禁 2/4 报「e2e/asserts 下无断言文件」、3/4 报「无 PNG 基线截图」——判定具体可执行",
+    "修 DEF-041 后 init 输出 [CREATED] e2e/asserts/"
+   ],
+   "note": "UDGK 不是空壳：四重门禁会真的拦人"
+  },
+  "reference_integrity": {
+   "value": "0 处悬空引用",
+   "unit": "处",
+   "evidence": [
+    "scripts/ 引用 16 个 → 全部存在",
+    "MCP 工具/prompt 引用 26 个 → 实测 tools 55 + prompts 8，全部可对应",
+    "技能引用 114 个 → 全部已安装（排除 18 个非技能名：包名/仓库名/目录名/文件名/特性名/云环境 ID/路径片段）",
+    "packages/ 路径引用 12 个 → 全部可解析",
+    "两轮修正判据后才归零：首轮误报 23 处、次轮误报 2 处"
+   ],
+   "note": "关键：MCP prompts 与 tools 是两套命名空间，不能混检"
+  },
+  "checker_teeth": {
+   "value": "24 / 24 检查器均有可到达的失败分支",
+   "unit": "个",
+   "evidence": [
+    "审计对象 24 个判定型脚本（verify-package / t12 / 各类 scan / audit / verify_* 等）",
+    "静态判据：脚本内是否存在 .ok=false / pass:false / FAIL / ✗ / fail++ / process.exit( / sys.exit( / 「需关注」 / 三元判定 等失败路径",
+    "首轮报 7 个「无牙」，逐个复查后 6 个是我的模式太窄（CORR-024），1 个是真的（audit_install.py 无判定无退出码）",
+    "修复后 24/24 全部有牙",
+    "verify-package.cjs：34 个 chk() 调用（A1–A3,B1–B2,C1,D1–D2,E1–E5,F1,G1,H1,I1,J1,K1–K16），第三参数为字面量 true/false 的 0 处"
+   ],
+   "note": "无牙的检查器只能证明「自己跑过」，不能证明「被测对象有问题」"
+  },
+  "assertion_quality": {
+   "value": "0 处恒真断言",
+   "unit": "处",
+   "evidence": [
+    "审计 8 个测试集：ops-semantic / algo-semantic-invariants / t3test / contract-validator / atom-hollow-scan / mutation-test / verify-package / audit-expectations",
+    "恒真模式 7 类：assert(true) / T(name,true) / ok(true) / expect(true) / x===x / if(true) / 1===1",
+    "结果：全部 0 处命中",
+    "三种断言写法都认：函数式（T/assert/ok/expect/check）、计数式（pass++/fail++）、收集式（issues.push/hollowAll.push）",
+    "verify-package.cjs 34 个 chk() 的第三参数全部是变量表达式，无字面量 true/false"
+   ],
+   "note": "两轮才做对：首轮只认函数式，把 4 个用计数式/收集式的测试集误报为 0 条断言"
+  },
+  "gate_exit_codes": {
+   "value": "23 / 23 门禁类检查器均有退出码",
+   "unit": "个",
+   "evidence": [
+    "规则：被验证流程引用（clean_env_verify / verify-package / 文档列为门禁）的检查器必须有退出码",
+    "本轮补齐：t12-full-scan / schema-vs-shape / find-hangs / audit_install / audit_skills / audit_global / audit_law_references2 / atom-hollow-scan / atom-responsive-scan / element-field-scan / empty-output-scan / reference_audit2 / verify_blueprint_claims3",
+    "实跑确认：reference_audit2 退出码 0（无悬空引用）｜ verify_blueprint_claims3 退出码 0（五项一致）",
+    "判据收窄：报告器（add_k*/fix_*/locate_*) 不强制退出码 —— 它们不承担门禁职责"
+   ],
+   "note": "两轮修正才做对：首版把「有判定行」当充分条件（过宽），第二版收窄到「门禁类」"
+  },
+  "full_regression": {
+   "value": "29 / 29 全绿（五层，一条命令）",
+   "unit": "项",
+   "evidence": [
+    "命令：python $DSH_HOME/scripts/full-regression.py",
+    "L1 功能层 5 项：包验收 34 / 算法 927 / 输出洁净 / 原子契约 / 原子工厂",
+    "L2 语义层 8 项：算子语义 86 / 算法不变量 34 / K6 / K7 / 原子空壳 / MCP 6 组 / 112 可调用 / 补丁 13",
+    "L3 一致性层 10 项：引用审计 / 蓝本声明 / 包↔装机 / 差异化 / 期望核对 / 安装 33 / 技能 / 全局安装 / 蓝本完整性 / 技能注册",
+    "L4 环境层 3 项：干净环境 19 / CWD 56 / 可移植 8",
+    "L5 元层 3 项：检查器有牙 24 / 断言无恒真 / 蓝本声明",
+    "快速模式：--fast 只跑 L1+L2（13 项）；--layer N 只跑某层"
+   ],
+   "note": "DEF-044/045 的教训固化为「一条命令全量回归」——改完立刻跑，3 分钟内发现问题"
+  },
+  "skill_depth": {
+   "value": "112 / 112 技能均有 ≥2 类方法结构",
+   "unit": "个",
+   "evidence": [
+    "正文字节分布（修补后）：<300 = 0 ｜ 300-600 = 5 ｜ 600-1500 = 77 ｜ >1500 = 30",
+    "章节数分布：>8 章 = 58 ｜ 6-8 章 = 37 ｜ 3-5 章 = 16 ｜ <3 章 = 1（metago-core，已重写）",
+    "本轮补方法论 13 个专家技能；重写 1 个知识索引技能",
+    "方法结构识别覆盖 6 类：输入/前置、步骤/框架、输出、标准/验证、错误/红线、示例",
+    "技能审计：112 个，0 问题"
+   ],
+   "note": "判据两轮才准：首版只认「输入/步骤/输出/标准/错误/示例」六种章节名，把元思想族的「前置条件/推理框架/验证方法」判成方法不足"
+  },
+  "stale_number_sweep": {
+   "value": "当前声明层 0 处残旧数字",
+   "unit": "处",
+   "evidence": [
+    "首轮扫描命中 56 处：25 处疑似当前声明 + 31 处历史叙述",
+    "真正需改的 3 处：metago-architecture-guild-team-lead（43属性→47、36公理→38、31维→29维）、metago-meta-thoughts（V36.9.4→V36.11.0）、docs/rtm.md 版本口径缺口（已关闭）",
+    "蓝本「元构全息文档体系-第二卷/第七卷」属原文层：984 原子 / 125 引擎是 V36.8/V37.0 当时事实，改写会让历史失真 → 保留（第七卷已自带口径校正注记）",
+    "修正判据后复扫：13 处全部归入历史叙述，当前声明 0 处",
+    "全量回归 29/29 全绿"
+   ],
+   "note": "关键判断：不是所有旧数字都要改——历史层记录的是当时的事实，改了就失真"
+  },
+  "agent_and_prompt_depth": {
+   "value": "agents 35/35 有方法结构 ｜ prompts 8/8 可调用",
+   "unit": "-",
+   "evidence": [
+    "agents/ 35 个定义：正文 644–800 B（1 个 800-2000），全部 ≥2 类方法结构，<300 B 档为 0",
+    "agents 比技能短是合理的：智能体定义「角色与职责边界」，具体方法论在对应技能里",
+    "MCP prompts 8 个：逐个 prompts/get 全部成功，每个返回 2 条消息（user 提问 + assistant 启动）",
+    "返回内容 90–218 B，形态为「对话开场」——这是 MCP prompt 的标准用法，具体技术在工具/技能里",
+    "prompts 测试已加入全量回归 L2"
+   ],
+   "note": "此前只验 prompts/list 能列出，未验能否调用；现已端到端验证"
+  },
+  "harddriven_responsive": {
+   "value": "9 / 9 硬驱动工具按输入计算",
+   "unit": "个",
+   "evidence": [
+    "测试方法：每个硬驱动工具传两组语义相反的输入，比较「结论段」是否不同",
+    "首轮 6 响应 / 3 判同；追查发现 3 个中只有 decision_lock 是真问题（关键词缺词），另 2 个（output_integrity / data_provenance）是 validator 给出粗粒度判定，两组输入确实同为 PASS",
+    "结论：validator 类工具「不同输入同结论」是合法的——判定粒度粗不等于没用输入",
+    "修复 DEF-049 后 decision_lock 对两组输入已能区分（一组 PASS 一组 WARNING）"
+   ],
+   "note": "教训：判据不能假设「输入不同→结论必不同」，粗粒度校验器的结论天然可能相同"
+  },
+  "vendor_patches": {
+   "value": "14 / 14 组补丁在位",
+   "unit": "组",
+   "evidence": [
+    "原 13 组，本轮新增 P18（engine decision-lock.js 的 ILT 中文推理词补齐，DEF-049）",
+    "reapply-patches.cjs --check：共 14 组 ｜ 通过 14 ｜ 需处理 0",
+    "三个验证脚本（clean_env_verify2 / cwd_independence / full-regression）的期望串已同步 13→14"
+   ],
+   "note": "补丁组数变化必须同步更新所有验证脚本的期望串，否则会误报失败"
+  },
+  "mcp_availability": {
+   "value": "6 / 6 服务器 · 162 工具（修复后恢复）",
+   "unit": "-",
+   "evidence": [
+    "事故期：decision-lock.js 有 157 份重复块 → engine 无法 require → mcp-server 起不来 → 112 工具全不可用",
+    "修复后：mcp-all-health 6/6 PASS（metago 55 / algorithms 57 / playwright 24 / web-session-api 7 / yili 14 / scrapling 5）",
+    "补丁幂等：patch-dedupe.cjs --check 通过（DC_NORMALIZED 1 份 / handleAxiomCheck 1 份）",
+    "冒烟测试已跳过 fix|patch|wire|install 类脚本，不再改动引擎"
+   ],
+   "note": "最大教训：只读检查与写副作用脚本必须分开执行"
+  },
+  "script_syntax_gate": {
+   "value": "443 / 443 文件语法正确",
+   "unit": "个",
+   "evidence": [
+    "覆盖三类：HOME scripts 174 + PKG scripts 174 + vendor @metago-ai 95（合计去重 443）",
+    "判据：node --check（JS）/ ast.parse（Python）—— 语法层权威判定",
+    "结果：失败 0",
+    "已加入全量回归 L5"
+   ],
+   "note": "替代「执行式冒烟」：只解析不执行，既快又不会触发写副作用脚本（DEF-053 的教训）"
+  },
+  "three_delivery_forms": {
+   "value": "三种形态全部可交付",
+   "unit": "种",
+   "evidence": [
+    "完整目录：6,165 文件 / 33 MB（全量交付）",
+    "离线安装版：local-edition，offline tgz 1.75 MB + portable 1,025 文件，自检 59/59",
+    "npm 发布版：tarball 1,025 文件，关键资产齐全（skills 117 / agents 35 / docs 22 / adapters 22 / plugins 583 / scripts 190），解包后跑 5 个核心脚本全部通过",
+    "三种形态均由同源生成，不是各自维护"
+   ],
+   "note": "本轮把离线包和 npm 包都重打了一遍，确保「全套最新」"
+  },
+  "version_consistency": {
+   "value": "26 / 26 项版本一致（V36.11）",
+   "unit": "项",
+   "evidence": [
+    "9 个 npm 包：rules_version 全部 V36.11.0（version 各自 semver：algorithms 1.0.3 / engine 2.1.3 / mcp-server 1.3.4 / dev-kit 1.1.2 / verify-kit 1.1.4 / lifeform 36.11.0 / cli 1.1.0 / completeness-kit 1.0.0 / veracity-kit 1.0.0）",
+    "交付包 + VERSION + AGENTS.md + 离线 portable：全部 36.11.x / V36.11.0",
+    "11 平台适配法则：全部 V36.11.0",
+    "蓝本产出卷（总索引-V36.11 / 附录卷-原子契约补全-V36.11）：V36.11",
+    "蓝本原文层 13 卷豁免：卷内标的是「该卷写就时的版本」（V36.3/V36.8），改写即失真"
+   ],
+   "note": "首轮误报 22 项：把「子包自有 semver」和「原文层历史标注」当成不一致（CORR-035）"
+  },
+  "end_to_end_capability": {
+   "value": "技能 → 引擎 端到端可执行（已实证）",
+   "unit": "-",
+   "evidence": [
+    "技能发现：skill('metago-core') 加载成功，返回的是本轮重写后的权威数字表",
+    "技能发现：skill('metago-bazi') 加载成功，含 yili MCP 14 工具的真实引用",
+    "易理引擎：yili_bazi_calc(1984-06-15 10时 男) 返回完整四柱『甲子 庚午 庚辰 辛巳』+ 十神/藏干/纳音/五行力量/大运，并附规则编号 R-BZ-01 与置信度『结构100%（不做命运论断）』",
+    "算法引擎：cosine_similarity([1,2,3],[2,4,6]) 返回 score=1，provenance 链完整（mcp_metago-algorithms → engine.executeAlgorithmSync → ALG_T1_C_001）",
+    "MCP 工具：112/112 可调用；6 服务器健康 6/6"
+   ],
+   "note": "这是「全部能力真实可用」的行为级证据：不是文件存在，而是真的算出了结果"
+  },
+  "cli_subcommands": {
+   "value": "11 个子命令，只读类 3/3 实测通过",
+   "unit": "个",
+   "evidence": [
+    "metago-lifeform help 列出 11 个子命令：install / setup-mcp / plugin-pack / uninstall / verify / list-backups / restore-backup / cleanup-backups / arch / version（含 --help）",
+    "实测只读类 3 个：version（rc=0）、arch version（rc=0，返回 metago-arch-gov 1.1.0）、list-backups（rc=0，列出 3 个历史备份）",
+    "未执行的 5 个（install/setup-mcp/uninstall/restore-backup/cleanup-backups）会改系统，按纪律不擅自跑"
+   ],
+   "note": "此前只验过 --help，这次真跑了子命令"
+  },
+  "cli_capability_chains": {
+   "value": "plugin-pack 4 套 / arch 治理链全通",
+   "unit": "-",
+   "evidence": [
+    "plugin-pack --format all：生成 4 套（agent-plugins-1.0.0 / claude / codex / zcode），共 582 文件",
+    "各套清单在平台约定路径：plugin.json / .claude-plugin/plugin.json / .codex-plugin/plugin.json / .zcode-plugin/plugin.json —— 全部有清单",
+    "arch init：在临时项目生成 arch.config.json（档位 B，含 tier/check 两键）",
+    "arch check：扫描 2 文件，分层覆盖 2，覆盖率 100%，违规 0 → ✅ PASS：依赖方向与命名合规",
+    "两条链均加入全量回归 L5（当前 33 项）"
+   ],
+   "note": "此前只测过 --help 与 version；这次真跑了会产出东西的两条链"
+  },
+  "completeness_governance": {
+   "value": "已就位：覆盖可量、缺口可查",
+   "unit": "-",
+   "evidence": [
+    "config target → AGENTS.md（20 章），baselines.dirs → kit 的 7 组基线（共 259 项检查点）",
+    "verify 实测：覆盖 71/259（27%），B5 元构法则组已全覆盖",
+    "未覆盖的 190 项按基线分 7 组登记进 completeness-gaps.json（可见的缺口优于隐藏的完美）",
+    "B5 缺口已关闭（补 traceId 后不再缺）",
+    "新增 completeness-gate.py 加入回归 L5：检查 target 存在 / 覆盖率非 0 / 未覆盖项已登记"
+   ],
+   "note": "「可见的缺口优于隐藏的完美」——治理的价值不在全绿，在于缺口可见可追"
+  },
+  "mandatory_gates": {
+   "value": "两道强制门均可用",
+   "unit": "道",
+   "evidence": [
+    "memory-guard：3 通过 / 3 警告 / 0 失败（硬失败 0）→ ✅ L4 冻记忆层可用，退出码 0",
+    "project_memory.md 已建立：项目 / 决策 / 术语 / 交付 / 待办 五章齐全 + 凭证区说明",
+    "veracity-guard report 传入报告文本 → 提取事实断言 + 对账 + 出证实率与判定",
+    "两道门均加入回归 L5（guard-chain-gate.py）"
+   ],
+   "note": "「门」的价值在于它真的能开也能关；一个永远关着的门等于墙"
+  },
+  "hook_platform_scope": {
+   "value": "hooks 仅 zcode/claude-code 生效；DSH 上明确不生效",
+   "unit": "-",
+   "evidence": [
+    "元构 hooks 脚本实存：completeness-kit/hooks/{hooks.json, scripts/pre-tool-use-guard.cjs, scripts/stop-verify.cjs}",
+    "kit 配置明写 hooks.platforms = [\"zcode\", \"claude-code\"]",
+    "$DSH_HOME 下无任何 hooks 配置文件；DSH 侧无法确证 hook 扩展点（app.asar 为归档）",
+    "已在 AGENTS.md 完整性治理条款补第 6 条「平台适用性（hooks 不跨平台生效）」",
+    "明确 DSH 上的等价机制：法则条款（软）+ full-regression.py（硬，须主动运行）+ 两个 guard（须主动运行）",
+    "并写明红线：禁止声称「钩子会自动拦住」"
+   ],
+   "note": "诚实声明优于假装挂了——用户不会因为「没自动跑」踩坑，只会因为「以为自动跑了」踩坑"
+  },
+  "rtm_integrity": {
+   "value": "183 条需求 / R1–R183 连续 / 证据全非空",
+   "unit": "条",
+   "evidence": [
+    "锚定正则 ^\\|\\s*R\\d{2,3}\\s*\\| 计数：HOME 与 PKG 各 183 行",
+    "唯一编号 183（无重复）；范围 R1–R183（无断档）",
+    "证据列为空的行：0",
+    "已加入全量回归 L3（rtm-gate.py）"
+   ],
+   "note": "首轮误判「断档 R20–R99」是因为用子串包含筛行，漏计了 R20–R99 那 80 行（CORR-038）"
+  },
+  "placeholder_free": {
+   "value": "0 个真占位符（340 文件全扫）",
+   "unit": "处",
+   "evidence": [
+    "扫描范围：AGENTS.md / project_memory.md / skills / scripts / docs / metago(蓝本)，共 340 个文件",
+    "首轮命中 118 处，逐条核实后全部为「讨论占位符检测」的文本（技能说明、审计判据、红线条款）",
+    "二轮排除「检测语境」后剩 28 处，逐条核实仍全部为合法内容：检测用的正则与判据、被修复的坏样本字符串、故意构造的测试输入",
+    "结论：全域无遗留 TODO / 待补 / 未替换 {{...}} 占位"
+   ],
+   "note": "「占位符检测机制本身」必然包含占位符字样——这类自指无法也不应消除"
+  },
+  "agent_preset_sync": {
+   "value": "description 与注释由实测自动生成，回归守卫",
+   "unit": "-",
+   "evidence": [
+    "源码：packages/metago-lifeform-dsh/patch/preset.patch.yml（手写，build.mjs 不生成它）",
+    "装机：$DSH_HOME/profiles/desktop/node_modules/metago-lifeform-dsh/patch/preset.patch.yml",
+    "两处 SHA256 一致（e99f032444f5）",
+    "自动同步实测基准：AGENTS.md 101,535 B / 20 章 / 27 个二级标题 / 112 技能 / 10 公理 / 9 属性 / MCP 112（55+57 · 927 算法）",
+    "65,536 截断实测：丢 36,001 B 与 8 个二级标题（第十八/十九/二十章 + 架构治理 + 完整性治理 + Fabric 指南 + 算法口径附录 + 接管导航）",
+    "262,144 预算余量 160,609 B",
+    "六道闸：只换两段 / 行尾保持 / 改前备份 / 7 项结构校验 / 不通过就不写 / 两处 hash 一致",
+    "已纳入回归 L5：python sync-preset-desc.py（默认 --check，17 项→现 37 项回归之一）"
+   ],
+   "note": "硬编码数字必然漂移（已抓出 16 个此类缺陷）——把数字改为「从实测生成」才是根治"
+  },
+  "r141_p0": {
+   "value": "P0 五条已关闭，回归 37 → 40 项全绿",
+   "unit": "-",
+   "evidence": [
+    "A01~A04：mcp-tools-semantic.cjs 实测 有牙 5/5 ｜ 语义 30/30",
+    "A05：lifeform-status-audit.py 实测 公理 10 / 属性 9 ｜ 反向验证通过 ｜ 兼容验证通过",
+    "B04 提前落地：语义检测器已建成并接入回归",
+    "补丁登记：reapply-patches.cjs 14 → 16 组（P19 执行器展开 / P20 适配层+守卫），--check 通过 16/16",
+    "全量回归 40 / 40 全绿（原 37 项 + L3 工具语义 + 记忆体状态自检 + RTM 完整性）",
+    "包内已同步：registry.js / tool-registry.js 与装机 sha 一致；patches/*.tpl 三处齐全"
+   ],
+   "note": "代码已修好并验证，但 DSH 宿主内的 MCP 服务器进程仍持有旧模块缓存——需重开界面（DSH 会重启 6 个 MCP 子进程）后工具层的修复才在实际调用中生效"
+  },
+  "r141_p1": {
+   "value": "P1 四条已关闭",
+   "unit": "-",
+   "evidence": [
+    "B01 函数桥接：字符串与 {__fn__} 均生效；安全边界对齐 fn-bridge（512/黑名单/预置/异常不外泄）；非法表达式明确报错",
+    "B02 T3 样例：shapes.json 700 → 927（T3 227 条）；227/227 跑通；K6 冲突 0 / K7 错配 0；登记为 P21",
+    "B03 检测器加固：fn-params-test 判据升级为「非空壳 + 精确断言」仍 30/30；callable 判据按职责边界修正",
+    "B04 语义检测器：mcp-tools-semantic.cjs 有牙 5/5 + 语义 30/30（上一批完成）",
+    "补丁组：16 → 17（P19 执行器展开 / P20 L3 适配 / P21 T3 样例）",
+    "包验收 34/34；全量回归 40/40"
+   ],
+   "note": "T3 样例生成方法的两个要点：① 解析 TS 风格 inputSchema 递归造值；② 对 65 种自定义类型用 Proxy 探测（让 handler 自己暴露读取路径），比手工为 65 种类型写映射更可靠，也能自动适配未来新增类型"
+  },
+  "r141_p2": {
+   "value": "P2 四条已关闭",
+   "unit": "-",
+   "evidence": [
+    "C01 旧产物：备份后删除 algorithm-coverage.json，留作废说明（含「以谁为准」的四个脚本清单）",
+    "C02 接管包：A/B/C 三类分别处理；A 类端口彻底不写死（声明段 0 个具体端口）；B 类正文未改仅加声明",
+    "C03 §17.10：三行版本 2.1.3 / 1.3.4 / 1.0.3 与 npm 实测一致；建 sync-law-versions.py 并纳入回归",
+    "C04 附录三处陈述与实测对齐（含安全边界与 P21 维护说明）",
+    "顺带核对出：「432 条属此类」实测**就是** 432 条单形参（该数字原本正确，我初次判断为错是误判）",
+    "包验收 34/34；全量回归 41 项"
+   ],
+   "note": "C02 的教训：**时效性文档不能存具体时刻的值**。端口这种每次变化的，必须写成「怎么查」而不是「是多少」——我第一版把 65490 写进声明，等于换个数字继续过期，已修正"
+  },
+  "r141_p3": {
+   "value": "P3 两条已关闭",
+   "unit": "-",
+   "evidence": [
+    "D01：实测 55 个 metago 工具 —— 方法注入型 54 / 上报型 1 / 计算型 0；分类落档 docs/metago-tool-kinds.json",
+    "D01：§18.3 性质声明表 + §17.4 区别说明 + §19.6 能力表标注，三处一致",
+    "D02：新增 §1.0 编号与引用规范 5 条铁律",
+    "新发现 DEF-082：metago_report_event 的 ok:true 掩盖服务端 401，已在法则明示",
+    "AGENTS.md 章节数仍为 20（新增的是 §1.0 与说明段，不新增章）"
+   ],
+   "note": "「工具能被调用」与「调用能得到结果」是两件事——55 个工具全部能调，但 0 个返回计算结果"
+  },
+  "r141_p5": {
+   "value": "8 个未知面已全部扫描，发现 2 个真缺口",
+   "unit": "-",
+   "evidence": [
+    "U-02 playwright 24 工具：S1 存在 ✓ / S2 schema 全部合格 ✓",
+    "U-03 web-session-api 7 工具：健康（5 个已存会话可列）",
+    "U-04 yili 14 工具：健康（engine 0.2.0 / 12 族 / 64 卦 384 爻辞）",
+    "U-05 scrapling 5 工具：健康（parse 正常返回选择器结果）",
+    "U-06 927 算法 × MCP 路径：30 个 L3 工具语义 30/30（前批已验）",
+    "U-07 597 原子：525 有归属 / 72 无归属（DET 58 + MODEL 11 + EXT 3）",
+    "U-08 8 prompts：全部实质（91–219 B）",
+    "本批修复 DEF-083（5 个 constraint 原子），新建 P22 补丁",
+    "本批如实登记 DEF-084（72 条蓝本契约无实现），未做实现"
+   ],
+   "note": "扫描方法上的一课：我第一版用 spawn 探测 U-03/U-04 全部 timeout，但直接用工具调用它们都健康——**探测脚本失败不等于被探测对象失败**"
+  },
+  "r141_p6": {
+   "value": "52 条蓝本原子已实现，597 条契约零缺口",
+   "unit": "-",
+   "evidence": [
+    "blueprint-atoms.cjs 实现 52 条（政策 5 / 技术 2 / 新闻 1 / 安全 3 / 贡献 1 / 科研 5 / 符号 2 / 群体 2 / 人 8 / 量子 6 / 生物 1 / 宇宙 2 / 融合 2 / 协议 6 / 资源 6）",
+    "验证：L-1 可调用 52/52、L-2 有内容 52/52、L-3 结构不同输入给出不同输出 52/52",
+    "597 条按 make() 来源：factory-gen 538 + blueprint 52 + constraint 5 + null 2 = 597",
+    "契约校验器改为遍历全量 597 条：通过 545 / 失败 0 / 无实现 0，PASS",
+    "途中修掉 3 个真 bug：量子门矩阵不完整（用 2 元压 4 元）、热点提取 count≥2 导致恒空、securityVerify 结论字段被 findStr 误取",
+    "补丁 18 → 19 组（P23）"
+   ],
+   "note": "三条教训：① 「覆盖数没变」是发现假绿的最强信号；② 自己写的 catch 最容易成为静默降级；③ 校验器按字段名/值猜语义时，输出结构要顺着它的假设写（conclusion 放第一个键）"
+  },
+  "r141_p7": {
+   "value": "第 7 批完成：12 条诚实标注 + 三形式等价 + 对抗式审查",
+   "unit": "-",
+   "evidence": [
+    "12 条假实现 → 诚实标注：8 条 MODEL_NEEDED + 4 条加入 EXTERNAL_NEEDED；make() 返回 null",
+    "597 条最终分布：factory-gen 526 + blueprint 52 + constraint 5 + null 14 = 597",
+    "三形式等价：直调注册表 / MCP L3 工具 / execute_sync 三条路径 5/5 一致（新进程验证）",
+    "对抗式审查 7 个攻击面：A1 检查器可欺骗（放行 0 种）/ A3 空壳（624 次 0 空壳）/ A4 恒定输出（0 条）/ A6 资源（10万条 47ms）/ A7 语义错位（14 条全 null）均未突破",
+    "A5 数值污染：r4 溢出根因找到并修复（HIGH → 0 次）",
+    "A2 静默降级：12 处裸 catch 逐个确认，2 处危险（require 失败/解析失败被吞）已修，10 处合理（路径探测/有守卫）",
+    "法则新增附录二（原子层能力边界）+ 附录三（活界面代码生效规则）",
+    "补丁 19 → 20 组（P24）"
+   ],
+   "note": "两个最有价值的发现：① 「无实现 0」不一定是好事——可能是工厂用假实现填了坑；② 活界面的 MCP 工具跑的是旧模块，判断代码对不对必须用全新进程"
+  },
+  "r141_final": {
+   "value": "R141 收口：最终验收 19/19 PASS",
+   "unit": "-",
+   "evidence": [
+    "全量验收 19 项全部 PASS（final_acceptance.py）",
+    "回归 42 项（新增 T3 绑定统计）",
+    "包验收 34 项",
+    "契约 597 条：通过 533 / 失败 0 / 无实现 0",
+    "52 条蓝本原子 L-1/L-2/L-3 全部 52/52",
+    "三形式等价 5/5",
+    "对抗式审查 7 面：CRITICAL 0",
+    "26 项总账对账 26/26",
+    "补丁 20 组，四处 sha 一致",
+    "交付报告 docs/R141-交付报告.md"
+   ],
+   "note": "本轮的 8 个方法论级发现全部登记为 DEF-085~091，其中 5 个是「检查显示绿、实际是坏的」类"
+  },
+  "r141_backward_compat": {
+   "value": "向后兼容性已实测保持",
+   "unit": "-",
+   "evidence": [
+    "对照实验：用 backup-r141-A01a 的原始 registry.js（96,787 B，R141 修复前）在当前依赖树里建隔离副本，对同一算法跑两种调用形式",
+    "ALG_T1_C_016 is_superconductive：",
+    "  原始版 裸值 1.5 → success，{superconductive:true, margin:0.5}",
+    "  原始版 对象 {couplingScore:1.5} → error: couplingScore.toFixed is not a function",
+    "  当前版 裸值 1.5 → success（同原始版）",
+    "  当前版 对象 {couplingScore:1.5} → error（同原始版，同一错误）",
+    "结论：对象形式失效是原始设计如此（正是 A-01 要修的现象），修法是在 MCP 工具层加 L3 适配器绕过它，**未改动 executeAlgorithmSync 对该形式的原有行为**",
+    "多参算法（cosine/euclidean/jaccard）两种形式都 ✓ 且结果一致 = 完全兼容"
+   ],
+   "note": "验证「没搞出新问题」的正确方法不是「看回归绿」，而是「拿修复前的原始版本对同一输入跑一遍，对比输出差异是否只含预期改进」"
+  },
+  "r141_p10": {
+   "value": "第二批 11 条已实现，不支持项从 14 降到 3",
+   "unit": "-",
+   "evidence": [
+    "597 条按 make() 分布：{factory-gen:526, blueprint:52, blueprint2:11, constraint:5, null:3}",
+    "第二批 11 条：L-1/L-2/L-3 全部通过；语义抽查 10/10（含空输入拒绝、未命中不编造）",
+    "实现方式：抽取式摘要 / 术语内联注释 / 术语+类比库 / 事件聚类传记 / 模式→方案 / 规则库 / 场景→经典 / Shannon 熵报告 / HRV 特征 / 词袋向量 / 文本情绪识别",
+    "MODEL_NEEDED 8 → 0；EXTERNAL_NEEDED 6 → 3",
+    "契约校验：通过 544 / 失败 0 / 无实现 0",
+    "补丁 20 → 21 组（P25）"
+   ],
+   "note": "关键纠正：「契约产物是自然语言」≠「需大模型」。抽取、模板、规则库、注释、信号特征都是确定性生成方式。上一轮一律标 MODEL_NEEDED 是分类太粗——这类误判会白白丢掉可做的工作"
+  }
+ },
+ "resolutions": [
+  {
+   "fact": "axioms",
+   "authoritative": 43,
+   "rule": "按编号体系推算现行总值：A1..A38（含 V36.9.2 新增 A37/A38）+ 易理五公理 A39..A43 = 43。GENOME 的 36 是 V36.3 时代值；对外「43」曾被判重复计数并去重为 41，但那是编号撞车期间的中间值；重编号为 A39-A43 后 43 个编号互不重复。本裁决以「第一卷 audit-fix 记录」为最高证据。",
+   "evidence": [
+    "第一卷 L747-750 audit-fix 原文",
+    "第一卷 L752-758 易理五公理表（A39-A43）",
+    "AGENTS.md L136 A37、L65 A38",
+    "GENOME.json genome.axioms.total=36（V36.3 时代值）"
+   ],
+   "loaded": 38,
+   "loaded_where": "V36.10.0 packages/engine/CONSTITUTION/AXIOMS.md（蓝本全表抽取）",
+   "loaded_rate": 0.8837,
+   "gap": 5,
+   "round": "R12",
+   "caveat": "缺 A31-A33（蓝本表格中无此编号）与 A37/A38（仅存于 AGENTS.md，V36.9.2 新增）"
+  },
+  {
+   "fact": "attributes",
+   "authoritative": 47,
+   "rule": "D1..D45（AGENTS 口径）+ 易理两属性 D46/D47（第一卷 L750）= 47。GENOME 的 43 与蓝本 V36.3 指标的 43 均为 D37 之前的旧计数；AGENTS 的 45 是 D1..D45，未含易理两条。",
+   "evidence": [
+    "第一卷 L750：易理两属性 D46/D47",
+    "AGENTS.md 第一章：45 条根本属性",
+    "GENOME.json genome.attributes.total=43（旧值）"
+   ],
+   "loaded": 47,
+   "loaded_where": "V36.10.0 packages/engine/CORE/ATTRIBUTES.md（蓝本全表抽取）",
+   "loaded_rate": 1.0,
+   "gap": 0,
+   "round": "R12",
+   "caveat": "无缺口，D1-D47 全覆盖"
+  },
+  {
+   "fact": "protocols",
+   "authoritative": 121,
+   "rule": "蓝本4卷抽取得 121 条唯一协议ID，多于 GENOME 声明的 108。以实测为准：权威值改为 121。",
+   "evidence": [
+    "GENOME.json genome.protocols.total=108",
+    "蓝本附录C: 23 条完整文本",
+    "engine/CORE/PROTOCOLS.md: 6 条"
+   ],
+   "loaded": 121,
+   "loaded_where": "V36.10.0 packages/engine/CORE/PROTOCOLS.md",
+   "loaded_rate": 1.0,
+   "gap": 0,
+   "caveat": "原声明 108 为低估；附录C 仅23条有完整YAML正文"
+  },
+  {
+   "fact": "mcp_tools",
+   "authoritative": 162,
+   "rule": "以运行时实测为准（6 个 server 逐个调用确认）。AGENTS.md §18.9 的 112 是只统计 2 个 server 的过期自动生成表；§19.6 的 136 是只统计 3 个的手写段落。§19.6 自身已写『凡出现矛盾处以本章为准』，但本章也已过期。",
+   "evidence": [
+    "运行时 6 server 实测",
+    "AGENTS.md §18.9",
+    "AGENTS.md §19.6"
+   ],
+   "loaded": 162,
+   "loaded_where": "运行时",
+   "loaded_rate": 1.0,
+   "gap": 0
+  },
+  {
+   "fact": "atoms",
+   "authoritative": 984,
+   "rule": "原子分三形态实现：compute（逐条手写语义）、generic-contract（按契约动作生成）、constraint（哲学族，判定而非计算）。三者均通过机判自测。对外声明以 I/O 契约条数（592）与实际可调用数（523）分别标注，不合并夸大。",
+   "evidence": [
+    "GENOME.json genome.atoms.total=984",
+    "蓝本附录B: 640 原子",
+    "全文松散检索: 846"
+   ],
+   "loaded": 523,
+   "loaded_where": "V36.11.0 已装入 npm 生效路径：engine/atoms/{engine.cjs(compute 50), atom-factory.cjs(468), constraints.cjs(5)}",
+   "loaded_rate": 0.5315,
+   "gap": 461,
+   "caveat": "523/984 = 53.2%；相对蓝本可枚举的 597 条为 87.6%；剩余为 external 6 条 + template 3 条（需模型/服务）"
+  },
+  {
+   "fact": "engines",
+   "authoritative": 161,
+   "loaded": 161,
+   "gap": 0,
+   "loaded_rate": 1.0,
+   "loaded_where": "V36.10.0 packages/engine/INDEX/ENGINES.md",
+   "rule": "蓝本实收 161 条 ENGINE_ ID，多于 GENOME 声明的 125。以实测为准。",
+   "evidence": [
+    "4卷双重抽取"
+   ],
+   "caveat": "161 vs 声明 125，声明偏低"
+  },
+  {
+   "fact": "atoms_compute",
+   "authoritative": 17,
+   "loaded": 17,
+   "gap": 0,
+   "loaded_rate": 1.0,
+   "loaded_where": "packages/engine/atoms/engine.cjs",
+   "rule": "compute 类原子真实实现并自测通过",
+   "evidence": [
+    "atoms/verify.cjs: 17/17 PASS"
+   ]
+  }
+ ],
+ "conflicts": [
+  {
+   "fact": "axioms",
+   "label": "公理条数多口径不一致",
+   "detail": {
+    "axioms_declared": 36,
+    "axioms_in_engine_file": 12,
+    "axioms_in_agents": 38,
+    "axioms_in_blueprint": 36,
+    "axioms_attributes_in_metago_activate": 79,
+    "axioms_in_metago_core": 36
+   }
+  },
+  {
+   "fact": "attributes",
+   "label": "属性条数多口径不一致",
+   "detail": {
+    "attributes_declared": 43,
+    "attributes_in_engine_file": 11,
+    "attributes_in_agents": 45,
+    "attributes_in_blueprint": 43,
+    "attributes_in_metago_core": 43
+   }
+  },
+  {
+   "fact": "mcp_tools",
+   "label": "AGENTS.md §18.9 表(112) / §19.6(136) / 运行时实测(162) 三处不一致",
+   "detail": {
+    "agents_18_9": 112,
+    "agents_19_6": 136,
+    "runtime": 162
+   }
+  },
+  {
+   "fact": "axioms",
+   "label": "公理条数出现 36/38/41/43/45/79 六种口径，根因是编号体系跨版本演进 + 一次编号撞车",
+   "detail": {
+    "v36_3_blueprint": 36,
+    "agents_gene_line": 38,
+    "audit_fix_dedup": 41,
+    "numbering_upper_bound": 43,
+    "metago_activate": 79,
+    "resolution": "以编号上界 43 为准；其余为历史口径或错误值"
+   }
+  }
+ ],
+ "counts": {
+  "facts": 144,
+  "conflicts": 4,
+  "resolutions": 7,
+  "deviations": 0
+ },
+ "installState": {
+  "installedTo": [
+   "@metago-ai/algorithms/engine/algorithms/t3impl/ (29 文件)",
+   "@metago-ai/algorithms/engine/algorithms/registry.js (T3 接线段)",
+   "@metago-ai/engine/atoms/ (5 文件)",
+   "@metago-ai/engine/{CONSTITUTION,CORE,INDEX}/ (5 文档)",
+   "$DSH_HOME/scripts/ (37 文件)"
+  ],
+  "beforeAfter": {
+   "T3 handler": {
+    "before": 0,
+    "after": 227
+   },
+   "T3 execute": {
+    "before": "NOT_IMPLEMENTED",
+    "after": "success:true + 真实 output"
+   },
+   "场景": {
+    "algorithms": "3829 文件已备份",
+    "engine": "67 文件已备份"
+   }
+  },
+  "backups": [
+   "D:\\metago-build\\backup-npm-20261018-170945",
+   "D:\\metago-build\\backup-dsh-20261018-170719",
+   "D:\\metago-build\\backup-agents-ver-20261018-170903"
+  ]
+ },
+ "defectsFound": [
+  {
+   "id": "DEF-001",
+   "component": "ALG_T2_G_015 onlineLearningUpdate",
+   "severity": "high",
+   "type": "missing_input_validation",
+   "description": "缺 model.bias 时 prediction 变 NaN，updatedWeights 全为 NaN，序列化为 [null,null,null]，却仍返回 success:true",
+   "impact": "调用方拿到被污染的模型且以为成功，错误会向下游扩散",
+   "fix": "调用侧补 bias:0；平台侧由输出守卫拦截同类问题",
+   "verified": "补 bias 后输出 [0.106,0.2,0.306]，权重全为有限数"
+  },
+  {
+   "id": "DEF-002",
+   "component": "T1/T2 共 147 条算法（含 63 条零校验）",
+   "severity": "high",
+   "type": "systemic_missing_output_validation",
+   "description": "错误类型输入下返回 NaN/Infinity 仍报 success",
+   "impact": "静默数据损坏，比报错更危险",
+   "fix": "平台层输出守卫（registry + bind 双层），NaN/Inf 一律转 success:false + INVALID_OUTPUT",
+   "verified": "复扫 NaN 污染 0/693；正确输入路径未受影响"
+  },
+  {
+   "id": "DEF-003",
+   "component": "contract-validator.cjs / K1 断言",
+   "severity": "high",
+   "type": "vacuous_assertion",
+   "description": "契约校验器读外部绝对路径而非包内副本；删除包内 docs/附录卷-原子契约补全-V36.11.md 后 K1 仍 PASS",
+   "impact": "包的完整性从未被真正验证，剪裁包不会被发现",
+   "fix": "引入 IN_PACKAGE 判定：包内运行时禁止回退外部；契约卷缺失时硬失败",
+   "verified": "修复后删卷 → K1 FAIL（CONTRACT_VOLUME_MISSING）；正常包 K1 PASS",
+   "foundBy": "mutation-test.cjs 变异「删除契约卷」"
+  },
+  {
+   "id": "DEF-004",
+   "component": "包内 16 个脚本",
+   "severity": "high",
+   "type": "vacuous_assertion_root_cause",
+   "description": "23 处硬编码外部绝对路径（npm 12 / 构建区 7 / DSH home 4），脚本读外部副本而非包内副本",
+   "impact": "包被剪裁或篡改时，K1/K3/K4 等断言仍会通过 —— 包的完整性从未被真正验证",
+   "fix": "全部改为「本地优先 + 外部回退」链；包内运行时禁止依赖外部副本",
+   "verified": "T3 227/227、位置多参 474/474、原子 50/50、契约 50/0、工厂 583/583 均从包内跑通；三方 SHA 一致",
+   "foundBy": "mutation-test.cjs 连续抓出 K1/K3/K4 三个真空断言后回溯根因"
+  },
+  {
+   "id": "DEF-005",
+   "component": "atom-factory.cjs EXTERNAL_NEEDED",
+   "severity": "medium",
+   "type": "misclassification",
+   "description": "4 个原子被错误标为「需模型/外部」，实际纯 JS 可实现（加解密用 Node crypto、情绪识别用规则算法）",
+   "impact": "可真实实现的能力被当成不可实现，虚增了「外部依赖」缺口",
+   "fix": "新增 atoms-crypto-emotion.cjs 提供真实实现，并从 EXTERNAL_NEEDED 移除这 4 条",
+   "verified": "自测 9/9、工厂路径实调 7/7、加解密往返一致、错误密钥正确拒绝；工厂生成数 583→587",
+   "foundBy": "逐条复核 EXTERNAL_NEEDED 清单"
+  },
+  {
+   "id": "DEF-006",
+   "component": "shapes.json（样例形状）",
+   "severity": "critical",
+   "type": "silent_wrong_answer",
+   "description": "标量语义参数给了数组（如 biasAlertLevel 的 bias/threshold/trend 给 [1,2,3]），导致 Math.abs(数组)=NaN → 所有比较为 false → 无条件落到 else 分支返回 red。输出是合法字符串不是 NaN，输出守卫抓不到。",
+   "impact": "静默给出看似合理但完全错误的业务结论；wire-shapes 与 NaN 扫描均放过",
+   "fix": "按参数语义修正 46 处（阈值类→0.5、计数类→3、单值类→1）+ 手工修 3 组（KL/交叉熵合法分布、B_018 标量）",
+   "verified": "B_018 现随 bias 变化：0.1→green / 0.6→yellow / 1.5→red；KL 与交叉熵随分布变化",
+   "foundBy": "从 ALG_T2_B_018 空输入对照异常回溯"
+  },
+  {
+   "id": "DEF-007",
+   "component": "shapes.json（元素级结构）",
+   "severity": "high",
+   "type": "silent_no_effect",
+   "description": "inputSchema 只声明到「thresholds[]」这一层，不声明元素结构。实际元素是 {max,min} 对象，样例却给数字 [2.5,4.5] → t.max 恒为 undefined → 永不告警",
+   "impact": "告警类算法静默失效，任何输入都返回空告警",
+   "fix": "按源码修正元素结构为 [{max,min},…]",
+   "verified": "超限值→5 条 high 告警；过低值→5 条 low 告警；正常值→0 条",
+   "foundBy": "用算法自声明 inputSchema 校验样例形状后，手工核对源码发现"
+  },
+  {
+   "id": "DEF-008",
+   "component": "shapes.json（矩阵型参数）",
+   "severity": "high",
+   "type": "wrong_shape_structure",
+   "description": "identifyWeakPairs(matrix, threshold) 等按 matrix.size / matrix.matrix[i][j] / matrix.labels[i] 读取，样例却给平数组 [1,2,3] → matrix.size 为 undefined → 循环不执行 → 恒返回空 pairs",
+   "impact": "矩阵类算法（弱对/强对/非对称/聚类/时间衰减/SVD）全部静默返回空结果",
+   "fix": "矩阵型参数改为结构化 {size, matrix[][], labels[]}；Map 型参数保留 {__map__} 标记",
+   "verified": "位置多参 474/474 恢复；K7 元素错配 0 处",
+   "foundBy": "空壳输出扫描（47 条空壳）逐条回溯"
+  },
+  {
+   "id": "DEF-009",
+   "component": "自身修复过程",
+   "severity": "high",
+   "type": "self_inflicted_regression",
+   "description": "首版空壳修复用 /weight|rate|alpha/ 匹配参数名，误伤 weights（本应数组）、demonstrations（因含 rate 子串被命中）、thresholds（刚修好的 {max,min} 数组），并把 203 个空数组填成垃圾对象",
+   "impact": "位置多参 474→472，K6 0→3 冲突，K7 0→74 错配 —— 修复动作本身把系统改坏了",
+   "fix": "改用「inputSchema + 源码用法 + 元素字段访问」三信号求解器（heal-shapes.cjs）重算，再逐条精确修复",
+   "verified": "位置多参恢复 474/474；K6 0 冲突；K7 0 错配；T3 227/227",
+   "foundBy": "修复后立即复跑三项扫描，发现指标全面倒退"
+  },
+  {
+   "id": "DEF-010",
+   "component": "shapes.json（标量语义参数）",
+   "severity": "high",
+   "type": "wrong_shape_type",
+   "description": "rollbackToId / lag 等标量语义参数给了数组，导致 findIndex 恒 -1、values[i-lag] 索引异常，算法静默返回空结果",
+   "impact": "决策回滚、时间序列差分等算法永远产出空结果",
+   "fix": "改为标量（rollbackToId:'d2' 且必须命中 decisions 里的 id；lag:1）",
+   "verified": "空壳从 19 条降到 4 条；位置多参恢复 474/474",
+   "foundBy": "空壳行为求解器（逐个把数组参数试换标量，以输出是否变非空为判据）"
+  },
+  {
+   "id": "DEF-011",
+   "component": "ALG_T2_C_015 couplingHierarchicalAggregate",
+   "severity": "critical",
+   "type": "unbounded_loop_memory_blowup",
+   "description": "groupSize 未校验为正整数。传入 0.6 时 for (i += groupSize) 以分数步长迭代，next.length 反而大于 current.length，唯一的守卫 `if (next.length === current.length) break` 永不触发；循环持续扩张数组直至 11 秒后抛 'Invalid array length'",
+   "impact": "单次调用占用 11 秒 CPU 与大量内存；若被外部反复触发可拖垮服务",
+   "fix": "样例改为 groupSize=2（正整数）；并对全部整数语义参数（groupSize/batchSize/windowSize/lag/capacity…）加全局守卫强制取整",
+   "verified": "耗时 11,109ms → 1ms；全量慢算法扫描 0 条（阈值 300ms）；整数语义参数修正 11 处",
+   "foundBy": "求解器 CPU 异常（1895s 无输出）→ 慢算法探测定位"
+  },
+  {
+   "id": "DEF-012",
+   "component": "bind.cjs revive()",
+   "severity": "high",
+   "type": "self_inflicted_type_destruction",
+   "description": "revive() 对真实 Map/Set/RegExp 实例执行 for...in，得到空对象，把调用方传入的 Map 变成 {}，导致 store.get is not a function",
+   "impact": "任何向算法/MCP 直传原生 Map 的调用都会失败",
+   "fix": "revive 首行放行原生实例（Map/Set/RegExp/Date/Error/TypedArray）",
+   "verified": "真 Map 直传由 FAIL → OK；位置多参恢复 474/474；函数型恢复 21/21",
+   "foundBy": "修复后的回归检查"
+  },
+  {
+   "id": "DEF-013",
+   "component": "ALG_T1_V_020 inputSchema",
+   "severity": "low",
+   "type": "schema_declaration_mismatch",
+   "description": "schema 声明 total:number，但实现里对 total 做迭代（按集合处理）",
+   "impact": "按 schema 传数值会抛 'number is not iterable'",
+   "fix": "以源码实际用法为准（total 传数组），并在 schema-vs-shape.cjs 中登记为已知例外",
+   "verified": "K6 恢复 PASS（冲突 0）",
+   "foundBy": "K6 样例形状校验"
+  },
+  {
+   "id": "DEF-014",
+   "component": "安装流程",
+   "severity": "high",
+   "type": "incomplete_installation",
+   "description": "42 个校验脚本存在于发行包内但从未装入活系统 $DSH_HOME/scripts/，其中 6 个是核心校验（t12-full-scan / schema-vs-shape / element-field-scan / empty-output-scan / atom-hollow-scan / atom-responsive-scan）",
+   "impact": "「包里有」不等于「系统里有」；活系统无法运行这些校验，用户拿不到全部能力",
+   "fix": "新增 install_missing.py 全量同步 scripts/；并加 K10 断言守护包→活系统一致性（17 项逐文件 SHA256 比对）",
+   "verified": "包→活系统核对 33/33 一致；K10 断言 17/17 PASS；包验收 27 → 28 项",
+   "foundBy": "按目标 3「系统全局用户级生效」逐项核对包与活系统"
+  },
+  {
+   "id": "DEF-015",
+   "component": "skills/metago-{brand-designer, copywriter, ui-illustrator, motion-designer, presentation-designer, marketing-designer, ux-researcher}",
+   "severity": "medium",
+   "type": "skill_without_methodology",
+   "description": "7 个专家团技能正文仅 132-172 字节，只有身份介绍与触发词，没有任何执行步骤、输出格式、质量标准——触发后模型拿不到操作指引",
+   "impact": "技能「能加载但不能用」；用户触发后只得到角色自我介绍，得不到工作产出",
+   "fix": "为 7 个技能各补 5 节方法论：何时触发 / 执行步骤 / 输出格式 / 质量标准 / 常见错误",
+   "verified": "7 个技能正文 762-879 字节 → 2077-2499 字节；技能审计问题数 7 → 0；K11 断言固化",
+   "foundBy": "技能层可加载性审计（此前只统计过文件数，从未验证正文是否有实质内容）"
+  },
+  {
+   "id": "DEF-016",
+   "component": "@metago-ai/engine RUNTIME/dist/kmwi-memory.js:662",
+   "severity": "high",
+   "type": "missing_null_check",
+   "description": "computeExplicitRatio() 中 `intuitions.filter(i => i.explicitForm.length > 0)` 未判空；历史直觉数据没有 explicitForm 字段 → 抛 Cannot read properties of undefined (reading 'length')",
+   "impact": "连带 getHealth / getDecayRates / getStrengthenSuggestions 全部崩溃，导致 MCP 工具 metago_memory_manage 完全不可用（能列出但调用即报错）",
+   "fix": "改为 (i.explicitForm || '').length > 0",
+   "verified": "修复前 getHealth/getDecayRates/getStrengthenSuggestions 三项全崩；修复后全部 OK；MCP 工具可调用率 111/112 → 112/112",
+   "foundBy": "MCP 工具「可调用」验证（此前只做过 tools/list，从未真实调用过每个工具）"
+  },
+  {
+   "id": "DEF-017",
+   "component": "@metago-ai/engine RUNTIME/dist/validators.js",
+   "severity": "high",
+   "type": "missing_type_normalization",
+   "description": "AxiomValidator.checkProvenance 直接调 input.substring()，其余 7 处直接调 output.includes()/toLowerCase()；调用方传对象/数组时抛 is not a function",
+   "impact": "AxiomValidator.validateAll 完全不可用于非字符串输入，14 项公理校验全部无法执行",
+   "fix": "validateAll 入口统一把 output 归一为字符串；checkProvenance 用 String(input)；另修 3 处直接调用",
+   "verified": "修复后 validateAll 返回 14 项校验结果（8 pass / 6 warning / 0 fail）；传对象不再崩溃",
+   "foundBy": "探查引擎能力时直接调用 AxiomValidator"
+  },
+  {
+   "id": "DEF-018",
+   "component": "@metago-ai/engine RUNTIME/dist/validators.js checkOutputIntegrity",
+   "severity": "high",
+   "type": "insufficient_pattern_coverage",
+   "description": "占位符清单仅 7 个精确字符串 + includes() 区分大小写：['[placeholder]','<TODO>','xxx','TBD','FIXME','[未填写]','[待补充]']；实测 'XXX'（大写）、裸 'TODO'、裸「待补充」「待填写」、「[待填]」「此处省略」全部漏检",
+   "impact": "metago_output_integrity 对最常见的占位符形态形同虚设，输出完整性校验实际失效",
+   "fix": "改为不区分大小写正则，覆盖裸/方括号/尖括号多种形态 + 中文占位词",
+   "verified": "9 个用例（2 正常 + 7 占位符）全部判定正确；修复前含 TODO/XXX 的输出被判 PASS",
+   "foundBy": "给工具接入真实现后，用真实占位符样例测试校验器"
+  },
+  {
+   "id": "DEF-019",
+   "component": "@metago-ai/engine RUNTIME/dist/decision-lock.js validate()",
+   "severity": "high",
+   "type": "missing_type_normalization",
+   "description": "DecisionLock.validate(output, intent, userRequest) 未归一化入参；传对象/数组时 userRequest.split 抛错，传 null/undefined 时 .includes 抛错",
+   "impact": "决策锁对非字符串输入完全不可用；而它正是输出前的强制校验门，一旦崩溃等于校验被跳过",
+   "fix": "validate 入口统一归一化 output/intent/userRequest 为字符串",
+   "verified": "修复前 4/7 边界输入崩溃；修复后 7/7 全部正常返回 4 道关卡结果",
+   "foundBy": "校验器鲁棒性扫描（对 15 项校验 + DecisionLock 注入边界输入）"
+  },
+  {
+   "id": "DEF-020",
+   "component": "@metago-ai/engine（validators / decision-lock / kmwi-memory / perception）",
+   "severity": "critical",
+   "type": "systemic_type_assumption",
+   "description": "静态扫描 11 个 JS 文件发现 45 处直接调用字符串/数组专有方法（substring/split/toLowerCase/includes/match/slice）；动态验证 20 个公开入口中 **13 个在对象输入下崩溃**",
+   "impact": "决策锁四道关卡、公理校验、KMWI 四层记忆写入、感知层全部对非字符串输入不可用；而决策锁是输出前的强制门，崩溃等于校验被静默跳过",
+   "fix": "在 13 个入口方法体开头统一注入类型归一化（对象→JSON.stringify，null/undefined→空串）",
+   "verified": "崩溃入口 13/20 → 0/20；引擎正常加载（12 项导出）；13 项系统回归全绿；MCP 6 组 162 工具全部正常",
+   "foundBy": "类型假设静态扫描 + 入口动态验证（把零星发现的同类缺陷升级为系统性排查）"
+  },
+  {
+   "id": "DEF-021",
+   "component": "元构初始文档/附录卷-第1部分、第2部分",
+   "severity": "medium",
+   "type": "unclosed_code_fence",
+   "description": "两卷 Markdown 代码围栏数为奇数（69 / 447），最后一处开启后到文末未闭合",
+   "impact": "Markdown 渲染时从该处起后续内容全部被当作代码块，正文不可读",
+   "fix": "在各自文末补 1 个闭合围栏（不改动任何文字内容）",
+   "verified": "修复后 16 卷围栏全部为偶数（70 / 448）；其余 14 卷本就配对",
+   "foundBy": "蓝本完整性扫描（代码围栏配对检查）"
+  },
+  {
+   "id": "DEF-022",
+   "component": "$DSH_HOME/AGENTS.md + skills/",
+   "severity": "medium",
+   "type": "dangling_reference",
+   "description": "AGENTS.md「MetaGO Fabric 产品功能指南」章声称「本章内容已同步至 metago-fabric-guide 技能」，但磁盘上不存在该技能；且该章描述的是 MetaGO Fabric 产品的界面，当前实例是 DeepSeek Harness，未标注适用边界",
+   "impact": "悬空承诺（承诺存在的技能不存在）；且用户问『怎么打开命令面板』时会得到 Fabric 的答案（Ctrl+K），对 DSH 可能不成立",
+   "fix": "①补建 metago-fabric-guide 技能（含适用边界声明与回答纪律）②在 AGENTS.md 该章顶部加适用性横幅",
+   "verified": "技能已创建并出现在本会话 available_skills 目录中；AGENTS.md 含适用边界横幅；技能审计 112 个全部通过",
+   "foundBy": "AGENTS.md 引用的技能名与磁盘实文件比对"
+  },
+  {
+   "id": "DEF-023",
+   "component": "$DSH_HOME/AGENTS.md 附录 + scripts/",
+   "severity": "medium",
+   "type": "dangling_script_reference",
+   "description": "法则引用了两个全盘不存在的脚本：update-law-algorithm-coverage.mjs / verify-algorithms-all.mjs；另一处 `scripts/verify-package.cjs` 存在于构建区但未装入 $DSH_HOME/scripts，按法则写的相对路径找不到",
+   "impact": "法则给出的「复核命令」跑不通——用户照着做会失败，等于承诺了做不到的事",
+   "fix": "①装 verify-package.cjs 等 18 个脚本到 $DSH_HOME/scripts ②注释块与附录里的失效命令改为指向真实存在的三条命令（t12-full-scan / verify-package / audit_skills）③断言数 27 → 29 同步",
+   "verified": "判据修正后复扫：缺失路径 0 ｜ 脚本 0 ｜ 命令 0 ｜ 技能 0，总判定 PASS",
+   "foundBy": "AGENTS.md 引用存在性核查（路径/脚本/命令/技能四类）"
+  },
+  {
+   "id": "DEF-024",
+   "component": "metago-lifeform-dsh/patch/preset.patch.yml（源码副本）",
+   "severity": "critical",
+   "type": "fix_not_backported",
+   "description": "已装版 preset.patch.yml 于 2026-10-17 修掉了 `suffix: Your working directory is {{cwd}}.`（DSH 对未注册提示词变量直接抛错 → 桌面端每条消息「本轮运行失败」）；但源码版仍带该 suffix。而 profile 的 package.json 用 file: 指向源码 → 下次 pnpm install 会用源码覆盖已装版，把修复冲掉、GUI 重新坏掉",
+   "impact": "一次常规 pnpm install 就会让整个桌面端不可用（每条消息都失败）",
+   "fix": "把修复版回灌到源码，两副本 SHA256 一致；并扫描 patch 目录确认无其它未注册模板变量",
+   "verified": "源码含破坏性 suffix=false；两副本 SHA256 相等；240 行对 240 行；同类风险 0 处",
+   "foundBy": "插件双副本比对（源码 file: 依赖 vs 已装 node_modules）"
+  },
+  {
+   "id": "DEF-025",
+   "component": "@metago-ai/engine + @metago-ai/mcp-server（npm 安装的 vendor 包）",
+   "severity": "critical",
+   "type": "fix_volatility",
+   "description": "为修复 DEF-016~020 直接修改了 node_modules 下的 vendor dist 文件（8 组补丁），但没有任何机制保证这些补丁在 npm install/update 后仍然存在",
+   "impact": "一次常规 npm update 就会静默回退：决策锁崩溃、占位符漏检、KMWI 写入崩溃、公理校验不可用——而且不会报错，只在真实使用时才暴露",
+   "fix": "建立 reapply-patches.cjs 自愈器（补丁逻辑内联、幂等、支持 --check）+ K12 断言守护",
+   "verified": "8 组补丁全部在位；--check 与实跑均 PASS；重复运行不重复注入；引擎导出 12 项正常；MCP 6/6；包验收 29→30 项",
+   "foundBy": "插件双副本比对后追问：vendor 包补丁是否也有同样风险"
+  },
+  {
+   "id": "DEF-026",
+   "component": "@metago-ai/engine atoms/specialized.cjs（threshold / coverage / distance）",
+   "severity": "high",
+   "type": "semantic_mismatch_silent",
+   "description": "三个特化算子的名字与其实现语义不符，且多余参数被静默忽略：① threshold(v) 实为「≥均值的个数」，传第二个参数（阈值）会被忽略且不报错；② coverage(v) 实为「唯一率 uniq/total」，不是「A 被 B 覆盖的比例」；③ distance(v) 实为「各元素偏离均值」，不是「两向量之间的距离」",
+   "impact": "调用方按名字传参（threshold(data, 5)、coverage(a, b)、distance(a, b)）会得到**非空、形状合规、但语义错误**的结果；此前的契约校验、空壳扫描、响应性扫描全部放行",
+   "fix": "① threshold 支持可选第二参 t（传了按其判定，没传沿用均值）② 三者输出统一加 __semantics 字段，明确声明实际算了什么（backward compatible：单参调用行为不变）",
+   "verified": "threshold(v)=pass 5/mean 5.5；threshold(v,5)=pass 6/threshold 5，__semantics 正确区分；coverage/distance 均带语义标签",
+   "foundBy": "算子语义正确性测试（用已知数学性质断言，而非只看「有输出」）"
+  },
+  {
+   "id": "DEF-027",
+   "component": "verify-package.cjs K11",
+   "severity": "low",
+   "type": "fragile_interpreter_resolution",
+   "description": "K11 用裸 `python` 命令调用审计脚本，可能解析到 Store 桩或 PATH 外解释器，导致误报 FAIL",
+   "impact": "断言不可靠——环境差异会让正确实现被判失败",
+   "fix": "改为 METAGO_PYTHON → 已知绝对路径 → python → python3 → py 多候选回退；全不可用时标注跳过而非 FAIL",
+   "verified": "K11 由 FAIL 转为 PASS（技能 112 个，问题 0 处）；包验收 32/32",
+   "foundBy": "包验收自查（K11 报 Command failed）"
+  },
+  {
+   "id": "DEF-028",
+   "component": "@metago-ai/engine atoms/atoms-crypto-emotion.cjs LEX",
+   "severity": "medium",
+   "type": "insufficient_lexicon",
+   "description": "情绪词库每类仅 6-11 个词：「今天天气不错，心情很好」被判 neutral（因为「不错」「很好」不在 joy 词表）",
+   "impact": "情绪检测对常见口语表达失效，把明显的正面情绪判成中性",
+   "fix": "每类扩到 24-30 个常用词，覆盖口语化表达（不错/很好/给力/爱了 等）",
+   "verified": "8 条用例（6 类情绪 + 2 条中性）全部判定正确；修复前「心情很好」判 neutral",
+   "foundBy": "把 metago_emotion 接上真实现后，用真实口语句子测试分类器"
+  },
+  {
+   "id": "DEF-029",
+   "component": "t3impl/shapes.json（103 条算法的样例形状）",
+   "severity": "high",
+   "type": "polluted_output_shape",
+   "description": "103 条算法 success=true 但输出含 NaN / Infinity / 全 null 数组。根因是样例形状与算法实际读取的结构不符：① 裸数值数组给了需要对象字段的算法（如 dimensions.map(d=>d.value*d.weight)）；② 单参非位置型仍被包裹成 {param: value}；③ 多参算法缺嵌套对象字段（如 entropyBalance 需 inputs[{entropy,weight}]）",
+   "impact": "「能跑通」被当成「可用」——调用方拿到全 NaN 的输出，而契约校验、空壳扫描、响应性扫描、t12 全量扫描全部放行（因为输出非空且随输入变化）",
+   "fix": "四轮自动修复器：拆包单参 / 按 handler 真实形参名（inputSchema 元数据不可靠，实测有 \"{series,order}\" 与实际形参 timeSeries 不符）/ 按形参精确构造嵌套对象 / 数值递增避免 slope 退化",
+   "verified": "污染条数 103 → 28（修复 73%）；期间 700/700 实跑、474/474 位置多参、K6、K7 全部保持",
+   "foundBy": "递归扫描输出里的 NaN/Inf/全 null（此前的空壳扫描只看「输出是否为空」，看不出这种污染）"
+  },
+  {
+   "id": "DEF-031",
+   "component": "scripts/audit_global.py",
+   "severity": "low",
+   "type": "wrong_expected_package_scope",
+   "description": "全局审计只去 @metago-ai/ 下找 lifeform 和 algorithms-cli，而实际安装形态是 3 个 scoped 包 + 4 个非 scoped 包（metago-lifeform 等直接在 node_modules 下）",
+   "impact": "误报「全局安装 3/5，缺失 2 个」，让真实的全局能力状态被误判为不完整",
+   "fix": "拆成 PACKAGES（scoped）与 UNSCOPED（非 scoped）两类分别检查",
+   "verified": "修后「scoped 3 / 3 ｜ 非 scoped 4 / 4」全部存在；全局命令与跨目录加载均正常",
+   "foundBy": "按需求「全局用户级生效」核查时发现审计脚本报缺失，但命令明明可用"
+  },
+  {
+   "id": "DEF-032",
+   "component": "$DSH_HOME/AGENTS.md（§18.9 / §18.10 / §19.6）",
+   "severity": "medium",
+   "type": "stale_capability_counts_in_law",
+   "description": "法则文件里三处能力计数过期：§18.9 自动生成表写「112 工具 / 2 服务器」、§19.6 写「3 个 MCP 服务器 / 136 个工具」、§18.10 技能总数写「100 个」。实测为 6 个服务器 / 162 个工具 / 112 个技能",
+   "impact": "AI 按法则自述的能力清单去判断「我有哪些工具」，与实际不符；用户问「你有多少个 MCP 工具」时，法则给出的是旧答案",
+   "fix": "§19.6 改为实测权威表（6 服务器/162 工具的逐条明细）；§18.9 与 §18.10 标注为「生成时快照」并加过期警示，指向实测权威值",
+   "verified": "复测：AGENTS.md 含「6 个 MCP 服务器」「162」，无「3 个 MCP 服务器 / 136」",
+   "foundBy": "元验证——把法则里的能力声明与 mcp-all-health.cjs 实测值对照"
+  },
+  {
+   "id": "DEF-033",
+   "component": "元构初始文档/总索引-V36.11.md",
+   "severity": "low",
+   "type": "wrong_verification_method_description",
+   "description": "总索引对「核心公理 38」写的判定方法是「`^## A\\d` 行数」，但 CONSTITUTION/AXIOMS.md 实际是 markdown 表格（`| A1 | 名称 | 来源 |`），按标题数会得 0",
+   "impact": "照文档方法复核的人会数出 0 条，误以为文件缺失或数字造假；实际数据是对的，只是方法描述错了",
+   "fix": "五项全部改为「表格首列某模式唯一行数 / 某 ID 唯一数」，并把校验固化为 K16",
+   "verified": "K16 复跑：一致 5 项，不一致 0 项；包验收 33 → 34 项全绿",
+   "foundBy": "元验证——按文档写的方法真的去数，数出 0，才发现方法描述与文件格式不符"
+  },
+  {
+   "id": "DEF-030",
+   "component": "scripts/mcp-all-health.cjs + verify-package.cjs K5",
+   "severity": "medium",
+   "type": "fake_fallback_chain",
+   "description": "健康检查用裸 `python` 启动唯一的 Python MCP 服务（scrapling）。第一次修法写了个多候选数组，但代码是 `PY_CANDS[0]` —— 只取第一个，等于没做回退；而 verify-package 的 K5 又会把 METAGO_PYTHON 注入成 \"python\"，于是第一候选恒为 Windows Store 桩，仍然超时",
+   "impact": "scrapling 被误判为故障；包验收 K5 间歇性 FAIL",
+   "fix": "① 候选链先筛「绝对路径且文件存在」，再保留相对命令；② K5 不再注入默认 \"python\"；③ 复现原场景（不设环境变量）验证",
+   "verified": "不设任何环境变量跑包验收：K5 PASS（6/6 组，162 工具）、K10 PASS（17/17），合计 34/34",
+   "foundBy": "包验收 K5 再次失败 → 隔离后发现「候选链只取第一个」这个自己引入的新缺陷"
+  },
+  {
+   "id": "DEF-034",
+   "component": "交付包 metagolifeform-v36.11.0/package.json",
+   "severity": "low",
+   "type": "missing_version_field",
+   "description": "4 个全局安装包与 3 个 @metago-ai 包都有 rules_version=V36.11.0，但交付包自身的 package.json 缺该字段（None）",
+   "impact": "以包内 package.json 为真相源的版本对齐审计会判交付包不合规；安装到新环境后读不到体系版本",
+   "fix": "补 rules_version=V36.11.0",
+   "verified": "读回复核：metago-lifeform version=36.11.0 rules_version=V36.11.0；全部 7 个包（4 全局 + 3 scoped）现已一致",
+   "foundBy": "包可移植性验证时顺带打印 package.json 字段，发现 rules_version 为 None"
+  },
+  {
+   "id": "DEF-035",
+   "component": "交付包 package.json 的 files 字段",
+   "severity": "low",
+   "type": "incomplete_publish_manifest",
+   "description": "npm tarball 里缺 VERSION / VERSIONS.json / FACTS.json / patches/ —— 装到新环境后无法自报版本矩阵、无事实底账、补丁自愈缺素材",
+   "impact": "npm 发布版是「不完整」的，只能运行但不能自证",
+   "fix": "files 字段补入上述 4 项（19 → 23 项）",
+   "verified": "重新 pack：根文件由 9 增至 12，patches/ 已包含",
+   "foundBy": "全新安装模拟（npm pack → 解包 → 按必需项核对）"
+  },
+  {
+   "id": "DEF-036",
+   "component": "local-edition（离线安装版）",
+   "severity": "high",
+   "type": "stale_offline_bundle",
+   "description": "离线安装版三处过期：① portable 里的 AGENTS.md 与 package.json 是 36.9.6；② offline-packages/metago-lifeform-36.9.6.tgz 是旧版包；③ 自检脚本期望 Engine 2.1.1（实际 2.1.3）",
+   "impact": "离线安装会装上 36.9.6 而不是 36.11.0；自检自身还会误报",
+   "fix": "同步 AGENTS.md、重打 metago-lifeform-36.11.0.tgz 删旧包、期望值 2.1.1 → 2.1.3",
+   "verified": "离线安装版自检 57/59 → 58/59 → 59/59 全绿",
+   "foundBy": "包可移植性延伸验证时跑 local-edition/verify-local-install.cjs"
+  },
+  {
+   "id": "DEF-037",
+   "component": "scripts/build-adapters.cjs（PHRASE_REPLACEMENTS / HEAD_REPLACEMENTS）",
+   "severity": "high",
+   "type": "replacement_table_stale_after_master_rename",
+   "description": "替换表里所有规则都基于「Trae」，而母本 AGENTS.md 早已改为以「DeepSeek Harness」撰写。于是 11 个平台模板生成时一条规则也匹配不上，产出 11 个内容完全相同的文件",
+   "impact": "「多平台适配」形同虚设：Claude Code / Codex / Cursor 等拿到的都是写着 DeepSeek Harness 的法则，平台专属措辞完全没生效。而版本号、无占位符、章节齐备等检查全部通过——所以只查这些指标看不出问题",
+   "fix": "在 generatePlatformLaw 里统一注入基于「DeepSeek Harness」的替换规则（同时保留原 Trae 规则向后兼容）",
+   "verified": "修前 11 个文件 SHA256 全为 7d9acfc4aff1（唯一哈希 1/11）；修后 11 个文件哈希各不同（11/11），每个模板里平台名出现 18-21 次、DeepSeek Harness 残留 0 次",
+   "foundBy": "版本与章节检查全绿之后，我额外查了「11 个文件是否真的不同」——才发现全是同一份"
+  },
+  {
+   "id": "DEF-038",
+   "component": "交付包 skills/",
+   "severity": "high",
+   "type": "missing_skills_in_package",
+   "description": "装机 $DSH_HOME/skills 有 112 个 SKILL.md，交付包 skills/ 只有 101 个。缺的 11 个是易理族：bazi/hetu-luoshu/liuyao/qimen/shushu/shushu-calculus/shushu-diagnose/shushu-zeri/taiyi/yijing/ziwei",
+   "impact": "从包安装到新机器，这 11 项能力直接缺失——「全套最新版本的安装包」不成立",
+   "fix": "把 11 个技能目录补进包（含 SKILL.md 与附属文件）",
+   "verified": "包内技能 101 → 112，与装机 112 完全一致（差集为空）",
+   "foundBy": "差异化审计时发现「包内 SKILL.md 101 个」与记忆中的 112 不符，一核对就出来了"
+  },
+  {
+   "id": "DEF-039",
+   "component": "11 个易理族技能的「引擎」行",
+   "severity": "medium",
+   "type": "hardcoded_engine_path",
+   "description": "11 个技能都写「引擎：D:\\DH工作区\\易理工程学（metago-shushu CLI / MCP）」——硬编码绝对路径，且指向旧 3080 主机工作区；本环境真正的引擎是 yili MCP（14 工具）",
+   "impact": "换机器即失效；用户按技能写的路径去用，找不到引擎",
+   "fix": "改为列出 yili MCP 的 14 个真实工具（shushu_almanac / bazi_calc / liuyao_divine / …）",
+   "verified": "两个副本共 22 处已改；复核「仍含 DH工作区」的技能 = 0",
+   "foundBy": "抽查补齐的 11 个技能内容时，看到引擎行指向一个不该出现的旧路径"
+  },
+  {
+   "id": "DEF-040",
+   "component": "交付包 scripts/",
+   "severity": "high",
+   "type": "law_requires_missing_scripts",
+   "description": "AGENTS.md 第零节明文要求「任何任务宣告完成前必须运行 verify-delivery.cjs 四重门禁」，但交付包 scripts/ 里没有 init-delivery.cjs / verify-delivery.cjs / visual-regression.cjs（udgk/ 下的真实现在包里，顶层入口 shim 缺失）",
+   "impact": "从包安装后，法则要求做的事没有工具可做——用户按法则走，第一步就卡住",
+   "fix": "把 3 个顶层 shim 补进包 scripts/",
+   "verified": "包内脚本 156 → 159；装机有包里没有 = 0；三个 shim 冒烟 rc=0/1（正常）",
+   "foundBy": "全类别核对「包 vs 装机」时，脚本差集里露出这 3 个"
+  },
+  {
+   "id": "DEF-041",
+   "component": "scripts/udgk/init-delivery.cjs",
+   "severity": "medium",
+   "type": "path_dirname_used_for_directory_creation",
+   "description": "创建目录清单里写的是 `path.dirname(configTemplate.assertions.dir)`，而 assertions.dir='e2e/asserts'，path.dirname 返回 'e2e' —— 只建了父目录。紧接着门禁 2/4（TTD.1）检查 'e2e/asserts' 存在 → 必然 FAIL",
+   "impact": "用户照 UDGK 6 步流程走，第 1 步初始化完，第 5 步门禁就卡住，且提示「目录不存在」让人困惑",
+   "fix": "改用 configTemplate.assertions.dir（不再多套一层 path.dirname）",
+   "verified": "修后 init 输出「[CREATED] e2e/asserts/」；门禁提示从「e2e/asserts 不存在」变为更准确的「e2e/asserts 下无断言文件」；空 RTM 仍正确 FAIL，不误判 PASS",
+   "foundBy": "UDGK 端到端冒烟（init → verify）时发现初始化产物与门禁要求不一致"
+  },
+  {
+   "id": "DEF-042",
+   "component": "scripts/audit_install.py",
+   "severity": "medium",
+   "type": "checker_without_verdict",
+   "description": "审计脚本只打印「合计 N 项 ｜ 一致 X ｜ 内容不同 Y ｜ 缺失 Z」，既无 PASS/FAIL 判定行，也无 sys.exit 退出码",
+   "impact": "脚本作为独立检查时「无牙」：内容不同 3 项时退出码仍为 0，调用方（人或 CI）无法用退出码判断成败，只能靠人眼看输出",
+   "fix": "加「总判定：PASS / 需关注」判定行 + sys.exit(0/1)",
+   "verified": "复跑输出「总判定：PASS（包内容与活系统完全一致）」，退出码 0",
+   "foundBy": "检查器「有没有牙」审计（静态查失败分支）"
+  },
+  {
+   "id": "DEF-043",
+   "component": "scripts/atom-hollow-scan.cjs",
+   "severity": "low",
+   "type": "checker_without_exit_code",
+   "description": "打印「总判定：PASS / 需关注」但无 process.exit —— 退出码恒为 0（与 DEF-042 同类）",
+   "impact": "调用方无法用退出码判断空壳扫描结果；空壳原子存在时退出码仍是 0",
+   "fix": "末尾补 process.exit(hollowAll.length === 0 ? 0 : 1)",
+   "verified": "复跑：退出码 0 ｜ 总判定：PASS（原子层无空壳）",
+   "foundBy": "断言质量审计时发现该文件三种断言模式计数为 0，进而人工查看其收尾逻辑"
+  },
+  {
+   "id": "DEF-044",
+   "component": "verify-package.cjs（K6/K9/K11/K16）",
+   "severity": "high",
+   "type": "caller_broken_by_checker_exit_code",
+   "description": "给检查器加退出码后，verify-package 用 execFileSync 调用它们；非零退出会抛异常，而 catch 里只设了「细节」没设「通过标志」→ 判为 FAIL。K11/K16 更糟：异常被当成「Python 解释器不可用」→ 误跳过",
+   "impact": "只要被调检查器报告任何问题，主验收就会整体判失败，且部分断言会静默跳过",
+   "fix": "加 runCapture()：无论退出码多少都返回 stdout；把 16 处 execFileSync 全改成它",
+   "verified": "修复前后对比：K6 FAIL（无法解析）→ PASS（冲突 0 处）；K9 FAIL → PASS（响应 588 / 恒定 2）；合计 34/34",
+   "foundBy": "给检查器加退出码后立刻跑包验收，K6/K9 变红"
+  },
+  {
+   "id": "DEF-045",
+   "component": "scripts/atom-responsive-scan.cjs",
+   "severity": "medium",
+   "type": "file_corrupted_by_bad_patch",
+   "description": "最早一版补退出码脚本在 .cjs 文件里追加了 `# ----` 注释（Python 语法），JS 不认 → SyntaxError，文件损坏；且该损坏已同步到 HOME 与包内两份副本",
+   "impact": "扫描脚本完全无法运行；包验收 K9 因拿不到输出而判「无法解析」",
+   "fix": "以干净基准（58 行）恢复 + 正确用 // 注释追加退出码；三处 SHA256 校验一致",
+   "verified": "三处 SHA ff08b9f23125 一致；实跑输出「响应输入 588 条 / 输出恒定 2 条」；K9 PASS",
+   "foundBy": "K9「无法解析」→ 直接跑脚本 → 看到 SyntaxError"
+  },
+  {
+   "id": "DEF-046",
+   "component": "交付包 scripts/upgrade_thin_skills.py",
+   "severity": "low",
+   "type": "dev_tool_shipped_in_package",
+   "description": "包内混入开发期一次性脚本 upgrade_thin_skills.py（用途：给 7 个瘦技能补方法论，属于已完成的一次性动作）",
+   "impact": "装机包混入开发工具；「包↔装机」核对时出现 1 项不一致",
+   "fix": "从包内移除",
+   "verified": "包↔装机脚本差集归零；全量回归 L3 由 FAIL 转 PASS",
+   "foundBy": "全量回归 L3「包↔装机」报 1 个类别不一致"
+  },
+  {
+   "id": "DEF-047",
+   "component": "13 个专家团技能 SKILL.md",
+   "severity": "high",
+   "type": "identity_card_without_methodology",
+   "description": "13 个专家技能正文仅 257–401 B，只有「我是谁 + 核心能力 1..6」，没有输入要求 / 执行步骤 / 输出格式 / 质量标准 / 常见错误。涉及 build/deploy/monitoring/test/dev/sre/ops/dependency/container/evolution/system-architect/visual-director/ux-designer 共 13 个角色",
+   "impact": "模型加载后仍不知道怎么做——「能加载但不可用」（DEF-015 的同类，另 13 个）",
+   "fix": "逐个补该领域真实可用的方法论（输入/步骤/输出/质量标准/常见错误），非通用套话",
+   "verified": "13 个全部 707–918 B → 1333–1592 B；<300 B 档由 4 个降为 0；技能审计 112/0 问题",
+   "foundBy": "技能正文深度审计（按体积分档 + 方法结构识别）"
+  },
+  {
+   "id": "DEF-048",
+   "component": "skills/metago-core/SKILL.md",
+   "severity": "high",
+   "type": "knowledge_index_all_numbers_stale",
+   "description": "metago-core 是 AI 查权威数字的第一入口，但里面每个数都过期：V36.9.1 / 17 章 / 8 公理 / 7 属性 / 43 属性 / 36 公理 / 95 技能 / 125 引擎 / 984 原子；还写「AXIOMS.md 只有 8 条，A6–A33 未发布」（实际 38 条全在）",
+   "impact": "AI 一查权威数字就拿到全套过期值，且会把过期值当权威引用出去",
+   "fix": "整篇重写为「权威数字表 + 文件位置表 + 使用规则 + 红线」，全部对上 K16 实测值",
+   "verified": "新版含 38/47/121/161/597/112/927/162/20章；旧值 984/125引擎/95技能 全部清除",
+   "foundBy": "技能方法结构审计时 metago-core 被判「方法不足」，打开一看是数字全过期"
+  },
+  {
+   "id": "DEF-049",
+   "component": "@metago-ai/engine/RUNTIME/dist/decision-lock.js（gateILT）",
+   "severity": "high",
+   "type": "keyword_list_missing_common_chinese_forms",
+   "description": "ILT 意图谱系追踪门的「是否有推理链」判断，关键词表只有 【闭环分析】/因为/由于/所以/原因/based on/therefore/reason；缺「依据/根据/推导/推理/论证/理由/因此/综上/可见/从而/据此」等同样明确的中文推理词",
+   "impact": "「根据耦生度大于1…依据：定理推导，来源：附录卷」这类有完整依据的表述被判 「Output lacks reasoning trace」——中文推理表达被系统性误判为无推理",
+   "fix": "关键词表扩到 26 个（中文 18 + 英文 8），并修正 details 提示（原提示只列英文，与实际支持中文不符）",
+   "verified": "5 例实跑：依据推导→PASS、因为所以→PASS、综上可见→PASS、英文 because→PASS、无推理→WARNING，判定全部正确",
+   "foundBy": "硬驱动工具响应性测试时发现 decision_lock 对两组输入返回同一结论，追下去查出关键词表缺词"
+  },
+  {
+   "id": "DEF-050",
+   "component": "scripts/schema-vs-shape.cjs（我加的退出码）",
+   "severity": "high",
+   "type": "exit_code_references_undefined_variable",
+   "description": "批量补退出码时按常见命名猜了 `conflicts`，而脚本里实际变量叫 `issues` → process.exit(conflicts.length === 0 ? 0 : 1) 抛 ReferenceError",
+   "impact": "脚本判定「总判定：PASS」但退出码为 1；干净环境验证（判 rc==0）因此误报失败",
+   "fix": "conflicts → issues；并新写静态检查扫「exit 表达式引用未定义变量」",
+   "verified": "实跑退出码 0 ｜ 总判定：PASS（样例形状与声明 schema 一致）",
+   "foundBy": "全量回归 L4「干净环境」报 K6 rc=1 但判定 PASS —— 判定与退出码自相矛盾"
+  },
+  {
+   "id": "DEF-051",
+   "component": "clean_env_verify2.py / cwd_independence.py 的期望串",
+   "severity": "low",
+   "type": "expectation_string_not_synced_after_inventory_change",
+   "description": "补丁组由 13 增至 14 后，两个验证脚本仍期望「通过 13」→ 判为失败；实际补丁全部在位（通过 14）",
+   "impact": "全量回归出现 2 项假失败，掩盖真实状态",
+   "fix": "期望串 13→14，任务名「补丁自愈 13 组」→「14 组」",
+   "verified": "clean_env 通过 19 ｜ 失败 0；全量回归 30/30",
+   "foundBy": "全量回归连续报「补丁自愈」失败，但 reapply 自身判定 PASS"
+  },
+  {
+   "id": "DEF-053",
+   "component": "@metago-ai/engine/RUNTIME/dist/decision-lock.js 与 mcp-server/dist/index.js",
+   "severity": "critical",
+   "type": "non_idempotent_patch_duplicated_code",
+   "description": "decision-lock.js 的 DC_NORMALIZED 块被追加了 157 份（78946 B，正常 ~11000 B），mcp-server index.js 的 handleAxiomCheck 被追加 2 份 → 两个文件都 SyntaxError",
+   "impact": "**@metago-ai/engine 无法 require、mcp-server 无法启动 → 112 个 MCP 工具全部不可用**；4 个依赖 DecisionLock 的检查脚本崩溃",
+   "fix": "① 去重为 1 份 ② 新建 patch-dedupe.cjs 做收敛 ③ reapply-patches 末尾自动调用它 ④ 冒烟测试跳过 fix/patch/wire/install 类脚本（它们不幂等，不能反复执行）",
+   "verified": "decision-lock.js 11086 B / 1 份 / 语法通过；mcp-all-health 6/6 恢复（162 工具）",
+   "foundBy": "全脚本冒烟时发现 4 个脚本崩在同一处 SyntaxError，追到引擎文件"
+  },
+  {
+   "id": "DEF-054",
+   "component": "scripts/all-scripts-smoke.py 的判据",
+   "severity": "medium",
+   "type": "false_positive_judgment",
+   "description": "把 stdout 里出现的 SyntaxError / is not a function 一律当脚本崩溃；但分析类脚本的输出内容本身就在报告它发现的问题 → 首轮误报 15 个",
+   "impact": "掩盖真问题（4 个真崩溃混在 15 个误报里）",
+   "fix": "只在 stderr 找未捕获错误，且要求没有正常业务结论行",
+   "verified": "修正后真崩溃 4 个全部定位并修复",
+   "foundBy": "逐个复跑被报的脚本"
+  },
+  {
+   "id": "DEF-055",
+   "component": "scripts/harddriven-responsive-test.cjs 等输出为空",
+   "severity": "medium",
+   "type": "process_exit_truncates_piped_stdout",
+   "description": "Node 在管道模式下 stdout 异步写，process.exit() 立即终止会丢掉未刷新输出；TTY 下是同步的，所以交互运行正常、被捕获时为空",
+   "impact": "脚本看起来 rc=0 但没有任何输出，静默失效",
+   "fix": "改 process.exitCode = ...（10 个脚本）",
+   "verified": "批量改为 exitCode，语法校验通过",
+   "foundBy": "harddriven 测试 rc=0 但 stdout 0 字节"
+  },
+  {
+   "id": "DEF-056",
+   "component": "scripts/reapply-patches.cjs 与冒烟测试的组合",
+   "severity": "high",
+   "type": "smoke_test_executing_side_effect_scripts",
+   "description": "冒烟测试逐个执行目录下所有脚本，其中包含 fix_*/wire_*/install_* 等「改文件」的脚本；这些脚本多数不幂等，每执行一次就把同一块再插一份",
+   "impact": "跑一次冒烟就把 engine 和 mcp-server 改坏（DEF-053 的直接成因）",
+   "fix": "冒烟按文件名前缀跳过 fix|patch|wire|install|upgrade|apply|add_|reapply|merge|migrate|sync|dedupe",
+   "verified": "冒烟可执行脚本数下降，且不再改动引擎文件",
+   "foundBy": "def-053 追因"
+  },
+  {
+   "id": "DEF-057",
+   "component": "algorithms/engine/algorithms/t3impl/shapes.json",
+   "severity": "high",
+   "type": "sample_shape_missing_required_fields",
+   "description": "7 条样例与算法真实契约不符：B_005 缺 timestamp（→ meanT NaN → slope NaN）；D_009 的 sideEffects 是字符串数组（→ effect.reversible undefined → failedRollbacks 全 null）；另有 5 条元素级字段缺失（K7）",
+   "impact": "输出污染 4 条 + K7 错配 5 处，两者都从 0 变红",
+   "fix": "按源码真实契约补齐：B_005 每例加 timestamp；D_009 sideEffects 改对象数组；其余 5 条补 type/reversible/feasibility/impact/priorProbability/simplicity/weight",
+   "verified": "输出污染 0 / 694；K7 命中 0 处",
+   "foundBy": "全量回归 L1/L2 同时报红"
+  },
+  {
+   "id": "DEF-058",
+   "component": "scripts/audit_global.py 的 PACKAGES 清单",
+   "severity": "high",
+   "type": "wrong_package_scope_names",
+   "description": "把 lifeform / algorithms-cli 当成 @metago-ai/ 下的包，但它们是**非 scoped** 的 metago-lifeform / metago-cli → 恒报「3/5，缺 2」",
+   "impact": "「全局用户级生效」核验长期假红，掩盖真相",
+   "fix": "重写清单：scoped 5（algorithms/dev-kit/engine/mcp-server/verify-kit）+ 非 scoped 4（lifeform/cli/completeness-kit/veracity-kit），逐包核 version 与 rules_version",
+   "verified": "作用域包 5/5 ｜ 非 scoped 4/4 ｜ 跨目录 3/3 → PASS",
+   "foundBy": "全量回归 L3「全局安装」报缺 2 包"
+  },
+  {
+   "id": "DEF-059",
+   "component": "metago/blueprint/元构初始文档/总索引-V36.11.md",
+   "severity": "high",
+   "type": "file_truncated_to_zero",
+   "description": "蓝本总索引被清空为 0 字节（7887 B → 0 B）",
+   "impact": "蓝本索引缺失；包↔装机比对报 docs 内容不同",
+   "fix": "从包内恢复 7887 B（sha 08ed09e5c1）",
+   "verified": "蓝本 16 个文件 / 2,060,388 B 全部非空",
+   "foundBy": "audit_install 报 docs/总索引-V36.11.md 内容不同，一查是 0 字节"
+  },
+  {
+   "id": "DEF-060",
+   "component": "local-edition/offline-packages/metago-lifeform-36.11.0.tgz",
+   "severity": "high",
+   "type": "offline_bundle_stale",
+   "description": "离线 tgz 是旧时点打的，顶层 scripts 只有 174 个，缺本轮新增 8 个（patch-dedupe / scripts-syntax-gate / vendor-syntax-gate / fix_shapes_9 / fix_shapes_2 / fix_audit_global / all-scripts-smoke / delivery.config.json）",
+   "impact": "离线安装拿到旧脚本集 → 「全套最新版本的安装包」不成立；装完就缺自检工具",
+   "fix": "npm pack 重打（scripts 174→182）→ 替换 offline-packages → 解包刷新 portable（1024→1025 文件）",
+   "verified": "离线安装版自检 59/59；解包内跑 5 个核心脚本全部通过",
+   "foundBy": "查 offline tgz 里的脚本清单与 HOME 逐项对比"
+  },
+  {
+   "id": "DEF-061",
+   "component": "package.json 的 files 字段",
+   "severity": "medium",
+   "type": "root_entrypoint_not_published",
+   "description": "根级 verify-package.cjs 存在但不在 files 里，装后拿不到这个根级入口",
+   "impact": "npm 包缺 1 个必需项（fresh_install 报「files 字段缺项 1 个」）",
+   "fix": "files 补入 verify-package.cjs（23 → 24 项）",
+   "verified": "fresh_install_test：结论 PASS（tarball 可生成、内容完整、解包后可运行）",
+   "foundBy": "全新安装模拟"
+  },
+  {
+   "id": "DEF-062",
+   "component": "package.json 的 metago 能力元数据块",
+   "severity": "high",
+   "type": "machine_readable_metadata_stale",
+   "description": "metago.version=V36.9.6 / attributes=43 / protocols=8 / skills=100 —— 四个全是旧值。这是**机器可读的能力声明**，任何工具读它都会拿到错数字",
+   "impact": "外部工具/脚本按此块判断能力时全部判错",
+   "fix": "按实测重写：version V36.11.0、axioms 38、attributes 47、protocols 121、skills 112、atoms 597、engines 161，并新增 lawChapters/runtimeAxioms/mcpServers/totalMcpTools 分项",
+   "verified": "复核 metago 块 17 个字段全部与实测一致",
+   "foundBy": "实测 CLI 子命令时顺带看到 help 里写 V36.9.6，追到 package.json"
+  },
+  {
+   "id": "DEF-063",
+   "component": "交付包与装机的 README / core / docs",
+   "severity": "medium",
+   "type": "current_declaration_stale_version",
+   "description": "README 徽章 Rules-V36.9.6、core/METAGO_CORE.md「版本：V36.9.6」、docs/{MAP,PLATFORMS,PLUGINS,MANIFEST,UPGRADE}.md、adapters/trae/README、packages/docs-site 3 文件、packages/engine 5 文件 —— 共 13 文件含旧版本",
+   "impact": "用户/工具读文档拿到的版本号是旧的",
+   "fix": "逐文件判定「当前声明 vs 历史记录」，把当前声明的 V36.9.6 改 V36.11.0；CHANGELOG/RELEASE-NOTES 保留",
+   "verified": "复扫：当前声明文件已无 V36.9.6；历史类文件保留（正确）",
+   "foundBy": "版本一致性总检后的延伸扫描"
+  },
+  {
+   "id": "DEF-064",
+   "component": "交付包 packages/*/package.json（5 个子包）",
+   "severity": "high",
+   "type": "fix_not_surviving_reinstall",
+   "description": "npm 装机的 5 个子包有 rules_version=V36.11.0，但交付包内的 packages/*/package.json 没有这个字段 → 从包重装就丢掉",
+   "impact": "「修复不能存活于重装」——每次重装都要重新补",
+   "fix": "把 rules_version 写回包内 5 个子包的 package.json",
+   "verified": "复核：包内 5/5 与装机 5/5 完全一致",
+   "foundBy": "对比包内与装机的 rules_version 字段"
+  },
+  {
+   "id": "DEF-065",
+   "component": "metago-completeness-kit（完整性治理套件）",
+   "severity": "high",
+   "type": "governance_tool_never_worked",
+   "description": "completeness-guard 的默认 target 指向 `docs/Agent-Native-Workbench-架构方案文档.md`（别的项目的默认值，本机不存在）→ verify 恒报「目标文档 undefined / 覆盖 0/0 / 文档不存在」。而 AGENTS.md 完整性治理条款要求「宣称完整前必须 verify 全绿」",
+   "impact": "治理工具 100% 不可用：既不可能全绿，也没有缺口登记，等于治理形同虚设",
+   "fix": "在 $DSH_HOME 建项目级配置：target → AGENTS.md（20 章）、baselines.dirs → kit 的 7 组基线；并生成 gaps / radar 登记册",
+   "verified": "verify 由「文档不存在」变为「覆盖 71/259，逐项列出缺口」；7 条缺口已登记",
+   "foundBy": "测治理套件 CLI 时发现 verify rc=1 且输出全是 undefined"
+  },
+  {
+   "id": "DEF-066",
+   "component": "AGENTS.md §4.6 数据溯源与自证",
+   "severity": "medium",
+   "type": "axiom_without_executable_mechanism",
+   "description": "A1 溯源公理要求「一切输出必须可溯源至输入与过程」，但法则里只停在口号层——没有追溯标识机制。completeness 基线 B5 指出唯一真缺口就是缺 traceId",
+   "impact": "多步任务里无法把「哪段输出来自哪次调用」对上账，溯源无法执行",
+   "fix": "新增 §4.6.1 追溯标识 traceId：生成规则 / 贯穿范围 / 记录格式 / 失败行为 / 反查 / 红线",
+   "verified": "completeness 覆盖由 69/259 升至 71/259（B5 组补齐）；章节仍为 20 章",
+   "foundBy": "completeness 基线比对"
+  },
+  {
+   "id": "DEF-067",
+   "component": "scripts/memory-guard.cjs + project_memory.md",
+   "severity": "high",
+   "type": "mandatory_gate_never_passes",
+   "description": "AGENTS.md §16.3 把 memory-guard 定为「第零道硬门」（接收任务后、执行任何工作之前必须跑），但它在 $DSH_HOME 下恒返回「1 失败（硬失败 1）」：M-L4-1 把「当前目录不是 git 仓库」记为不可恢复的 fail；且 project_memory.md 根本不存在",
+   "impact": "门永远过不了 → 等于没有门（与 DEF-065 同类：工具存在但从未可用）",
+   "fix": "① 创建 project_memory.md（含 memory-guard 要求的 5 类关键章节 + 真实内容，1979 B）② M-L4-1 的「非 git 仓库」由 fail 降为 warn（$DSH_HOME 本就可能是非 git 部署，凭证来自 credentials.yaml / 系统管理器），只有「git 在但无 remote」才需处理",
+   "verified": "复跑：3 通过 / 3 警告 / 0 失败（硬失败 0）→ ✅ L4 冻记忆层可用，退出码 0",
+   "foundBy": "跑法则里写的强制门时发现恒失败"
+  },
+  {
+   "id": "DEF-068",
+   "component": "AGENTS.md 完整性治理条款 / hooks 平台适用性",
+   "severity": "medium",
+   "type": "platform_capability_overclaimed_by_omission",
+   "description": "元构 hooks（pre-tool-use-guard / stop-verify）只对 zcode / claude-code 生效，但法则里没有说明；在 DSH 上既不生效也没有替代说明",
+   "impact": "读者会误以为「钩子会自动拦住不合规的完成宣称」，实际 DSH 上毫无拦截——这种「以为有保护」比「知道没有保护」更危险",
+   "fix": "在完整性治理条款补第 6 条「平台适用性（hooks 不跨平台生效）」，写明 DSH 的等价机制与红线",
+   "verified": "AGENTS.md 含该条；project_memory.md 待办已记录；章节数仍 20",
+   "foundBy": "排查「引用但可能没接线」的最后一类时发现"
+  },
+  {
+   "id": "DEF-071",
+   "component": "metago-lifeform-dsh / patch/preset.patch.yml（Agent 预设「元构超级智能生命体模式」）",
+   "severity": "high",
+   "type": "hardcoded_metrics_drifted",
+   "description": "Agent 预设的 description 与顶部注释里写死了数字并已全部过期：V36.9.4 / 89,282 B / 100 个技能 / 22 chapters / 24,159 B 截断 / 32 headings",
+   "impact": "用户界面上看到的预设说明与实际不符；注释误导维护者判断 maxBytes 预算",
+   "fix": "先从实测重算（101,535 B / 20 章 / 27 二级标题 / 112 技能 / 36,001 B 截断 / 8 标题），再写 sync-preset-desc.py 让 description 与注释由实测自动生成，纳入回归 L5",
+   "verified": "两处 sha 一致；YAML 可解析；plugin 行数 21 未变；!!js 标签 4 未变；persona.prefix sha 一字未动；CRLF 行尾保持；--check PASS",
+   "foundBy": "用户提出「Agent 预设是不是还没更新」"
+  },
+  {
+   "id": "DEF-072",
+   "component": "@metago-ai/algorithms（algorithm executor + MCP L3 tool layer）",
+   "severity": "critical",
+   "type": "runtime_contract_broken",
+   "description": "两处契约断裂叠加：(1) registry.js 的 executeAlgorithm/executeAlgorithmSync 只把 input 当唯一参数传给 handler，所有多形参算法的第 2、3 个参数永远拿不到（identifyStrongPairs 的 threshold 永远用默认 0.9、buildCouplingMatrix 的 scoreFn 永远 undefined、fuzzyStringMatch 的 s2 永远 undefined）；(2) tool-registry.js 的 createL3Handler 把 MCP args 原样丢给算法，零适配，而 30 个 MCP 工具的 schema 与算法形参大面积不匹配（3 对齐 / 18 需组装 / 9 语义冲突）",
+   "impact": "用户按法则 §17.4 列出的工具名直接调用即崩或拿到空壳：is_superconductive / normalize_coupling 抛异常，build_coupling_matrix / identify_strong_pairs 返回空结果却报 success:true",
+   "fix": "① registry.js 插入 metagoInvoke()：用 metagoParamNames(handler).length 判断多形参（不用 fn.length——它不计入有默认值的形参，这是第二层坑），数组展开 / 对象按名取值；单形参走原分支零改动② tool-registry.js 插入 L3_ADAPT 三十条适配器 + adaptL3Args + isEmptyShell 输出守卫③ 两处登记为 reapply-patches.cjs 的 P19/P20（含 patches/*.tpl 模板）",
+   "verified": "30 个 L3 工具按 MCP schema 传法定参 + 语义断言：30/30 PASS；检测器有牙自检 5/5；单形参算法结果与修前完全相同（兼容）；全量回归 37 → 40 项全绿",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-073",
+   "component": "metago-lifeform-dsh/lib/status.js（metago_lifeform_status 自检）",
+   "severity": "high",
+   "type": "parser_mismatch_after_data_change",
+   "description": "status.js:80/83 的正则要求「编号单元格内只有编号」，而 AGENTS.md 按方案乙写成「A1（蓝本 A9）」，导致 7 条公理 + 5 条属性失配，自检输出从 10/9 退化为 3/4",
+   "impact": "健康检查本身说谎，会让人误判法则残缺了 6~7 成",
+   "fix": "正则放宽为 (A\\d{1,2})\\b[^|]*\\| —— 编号后允许任意非竖线字符；三处（src/lib/装机）同步",
+   "verified": "独立脚本直调 parseLaw：公理 10 条 [A1-A5,A34-A38] / 属性 9 条 [D37-D45]；反向验证（抽掉 A2 正文 → 9）证明判据非恒真；兼容验证（带注 A1 与纯编号 A34 都识别）通过",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-074",
+   "component": "scripts/mcp-tools-callable.cjs + scripts/fn-params-test.cjs",
+   "severity": "high",
+   "type": "checker_without_teeth",
+   "description": "mcp-tools-callable.cjs 只判 result.isError，于是 {success:false,error:...} 与 {success:true,output:{matrix:[]}} 都判 PASS，「112/112 可调用」是假绿；fn-params-test.cjs 只判 r.success === true，不校验输出内容",
+   "impact": "4 个坏工具 + 1 个失效桥接全部漏过，是这些缺陷长期存在的直接原因",
+   "fix": "新建 mcp-tools-semantic.cjs：三层判据（调用层 success!==false / 语义层 非空壳且无 NaN / 断言层 数学性质）+ 内置「有牙自检」（喂 5 个已知错误样本必须全部 FAIL）",
+   "verified": "有牙自检 5/5；30 工具语义 30/30；已加入全量回归 L2",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-075",
+   "component": "@metago-ai/algorithms（函数型形参桥接）",
+   "severity": "high",
+   "type": "documented_capability_not_implemented",
+   "description": "AGENTS.md 附录称「函数型形参可传表达式字符串（如 x => x*2）或 {__fn__: ...}」，实测均不生效：execute_sync(ALG_T1_C_019, {labels, scoreFn:\"x => x*2\"}) → scoreFn 不是函数",
+   "impact": "全量 37 条含函数型形参的算法（T1 17 / T2 20）只能靠默认值运行或直接抛错",
+   "fix": "在 registry.js 的 metagoInvoke 里加 metagoCoerceFn：支持 {__fn__} 与函数表达式字符串；安全边界对齐 t3impl/fn-bridge.cjs（长度上限 512 / 危险词黑名单 / 预置函数表 / 异常不外泄）；编译失败抛 [R141-FN-BRIDGE] 明确错误，禁止静默降级",
+   "verified": "字符串与 {__fn__} 两种写法都能跑出真实矩阵 [[1,2,2],[2,1,4],[2,4,1]]；非法表达式在桥接层报错；31 条函数型算法桥接失败 0",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-076",
+   "component": "@metago-ai/algorithms/engine/algorithms/t3impl/shapes.json",
+   "severity": "high",
+   "type": "declared_coverage_not_achieved",
+   "description": "AGENTS.md 附录称「每个算法都配了合规样例（t3impl/shapes.json）」并列出 927/927，实测 shapes.json 只有 700 条（T1 300 + T2 400），T3 227 条一条样例都没有",
+   "impact": "T3 227 条虽能执行，但没有任何合规入参参考；用户按猜测形状调用会拿到 '⊥' 或空结果，无法判断是算法问题还是传参问题",
+   "fix": "① 解析 227 条 TypeScript 风格 inputSchema，按类型递归造值（含函数型 → 表达式字符串）② 86 条含 65 种自定义类型的，用 Proxy 探测法让 handler 自己暴露读取路径③ 2 条手工补（C_005 的 maintenanceEvents 元素结构、L_007 的 steps[].premises）④ 按 K7 报的「算法读取字段」自动补齐 9 处元素级错配⑤ 登记为 reapply-patches P21（模板 scripts/patches/r141-t3-shapes.json）",
+   "verified": "shapes.json 700 → 927 条（T3 227 条）；227/227 在 executeAlgorithmSync 下 success 且输出非空壳；包验收 K6 冲突 0 / K7 错配 0；补丁 17 组全部在位",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-077",
+   "component": "scripts/mcp-tools-callable.cjs（判据范围）",
+   "severity": "medium",
+   "type": "checker_scope_confusion",
+   "description": "修复过程中我三次摆动判据范围：(a) 只判 isError → 假绿；(b) 加 success:false/空壳 → 误伤 37 个「瞎造参数导致业务错误」的工具；(c) 最终按职责拆分为协议层（本脚本）+ 语义层（mcp-tools-semantic.cjs）",
+   "impact": "中间态一度让回归从 40 掉到 33；也说明「有牙」不等于「判得严」",
+   "fix": "mcp-tools-callable.cjs 只判协议层可达 + NaN（允许业务错误，因为参数是瞎造的）；语义正确性交给 mcp-tools-semantic.cjs（合法参数 + 数学性质断言 + 有牙自检）；两个脚本都在头部写明职责边界",
+   "verified": "callable 112/112 PASS；semantic 有牙 5/5 + 语义 30/30 PASS",
+   "foundBy": "自测时发现 37 个「失败」其实是正确的参数校验"
+  },
+  {
+   "id": "DEF-078",
+   "component": "home/metago/algorithm-coverage.json（旧产物）+ AGENTS.md §17.10 + 附录三处陈述",
+   "severity": "medium",
+   "type": "stale_artifact_and_drifted_statements",
+   "description": "① 旧产物 algorithm-coverage.json（321,827 B，2026-10-03）留在盘上，其 totals={registered:927, ok:819, invalid:13, error:95} 与「927 全部实跑成功」直接矛盾；② §17.10 版本表 engine/algorithms/mcp 三个版本同时过期；③ 附录「每个算法都配了合规样例」在 T3 无样例时不成立；④ 附录「函数型形参可传表达式字符串」在桥接未实现时不成立",
+   "impact": "读这些内容的人会得出与实测相反的结论",
+   "fix": "① 备份后删除旧产物，留 algorithm-coverage-作废说明.md（说明它是什么、为何作废、以谁为准）；② 建 sync-law-versions.py：§17.10 三行版本与 npm 实测比对，--check 纳入回归，禁止手写；③④ 实现修好后再如实改陈述（顺序铁律：陈述必须后于实现）",
+   "verified": "sync-law-versions --check PASS（2.1.3 / 1.3.4 / 1.0.3 三行全对）；附录已写明 927=T1 300+T2 400+T3 227 且由 P21 维护；函数型形参已附完整安全边界（512/黑名单/明确报错/非沙箱声明）",
+   "foundBy": "用户提交的外部 Agent 独立审计 + 我方复核"
+  },
+  {
+   "id": "DEF-079",
+   "component": "D:\\DSH-Official\\handoff\\*.md（接管包）",
+   "severity": "medium",
+   "type": "time_sensitive_docs_hardcoded",
+   "description": "接管包把「当前值」写死在文档里：版本 0.2.0-rc.2（实际 0.2.1-rc.2）、端口 19387。而 DSH 的 Web 端口**每次启动随机分配**（历史 19387 → 49402 → 65490），因此「把 19387 改成 65490」这种修法下轮启动就再次过期",
+   "impact": "新会话第一件事就是读 00-接手必读.md，读到错的版本和端口会走弯路",
+   "fix": "按文件性质分三类处理：A 当前状态文档（00/03/04/README）→ 版本号改对 + **端口一个具体数字都不写**，改为「怎么查当前端口」的可执行说明 + 文件头加时效声明；B 历史记录（01 完整对话 / 02 对话摘要）→ **正文一字不改**，只在文件头加时点声明；C CHANGELOG → 不改（逐条是历史证据）",
+   "verified": "A 类四文件：0.2.0-rc.2 残留 0 处、65490 出现 0 处、声明段具体端口 0 个、均有时效声明；B 类两文件：正文未改，仅加时点声明；残留的 19387 均为「当时的验证记录」性质，已由文件头声明覆盖",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-080",
+   "component": "AGENTS.md §18.3 / §19.6（metago 工具性质未明示）",
+   "severity": "high",
+   "type": "capability_nature_undisclosed",
+   "description": "法则把 metago 的 55 个工具与 metago-algorithms 的 57 个工具并列成「可调用工具」，未说明二者性质完全不同。实测（spawn MCP 服务器逐个 tools/call 分类）：metago 55 个里 54 个是方法注入型（返回「触发条件/执行流程/输出格式」+ 入参回显，零数值）、1 个上报型（metago_report_event）、**计算型 0 个**",
+   "impact": "用户调 metago_coupling_calculate 期望拿到耦生度数值，实际只拿到方法框架——会误以为「工具坏了」或「算法没实现」",
+   "fix": "§18.3 加「性质声明」表（54 注入 / 1 上报 / 0 计算，各自返回什么、怎么用）；§17.4 加与 metago 工具的区别说明；§19.6 能力表标注性质构成；并给出复核命令 node scripts/classify-metago-tools.mjs",
+   "verified": "实测分类落档 docs/metago-tool-kinds.json（55 条逐条性质）；法则三处均已标注；复核脚本可随时重跑",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-081",
+   "component": "AGENTS.md 第二/三章（双编号体系无引用规范）",
+   "severity": "medium",
+   "type": "reference_ambiguity",
+   "description": "第二章写「A1（蓝本 A9）」「A37（蓝本无）」，第三章写「D37（蓝本 D36）」，但全文未规定引用时用哪套编号。蓝本自身也有 38 条编号，本文化理编号恰好也到 A38，「按 A38 执行对抗式审查」与「蓝本 A38」会被读成同一件事",
+   "impact": "跨文档引用、对外表述、与蓝本对照时会产生指向歧义",
+   "fix": "新增 §1.0「编号与引用规范」5 条铁律：对外一律用元构编号；对照写「元构 A1（蓝本 A9）」；禁止混用；禁止裸引蓝本编号；正文默认元构编号",
+   "verified": "§1.0 已就位；引用格式示例「元构 A1（蓝本 A9）」在文中可检索到；章节数仍 20",
+   "foundBy": "用户提交的外部 Agent 独立审计"
+  },
+  {
+   "id": "DEF-082",
+   "component": "metago_report_event（上报工具）",
+   "severity": "medium",
+   "type": "success_flag_masks_backend_failure",
+   "description": "实测 metago_report_event(eventType=activity, data={}) 返回 {ok: true, httpStatus: 200, serverResponse: {code: 401, message: \"未登录\"}} —— ok:true 只代表「请求发出去了」，服务端 401 未登录时数据实际未落库",
+   "impact": "若只看 ok:true 会误以为事件已上报；实际数据丢失",
+   "fix": "已在 §18.3 性质声明表中明示这一行为；未改工具实现（属于上游 mcp-server 的行为，改动面大且有风险）",
+   "verified": "§18.3 表内已写明「ok:true 只代表请求发出，服务端 401 未登录时数据并未落库」",
+   "foundBy": "R141 第 4 批实测 55 工具性质时发现"
+  },
+  {
+   "id": "DEF-083",
+   "component": "atom-factory.cjs / CONSTRAINT_IDS",
+   "severity": "high",
+   "type": "declared_shape_without_implementation",
+   "description": "atom-factory.cjs 用注释声明「哲学族原子已定义为 constraint 形态，工厂不得再为其生成计算实现」，并列了 5 个 ID 到 CONSTRAINT_IDS，但**没有任何 constraint 实现**——实测 make() 对这 5 个返回 null，传违背样本也返回 null",
+   "impact": "597 条契约里这 5 条既非 compute 也非可执行 constraint，等于无实现",
+   "fix": "按契约原文判据实现 5 个 constraint：归无见证器（无效>有效→归无）、如是存在器（含绝对化表述→违背）、沉默决策器（置信度<阈值却决策→违背）、概念消融器（同一对象属两互斥类→违背）、无言之教器（说教用语≥2处且无结构无示例→违背）",
+   "verified": "5 个全部按违背样本精确命中（violated:true + 具体理由）、合规样本放行（ok:true）；契约校验器工厂覆盖 468 → 473（+5）；总判定 PASS",
+   "foundBy": "R141 第 5 批 U-07 扫描"
+  },
+  {
+   "id": "DEF-084",
+   "component": "genome/atoms_engines.json（124 条蓝本原有契约）",
+   "severity": "high",
+   "type": "contract_without_implementation",
+   "description": "597 条契约 = 473（元创造，工厂生成）+ 124（蓝本原有）。124 条里只有 50 条被 compute 原子覆盖，**剩 72 条既无 compute 实现、工厂 CONTRACTS 里也没有（atomMeta 查得 0/72）**",
+   "impact": "契约声明了 597 条，实际有归属 525 条（87.9%），72 条（12.1%）无实现。其中 58 条按 output 语义是确定性可实现的、11 条需模型生成、3 条需外部硬件/服务",
+   "fix": "分两批完成：① 第 5 批按 output 语义分类（DET 58 / MODEL 11 / EXT 3）；② 第 6 批实现 52 条确定性原子（blueprint-atoms.cjs），逐条按契约 input/output 写真实算法；剩余 20 条（MODEL 11 + EXT 3 + 哲学族已在 CONSTRAINT 里 + 2 条上游已实现）诚实标注，不造假实现",
+   "verified": "52 条 L-1 可调用 52/52、L-2 有内容 52/52、L-3 结构不同输入给出不同输出 52/52；597 条契约按 make() 来源分布 {factory-gen:538, blueprint:52, constraint:5, null:2}，零缺口；契约校验器改为遍历全量 597 条（原只遍历工厂自己的 473 条 = 假绿），现 通过 545 / 失败 0 / 无实现 0",
+   "foundBy": "R141 第 5 批 U-07 扫描"
+  },
+  {
+   "id": "DEF-085",
+   "component": "contract-validator.cjs（契约校验器）",
+   "severity": "critical",
+   "type": "checker_false_green",
+   "description": "契约校验器的工厂覆盖段只遍历 `F.CONTRACTS`（工厂自己的 473 条），不遍历契约全量 597 条。于是 597-473-50=74 条从未被测试，而总判定照样 PASS。报告读起来是「通过 50 + 473」，看着像全绿，实则 74 条是盲区",
+   "impact": "这是 R141 一直在消灭的「假绿」，而且出现在最关键的契约校验环节",
+   "fix": "改为遍历 CONTRACTS 全量 597 条；分 compute / make成功 / make返回null 三类计数；无实现不在 EXTERNAL_NEEDED 白名单里即 FAIL",
+   "verified": "改后实测：通过 545 / 失败 0 / 无实现 0，与 597 = 50 + 545 + 2 精确对上",
+   "foundBy": "R141 第 6 批：我的 52 条实现挂上去后覆盖数没变，顺藤摸瓜发现是校验器只测子集"
+  },
+  {
+   "id": "DEF-086",
+   "component": "atom-factory.cjs（我自己引入的静默降级）",
+   "severity": "high",
+   "type": "silent_fallback_masks_failure",
+   "description": "我第一版挂载写的是 `try { require('./blueprint-atoms.cjs') } catch (e) { /* 缺失则跳过 */ }`。结果 blueprint-atoms.cjs 有语法错误（重复声明 const valid）时，这个 catch 吞掉了错误，make() 静默退回工厂 GEN 生成，契约校验器照样 PASS——**我的 52 条实现一条都没生效，而所有检查都是绿的**",
+   "impact": "比功能性 bug 更危险：它让「没生效」看起来像「已生效」",
+   "fix": "区分两种情况——文件不存在可以跳过（可选模块）；文件存在但加载失败必须抛 [R141-BP-ATOMS] 明确错误",
+   "verified": "修后语法错误立刻暴露（Identifier 'valid' has already been declared），修掉后 52 条被正确识别为 kind='blueprint'",
+   "foundBy": "我在验证「52 条是否真被用上」时发现 kind 全是 factory-gen"
+  },
+  {
+   "id": "DEF-087",
+   "component": "atom-factory.cjs / 12 条原子的假实现",
+   "severity": "critical",
+   "type": "fake_implementation_misaligned_output",
+   "description": "72 条无归属契约里，12 条「需大模型生成自然语言」或「需硬件」的原子被工厂 GEN 生成了计算实现，但输出与契约语义完全错位：政策翻译官（契约：政策原文→通俗解释）返回 {mapped:[0.664,...], 通俗解释:\"[0.8,0.6,0.75]\"}；情绪识别器恒返回 {情绪:\"neutral\", confidence:0}；摩擦致敬器（契约：痛苦表达→创造力路径）返回 {value,n,values} 纯统计",
+   "impact": "契约校验器显示 PASS（因为有输出），但这是「有输出、能跑通、做的不是这件事」——正是用户禁止的虚假实现",
+   "fix": "新增 MODEL_NEEDED（8 条需模型）+ EXTERNAL_NEEDED 追加 4 条需硬件；make() 对这两类返回 null；契约校验器白名单合并两类并单独报告；法则附录二逐条列出 14 条边界与「调用会得到什么」",
+   "verified": "597 条按 make() 分布 {factory-gen:526, blueprint:52, constraint:5, null:14} = 597；契约校验 通过 533 / 失败 0 / 无实现 0；14 条 make() 全部返回 null；对抗式审查 A7 面（语义错位）未突破",
+   "foundBy": "R141 第 7 批：查「无实现 0」为何成立时，发现是工厂补了假实现"
+  },
+  {
+   "id": "DEF-088",
+   "component": "blueprint-atoms.cjs / r4()",
+   "severity": "high",
+   "type": "numeric_overflow_pollution",
+   "description": "r4(x) = Math.round((Number(x)||0) * 1e4) / 1e4；当 x = -1e308 时 x*1e4 = -1e312 溢出为 -Infinity，Math.round(-Infinity) = -Infinity，最终输出 -Infinity。r4 是 52 条实现的公共工具函数，任何调用它的地方在极端输入下都会污染",
+   "impact": "Infinity 能通过 typeof === 'number' 的检查，比 null 更隐蔽",
+   "fix": "r4 加 isFinite 守卫：非有限值返回 null（让上层空壳检测能识别）；溢出时保留原值；resEmergeTrigger 的 z 值单独守卫",
+   "verified": "对抗式审查 A5 面复跑：52 条 × 8 种恶意数值输入，污染 0 次",
+   "foundBy": "R141 第 7 批对抗式审查 A5 面"
+  },
+  {
+   "id": "DEF-091",
+   "component": "registry.js __t3Binding / 回归检查范围",
+   "severity": "medium",
+   "type": "unchecked_fallback_statistic",
+   "description": "registry.js 的 T3 族加载是逐族 try/catch（单族失败合理），并在末尾暴露 __t3Binding={bound,total,families}。但除了补丁脚本和调试脚本，**没有任何回归/验收项检查它**。若某次重装后 t3impl/families/ 全部加载失败，bound 会从 227 掉到 0，而 T3 自测（走 shapes.json 样例）仍显示 227/227 通过",
+   "impact": "T3 227 条实现的绑定状态无人监控",
+   "fix": "新建 check_t3_binding.cjs（bound==total==227 且 families==16），加入回归 L1 功能层",
+   "verified": "回归 41 → 42 项；实测 bound 227 / total 227 / families 16 PASS",
+   "foundBy": "R141 第 8 批：给裸 catch 加注释时顺藤摸到 __t3Binding 无人检查"
+  }
+ ],
+ "corrections": [
+  {
+   "id": "CORR-001",
+   "what": "曾判定「39 个 MCP 技能的 guide 与 SKILL.md 不同源，疑似缺陷」",
+   "why_wrong": "用「guide 是否为 SKILL.md 的子集」作判据；但 guide 是为 MCP 场景设计的精简版（触发条件+流程+输出格式），本就不该等于全文",
+   "correct_judgment": "guide 质量按三要素齐全度评估：39/39 全部齐全，不是缺陷",
+   "lesson": "判据错了，结论就错了。发现「大量不一致」时应先怀疑判据，而不是先怀疑数据"
+  },
+  {
+   "id": "CORR-002",
+   "what": "修正 patch 时只替换了 placeholders 常量行、未替换下游 found 行，导致 `found` 重复声明，引擎直接无法加载",
+   "why_wrong": "局部替换时没有把「声明 + 使用」作为整体考虑",
+   "correct_judgment": "已在 fix_placeholder_v2.py 中删除残留行，node --check 通过，引擎恢复加载",
+   "lesson": "改代码后必须立刻做语法检查 + 加载验证；不能等下一步才验证"
+  },
+  {
+   "id": "CORR-003",
+   "what": "曾判定「15 项公理校验里 13 项恒定输出，疑似形式主义」",
+   "why_wrong": "checkBoundaryAwareness() / checkEndogenousCreation() 等 5 项**本就无参数**，是对引擎能力的静态自述（引擎内置能力），恒定输出属设计；另外 checkClosure(capability) 需要 capability 对象，我传了字符串才导致恒定 fail",
+   "correct_judgment": "应区分两类：①自述型（无参数，声明引擎能力，恒定属设计）②校验型（有参数，应随输入变化）。真正随输入变化的校验型有 checkDataTraceability / checkOutputIntegrity / checkClosure / checkProvenance",
+   "lesson": "第 3 次同类错误：判据没区分「函数的语义类型」就下结论"
+  },
+  {
+   "id": "CORR-004",
+   "what": "蓝本完整性首轮扫描报出 300 处空章节、25 处占位符、40 处重复标题",
+   "why_wrong": "空章节判据「标题下一行是标题即算空」→ 母标题后接子标题是正常文档结构；占位符判据「出现 TODO/占位符 字样」→ 多数是**在描述占位符检测功能**的正文",
+   "correct_judgment": "改用递归判据（子标题有内容则母标题不空）+ 严格占位形态（行首 TODO:/[待填]/{{}} 等），误报从 365 处降到 7 处，复核后真实问题仅 1 类（代码围栏未闭合，2 卷）",
+   "lesson": "第 4 次同类错误：先有判据再看数据。应先用抽样确认「正常长什么样」，再写判据"
+  },
+  {
+   "id": "CORR-005",
+   "what": "长期把 $DSH_HOME/skills 下的 116 个**文件**当作 116 个**技能**报告",
+   "why_wrong": "目录里除 111 个 SKILL.md 外还有 5 个附属文件（模板/方法论/规则），我数的是文件总数",
+   "correct_judgment": "实测技能数 = SKILL.md 数量：111 →（补建 fabric-guide 后）112；AGENTS.md §18.10 表标称 100，已在表后加实测口径注",
+   "lesson": "第 5 次「分母/口径错误」——数文件 ≠ 数实体。这类错误只有一个解法：明确说出「我数的是什么」"
+  },
+  {
+   "id": "CORR-006",
+   "what": "首轮引用核查报出 17 处悬空（缺失命令 12 个、脚本 4 个、路径 1 个）",
+   "why_wrong": "①把正文反引号里的**技能名**（metago-bazi/metago-liuyao 等）当成 CLI 命令；②脚本只搜 $DSH_HOME/scripts 一个根，没搜安装目录与构建区；③把含 `*` 的 glob 模式当真路径做 exists() 判断",
+   "correct_judgment": "修正判据后：真实悬空 3 处（2 个不存在的脚本 + 1 个未安装的脚本），全部已修；复扫 0 处",
+   "lesson": "第 6 次判据错误。新纪律：写判据前先抽样 3-5 个样本，确认「正常」长什么样再定规则"
+  },
+  {
+   "id": "CORR-007",
+   "what": "语义测试首轮 9 项失败中，6 项是我自己的期望写错",
+   "why_wrong": "① 以为「均匀数据 → 熵=0」，实际均匀分布熵最大（log2(4)=2）；② 以为 rank 1 是最小值，实现约定 1=最大值；③ z 分标准差用总体公式测、实现用样本公式；④ threshold/coverage/distance 我按名字猜参数个数与返回字段",
+   "correct_judgment": "逐条读实现后确认：6 项是我的期望错（不是缺陷），3 项是真实的语义歧义（已修）",
+   "lesson": "第 7 次「判据先于事实」。新纪律：断言前先读实现签名与返回字段，不按名字猜"
+  },
+  {
+   "id": "CORR-008",
+   "what": "算子语义全量测试首轮 2 项失败，均为我的断言写错",
+   "why_wrong": "① risk 返回 green/yellow/orange/red，我的正则只覆盖「低/low/正常」，漏了 green；② learn 用 EMA(α=0.1)，n=6 时数学上不可能收敛（需要约 50 步），我取样太短就断言「恒定序列应立刻收敛」",
+   "correct_judgment": "两项实现均正确：risk 四色分级准确（ratio 1/2/2.5/3.08 → green/green/yellow/orange）；learn n=50 收敛=true、n=60 learned=4.991",
+   "lesson": "第 8 次判据错误。断言必须基于「实现的实际算法」，不能基于「名字听起来应该怎样」"
+  },
+  {
+   "id": "CORR-009",
+   "what": "算法语义不变量首轮 3+1 项失败，全部是我自己的问题",
+   "why_wrong": "① covariance：以为是 {a,b} 两向量，实际单参非位置型要直接传 samples[{x,y}] 数组；② weighted_cosine：以为是 {a,b,weights}，实际位置型 2 参要 {pair:{a,b}, weights}；③ fuzzy_string_match：传了数组，实际要 {s1,s2} 字符串；④ cov(A,A)=2.5 判我失败，实际是**样本**协方差（n-1），我按总体方差算成 2",
+   "correct_judgment": "四处均为我方错误；实现全部正确（cov 手算 16/2=8、加权余弦自反=1、2-gram Jaccard 相同=1/不同=0/部分=0.38）",
+   "lesson": "第 9 次判据错误，其中③④再次印证：断言前必须读 schema 与实现，不按名字猜"
+  },
+  {
+   "id": "CORR-010",
+   "what": "首次补「已实现 590」时脚本重跑导致该行被插入两次",
+   "why_wrong": "判重条件写成「字符串不存在才插入」，但第二次跑时字符串已存在却被我的 else 分支绕过",
+   "correct_judgment": "已用 fix_index_dup.py 去重，现「其中已实现」与「仍为外部依赖」各唯一出现一次",
+   "lesson": "幂等脚本要么写成「先删后插」，要么在插入前严格检查；不能靠「看起来没有」"
+  },
+  {
+   "id": "CORR-011",
+   "what": "第一次给 critique/objectivity 加硬驱动后，复测显示它们仍是软驱动",
+   "why_wrong": "误以为所有工具都走 SKILLS 注册体；实际这 7 个同名工具由 TOOLKIT_TOOLS **先注册**，SKILLS 版本被跳过，我加的分支在永不执行的代码路径里",
+   "correct_judgment": "在 TOOLKIT_TOOLS 的 handler 里也加同样的分发，两处都覆盖；现已验证 critique 返回「D39 直接批判性 WARNING」、objectivity 返回「D38 客观中立 PASS」",
+   "lesson": "第 10 次判据错误。加代码前必须确认**这段代码会不会被执行**，不能只看它存在"
+  },
+  {
+   "id": "CORR-012",
+   "what": "给 index.js 加 emotion 加载器时用了 atom-factory.cjs 的 `_CB` 锚点，匹配失败",
+   "why_wrong": "把 A 文件的变量名套用到 B 文件",
+   "correct_judgment": "脚本正确地在「锚点不存在」时退出且不改文件，无损坏；改用 handleAxiomCheck 作锚点后成功",
+   "lesson": "跨文件patch前先确认目标文件里真有那个锚点——脚本拒绝修改是对的"
+  },
+  {
+   "id": "CORR-013",
+   "what": "emotion 加载器在 ESM 文件里用了 `require`，所有候选路径都抛错被吞掉 → 报「引擎未提供」",
+   "why_wrong": "index.js 顶部是 import 语法（ESM），模块作用域里没有 require",
+   "correct_judgment": "用 createRequire(import.meta.url) 造 CJS require；修复后返回真实情绪（anger 80.7%）",
+   "lesson": "在 ESM 文件里写 require 不会报语法错，但运行时会静默失败——这类错误最难发现"
+  },
+  {
+   "id": "CORR-014",
+   "what": "negentropy 首测用对象入参 {input:{values:[...]}} 时返回软驱动",
+   "why_wrong": "该工具的 zod schema 声明 input 为 string，对象入参在 MCP 层就被拒；不是我的 handler 出错",
+   "correct_judgment": "改用字符串入参（'100 1 1 1 1'）后全部正常；handler 已能从字符串里抽数字",
+   "lesson": "工具入参类型由 schema 决定；测试前先读 required 与类型，别假设能传对象"
+  },
+  {
+   "id": "CORR-015",
+   "what": "自动修复器把部分样例改坏（出现 {entropy:1, toFixed:1}、给 kmeans 传 'sample text'）",
+   "why_wrong": "字段抽取把 provenance 模板字符串里的 `rate.toFixed(6)` 也当成元素字段；给需要「数值向量数组」的参数塞了标量/字符串",
+   "correct_judgment": "已改手工构造：读源码确认结构类型（数组的数组 / 对象数组 / 嵌套对象），逐条验证",
+   "lesson": "第 11 次判据错误。自动化的前提是「抽取规则可靠」——规则不可靠时，自动修比不修更危险"
+  },
+  {
+   "id": "CORR-016",
+   "what": "我以为 scrapling 超时是我改 mcp-server 造成的回归",
+   "why_wrong": "没先隔离变量：scrapling 是独立的 Python 服务，与 `@metago-ai/mcp-server` 无关",
+   "correct_judgment": "直接探测服务本身 173ms 正常；再查启动方式才发现是 python 解析问题（与 DEF-027 同源）",
+   "lesson": "第 12 次判据错误。报错先说「可能是我改坏的」——应该先隔离：这个组件和我改的东西有关系吗"
+  },
+  {
+   "id": "CORR-017",
+   "what": "归档开发脚本时只查「文档引用」，误删了 3 个被「代码引用」的脚本",
+   "why_wrong": "判据不完整：arch-lint.cjs 被 metago-arch-cli.cjs require；metago-arch-cli.cjs 被 metago-lifeform 包引用；audit_law_references.py 被 fix_law_refs.py 引用。这些都不是文档引用，我的扫描范围没包含代码层",
+   "correct_judgment": "扩充扫描范围到「所有 .cjs/.js/.py/.md/.json/.yml」，恢复 3 个；复验全绿",
+   "lesson": "第 13 次判据错误。删除前必须查「谁在用我」——文档引用只是其中一种，代码引用更隐蔽也更致命"
+  },
+  {
+   "id": "CORR-018",
+   "what": "看到「附录卷-原子契约补全 477」与「ATOMS.md 597」不等，怀疑 120 个原子缺契约文档",
+   "why_wrong": "把「补全卷」当成了「全量卷」。它是 V36.11 新增的补充卷，只文档化原 4 卷未覆盖的部分；核实后：597 个原子在 16 卷中从未被提及的 = 0，覆盖是完整的",
+   "correct_judgment": "改用「清单 − 全部卷」而不是「清单 − 单卷」，结果 0 缺口",
+   "lesson": "第 14 次判据错误。比较集合时要确认两边的「范围」是否对等——单卷 ≠ 全卷"
+  },
+  {
+   "id": "CORR-019",
+   "what": "上一轮修 DEF-030 时写了候选数组，但只用了 PY_CANDS[0]，等于没修",
+   "why_wrong": "写「多候选」的形，没写「逐个尝试」的实；而且没在不设环境变量的条件下验证",
+   "correct_judgment": "改用「先筛存在的绝对路径 + 保留相对命令」的候选链；并复现原失败场景验证",
+   "lesson": "第 15 次判据错误。「看起来修了」和「修好了」的差别，只有在原始失败条件下复跑才看得出来"
+  },
+  {
+   "id": "CORR-020",
+   "what": "写「干净环境验证」脚本时，用 python.exe 去执行 .cjs 文件，12 项全报 SyntaxError",
+   "why_wrong": "结构上把「解释器」和「脚本类型」混为一谈；没有按扩展名分派",
+   "correct_judgment": "改为 .cjs 用 node、.py 用 python；并且把环境剥离范围从「只留 Windows 必需项」缩到「只删 METAGO_*」（剥太狠会让 harness 沙箱 rc=134）",
+   "lesson": "第 16 次判据错误。检查器本身要先被检查——写验证脚本时更要小心"
+  },
+  {
+   "id": "CORR-021",
+   "what": "R111 修「111 个 SKILL.md」时只改了 $DSH_HOME 一份，另两份副本残留旧文案，之后同步又覆盖回去",
+   "why_wrong": "同一个文件存在三处副本（D:\\metago-build / $DSH_HOME/scripts / 包内），我只改了一处",
+   "correct_judgment": "三处一起改，并用 SHA256 比对确认完全一致（c5e467539d0ba9db）",
+   "lesson": "多副本文件必须「全改 + 哈希校验」，否则任何一次同步都可能回滚修复"
+  },
+  {
+   "id": "CORR-022",
+   "what": "引用审计把 MCP prompts 当成 tools，误报 7 处工具不存在",
+   "why_wrong": "只调了 tools/list，没调 prompts/list；而那 7 个名字在 prompts 里全部存在",
+   "correct_judgment": "同时拉 tools/list(55) 与 prompts/list(8)，合并为已知名字池后比对",
+   "lesson": "第 17 次判据错误。同一个服务器有两套命名空间，只查一套就会误报"
+  },
+  {
+   "id": "CORR-023",
+   "what": "正则 \\bmetago-build\\b 会命中 metago-build-engineer 前缀；还把包名/仓库名/目录名/文件名/特性名/云环境 ID 都当技能名",
+   "why_wrong": "「metago- 开头的字符串」不等于「技能名」；\\b 在 - 边界处会误判",
+   "correct_judgment": "改用「前不接字母数字连字符、后不接字母数字连字符」的精确整词，并维护非技能名排除表",
+   "lesson": "第 18 次判据错误。命名空间要显式界定，不能靠前缀猜"
+  },
+  {
+   "id": "CORR-024",
+   "what": "「失败分支」模式只认 process.exit(1) 字面量，把 6 个真有牙的检查器误报为无牙",
+   "why_wrong": "只想到一种失败写法；实际有 process.exit(cond?0:1) / sys.exit(...) / 「需关注」判定 / 三元判定 等多种",
+   "correct_judgment": "把模式扩到 12 种（含 process.exit( 任意表达式、sys.exit(、需关注、三元判定）",
+   "lesson": "第 19 次判据错误。判据要覆盖「同一意图的多种实现」，不能只认一种写法"
+  },
+  {
+   "id": "CORR-025",
+   "what": "断言计数只认 T()/assert()/ok()/expect()/check()，把 t3test、contract-validator、mutation-test、atom-hollow-scan 数成 0 条断言",
+   "why_wrong": "断言有多种写法：函数式、pass++/fail++ 计数式、issues.push() 收集式；只认一种就误判",
+   "correct_judgment": "三种写法都纳入；收集式命名再放宽到 hollow*/dup*/same*/bad*/warn*",
+   "lesson": "第 20 次判据错误。同一语义的多种实现形式，要一次列全再写判据"
+  },
+  {
+   "id": "CORR-026",
+   "what": "把「有判定行」当作「必须有退出码」的充分条件，一口气报出 59 个无退出码脚本",
+   "why_wrong": "报告器（add_k12.py / fix_*.py / locate_*.py / degenerate-scan*.cjs）只打印信息、不承担门禁职责，强制加退出码没有意义",
+   "correct_judgment": "判据收窄到「被验证流程引用的门禁类检查器」→ 23 个，逐个补齐",
+   "lesson": "第 21 次判据错误。规则的适用范围要显式界定，否则会把正常情况也判成缺陷"
+  },
+  {
+   "id": "CORR-027",
+   "what": "自动推断退出码变量时选中了 miss_p（只覆盖 packages 路径一类），漏掉其余三类",
+   "why_wrong": "用「变量名含 miss/bad 等关键词」猜汇总变量，猜到了其中一类而不是总和",
+   "correct_judgment": "改为显式写 len(miss_s)+len(miss_t)+len(miss_k)+len(miss_p)，不再靠猜",
+   "lesson": "第 22 次判据错误。自动推断只能用于「有唯一汇总变量」的情形；多类别时必须显式求和"
+  },
+  {
+   "id": "CORR-028",
+   "what": "「方法结构」判据只认六种章节名，把 11 个技能（元思想族/耦生族）误判为「方法不足」",
+   "why_wrong": "同一语义有多种章节命名：元思想族用「前置条件/推理框架/验证方法」，耦生族用「核心概念/优化策略/演化曲线」",
+   "correct_judgment": "每类扩到 5–8 个同义词（输入/前置/准备；步骤/流程/框架/核心概念；输出/报告/结论；标准/验证/判定；错误/红线/局限）",
+   "lesson": "第 23 次判据错误。这一条已经重复 8 次了——「同一意图的多种实现形式」是我最稳定的盲区"
+  },
+  {
+   "id": "CORR-029",
+   "what": "「历史叙述」判据只认「由/→/降为」等字，把 5 条 RTM 修复记录误判为「当前声明用了旧值」",
+   "why_wrong": "RTM 记录修复的写法是「旧值 984/125引擎 全清」「升级前 V36.9.1~V36.9.6」，这些词不在原判据里",
+   "correct_judgment": "补入「旧值/升级前/全清/修正前/DEF-/CORR-/自 V/从 V」等 12 种表述",
+   "lesson": "第 24 次判据错误。同一个盲区第 9 次：同一语义的多种表述形式列不全"
+  },
+  {
+   "id": "CORR-030",
+   "what": "「exit 表达式引用未定义变量」检查器把对象属性名当变量（`summary.ok` 里的 ok）",
+   "why_wrong": "正则 \\b([a-zA-Z_]\\w*)\\b 会匹配到点号后面的属性名",
+   "correct_judgment": "改用 (?<![.\\w]) 排除前面是点号或字母数字的标识符，并排除函数调用形态",
+   "lesson": "第 25 次判据错误。第 10 次同源：边界条件（这次是「点号后」）没考虑全"
+  },
+  {
+   "id": "CORR-031",
+   "what": "冒烟脚本把 stdout 里的错误字样当崩溃，15 个误报",
+   "why_wrong": "只做了字符串匹配，没区分「脚本崩溃」与「脚本报告发现的问题」",
+   "correct_judgment": "只在 stderr 找未捕获错误，且要求无正常业务结论行",
+   "lesson": "第 26 次判据错误"
+  },
+  {
+   "id": "CORR-032",
+   "what": "让冒烟测试盲目执行目录下所有脚本，包括会改文件的补丁脚本",
+   "why_wrong": "把「脚本」都当成「只读检查器」；fix_/wire_ 类是写副作用脚本，多数不幂等",
+   "correct_judgment": "按前缀跳过 fix|patch|wire|install|upgrade|apply|add_|reapply|merge|migrate|sync|dedupe",
+   "lesson": "第 27 次判据错误。**这次代价最大：一次冒烟把 MCP 全套 112 工具搞挂**"
+  },
+  {
+   "id": "CORR-033",
+   "what": "audit-expectations 把文档字符串里的「116 个技能文件」当硬编码期望",
+   "why_wrong": "读整个文件做正则，没排除注释与 docstring",
+   "correct_judgment": "先剥离注释/文档字符串再找期望；同时把该数字本身改为正确的 112",
+   "lesson": "第 28 次判据错误"
+  },
+  {
+   "id": "CORR-034",
+   "what": "用正则找「同名 const/function 声明两次以上」来查重复代码，报出 69 个文件有问题",
+   "why_wrong": "同名变量在不同函数作用域内完全合法（每个函数里都可以有 `let start`）",
+   "correct_judgment": "改用 node --check —— 真重复声明会直接 SyntaxError，语法层是权威判定。95 个 vendor JS 全部通过",
+   "lesson": "第 29 次判据错误。**这次教训是「换用权威工具」：与其自己写近似判据，不如找语言自带的权威检查器**"
+  },
+  {
+   "id": "CORR-035",
+   "what": "版本一致性判据要求子包 version 含 36.11、要求蓝本原文层各卷标 V36.11，误报 22 项",
+   "why_wrong": "① 子包有自己的 semver（algorithms 是 1.0.3），只需 rules_version 对齐；② 蓝本原文层是 V9.0–V36.3 的原文副本，卷内版本是「写就时」的标注，改写即失真",
+   "correct_judgment": "子包只判 rules_version；原文层豁免；只对「本次交付产出」的卷要求 V36.11",
+   "lesson": "第 30 次判据错误。**同一条元规则第 11 次：判据的适用对象要先界定清楚，再写判断**"
+  },
+  {
+   "id": "CORR-036",
+   "what": "插件包清单判据只查根目录，把 claude/codex/zcode 三个包误判为「无清单」",
+   "why_wrong": "平台规范把清单放在各自约定的隐藏目录（.claude-plugin/ / .codex-plugin/ / .zcode-plugin/）",
+   "correct_judgment": "清单候选路径要包含各平台约定位置，不能只看根目录",
+   "lesson": "第 31 次判据错误。**判据要按「被测对象的规范」写，不是按「我以为的惯例」写**"
+  },
+  {
+   "id": "CORR-037",
+   "what": "以为 veracity-guard 的 claim 会把断言入库、report 应能读到；实测 report 显示 0 条，以为断链",
+   "why_wrong": "claim 是**预览工具**（只打印提取结果），report/reconcile 是**传入文本现提取现对账**，设计如此",
+   "correct_judgment": "改为 veracity-guard report \"<报告文本>\" 一次性提取+对账；claim 仅用于看会用例",
+   "lesson": "第 32 次判据错误。**用工具前先读它的用法，不要按「我以为的流程」编排**"
+  },
+  {
+   "id": "CORR-038",
+   "what": "扫 RTM 数据行时用 `'R0' in s or 'R1' in s` 做过滤，把 `| R20 |`～`| R99 |` 共 80 行全漏计，误判「断档」并做了错误重编号（产生 80 个重复编号）",
+   "why_wrong": "编号判定不能用「字符串里含某个片段」——`R20` 既不含 `R0` 也不含 `R1`；必须用锚定正则匹配编号本身",
+   "correct_judgment": "改用 `^\\|\\s*R\\d{2,3}\\s*\\|` 锚定计数；还原备份后复核：183 行 / R1–R183 / 无断档 / 无重复 / 证据全非空",
+   "lesson": "第 33 次判据错误。**「看起来对」的过滤条件最危险——它给出的是「少量但确定」的结果，让人误以为完整**。这次的代价是：基于错误数据做了破坏性操作（重编号），必须靠备份回滚"
+  },
+  {
+   "id": "CORR-039",
+   "what": "占位符扫描把「讨论占位符检测的文本」与「检测机制自身含有的样式串」当成占位符，首轮误报 118 处、二轮 28 处",
+   "why_wrong": "占位符检测机制必然包含占位符样例（正则、判据、坏样本、测试输入）；这类「自指」无法靠文本匹配排除干净",
+   "correct_judgment": "两轮排除（检测语境 → 机制/样本语境）后，剩余 28 处逐条人工核实全部合法；结论为「0 真占位符」而非「靠自动判据判定 0」",
+   "lesson": "第 34 次判据错误。**自指类检查（查 X 的工具自己含 X）不能用单一文本匹配定论，必须人工逐条确认**"
+  },
+  {
+   "id": "CORR-040",
+   "what": "把「432 条属此类」当成错数字，准备改成实测值；改完发现实测就是 432 条单形参算法",
+   "why_wrong": "我看到函数型形参只有 37 条，就推断「432 条」也是错的——把两个不同的统计口径混为一谈",
+   "correct_judgment": "实跑统计：全量 927 条中单形参 432 条 / 多形参 495 条 / 无形参 0 条。原文正确。",
+   "lesson": "第 35 次判据错误。**推断不能替代实测**——尤其当两个数字看着「差太多」时，先跑一遍再判"
+  },
+  {
+   "id": "CORR-041",
+   "what": "修 C02 时把「历史实测 19387 → 49402 → 65490」写进时效声明，等于又把当前端口写死",
+   "why_wrong": "想说明「端口会变」，却用了列举具体值的方式——读者仍会拿最后一个当当前值",
+   "correct_judgment": "声明段一个具体端口数字都不出现，只写「每次启动随机分配，已多次变化」+ 可执行的查法",
+   "lesson": "**说明「某事会变」时，不要用「它变过的具体值」来说明**——那本身会成为新的过期信息"
+  },
+  {
+   "id": "CORR-042",
+   "what": "用 spawn 自建探针扫 U-03 web-session-api / U-04 yili，两个都 timeout，一度以为服务器有问题",
+   "why_wrong": "这两个服务器在 DSH 里都是健康的（mcp-all-health 6/6 PASS），失败的是我的探针（启动时序/环境差异）",
+   "correct_judgment": "改用实际工具调用验证（mcp__yili__shushu_info / mcp__web-session-api__wsapi_session_list / mcp__scrapling__scrapling_parse），全部正常",
+   "lesson": "**探测脚本失败 ≠ 被测对象失败**。优先用已验证的通道（平台工具调用）而不是自建探针"
+  },
+  {
+   "id": "CORR-043",
+   "what": "把工厂自测的「通过 468」当成工厂覆盖上限，于是算 597-468-50=79 条缺口",
+   "why_wrong": "468 是工厂自测遍历的条数，不是它的能力上限；getAllContracts() 实际返回 597 条",
+   "correct_judgment": "直接用 getAllContracts() 与 CONTRACTS 求差集：525 有归属、72 无归属",
+   "lesson": "**「自测遍历了多少」不等于「能覆盖多少」**——要看接口的真实返回，不看自测的循环次数"
+  },
+  {
+   "id": "CORR-044",
+   "what": "挂载 blueprint-atoms 时写了 `catch (e) { /* 缺失则跳过 */ }`，把语法错误静默吞掉",
+   "why_wrong": "我想的是「可选模块，缺失不该阻断」，但 catch 的范围盖住了「存在但加载失败」这种情况",
+   "correct_judgment": "用 existsSync 区分：不存在 → 跳过；存在但 require 失败 → 抛 [R141-BP-ATOMS] 明确错误",
+   "lesson": "**「可选」只对「不存在」成立，不对「存在但坏了」成立**。catch 必须窄"
+  },
+  {
+   "id": "CORR-045",
+   "what": "52 条实现挂上去后，契约校验器的「工厂覆盖」数还是 473，我一度以为挂载失败",
+   "why_wrong": "实际是校验器只遍历 F.CONTRACTS 的 473 条，我的 52 条不在它的遍历范围里",
+   "correct_judgment": "把校验器改为遍历全量 597 条，覆盖数立刻从 473 变成 545，同时暴露出 74 条从未被测过",
+   "lesson": "**「数值没变」先查检查器的遍历范围**，别急着怀疑实现"
+  },
+  {
+   "id": "CORR-046",
+   "what": "向后兼容验证第一版只测了当前版，得出「is_superconductive 对象形式失效」就准备当缺陷修",
+   "why_wrong": "没测原始版就下结论。实际原始版对该形式也是同一个错误——那是 A-01 本来要修的现象，不是我引入的",
+   "correct_judgment": "拿 backup-r141-A01a 的原始 registry.js 建隔离副本对照跑：两种版本对对象形式的反应完全一致",
+   "lesson": "**判断「是不是我引入的」，必须拿修复前的版本做对照**；只有当前版的数据不足以定罪"
+  },
+  {
+   "id": "CORR-047",
+   "what": "第一轮把 8 条「契约产物是自然语言」的原子判成 MODEL_NEEDED（需大模型），直接标注不支持",
+   "why_wrong": "把「产物形态是自然语言」等同于「需要生成模型」。实际上抽取式摘要（选句不生成）、模板填充、规则库匹配、术语注释都能产出有实质的自然语言",
+   "correct_judgment": "第二轮用确定性算法全部实现：摘要用词频×位置权重选句、政策用术语内联注释、负熵用 Shannon 熵+模板报告、情绪用词典+否定+程度",
+   "lesson": "**「做不到」之前先问：是形态做不到，还是方法没想到**。形态（自然语言）往往有替代实现路径"
+  },
+  {
+   "id": "CORR-048",
+   "what": "政策翻译官第一版用「术语替换」重写句子，产物是「…的钱政府给的钱。经提交申请官方审核后确定后…」",
+   "why_wrong": "把「术语替换」当成「重写句子」。纯规则不懂语法，替换后必然不通顺",
+   "correct_judgment": "改成「术语内联注释」：保留原文结构，术语后加括号解释。产物通顺且信息无损",
+   "lesson": "**规则做不到「重写」时，退一步做「加注」——后者同样解决问题且能做对**"
+  }
+ ]
+}

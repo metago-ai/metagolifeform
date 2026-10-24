@@ -192,6 +192,35 @@ const c11checks = [
 ];
 check('C11', c11checks.every(Boolean), c11checks.every(Boolean) ? `四 manifest + matrix=${pkgVerB}/100 技能` : '插件口径漂移');
 
+// ---------- C14 根 manifest 的 metago.* 版本字段与子包一致（补丁集新增） ----------
+//
+// 背景：C10 只核对子包与主版本，`metago.mcpServer.version` / `algorithmsServer` /
+// `engine` / `verifyKit` / `devKit` 这五个字段不在任何检查范围内，于是它们可以长期
+// 滞后于真实子包而门禁全绿（本次实测：5 个字段全部滞后 1–2 个补丁位）。
+// 这条检查把「根 manifest 声明」与「子包 package.json 实际」绑在一起。
+const rootMetaFields = [
+  ['metago.mcpServer.version', 'packages/mcp-server/package.json'],
+  ['metago.algorithmsServer.version', 'packages/algorithms/package.json'],
+  ['metago.engine.version', 'packages/engine/package.json'],
+  ['metago.verifyKit.version', 'packages/verify-kit/package.json'],
+  ['metago.devKit.version', 'packages/dev-kit/package.json'],
+];
+const rootPkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+const c14bad = [];
+for (const [field, file] of rootMetaFields) {
+  const target = path.join(ROOT, file);
+  if (!fs.existsSync(target)) { c14bad.push(`${file} 缺失`); continue; }
+  const declared = field.split('.').reduce((node, part) => (node == null ? undefined : node[part]), rootPkg);
+  const actual = JSON.parse(fs.readFileSync(target, 'utf8')).version;
+  if (declared !== actual) c14bad.push(`${field} 声明=${declared} 实际=${actual}`);
+}
+// mcpTools 必须等于两个服务器的工具数之和（不是"把算法数也数进去"的那种口径）
+const declaredTools = rootPkg.metago && rootPkg.metago.mcpTools;
+const realTools = (rootPkg.metago && rootPkg.metago.mcpServer && rootPkg.metago.mcpServer.tools || 0)
+  + (rootPkg.metago && rootPkg.metago.algorithmsServer && rootPkg.metago.algorithmsServer.tools || 0);
+if (declaredTools !== realTools) c14bad.push(`metago.mcpTools 声明=${declaredTools} 应=${realTools}`);
+check('C14', c14bad.length === 0, c14bad.length ? c14bad.join('；') : `根 manifest 5 个版本字段 + mcpTools 与子包一致（${rootMetaFields.length + 1} 项）`);
+
 // ---------- C12 根级 SHA256SUMS.txt（36.9.6；发布包在阶段 5 产出） ----------
 const sumsCandidates = [
   path.join(ROOT, 'SHA256SUMS.txt'),
@@ -247,4 +276,4 @@ if (failures > 0) {
   console.error(`❌ CI 版本门禁未通过：${failures} 项失败`);
   process.exit(1);
 }
-console.log('✅ CI 版本门禁通过（C1–C13 全绿）');
+console.log('✅ CI 版本门禁通过（C1–C14 全绿）');

@@ -23,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 世界模型引擎
-- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
+- 依赖 metago-architecture-guild-team-lead 主理人调度
 - 遵循 A4 边界公理：世界模型必须能感知自身边界
 - 遵循 A3 元进化公理：世界模型必须能从反馈中进化
 

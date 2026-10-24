@@ -1,0 +1,27 @@
+{
+  "$schema": "./delivery.schema.json",
+  "project": "scripts",
+  "requirements": {
+    "doc": "docs/requirements.md",
+    "traceability": "docs/rtm.md"
+  },
+  "assertions": {
+    "dir": "e2e/asserts",
+    "pattern": {}
+  },
+  "visual": {
+    "baseline": ".visual-baseline/baseline",
+    "current": ".visual-baseline/current",
+    "diffThreshold": 0.02,
+    "diffOutput": ".visual-baseline/diff"
+  },
+  "gate": {
+    "strict": false,
+    "requireRTM": true,
+    "requireAssertions": true,
+    "requireVisual": true
+  },
+  "report": {
+    "output": "docs/delivery-report.md"
+  }
+}

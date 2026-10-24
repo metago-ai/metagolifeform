@@ -33,7 +33,7 @@
 - 宪法层 CONSTITUTION/AXIOMS.md（36 条公理，8 条关键）
 - 核心层 CORE/ATTRIBUTES.md（43 条属性，7 条关键）
 - 核心层 CORE/PROTOCOLS.md（108 个协议，6 个关键）
-- 索引层 INDEX/engines.json（125 个引擎）
+- 索引层 INDEX/engines.json（161 个引擎）
 - 索引层 INDEX/skills.json（39 个技能）
 - 索引层 INDEX/tools.json（53 项 MCP 工具）
 - 索引层 INDEX/knowledge.json（知识晶体索引）

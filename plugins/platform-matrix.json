@@ -122,7 +122,19 @@
   "resources": {
     "skills": { "count": 100, "source": "skills/（SKILL.md 标准格式，字节级跨平台兼容）" },
     "agents": { "count": 35, "source": "agents/（Claude 兼容子智能体格式，Agent Plugins v1 不含 agents → 放 com.metago.life 扩展与平台兼容目录）" },
-    "mcp": { "servers": ["metago（53 工具）", "metago-algorithms（57 工具/927 算法）"], "dependency": "npm 全局层 6 个 tgz 包" },
+    "mcp": {
+      "servers": ["metago（55 工具）", "metago-algorithms（57 工具/927 算法）"],
+      "dependency": "npm 全局层 6 个 tgz 包",
+      "browser": {
+        "server": "integrated_browser",
+        "package": "@playwright/mcp",
+        "tools": 24,
+        "scope": "trae",
+        "note": "浏览器自动化服务器仅在 scope 列出的平台注册（本字段与 scripts/cli.js 的 NODE_PLATFORM_CONFIGS 是同一事实的两处声明，必须一致）。其余平台拿不到 browser_* 工具族，法则不得宣称这些平台具备浏览器能力。"
+      },
+      "extraInTrae": ["mcp_metago-skill-server（123 工具）", "mcp_metago-skill-server-2（40 工具）", "mcp_metago-skill-server-3（36 工具）", "mcp_metago-toolkit（20 工具）"],
+      "note": "各平台实际注册的服务器清单以 scripts/cli.js 的 NODE_PLATFORM_CONFIGS 为准；本处只声明基线（所有平台）与 trae 专属增量。"
+    },
     "law": { "file": "AGENTS.md", "version": "36.9.6" }
   },
   "pluginPacks": {

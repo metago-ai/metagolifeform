@@ -18,6 +18,23 @@
       "input"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "id": "ALG_T1_C_001",
+        "input": {
+          "a": [
+            1,
+            2,
+            3
+          ],
+          "b": [
+            2,
+            4,
+            6
+          ]
+        }
+      }
+    ]
   }
 }

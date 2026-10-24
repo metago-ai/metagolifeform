@@ -5,7 +5,7 @@
     "type": "object",
     "properties": {
       "scores": {
-        "type": "object",
+        "type": "array",
         "description": "分数列表"
       },
       "order": {
@@ -18,6 +18,21 @@
       "order"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "scores": [
+          {
+            "name": "a",
+            "score": 0.3
+          },
+          {
+            "name": "b",
+            "score": 0.9
+          }
+        ],
+        "order": "desc"
+      }
+    ]
   }
 }

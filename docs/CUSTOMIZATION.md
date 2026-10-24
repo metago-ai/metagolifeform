@@ -97,12 +97,12 @@ source_section: 源文档章节与行号
 #### 步骤 1：创建技能目录
 
 ```powershell
-New-Item -ItemType Directory -Path "d:\元构能力\metago-lifeform\skills\metago-your-skill"
+New-Item -ItemType Directory -Path "<REPO_DIR>\skills\metago-your-skill"
 ```
 
 #### 步骤 2：编写 SKILL.md
 
-创建 `d:\元构能力\metago-lifeform\skills\metago-your-skill\SKILL.md`，按上述格式编写。
+创建 `<REPO_DIR>\skills\metago-your-skill\SKILL.md`，按上述格式编写。
 
 #### 步骤 3：验证技能加载
 
@@ -383,7 +383,7 @@ mcp_mapping:
 将知识晶体索引文件放置在项目根目录或 `knowledge/` 目录下：
 
 ```
-d:\元构能力\metago-lifeform\
+<REPO_DIR>\
   knowledge/
     your-doc-index.md    ← 你的知识晶体索引
 ```
@@ -434,7 +434,7 @@ MetaGO Agent Harness 已支持 7 大 AI 平台，技能文件采用标准 Markdo
 
 ## 技能索引
 
-[将 100 个技能的 name 与 description 列表粘贴于此]
+[将 112 个技能的 name 与 description 列表粘贴于此]
 ```
 
 #### 步骤 2：配置技能加载路径
@@ -496,7 +496,7 @@ globs: "**/*"
 [6 项协议的简要说明]
 
 ## 技能索引
-[100 个技能的 name 与 description]
+[112 个技能的 name 与 description]
 ```
 
 #### 步骤 2：技能目录映射
@@ -534,7 +534,7 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 [6 项协议的简要说明]
 
 ## 技能索引
-[100 个技能的 name 与 description]
+[112 个技能的 name 与 description]
 ```
 
 > Codex 兼容 AGENTS.md 开放标准（Linux Foundation 下的 Agentic AI Foundation 管理），核心规则内容编写一次即可在多个兼容平台复用。
@@ -581,7 +581,7 @@ MCP Server 子包位于 [`packages/mcp-server/`](../packages/mcp-server/)，其�
 packages/mcp-server/
 ├── src/
 │   ├── index.ts          入口：注册 tools/prompts，启动 stdio 传输
-│   ├── skills-data.ts    100 个技能文件夹（37 个导出为元数据，tools 源）
+│   ├── skills-data.ts    112 个技能文件夹（37 个导出为元数据，tools 源）
 │   └── prompts.ts        8 个引导词元数据（prompts 源）
 ├── package.json          @metago-ai/mcp-server
 └── tsconfig.json
@@ -728,7 +728,7 @@ export interface PromptMeta {
 
 ```powershell
 # 进入子包目录
-cd "d:\元构能力\metago-lifeform\packages\mcp-server"
+cd "<REPO_DIR>\packages\mcp-server"
 
 # 安装依赖（首次）
 npm install
@@ -752,7 +752,7 @@ npm run dev        # tsx src/index.ts
 >   "mcpServers": {
 >     "metago": {
 >       "command": "node",
->       "args": ["d:/元构能力/metago-lifeform/packages/mcp-server/dist/index.js"]
+>       "args": ["<REPO_DIR>/packages/mcp-server/dist/index.js"]
 >     }
 >   }
 > }

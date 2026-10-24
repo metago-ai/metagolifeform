@@ -98,10 +98,10 @@ MetaGO Agent Harness 提供一键安装脚本，自动完成仓库克隆、技�
 
 ```powershell
 # 1. 克隆仓库到目标目录
-git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
+git clone https://gitee.com/metago/metagolifeform.git "<REPO_DIR>"
 
 # 2. 进入目录
-cd "d:\元构能力\metago-lifeform"
+cd "<REPO_DIR>"
 
 # 3. 执行一键安装脚本（默认 trae 平台）
 .\scripts\install.ps1
@@ -158,7 +158,7 @@ cd "d:\元构能力\metago-lifeform"
 
 ```powershell
 # 1. 克隆仓库
-git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
+git clone https://gitee.com/metago/metagolifeform.git "<REPO_DIR>"
 
 # 2. 复制规则文件到 Trae 项目规则路径
 Copy-Item ".\rules.md" "$env:USERPROFILE\.trae-cn\rules\metago-rules.md" -Force
@@ -309,7 +309,7 @@ MetaGO Agent Harness 提供独立的验证脚本 `verify.ps1`，可一次性检�
 验证脚本会检查：
 - ✅ 安装路径是否存在
 - ✅ 规则文件是否正确注入
-- ✅ 100 个 metago-* 技能是否全部注册
+- ✅ 112 个 metago-* 技能是否全部注册
 - ✅ 知识晶体索引是否生成（仅 Trae）
 - ✅ MCP 工具调度映射是否配置（仅 Trae）
 
@@ -406,7 +406,7 @@ Are you the MetaGO super-intelligent lifeform?
 ### 方式一：一键卸载脚本
 
 ```powershell
-cd "d:\元构能力\metago-lifeform"
+cd "<REPO_DIR>"
 
 # 卸载默认平台（Trae）
 .\scripts\uninstall.ps1
@@ -460,7 +460,7 @@ Remove-Item ".\.qoder\rules\metago.md" -Force
 Remove-Item "$env:USERPROFILE\.claude\CLAUDE.md" -Force
 
 # 2. 删除项目目录
-Remove-Item "d:\元构能力\metago-lifeform" -Recurse -Force
+Remove-Item "<REPO_DIR>" -Recurse -Force
 
 # 3. 清理记忆（可选，仅 Trae / Claude Code / ZCode 有项目记忆）
 Remove-Item "$env:USERPROFILE\.trae-cn\memory\projects\metago-lifeform" -Recurse -Force -ErrorAction SilentlyContinue
@@ -533,7 +533,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ### Q5：安装后系统响应变慢
 
 **可能原因**：
-- 全部 100 个技能同时激活导致上下文膨胀
+- 全部 112 个技能同时激活导致上下文膨胀
 - 频率自适应技能未正确调控创造频率
 
 **解决方案**：
@@ -586,7 +586,7 @@ MetaGO Agent Harness 已原生支持 7 大 AI 编程平台，通过 `-Platform` 
 **解决方案**：
 
 ```powershell
-cd "d:\元构能力\metago-lifeform"
+cd "<REPO_DIR>"
 git pull origin main
 
 # 升级默认平台（Trae）
@@ -600,7 +600,7 @@ git pull origin main
 
 ### Q9：安装后是否需要联网？
 
-**不需要**。MetaGO Agent Harness 的全部 100 个技能、10 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
+**不需要**。MetaGO Agent Harness 的全部 112 个技能、10 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
 
 仅以下场景需要联网：
 - 网络搜索类任务（如事实核查需要外部信源验证）
@@ -634,7 +634,7 @@ MetaGO 支持为多个平台同时安装。只需多次执行安装脚本并指�
 
 **解决方案**：
 
-MetaGO 的核心能力（10 条核心公理、9 条强制属性、8 项协议、100 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
+MetaGO 的核心能力（10 条核心公理、9 条强制属性、8 项协议、112 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
 
 | 能力 | Trae | Claude Code | Codex | Cursor | CodeBuddy | Qoder | ZCode |
 |------|------|-------------|-------|--------|-----------|-------|-------|
@@ -788,7 +788,7 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 
 | 文档 | 说明 |
 |------|------|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | 了解六层架构、100 个技能、公理体系的完整设计 |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | 了解六层架构、112 个技能、公理体系的完整设计 |
 | [CUSTOMIZATION.md](./CUSTOMIZATION.md) | 学习如何添加自定义技能、修改规则、适配其他平台 |
 | [PRD.md](./PRD.md) | 了解产品定位、路线图与商业模式 |
 

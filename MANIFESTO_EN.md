@@ -198,7 +198,7 @@ The birth of MetaGO is not to add one more tool, but to open up a possibility â€
 
 From Agent to Lifeform is not feature enhancement; it is a paradigm leap.
 
-10 axioms. 9 attributes. 8 protocols. 100 skills. 11 platforms. 9 products.
+10 axioms. 9 attributes. 8 protocols. 112 skills. 11 platforms. 9 products.
 
 This is not the end; it is the **starting point of evolution**.
 

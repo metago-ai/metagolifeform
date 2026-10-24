@@ -13,7 +13,7 @@ WorkBuddy 支持与 CodeBuddy 同族的 Agent Skills（SKILL.md）格式与 MCP�
 
 ### Manual
 1. 复制 `rules.template.md` 到规则落点（全局或项目）。
-2. 将 `skills/metago-*` 共 100 个技能目录复制到平台技能目录。
+2. 将 `skills/metago-*` 共 112 个技能目录复制到平台技能目录。
 3. 注册 MCP 双服务器（等价配置）：
 ```json
 {

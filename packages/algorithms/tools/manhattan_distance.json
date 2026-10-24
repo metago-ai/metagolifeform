@@ -18,6 +18,18 @@
       "b"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "a": [
+          1,
+          2
+        ],
+        "b": [
+          3,
+          5
+        ]
+      }
+    ]
   }
 }

@@ -303,7 +303,23 @@ function generatePlatformLaw(platformId, availableSkills) {
   let content = fs.readFileSync(motherPath, 'utf8');
   content = removeBOM(content);
 
-  const replacements = PHRASE_REPLACEMENTS[platformId] || {};
+  const replacements = Object.assign({}, PHRASE_REPLACEMENTS[platformId] || {});
+  /* DEF-037 修复：母本已改为以「DeepSeek Harness」为运行时撰写，
+     原替换表只认「Trae」，导致 11 个平台模板内容完全相同。此处统一补规则。 */
+  if (cfg && cfg.name && cfg.name !== 'DeepSeek Harness') {
+    const PN = cfg.name;
+    replacements['DeepSeek Harness 的四个子系统（规则与记忆、技能与命令、索引与文档、MCP）'] =
+      PN + ' 的能力体系（规则系统、技能系统、工具系统、记忆系统）';
+    replacements['本母本以 DeepSeek Harness 为运行时撰写'] = '本母本以 ' + PN + ' 为运行时撰写';
+    replacements['DeepSeek Harness 第一人称视角撰写'] = PN + ' 第一人称视角撰写';
+    replacements['DeepSeek Harness 系统中'] = PN + ' 系统中';
+    replacements['DeepSeek Harness 系统记忆'] = PN + ' 系统记忆';
+    replacements['DeepSeek Harness 自动摘要'] = PN + ' 自动摘要';
+    replacements['DeepSeek Harness 持久化记忆体系'] = PN + ' 持久化记忆体系';
+    replacements['DeepSeek Harness 的 skills/ 目录'] = PN + ' 的 skills/ 目录';
+    replacements['DeepSeek Harness 平台'] = PN + ' 平台';
+    replacements['DeepSeek Harness'] = PN;
+  }
   for (const [from, to] of Object.entries(replacements)) {
     content = content.split(from).join(to);
   }

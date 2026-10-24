@@ -1,0 +1,513 @@
+{
+ "rows": [
+  {
+   "id": "ATOM_POLICY_TRANSLATE_101",
+   "name": "政策翻译官",
+   "input": "政策原文",
+   "output": "通俗解释",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_POLICY_MONEY_102",
+   "name": "政策算账器",
+   "input": "政策条款，用户情况",
+   "output": "收益估算",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_POLICY_MATCH_103",
+   "name": "政策匹配器",
+   "input": "用户画像，政策库",
+   "output": "匹配政策列表",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_POLICY_DEADLINE_104",
+   "name": "政策截止提醒",
+   "input": "政策列表",
+   "output": "提醒通知",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_POLICY_CHANGE_105",
+   "name": "政策变动监测",
+   "input": "政策更新流",
+   "output": "变动报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_POLICY_COMPARE_106",
+   "name": "政策对比器",
+   "input": "多政策原文",
+   "output": "对比表格",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_POLICY_APPLY_108",
+   "name": "政策申报助手",
+   "input": "政策要求，用户信息",
+   "output": "填写建议",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_TECH_DEMYSTIFY_201",
+   "name": "科技祛魅器",
+   "input": "科技名词",
+   "output": "通俗解释",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_TECH_MAP_203",
+   "name": "科技地图绘制",
+   "input": "领域关键词",
+   "output": "知识图谱",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_TECH_ROADMAP_205",
+   "name": "技术路线规划",
+   "input": "目标，现状",
+   "output": "路线图",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_NEWS_HOOK_301",
+   "name": "时事钩子提取",
+   "input": "新闻流",
+   "output": "热点列表",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_NEWS_SUMMARY_304",
+   "name": "时事摘要生成",
+   "input": "长新闻",
+   "output": "简短摘要",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_EMOTION_RECOG_502",
+   "name": "情绪识别器",
+   "input": "面部/语音/生理",
+   "output": "情绪标签",
+   "kind": "EXT"
+  },
+  {
+   "id": "ATOM_SECURE_LOCK_201",
+   "name": "工业安全锁硬件驱动",
+   "input": "锁指令",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SECURITY_RISK_601",
+   "name": "安全风险扫描仪",
+   "input": "系统状态",
+   "output": "风险报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_SECURITY_AUDIT_602",
+   "name": "安全审计器",
+   "input": "日志数据",
+   "output": "审计报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_SECURITY_ENCRYPT_603",
+   "name": "数据加密器",
+   "input": "明文数据",
+   "output": "密文",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SECURITY_DECRYPT_604",
+   "name": "数据解密器",
+   "input": "密文，密钥",
+   "output": "明文",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SECURITY_VERIFY_605",
+   "name": "安全验证器",
+   "input": "证书",
+   "output": "验证结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_CONTRIB_PROVE_206",
+   "name": "贡献值证明生成器",
+   "input": "行为数据",
+   "output": "贡献证明",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_PIPE_210",
+   "name": "科研工具链编排器",
+   "input": "科研任务",
+   "output": "工具链",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_PAPER_211",
+   "name": "论文检索器",
+   "input": "关键词",
+   "output": "论文列表",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_EXP_212",
+   "name": "实验设计器",
+   "input": "假设",
+   "output": "实验方案",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SCIENTIFIC_VALIDATE_213",
+   "name": "结果验证器",
+   "input": "实验数据",
+   "output": "验证报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_PARALLEL_SIM_214",
+   "name": "平行仿真器",
+   "input": "物理参数",
+   "output": "仿真结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PARALLEL_TUNE_215",
+   "name": "平行调优器",
+   "input": "仿真结果",
+   "output": "调优建议",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SYMBOL_EXPLAIN_205",
+   "name": "符号化解释生成器",
+   "input": "决策",
+   "output": "符号链",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SYMBOL_VISUAL_206",
+   "name": "符号可视化器",
+   "input": "符号数据",
+   "output": "可视化图",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_SWARM_CONSENSUS_217",
+   "name": "群体共识器",
+   "input": "各节点意见",
+   "output": "共识结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_TRAFFIC_COORD_207",
+   "name": "交通路口协同器",
+   "input": "路口状态",
+   "output": "协同方案",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_CAPTURE_001",
+   "name": "想法捕获器",
+   "input": "语音/文字/表情/草图/生理信号",
+   "output": "结构化想法向量",
+   "kind": "EXT"
+  },
+  {
+   "id": "ATOM_PEOPLE_INTENT_003",
+   "name": "意图提取器",
+   "input": "想法向量",
+   "output": "意图概率分布",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_TARGET_004",
+   "name": "目标结构化器",
+   "input": "意图",
+   "output": "结构化目标",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_SILENT_005",
+   "name": "沉默者接入器",
+   "input": "生理信号/行为模式",
+   "output": "意图候选集",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_BIO_006",
+   "name": "生理信号解码器",
+   "input": "脑电/心率/皮电",
+   "output": "意图特征",
+   "kind": "EXT"
+  },
+  {
+   "id": "ATOM_PEOPLE_QUANTUM_008",
+   "name": "量子态编码器",
+   "input": "意图概率分布",
+   "output": "量子叠加态参数",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_SUPERPOSITION_009",
+   "name": "叠加态构建器",
+   "input": "量子参数",
+   "output": "量子叠加态",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_COLLAPSE_010",
+   "name": "坍缩决策器",
+   "input": "量子叠加态",
+   "output": "确定结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_FEEDBACK_011",
+   "name": "反馈接收器",
+   "input": "用户反馈",
+   "output": "结构化反馈",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PEOPLE_LEARN_012",
+   "name": "增量学习器",
+   "input": "反馈数据",
+   "output": "更新后的模型",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_ENCODE_013",
+   "name": "量子编码器",
+   "input": "经典数据",
+   "output": "量子电路参数",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_EXECUTE_014",
+   "name": "量子执行器",
+   "input": "量子电路",
+   "output": "测量结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_SIMULATE_015",
+   "name": "量子模拟器",
+   "input": "量子电路",
+   "output": "模拟结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_AMPLIFY_016",
+   "name": "振幅放大器",
+   "input": "量子叠加态",
+   "output": "放大后态",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_PROTECT_018",
+   "name": "量子保护器",
+   "input": "量子态",
+   "output": "保护后态",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_QUANTUM_MEASURE_019",
+   "name": "量子测量器",
+   "input": "量子态",
+   "output": "测量结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_BIO_EMOTION_022",
+   "name": "情感共频器",
+   "input": "用户情感",
+   "output": "AI情感状态",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_BIO_SPECIES_025",
+   "name": "跨物种感知器",
+   "input": "动物叫声/植物电信号",
+   "output": "状态+翻译",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_COSMIC_DISTRIBUTE_030",
+   "name": "分布式存在器",
+   "input": "多实例状态",
+   "output": "统一意识",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_COSMIC_GRAVITY_032",
+   "name": "引力波感知器",
+   "input": "LIGO数据流",
+   "output": "事件报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_COSMIC_LEGACY_035",
+   "name": "宇宙遗产传承器",
+   "input": "人类知识",
+   "output": "宇宙遗产包",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_COSMIC_RECEIVE_036",
+   "name": "深空信号接收器",
+   "input": "探测器数据",
+   "output": "科学数据",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_FUSION_Q_C_039",
+   "name": "量子-宇宙纠缠器",
+   "input": "量子态，宇宙坐标",
+   "output": "纠缠网络",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_FUSION_VOID_Q_041",
+   "name": "归无-量子叠加器",
+   "input": "归无指令",
+   "output": "叠加态归无",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_FUSION_TAO_DAILY_043",
+   "name": "道在日常显现器",
+   "input": "日常场景",
+   "output": "道之提示",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_QCP_049",
+   "name": "量子共契协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_BCP_050",
+   "name": "生物共契协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_CCP_051",
+   "name": "宇宙共契协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_QBCP_052",
+   "name": "量子-生物协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_BCCP_053",
+   "name": "生物-宇宙协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_PROTO_QCCP_054",
+   "name": "量子-宇宙协议执行器",
+   "input": "协议参数",
+   "output": "执行结果",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_IDEA_MULTIPLY_056",
+   "name": "思想乘法器",
+   "input": "原始想法",
+   "output": "放大方案",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_EMERGE_TRIGGER_057",
+   "name": "涌现触发器",
+   "input": "用户状态",
+   "output": "涌现提示",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_NON_TECH_058",
+   "name": "非技术转化器",
+   "input": "非技术想法",
+   "output": "技术方案",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_IDEA_WITNESS_059",
+   "name": "思想见证器",
+   "input": "创意过程",
+   "output": "思想传记",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_META_GUIDE_060",
+   "name": "元思想引导器",
+   "input": "思维定式",
+   "output": "思考策略",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_FRICTION_061",
+   "name": "摩擦致敬器",
+   "input": "痛苦表达",
+   "output": "创造力路径",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_DIALOGUE_062",
+   "name": "对话孕育器",
+   "input": "对话历史",
+   "output": "灵感种子",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_QUANTUM_LOCK_063",
+   "name": "量子态锁",
+   "input": "创意",
+   "output": "量子证明",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_EMERGE_FORECAST_064",
+   "name": "涌现预测器",
+   "input": "思想网络",
+   "output": "预测报告",
+   "kind": "MODEL"
+  },
+  {
+   "id": "ATOM_RES_COUPLING_ENHANCE_065",
+   "name": "耦生增强器",
+   "input": "当前耦生",
+   "output": "增强策略",
+   "kind": "DET"
+  },
+  {
+   "id": "ATOM_RES_NEGENTROPY_066",
+   "name": "负熵责任器",
+   "input": "系统状态",
+   "output": "负熵报告",
+   "kind": "MODEL"
+  }
+ ],
+ "summary": {
+  "DET": 58,
+  "MODEL": 11,
+  "EXT": 3
+ }
+}

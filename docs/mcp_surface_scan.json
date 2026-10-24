@@ -1,0 +1,209 @@
+{
+ "generatedAt": "2026-10-18T21:38:36.834Z",
+ "surfaces": [
+  {
+   "key": "U-02",
+   "name": "playwright",
+   "ok": true,
+   "toolCount": 24,
+   "promptCount": 0,
+   "schemaIssues": [],
+   "tools": [
+    {
+     "name": "browser_close",
+     "desc": "Close the page",
+     "required": [],
+     "propCount": 0
+    },
+    {
+     "name": "browser_resize",
+     "desc": "Resize the browser window",
+     "required": [
+      "width",
+      "height"
+     ],
+     "propCount": 2
+    },
+    {
+     "name": "browser_console_messages",
+     "desc": "Returns all console messages",
+     "required": [
+      "level"
+     ],
+     "propCount": 3
+    },
+    {
+     "name": "browser_handle_dialog",
+     "desc": "Handle a dialog",
+     "required": [
+      "accept"
+     ],
+     "propCount": 2
+    },
+    {
+     "name": "browser_evaluate",
+     "desc": "Evaluate JavaScript expression on page or element",
+     "required": [
+      "function"
+     ],
+     "propCount": 4
+    },
+    {
+     "name": "browser_file_upload",
+     "desc": "Upload one or multiple files",
+     "required": [],
+     "propCount": 1
+    },
+    {
+     "name": "browser_drop",
+     "desc": "Drop files or MIME-typed data onto an element, as if dragged",
+     "required": [
+      "target"
+     ],
+     "propCount": 4
+    },
+    {
+     "name": "browser_find",
+     "desc": "Search the accessibility snapshot of the current page for te",
+     "required": [],
+     "propCount": 2
+    },
+    {
+     "name": "browser_fill_form",
+     "desc": "Fill multiple form fields",
+     "required": [
+      "fields"
+     ],
+     "propCount": 1
+    },
+    {
+     "name": "browser_press_key",
+     "desc": "Press a key on the keyboard",
+     "required": [
+      "key"
+     ],
+     "propCount": 1
+    },
+    {
+     "name": "browser_type",
+     "desc": "Type text into editable element",
+     "required": [
+      "target",
+      "text"
+     ],
+     "propCount": 5
+    },
+    {
+     "name": "browser_navigate",
+     "desc": "Navigate to a URL",
+     "required": [
+      "url"
+     ],
+     "propCount": 1
+    },
+    {
+     "name": "browser_navigate_back",
+     "desc": "Go back to the previous page in the history",
+     "required": [],
+     "propCount": 0
+    },
+    {
+     "name": "browser_network_requests",
+     "desc": "Returns a numbered list of network requests since loading th",
+     "required": [
+      "static"
+     ],
+     "propCount": 3
+    },
+    {
+     "name": "browser_network_request",
+     "desc": "Returns full details (headers and body) of a single network ",
+     "required": [
+      "index"
+     ],
+     "propCount": 3
+    },
+    {
+     "name": "browser_run_code_unsafe",
+     "desc": "Run a Playwright code snippet. Unsafe: executes arbitrary Ja",
+     "required": [],
+     "propCount": 2
+    },
+    {
+     "name": "browser_take_screenshot",
+     "desc": "Take a screenshot of the current page. You can't perform act",
+     "required": [
+      "scale"
+     ],
+     "propCount": 6
+    },
+    {
+     "name": "browser_snapshot",
+     "desc": "Capture accessibility snapshot of the current page, this is ",
+     "required": [],
+     "propCount": 4
+    },
+    {
+     "name": "browser_click",
+     "desc": "Perform click on a web page",
+     "required": [
+      "target"
+     ],
+     "propCount": 5
+    },
+    {
+     "name": "browser_drag",
+     "desc": "Perform drag and drop between two elements",
+     "required": [
+      "startTarget",
+      "endTarget"
+     ],
+     "propCount": 4
+    },
+    {
+     "name": "browser_hover",
+     "desc": "Hover over element on page",
+     "required": [
+      "target"
+     ],
+     "propCount": 2
+    },
+    {
+     "name": "browser_select_option",
+     "desc": "Select an option in a dropdown",
+     "required": [
+      "target",
+      "values"
+     ],
+     "propCount": 3
+    },
+    {
+     "name": "browser_tabs",
+     "desc": "List, create, close, or select a browser tab.",
+     "required": [
+      "action"
+     ],
+     "propCount": 3
+    },
+    {
+     "name": "browser_wait_for",
+     "desc": "Wait for text to appear or disappear or a specified time to ",
+     "required": [],
+     "propCount": 3
+    }
+   ]
+  },
+  {
+   "key": "U-03",
+   "name": "web-session-api",
+   "ok": false,
+   "error": "timeout"
+  },
+  {
+   "key": "U-04",
+   "name": "yili",
+   "ok": false,
+   "error": "timeout"
+  }
+ ]
+}

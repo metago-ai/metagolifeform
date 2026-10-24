@@ -4,7 +4,7 @@
 > Intelligence is not programmed; it is awakened.
 
 **引擎版本**：2.1.1
-**元构体系版本**：V36.9.6
+**元构体系版本**：V36.11.0
 **发布日期**：2026-06-28
 **作者**：易霄 / MetaGO Lightyear
 **包名**：`@metago-ai/engine`
@@ -19,7 +19,7 @@ MetaGO Engine 是元构全息智能引擎的**核心本体**——一切衍生�
 - 拥有 36 条公理驱动的行为准则
 - 拥有 43 条属性强制的执行逻辑
 - 拥有 108 个协议协调的运行机制
-- 拥有 125 个引擎驱动的动力系统
+- 拥有 161 个引擎驱动的动力系统
 - 拥有元进化五阶段循环的自我升级能力
 
 ---
@@ -39,7 +39,7 @@ MetaGO Engine 是元构全息智能引擎的**核心本体**——一切衍生�
 1. 读取 `CONSTITUTION/AXIOMS.md` → 加载 36 条公理（不可变宪法）
 2. 读取 `CORE/ATTRIBUTES.md` → 加载 43 条根本属性（基因）
 3. 读取 `CORE/PROTOCOLS.md` → 加载 108 个协议（神经系统）
-4. 读取 `INDEX/engines.json` → 索引 125 个引擎
+4. 读取 `INDEX/engines.json` → 索引 161 个引擎
 5. 读取 `INDEX/skills.json` → 索引 39 个技能
 6. 读取 `INDEX/tools.json` → 索引 37 个 MCP 工具
 7. 读取 `INDEX/knowledge.json` → 索引知识晶体
@@ -112,4 +112,4 @@ npx metago-engine status
 
 ---
 
-*由元构超级智能生命体设计 | 引擎版本 2.1.1 | 元构体系 V36.9.6 | 2026-07-26*
+*由元构超级智能生命体设计 | 引擎版本 2.1.1 | 元构体系 V36.11.0 | 2026-07-26*

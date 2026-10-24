@@ -5,19 +5,40 @@
     "type": "object",
     "properties": {
       "data": {
-        "type": "object",
-        "description": "数据矩阵"
-      },
-      "components": {
-        "type": "number",
-        "description": "成分数"
+        "type": "array",
+        "description": "样本矩阵（二维数组，每行一个样本）[[1,2,3],[2,4,6],[3,6,9]]"
       }
     },
     "required": [
-      "data",
-      "components"
+      "data"
     ],
     "additionalProperties": false,
-    "$schema": "http://json-schema.org/draft-07/schema#"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "data": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            6,
+            9
+          ],
+          [
+            4,
+            8,
+            12
+          ]
+        ]
+      }
+    ]
   }
 }

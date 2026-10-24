@@ -13,7 +13,7 @@ ChatGPT Work 为 Agent Plugins 1.0.0 兼容客户端（OpenAI 系），原生支
 
 ### Manual
 1. 复制 `AGENTS.md.template` 到规则落点。
-2. 将 `skills/metago-*` 共 100 个技能目录复制到平台技能目录。
+2. 将 `skills/metago-*` 共 112 个技能目录复制到平台技能目录。
 3. 安装插件包：将 `plugins/agent-plugins-1.0.0/`（根 `plugin.json` + `skills/` + `mcp.json`）作为 Agent Plugin 安装到客户端。
 4. 或注册 MCP 双服务器（等价配置）：
 ```json

@@ -1,4 +1,4 @@
-<!-- 历史设计文档：文中数字（如 39 技能/7 平台）为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（100 技能 · 11 平台形态 · V36.9.6）。 -->
+<!-- 历史设计文档：文中数字（如 39 技能/7 平台）为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 11 平台形态 · V36.9.6）。 -->
 # 元构全息智能引擎白皮书
 # MetaGO Holistic Intelligence Engine Whitepaper
 

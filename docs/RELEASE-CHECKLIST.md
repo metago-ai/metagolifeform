@@ -43,9 +43,9 @@ last_updated: 2026-07-05
 
 ### 1.3 工作目录约定
 
-- 主仓库：`d:\元构能力\metago-lifeform\`
-- certify 独立仓库：`d:\元构能力\metago-certify\`
-- 文档库：`d:\元构能力\docs\`
+- 主仓库：`<REPO_DIR>\`
+- certify 独立仓库：`<LEGACY_SOURCE>\metago-certify\`
+- 文档库：`<LEGACY_SOURCE>\docs\`
 
 ---
 
@@ -125,7 +125,7 @@ npm test
 
 ### 3.2 description 文本检查
 
-- [x] 根 package.json description 含"100 技能"和"112 MCP 工具（55+57）"
+- [x] 根 package.json description 含"112 技能"和"112 MCP 工具（55+57）"
 - [x] mcp-server package.json description 同上
 - [x] 无"42项"残留
 - [x] 无"35项"残留

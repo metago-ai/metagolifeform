@@ -1,0 +1,102 @@
+{
+  "name": "logic_reason",
+  "description": "逻辑推理（65 个算法）。根据 operation 参数选择族内具体算法。operation 可选算法名关键词（如 cosine/euclidean/pearson）。不指定 operation 时执行族内首个算法。",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "enum": [
+          "parseProposition",
+          "normalizeProposition",
+          "negateProposition",
+          "conjoinPropositions",
+          "disjoinPropositions",
+          "implyPropositions",
+          "equivPropositions",
+          "isSatisfiable",
+          "isValid",
+          "isConsistent",
+          "matchInferenceRule",
+          "verifyProofStep",
+          "buildProofTree",
+          "traverseProofTree",
+          "verifyProofTree",
+          "searchCounterExample",
+          "detectRefutation",
+          "detectContradiction",
+          "detectVulnerability",
+          "verifyAssumption",
+          "applyAxiom",
+          "referenceTheorem",
+          "buildInferenceChain",
+          "verifyInferenceChain",
+          "checkLogicalConsistency",
+          "checkLogicalCompleteness",
+          "checkLogicalSoundness",
+          "checkLogicalRobustness",
+          "generateLogicAuditReport",
+          "comprehensiveLogicAssessment",
+          "proofTreeDepth",
+          "proofTreeVerify",
+          "axiomConsistencyCheck",
+          "inferenceChainBuild",
+          "propositionSatisfiability",
+          "modalLogicEval",
+          "deductiveVerify",
+          "inductiveStrength",
+          "abductiveBestExplanation",
+          "analogicalReasoning",
+          "logicConsistencyMatrix",
+          "predicateUnification",
+          "counterExampleSearch",
+          "logicCompleteness",
+          "logicSoundness",
+          "inferenceRuleSynthesize",
+          "truthTableGenerate",
+          "logicNormalFormConvert",
+          "argumentStrength",
+          "logicAuditComprehensive",
+          "命题解析与归一化",
+          "命题联结运算",
+          "命题可满足性判定",
+          "命题有效性验证",
+          "命题一致性检查",
+          "推理规则匹配",
+          "证明树构造与遍历",
+          "反例搜索方法",
+          "矛盾检测与定位",
+          "逻辑漏洞检测",
+          "假设验证方法",
+          "公理系统应用",
+          "推理链构造与验证",
+          "逻辑完备性检查",
+          "逻辑综合评估"
+        ],
+        "description": "族内算法选择：传算法名（如 parseProposition）。路由规则是按名称/ID/关键词子串匹配 族 LOGIC 的 65 个算法，匹配不上则用族内第一个。"
+      },
+      "input": {
+        "type": [
+          "object",
+          "array",
+          "string",
+          "number",
+          "boolean"
+        ],
+        "description": "传给所选算法的**原始参数**，形状随 operation 变化：\n  · 多参算法 → 位置数组 [p1, p2, ...]\n  · 单参算法要对象时 → 对象 {…}\n  · 单参算法要标量/数组时 → 直接传该值\n具体见所选算法的 inputSchema（可用 get_algorithm_info 查）。"
+      }
+    },
+    "required": [
+      "operation",
+      "input"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "examples": [
+      {
+        "operation": "parseProposition",
+        "input": "sample text"
+      }
+    ]
+  }
+}
