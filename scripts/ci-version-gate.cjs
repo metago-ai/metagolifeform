@@ -183,14 +183,14 @@ check('C10', c10ok, c10d.join('；'));
 // ---------- C11 plugins 四 manifest + platform-matrix（36.9.6） ----------
 const pmJson = JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/platform-matrix.json'), 'utf8'));
 const c11checks = [
-  pmJson.version === pkgVerB && pmJson.resources.skills.count === 100 && pmJson.resources.law.version === pkgVerB,
+  pmJson.version === pkgVerB && pmJson.resources.skills.count === 112 && pmJson.resources.law.version === pkgVerB,
   JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/agent-plugins-1.0.0/plugin.json'), 'utf8')).version === pkgVerB,
   JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/agent-plugins-1.0.0/com.metago.life/manifest.json'), 'utf8')).version === pkgVerB,
   JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/claude/.claude-plugin/plugin.json'), 'utf8')).version === pkgVerB,
   JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/zcode/.zcode-plugin/plugin.json'), 'utf8')).version === pkgVerB,
   JSON.parse(fs.readFileSync(path.join(ROOT, 'plugins/codex/.codex-plugin/plugin.json'), 'utf8')).version === pkgVerB,
 ];
-check('C11', c11checks.every(Boolean), c11checks.every(Boolean) ? `四 manifest + matrix=${pkgVerB}/100 技能` : '插件口径漂移');
+check('C11', c11checks.every(Boolean), c11checks.every(Boolean) ? `四 manifest + matrix=${pkgVerB}/112 技能` : '插件口径漂移');
 
 // ---------- C14 根 manifest 的 metago.* 版本字段与子包一致（补丁集新增） ----------
 //

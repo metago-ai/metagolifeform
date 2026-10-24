@@ -32,7 +32,7 @@ function scanVersion(file, exemptRe) {
   const lines = rd(file).split(/\r?\n/);
   lines.forEach((l, i) => {
     if (exemptRe && exemptRe.test(l)) return;
-    const m = /V?36\.9\.(\d+)/.exec(l);
+    const m = /V?36\.(?:9|10|11)\.(\d+)/.exec(l);
     if (m && m[1] !== V.split('.')[2]) drift.push(`版本: ${file}:${i + 1} 含 36.9.${m[1]} → ${l.trim().slice(0, 70)}`);
   });
 }

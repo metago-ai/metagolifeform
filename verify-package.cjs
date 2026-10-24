@@ -114,8 +114,8 @@ const pr = countRows(path.join(E, "CORE/PROTOCOLS.md"), /^\| PROTOCOL_/gm);
 const en = countRows(path.join(E, "INDEX/ENGINES.md"), /^\| ENGINE_/gm);
 const am = countRows(path.join(E, "CORE/ATOMS.md"), /^\| ATOM_/gm);
 chk("E1", "属性全覆盖 47", at === 47, `实收 ${at}`);
-chk("E2", "协议全覆盖 ≥108", pr >= 108, `实收 ${pr}`);
-chk("E3", "引擎全覆盖 ≥125", en >= 125, `实收 ${en}`);
+chk("E2", "协议全覆盖 =121", pr >= 121, `实收 ${pr}`);
+chk("E3", "引擎全覆盖 =161", en >= 161, `实收 ${en}`);
 chk("E4", "公理 ≥38", ax >= 38, `实收 ${ax}`);
 chk("E5", "原子已登记 ≥500", am >= 500, `实收 ${am}`);
 

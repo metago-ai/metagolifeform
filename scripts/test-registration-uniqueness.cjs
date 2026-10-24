@@ -3,7 +3,7 @@
  * MCP 工具注册唯一性测试（CONTRIBUTING「测试与质量」引用）
  * 检查：
  *   U1 skills-data.ts / toolkit-data.ts 中 toolName 全局唯一
- *   U2 mcp 工具名与 53 口径一致（两文件 toolName 计数和 = 52，+ index.ts 事件上报 1 = 53）
+ *   U2 mcp 工具名与 55 口径一致（kit 22 + skills 32(39−7) + index.ts 事件上报 1 = 55；旧口径 53 已作废）
  *   U3 prompts.ts 中 prompt name 唯一
  * 用法：node scripts/test-registration-uniqueness.cjs   退出码：0 通过 / 1 失败
  */
@@ -32,8 +32,8 @@ if (unexpected.length) fail++;
 const idx = fs.readFileSync(path.join(ROOT, 'packages/mcp-server/src/index.ts'), 'utf8');
 const hasReport = /metago_report_event/.test(idx);
 const total = new Set(all).size + (hasReport ? 1 : 0);
-console.log('  [U2] 53 口径核对: ' + (total === 53 ? 'PASS (' + skillTools.length + '+' + kitTools.length + '+1=' + total + ')' : 'WARN 实际=' + total + '（若为有意的工具集变更，请同步 53→N 全链口径）'));
-if (total !== 53) fail += 0; // 软提示：口径变更需全链同步，硬失败交 metadata-consistency 测试
+console.log('  [U2] 工具数核对: ' + (total === 55 ? 'PASS (' + skillTools.length + '+' + kitTools.length + '+1=' + total + ')' : 'WARN 实际=' + total + '（若为有意的工具集变更，请同步 53→N 全链口径）'));
+if (total !== 55) { /* 软提示：口径变更需全链同步，硬失败交 metadata-consistency 测试 */ } // 软提示：口径变更需全链同步，硬失败交 metadata-consistency 测试
 const prompts = namesOf('prompts.ts', /name:\s*["']([a-z0-9_\-]+)["']/g);
 const pdup = prompts.filter((n, i) => prompts.indexOf(n) !== i);
 console.log('  [U3] prompt 唯一性: ' + (pdup.length ? 'FAIL 重复=' + [...new Set(pdup)].join(',') : 'PASS (' + new Set(prompts).size + ' 个)'));

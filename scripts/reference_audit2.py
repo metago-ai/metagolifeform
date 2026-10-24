@@ -101,7 +101,7 @@ NOT_SKILL = {
     # 目录名 / 文件名 / 特性名
     "metago-backup", "metago-logo", "metago-voice",
     "metago-build",              # 路径片段 D:\\\\metago-build\\\\ 与 generated_by
-    "metago-d6gfw1e4rf2a5bcad",  # 腾讯云 CloudBase 环境 ID
+    "<CLOUDBASE_ENV_ID>",  # 从环境变量 CLOUDBASE_ENV_ID 读取；公开仓库不写死环境标识
 }
 skill_refs = set()
 for f in DOCS:
