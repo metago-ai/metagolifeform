@@ -100,7 +100,7 @@ metago-lifeform/
 │   ├── dev-kit/            # @metago-ai/dev-kit — Code review, architecture, refactor
 │   ├── algorithms/         # @metago-ai/algorithms — 927 algorithms / 57 MCP tools
 │   ├── verify-kit/         # @metago-ai/verify-kit — 7-layer verification + L8/L9 gates
-│   ├── docs-site/          # docs.metago.life content
+│   ├── docs-site/          # metago.life/docs content
 │   ├── dashboard/          # Capability metrics dashboard
 │   └── demo/               # Killer demo
 ├── scripts/                # CLI, install, verify, test scripts

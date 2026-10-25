@@ -11,7 +11,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 
 > **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following (Harness) and self-evolving (Lifeform).**
 
-[Website](https://metago.life) · [Studio](https://metago.life/studio/) · [Docs](https://docs.metago.life) · [Discord](https://discord.gg/metago) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
+[Website](https://metago.life) · [Studio](https://metago.life/studio/) · [Docs](https://metago.life/docs/) · [Discord](https://discord.gg/metago) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
 [![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
