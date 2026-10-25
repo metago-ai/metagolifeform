@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-    MetaGO Agent Harness 一键安装脚本（V36.9.6 - 转发到 cli.js）
+    元构·智能生命体 一键安装脚本（V36.9.6 - 转发到 cli.js）
 
 .DESCRIPTION
     支持 11 大平台形态：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode / ChatGPT Work / WorkBuddy / Kimi Code / Kimi Work（逻辑统一在 cli.js，此脚本为转发壳）。

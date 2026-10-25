@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """install_platform_adapters.py — 把 11 个平台适配模板装到用户目录（先备份）
 
-发现：11 个平台的法则文件全部停留在 V36.9.1–V36.9.6，与母本 V36.11.0 不一致。
+发现：11 个平台的法则文件全部停留在 V36.9.1–V36.9.6，与母本 V36.12.0 不一致。
       「全局用户级生效」要求这些也升级。
 安全：每个目标先备份到 D:\\metago-build\\backup-platforms-<ts>\\，再覆盖。
 """
@@ -10,7 +10,7 @@ import re
 import shutil
 import time
 
-SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 AD = SRC / "adapters"
 H = pathlib.Path(r"C:\Users\MetaGO")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-platforms-" + time.strftime("%Y%m%d-%H%M%S"))

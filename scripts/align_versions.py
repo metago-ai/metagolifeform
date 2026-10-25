@@ -2,8 +2,8 @@
 """align_versions.py — 版本口径对齐（先备份，再改）
 
 两件事：
-  1. 给缺 rules_version 的包补上 V36.11.0（纯加法，不改变行为）
-  2. metago-lifeform 的 version 从 36.9.6 → 36.11.0（它是体系版本号，不是 semver 组件版本）
+  1. 给缺 rules_version 的包补上 V36.12.0（纯加法，不改变行为）
+  2. metago-lifeform 的 version 从 36.9.6 → 36.12.0（它是体系版本号，不是 semver 组件版本）
 
 安全措施：改动前把每个 package.json 备份到指定目录；记录改动清单以便回滚。
 """
@@ -14,8 +14,8 @@ import time
 
 NPM_ROOT = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules")
 BACKUP = pathlib.Path(r"D:\metago-build") / ("backup-versions-" + time.strftime("%Y%m%d-%H%M%S"))
-TARGET_RULES = "V36.11.0"
-TARGET_SYSTEM_VER = "36.11.0"
+TARGET_RULES = "V36.12.0"
+TARGET_SYSTEM_VER = "36.12.0"
 
 # 需要处理的包
 SCOPED = NPM_ROOT / "@metago-ai"

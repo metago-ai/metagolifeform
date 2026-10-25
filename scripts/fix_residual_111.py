@@ -12,7 +12,7 @@ import subprocess
 TARGETS = [
     pathlib.Path(r"D:\metago-build\verify-package.cjs"),
     pathlib.Path(r"D:\DSH-Official\home\scripts\verify-package.cjs"),
-    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\verify-package.cjs"),
+    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\verify-package.cjs"),
 ]
 
 OLD = "/* K11. 技能层可加载性（111 个 SKILL.md 的 frontmatter 与正文） */"

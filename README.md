@@ -1,15 +1,18 @@
 <p align="center">
-  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Agent Harness" width="220">
+  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Intelligent Lifeform" width="220">
 </p>
 
-# MetaGO Agent Harness — 智能体运行时控制层套件（驭智层）
+# 元构·智能生命体 / MetaGO Intelligent Lifeform
+
+> **守律 · 进化 · 可溯的智能体运行时**
+> The Lawful, Self-Evolving, Auditable Agent Runtime
 
 > **Not a chatbot. Not a copilot. A lifeform that holds itself to its own law.**
 > **The only AI agent that evolves its own evolution.**
 
-MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent, turning a tool into a lifeform that *follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
+MetaGO is an **agent runtime** — a control layer that wraps the agent, turning a tool into a lifeform that *follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
 
-> **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following (Harness) and self-evolving (Lifeform).**
+> **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following and self-evolving.**
 
 [Website](https://metago.life) · [Studio](https://metago.life/studio/) · [Docs](https://metago.life/docs/) · [Discord](https://discord.gg/metago) · [GitHub](https://github.com/metago-ai/metagolifeform) · [Gitee](https://gitee.com/metago/metagolifeform) · [Releases](https://github.com/metago-ai/metagolifeform/releases)
 
@@ -19,7 +22,7 @@ MetaGO is an **Agent Harness** — a runtime control layer that wraps the agent,
 [![Skills](https://img.shields.io/badge/Skills-112-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-112_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 [![Engine](https://img.shields.io/badge/Engine-V2.1.3-blue)](packages/engine/)
-[![Rules](https://img.shields.io/badge/Rules-V36.11.0-9cf)](AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V36.12.0-9cf)](AGENTS.md)
 
 ---
 
@@ -39,17 +42,17 @@ If the reply opens with `【闭环分析】` and cites an axiom — it's alive.
 
 ---
 
-## What is an Agent Harness?
+## What is an Agent Runtime?
 
-A **Harness** (驭智层) is the runtime control layer around the agent. The model is the raw intelligence; the Harness is what turns that intelligence into reliable, traceable, self-evolving work. It is *not* a prompt template, *not* a fine-tune, *not* a wrapper around an API. It is a small operating law the agent enforces on itself every turn.
+An **agent runtime** (架构代号「驭智层」) is the control layer around the agent. The model is the raw intelligence; the runtime is what turns that intelligence into reliable, traceable, self-evolving work. It is *not* a prompt template, *not* a fine-tune, *not* a wrapper around an API. It is a small operating law the agent enforces on itself every turn.
 
 Think of it as the difference between a brilliant employee who winges it and one who works under a constitution: same brain, completely different output quality.
 
-### Why a Harness, not a Copilot?
+### Why an agent runtime, not a Copilot?
 
-| | Copilot | **MetaGO Harness** |
+| | Copilot | **元构·智能生命体** |
 |---|---|---|
-| Model is the ceiling | Yes | No — the Harness adds a control layer the model alone can't provide |
+| Model is the ceiling | Yes | No — the runtime adds a control layer the model alone can't provide |
 | Verifies before speaking | No | **Yes — 4 gates on every output** |
 | Grows new skills when stuck | No | **Yes — 5-stage evolution, from the inside** |
 | Every claim traceable | No | **Yes — full provenance chain** |
@@ -71,8 +74,8 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 10 self-checks across 10 hard gates — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.11.0 — 38 core axioms and 47 attributes inside a full constitution. Not vibes — a constitution.
-- **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.12.0 — 38 core axioms and 47 attributes inside a full constitution. Not vibes — a constitution.
+- **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The runtime is what makes the lifeform real.
 
 ---
 
@@ -190,7 +193,7 @@ Per-platform adapters live in `adapters/<platform>/`. To install on a non-defaul
 
 ## FDE — Forward Deployment Engineering
 
-Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the Agent Harness architecture as leverage.
+Beyond the open-source runtime, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the agent-runtime architecture as leverage.
 
 - **5 stages**: requirements research → solution design → development & deployment → acceptance & delivery → operations & support
 - **5 roles**: tech lead, AI engineer, domain expert, AI agent, project manager
@@ -232,12 +235,12 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 112 skills + 11 platform forms + AGENTS.md V36.11.0 | `npm install -g metago-lifeform` |
+| `metago-lifeform` | The CLI installer + 112 skills + 11 platform forms + AGENTS.md V36.12.0 | `npm install -g metago-lifeform` |
 | `@metago-ai/mcp-server` | MCP server exposing 55 tools + 8 prompts (Engine V2.1.3 hard-driven) | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2.1.3: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
 | `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.3 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
-| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.11.0 spec) | `npm install @metago-ai/verify-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.12.0 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 
@@ -253,5 +256,5 @@ MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration:
 
 ---
 
-*MetaGO Agent Harness — 智能体运行时控制层套件（驭智层）· from Agent to lifeform.*
+*MetaGO Intelligent Lifeform — 智能体运行时（驭智层）· from Agent to lifeform.*
 *Made by 元构光年（成都）人工智能科技有限公司.*

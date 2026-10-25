@@ -76,7 +76,7 @@ for (const sub of ['algorithms', 'dev-kit', 'engine', 'verify-kit', 'mcp-server'
 }
 const agentsM = /基于《元构全息智能引擎》V(\d+\.\d+\.\d+)/.exec(rd('AGENTS.md'));
 if (agentsM && agentsM[1] !== V) drift.push(`版本: AGENTS.md 头部=${agentsM[1]} != ${V}`);
-if (!rd('AGENTS.md').includes(`由 MetaGO Agent Harness ${VX} 安装`)) drift.push('版本: AGENTS.md 页脚非 ' + VX);
+if (!rd('AGENTS.md').includes(`由 MetaGO Intelligent Lifeform ${VX} 安装`)) drift.push('版本: AGENTS.md 页脚非 ' + VX);
 if (!rd('AGENTS.md').includes(`| AGENTS.md | ${VX} | 本文件 |`)) drift.push('版本: AGENTS.md §17.10 表非 ' + VX);
 const genome = jd('packages/engine/GENOME.json');
 if (genome.package_version !== V || genome.metago_version !== VX) drift.push(`版本: GENOME.json=${genome.package_version}/${genome.metago_version}`);

@@ -10,7 +10,7 @@ import re
 ROOTS = [
     (pathlib.Path(r"D:\DSH-Official\home"), "law/skills/docs", 3),
     (pathlib.Path(r"D:\DSH-Official\home\metago\blueprint\元构初始文档"), "blueprint", 2),
-    (pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0"), "package", 3),
+    (pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0"), "package", 3),
 ]
 
 # (模式, 说明, 是否应更新)

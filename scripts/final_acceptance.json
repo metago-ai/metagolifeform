@@ -23,7 +23,7 @@
   },
   {
    "name": "契约校验 597 条",
-   "cmd": "node D:\\metago-build\\outbound\\v36.10.0\\metagolifeform-v36.11.0\\packages\\engine\\atoms\\contract-validator.cjs",
+   "cmd": "node D:\\metago-build\\outbound\\v36.10.0\\metagolifeform-v36.12.0\\packages\\engine\\atoms\\contract-validator.cjs",
    "rc": 0,
    "ok": true,
    "hit": "总判定：PASS",

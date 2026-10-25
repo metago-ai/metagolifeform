@@ -58,7 +58,7 @@ for (const [id, v] of Object.entries(FIX)) {
 
 fs.writeFileSync(P, JSON.stringify(SH, null, 1), "utf8");
 for (const p of ["D:/metago-build/outbound/v36.10.0/packages/algorithms/engine/algorithms/t3impl/shapes.json",
-  "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0/packages/algorithms/engine/algorithms/t3impl/shapes.json"]) {
+  "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0/packages/algorithms/engine/algorithms/t3impl/shapes.json"]) {
   if (fs.existsSync(path.dirname(p))) fs.copyFileSync(P, p);
 }
 console.log("修好:", n, "/", Object.keys(FIX).length);

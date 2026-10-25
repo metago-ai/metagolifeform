@@ -1,4 +1,4 @@
-# UDGK 交付门禁报告 · metagolifeform-v36.11.0
+# UDGK 交付门禁报告 · metagolifeform-v36.12.0
 
 - 生成时间：2026-10-18T13:18:45.846Z
 - 门禁命令：`node verify-delivery.cjs`

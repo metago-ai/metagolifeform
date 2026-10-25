@@ -18,7 +18,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-hookscope-" + time.strftime("%Y%m%d-%H%M%S"))
 BAK.mkdir(parents=True, exist_ok=True)
 

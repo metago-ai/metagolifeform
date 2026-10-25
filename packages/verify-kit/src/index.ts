@@ -2,7 +2,7 @@
 /**
  * @metago-ai/verify-kit v1.1.4
  *
- * MetaGO Agent Harness 交付质量保证系统 —— 七层验证核心引擎
+ * MetaGO Intelligent Lifeform 交付质量保证系统 —— 七层验证核心引擎
  *
  * 把"AI 知道要做"变成"AI 不可绕过地执行"的强制门控。
  * 对应 AGENTS.md V36.9.6 第十一/十四/十五章。
@@ -793,7 +793,7 @@ async function scanTerminology(scanDir?: string): Promise<VerifyResult> {
   const dir = scanDir || pathResolve('src')
   const files = collectFiles(dir, ['.ts', '.tsx', '.js', '.jsx', '.md'])
   if (files.length === 0) return { id: 'L8.11', layer: 'L8', name: '术语统一扫描', passed: true, evidence: `扫描目录无源码：${dir}`, duration: Date.now() - start }
-  const banned = ['AI Harness', 'Lifeform Kit', 'above the model', '模型之外', '生命体 Kit']
+  const banned = ['AI Harness', 'Agent Harness 用作品牌自称', 'Lifeform Kit', 'above the model', '模型之外', '生命体 Kit']
   const hits: string[] = []
   for (const { file, text } of readFilesSafe(files)) {
     for (const b of banned) {

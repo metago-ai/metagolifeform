@@ -14,7 +14,7 @@ import time
 
 MB = pathlib.Path(r"D:\metago-build\atom-responsive-scan.cjs")
 H = pathlib.Path(r"D:\DSH-Official\home\scripts\atom-responsive-scan.cjs")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\scripts\atom-responsive-scan.cjs")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\scripts\atom-responsive-scan.cjs")
 
 src = MB.read_text(encoding="utf-8")
 print(f"基准：{len(src)} B / {len(src.split(chr(10)))} 行")

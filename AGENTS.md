@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（DeepSeek Harness 第一人称视角撰写）。每次会话自动加载。
-> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 MetaGO Agent Harness V36.11.0 安装。
+> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 元构·智能生命体 V36.12.0 安装。
 >
 > **多平台说明**：本母本以 DeepSeek Harness 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -122,18 +122,39 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 
 ### 1.2 命名标准
 
-**标准学名**：MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）
+**三层命名结构**（品牌 ≠ 品类 ≠ 架构代号，三者不可混用）
 
-**两个表述维度**（同一个东西，不是两个名字）：
+| 层级 | 名称 | 用途 | 可否独占 |
+|------|------|------|---------|
+| **品牌名 Brand** | **元构·智能生命体** / **MetaGO Intelligent Lifeform** | 对外一切品牌位：README 标题、包描述、官网、发行说明、发布会 | ✅ 可注册、可主张 |
+| **品类名 Category** | **智能体运行时** / **Agent Runtime** | 解释「这是什么」，与同类产品比较时使用 | ❌ 通用词 |
+| **架构代号 Codename** | **驭智层** | 内部架构文档、技术白皮书中的层级代号 | ❌ 不作对外品牌 |
 
-| 维度 | 表述 | 作用 |
-|------|------|------|
-| 技术架构定位 | **智能体运行时控制层** | 在架构中的位置（大模型→Agent框架→控制层→应用） |
-| 价值功能定位 | **运行时治理基础设施** | 做什么事情（规则+执行+能力+接口） |
+**一句话定位（Tagline）**
+
+> 中文：**守律 · 进化 · 可溯的智能体运行时**
+> 英文：**The Lawful, Self-Evolving, Auditable Agent Runtime**
+
+**品牌全称与简称**
+
+- 全称：`元构·智能生命体（MetaGO Intelligent Lifeform）`
+- 简称：`元构·智能生命体` / `MetaGO Lifeform`（空间受限处用）
+- npm 包名：`metago-lifeform`（slug 不含品牌全称，与品牌保持一致）
+- 技术架构定位：**智能体运行时控制层**（架构位置：大模型 → Agent 框架 → 控制层 → 应用）
+- 价值功能定位：**运行时治理基础设施**（做什么：规则 + 执行 + 能力 + 接口）
+
+**为什么品牌不叫 Agent Harness**（2026-10-25 决策）
+
+1. `Agent Harness` 是**品类词**（与 Agent Framework / Agent Runtime 同级），不具独占性、无法注册商标、零品牌效应
+2. 本法则 13.2 第 11 维度的禁用清单本就包含 `核心产品是 Agent Harness` / `Harness 产品` / `Harness 范式` —— 若品牌名用它，名字与自己的禁令冲突
+3. CHANGELOG V36.7.0 记载该次改名为「from Lifeform Kit to Agent Harness」，方向是**从品牌名退成品类名**，属误判；本次回滚，并补「智能」二字把「生命体」锚定到 AI 语境
+4. 品牌名不负责任解释产品。解释交给品类名与 Tagline —— iPhone 不叫 Apple Smartphone
 
 **禁用表述**：
-- ❌ "AI运行时治理层"——容易和"AI治理"（AI Governance，联合国级议题）混淆
-- ❌ "模型之外的运行时控制层"——"模型之外"是"above the model"的中文版，概念错误
+
+- ❌ "AI运行时治理层" —— 容易和"AI治理"（AI Governance，联合国级议题）混淆
+- ❌ "模型之外的运行时控制层" —— "模型之外"是"above the model"的中文版，概念错误
+- ❌ **把 `Agent Harness` 当作品牌名/产品名自称** —— 可在竞品品类对比语境中作为第三方品类词提及，但不得使用"我们/本产品/核心产品 是 Agent Harness"这类表述
 
 ---
 
@@ -624,7 +645,7 @@ npm run verify
 8. **废弃 API**：escape/unescape 等已从 Web 标准移除的接口。
 9. **业务闭环**：每条业务链路（注册→登录→配额→升级→支付→恢复）是否端到端连通，无断裂。
 10. **合规与安全**：备案号、隐私政策、token 存储、敏感信息泄露、mock 功能在生产环境可见。
-11. **术语统一**：检查所有文档/代码中是否使用了禁用表述（AI Harness / AI 运行时控制层 / 生命体 Harness 范式 / MetaGO Lifeform Kit / above the model / 核心产品是 Agent Harness / 生命体范式 / 驭智层范式 / Harness 范式 / Harness 产品 / 产品·Harness / 模型之外的运行时控制层）。依据：project_memory.md 第四轮概念定稿 + 第五轮术语统一强制规范 + 第七轮"模型之外"概念纠错。验证工具：`node scripts/test-v41-terminology.cjs` 或 `npm run verify` 中的 V4.1 检查。
+11. **术语统一**：检查所有文档/代码中是否使用了禁用表述（AI Harness / AI 运行时控制层 / 生命体 Harness 范式 / MetaGO Lifeform Kit / above the model / 核心产品是 Agent Harness / 生命体范式 / 驭智层范式 / Harness 范式 / Harness 产品 / 产品·Harness / 模型之外的运行时控制层 / Agent Harness 用作品牌自称）。依据：project_memory.md 第四轮概念定稿 + 第五轮术语统一强制规范 + 第七轮"模型之外"概念纠错。验证工具：`node scripts/test-v41-terminology.cjs` 或 `npm run verify` 中的 V4.1 检查。
 12. **对抗式审查（A38）**：本任务若属测试/检查/审计/验证类，交付前必须已完成对抗式审查——切换攻击者视角挖掘致命缺陷，报告含"对抗式审查结论"小节；非此类任务也必须以"我的方案会被怎样攻破？"自问一遍。
 
 ### 13.3 验证铁律（非可选）
@@ -1113,7 +1134,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.11.0 | 本文件 |
+| AGENTS.md | V36.12.0 | 本文件 |
 | @metago-ai/engine | 2.1.3 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.3.4 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.3 | npm 发布物 |
@@ -1334,7 +1355,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.11.0 安装（体系版本已于 2026-10-18 由 V36.9.4 升为 V36.11.0；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 元构·智能生命体 V36.12.0 安装（体系版本已于 2026-10-18 由 V36.9.4 升为 V36.12.0；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 

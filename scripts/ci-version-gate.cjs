@@ -175,7 +175,7 @@ try {
   const main = fs.readdirSync(path.join(ROOT, 'local-edition/offline-packages')).find((f) => /^metago-lifeform-.*\.tgz$/.test(f));
   if (main) {
     const mp = tgzPkg(main);
-    if (mp.version !== pkgVerB) { c10ok = false; c10d.push(`main=${mp.version}(期望${pkgVerB})`); } else c10d.push(`main=36.9.6`);
+    if (mp.version !== pkgVerB) { c10ok = false; c10d.push(`main=${mp.version}(期望${pkgVerB})`); } else c10d.push(`main=${mp.version}`);
   } else c10d.push('main tgz 待阶段 3 后重打（当前无）');
 } catch (e) { c10ok = false; c10d.push('异常:' + e.message.slice(0, 80)); }
 check('C10', c10ok, c10d.join('；'));

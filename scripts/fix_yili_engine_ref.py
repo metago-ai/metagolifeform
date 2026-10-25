@@ -10,7 +10,7 @@
 import pathlib
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 OLD = "4. 引擎：D:\\DH工作区\\易理工程学（metago-shushu CLI / MCP）"
 NEW = ("4. 引擎：本环境的 `yili` MCP 服务器（14 个工具）——"

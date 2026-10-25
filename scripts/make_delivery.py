@@ -7,7 +7,7 @@ import pathlib
 import subprocess
 import time
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 GEN = pathlib.Path(r"D:\metago-build\genome")
 H = pathlib.Path(r"D:\DSH-Official\home")
 PY = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
@@ -36,7 +36,7 @@ size = sum(f.stat().st_size for f in PKG.rglob("*") if f.is_file()) / 1048576
 ver = (PKG / "VERSION").read_text().strip()
 
 L = []
-L.append("# 元构 V36.11.0 最终交付报告")
+L.append("# 元构 V36.12.0 最终交付报告")
 L.append("")
 L.append("生成时间：" + time.strftime("%Y-%m-%dT%H:%M:%S"))
 L.append("")
@@ -87,7 +87,7 @@ L.append("|---|---|")
 L.append("| 蓝本卷数 | **%d 卷** |" % len(vols))
 L.append("| 总行数 | **%d 行** |" % total_lines)
 L.append("| 总体积 | **%.2f MB** |" % (total_bytes / 1048576))
-L.append("| 版本口径 | 各卷 `version` 保留原值 + `collection_version: 36.11.0` |")
+L.append("| 版本口径 | 各卷 `version` 保留原值 + `collection_version: 36.12.0` |")
 L.append("| 口径对照表 | 总索引已含「历史声称 vs 当前实测」章节 |")
 L.append("| 引用迁移 | 活文档 116 个，未迁移旧引用 **0 处** |")
 L.append("")
@@ -103,7 +103,7 @@ skills = sum(1 for _ in (H / "skills").rglob("SKILL.md"))
 L.append("| DSH skills | %d 项 |" % skills)
 inst = run([PY, str(H / "scripts/audit_install.py")])
 L.append("| 包→活系统安装一致性 | %s |" % pick(inst, "合计").replace("|", "\\|"))
-L.append("| 版本对齐 | 9 / 9 包 rules_version = V36.11.0 |")
+L.append("| 版本对齐 | 9 / 9 包 rules_version = V36.12.0 |")
 L.append("")
 
 L.append("## 三、包验收 28 项")

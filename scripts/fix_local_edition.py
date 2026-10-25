@@ -2,10 +2,10 @@
 """fix_local_edition.py — 修离线安装版三处问题（DEF-036）
 
 自检 57/59，2 项失败：
-  2.1  法则版本为 V36.11.0   → local-edition 里的 AGENTS.md 是旧版
+  2.1  法则版本为 V36.12.0   → local-edition 里的 AGENTS.md 是旧版
   2.3  Engine 版本为 2.1.1    → 检查脚本期望值过期（实际 2.1.3）
 
-另发现：offline-packages/metago-lifeform-36.9.6.tgz 是旧版（应为 36.11.0）
+另发现：offline-packages/metago-lifeform-36.9.6.tgz 是旧版（应为 36.12.0）
 """
 import json
 import pathlib
@@ -14,7 +14,7 @@ import subprocess
 import tarfile
 import time
 
-SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 LE = SRC / "local-edition"
 OF = LE / "offline-packages"
 
@@ -68,7 +68,7 @@ if chk.exists():
         chk.write_text(s2, encoding="utf-8")
         print("  ✓ 已将期望值 2.1.1 → 2.1.3（实际安装版本）")
 
-# 3) 重新打包 metago-lifeform 36.11.0 到 offline-packages
+# 3) 重新打包 metago-lifeform 36.12.0 到 offline-packages
 print("\n③ 重新打包离线 bundle 里的 metago-lifeform")
 old = OF / "metago-lifeform-36.9.6.tgz"
 print(f"  旧包：{old.name}" + (f"（{old.stat().st_size/1024/1024:.1f} MB）" if old.exists() else "（不存在）"))
@@ -77,7 +77,7 @@ r = subprocess.run(["npm", "pack", "--pack-destination", str(OF), str(SRC)],
                    errors="replace", timeout=900, cwd=str(OF), shell=True)
 new = sorted(OF.glob("metago-lifeform-*.tgz"))
 print(f"  打包结果：{[x.name for x in new]}")
-keep = [x for x in new if "36.11.0" in x.name]
+keep = [x for x in new if "36.12.0" in x.name]
 if keep:
     print(f"  ✓ 新包 {keep[0].name}（{keep[0].stat().st_size/1024/1024:.1f} MB）")
     for x in new:
@@ -85,7 +85,7 @@ if keep:
             x.unlink()
             print(f"  - 已删旧包 {x.name}")
 else:
-    print("  ✗ 未生成 36.11.0 包")
+    print("  ✗ 未生成 36.12.0 包")
     print((r.stdout or "")[-400:])
     print((r.stderr or "")[-400:])
 

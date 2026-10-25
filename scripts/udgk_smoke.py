@@ -14,7 +14,7 @@ import sys
 import tempfile
 
 NODE = "node"
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 ENV = {k: v for k, v in os.environ.items()
        if k not in ("METAGO_PYTHON", "METAGO_VERIFY_DIR", "METAGO_MEMORY_HOME")}
 

@@ -15,11 +15,11 @@ import pathlib
 import re
 import subprocess
 
-P = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\scripts\build-adapters.cjs")
+P = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\scripts\build-adapters.cjs")
 s = P.read_text(encoding="utf-8")
 
 # 1) 先统计母本里 DeepSeek Harness 的出现形态，确认要替换什么
-MASTER = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\AGENTS.md")
+MASTER = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\AGENTS.md")
 mt = MASTER.read_text(encoding="utf-8")
 forms = {}
 for m in re.finditer(r"DeepSeek Harness[^\n，。；）】]{0,40}", mt):

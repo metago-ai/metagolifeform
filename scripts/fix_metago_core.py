@@ -5,7 +5,7 @@
   V36.9.1 / 17 章 / 8 公理 / 7 属性 / 43 属性 / 36 公理 / 95 技能 / 125 引擎 / 984 原子
 
 真实值（K16 已机器校验）：
-  V36.11.0 / 20 章 / 第二章 10 公理 / 第三章 9 属性
+  V36.12.0 / 20 章 / 第二章 10 公理 / 第三章 9 属性
   核心公理 38 · 根本属性 47 · 运行协议 121 · 引擎 161 · 原子 597
   技能 112 · MCP 工具 112（metago 55 + algorithms 57）· 算法 927 · 触发类别 14
 """
@@ -15,7 +15,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home\skills")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\skills")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\skills")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-core-" + time.strftime("%Y%m%d-%H%M%S"))
 
 NEW = """---
@@ -28,7 +28,7 @@ description: MetaGO 核心知识索引——查权威数字与文件位置的第
 本技能是**查数入口**：需要引用元构的任何条数、找到任何清单文件时，从这里查。
 不在这里下结论——**所有数字以对应清单文件的实测为准**。
 
-## 一、权威数字（V36.11.0，可机器复核）
+## 一、权威数字（V36.12.0，可机器复核）
 
 | 项目 | 条数 | 权威来源 | 复核方式 |
 |---|---|---|---|
@@ -54,7 +54,7 @@ description: MetaGO 核心知识索引——查权威数字与文件位置的第
 
 | 用途 | 路径 |
 |---|---|
-| 运行法则母本 | `AGENTS.md`（仓库根，V36.11.0，20 章） |
+| 运行法则母本 | `AGENTS.md`（仓库根，V36.12.0，20 章） |
 | 蓝本原文 | `metago/blueprint/元构初始文档/`（4 附录卷 + 全息文档体系 8 卷 + 2 索引） |
 | 核心纲要 | `core/METAGO_CORE.md` |
 | 公理/属性/协议/引擎/原子清单 | `packages/engine/{CONSTITUTION,CORE,INDEX}/*.md` |

@@ -1,5 +1,5 @@
-<!-- 历史设计文档：文中数字为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 38 公理 · 47 属性 · 121 协议 · 11 平台 · V36.11.0）。 -->
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# MetaGO Agent Harness · 产品需求文档（PRD）
+<!-- 历史设计文档：文中数字为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 38 公理 · 47 属性 · 121 协议 · 11 平台 · V36.12.0）。 -->
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# 元构·智能生命体 · 产品需求文档（PRD）
 
 > 让智能，学会进化。从智能体到生命体的范式跃迁。
 
@@ -23,7 +23,7 @@
 
 ### 一句话定位
 
-**MetaGO Agent Harness 是让智能，学会进化。从智能体到生命体的范式跃迁。**
+**元构·智能生命体 是让智能，学会进化。从智能体到生命体的范式跃迁。**
 
 - **首发平台**：11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）+ MCP Server（任意 MCP 客户端）
 - **首发时间**：2026 Q3
@@ -36,7 +36,7 @@
 2. **行为不可控**：智能体的输出质量不稳定，存在幻觉、越界、不一致等问题，缺乏强制校验机制
 3. **进化能力缺失**：智能体遇到能力边界时报错或终止，无法自我进化，依赖外部更新
 
-MetaGO Agent Harness 通过一套标准化的"公理-属性-协议-技能"体系，将任何 Agent 进化为具备**自我进化能力**、**强制校验机制**、**全链路溯源**的元构超级智能生命体。
+元构·智能生命体 通过一套标准化的"公理-属性-协议-技能"体系，将任何 Agent 进化为具备**自我进化能力**、**强制校验机制**、**全链路溯源**的元构超级智能生命体。
 
 ### 产品边界
 
@@ -51,13 +51,13 @@ MetaGO Agent Harness 通过一套标准化的"公理-属性-协议-技能"体系
 
 ## 产品矩阵
 
-MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 **11 个平台适配器**面向原生 AI 编程平台，通过 **MetaGO MCP Server** 面向任意支持 MCP 协议的客户端。
+元构·智能生命体 在 v36.4 版本起形成"双形态"产品矩阵：通过 **11 个平台适配器**面向原生 AI 编程平台，通过 **MetaGO MCP Server** 面向任意支持 MCP 协议的客户端。
 
 ### 产品矩阵概览
 
 | 产品 | 形态 | 包名/路径 | 适用客户端 | 集成机制 | 发布版本 |
 |------|------|-----------|-----------|----------|----------|
-| **MetaGO Agent Harness（适配器）** | 规则文件 + 技能目录 | `metago-lifeform`（根包） | Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode | 规则文件注入（rules.md / CLAUDE.md 等） | v36.7.13 |
+| **元构·智能生命体（适配器）** | 规则文件 + 技能目录 | `metago-lifeform`（根包） | Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode | 规则文件注入（rules.md / CLAUDE.md 等） | v36.7.13 |
 | **MetaGO MCP Server** | npm 子包（独立发布） | `@metago-ai/mcp-server` | 任意支持 MCP 协议的客户端（Claude Desktop / Cursor / Trae 等） | MCP 协议工具调用（stdio） | v1.1.8（随根包 v36.7.13 同步发布） |
 | **MetaGO Verify Kit** | npm 子包（独立发布） | `@metago-ai/verify-kit` | 任意需要交付质量验证的客户端 | 交付前原子验证门控（tsc/build/HTTP/AI对话） | v1.0.0（随根包 v36.7.13 同步发布） |
 
@@ -415,7 +415,7 @@ npm install -g @metago-ai/mcp-server
 
 ### 核心开源 + 增值付费
 
-MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心能力在 11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）上完全开源免费，同时通过 `@metago-ai/mcp-server` npm 包向任意 MCP 客户端开源免费提供，通过企业级能力与行业定制实现商业化。
+元构·智能生命体 采用"核心开源 + 增值付费"的商业模式。核心能力在 11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）上完全开源免费，同时通过 `@metago-ai/mcp-server` npm 包向任意 MCP 客户端开源免费提供，通过企业级能力与行业定制实现商业化。
 
 #### 开源核心（免费）
 
@@ -626,7 +626,7 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 ### 竞争优势总结
 
 ```
-MetaGO Agent Harness 的竞争壁垒：
+元构·智能生命体 的竞争壁垒：
 
 1. 公理体系壁垒 —— 8 条核心公理是系统设计的本体论基础，竞品难以复制
 2. 元进化壁垒 —— 五阶段元进化循环是核心专利能力，竞品无此机制
@@ -647,5 +647,5 @@ MetaGO Agent Harness 的竞争壁垒：
 
 ---
 
-*MetaGO Agent Harness · 产品需求文档*
+*元构·智能生命体 · 产品需求文档*
 *文档版本：1.3 · 最后更新：2026-07-05（技能数 22 → 39，MCP tools 22/35 → 37，能力族 7 → 11，包版本 v36.7.13，mcp-server v1.1.8）*

@@ -13,7 +13,7 @@ import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
 MB = pathlib.Path(r"D:\metago-build")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 PY = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 NODE = "node"
 

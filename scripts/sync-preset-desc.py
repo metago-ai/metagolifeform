@@ -37,7 +37,7 @@ SRC = pathlib.Path(r"D:\Documents\deepseek-harness\default-workspace\metago-dsh-
 INST = H / "profiles" / "desktop" / "node_modules" / "metago-lifeform-dsh" / "patch" / "preset.patch.yml"
 AGENTS = H / "AGENTS.md"
 SKILLS = H / "skills"
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 BAKROOT = pathlib.Path(r"D:\metago-build")
 
 BIG_BUDGET = 262144      # 现 maxBytes
@@ -149,7 +149,7 @@ def gen_desc(m):
                 f"（{m['metago_tools']} + {m['algorithms_tools']} · {m['n_algorithms']} 算法）、")
     elif m["mcp_tools"]:
         tool = f"{m['mcp_tools']} 个元构 MCP 工具、"
-    first = (f"MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）{m['ver']} 全量模式：")
+    first = (f"元构·智能生命体（MetaGO Intelligent Lifeform）{m['ver']} 全量模式：")
     second = (f"完整 {m['ag_bytes']:,} B 法则（第零节 UDGK + {m['chapters']} 章 + "
               f"架构治理 + 完整性治理，{m['n_axioms']} 公理 / {m['n_attrs']} 属性）、")
     third = f"{m['n_skills']} 个 metago-* 技能、{tool}"

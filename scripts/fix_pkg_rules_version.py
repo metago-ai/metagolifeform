@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """fix_pkg_rules_version.py — 包内子包补 rules_version（DEF-064）
 
-病情：npm 装机的 5 个子包有 rules_version=V36.11.0，
+病情：npm 装机的 5 个子包有 rules_version=V36.12.0，
       但**交付包内**的 packages/*/package.json 没有这个字段。
       → 从交付包重装，rules_version 就丢了（「修复不能存活于重装」）。
 
@@ -10,9 +10,9 @@
 import json
 import pathlib
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 NPM = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules\@metago-ai")
-WANT = "V36.11.0"
+WANT = "V36.12.0"
 
 print("=" * 80)
 print("包内子包补 rules_version")

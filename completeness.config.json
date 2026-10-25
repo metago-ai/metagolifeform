@@ -4,7 +4,7 @@
  "target": {
   "type": "law",
   "doc": "AGENTS.md",
-  "version": "V36.11.0",
+  "version": "V36.12.0",
   "minSections": 20
  },
  "baselines": {

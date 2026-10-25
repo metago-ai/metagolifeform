@@ -184,4 +184,4 @@ npm uninstall -g metago-lifeform @metago-ai/engine @metago-ai/mcp-server \
 
 ---
 
-*本地发行版由 MetaGO Agent Harness V36.9.6 构建 | 源仓库（联网时备用）：https://gitee.com/metago/metagolifeform · https://github.com/metago-ai/metagolifeform*
+*本地发行版由 元构·智能生命体 V36.9.6 构建 | 源仓库（联网时备用）：https://gitee.com/metago/metagolifeform · https://github.com/metago-ai/metagolifeform*

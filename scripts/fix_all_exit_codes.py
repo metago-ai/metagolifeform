@@ -15,7 +15,7 @@ import subprocess
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home\scripts")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\scripts")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\scripts")
 PYEXE = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 
 # name → (lang, exit_expr, 需要的汇总变量)

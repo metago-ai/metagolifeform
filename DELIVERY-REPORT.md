@@ -1,4 +1,4 @@
-# 元构 V36.11.0 最终交付报告
+# 元构 V36.12.0 最终交付报告
 
 生成时间：2026-10-19T00:38:16
 
@@ -6,10 +6,10 @@
 
 | 项 | 值 |
 |---|---|
-| 发行包 | `D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0` |
+| 发行包 | `D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0` |
 | 文件数 | **6163** |
 | 体积 | **34.06 MB** |
-| 版本 | **36.11.0** |
+| 版本 | **36.12.0** |
 | 验收 | **32 项断言全绿**（K1–K14） |
 
 ## 二、用户三项目标 × 证据
@@ -35,7 +35,7 @@
 | 蓝本卷数 | **16 卷** |
 | 总行数 | **43528 行** |
 | 总体积 | **1.96 MB** |
-| 版本口径 | 各卷 `version` 保留原值 + `collection_version: 36.11.0` |
+| 版本口径 | 各卷 `version` 保留原值 + `collection_version: 36.12.0` |
 | 口径对照表 | 总索引已含「历史声称 vs 当前实测」章节 |
 | 引用迁移 | 活文档 116 个，未迁移旧引用 **0 处** |
 
@@ -46,13 +46,13 @@
 | MCP 服务器 | 合计 6 组 ｜ 通过 6 ｜ 失败 0 |
 | DSH skills | 112 项 |
 | 包→活系统安装一致性 | 合计 33 项 ｜ 一致 33 ｜ 内容不同 0 ｜ 缺失 0 |
-| 版本对齐 | 9 / 9 包 rules_version = V36.11.0 |
+| 版本对齐 | 9 / 9 包 rules_version = V36.12.0 |
 
 ## 三、包验收 28 项
 
-- PASS  A1   关键文件齐全                                 6/6 齐全，VERSION=36.11.0
-- PASS  A3   版本等于目标版本                               VERSION=36.11.0（目标 36.11.0）
-- PASS  A2   package.json 版本一致                      package.json=36.11.0 / VERSION=36.11.0
+- PASS  A1   关键文件齐全                                 6/6 齐全，VERSION=36.12.0
+- PASS  A3   版本等于目标版本                               VERSION=36.12.0（目标 36.12.0）
+- PASS  A2   package.json 版本一致                      package.json=36.12.0 / VERSION=36.12.0
 - PASS  B1   T3 全部挂上 handler                        227/227
 - PASS  B2   executeAlgorithmSync 真实执行 ALG_T3_C_001 {"phaseDiff":0.05,"couplingScore":0.9841,"progressEfficiency":0.9988,"alignment":"sync"}
 - PASS  C1   T3 自测 227/227                          通过 227 / 失败 0
@@ -124,7 +124,7 @@
 | DEF-032 | $DSH_HOME/AGENTS.md（§18.9 / §18.10 | stale_capability_counts_in_l | 元验证——把法则里的能力声明与 mcp-all-health |
 | DEF-033 | 元构初始文档/总索引-V36.11.md | wrong_verification_method_de | 元验证——按文档写的方法真的去数，数出 0，才发现方法描述与 |
 | DEF-030 | scripts/mcp-all-health.cjs + verif | fake_fallback_chain | 包验收 K5 再次失败 → 隔离后发现「候选链只取第一个」这 |
-| DEF-034 | 交付包 metagolifeform-v36.11.0/packag | missing_version_field | 包可移植性验证时顺带打印 package.json 字段，发 |
+| DEF-034 | 交付包 metagolifeform-v36.12.0/packag | missing_version_field | 包可移植性验证时顺带打印 package.json 字段，发 |
 | DEF-035 | 交付包 package.json 的 files 字段 | incomplete_publish_manifest | 全新安装模拟（npm pack → 解包 → 按必需项核对） |
 | DEF-036 | local-edition（离线安装版） | stale_offline_bundle | 包可移植性延伸验证时跑 local-edition/veri |
 | DEF-037 | scripts/build-adapters.cjs（PHRASE_ | replacement_table_stale_afte | 版本与章节检查全绿之后，我额外查了「11 个文件是否真的不同 |

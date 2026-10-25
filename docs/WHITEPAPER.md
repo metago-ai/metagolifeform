@@ -1,4 +1,4 @@
-<!-- 历史设计文档：文中数字为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 38 公理 · 47 属性 · 121 协议 · 11 平台 · V36.11.0）。 -->
+<!-- 历史设计文档：文中数字为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 38 公理 · 47 属性 · 121 协议 · 11 平台 · V36.12.0）。 -->
 # 元构全息智能引擎白皮书
 # MetaGO Holistic Intelligence Engine Whitepaper
 

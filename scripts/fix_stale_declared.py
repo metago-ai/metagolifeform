@@ -14,7 +14,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-stale-" + time.strftime("%Y%m%d-%H%M%S"))
 
 print("=" * 84)
@@ -56,12 +56,12 @@ n1 = fix_file("skills/metago-architecture-guild-team-lead/SKILL.md", [
 ], "43属性→47 / 36公理→38 / 31维→29维")
 
 n2 = fix_file("skills/metago-meta-thoughts/SKILL.md", [
-    ("与 `AGENTS.md` V36.9.4", "与 `AGENTS.md` V36.11.0"),
-], "V36.9.4 → V36.11.0")
+    ("与 `AGENTS.md` V36.9.4", "与 `AGENTS.md` V36.12.0"),
+], "V36.9.4 → V36.12.0")
 
 n3 = fix_file("docs/rtm.md", [
     ("| 版本口径 | AGENTS V36.9.4 / npm rules V36.9.6 / 包 V36.10.0 / 蓝本 V36.11 尚未统一 |",
-     "| ~~版本口径~~ | ~~AGENTS V36.9.4 / npm rules V36.9.6 / 包 V36.10.0 / 蓝本 V36.11 尚未统一~~ → **已关闭（R10x）：9 包 rules_version 全部 V36.11.0，11 平台法则全部 V36.11.0** |"),
+     "| ~~版本口径~~ | ~~AGENTS V36.9.4 / npm rules V36.9.6 / 包 V36.10.0 / 蓝本 V36.11 尚未统一~~ → **已关闭（R10x）：9 包 rules_version 全部 V36.12.0，11 平台法则全部 V36.12.0** |"),
 ], "版本口径缺口 → 标注已关闭")
 
 print()

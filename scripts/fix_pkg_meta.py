@@ -2,7 +2,7 @@
 """fix_pkg_meta.py — 修正 package.json 的 metago 能力元数据块（DEF-062）
 
 现状（机器可读的能力声明，任何工具读它都会拿到错值）：
-  "version": "V36.9.6"   ← 应 V36.11.0
+  "version": "V36.9.6"   ← 应 V36.12.0
   "axioms": 10           ← 核心公理 38（AGENTS.md 运行公理才是 10，需分开表达）
   "attributes": 43       ← 47
   "protocols": 8         ← 121
@@ -19,7 +19,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 NPM = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules\@metago-ai")
 
 # 实测值
@@ -42,7 +42,7 @@ print(f"实测：技能 {n_skills} ｜ 法则章 {n_chs} ｜ 公理 {n_axioms} �
       f"协议 {n_proto} ｜ 原子 {n_atoms} ｜ 引擎 {n_eng}")
 
 META = {
-    "version": "V36.11.0",
+    "version": "V36.12.0",
     "lawChapters": n_chs,
     "runtimeAxioms": 10,          # AGENTS.md 第二章：A1-A5 + A34-A38
     "axioms": n_axioms,           # 核心公理全量（AXIOMS.md）

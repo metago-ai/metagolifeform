@@ -14,7 +14,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home\skills")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\skills")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\skills")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-skills13-" + time.strftime("%Y%m%d-%H%M%S"))
 
 METHOD = {

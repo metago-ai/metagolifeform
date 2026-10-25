@@ -15,7 +15,7 @@ import shutil
 import time
 
 RTM = pathlib.Path(r"D:\DSH-Official\home\docs\rtm.md")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\docs\rtm.md")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\docs\rtm.md")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-rtm-" + time.strftime("%Y%m%d-%H%M%S"))
 BAK.mkdir(parents=True, exist_ok=True)
 
@@ -47,7 +47,7 @@ t2 = re.sub(r"\bR(\d{1,3})\b", repl, t)
 
 # ④ 标题版本也更新
 t2 = t2.replace("# UDGK RTM · 元构 v36.10.0 需求追踪矩阵",
-                "# UDGK RTM · 元构 V36.11.0 需求追踪矩阵")
+                "# UDGK RTM · 元构 V36.12.0 需求追踪矩阵")
 
 RTM.write_text(t2, encoding="utf-8")
 print(f"✓ 已重写 rtm.md（{len(t)} → {len(t2)} B）")

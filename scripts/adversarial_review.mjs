@@ -15,7 +15,7 @@ import { createRequire } from 'node:module'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 
 const A = 'C:/Users/MetaGO/AppData/Roaming/npm/node_modules/@metago-ai'
-const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0'
+const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0'
 const H = 'D:/DSH-Official/home'
 
 const req = createRequire(A + '/algorithms/')

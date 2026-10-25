@@ -17,7 +17,7 @@ import tempfile
 
 PY = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 NODE = "node"
-SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 ENV = {k: v for k, v in os.environ.items()
        if k not in ("METAGO_PYTHON", "METAGO_VERIFY_DIR", "METAGO_MEMORY_HOME")}
@@ -100,7 +100,7 @@ if omitted:
 # 4) 在解包目录跑脚本
 print("\n④ 解包目录内运行核心脚本")
 TASKS = [
-    ("结构自检", [PY, "-c", "import json,pathlib,sys;d=json.loads(pathlib.Path('package.json').read_bytes().decode('utf-8-sig'));print(d.get('name'),d.get('version'),d.get('rules_version'))"], "V36.11.0"),
+    ("结构自检", [PY, "-c", "import json,pathlib,sys;d=json.loads(pathlib.Path('package.json').read_bytes().decode('utf-8-sig'));print(d.get('name'),d.get('version'),d.get('rules_version'))"], "V36.12.0"),
     ("null-nan", [NODE, "scripts/null-nan-scan.cjs"], "0 条"),
     ("schema", [NODE, "scripts/schema-vs-shape.cjs"], "总判定：PASS"),
     ("claims3", [PY, "scripts/verify_blueprint_claims3.py"], "不一致 0"),

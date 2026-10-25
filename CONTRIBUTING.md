@@ -1,8 +1,8 @@
-# Contributing to MetaGO Agent Harness
+# Contributing to MetaGO Intelligent Lifeform
 
 First off, thank you for considering contributing to MetaGO. It's people like you that make the agent ecosystem evolve.
 
-> MetaGO is an **Agent Harness** — a runtime control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
+> MetaGO is an **agent runtime** — a control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
 
 ---
 

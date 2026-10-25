@@ -154,7 +154,7 @@ MetaGO 不是一个安装包，而是一个**产品矩阵**——从单一 Kit �
 
 | 产品 | 形态 | 定位 |
 |------|------|------|
-| MetaGO Agent Harness | 规则注入 | 核心安装包，38 公理一键注入 |
+| 元构·智能生命体 | 规则注入 | 核心安装包，38 公理一键注入 |
 | MetaGO MCP Server | MCP 协议 | 55 项能力封装为 MCP 工具（另含 57 工具/927 算法引擎） |
 | MetaGO Dev Kit | 垂直场景包 | 开发者增强技能包 |
 | MetaGO CLI | 平台工具 | 跨平台命令行，CI/CD 集成 |
@@ -206,7 +206,7 @@ MetaGO 的诞生，不是为了多一个工具，而是为了开启一种可能�
 
 ---
 
-*MetaGO Agent Harness · MIT 开源 · 2026*
+*元构·智能生命体 · MIT 开源 · 2026*
 
 - Gitee: https://gitee.com/metago/metagolifeform
 - GitHub: https://github.com/metago-ai/metagolifeform

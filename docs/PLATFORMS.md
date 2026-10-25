@@ -1,4 +1,4 @@
-# MetaGO Lifeform 11 平台兼容矩阵（V36.11.0 · 承诺书与测试台账）
+# MetaGO Lifeform 11 平台兼容矩阵（V36.12.0 · 承诺书与测试台账）
 
 > 本文档是"任何平台任何 Agent 可用"的承诺书与测试台账。每格在阶段 4（11 平台矩阵 E2E）逐项验收后勾选并附证据。
 > 平台版形态 = 规则（法则文件）+ 技能（SKILL.md）+ MCP（按平台格式写入）+ 插件（按平台标准打包）。
@@ -38,4 +38,4 @@
 > 验证级别：真实客户端生效（T14 类）/ 结构级断言（配置文件 + 适配模板内容）。
 > 无法真实打开的客户端（Qoder / ChatGPT Work / WorkBuddy / Kimi 系）以结构级断言验收，并在 RELEASE-NOTES 如实标注。
 
-*本次更新：2026-09-01（V36.11.0 发布级修复轮创建；Codex 行由 config.json 修正为 config.toml / TOML 格式）*
+*本次更新：2026-09-01（V36.12.0 发布级修复轮创建；Codex 行由 config.json 修正为 config.toml / TOML 格式）*

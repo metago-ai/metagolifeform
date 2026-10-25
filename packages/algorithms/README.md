@@ -1,6 +1,6 @@
 # @metago-ai/algorithms — 927 算法 MCP 服务器
 
-> **MetaGO Agent Harness** 的算法核心 — 57 工具 / 927 算法 / 14 触发大类 / 4 层架构，Engine V2.1.0 硬驱动。
+> **MetaGO Intelligent Lifeform** 的算法核心 — 57 工具 / 927 算法 / 14 触发大类 / 4 层架构，Engine V2.1.0 硬驱动。
 
 [![npm](https://img.shields.io/npm/v/@metago-ai/algorithms.svg?logo=npm)](https://www.npmjs.com/package/@metago-ai/algorithms)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -12,7 +12,7 @@
 
 ## What it is
 
-`@metago-ai/algorithms` is the algorithmic backbone of the MetaGO Agent Harness. It exposes **57 MCP tools** backed by **927 algorithms** across **14 trigger categories**, organized in a **4-layer architecture**. Every tool is hard-driven by `@metago-ai/engine@2.1.0` (KMWI memory + evolution engine + skill generator).
+`@metago-ai/algorithms` is the algorithmic backbone of the MetaGO Intelligent Lifeform. It exposes **57 MCP tools** backed by **927 algorithms** across **14 trigger categories**, organized in a **4-layer architecture**. Every tool is hard-driven by `@metago-ai/engine@2.1.0` (KMWI memory + evolution engine + skill generator).
 
 This is not a library of math functions. It is a Model Context Protocol (MCP) server that gives any MCP-compatible AI agent (Trae, Claude Code, Codex, Cursor, etc.) real-time access to coupling calculation, value assessment, distance metrics, correlation analysis, dimensionality reduction, security audit, frequency processing, and 7 more trigger categories.
 

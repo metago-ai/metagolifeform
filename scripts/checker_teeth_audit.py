@@ -16,7 +16,7 @@ import re
 
 H = pathlib.Path(r"D:\DSH-Official\home")
 SC = H / "scripts"
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 # 失败分支的语法特征
 FAIL_PATTERNS = [

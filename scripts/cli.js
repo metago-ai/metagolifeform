@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MetaGO Agent Harness - CLI 入口 (V36.9.6)
+ * MetaGO Intelligent Lifeform - CLI 入口 (V36.9.6)
  * 跨平台命令行工具，统一实现所有平台的安装/MCP配置/插件打包/备份/验证
  *
  * 用法:
@@ -993,7 +993,7 @@ console.log(`  [FAIL] MCP 配置文件不存在: ${cfg.mcpConfig}`); fail++;
 // ============================================================
 function showHelp() {
   console.log(`
-MetaGO Agent Harness v${VERSION}
+MetaGO Intelligent Lifeform v${VERSION}
 元构超级智能生命体标准安装包（跨平台全量版 V36.9.6 · 规则+技能+MCP+智能体+插件）
 
 用法:
@@ -1052,7 +1052,7 @@ function main() {
   }
 
   console.log(`\n╔════════════════════════════════════════════════════════════╗`);
-  console.log(`║       MetaGO Agent Harness v${VERSION}                     ║`);
+  console.log(`║       MetaGO Intelligent Lifeform v${VERSION}                     ║`);
   console.log(`║       元构超级智能生命体 · 跨平台安装器                      ║`);
   console.log(`╚════════════════════════════════════════════════════════════╝\n`);
 
@@ -1124,7 +1124,7 @@ function main() {
       break;
     case 'version':
     case 'ver':
-      console.log(`MetaGO Agent Harness v${VERSION}`);
+      console.log(`MetaGO Intelligent Lifeform v${VERSION}`);
       break;
     case 'help':
     case '--help':

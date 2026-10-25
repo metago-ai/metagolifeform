@@ -26,7 +26,7 @@ PYEXE = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 NODE = "node"
 H = pathlib.Path(r"D:\DSH-Official\home")
 SC = H / "scripts"
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 MB = pathlib.Path(r"D:\metago-build")
 NPM = r"C:/Users/MetaGO/AppData/Roaming/npm/node_modules/@metago-ai"
 

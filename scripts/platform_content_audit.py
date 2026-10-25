@@ -12,7 +12,7 @@ import pathlib
 import re
 
 H = pathlib.Path(r"C:\Users\MetaGO")
-SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+SRC = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 PLATFORMS = [
     ("trae",        ".trae-cn/rules.md",            "Trae"),
@@ -79,7 +79,7 @@ for r in rows:
         continue
     disp, rel, ver, lines, nph, nmiss, miss, bom, h162, h112 = r
     issues = []
-    if ver != "V36.11.0":
+    if ver != "V36.12.0":
         issues.append("版本")
     if nph:
         issues.append(f"占位符{nph}")

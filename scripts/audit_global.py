@@ -3,7 +3,7 @@
 
 核验三件事：
   1. 全局安装：@metago-ai/* 5 个 + 非 scoped metago-* 4 个，全部在位
-  2. 版本对齐：每个包 rules_version = V36.11.0
+  2. 版本对齐：每个包 rules_version = V36.12.0
   3. 跨目录可用：从任意工作目录能否加载（不依赖 cwd）
 
 DEF-058：原清单把 lifeform / algorithms-cli 当成 @metago-ai/ 下的包，

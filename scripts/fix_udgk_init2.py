@@ -17,7 +17,7 @@ import subprocess
 
 TARGETS = [
     pathlib.Path(r"D:\DSH-Official\home\scripts\udgk\init-delivery.cjs"),
-    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\scripts\udgk\init-delivery.cjs"),
+    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\scripts\udgk\init-delivery.cjs"),
 ]
 
 OLD = "  path.dirname(configTemplate.assertions.dir),"

@@ -5,7 +5,7 @@
 """
 import pathlib
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 H = pathlib.Path(r"D:\DSH-Official\home")
 
 # ① 移除包内开发脚本

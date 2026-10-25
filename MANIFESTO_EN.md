@@ -154,7 +154,7 @@ MetaGO is not a single package; it is a **product matrix** — evolved from a si
 
 | Product | Form | Positioning |
 |---------|------|-------------|
-| MetaGO Agent Harness | Rule injection | Core package, one-click injection of 8 axioms |
+| MetaGO Intelligent Lifeform | Rule injection | Core package, one-click injection of 8 axioms |
 | MetaGO MCP Server | MCP protocol | 37 capabilities encapsulated as MCP tools |
 | MetaGO Dev Kit | Vertical scenario pack | Developer augmentation skill pack |
 | MetaGO CLI | Platform tool | Cross-platform CLI, CI/CD integration |
@@ -206,7 +206,7 @@ This is not the end; it is the **starting point of evolution**.
 
 ---
 
-*MetaGO Agent Harness · MIT Open Source · 2026*
+*MetaGO Intelligent Lifeform · MIT Open Source · 2026*
 
 - Gitee: https://gitee.com/metago/metagolifeform
 - GitHub: https://github.com/metago-ai/metagolifeform

@@ -9,7 +9,7 @@
 import { createRequire } from 'node:module'
 import { readFileSync, writeFileSync } from 'node:fs'
 
-const P = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0/packages/engine/atoms'
+const P = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0/packages/engine/atoms'
 const req = createRequire(P + '/contract-validator.cjs')
 const F = req(P + '/atom-factory.cjs')
 const BP = req(P + '/blueprint-atoms.cjs')

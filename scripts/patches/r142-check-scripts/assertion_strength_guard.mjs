@@ -11,7 +11,7 @@ import { readFileSync, existsSync } from 'node:fs'
 
 const FILES = [
   'D:/DSH-Official/home/scripts/mcp-tools-semantic.cjs',
-  'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0/scripts/mcp-tools-semantic.cjs',
+  'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0/scripts/mcp-tools-semantic.cjs',
 ]
 
 // 每条强断言的特征串（改这些就说明被弱化了）

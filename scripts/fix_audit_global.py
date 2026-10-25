@@ -8,7 +8,7 @@
 实况：
   @metago-ai/ 下 5 个：algorithms · dev-kit · engine · mcp-server · verify-kit
   非 scoped 4 个：metago-lifeform · metago-cli · metago-completeness-kit · metago-veracity-kit
-  9 个全部 rules_version = V36.11.0
+  9 个全部 rules_version = V36.12.0
 
 修法：把清单改成「scoped 5 + 非 scoped 4」，逐包核 version 与 rules_version。
 """
@@ -19,14 +19,14 @@ import subprocess
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home\scripts\audit_global.py")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\scripts\audit_global.py")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\scripts\audit_global.py")
 
 NEW = r'''# -*- coding: utf-8 -*-
 """audit_global.py — 全局用户级生效核验
 
 核验三件事：
   1. 全局安装：@metago-ai/* 5 个 + 非 scoped metago-* 4 个，全部在位
-  2. 版本对齐：每个包 rules_version = V36.11.0
+  2. 版本对齐：每个包 rules_version = V36.12.0
   3. 跨目录可用：从任意工作目录能否加载（不依赖 cwd）
 
 DEF-058：原清单把 lifeform / algorithms-cli 当成 @metago-ai/ 下的包，
@@ -40,7 +40,7 @@ import sys
 NPM = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules")
 SCOPED = ["algorithms", "dev-kit", "engine", "mcp-server", "verify-kit"]
 UNSCOPED = ["metago-lifeform", "metago-cli", "metago-completeness-kit", "metago-veracity-kit"]
-WANT_RULES = "V36.11.0"
+WANT_RULES = "V36.12.0"
 
 print("=" * 88)
 print("全局用户级生效核验")

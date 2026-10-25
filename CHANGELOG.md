@@ -1,3 +1,81 @@
+# V36.12.0（2026-10-25）
+
+## 本次升级的性质
+
+不是功能升级，是**品牌层重构**。产品名从品类词回归自有品牌名。
+
+## 一、品牌更名（核心变更）
+
+| 层级 | 变更前 | 变更后 |
+|---|---|---|
+| 品牌名 | MetaGO Agent Harness（品类词，无独占性） | **元构·智能生命体 / MetaGO Intelligent Lifeform** |
+| 品类名 | 智能体运行时控制层套件（9 字长串） | **智能体运行时** / Agent Runtime |
+| 架构代号 | 与品牌混用 | **驭智层**（仅内部架构文档使用） |
+
+### 为什么改（决策依据）
+
+1. `Agent Harness` 是**品类词**（与 Agent Framework / Agent Runtime 同级），不具独占性、无法注册商标、零品牌效应——客户看到不知道具体是什么
+2. 本法则 13.2 第 11 维度的禁用清单**本就包含** `核心产品是 Agent Harness` / `Harness 产品` / `Harness 范式`——品牌名用它，等于名字与自己的禁令冲突
+3. 本文件 V36.7.0 条目记载该次改名为「from Lifeform Kit to Agent Harness」，方向是**从品牌名退成品类名**，属误判。本次回滚，并补「智能」二字把「生命体」锚定到 AI 语境
+4. 品牌名不负责任解释产品，解释交给品类名与 Tagline——iPhone 不叫 Apple Smartphone
+
+### 新 Tagline
+
+- 中文：**守律 · 进化 · 可溯的智能体运行时**
+- 英文：**The Lawful, Self-Evolving, Auditable Agent Runtime**
+
+## 二、法则母本变更
+
+- **重写 `AGENTS.md` §1.2 命名标准**：从「标准学名 + 两个表述维度」改为**三层命名结构**（品牌名 / 品类名 / 架构代号），并附改名决策的 4 条依据
+- **13.2 第 11 维度禁用清单新增**：`Agent Harness 用作品牌自称`
+- `scripts/test-v41-terminology.cjs` 的 `FORBIDDEN` 数组同步新增该条
+- 条款定位：`Agent Harness` 可在竞品品类对比语境中作为第三方品类词提及，但不得用「我们/本产品/核心产品 是 Agent Harness」这类自称
+
+## 三、全库品牌替换
+
+| 项 | 规模 |
+|---|---|
+| `MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）` → 双语全称 | 14 处 |
+| `MetaGO Agent Harness`（裸）→ 按语境选中文名或英文名 | 122 处 |
+| `智能体运行时控制层套件` → `智能体运行时` | 19 处 |
+| 技能/文档里把 `Harness` 当交付物名 → `运行时控制层` | 70 处 |
+| **合计** | **约 225 处 / 60+ 文件** |
+
+替换后的品牌分布：`元构·智能生命体` 82 处、`MetaGO Intelligent Lifeform` 43 处。
+`MetaGO Agent Harness` 在历史层之外**清零**。
+
+**刻意保留**（非残留）：
+- `DeepSeek Harness` / `dealseek-harness` —— 宿主平台名，与本品无关
+- 禁用清单定义处的 `Harness` 字样（定义引用，非使用）
+- `ATOM_HARNESS_SOP_695` / `ENGINE_HARNESS_GEN_171` —— 已注册的原子/引擎 ID，改名会破坏契约
+- `CHANGELOG.md` 历史条目、`RELEASE-NOTES.md`、蓝本各卷、R14x 执行台账
+
+## 四、连带修复
+
+- `skills/metago-expert-agent-lifecycle-manager/SKILL.md` 及 4 份 plugins 副本、4 份 agents 副本：把 `Harness` 当**对外交付物名**使用共 55 处（如「Harness 自动生成」「Harness配置」JSON 字段）→ 统一改为「运行时控制层」/ `runtimeControlConfig`。这是本包中最典型的「把品类词固化成对外契约」的问题
+- `README.md` 章节 `## What is an Agent Harness?` → `## What is an Agent Runtime?`，正文同步
+- `packages/docs-site/index.md` hero `text: "Agent Harness（驭智层）"` → 新品牌全称
+- `packages/{engine,mcp-server}/README.md` 的 "the Harness's ..." → "the runtime's ..."
+- `packages/verify-kit` 的 `banned` 数组同步新增词条
+- `package.json` `keywords`：`harness` → `agent-runtime`，并去重 2 个重复项
+- `scripts/init-kmwi-store.cjs` KMWI 种子：`K-metago-harness` → `K-metago-lifeform`，tags 同步
+- `.gitee/ISSUE_TEMPLATE.md` 问题模板版本行同步新名
+
+## 五、版本号
+
+- 体系版本 **36.11.0 → 36.12.0**（品牌变更修改了法则 §1.2，属系统级变更）
+- npm 包 `metago-lifeform` **36.11.0 → 36.12.0**
+- 组件 semver 不变：engine 2.1.3 / mcp-server 1.3.4 / algorithms 1.0.3 / verify-kit 1.1.4 / dev-kit 1.1.2 / completeness-kit 1.0.0 / veracity-kit 1.0.0（其内容不含旧品牌，无需重发）
+- 全库 `V36.11.0` → `V36.12.0` 共 155 处、裸 `36.11.0` 158 处（CHANGELOG 历史条目除外）
+
+## 六、验证
+
+- `scripts/ci-version-gate.cjs`：C1–C14 全绿
+- `scripts/test-v41-terminology.cjs`：通过（新增词条后仍 0 命中）
+- `packages/engine` / `packages/mcp-server` build：exit 0
+
+---
+
 # V36.11.0（2026-10-18）
 
 ## 本次升级的性质

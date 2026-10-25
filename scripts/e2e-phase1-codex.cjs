@@ -85,7 +85,7 @@ log(/skills = true/.test(tomlText2), '幂等：内容仍保留');
 // ---------- 3. verify 动态版本 + TOML MCP 校验 ----------
 console.log('=== 1-4/1-5 verify --platform codex ===');
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'),
-  '# 元构超级智能生命体运行法则\n*由 MetaGO Agent Harness V36.9.6 安装*\n第十八章已正确注入\n{{PLACEHOLDER_KEEP}}\n'.replace('\n{{PLACEHOLDER_KEEP}}\n', '\n'), 'utf8');
+  '# 元构超级智能生命体运行法则\n*由 MetaGO Intelligent Lifeform V36.9.6 安装*\n第十八章已正确注入\n{{PLACEHOLDER_KEEP}}\n'.replace('\n{{PLACEHOLDER_KEEP}}\n', '\n'), 'utf8');
 // 构造可过 verify 的最小法则：含 V36.9.6 + 第十八章注入 + 无 Trae 措辞 + 技能目录
 const law = [
   '> 基于《元构全息智能引擎》V36.9.6。',
@@ -99,7 +99,7 @@ const law = [
   '',
   'metago-critique',
   '',
-  '*由 MetaGO Agent Harness V36.9.6 安装*',
+  '*由 MetaGO Intelligent Lifeform V36.9.6 安装*',
 ].join('\n');
 fs.writeFileSync(path.join(SANDBOX, '.codex', 'AGENTS.md'), law, 'utf8');
 fs.mkdirSync(path.join(SANDBOX, '.codex', 'skills', 'metago-critique'), { recursive: true });

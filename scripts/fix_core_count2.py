@@ -8,7 +8,7 @@ import re
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 SC = H / "scripts"
 
 n_scripts = len([p for p in SC.iterdir() if p.is_file() and p.suffix in (".cjs", ".js", ".mjs", ".py")])

@@ -2,7 +2,7 @@
 """fix_stale_ver_docs.py — 修正交付包里「当前声明」的过期版本号（DEF-063）
 
 实测：README.md / core/METAGO_CORE.md / docs/{MAP,PLATFORMS,PLUGINS,MANIFEST}
-      里写的是 V36.9.6，属「当前声明」，必须改为 V36.11.0。
+      里写的是 V36.9.6，属「当前声明」，必须改为 V36.12.0。
 
 不改：CHANGELOG.md（历史版本记录）、RELEASE-NOTES.md（发布记录）、
       以及任何带「历史 / 此前 / 曾 / 升级前」语境的句子。
@@ -13,9 +13,9 @@ import re
 import shutil
 import time
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 INST = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules\metago-lifeform")
-OLD, NEW = "V36.9.6", "V36.11.0"
+OLD, NEW = "V36.9.6", "V36.12.0"
 
 # 明确要改的文件（当前声明）
 TARGETS = ["README.md", "core/METAGO_CORE.md", "docs/MAP.md", "docs/PLATFORMS.md",

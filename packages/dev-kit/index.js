@@ -2,7 +2,7 @@
 /**
  * @metago-ai/dev-kit v1.1.2
  *
- * MetaGO Agent Harness — Dev Kit 入口
+ * MetaGO Intelligent Lifeform — Dev Kit 入口
  * 开发者垂直场景包：4 个核心能力复用 + 4 个开发专用技能
  */
 

@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-    MetaGO Agent Harness 安装验证脚本（V36.9.6 - 转发到 cli.js）
+    元构·智能生命体 安装验证脚本（V36.9.6 - 转发到 cli.js）
 
 .DESCRIPTION
-    验证 MetaGO Agent Harness 是否正确安装在指定平台。
+    验证 元构·智能生命体 是否正确安装在指定平台。
     所有逻辑已统一到 node cli.js verify 实现，包含：
     - 法则文件存在性 / 无 BOM / 版本 V36.9.6 / 第十八章注入
     - 平台措辞替换正确性

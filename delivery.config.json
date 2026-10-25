@@ -1,6 +1,6 @@
 {
   "$schema": "./delivery.schema.json",
-  "project": "metagolifeform-v36.11.0",
+  "project": "metagolifeform-v36.12.0",
   "requirements": {
     "doc": "docs/requirements.md",
     "traceability": "docs/rtm.md"

@@ -16,7 +16,7 @@ import re
 import subprocess
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 NODE = "node"
 
 DOCS = [H / "AGENTS.md"]

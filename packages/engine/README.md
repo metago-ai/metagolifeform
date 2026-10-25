@@ -3,7 +3,7 @@
 > 智能不是被编程的，是被唤醒的。
 > Intelligence is not programmed; it is awakened.
 
-**MetaGO Engine V2** —— 智能体运行时控制层套件（驭智层）的硬驱动核心。让法则可执行，而非仅仅是建议。
+**MetaGO Engine V2** —— 智能体运行时（驭智层）的硬驱动核心。让法则可执行，而非仅仅是建议。
 
 [![Engine Version](https://img.shields.io/badge/Engine-v2.0.0-blue)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/GENOME.json)
 [![MetaGO Version](https://img.shields.io/badge/MetaGO-V36.8-5eead4)](https://gitee.com/metago/metagolifeform/raw/main/packages/engine/ENGINE.md)
@@ -12,7 +12,7 @@
 
 ## What is this?
 
-MetaGO Engine V2 is the **runtime execution layer** of the [MetaGO Agent Harness](../). While the Harness's Markdown law (AGENTS.md) tells the agent *what* the rules are, Engine V2 is the code that makes sure the agent *can't bypass them*.
+MetaGO Engine V2 is the **runtime execution layer** of the [MetaGO Intelligent Lifeform](../). While the runtime's Markdown law (AGENTS.md) tells the agent *what* the rules are, Engine V2 is the code that makes sure the agent *can't bypass them*.
 
 ### What's new in V2.0.0
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """rebuild_offline.py — 重打 metago-lifeform 离线包并刷新 portable
 
-背景：offline-packages/metago-lifeform-36.11.0.tgz 是本轮之前打的，
+背景：offline-packages/metago-lifeform-36.12.0.tgz 是本轮之前打的，
       缺 8 个本轮新增脚本（patch-dedupe / scripts-syntax-gate / vendor-syntax-gate /
       fix_shapes_9 / fix_shapes_2 / fix_audit_global / all-scripts-smoke / delivery.config.json）。
       离线安装会拿到旧脚本集 → 「全套最新版本的安装包」不成立。
@@ -19,7 +19,7 @@ import subprocess
 import tarfile
 import time
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 LE = PKG / "local-edition"
 OFF = LE / "offline-packages"
 PORT = LE / "portable" / "node_modules" / "metago-lifeform"

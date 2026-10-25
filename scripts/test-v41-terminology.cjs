@@ -8,7 +8,7 @@
  *   Harness 范式 / Harness 产品 / 产品·Harness / 模型之外的运行时控制层
  *
  * 依据：project_memory.md 第四轮概念定稿 + 第五轮术语统一强制规范 + 第七轮"模型之外"概念纠错。
- * 正确术语：MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）。
+ * 正确术语：元构·智能生命体（MetaGO Intelligent Lifeform）。
  *
  * 用法：node scripts/test-v41-terminology.cjs
  * 退出码：0 全部通过；1 发现禁用表述。
@@ -35,6 +35,7 @@ const FORBIDDEN = [
   'Harness 范式',
   'Harness 产品',
   '产品·Harness',
+  'Agent Harness 用作品牌自称',
   '模型之外的运行时控制层',
 ];
 
@@ -92,5 +93,5 @@ for (const h of hits) {
   console.log(`  ${h.file}:${h.line}  [${h.term}]`);
   console.log(`    ${h.excerpt}`);
 }
-console.log('\n  正确术语：MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）');
+console.log('\n  正确术语：元构·智能生命体（MetaGO Intelligent Lifeform）');
 process.exit(1);

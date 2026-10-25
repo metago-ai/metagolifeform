@@ -49,7 +49,7 @@ OLD_DESC = """        description: >-
           四层 KMWI 记忆，以及元构控制台原生界面。"""
 
 NEW_DESC = """        description: >-
-          MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）V36.11.0 全量模式：
+          MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）V36.12.0 全量模式：
           完整 101,535 B 法则（第零节 UDGK + 20 章 + 架构治理 + 完整性治理，10 公理 / 9 属性）、
           112 个 metago-* 技能、112 个元构 MCP 工具（55 + 57 · 927 算法）、
           四层 KMWI 记忆，以及元构控制台原生界面。"""
@@ -81,7 +81,7 @@ else:
 # ② description
 if OLD_DESC in t:
     t = t.replace(OLD_DESC, NEW_DESC, 1)
-    print("  ✓ description 已更新（V36.9.4→V36.11.0 / 89,282→101,535 B / 100→112 技能）")
+    print("  ✓ description 已更新（V36.9.4→V36.12.0 / 89,282→101,535 B / 100→112 技能）")
 elif NEW_DESC in t:
     print("  · description 已是新版")
 else:

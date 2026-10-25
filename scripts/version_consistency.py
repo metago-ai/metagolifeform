@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """version_consistency.py — 全系统版本一致性总检
 
-检查所有「应当声明版本」的位置是否都是 V36.11.0 / 36.11.x：
+检查所有「应当声明版本」的位置是否都是 V36.12.0 / 36.11.x：
   · 9 个 npm 包的 package.json（version + rules_version）
   · 交付包 package.json / VERSION / VERSIONS.json
   · AGENTS.md 里的版本声明
@@ -15,7 +15,7 @@ import pathlib
 import re
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 NPM = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules")
 WANT = "36.11"
 WANT_RULES = "V36.11"
@@ -53,7 +53,7 @@ for f in ["VERSION"]:
 # ③ AGENTS.md
 t = (H / "AGENTS.md").read_text(encoding="utf-8")
 m = re.search(r"V36\.11\.\d+", t)
-add("AGENTS.md(版本声明)", m.group(0) if m else "未找到", "V36.11.0" if m else "", "HOME")
+add("AGENTS.md(版本声明)", m.group(0) if m else "未找到", "V36.12.0" if m else "", "HOME")
 
 # ④ 11 平台
 PLAT = [("Trae", ".trae-cn/rules.md"), ("Claude Code", ".claude/CLAUDE.md"), ("Codex", ".codex/AGENTS.md"),
@@ -68,7 +68,7 @@ for name, rel in PLAT:
         continue
     s = p.read_text(encoding="utf-8", errors="replace")
     mm = re.search(r"V36\.(\d+)\.(\d+)", s)
-    add("平台:" + name, mm.group(0) if mm else "未声明", "V36.11.0" if mm and mm.group(1) == "11" else "", "platform")
+    add("平台:" + name, mm.group(0) if mm else "未声明", "V36.12.0" if mm and mm.group(1) == "11" else "", "platform")
 
 # ⑤ 蓝本：只有「本次交付产出」的卷要求 V36.11；原文层豁免（CORR-035）
 bp = H / "metago" / "blueprint" / "元构初始文档"

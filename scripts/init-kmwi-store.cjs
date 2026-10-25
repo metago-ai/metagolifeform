@@ -93,10 +93,10 @@ const now = new Date().toISOString();
 // 引擎读不到 → M 层恒为 0，且 `i.explicitForm.length` 直接抛异常。
 const knowledgeItems = [
   {
-    id: 'K-metago-harness',
-    content: 'MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）：112 个技能 + 55 MCP tools + 8 prompts + 算法服务器（57 tools / 927 algorithms）+ Engine V2（KMWI/EvolutionEngine/SkillGenerator/DecisionLock）。',
+    id: 'K-metago-lifeform',
+    content: '元构·智能生命体（MetaGO Intelligent Lifeform）：112 个技能 + 55 MCP tools + 8 prompts + 算法服务器（57 tools / 927 algorithms）+ Engine V2（KMWI/EvolutionEngine/SkillGenerator/DecisionLock）。',
     category: 'product',
-    tags: ['metago', 'harness', 'engine'],
+    tags: ['metago', 'lifeform', 'engine'],
     source: 'AGENTS.md',
     confidence: 1.0,
     createdAt: now, lastAccessedAt: now, accessCount: 0, linkedMemoryIds: [],

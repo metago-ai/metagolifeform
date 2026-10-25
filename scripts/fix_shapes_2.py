@@ -18,7 +18,7 @@ import time
 
 TARGETS = [
     pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules\@metago-ai\algorithms\engine\algorithms\t3impl\shapes.json"),
-    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\packages\algorithms\engine\algorithms\t3impl\shapes.json"),
+    pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\packages\algorithms\engine\algorithms\t3impl\shapes.json"),
     pathlib.Path(r"D:\metago-build\outbound\v36.10.0\packages\algorithms\engine\algorithms\t3impl\shapes.json"),
 ]
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-shapes2-" + time.strftime("%Y%m%d-%H%M%S"))

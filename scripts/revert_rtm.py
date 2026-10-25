@@ -17,7 +17,7 @@ import shutil
 from collections import Counter
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\docs\rtm.md")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\docs\rtm.md")
 RTM = H / "docs" / "rtm.md"
 
 # 找最新备份

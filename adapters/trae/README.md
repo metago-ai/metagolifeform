@@ -1,12 +1,12 @@
 # Trae 适配器（Trae Adapter）
 
-> MetaGO Agent Harness → Trae 平台适配层 · V36.11.0
+> 元构·智能生命体 → Trae 平台适配层 · V36.12.0
 
 ---
 
 ## 适配方式
 
-Trae 是 MetaGO Agent Harness 的原生平台，支持两种部署模式：
+Trae 是 元构·智能生命体 的原生平台，支持两种部署模式：
 
 ### 全局用户级安装（推荐）
 
@@ -118,4 +118,4 @@ node local-edition/verify-local-install.cjs
 
 ---
 
-*MetaGO Agent Harness V36.11.0 · Trae 适配器*
+*元构·智能生命体 V36.12.0 · Trae 适配器*

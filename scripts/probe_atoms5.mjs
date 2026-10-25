@@ -2,7 +2,7 @@
 import { createRequire } from 'node:module'
 import { readFileSync } from 'node:fs'
 
-const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0'
+const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0'
 const req = createRequire(PKG + '/packages/engine/atoms/atom-factory.cjs')
 const F = req(PKG + '/packages/engine/atoms/atom-factory.cjs')
 const CV = req(PKG + '/packages/engine/atoms/contract-validator.cjs')

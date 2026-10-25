@@ -12,7 +12,7 @@ import { createRequire } from 'node:module'
 
 const H = 'D:/DSH-Official/home'
 const NM = 'C:/Users/MetaGO/AppData/Roaming/npm/node_modules/@metago-ai'
-const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0'
+const PKG = 'D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0'
 
 const R = []
 const chk = (id, name, ok, detail) => R.push({ id, name, ok: !!ok, detail: String(detail || '') })

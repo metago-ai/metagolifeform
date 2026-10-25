@@ -13,7 +13,7 @@ const path = require("path");
 const os = require("os");
 const { execFileSync } = require("child_process");
 
-const REAL = "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0";
+const REAL = "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0";
 const BASE = path.join(os.tmpdir(), "metago-mut-" + Date.now());
 const SRC = path.join(BASE, "src");     // 基准副本（与 mut-N 同级）
 

@@ -20,7 +20,7 @@ import shutil
 import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 BAK = pathlib.Path(r"D:\metago-build") / ("backup-memguard-" + time.strftime("%Y%m%d-%H%M%S"))
 BAK.mkdir(parents=True, exist_ok=True)
 
@@ -34,7 +34,7 @@ MEM = """# 项目记忆（MetaGO on DeepSeek Harness）
 
 - **官方域名**：`metago.life`（**永远不是** tcloudbaseapp.com）
 - **本实例**：DeepSeek Harness 桌面端独立实例，`$DSH_HOME = D:\\DSH-Official\\home`
-- **体系版本**：V36.11.0（9 个 npm 包 rules_version 全部对齐）
+- **体系版本**：V36.12.0（9 个 npm 包 rules_version 全部对齐）
 - **交付形态**：完整目录（6,358 文件）/ 离线安装版（59/59）/ npm 发布版（解包 5/5）
 - **能力实测**：112 技能 · 927 算法 · 597 原子（590 实现 / 2 外部 / 5 约束）·
   6 MCP 服务器 162 工具（112 可调用）· 121 协议 · 38 公理 · 47 属性 · 161 引擎

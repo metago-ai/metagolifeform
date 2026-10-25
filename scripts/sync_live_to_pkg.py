@@ -5,7 +5,7 @@ import pathlib
 import shutil
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 PAIRS = [
     (H / "AGENTS.md", PKG / "AGENTS.md"),

@@ -12,7 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const PKG = "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0";
+const PKG = "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0";
 
 function sha(p) {
   return crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");

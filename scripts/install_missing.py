@@ -6,7 +6,7 @@ import hashlib
 import pathlib
 import shutil
 
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 H = pathlib.Path(r"D:\DSH-Official\home")
 DST = H / "scripts"
 DST.mkdir(parents=True, exist_ok=True)

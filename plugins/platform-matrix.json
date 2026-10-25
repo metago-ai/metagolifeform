@@ -1,6 +1,6 @@
 {
   "$schema": "https://metago.life/schemas/platform-matrix.schema.json",
-  "version": "36.11.0",
+  "version": "36.12.0",
   "generated": "2026-08-12",
   "legend": {
     "native": "✅ 原生支持",
@@ -268,7 +268,7 @@
     },
     "law": {
       "file": "AGENTS.md",
-      "version": "36.11.0"
+      "version": "36.12.0"
     }
   },
   "pluginPacks": {

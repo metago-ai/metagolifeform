@@ -1,13 +1,13 @@
-# metagolifeform v36.11.0 交付验收报告
+# metagolifeform v36.12.0 交付验收报告
 
 生成时间：2026-10-19T12:48:31.440Z
-包路径：`D:/metago-build/outbound/v36.11.0/metagolifeform-v36.11.0`
+包路径：`D:/metago-build/outbound/v36.12.0/metagolifeform-v36.12.0`
 
 | 代码 | 检查项 | 结果 | 证据 |
 |---|---|---|---|
-| A1 | 关键文件齐全 | ✅ PASS | 6/6 齐全，VERSION=36.11.0 |
-| A3 | 版本等于目标版本 | ✅ PASS | VERSION=36.11.0（目标 36.11.0） |
-| A2 | package.json 版本一致 | ✅ PASS | package.json=36.11.0 / VERSION=36.11.0 |
+| A1 | 关键文件齐全 | ✅ PASS | 6/6 齐全，VERSION=36.12.0 |
+| A3 | 版本等于目标版本 | ✅ PASS | VERSION=36.12.0（目标 36.12.0） |
+| A2 | package.json 版本一致 | ✅ PASS | package.json=36.12.0 / VERSION=36.12.0 |
 | B1 | T3 全部挂上 handler | ✅ PASS | 227/227 |
 | B2 | executeAlgorithmSync 真实执行 ALG_T3_C_001 | ✅ PASS | {"phaseDiff":0.05,"couplingScore":0.9841,"progressEfficiency":0.9988,"alignment":"sync"} |
 | C1 | T3 自测 227/227 | ✅ PASS | 通过 227 / 失败 0 |

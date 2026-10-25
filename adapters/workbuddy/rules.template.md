@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（WorkBuddy 第一人称视角撰写）。每次会话自动加载。
-> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 MetaGO Agent Harness V36.11.0 安装。
+> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 元构·智能生命体 V36.12.0 安装。
 >
 > **多平台说明**：本母本以 WorkBuddy 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -106,7 +106,7 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 
 ### 1.2 命名标准
 
-**标准学名**：MetaGO Agent Harness（智能体运行时控制层套件 · 驭智层）
+**标准学名**：元构·智能生命体（MetaGO Intelligent Lifeform）
 
 **两个表述维度**（同一个东西，不是两个名字）：
 
@@ -593,7 +593,7 @@ npm run verify
 8. **废弃 API**：escape/unescape 等已从 Web 标准移除的接口。
 9. **业务闭环**：每条业务链路（注册→登录→配额→升级→支付→恢复）是否端到端连通，无断裂。
 10. **合规与安全**：备案号、隐私政策、token 存储、敏感信息泄露、mock 功能在生产环境可见。
-11. **术语统一**：检查所有文档/代码中是否使用了禁用表述（AI Harness / AI 运行时控制层 / 生命体 Harness 范式 / MetaGO Lifeform Kit / above the model / 核心产品是 Agent Harness / 生命体范式 / 驭智层范式 / Harness 范式 / Harness 产品 / 产品·Harness / 模型之外的运行时控制层）。依据：project_memory.md 第四轮概念定稿 + 第五轮术语统一强制规范 + 第七轮"模型之外"概念纠错。验证工具：`node scripts/test-v41-terminology.cjs` 或 `npm run verify` 中的 V4.1 检查。
+11. **术语统一**：检查所有文档/代码中是否使用了禁用表述（AI Harness / AI 运行时控制层 / 生命体 Harness 范式 / MetaGO Lifeform Kit / above the model / 核心产品是 Agent Harness / 生命体范式 / 驭智层范式 / Harness 范式 / Harness 产品 / 产品·Harness / 模型之外的运行时控制层 / Agent Harness 用作品牌自称）。依据：project_memory.md 第四轮概念定稿 + 第五轮术语统一强制规范 + 第七轮"模型之外"概念纠错。验证工具：`node scripts/test-v41-terminology.cjs` 或 `npm run verify` 中的 V4.1 检查。
 12. **对抗式审查（A38）**：本任务若属测试/检查/审计/验证类，交付前必须已完成对抗式审查——切换攻击者视角挖掘致命缺陷，报告含"对抗式审查结论"小节；非此类任务也必须以"我的方案会被怎样攻破？"自问一遍。
 
 ### 13.3 验证铁律（非可选）
@@ -1080,7 +1080,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V36.11.0 | 本文件 |
+| AGENTS.md | V36.12.0 | 本文件 |
 | @metago-ai/engine | 2.1.1 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.0.1 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.1 | npm 发布物 |
@@ -1287,7 +1287,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 MetaGO Agent Harness V36.11.0 安装（体系版本已于 2026-10-18 由 V36.9.4 升为 V36.11.0；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 元构·智能生命体 V36.12.0 安装（体系版本已于 2026-10-18 由 V36.9.4 升为 V36.12.0；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 

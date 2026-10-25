@@ -146,7 +146,7 @@ for (const [id, shape] of Object.entries(MANUAL)) {
 
 fs.writeFileSync(P, JSON.stringify(SH, null, 1), "utf8");
 for (const p2 of ["D:/metago-build/outbound/v36.10.0/packages/algorithms/engine/algorithms/t3impl/shapes.json",
-  "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.11.0/packages/algorithms/engine/algorithms/t3impl/shapes.json"]) {
+  "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0/packages/algorithms/engine/algorithms/t3impl/shapes.json"]) {
   if (fs.existsSync(path.dirname(p2))) fs.copyFileSync(P, p2);
 }
 console.log();

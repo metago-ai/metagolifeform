@@ -23,7 +23,7 @@ import time
 
 H = pathlib.Path(r"D:\DSH-Official\home")
 NPM = pathlib.Path(r"C:\Users\MetaGO\AppData\Roaming\npm\node_modules\@metago-ai")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 BAKROOT = pathlib.Path(r"D:\metago-build")
 
 # 表内标签 → npm 包目录

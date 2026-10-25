@@ -10,7 +10,7 @@ import pathlib
 import re
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
 
 SIGNS = [
     (r"输入|入参|参数|前置条件|准备|Input|职责边界", "输入/边界"),

@@ -101,8 +101,8 @@
 | R144 | **平台适配差异化修复（DEF-037）** | `fix_adapter_replacements.py` | 11 文件 SHA256 比对 | **修前唯一哈希 1/11（全同）→ 修后 11/11（全不同）；平台名各出现 18-21 次** |
 | R145 | **11 平台内容质量审计** | `platform_content_audit.py` | 版本/占位符/章节/BOM/污染 | **11/11 全绿；1557 行；0 占位符；0 缺章节；无交叉污染** |
 | R141 | **全新安装模拟（DEF-035）** | `fresh_install_test.py` + `tarball_content_audit.py` | npm pack → 解包 → 核对 | **tarball 可生成（1.6MB/970 文件）；核心资产齐全；补 files 字段 4 项** |
-| R142 | **离线安装版修复（DEF-036）** | `fix_local_edition.py` | 自检脚本 | **57/59 → 59/59；重打 36.11.0 包；Engine 期望值纠正** |
-| R143 | **11 平台法则升级到 V36.11.0** | `build-adapters.cjs` + `install_platform_adapters.py` | 逐平台版本复核 | **11/11 全部 V36.11.0（升级前 V36.9.1~V36.9.6）** |
+| R142 | **离线安装版修复（DEF-036）** | `fix_local_edition.py` | 自检脚本 | **57/59 → 59/59；重打 36.12.0 包；Engine 期望值纠正** |
+| R143 | **11 平台法则升级到 V36.12.0** | `build-adapters.cjs` + `install_platform_adapters.py` | 逐平台版本复核 | **11/11 全部 V36.12.0（升级前 V36.9.1~V36.9.6）** |
 | R139 | **CWD 无关性验证** | `cwd_independence.py` | 4 个目录 × 14 脚本 | **56/56 全部 PASS；不依赖工作目录** |
 | R140 | **包可移植性验证（DEF-034）** | `pkg_portability.py` | 整包复制到临时目录跑 8 脚本 | **8/8 PASS；顺带发现交付包缺 rules_version 并补齐** |
 | R137 | **干净环境全套验证（CORR-020）** | `clean_env_verify2.py` | 19 项逐个跑 | **19/19 全绿；不设任何 METAGO_* 变量** |
@@ -170,14 +170,14 @@
 | R77 | **修复 KMWI explicitForm 未判空（DEF-016）** | `fix_kmwi_explicit.py`（含备份） | 修复后全量复测 | **getHealth/getDecayRates/getStrengthenSuggestions 由全崩→全部 OK；MCP 112/112 可调用** |
 | R74 | **技能层可加载性审计** | `audit_skills.py` | 7 项检查 × 111 个 SKILL.md | **口径修正：116 文件 = 111 技能 + 5 附属；初次审计 7 个正文过短** |
 | R75 | **7 个专家团技能方法论补全** | `upgrade_thin_skills.py`（含备份） | 补后复审 + K11 | **正文 762-879 → 2077-2499 字节；问题 7 → 0；K11 固化，包验收 28 → 29 项** |
-| R72 | **全局 9 包版本口径对齐** | `align_versions.py`（含备份） | package.json 合法性 + MCP + 跨目录执行 | **9/9 包 rules_version 全部 V36.11.0；metago-lifeform 36.9.6→36.11.0；vendor 偏差 5→0** |
+| R72 | **全局 9 包版本口径对齐** | `align_versions.py`（含备份） | package.json 合法性 + MCP + 跨目录执行 | **9/9 包 rules_version 全部 V36.12.0；metago-lifeform 36.9.6→36.12.0；vendor 偏差 5→0** |
 | R73 | **全局用户级生效核验** | `audit_global.py` | 全局安装 + 跨目录 + 命令可用性 | **注册表 927 条 / T3 227 条 / 从 C:\ 执行成功；MCP 6 组 162 工具正常** |
 | R70 | **包 → 活系统安装一致性核对** | `audit_install.py` 33 项逐文件 SHA256 | 初查 + 补齐 + 复核 | **初查 27 一致 / 6 缺失 → 补齐 42 个脚本 → 33/33 一致** |
 | R71 | **K10 断言守护安装一致性** | verify-package.cjs | 包验收 27 → 28 项 | **K10 17/17 PASS；28 项全绿** |
 | R69 | **引用迁移全量清零** | `audit_refs.py` 全量扫描 116 个活文档 | 逐条核实 + 复扫 | **未迁移旧引用 0 处；最后 1 处（metago-action-plan）已改为指向 元构初始文档/附录卷** |
 | R68 | **蓝本口径对照表** | 总索引新增「历史声称与技术实测对照」 | 5 类条目逐条计数复核 | **公理38/属性47/协议121/引擎161/原子597/算法927/技能116 全部实测一致；43公理与597 条原子已标注为编号空间/规划口径，不改写历史** |
 | R66 | **法则同步现实：AGENTS.md 算法口径更新** | `fix_law_coverage.py` | 逐条核对表格与条款 | **927/927/927/0 表格 + 三种传参形态 + 四类标记说明 全部落卷；旧表述「约 95 个未通过」已清除** |
-| R67 | **全系统 13 项回归** | `regress57.py`（改为动态判定） | 逐项复核 | **13/13 全绿；包 6032 文件 / 31.95 MB / VERSION 36.11.0** |
+| R67 | **全系统 13 项回归** | `regress57.py`（改为动态判定） | 逐项复核 | **13/13 全绿；包 6032 文件 / 31.95 MB / VERSION 36.12.0** |
 | R64 | **完整源码精读构造最后 11 条** | `fix-11-final.cjs` + `fix-5-last.cjs` + `fix-last2.cjs` | 逐条实跑 | **实跑成功 689 → 700/700（100%）** |
 | R65 | **T1/T2 全量可调通达成** | FACTS.t12_coverage | K6/K7/位置多参/函数型 四项复验 | **700/700 实跑成功；474/474 位置多参；21/21 函数型；K6 0 冲突；K7 0 错配** |
 | R62 | **属性链提取 + 精确构造** | `extract-chains.cjs` + `fix-22-exact.cjs` | 逐条实跑 | **实跑成功 678 → 689/700（98.4%）** |
@@ -213,7 +213,7 @@
 | R32 | **修正 K1 真空断言** | `contract-validator.cjs` IN_PACKAGE 判定 | 删包内契约卷 → K1 必须 FAIL | **修复前 K1 PASS（读外部副本）；修复后 K1 FAIL（CONTRACT_VOLUME_MISSING）** |
 | R33 | **A3 断言：版本等于目标值** | `verify-package.cjs` | 负向测试：两处同时改为 36.10.0 | **A2 仍 PASS（两处一致），A3 FAIL —— 盲区已堵** |
 | R28 | **原子语义精度升级：特化算子层** | `engine/atoms/specialized.cjs`（22 算子） | verify K1 + 工厂自测 | **特化覆盖 185/583 = 31.7%；契约符合 583/583 = 100%；算子自测 22/22，路由 6/6** |
-| R29 | **蓝本卷版本口径统一** | 14 卷 frontmatter 增设 `collection_version: 36.11.0` | 逐卷核对 | **14 卷全部含 collection_version；原有 version 全部保留（不改写历史）** |
+| R29 | **蓝本卷版本口径统一** | 14 卷 frontmatter 增设 `collection_version: 36.12.0` | 逐卷核对 | **14 卷全部含 collection_version；原有 version 全部保留（不改写历史）** |
 | R30 | **蓝本新增「语义特化算子」正式章节** | `附录卷-原子契约补全-V36.11.md`（100.8 KB） | 章节内容校验 | **22 个算子定义 + 22 条路由规则 + 覆盖上限论证全部落卷** |
 | R25 | **输出守卫：拦截 NaN/Inf 静默污染** | `registry.js` OUTPUT-GUARD 段 + `bind.cjs` inspectOutput | `scripts/nan-scanner.cjs` 全量扫描 | **修复前 147 条可返回 NaN 却报 success → 修复后 0 条；53 条被明确拦截；正确输入未受影响** |
 | R26 | **T1/T2 位置多参可调率 100%** | `t3impl/shapes.json`（376 条精确样例） | verify K2 | **可调通 474 / 474 = 100%，调不通 0** |
@@ -236,5 +236,5 @@
 | 公理 A31-A33 | 蓝本 14 文件中无此编号 |
 | T1/T2 难调算法 12 条 | 嵌套对象型入参，通用形态推不出 |
 | 函数型形参算法 21 条 | MCP 为 JSON 协议，结构性不可传函数 |
-| ~~版本口径~~ | ~~AGENTS V36.9.4 / npm rules V36.9.6 / 包 V36.10.0 / 蓝本 V36.11 尚未统一~~ → **已关闭（R10x）：9 包 rules_version 全部 V36.11.0，11 平台法则全部 V36.11.0** |
+| ~~版本口径~~ | ~~AGENTS V36.9.4 / npm rules V36.9.6 / 包 V36.10.0 / 蓝本 V36.11 尚未统一~~ → **已关闭（R10x）：9 包 rules_version 全部 V36.12.0，11 平台法则全部 V36.12.0** |
 

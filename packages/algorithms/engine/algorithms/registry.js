@@ -850,9 +850,9 @@ function executeAlgorithmSync(id, input) {
 }
 
 
-/* ==== METAGO-V36.11.0-T3-BINDING ==== */
+/* ==== METAGO-V36.12.0-T3-BINDING ==== */
 /*
- * T3 工程化接线（V36.11.0）
+ * T3 工程化接线（V36.12.0）
  * 原 registerT3 把 handler 写成 undefined 却把 implemented 标为 true，
  * 导致 get_algorithm_info 报"已实现"而 execute 返回 NOT_IMPLEMENTED。
  * 本段在模块加载末尾把 t3impl 的真实实现挂回对应条目，
@@ -892,12 +892,12 @@ function executeAlgorithmSync(id, input) {
     });
     module.exports.__t3Binding = { bound: bound, total: total, families: FAMILIES.length };
 })();
-/* ==== END METAGO-V36.11.0-T3-BINDING ==== */
+/* ==== END METAGO-V36.12.0-T3-BINDING ==== */
 
 
 /* ==== METAGO-OUTPUT-GUARD-V36.11 ==== */
 /*
- * 输出有效性守卫（V36.11.0）
+ * 输出有效性守卫（V36.12.0）
  *
  * 由来：全量扫描 746 条可执行算法，发现 147 条在错误类型输入下返回 NaN/Infinity
  * 却仍报 success（其中 63 条实现内完全没有输入校验）。

@@ -17,7 +17,7 @@ import sys
 from collections import Counter
 
 H = pathlib.Path(r"D:\DSH-Official\home")
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.11.0\docs\rtm.md")
+PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0\docs\rtm.md")
 
 print("=" * 84)
 print("RTM 需求追踪矩阵完整性门")
