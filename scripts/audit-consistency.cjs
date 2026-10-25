@@ -132,7 +132,7 @@ if (!/V36\.9\.4|36\.9\.4/.test(attrs)) drift.push('属性: ATTRIBUTES.md 缺 36.
 const gText = rd('packages/engine/GENOME.json');
 for (const id of ['A37', 'A38', 'D44', 'D45']) if (!gText.includes(id)) drift.push(`公理: GENOME.json 缺 ${id}`);
 chk(rootPkg.metago.axioms === AXIOMS, `公理: 根 package.json metago.axioms=${rootPkg.metago.axioms} != ${AXIOMS}`);
-if (!rd('docs/GETTING_STARTED.md').includes(`10 条核心公理`)) drift.push('公理: GETTING_STARTED 未含 10 条核心公理');
+if (!rd('docs/GETTING_STARTED.md').includes(`38 条核心公理`)) drift.push('公理: GETTING_STARTED 未含 38 条核心公理');
 
 // ============ 5. 平台数 ============
 const PLATFORM_IDS = ['trae', 'claude-code', 'codex', 'cursor', 'codebuddy', 'qoder', 'zcode', 'chatgpt-work', 'workbuddy', 'kimi-code', 'kimi-work'];

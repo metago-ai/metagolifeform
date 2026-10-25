@@ -27,16 +27,16 @@ features:
     linkText: 查看全部技能 →
   - icon: ⚡
     title: MCP 即开即用
-    details: 53 项 MCP 工具 + 8 prompts，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
+    details: 55 个 MCP 工具 + 8 prompts，Claude Desktop / Cursor / Trae 任何 MCP 客户端即开即用。
     link: /api/mcp-server
     linkText: 查看 MCP 文档 →
   - icon: 🧬
-    title: 10 条公理 + 9 条属性
-    details: 基于《元构全息智能引擎》V36.11.0，10 公理 + 9 属性 + 6 协议构成生命体基因。Engine V2 硬驱动执行。
+    title: 38 条核心公理 + 47 条根本属性
+    details: 基于《元构全息智能引擎》V36.11.0，38 公理 + 47 属性 + 121 项协议构成生命体基因。Engine V2 硬驱动执行。
     link: /engine/axioms
     linkText: 探索引擎核心 →
   - icon: 🔧
-    title: 7 大平台适配
+    title: 11 个平台适配
     details: Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode 全平台覆盖。
     link: /guide/installation
     linkText: 查看安装指南 →

@@ -12,8 +12,8 @@
 | P0-3 | 离线子包元数据戳滞后（V36.8.x/V36.9.0） | engine/algorithms/dev-kit/verify-kit 四个 tgz 内 `metago.*_version` 戳补丁至 V36.9.4（零代码改动，重打后 MANIFEST.sha256 再生成） |
 | P0-4 | 引擎"硬宪法"未同步 A37/A38/D44/D45 | `AXIOMS.md` 追加 A37/A38、`ATTRIBUTES.md` 追加 D44/D45（新增行，未改公理原文）；validator 接入 `checkFirstPrinciples`/`checkAdversarialReview`（A37/A38 与 D44/D45 同源双注册）；MCP 工具 **53→55**（新增 `metago_first_principles` / `metago_adversarial_review`，全链口径联动：INDEX/tools.json、docs/MANIFEST、生成器常量、README 公式 22+(39−7)+1=55）；verify-kit 缺陷猎杀 11→**12 维**、自检 8→**10 问**、报告模板加 **L9 对抗式审查小节**（disciplineCheck 增加 L9 门禁） |
 | P1-1 | `cli.js verify` 硬编码期望版本 V36.9.2 → 装新版本必误报 FAIL | 改为动态读根 `package.json`；T4 单测（V36.9.4 法则 PASS / V36.9.3 FAIL）通过 |
-| P1-2 | 文档/插件元数据旧口径（95/98 技能、八公理、v1.3.1、36.9.2/36.9.3 戳） | 全包口径统一 V36.9.4 / 100 技能 / 10 公理 9 属性；MANIFEST.json、MCP_SERVER.md、PLUGINS.md、UPGRADE.md（历史章节标注）、MAP、GETTING_STARTED、RELEASE-CHECKLIST、plugins 四 manifest + platform-matrix、adapters README、metago-activate 五副本、core/METAGO_CORE、README 徽章、package-lock —— 口径扫描器 `scripts/audit-consistency.cjs` 五类零漂移 |
-| P1-3 | mcp-server 测试断言滞后（1.3.1 / 95 / 52+1=53） | `version-sync`：1.3.2；`metadata-consistency`：100 技能 / 54+1=55 工具 / 描述 55 —— 21/21 全绿 |
+| P1-2 | 文档/插件元数据旧口径（95/98 技能、八公理、v1.3.1、36.9.2/36.9.3 戳） | 全包口径统一 V36.9.4 / 112 个技能 / 38 公理 47 属性；MANIFEST.json、MCP_SERVER.md、PLUGINS.md、UPGRADE.md（历史章节标注）、MAP、GETTING_STARTED、RELEASE-CHECKLIST、plugins 四 manifest + platform-matrix、adapters README、metago-activate 五副本、core/METAGO_CORE、README 徽章、package-lock —— 口径扫描器 `scripts/audit-consistency.cjs` 五类零漂移 |
+| P1-3 | mcp-server 测试断言滞后（1.3.1 / 95 / 52+1=53） | `version-sync`：1.3.2；`metadata-consistency`：112 个技能 / 54+1=55 工具 / 描述 55 —— 21/21 全绿 |
 | P1-4 | 全局 kit 符号链接指向临时解包目录 | 见"已知限制"第 4 条（阶段 6-3 重指向，需确认后执行） |
 | P1-5 | `内部蓝本目录/` 旧 1.3.1 树含硬编码令牌 | 见"已知限制"第 3 条（备份后替换 dist，需确认后执行） |
 | P1-6 | 根级 `SHA256SUMS.txt` 缺失 | 发布脚本自动生成（zip 内全文件清单），`sha256sum -c` 自校验全绿 |

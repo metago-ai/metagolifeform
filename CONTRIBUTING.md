@@ -90,7 +90,7 @@ npm start
 metago-lifeform/
 ├── core/                   # The operating law (METAGO_CORE.md)
 ├── adapters/               # Platform adapters (trae, claude-code, codex, ...)
-├── skills/                 # 100 built-in skills (metago-* prefix)
+├── skills/                 # 112 built-in skills (metago-* prefix)
 │   ├── metago-critique/
 │   ├── metago-decision-lock/
 │   └── ...

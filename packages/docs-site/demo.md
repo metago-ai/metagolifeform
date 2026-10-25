@@ -187,7 +187,7 @@ function getUserByName(userName) {
 - [反馈渠道](./feedback) — 提交 Bug 报告 / 功能建议 / 整体反馈
 - [僵尸能力分析](https://github.com/metago-ai/metagolifeform/blob/main/docs/ZOMBIE-ANALYSIS-REPORT.md) — 55 工具健康度评估
 - [变更日志](./reference/changelog) — 版本演进记录
-- [引擎核心](./engine/axioms) — 10 条公理 + 9 条属性
+- [引擎核心](./engine/axioms) — 38 条核心公理 + 47 条根本属性
 - [技能总览](./skills/overview) — 39 个 metago-* 技能
 
 ---

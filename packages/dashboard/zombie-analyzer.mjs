@@ -34,7 +34,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// ==================== 工具注册表（53 个 MCP 工具）====================
+// ==================== 工具注册表（55 个 MCP 工具）====================
 
 const TOOL_REGISTRY = {
   // 22 个元构技能

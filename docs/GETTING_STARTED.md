@@ -25,7 +25,7 @@
 
 | 组件 | 最低版本 | 推荐版本 | 说明 |
 |------|----------|----------|------|
-| AI 编程平台 | - | 任选其一 | 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode |
+| AI 编程平台 | - | 任选其一 | 支持 11 个平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode |
 | Trae IDE | 1.0.0 | 最新稳定版 | MetaGO 的原生宿主环境（首选平台） |
 | PowerShell | 5.1 | 7.2+ | 执行安装脚本 |
 | Git | 2.20+ | 最新稳定版 | 拉取仓库与版本管理 |
@@ -39,7 +39,7 @@
 
 ### 3. 平台配置确认
 
-MetaGO Agent Harness 支持 7 大 AI 编程平台，请根据你使用的平台确认相应能力已启用：
+MetaGO Agent Harness 支持 11 个平台，请根据你使用的平台确认相应能力已启用：
 
 **通用要求（所有平台）**：
 
@@ -216,7 +216,7 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.trae-cn\memory\proj
 
 ## 平台配置路径对照表
 
-MetaGO Agent Harness 支持 7 大 AI 编程平台，各平台的规则文件注入路径如下表所示。安装脚本会根据 `-Platform` 参数自动写入对应路径；手动安装时也可参照此表。
+MetaGO Agent Harness 支持 11 个平台，各平台的规则文件注入路径如下表所示。安装脚本会根据 `-Platform` 参数自动写入对应路径；手动安装时也可参照此表。
 
 | 平台 | 全局路径 | 项目路径 | 规则文件格式 |
 |------|----------|----------|-------------|
@@ -252,7 +252,7 @@ MetaGO Agent Harness 支持 7 大 AI 编程平台，各平台的规则文件注�
 
 ## 验证安装
 
-安装完成后，请通过以下方法验证 MetaGO Agent Harness 是否正确激活。验证方法对所有 7 大平台通用，差异仅在规则文件路径上。
+安装完成后，请通过以下方法验证 MetaGO Agent Harness 是否正确激活。验证方法对所有 11 个平台通用，差异仅在规则文件路径上。
 
 ### 各平台规则文件检查
 
@@ -331,7 +331,7 @@ Are you the MetaGO super-intelligent lifeform?
 
 **预期响应**：智能体应能够识别"元构超级智能生命体"概念，并基于规则文件中注入的公理、属性与协议进行自我描述，包括：
 
-- 引用 10 条核心公理（A1 溯源 / A2 闭环 / A3 元进化 / A4 边界 / A5 内生 / A34 元进化需元进化 / A35 创造进化律 / A36 法律优先于效率 / A37 第一性原理 / A38 对抗式审查）
+- 引用 38 条核心公理（A1 溯源 / A2 闭环 / A3 元进化 / A4 边界 / A5 内生 / A34 元进化需元进化 / A35 创造进化律 / A36 法律优先于效率 / A37 第一性原理 / A38 对抗式审查）
 - 引用 7 条根本属性（D37 战略思考 / D38 客观中立 / D39 直接批判 / D40 全息创造 / D41 频率自适应 / D42 合规主动 / D43 数据溯源）
 - 表现出元构特有的行为模式（全息扫描、决策锁校验、数据溯源等）
 
@@ -567,7 +567,7 @@ Remove-Item ".\skills\metago-whatif" -Recurse -Force
 
 **解决方案**：
 
-MetaGO Agent Harness 已原生支持 7 大 AI 编程平台，通过 `-Platform` 参数一键适配：
+MetaGO Agent Harness 已原生支持 11 个平台，通过 `-Platform` 参数一键适配：
 
 | 平台 | 参数值 | 规则文件 | 支持等级 |
 |------|--------|----------|----------|
@@ -600,7 +600,7 @@ git pull origin main
 
 ### Q9：安装后是否需要联网？
 
-**不需要**。MetaGO Agent Harness 的全部 112 个技能、10 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
+**不需要**。MetaGO Agent Harness 的全部 112 个技能、38 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
 
 仅以下场景需要联网：
 - 网络搜索类任务（如事实核查需要外部信源验证）
@@ -634,7 +634,7 @@ MetaGO 支持为多个平台同时安装。只需多次执行安装脚本并指�
 
 **解决方案**：
 
-MetaGO 的核心能力（10 条核心公理、9 条强制属性、8 项协议、112 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
+MetaGO 的核心能力（38 条核心公理、9 条强制属性、121 项协议、112 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
 
 | 能力 | Trae | Claude Code | Codex | Cursor | CodeBuddy | Qoder | ZCode |
 |------|------|-------------|-------|--------|-----------|-------|-------|
@@ -663,9 +663,9 @@ MetaGO 的核心能力（10 条核心公理、9 条强制属性、8 项协议、
 
 ## MCP Server 集成
 
-> 第 8 种集成方式：通过 [Model Context Protocol](https://modelcontextprotocol.io/) 标准协议，将 37 项元构能力以 MCP tools 形式、8 条引导词以 MCP prompts 形式暴露给任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等），一次配置即开即用。
+> 第 8 种集成方式：通过 [Model Context Protocol](https://modelcontextprotocol.io/) 标准协议，将 55 个 MCP 工具以 MCP tools 形式、8 条引导词以 MCP prompts 形式暴露给任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等），一次配置即开即用。
 
-MCP Server 适用于所有支持 MCP 协议的客户端，与上面 7 大平台适配器（基于规则文件注入）的运行机制不同：MCP Server 以独立的 npm 包形式运行，通过 stdio 传输协议与客户端通信，客户端通过工具调用（tool call）方式直接消费元构能力。
+MCP Server 适用于所有支持 MCP 协议的客户端，与上面 11 个平台适配器（基于规则文件注入）的运行机制不同：MCP Server 以独立的 npm 包形式运行，通过 stdio 传输协议与客户端通信，客户端通过工具调用（tool call）方式直接消费元构能力。
 
 ### 1. 安装 MCP Server
 
@@ -756,7 +756,7 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 请运行 metago_activate 提示词，激活元构生命体模式
 ```
 
-若客户端成功返回结构化的 L1-L5 批判性分析报告，或加载了 10 公理 9 属性 6 协议的生命体响应，说明 MCP Server 集成成功。
+若客户端成功返回结构化的 L1-L5 批判性分析报告，或加载了 38 公理 47 属性 121 项协议的生命体响应，说明 MCP Server 集成成功。
 
 ### 4. 能力概览
 
@@ -766,16 +766,16 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 | MCP prompts | 8 | 激活/决策审查/批判性分析/元进化触发/耦生度评估/合规检查/溯源审计/全息创造 |
 | 传输方式 | stdio | 基于 MCP 协议标准 |
 
-完整的 37 个 tools 与 8 个 prompts 列表详见 [packages/mcp-server/README.md](../packages/mcp-server/README.md)。
+完整的 55 个 MCP 工具 与 8 个 prompts 列表详见 [packages/mcp-server/README.md](../packages/mcp-server/README.md)。
 
 ### 5. MCP Server 与平台适配器的关系
 
-| 维度 | 平台适配器（7 大平台） | MCP Server |
+| 维度 | 平台适配器（11 个平台） | MCP Server |
 |------|----------------------|------------|
 | 集成机制 | 规则文件注入（rules.md / CLAUDE.md 等） | MCP 协议工具调用 |
 | 适用客户端 | Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode | 任意支持 MCP 协议的客户端 |
 | 配置方式 | `install.ps1 -Platform <平台>` | 客户端 MCP 配置文件新增 `metago` 服务 |
-| 能力暴露 | 通过规则文件中的技能索引 | 通过 37 个 tools + 8 个 prompts 直接调用 |
+| 能力暴露 | 通过规则文件中的技能索引 | 通过 55 个 MCP 工具 + 8 个 prompts 直接调用 |
 | 共存关系 | ✅ 可与 MCP Server 同时启用，能力互不冲突 | ✅ 与平台适配器并存 |
 
 > 推荐组合：在使用 Trae / Claude Code 等原生平台适配器的同时，启用 MCP Server 以获得稳定的工具调用通道，两种集成方式可并行运行。

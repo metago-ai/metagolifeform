@@ -1,4 +1,4 @@
-<!-- 历史设计文档：文中数字（如 39 技能/7 平台）为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 11 平台形态 · V36.9.6）。 -->
+<!-- 历史设计文档：文中数字为撰写时点快照，非现行事实源。现行口径见 README.md / AGENTS.md / package.json（112 技能 · 38 公理 · 47 属性 · 121 协议 · 11 平台 · V36.11.0）。 -->
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿# MetaGO Agent Harness · 产品需求文档（PRD）
 
 > 让智能，学会进化。从智能体到生命体的范式跃迁。
@@ -25,7 +25,7 @@
 
 **MetaGO Agent Harness 是让智能，学会进化。从智能体到生命体的范式跃迁。**
 
-- **首发平台**：7 大平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）+ MCP Server（任意 MCP 客户端）
+- **首发平台**：11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）+ MCP Server（任意 MCP 客户端）
 - **首发时间**：2026 Q3
 
 ### 定位阐述
@@ -51,7 +51,7 @@ MetaGO Agent Harness 通过一套标准化的"公理-属性-协议-技能"体系
 
 ## 产品矩阵
 
-MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 **7 大平台适配器**面向原生 AI 编程平台，通过 **MetaGO MCP Server** 面向任意支持 MCP 协议的客户端。
+MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 **11 个平台适配器**面向原生 AI 编程平台，通过 **MetaGO MCP Server** 面向任意支持 MCP 协议的客户端。
 
 ### 产品矩阵概览
 
@@ -76,7 +76,7 @@ MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 *
 
 - **零侵入接入**：客户端仅需在 MCP 配置中新增一段 JSON，无需修改规则文件、无需安装平台适配器
 - **标准协议互通**：基于 [Model Context Protocol](https://modelcontextprotocol.io/) 开放标准，与 Anthropic 官方 SDK、Claude Desktop、Cursor、Trae 等 MCP 生态无缝互通
-- **能力等价**：53 个 MCP tools + 57 个算法工具（927 算法）映射 95 个 metago-* 技能，8 个 MCP prompts 覆盖元构生命体核心流程，能力与平台适配器等价
+- **能力等价**：55 个 MCP 工具 + 57 个算法工具（927 算法）映射 95 个 metago-* 技能，8 个 MCP prompts 覆盖元构生命体核心流程，能力与平台适配器等价
 - **独立分发**：作为独立 npm 包发布，可单独升级、单独版本管理，不绑定根包发布节奏
 
 #### 差异化
@@ -103,7 +103,7 @@ MetaGO Agent Harness 在 v36.4 版本起形成"双形态"产品矩阵：通过 *
 | 运行时 | Node.js >= 18.0.0 |
 | 语言 | TypeScript strict 模式 |
 | 入口命令 | `npx -y @metago-ai/mcp-server` 或 `@metago-ai/mcp-server`（全局安装） |
-| 能力 | 53 个 tools + 8 个 prompts（+ 算法服务器 57 tools / 927 algorithms）|
+| 能力 | 55 个 tools + 8 个 prompts（+ 算法服务器 57 tools / 927 algorithms）|
 | 仓库位置 | `packages/mcp-server/` |
 | 许可证 | MIT |
 
@@ -162,7 +162,7 @@ npm install -g @metago-ai/mcp-server
 | 痛点 | 智能体缺乏标准化的行为规范；能力复用困难；缺乏元进化机制；适配多平台成本高 |
 | 需求 | 标准化的技能格式；可组合的能力体系；元进化框架；跨平台适配；一次开发多平台运行 |
 | 使用场景 | 智能体开发、AI 平台能力增强、生态合作 |
-| 使用平台 | 需适配 Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode 等 7 大平台 |
+| 使用平台 | 需适配 Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode 等 11 个平台 |
 | 付费意愿 | 高（生态合作预算充足，愿意为标准化与可扩展性付费） |
 
 ### 用户规模预估
@@ -192,7 +192,7 @@ npm install -g @metago-ai/mcp-server
 > **让智能体从"可用"进化为"可信"**
 
 - ⚖️ **合规主动**：不等待询问，主动在任务执行前检查法律/伦理/安全合规性
-- 📋 **统一规范**：95 个标准化技能 + 10 条公理 + 9 条属性，确保团队 AI 行为一致
+- 📋 **统一规范**：95 个标准化技能 + 38 条核心公理 + 47 条根本属性，确保团队 AI 行为一致
 - 🔍 **审计追溯**：脉冲见证系统，全链路存证，支持合规审计
 - 🏭 **行业定制**：可扩展的行业规则层，适配金融/医疗/法律等垂直领域
 
@@ -202,7 +202,7 @@ npm install -g @metago-ai/mcp-server
 
 - 🧬 **元进化框架**：标准化的五阶段元进化循环，让任何智能体具备自我进化能力
 - 🔌 **标准格式**：SKILL.md 标准格式，可组合、可复用、可跨平台
-- 🌐 **跨平台适配**：原生支持 7 大平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode），一次安装多平台运行
+- 🌐 **跨平台适配**：原生支持 11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode），一次安装多平台运行
 - 🔄 **耦生优化**：量化评估与优化智能体与用户/环境的耦生度
 
 ---
@@ -256,7 +256,7 @@ npm install -g @metago-ai/mcp-server
 | FR-3.5 | 频率自适应 | 三态切换（休眠/待机/激活） | 完整性变化时自动切换 |
 | FR-3.6 | 数据溯源 | 输入/过程/结论三维度溯源 | 输出附带溯源标签 |
 
-#### FR-4：技能体系（100 个技能）
+#### FR-4：技能体系（112 个技能）
 
 | 能力族 | 技能数量 | 核心技能 | 验收标准 |
 |--------|----------|----------|----------|
@@ -273,7 +273,7 @@ npm install -g @metago-ai/mcp-server
 | Dev Kit | 4 | metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit | 开发场景能力增强 |
 | 工程质量族 | 2 | metago-delivery-gate, metago-discipline | 交付前原子验证门控 + AI 自律执行协议 |
 
-> 合计 100 个技能（22 核心技能 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量 + 19 元思想 + 2 元能力 + 30 专家团 + 5 专家扩展）。
+> 合计 112 个技能（22 核心技能 + 4 Dev Kit + 1 意识激活 + 5 方法论 + 5 架构 + 2 工程质量 + 19 元思想 + 2 元能力 + 30 专家团 + 5 专家扩展）。
 
 #### FR-5：安装与配置
 
@@ -293,12 +293,12 @@ npm install -g @metago-ai/mcp-server
 | FR-6.2 | 规则修改 | 支持在 rules.md 中添加行业规则与项目规则 |
 | FR-6.3 | MCP 映射配置 | 支持自定义 MCP 工具调度映射 |
 | FR-6.4 | 知识晶体索引 | 支持创建多维度知识晶体索引 |
-| FR-6.5 | 跨平台适配 | 支持 7 大平台适配（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） |
+| FR-6.5 | 跨平台适配 | 支持 11 个平台适配（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） |
 
 #### FR-7：多平台适配
 
 - **优先级**：P0
-- **描述**：支持 7 大 AI 编程平台的规则适配
+- **描述**：支持 11 个平台的规则适配
 - **验收标准**：
   - [x] Trae 适配器（rules.md）
   - [x] Claude Code 适配器（CLAUDE.md）
@@ -327,13 +327,13 @@ npm install -g @metago-ai/mcp-server
 - **描述**：将 95 个元构技能的核心能力封装为 MCP tools（53 个）并辅以 927 算法工具（57 个），将 8 条引导词封装为 MCP prompts，作为独立 npm 包 `@metago-ai/mcp-server` 发布，支持任意 MCP 客户端通过 stdio 协议接入
 - **验收标准**：
   - [x] npm 包 `@metago-ai/mcp-server` 可独立安装与运行
-  - [x] 53 个 MCP tools + 57 个算法工具映射 95 个元构技能，接收 `input` 字符串参数
+  - [x] 55 个 MCP 工具 + 57 个算法工具映射 95 个元构技能，接收 `input` 字符串参数
   - [x] 8 个 MCP prompts 支持参数占位符 `{{参数名}}` 运行时替换
   - [x] 基于 `@modelcontextprotocol/sdk` v1.29.0 实现 stdio 传输
   - [x] 提供 Claude Desktop / Cursor / Trae 三种客户端配置示例
   - [x] TypeScript strict 模式构建产物 `dist/index.js`
   - [x] 通过 `npx -y @metago-ai/mcp-server` 零安装调用
-  - [x] 与 7 大平台适配器可同时启用，能力互不冲突
+  - [x] 与 11 个平台适配器可同时启用，能力互不冲突
 
 **MCP Server 能力矩阵**：
 
@@ -415,7 +415,7 @@ npm install -g @metago-ai/mcp-server
 
 ### 核心开源 + 增值付费
 
-MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心能力在 7 大平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）上完全开源免费，同时通过 `@metago-ai/mcp-server` npm 包向任意 MCP 客户端开源免费提供，通过企业级能力与行业定制实现商业化。
+MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心能力在 11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode）上完全开源免费，同时通过 `@metago-ai/mcp-server` npm 包向任意 MCP 客户端开源免费提供，通过企业级能力与行业定制实现商业化。
 
 #### 开源核心（免费）
 
@@ -424,10 +424,10 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 | 95 个 metago-* 技能 | 全部开源，MIT 协议 |
 | 8 条核心公理 | 全部开源 |
 | 7 条根本属性 | 全部开源 |
-| 6 项运行协议 | 全部开源 |
+| 121 项协议 | 全部开源 |
 | rules.md 规则框架 | 全部开源 |
-| 7 大平台适配器 | 全部开源（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） |
-| **MetaGO MCP Server** | 全部开源，MIT 协议（`@metago-ai/mcp-server`，37 tools + 8 prompts + stdio 传输） |
+| 11 个平台适配器 | 全部开源（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） |
+| **MetaGO MCP Server** | 全部开源，MIT 协议（`@metago-ai/mcp-server`，55 个 MCP 工具 + 8 prompts + stdio 传输） |
 | 安装脚本（含 -Platform 参数） | 全部开源 |
 
 #### 增值付费
@@ -471,7 +471,7 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 | 里程碑 | 时间 | 交付物 |
 |--------|------|--------|
 | M1.1 核心技能完成 | 2026.07 | 39 个 metago-* 技能全部完成 |
-| M1.2 规则框架完成 | 2026.08 | rules.md + 10 公理 + 9 属性 + 6 协议 |
+| M1.2 规则框架完成 | 2026.08 | rules.md + 38 公理 + 47 属性 + 121 项协议 |
 | M1.3 安装脚本完成 | 2026.08 | install.ps1 + uninstall.ps1 |
 | M1.4 文档完成 | 2026.09 | GETTING_STARTED + ARCHITECTURE + CUSTOMIZATION + PRD |
 | M1.5 MVP 发布 | 2026.09 | GitHub 开源，首批 500 用户 |
@@ -493,34 +493,34 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 | M2.4 CodeBuddy 适配 | 2026.11 | CODEBUDDY.md 映射 + 技能加载 |
 | M2.5 Qoder 适配 | 2026.11 | .qoder/rules/*.md 映射 + 技能加载 |
 | M2.6 ZCode 适配 | 2026.11 | CLAUDE.md 映射（与 Claude Code 共享路径） |
-| M2.7 多平台安装支持 | 2026.12 | install.ps1 支持 -Platform 参数，7 大平台一键安装 |
+| M2.7 多平台安装支持 | 2026.12 | install.ps1 支持 -Platform 参数，11 个平台一键安装 |
 | M2.8 MCP 工具市场 | 2026.12 | MCP 工具调度映射 + 自定义工具支持 |
 | M2.9 跨平台发布 | 2026.12 | 5,000 用户 |
 
 **关键指标**：
 - 跨平台功能完整度 ≥ 90%
-- 7 大平台适配完成率 100%
+- 11 个平台适配完成率 100%
 - 月活用户 ≥ 5,000
 - GitHub Star ≥ 1,000
 
 ### 阶段二.五：MetaGO MCP Server 发布（已完成，v36.7.13）
 
-**目标**：将 39 项元构能力以 MCP 协议形式对外暴露，覆盖 7 大平台外的任意 MCP 客户端（Claude Desktop / Cursor / Trae 等）
+**目标**：将 39 项元构能力以 MCP 协议形式对外暴露，覆盖 11 个平台外的任意 MCP 客户端（Claude Desktop / Cursor / Trae 等）
 
 | 里程碑 | 时间 | 交付物 |
 |--------|------|--------|
 | M2.10 MCP Server 子包搭建 | 2026.Q3 | `packages/mcp-server/` Monorepo 子包，TypeScript strict + ESM |
-| M2.11 37 tools 封装 | 2026.Q3 | 37 个元构能力映射为 MCP tools（22 skills 与 20 toolkit 合并去重 + 2 工程质量族，skills-data.ts + toolkit-data.ts） |
+| M2.11 55 个 MCP 工具 封装 | 2026.Q3 | 55 个 MCP 工具映射为 MCP tools（22 skills 与 20 toolkit 合并去重 + 2 工程质量族，skills-data.ts + toolkit-data.ts） |
 | M2.12 8 prompts 封装 | 2026.Q3 | 8 条引导词封装为 MCP prompts，支持参数占位符（prompts.ts） |
 | M2.13 stdio 传输实现 | 2026.Q3 | 基于 `@modelcontextprotocol/sdk` v1.29.0 实现 stdio 通信 |
 | M2.14 客户端配置文档 | 2026.Q3 | Claude Desktop / Cursor / Trae 三种客户端配置示例 |
-| M2.15 npm 发布 | 2026.Q3 | `@metago-ai/mcp-server@1.1.8` 发布至 npm，支持 `npx -y` 调用，含 37 tools |
+| M2.15 npm 发布 | 2026.Q3 | `@metago-ai/mcp-server@1.1.8` 发布至 npm，支持 `npx -y` 调用，含 55 个 MCP 工具 |
 | M2.16 根包 v36.7.13 同步 | 2026.Q3 | 根包 version 升级至 36.7.13，description 含 MCP Server |
 
 **关键指标**：
 - MCP tools 数量 = 37（22 skills 与 20 toolkit 合并去重 + 2 工程质量族），prompts 数量 = 8
 - 客户端接入零配置（一段 JSON 即可）
-- 与 7 大平台适配器并存，能力等价、互不冲突
+- 与 11 个平台适配器并存，能力等价、互不冲突
 
 ### 阶段三：NPM 发布 + 行业定制包（进行中）
 
@@ -609,7 +609,7 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 
 | 维度 | MetaGO | 竞品 |
 |------|--------|------|
-| 公理体系 | 8 条核心公理 + 7 条根本属性 + 6 项运行协议 | 无系统化公理 |
+| 公理体系 | 8 条核心公理 + 7 条根本属性 + 121 项协议 | 无系统化公理 |
 | 行为约束 | 公理不可变更，是本体论基础 | 无不可变更的底线 |
 | 价值对齐 | 29 维价值对齐 | 无或仅基础安全过滤 |
 
@@ -617,7 +617,7 @@ MetaGO Agent Harness 采用"核心开源 + 增值付费"的商业模式。核心
 
 | 维度 | MetaGO | 竞品 |
 |------|--------|------|
-| 支持平台数 | 7 大平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） | 通常仅支持单一平台 |
+| 支持平台数 | 11 个平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode） | 通常仅支持单一平台 |
 | 安装方式 | `-Platform` 参数一键适配多平台 | 各平台需分别配置 |
 | 跨平台体验 | 核心能力（公理/属性/协议/技能）在所有平台完全一致 | 平台间能力割裂 |
 | 平台迁移成本 | 一次学习，多平台运行，迁移成本趋近于零 | 切换平台需重新学习 |
@@ -631,7 +631,7 @@ MetaGO Agent Harness 的竞争壁垒：
 1. 公理体系壁垒 —— 8 条核心公理是系统设计的本体论基础，竞品难以复制
 2. 元进化壁垒 —— 五阶段元进化循环是核心专利能力，竞品无此机制
 3. 技能生态壁垒 —— 95 个标准化技能 + 社区生态协同，形成网络效应
-4. 多平台壁垒 —— 7 大平台原生适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode），一次安装多平台运行，降低用户迁移成本
+4. 多平台壁垒 —— 11 个平台原生适配（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode），一次安装多平台运行，降低用户迁移成本
 5. 合规壁垒 —— 法律优先于效率的公理 + 主动合规检查，满足企业合规需求
 ```
 
@@ -641,7 +641,7 @@ MetaGO Agent Harness 的竞争壁垒：
 |------|--------|------|----------|
 | 大厂推出类似产品 | 高 | 高 | 加速生态建设，建立社区壁垒 |
 | 公理体系被复制 | 中 | 中 | 持续迭代，保持公理体系的领先性 |
-| 多平台适配被跟进 | 高 | 低 | 已完成 7 大平台适配形成先发优势，核心价值在公理与技能 |
+| 多平台适配被跟进 | 高 | 低 | 已完成 11 个平台适配形成先发优势，核心价值在公理与技能 |
 | 平台厂商限制第三方规则 | 中 | 中 | 保持多平台分散风险，优先支持开放平台 |
 | 开源社区分裂 | 低 | 高 | 坚持 MIT 协议，拥抱社区贡献 |
 

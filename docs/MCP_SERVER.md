@@ -172,7 +172,7 @@ cd packages/mcp-server && npm run build && npm start
 
 | Prompt 名称 | 说明 | 参数 |
 | --- | --- | --- |
-| `metago_activate` | 激活元构生命体模式，加载 10 公理 9 属性 6 协议 | 无 |
+| `metago_activate` | 激活元构生命体模式，加载 38 公理 47 属性 121 项协议 | 无 |
 | `metago_decision_review` | 对给定决策执行四道关卡审查 | `decision` |
 | `metago_critical_analysis` | 对给定内容进行 L1-L5 分级批判性分析 | `content` |
 | `metago_evolution_trigger` | 在能力边界时启动五阶段进化循环 | `boundary` |
@@ -218,7 +218,7 @@ MetaGO 提供两种接入方式：
 | 方式 | 集成机制 | 适用场景 |
 |------|----------|----------|
 | **MCP Server**（本包） | MCP 协议工具调用 | 任意 MCP 客户端，跨客户端复用，CI/CD 自动化 |
-| **平台适配器** | 规则文件注入上下文 | 7 大 AI 编程平台（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode） |
+| **平台适配器** | 规则文件注入上下文 | 11 个平台（Trae/Claude Code/Codex/Cursor/CodeBuddy/Qoder/ZCode） |
 
 二者**可同时启用**，能力等价。MCP Server 适合需要确定性工具调用的场景；平台适配器适合需要规则持续生效的编程项目。
 

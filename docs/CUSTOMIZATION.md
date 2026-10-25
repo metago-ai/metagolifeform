@@ -405,7 +405,7 @@ mcp_mapping:
 
 ## 平台适配
 
-MetaGO Agent Harness 已支持 7 大 AI 平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
+MetaGO Agent Harness 已支持 11 个平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
 
 ### 已支持平台（7个）
 
@@ -487,13 +487,13 @@ globs: "**/*"
 # Cursor Rules for MetaGO Agent Harness
 
 ## 核心公理
-[10 条公理的简要说明]
+[38 条核心公理的简要说明]
 
 ## 根本属性
-[9 条属性的简要说明]
+[47 条根本属性的简要说明]
 
 ## 运行协议
-[6 项协议的简要说明]
+[121 项协议的简要说明]
 
 ## 技能索引
 [112 个技能的 name 与 description]
@@ -525,13 +525,13 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 # AGENTS.md
 
 ## 核心公理
-[10 条公理的简要说明]
+[38 条核心公理的简要说明]
 
 ## 根本属性
-[9 条属性的简要说明]
+[47 条根本属性的简要说明]
 
 ## 运行协议
-[6 项协议的简要说明]
+[121 项协议的简要说明]
 
 ## 技能索引
 [112 个技能的 name 与 description]
@@ -560,7 +560,7 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 每个适配器必须包含：
 - 规则模板文件（.template 后缀）
 - README.md（配置路径、安装方法、验证方式）
-- 完整的10条公理、9条属性、6项协议内容
+- 完整的38 条核心公理、47 条根本属性、121 项协议内容
 
 ### 适配通用原则
 

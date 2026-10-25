@@ -55,7 +55,7 @@
 **对应模块**：`RUNTIME/src/loader.ts`
 **技术要点**：
 - 标准化的引擎加载协议
-- 跨 7 大 AI 平台（Trae/Claude/Codex/Cursor/CodeBuddy/Qoder/ZCode）
+- 跨 11 个平台（Trae/Claude/Codex/Cursor/CodeBuddy/Qoder/ZCode）
 - 加载时校验引擎完整性
 **创新点**：首次定义 AI 引擎的跨平台加载标准。
 

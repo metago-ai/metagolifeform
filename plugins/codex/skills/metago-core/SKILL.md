@@ -1,6 +1,6 @@
 ---
 name: metago-core
-description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Attributes, 36 Core Axioms, 13 Capability Families, 125 Engines, 984 Atoms, 927 Algorithms
+description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Attributes, 36 Core Axioms, 13 Capability Families, 161 engines, 597 atoms, 927 Algorithms
 ---
 
 # MetaGO 核心知识体系
@@ -9,14 +9,14 @@ description: MetaGO Core Knowledge - 19 Meta-Thought Systems, 43 Fundamental Att
 
 ## 参考资料（全部随仓库发布，实存可查）
 
-- `AGENTS.md`（仓库根）— 运行法则母本 V36.11.0，17 章：10 公理、9 属性、四道决策锁、五阶段元进化、KMWI 四层记忆、14 类算法触发条件
+- `AGENTS.md`（仓库根）— 运行法则母本 V36.11.0，17 章：38 公理、47 属性、四道决策锁、五阶段元进化、KMWI 四层记忆、14 类算法触发条件
 - `core/METAGO_CORE.md` — 核心纲要：19 元思想体系、43 根本属性、36 核心公理、13 能力族总览
 - `packages/engine/CONSTITUTION/AXIOMS.md` — 8 条关键公理完整条文（A6–A33 体系公理见蓝本，未发布）
 - `packages/engine/CORE/ATTRIBUTES.md` — 43 条根本属性定义
 - `packages/engine/CORE/PROTOCOLS.md` — 运行协议集
 - `packages/engine/INDEX/knowledge.json` — 知识体系索引
 - `packages/engine/INDEX/skills.json` — 112 技能索引
-- `packages/engine/INDEX/engines.json` — 引擎规格索引（161 引擎 / 984 原子）
+- `packages/engine/INDEX/engines.json` — 引擎规格索引（161 引擎 / 597 条原子）
 - `packages/engine/INDEX/tools.json` — 工具索引（57 工具 / 927 算法 / 14 触发类别）
 - `skills/` — 112 个技能目录，含 19 元思想技能（metago-thought-01 ~ 19）的完整操作定义
 

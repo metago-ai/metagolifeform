@@ -40,8 +40,8 @@ MetaGO Engine 是元构全息智能引擎的**核心本体**——一切衍生�
 2. 读取 `CORE/ATTRIBUTES.md` → 加载 43 条根本属性（基因）
 3. 读取 `CORE/PROTOCOLS.md` → 加载 108 个协议（神经系统）
 4. 读取 `INDEX/engines.json` → 索引 161 个引擎
-5. 读取 `INDEX/skills.json` → 索引 39 个技能
-6. 读取 `INDEX/tools.json` → 索引 37 个 MCP 工具
+5. 读取 `INDEX/skills.json` → 索引 112 个技能
+6. 读取 `INDEX/tools.json` → 索引 55 个 MCP 工具
 7. 读取 `INDEX/knowledge.json` → 索引知识晶体
 8. 读取 `EVOLUTION.md` → 激活元进化循环
 

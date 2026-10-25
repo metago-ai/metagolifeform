@@ -104,7 +104,7 @@ metago-lifeform install --platform <平台>
 
 ## 4. 注册 MCP 服务器（55 + 57 工具）
 
-CLI 一键配置（支持 7 平台客户端的 MCP 注册文件写入）：
+CLI 一键配置（支持 11 平台客户端的 MCP 注册文件写入）：
 
 ```bash
 metago-lifeform setup-mcp --platform <平台>

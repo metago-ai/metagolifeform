@@ -1,6 +1,6 @@
 // inspect-skills.cjs — 从 skills/*/SKILL.md frontmatter 统计族分布（权威口径）
 // 36.9.6-fix: ① 目录按脚本自身位置解析（不再硬编码作者机路径 D:/DH工作区/...）
-//             ② frontmatter 无 family 时回退读取 category（本包 100 技能均用 category）
+//             ② frontmatter 无 family 时回退读取 category（本包 112 个技能均用 category）
 const fs = require('fs');
 const path = require('path');
 const dir = path.resolve(__dirname, '..', 'skills');

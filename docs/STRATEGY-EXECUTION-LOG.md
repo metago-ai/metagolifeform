@@ -13,7 +13,7 @@
 | 第2阶段 | 2-4 周 | MetaGO Dev Kit + 独立仓库 | ✅ 已完成 |
 | 第3阶段 | 4-8 周 | MetaGO CLI + MetaGO Studio MVP | ✅ 已完成 |
 | 第4阶段 | 8-12 周 | Skills SDK + Skills Hub（已取消 2026-07-05）+ Certify | ✅ 已完成 |
-| 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+125引擎+验证器） | ✅ 已完成 |
+| 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+161 个引擎+验证器） | ✅ 已完成 |
 
 ---
 
@@ -218,7 +218,7 @@
 ## 第1阶段 Week 1-2：MCP Server（已完成 ✅）
 
 ### 交付物
-- `packages/mcp-server/`：完整的 MCP Server 实现，37 tools + 8 prompts
+- `packages/mcp-server/`：完整的 MCP Server 实现，55 个 MCP 工具 + 8 prompts
 - npm 包：`@metago-ai/mcp-server`
 - 文档：`docs/MCP_SERVER.md`（262 行，面向终端用户的完整文档）
 - 修复官网"查看完整文档"按钮 404（按钮链接到 Gitee 的 docs/MCP_SERVER.md）
@@ -254,7 +254,7 @@
 
 ### 第1阶段（MCP Server）
 - [x] MCP Server 实现完成
-- [x] 37 tools 暴露（v1.1.8：22 skills 与 20 toolkit 合并去重 + 2 工程质量族）
+- [x] 55 个 MCP 工具 暴露（v1.1.8：22 skills 与 20 toolkit 合并去重 + 2 工程质量族）
 - [x] 8 prompts 暴露
 - [x] npm 包发布
 - [x] 文档完成

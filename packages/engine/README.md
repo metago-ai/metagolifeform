@@ -138,8 +138,8 @@ packages/engine/
 │   ├── ATTRIBUTES.md      ← 43 attributes (7 critical)
 │   └── PROTOCOLS.md       ← 108 protocols (6 critical)
 ├── INDEX/                 ← Index layer
-│   ├── engines.json       ← 125 engines
-│   ├── skills.json        ← 39 skills
+│   ├── engines.json       ← 161 engines
+│   ├── skills.json        ← 112 skills
 │   ├── tools.json         ← 55 MCP tools
 │   └── knowledge.json     ← Knowledge crystal index
 ├── RUNTIME/               ← Runtime layer (TypeScript) ← V2 lives here
@@ -159,7 +159,7 @@ packages/engine/
 │   └── tsconfig.json
 ├── SDK/
 │   └── types.d.ts         ← Developer type interfaces
-├── ADAPTERS/              ← Platform adapters (7 platforms)
+├── ADAPTERS/              ← Platform adapters (11 platforms)
 ├── EVOLUTION.md           ← Evolution mechanism
 ├── CHANGES.md             ← Version history
 └── PATENTS.md             ← Patent declarations

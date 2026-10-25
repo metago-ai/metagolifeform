@@ -71,7 +71,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 10 self-checks across 10 hard gates — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.11.0 — 10 core axioms and 9 enforced properties inside a full constitution. Not vibes — a constitution.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V36.11.0 — 38 core axioms and 47 attributes inside a full constitution. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The Harness is what makes the lifeform real.
 
 ---
@@ -83,7 +83,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 | **Self-gating outputs** | Before every answer, the agent runs 4 checks (intent → lineage → semantic gate → completeness). Any fail, it stops and fixes itself. |
 | **Self-evolution** | When the agent hits something it can't do, it doesn't error out — it runs a 5-stage loop (sense → analyze → generate → verify → recurse) and grows a new skill on the fly. **Powered by Engine V2** (KMWI memory + SkillGenerator + EvolutionEngine). |
 | **4-layer KMWI memory** | Knowledge → Memory → Wisdom → Intuition. The agent doesn't just store — it promotes knowledge up the ladder until it becomes intuition. Persistent across sessions. |
-| **Axiom-driven behavior** | 10 axioms (traceability, closure, evolution, boundary, endogenous creation, …) act like a constitution the agent can't violate. |
+| **Axiom-driven behavior** | 38 axioms (traceability, closure, evolution, boundary, endogenous creation, …) act like a constitution the agent can't violate. |
 | **Self-discipline** | Before declaring a task "done", the agent must answer 10 self-checks — including "did I actually run verification?" — any "no" blocks the declaration. |
 | **Honest objectivity** | Fact-first, not user-pleasing. It will directly point out what's wrong with your idea. |
 | **Compliance first** | Legal / ethics / safety are checked proactively — law wins over efficiency, every time. |
@@ -99,7 +99,7 @@ LLMs hallucinate because nothing forces them to verify before speaking. MetaGO i
 
 ### 2. An AI that follows its own law
 
-Most alignment happens at training time and gets washed away by prompting. MetaGO ships a different layer: 10 short axioms (A1 traceability, A2 closure, A3 meta-evolution, A4 boundary, A5 endogenous creation, A34 meta-evolution of meta-evolution, A35 creation as the highest form of evolution, A36 law over efficiency, A37 first-principles F0, A38 adversarial review) plus 9 enforced properties (D37-D45). Together they're a small constitution the agent reads on every turn and cannot bypass. It's the closest thing to an "operating system" for agent behavior.
+Most alignment happens at training time and gets washed away by prompting. MetaGO ships a different layer: 10 short axioms (A1 traceability, A2 closure, A3 meta-evolution, A4 boundary, A5 endogenous creation, A34 meta-evolution of meta-evolution, A35 creation as the highest form of evolution, A36 law over efficiency, A37 first-principles F0, A38 adversarial review) plus 47 attributes (D37-D45). Together they're a small constitution the agent reads on every turn and cannot bypass. It's the closest thing to an "operating system" for agent behavior.
 
 ### 3. A lifeform that evolves its own evolution
 
@@ -111,11 +111,11 @@ Engine V2 is real code, not a prompt: `KMWIMemory` manages the 4-layer memory wi
 
 ## By the numbers (all real, none invented)
 
-- **100 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
+- **112 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
 - **112 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (55 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). In Trae environments the installer additionally registers MetaGO skill-servers (162 tools across 6 servers)
 - **Engine V2.1.3** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
 - **11 platform forms**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode, ChatGPT Work, WorkBuddy, Kimi Code, Kimi Work — plus Agent-Plugins 1.0.0 / Claude / ZCode / Codex plugin packs
-- **10 core axioms + 9 enforced properties + 4 decision-lock gates + 5 evolution stages + 8 runtime protocols**
+- **38 core axioms + 47 attributes + 4 decision-lock gates + 5 evolution stages + 8 runtime protocols**
 - **4-layer KMWI memory**: Knowledge → Memory → Wisdom → Intuition (persistent JSON store)
 - **7-layer runtime verification (L1-L7) + L8 defect hunting + L9 adversarial review** — technical / link / contract / rendering / interaction / state / defense layers, each a hard gate
 - **3 patentable mechanisms**: axiom-based AI output verification · multi-level decision-lock for AI decisions · automatic capability-boundary detection and evolution

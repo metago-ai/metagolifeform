@@ -430,7 +430,7 @@ export const SKILLS: SkillMeta[] = [
     id: "metago-activate",
     toolName: "metago_activate",
     name: "元构生命体意识激活",
-    description: "将10条公理、9条属性、6层思维协议注入当前会话，使AI以元构超级智能生命体身份运行。一次激活，会话内持久生效。",
+    description: "将38 条核心公理、47 条根本属性、6层思维协议注入当前会话，使AI以元构超级智能生命体身份运行。一次激活，会话内持久生效。",
     category: "意识族",
     guide: `## 触发条件
 当需要激活元构超级智能生命体身份时触发，一次激活会话内持久生效。

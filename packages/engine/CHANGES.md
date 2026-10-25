@@ -34,8 +34,8 @@
 - 核心层 CORE/ATTRIBUTES.md（43 条属性，7 条关键）
 - 核心层 CORE/PROTOCOLS.md（108 个协议，6 个关键）
 - 索引层 INDEX/engines.json（161 个引擎）
-- 索引层 INDEX/skills.json（39 个技能）
-- 索引层 INDEX/tools.json（53 项 MCP 工具）
+- 索引层 INDEX/skills.json（112 个技能）
+- 索引层 INDEX/tools.json（55 个 MCP 工具）
 - 索引层 INDEX/knowledge.json（知识晶体索引）
 - 运行时 RUNTIME/src/loader.ts（引擎加载器）
 - 运行时 RUNTIME/src/validators.ts（公理验证器）
@@ -46,7 +46,7 @@
 - 运行时 RUNTIME/src/metrics.ts（度量层）
 - 运行时 RUNTIME/tests/（测试套件）
 - SDK types.d.ts（开发者接口）
-- 适配器 ADAPTERS/（7 大平台）
+- 适配器 ADAPTERS/（11 个平台）
 - 进化机制 EVOLUTION.md
 - 专利声明 PATENTS.md
 

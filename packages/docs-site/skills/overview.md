@@ -154,5 +154,5 @@ MetaGO 的 112 个技能分为 16 个能力族，每个族解决一类核心问�
 ## 下一步
 
 - [安装 MetaGO](../guide/installation) — 开始使用这些技能
-- [10 条公理 + 9 条属性](../engine/axioms) — 理解技能背后的法则
+- [38 条核心公理 + 47 条根本属性](../engine/axioms) — 理解技能背后的法则
 - [MCP Server 55 tools](../api/mcp-server) — 通过 MCP 协议调用

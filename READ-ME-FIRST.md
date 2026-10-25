@@ -59,7 +59,7 @@ console.log(JSON.stringify(R.executeAlgorithmSync('ALG_T3_C_003',
 | **编号撞车** | **14 处** | **待决策**，见 `NUMBERING-ALIGNMENT.md` |
 
 **本包不做以下声明**：
-- ❌ 不声称「984 原子全部实现」
+- ❌ 不声称「597 条原子全部实现」
 - ❌ 不声称「927 算法全部可执行」
 - ❌ 不声称「编号体系已统一」
 

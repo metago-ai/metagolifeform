@@ -48,7 +48,7 @@ npm install -g @metago-ai/mcp-server
 }
 ```
 
-## 37 个 Tools
+## 55 个 Tools
 
 ### 认知族（4）
 

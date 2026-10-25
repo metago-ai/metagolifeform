@@ -25,7 +25,7 @@ description: MetaGO 核心知识索引——查权威数字与文件位置的第
 | MCP 服务器 | **6** | metago / algorithms / playwright / web-session-api / yili / scrapling，合计 162 工具 | `node scripts/mcp-all-health.cjs` |
 | 算法 | **927** | T1 300 + T2 400 + T3 227 | `node scripts/t12-full-scan.cjs` |
 | 算法触发类别 | **14** | `AGENTS.md` 第十七章 | — |
-| 运行法则 | **20 章** | `AGENTS.md`：第二章 10 公理（A1–A5, A34–A38）、第三章 9 属性（D37–D45） | 直接数 `^## 第X章` |
+| 运行法则 | **20 章** | `AGENTS.md`：第二章 38 公理（A1–A5, A34–A38）、第三章 47 属性（D37–D45） | 直接数 `^## 第X章` |
 
 > **口径铁律**：任何地方出现与本表不一致的数字，以本表为准；本表与清单文件不一致时，以清单文件为准。
 > 全量复核：`python $DSH_HOME/scripts/full-regression.py`

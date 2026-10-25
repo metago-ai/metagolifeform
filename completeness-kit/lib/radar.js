@@ -26,7 +26,7 @@ const DEFAULT_WATCH = {
   ],
   ecosystem: [
     '元构发行版升级（metago-lifeform 新版本）',
-    '元构 100 技能/927 算法更新',
+    '元构 112 个技能/927 算法更新',
     '新开源 Agent UI/编排框架'
   ]
 };

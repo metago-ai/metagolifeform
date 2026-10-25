@@ -30,7 +30,7 @@ The other 50 tools return structured guidance (soft drive) that the agent follow
 
 ```
 55 = 22 thinking tools (toolkit-data.ts)
-   + 30 core skills  (39 skill folders, 37 exported in skills-data.ts − 7 name-collisions merged into toolkit)
+   + 30 core skills  (112 skills folders, 37 exported in skills-data.ts − 7 name-collisions merged into toolkit)
    + 1  event reporter (metago_report_event)
 ```
 
@@ -269,7 +269,7 @@ Each tool takes an `input` string (the content/question/code to process).
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 39 skills + 7 platform adapters | `npm install -g metago-lifeform` |
+| `metago-lifeform` | The CLI installer + 112 skills + 11 platforms adapters | `npm install -g metago-lifeform` |
 | `@metago-ai/mcp-server` | This package — MCP server with 55 tools + 8 prompts | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2: KMWI memory + evolution engine + skill generator | `npm install @metago-ai/engine` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |

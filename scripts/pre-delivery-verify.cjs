@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * MetaGO 交付前七层验证脚本（AGENTS.md 第十四章硬门）
  *
@@ -198,10 +198,10 @@ const nonForwarding = forwardScripts.filter((s) => {
 });
 record('L5.1', '脚本转发一致性（install/uninstall/verify/setup-mcp/install.sh → cli.js）', nonForwarding.length === 0, nonForwarding.length ? `未转发 cli.js：${nonForwarding.join(', ')}` : '5/5 全部统一转发');
 
-// L5.2 平台清单一致性：AGENTS.md 声明 7 平台 vs cli.js 实现 7 平台
+// L5.2 平台清单一致性：AGENTS.md 声明 11 平台 vs cli.js 实现 11 平台
 const cliJsText = fs.existsSync(path.join(ROOT, 'scripts', 'cli.js')) ? fs.readFileSync(path.join(ROOT, 'scripts', 'cli.js'), 'utf8') : '';
 const cliPlatforms = (cliJsText.match(/'(trae|claude-code|codex|cursor|codebuddy|qoder|zcode)'/g) || []).length;
-record('L5.2', '平台清单一致性（7 大平台）', cliPlatforms >= 7, cliPlatforms >= 7 ? 'cli.js 含 7 平台配置' : `cli.js 平台引用异常：${cliPlatforms}`);
+record('L5.2', '平台清单一致性（11 个平台）', cliPlatforms >= 11, cliPlatforms >= 11 ? 'cli.js 含 11 平台配置' : `cli.js 平台引用异常：${cliPlatforms}`);
 
 // ---------- L6 状态层（仓库自检） ----------
 // L6.1 记忆守护脚本可用性（第十六章 L4 冻记忆硬门）

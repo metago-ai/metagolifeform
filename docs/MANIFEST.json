@@ -33,7 +33,7 @@
       "path": "docs/ARCHITECTURE.md",
       "type": "technical",
       "priority": "high",
-      "description": "11层架构、125引擎、927算法、984原子的技术细节",
+      "description": "11层架构、161 个引擎、927算法、597 条原子的技术细节",
       "tags": [
         "architecture",
         "engines",
@@ -102,7 +102,7 @@
       "path": "docs/MCP_SERVER.md",
       "type": "tool",
       "priority": "high",
-      "description": "53个MCP工具 + 8个prompts的完整文档",
+      "description": "55 个 MCP 工具 + 8个prompts的完整文档",
       "tags": [
         "mcp",
         "tools",
