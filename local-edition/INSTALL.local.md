@@ -56,9 +56,9 @@ cp -r local-edition/portable/bin/* "$(dirname "<NPM_G>")/"   # 命令垫片到 n
 
 ```bash
 cd local-edition/offline-packages
-npm install -g ./metago-lifeform-37.0.0.tgz ./metago-ai-engine-2.1.4.tgz \
-  ./metago-ai-mcp-server-1.3.5.tgz ./metago-ai-algorithms-1.0.4.tgz \
-  ./metago-ai-dev-kit-1.1.3.tgz ./metago-ai-verify-kit-1.1.5.tgz
+npm install -g ./metago-lifeform-37.0.1.tgz ./metago-ai-engine-2.1.5.tgz \
+  ./metago-ai-mcp-server-1.3.6.tgz ./metago-ai-algorithms-1.0.5.tgz \
+  ./metago-ai-dev-kit-1.1.4.tgz ./metago-ai-verify-kit-1.1.6.tgz
 ```
 
 注意：mcp-server 与 algorithms 依赖 `@modelcontextprotocol/sdk`、`zod`，tgz 不内含这些依赖——所以本路径需要 registry；**完全离线请走路径 A**。

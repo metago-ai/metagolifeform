@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/mcp-server",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "rules_version": "V36.12.0",
   "mcpName": "io.github.metago-ai/metago",
   "description": "元构·智能生命体（MetaGO Intelligent Lifeform）MCP Server — 55 tools (22 思维工具 + 32 核心技能 + 1 事件上报) + 8 prompts。Engine V2.1.3 硬驱动：KMWI 四层记忆 + 元进化五阶段 + 技能智能生成调用真实代码 + 927 算法驱动（via @metago-ai/algorithms）。任何 MCP 协议客户端（Claude Desktop/Cursor/Trae/ZCode 等）即开即用。基于 Model Context Protocol 标准。",
@@ -60,5 +60,13 @@
   "bugs": {
     "url": "https://github.com/metago-ai/metagolifeform/issues",
     "email": "researcher.yi@youfer.cn"
+  },
+  "metago": {
+    "rules_version": "V37.0.1",
+    "metago_version": "V37.0.1",
+    "tools_count": 55,
+    "prompts": 8,
+    "transport": "stdio",
+    "parentPackage": "metago-lifeform@>=36.8.0"
   }
 }

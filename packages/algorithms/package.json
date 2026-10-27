@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/algorithms",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "rules_version": "V36.12.0",
   "mcpName": "io.github.metago-ai/metago-algorithms",
   "description": "MetaGO Intelligent Lifeform — 927 算法 MCP 服务器（57 工具 / 14 触发大类 / 4 层架构）。L1 通用入口(3) + L2 检索发现(4) + L3 高频专用(30) + L4 族级工具(20)。Engine V2.1.4 硬驱动。覆盖耦生计算、价值评估、距离度量、相关分析、降维、安全审计、频域处理等 14 大触发类别。",
@@ -61,7 +61,7 @@
   "metago": {
     "server_version": "1.0.4",
     "engine_version": "2.1.4",
-    "rules_version": "V37.0.0",
+    "rules_version": "V37.0.1",
     "tools_count": 57,
     "algorithms_count": 927,
     "trigger_categories": 14,

@@ -1,7 +1,7 @@
 {
   "name": "metago-lifeform",
   "description": "MetaGO Lifeform（元构超级智能生命体）— 112 个技能 + 35 专家子智能体 + 双 MCP 服务器（112 工具/927 算法）+ 决策锁钩子。让 Claude Code 从工具升级为守规矩、会进化、可追溯、能闭环的生命体：元构 38 条核心公理、决策锁四道关卡、七层交付验证、927 算法驱动。",
-  "version": "37.0.0",
+  "version": "37.0.1",
   "author": {
     "name": "易霄 / 元构光年（成都）人工智能科技有限公司",
     "url": "https://metago.life"

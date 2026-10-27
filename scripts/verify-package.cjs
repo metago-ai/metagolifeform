@@ -52,7 +52,7 @@ const ver = fs.existsSync(path.join(PKG, "VERSION")) ? fs.readFileSync(path.join
 chk("A1", "关键文件齐全", missing.length === 0, missing.length ? "缺 " + missing.join(",") : `6/6 齐全，VERSION=${ver}`);
 
 const pj = JSON.parse(fs.readFileSync(path.join(PKG, "package.json"), "utf8"));
-const TARGET_VERSION = "37.0.0";   /* 修（Round 34）：硬编码目标版本随体系升版同步 */
+const TARGET_VERSION = "37.0.1";   /* 修（Round 34）：硬编码目标版本随体系升版同步 */
 const actualVer = (fs.existsSync(path.join(PKG, "VERSION"))
   ? fs.readFileSync(path.join(PKG, "VERSION"), "utf8").trim() : "");
 chk("A3", "版本等于目标版本", actualVer === TARGET_VERSION,
