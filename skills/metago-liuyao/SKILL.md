@@ -1,6 +1,12 @@
 ---
 name: metago-liuyao
 description: 六爻决策查询系统。当需要针对具体问题（问财/问事/问事业）做决策分析时使用。
+trigger:
+  - "针对具体问题做决策分析"
+  - "六爻"
+  - "装卦"
+  - "用神"
+  - "旺衰"
 ---
 
 # metago-liuyao

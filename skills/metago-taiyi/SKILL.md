@@ -1,6 +1,12 @@
 ---
 name: metago-taiyi
 description: 太乙神数宏观周期。当需要宏观周期标注、范式分析时序补充时使用。
+trigger:
+  - "宏观周期标注"
+  - "范式分析时序补充"
+  - "太乙神数"
+  - "积年"
+  - "十六神"
 ---
 
 # metago-taiyi

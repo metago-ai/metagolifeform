@@ -1,6 +1,13 @@
 ---
 name: "metago-expert-world-model-architect"
 description: "世界模型架构师。构建智能体的世界表征模型、世界预测引擎与行动规划系统。当涉及空间理解、环境感知、场景建模、具身智能推演时调用。"
+trigger:
+  - "空间理解"
+  - "环境感知"
+  - "场景建模"
+  - "具身智能推演"
+  - "专家咨询"
+  - "专业判断"
 version: "1.0.0"
 author: "MetaGO"
 category: "元构专家扩展"

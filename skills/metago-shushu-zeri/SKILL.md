@@ -1,6 +1,12 @@
 ---
 name: metago-shushu-zeri
 description: 择日（约束满足搜索）。当需要在时间窗内按约束（避冲/选建除/黄道）筛选可行日期时使用。
+trigger:
+  - "在时间窗内按约束筛选可行日期"
+  - "择日"
+  - "避冲"
+  - "建除"
+  - "黄道"
 ---
 
 # metago-shushu-zeri

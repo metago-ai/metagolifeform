@@ -1,6 +1,12 @@
 ---
 name: metago-hetu-luoshu
 description: 河图洛书组合结构与空间编码。当需要空间排布分析、幻方构造、九宫配卦时使用。
+trigger:
+  - "空间排布分析"
+  - "幻方构造"
+  - "九宫配卦"
+  - "河图洛书"
+  - "幻方"
 ---
 
 # metago-hetu-luoshu

@@ -1,6 +1,13 @@
 ---
 name: "metago-thought-10-skill-centrism"
 description: "Skill中心论深度推理。评估AI架构范式是否以Skill为核心而非大模型。当需要AI架构设计、能力评估、范式对比、智能体架构决策时调用。"
+trigger:
+  - "AI架构设计"
+  - "能力评估"
+  - "范式对比"
+  - "智能体架构决策"
+  - "元思想"
+  - "深度推理"
 ---
 
 # Skill 中心论 V22.1

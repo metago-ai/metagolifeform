@@ -1,6 +1,12 @@
 ---
 name: "metago-thought-12-agentive-os"
 description: "Agentive OS元思想深度推理。OS=Agent操作系统即智能体评估。当需要评估操作系统的智能化程度、设计智能OS架构、对比传统OS与智能OS时调用。"
+trigger:
+  - "评估操作系统的智能化程度"
+  - "设计智能OS架构"
+  - "对比传统OS与智能OS"
+  - "元思想"
+  - "深度推理"
 ---
 
 # Agentive OS 元思想 V32.0

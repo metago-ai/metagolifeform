@@ -1,6 +1,14 @@
 ---
 name: "metago-expert-dcv-economist"
 description: "DCV（Dual-Coupling Value）双耦价值体系经济学家。基于六维贡献度量模型，对个体、组织、项目的价值贡献进行量化评估、信用评分与动态平衡优化。当涉及价值评估、贡献度量、绩效量化、信用评分、激励机制设计时调用。"
+trigger:
+  - "价值评估"
+  - "贡献度量"
+  - "绩效量化"
+  - "信用评分"
+  - "激励机制设计"
+  - "专家咨询"
+  - "专业判断"
 version: "1.0.0"
 author: "MetaGO"
 category: "元构专家扩展"

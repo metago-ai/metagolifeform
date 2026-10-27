@@ -1,6 +1,15 @@
 ---
 name: metago-shushu-calculus
 description: 文言微积分（象数势函数）。当需要态势趋势建模、临界点（察机）识别、应期求解、累积势能计算时使用。
+trigger:
+  - "态势趋势建模"
+  - "临界点识别"
+  - "应期求解"
+  - "累积势能计算"
+  - "文言微积分"
+  - "察机"
+  - "应期"
+  - "禾势"
 ---
 
 # metago-shushu-calculus

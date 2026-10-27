@@ -1,6 +1,12 @@
 ---
 name: metago-core
 description: MetaGO 核心知识索引——查权威数字与文件位置的第一入口。含公理/属性/协议/引擎/原子的真实条数、各清单文件路径、以及「数字以谁为准」的规则。
+trigger:
+  - "权威数字"
+  - "条数"
+  - "清单文件位置"
+  - "数字以谁为准"
+  - "元构核心索引"
 ---
 
 # MetaGO 核心知识索引
@@ -12,7 +18,7 @@ description: MetaGO 核心知识索引——查权威数字与文件位置的第
 
 | 项目 | 条数 | 权威来源 | 复核方式 |
 |---|---|---|---|
-| 核心公理 | **38** | `packages/engine/CONSTITUTION/AXIOMS.md` 表格首列 `A\d{1,3}` 唯一行数 | 断言 E4 + K16 |
+| 核心公理 | **43** | `packages/engine/CONSTITUTION/AXIOMS.md` 表格首列 `A\d{1,3}` 唯一行数 | 断言 E4 + K16 |
 | 根本属性 | **47** | `packages/engine/CORE/ATTRIBUTES.md` 表格首列 `D\d{1,3}` 唯一行数 | 断言 E1 + K16 |
 | 运行协议 | **121** | `packages/engine/CORE/PROTOCOLS.md` 表格首列 `PROTOCOL_*` 唯一行数 | 断言 E2 + K16 |
 | 引擎 | **161** | `packages/engine/INDEX/ENGINES.md` 中 `ENGINE_*` 唯一 ID 数 | 断言 E3 + K16 |

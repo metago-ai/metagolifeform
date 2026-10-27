@@ -1,6 +1,12 @@
 ---
 name: metago-arch
 description: SOLID 与整洁架构治理技能（metago-arch-gov v1.1，随 metago-lifeform 主包分发）。当任务涉及新建项目/模块、编写或修改业务代码、重构、代码审查，或需要检查依赖方向/命名合规时，必须先读取本技能并遵守架构治理规则；提供 metago-lifeform arch init/scaffold/check/report 命令（独立安装包为 metago-arch）。
+trigger:
+  - "架构治理"
+  - "SOLID"
+  - "依赖方向"
+  - "整洁架构"
+  - "分层检查"
 ---
 
 # metago-arch 架构治理（供 AI Agent 读取 · 主包版）
