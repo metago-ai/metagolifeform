@@ -473,7 +473,11 @@ const JOBS = [
       const f = path.join(NPM, "engine/RUNTIME/dist/decision-lock.js");
       if (!fs.existsSync(f)) return { ok: false, why: "文件不存在" };
       const t = fs.readFileSync(f, "utf8");
-      if (t.includes("REASONING_WORDS")) return { ok: true, why: "关键词表已在位" };
+      /* 修（Round 36/37）：功能已以另一形态存在——decision-lock.js 用内联 includes('因为')/includes('所以')
+         直接判定推理痕迹，无需 REASONING_WORDS 常量。检查口径须接受两种形态。 */
+      if (t.includes("REASONING_WORDS") || (t.includes("includes('因为')") && t.includes("includes('所以')"))) {
+        return { ok: true, why: t.includes("REASONING_WORDS") ? "关键词表已在位" : "中文推理关键词已内联在位（因为/所以）" };
+      }
       return { ok: false, why: CHECK_ONLY ? "缺失（--check 不修改）" : "缺失，需重放 fix_ilt_keywords.py" };
     },
   },

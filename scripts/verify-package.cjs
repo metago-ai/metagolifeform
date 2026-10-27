@@ -18,7 +18,8 @@ const path = require("path");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 
-const PKG = "D:/metago-build/outbound/v36.10.0/metagolifeform-v36.12.0";
+/* 修（Round 34 解包实跑发现）：原为构建机绝对路径，交付包换机即崩。改用脚本自身目录，随包可移植。 */
+const PKG = path.resolve(__dirname);
 const HOME = "D:/DSH-Official/home";
 const results = [];
 let fail = 0;
@@ -51,7 +52,7 @@ const ver = fs.existsSync(path.join(PKG, "VERSION")) ? fs.readFileSync(path.join
 chk("A1", "关键文件齐全", missing.length === 0, missing.length ? "缺 " + missing.join(",") : `6/6 齐全，VERSION=${ver}`);
 
 const pj = JSON.parse(fs.readFileSync(path.join(PKG, "package.json"), "utf8"));
-const TARGET_VERSION = "36.12.0";
+const TARGET_VERSION = "37.0.0";   /* 修（Round 34）：硬编码目标版本随体系升版同步 */
 const actualVer = (fs.existsSync(path.join(PKG, "VERSION"))
   ? fs.readFileSync(path.join(PKG, "VERSION"), "utf8").trim() : "");
 chk("A3", "版本等于目标版本", actualVer === TARGET_VERSION,

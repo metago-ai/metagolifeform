@@ -163,15 +163,17 @@ function tgzPkg(tgzName) {
 const pkgVerB = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 let c10ok = true; const c10d = [];
 try {
-  const e = tgzPkg('metago-ai-engine-2.1.3.tgz');
+  const e = tgzPkg('metago-ai-engine-2.1.4.tgz');
   if (e.metago && e.metago.metago_version === `V${pkgVerB}`) { c10d.push(`engine=${e.metago.metago_version}`); } else { c10ok = false; c10d.push(`engine=${e.metago && e.metago.metago_version}`); }
-  for (const [n, f] of [['metago-ai-algorithms-1.0.3.tgz', 'algorithms'], ['metago-ai-dev-kit-1.1.2.tgz', 'dev-kit'], ['metago-ai-verify-kit-1.1.4.tgz', 'verify-kit']]) {
+  for (const [n, f] of [['metago-ai-algorithms-1.0.4.tgz', 'algorithms'], ['metago-ai-dev-kit-1.1.3.tgz', 'dev-kit'], ['metago-ai-verify-kit-1.1.5.tgz', 'verify-kit']]) {
     const o = tgzPkg(n);
     if (o.metago && o.metago.rules_version === `V${pkgVerB}`) { c10d.push(`${f}=${o.metago.rules_version}`); } else { c10ok = false; c10d.push(`${f}=${o.metago && o.metago.rules_version}`); }
   }
-  const m = tgzPkg('metago-ai-mcp-server-1.3.4.tgz');
+  const m = tgzPkg('metago-ai-mcp-server-1.3.5.tgz');
   const stamp = m.metago && (m.metago.metago_version || m.metago.rules_version);
-  if (m.version === '1.3.4' && (!stamp || stamp === `V${pkgVerB}`)) c10d.push(`mcp-server=v${m.version}`); else { c10ok = false; c10d.push(`mcp-server=v${m.version}`); }
+  /* 修（Round 37）：原先硬编码 '1.3.4'，子包升版后必误报。改为动态读 mcp-server 的 package.json 版本 */
+  const mcpExpect = JSON.parse(fs.readFileSync(path.join(ROOT, 'packages/mcp-server/package.json'), 'utf8')).version;
+  if (m.version === mcpExpect && (!stamp || stamp === `V${pkgVerB}`)) c10d.push(`mcp-server=v${m.version}`); else { c10ok = false; c10d.push(`mcp-server=v${m.version}(期望${mcpExpect})`); }
   const main = fs.readdirSync(path.join(ROOT, 'local-edition/offline-packages')).find((f) => /^metago-lifeform-.*\.tgz$/.test(f));
   if (main) {
     const mp = tgzPkg(main);
