@@ -7,8 +7,8 @@
 |---|---|---|
 | ENGINE_3STEP_NAV_23 | 三步进化导航引擎 | 第2部分-V9. L5711 |
 | ENGINE_A2A_MARKET_149 | A2A经济市场引擎 | 第3部分-V21 L6626 |
-| ENGINE_ABSORPTION_25 | ### 3.3 新增原子（与现有原子库合并后净新增） | 第2部分-V9. L6325 |
-| ENGINE_ACTIVE_42 | （无名） | 第2部分-V9. L8343 |
+| ENGINE_ABSORPTION_25 | 能力吸收引擎 | 第2部分-V9. L6325 |
+| ENGINE_ACTIVE_42 | 主动引擎 | 第2部分-V9. L8343 |
 | ENGINE_AGENTIVE_INTERACTION_170 | Agentive OS 原生交互引擎 | 第4部分-V29 L4854 |
 | ENGINE_AGENT_ASSEMBLE_169 | 智能体封装引擎 | 第4部分-V29 L6035 |
 | ENGINE_AGENT_CITY_147 | 智能体城市引擎 | 第3部分-V21 L6516 |
@@ -25,7 +25,7 @@
 | ENGINE_CAPABILITY_ENVELOPE_162 | 能力包络线引擎 | 第4部分-V29 L3064 |
 | ENGINE_CAPABILITY_ROUTER_129 | 能力路由引擎 | 第3部分-V21 L3626 |
 | ENGINE_CAPABILITY_SCALE_133 | 能力规模化引擎 | 第3部分-V21 L3866 |
-| ENGINE_CAPABILITY_SCHED_46 | ## 三、算法层新增（5个） | 第2部分-V9. L9258 |
+| ENGINE_CAPABILITY_SCHED_46 | 能力模块调度引擎 | 第2部分-V9. L9258 |
 | ENGINE_CIRCUMSTANCE_02 | （无名） | 第1部分-V9. L508 |
 | ENGINE_CLASSICAL_THEOREM_57 | 经典定理调用引擎 | 第2部分-V9. L9370 |
 | ENGINE_CLOSED_LOOP_154 | 闭环控制器引擎 | 第4部分-V29 L1952 |
@@ -69,9 +69,7 @@
 | ENGINE_HARNESS_GEN_171 | Harness自动生成引擎 | 第4部分-V29 L5309 |
 | ENGINE_HUMAN_AI_SYM_33 | 1引擎+2原子+3算法+1协议 | 第2部分-V9. L7437 |
 | ENGINE_IDEA_ALGO_32 | 1引擎+2原子+2算法+1协议 | 第2部分-V9. L7436 |
-| ENGINE_IDEA_CAPITAL_36 | ---
-
-## 四、新增算法（19个） | 第2部分-V9. L7374 |
+| ENGINE_IDEA_CAPITAL_36 | 思想资本引擎 | 第2部分-V9. L7374 |
 | ENGINE_IDEA_MULTIPLY_34 | 1引擎+2原子+3算法 | 第2部分-V9. L7438 |
 | ENGINE_IDENTITY_AUTO_53 | 积分恒等式引擎 | 第2部分-V9. L9362 |
 | ENGINE_IMMUNE_SYNC_93 | 全网免疫同步引擎 | 第2部分-V9. L11829 |
@@ -81,7 +79,7 @@
 | ENGINE_INTENT_UNDERSTAND_88 | 意图理解引擎 | 第2部分-V9. L11620 |
 | ENGINE_INTRINSIC_MOTIVE_144 | 内在动机管理引擎 | 第3部分-V21 L5787 |
 | ENGINE_INTUITION_122 | 直觉生成引擎 | 第3部分-V21 L2146 |
-| ENGINE_KNOWLEDGE_02 | KCP | 第2部分-V9. L6670 |
+| ENGINE_KNOWLEDGE_02 | 知识引擎 | 第2部分-V9. L6670 |
 | ENGINE_LARGE_DEVIATION_65 | 大偏差与统计检验引擎 | 第2部分-V9. L9371 |
 | ENGINE_MEANING_05 | （无名） | 第1部分-V9. L966 |
 | ENGINE_METAEVO_10 | （无名） | 第1部分-V9. L1443 |
@@ -101,7 +99,7 @@
 | ENGINE_MULTI_AGENT_V3_2_136 | 多智能体协同框架 | 第4部分-V29 L3299 |
 | ENGINE_MULTI_WORLD_THINK_39 | 多世界思考引擎 | 第4部分-V29 L395 |
 | ENGINE_NEGENTROPY_FORMAL_165 | 负熵形式化引擎 | 第4部分-V29 L3199 |
-| ENGINE_NETWORK_COUPLING_27 | ### 3.2 节点共生生态类原子（8个） | 第2部分-V9. L6312 |
+| ENGINE_NETWORK_COUPLING_27 | 网络耦生度引擎 | 第2部分-V9. L6312 |
 | ENGINE_NOTEVENVOID_17 | （无名） | 第1部分-V9. L2205 |
 | ENGINE_ONTOLOGY_ALIGNER_163 | 本体论对齐引擎 | 第4部分-V29 L3112 |
 | ENGINE_OPPONENT_09 | （无名） | 第1部分-V9. L1321 |
@@ -128,9 +126,7 @@
 | ENGINE_QUANTUM_CHAOS_63 | 量子混沌引擎 | 第2部分-V9. L9353 |
 | ENGINE_RANDOM_MATRIX_62 | 随机矩阵引擎 | 第2部分-V9. L9352 |
 | ENGINE_REASON_CORRECT_94 | 推理纠正引擎 | 第2部分-V9. L11668 |
-| ENGINE_RECURSIVE_ENCAPSULATE_26 | ---
-
-## 五、协议层新增（共4个） | 第2部分-V9. L6363 |
+| ENGINE_RECURSIVE_ENCAPSULATE_26 | 递归封装引擎 | 第2部分-V9. L6363 |
 | ENGINE_REQUIREMENT_PARSE_167 | 需求解析引擎 | 第4部分-V29 L5929 |
 | ENGINE_RESOURCE_69 | 资源调度引擎 | 第3部分-V21 L52 |
 | ENGINE_ROI_QUANT_150 | ROI量化仪表盘引擎 | 第3部分-V21 L6680 |
@@ -145,9 +141,7 @@
 | ENGINE_SYSTEM_WARGAME_164 | 系统级兵棋推演引擎 | 第4部分-V29 L3156 |
 | ENGINE_TAO_07 | （无名） | 第1部分-V9. L1101 |
 | ENGINE_TIMESPACE_06 | （无名） | 第1部分-V9. L1033 |
-| ENGINE_TIME_CRYSTAL_35 | ---
-
-## 五、新增协议（5个） | 第2部分-V9. L7400 |
+| ENGINE_TIME_CRYSTAL_35 | 时间晶体引擎 | 第2部分-V9. L7400 |
 | ENGINE_TIME_CRYSTAL_V2_130 | 时间晶体引擎 | 第3部分-V21 L3685 |
 | ENGINE_TIME_CRYSTAL_V3_130 | 时间晶体引擎 | 第3部分-V21 L4473 |
 | ENGINE_TIME_CRYSTAL_V3_1_130 | 时间晶体引擎 | 第3部分-V21 L4880 |

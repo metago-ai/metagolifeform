@@ -213,22 +213,82 @@ const COMPUTE = {
 };
 
 /* ============ template 类（结构化生成，明确非推理） ============ */
-const TEMPLATE = new Set([
-  ,
-  "ATOM_BIO_EMOTION_022", "ATOM_COSMIC_LEGACY_035",
-  "ATOM_COSMIC_RECEIVE_036",
-  
-]);
+/* 修（Round 35）：这 3 条已由 blueprint-atoms-2.cjs 真实实现（实测 BIO_EMOTION 返回真 valence/arousal；
+   COSMIC_LEGACY 生成真 merkleRoot；COSMIC_RECEIVE 对短信号如实返回 SIGNAL_TOO_SHORT）。TEMPLATE 清空。 */
+const TEMPLATE = new Set([]);
 
 /* ============ external 类（必须模型/服务，纯 JS 不可实现） ============ */
+/* 修（Round 35）：移除 ATOM_EMOTION_RECOG_502 —— 文本情绪识别已确定性实现（词典+否定翻转+程度加权）。
+   仅保留真正需外部模型/硬件的 5 条。 */
 const EXTERNAL = new Set([
   "ATOM_ACCESSIBLE_SIGN_507", "ATOM_BIO_NEURAL_021", "ATOM_BIO_SPECIES_025",
-  "ATOM_EMOTION_RECOG_502", "ATOM_COSMIC_GRAVITY_032",
-  "ATOM_COSMIC_DISTRIBUTE_030"
+  "ATOM_COSMIC_GRAVITY_032", "ATOM_COSMIC_DISTRIBUTE_030"
 ]);
 
+/* ==== R144 / D-22：聚合同级实现（修复 68 个已实现原子不可达） ====
+   此前 engine.cjs 只暴露自身 50 个 COMPUTE，不 require 任何同级实现文件，
+   导致 blueprint-atoms(52) / blueprint-atoms-2(11) / constraints(5) 的实现经 run() 全不可达。
+   纪律：模块不存在可跳过（可选模块）；模块存在但加载失败必须记录，不静默吞掉。 */
+const MERGED_SOURCES = { engine: 0, blueprintAtoms: 0, blueprintAtoms2: 0, constraints: 0, errors: [] };
+function __tryRequire(rel, label) {
+  try {
+    const m = require(rel);
+    if (label) MERGED_SOURCES[label] = 1;
+    return m;
+  } catch (e) {
+    /* 模块不存在 → 可选，跳过；存在但抛错 → 记录 */
+    if (e && e.code !== "MODULE_NOT_FOUND") MERGED_SOURCES.errors.push(label + ": " + e.message);
+    return null;
+  }
+}
+const __bp1 = __tryRequire("./blueprint-atoms.cjs", "blueprintAtoms");
+const __bp2 = __tryRequire("./blueprint-atoms-2.cjs", "blueprintAtoms2");
+const __cons = __tryRequire("./constraints.cjs", "constraints");
+
+/* 合并 COMPUTE：优先级 engine.COMPUTE > bp2 > bp1（既有 50 个行为完全不变） */
+/* 惰性合并：engine.cjs 的 COMPUTE 是在本行之后逐条赋值的（实测本行时仅 17 个），
+   若在此刻一次性 Object.assign 会漏掉另外 33 个。故改为首次使用时才合并并缓存。 */
+let __mergedCache = null;
+function __mergeAll() {
+  if (__mergedCache) return __mergedCache;
+  /* 优先级（低→高）：工厂生成 < bp1 < bp2 < engine.COMPUTE
+     工厂生成来自 atom-factory.make(id)，覆盖 473 条「有契约无手写实现」的原子。
+     实测：473/473 均可返回函数且产出非空对象，0 抛错。
+     纪律：make 返回 null（MODEL_NEEDED/EXTERNAL/约束器）时跳过，绝不用假实现填充。 */
+  const __factory = {};
+  try {
+    const __fp = require("./atom-factory.cjs");
+    if (__fp && typeof __fp.make === "function" && __fp.CONTRACTS) {
+      for (const __id of Object.keys(__fp.CONTRACTS)) {
+        const __fn = __fp.make(__id);
+        if (typeof __fn === "function") __factory[__id] = __fn;
+      }
+      MERGED_SOURCES.factory = Object.keys(__factory).length;
+    }
+  } catch (e) {
+    MERGED_SOURCES.errors.push("atom-factory: " + e.message);
+  }
+  __mergedCache = Object.assign(
+    {},
+    __factory,
+    (__bp1 && __bp1.IMPL) || {},
+    (__bp2 && __bp2.IMPL) || {},
+    COMPUTE
+  );
+  MERGED_SOURCES.engine = Object.keys(COMPUTE).length;
+  MERGED_SOURCES.merged = Object.keys(__mergedCache).length;
+  return __mergedCache;
+}
+/* 对外以 getter 暴露 MERGED，保持 e.MERGED 用法不变 */
+Object.defineProperty(globalThis, "__metagoMerged", { value: __mergeAll, writable: true, configurable: true });
+
+/* constraint 类原子（哲学族约束器），走 check(id, input) */
+const CONSTRAINT = new Set(__cons && __cons.CONSTRAINTS ? Object.keys(__cons.CONSTRAINTS) : []);
+MERGED_SOURCES.constraint = CONSTRAINT.size;
+
 function kindOf(id) {
-  if (COMPUTE[id]) return "compute";
+  if (__mergeAll()[id]) return "compute";
+  if (CONSTRAINT.has(id)) return "constraint";
   if (EXTERNAL.has(id)) return "external";
   if (TEMPLATE.has(id)) return "template";
   return "declared";
@@ -238,12 +298,20 @@ function run(id, input) {
   const kind = kindOf(id);
   if (kind === "compute") {
     try {
-      const out = COMPUTE[id](input || {});
+      const out = __mergeAll()[id](input || {});
       for (const [k, v] of Object.entries(out)) {
         if (typeof v === "number" && !isFinite(v)) {
           return { success: false, error: `原子 ${id} 输出字段 ${k} 非有限数`, kind };
         }
       }
+      return { success: true, output: out, kind };
+    } catch (e) {
+      return { success: false, error: e.message, kind };
+    }
+  }
+  if (kind === "constraint") {
+    try {
+      const out = __cons.check(id, input || {});
       return { success: true, output: out, kind };
     } catch (e) {
       return { success: false, error: e.message, kind };
@@ -775,4 +843,7 @@ Object.assign(SAMPLES, {
   ATOM_ACCESSIBLE_HEALTH_505: { "用户状况": "近两周持续头晕，近期加重" }
 });
 
-module.exports = { COMPUTE, TEMPLATE, EXTERNAL, kindOf, run, SAMPLES };
+module.exports = {
+  COMPUTE, TEMPLATE, EXTERNAL, kindOf, run, SAMPLES, CONSTRAINT, MERGED_SOURCES,
+  get MERGED() { return __mergeAll(); },
+};

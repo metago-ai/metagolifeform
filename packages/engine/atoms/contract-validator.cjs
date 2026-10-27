@@ -36,7 +36,8 @@ const VOL = IN_PACKAGE
 const GEN = resolveFirst([
   path2.join(__dirname, "..", "..", "..", "..", "..", "genome", "atoms_engines.json"),
   __pick([
-  __p.join(__dirname, "..", "..", "..", "..", "..", "genome", "atoms_engines.json"),
+    __p.join(__dirname, "atoms_engines.json"),
+      __p.join(__dirname, "..", "..", "..", "..", "..", "genome", "atoms_engines.json"),
   __p.join(__dirname, "..", "..", "..", "genome", "atoms_engines.json"),
   "D:/metago-build/genome/atoms_engines.json",
 ]),

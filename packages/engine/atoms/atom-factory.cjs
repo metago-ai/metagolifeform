@@ -321,7 +321,8 @@ function atomMeta(atomId) {
     try {
       const fs2 = require("fs");
       const g = JSON.parse(fs2.readFileSync(__pick([
-  __p.join(__dirname, "..", "..", "..", "..", "..", "genome", "atoms_engines.json"),
+    __p.join(__dirname, "atoms_engines.json"),
+      __p.join(__dirname, "..", "..", "..", "..", "..", "genome", "atoms_engines.json"),
   __p.join(__dirname, "..", "..", "..", "genome", "atoms_engines.json"),
   "D:/metago-build/genome/atoms_engines.json",
 ]), "utf8"));

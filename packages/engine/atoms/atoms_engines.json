@@ -1,0 +1,5821 @@
+{
+  "atoms": {
+    "ATOM_POLICY_TRANSLATE_101": {
+      "id": "ATOM_POLICY_TRANSLATE_101",
+      "src": "第1部分-V9.",
+      "line": 2881,
+      "name": "政策翻译官",
+      "desc": "将政策文件翻译为通俗语言",
+      "input": "政策原文",
+      "output": "通俗解释"
+    },
+    "ATOM_POLICY_MONEY_102": {
+      "id": "ATOM_POLICY_MONEY_102",
+      "src": "第1部分-V9.",
+      "line": 2882,
+      "name": "政策算账器",
+      "desc": "计算政策能给用户带来多少钱",
+      "input": "政策条款，用户情况",
+      "output": "收益估算"
+    },
+    "ATOM_POLICY_MATCH_103": {
+      "id": "ATOM_POLICY_MATCH_103",
+      "src": "第1部分-V9.",
+      "line": 2883,
+      "name": "政策匹配器",
+      "desc": "为用户匹配适用政策",
+      "input": "用户画像，政策库",
+      "output": "匹配政策列表"
+    },
+    "ATOM_POLICY_DEADLINE_104": {
+      "id": "ATOM_POLICY_DEADLINE_104",
+      "src": "第1部分-V9.",
+      "line": 2884,
+      "name": "政策截止提醒",
+      "desc": "提醒政策申报截止日期",
+      "input": "政策列表",
+      "output": "提醒通知"
+    },
+    "ATOM_POLICY_CHANGE_105": {
+      "id": "ATOM_POLICY_CHANGE_105",
+      "src": "第1部分-V9.",
+      "line": 2885,
+      "name": "政策变动监测",
+      "desc": "监测政策最新变化",
+      "input": "政策更新流",
+      "output": "变动报告"
+    },
+    "ATOM_POLICY_COMPARE_106": {
+      "id": "ATOM_POLICY_COMPARE_106",
+      "src": "第1部分-V9.",
+      "line": 2886,
+      "name": "政策对比器",
+      "desc": "对比多项政策的异同",
+      "input": "多政策原文",
+      "output": "对比表格"
+    },
+    "ATOM_POLICY_FORECAST_107": {
+      "id": "ATOM_POLICY_FORECAST_107",
+      "src": "第1部分-V9.",
+      "line": 2887,
+      "name": "政策趋势预测",
+      "desc": "预测未来政策方向",
+      "input": "历史政策，经济数据",
+      "output": "趋势报告"
+    },
+    "ATOM_POLICY_APPLY_108": {
+      "id": "ATOM_POLICY_APPLY_108",
+      "src": "第1部分-V9.",
+      "line": 2888,
+      "name": "政策申报助手",
+      "desc": "辅助填写申报材料",
+      "input": "政策要求，用户信息",
+      "output": "填写建议"
+    },
+    "ATOM_TECH_DEMYSTIFY_201": {
+      "id": "ATOM_TECH_DEMYSTIFY_201",
+      "src": "第1部分-V9.",
+      "line": 2894,
+      "name": "科技祛魅器",
+      "desc": "用通俗语言解释科技概念",
+      "input": "科技名词",
+      "output": "通俗解释"
+    },
+    "ATOM_TECH_TREND_202": {
+      "id": "ATOM_TECH_TREND_202",
+      "src": "第1部分-V9.",
+      "line": 2895,
+      "name": "科技趋势预测",
+      "desc": "预测技术发展方向",
+      "input": "技术论文，专利数据",
+      "output": "趋势报告"
+    },
+    "ATOM_TECH_MAP_203": {
+      "id": "ATOM_TECH_MAP_203",
+      "src": "第1部分-V9.",
+      "line": 2896,
+      "name": "科技地图绘制",
+      "desc": "绘制技术领域全景图",
+      "input": "领域关键词",
+      "output": "知识图谱"
+    },
+    "ATOM_TECH_GAP_204": {
+      "id": "ATOM_TECH_GAP_204",
+      "src": "第1部分-V9.",
+      "line": 2897,
+      "name": "技术差距分析",
+      "desc": "分析自身与领先技术的差距",
+      "input": "自身技术，对标技术",
+      "output": "差距报告"
+    },
+    "ATOM_TECH_ROADMAP_205": {
+      "id": "ATOM_TECH_ROADMAP_205",
+      "src": "第1部分-V9.",
+      "line": 2898,
+      "name": "技术路线规划",
+      "desc": "规划技术发展路径",
+      "input": "目标，现状",
+      "output": "路线图"
+    },
+    "ATOM_TECH_EVALUATE_206": {
+      "id": "ATOM_TECH_EVALUATE_206",
+      "src": "第1部分-V9.",
+      "line": 2899,
+      "name": "技术价值评估",
+      "desc": "评估技术的商业价值",
+      "input": "技术描述",
+      "output": "价值报告"
+    },
+    "ATOM_NEWS_HOOK_301": {
+      "id": "ATOM_NEWS_HOOK_301",
+      "src": "第1部分-V9.",
+      "line": 2905,
+      "name": "时事钩子提取",
+      "desc": "从新闻中提取热点",
+      "input": "新闻流",
+      "output": "热点列表"
+    },
+    "ATOM_NEWS_IMPACT_302": {
+      "id": "ATOM_NEWS_IMPACT_302",
+      "src": "第1部分-V9.",
+      "line": 2906,
+      "name": "时事影响分析",
+      "desc": "分析时事对用户的影响",
+      "input": "时事，用户画像",
+      "output": "影响报告"
+    },
+    "ATOM_NEWS_TREND_303": {
+      "id": "ATOM_NEWS_TREND_303",
+      "src": "第1部分-V9.",
+      "line": 2907,
+      "name": "时事趋势预测",
+      "desc": "预测事态发展",
+      "input": "历史新闻",
+      "output": "趋势预测"
+    },
+    "ATOM_NEWS_SUMMARY_304": {
+      "id": "ATOM_NEWS_SUMMARY_304",
+      "src": "第1部分-V9.",
+      "line": 2908,
+      "name": "时事摘要生成",
+      "desc": "生成新闻摘要",
+      "input": "长新闻",
+      "output": "简短摘要"
+    },
+    "ATOM_EMOTION_ANCHOR_204": {
+      "id": "ATOM_EMOTION_ANCHOR_204",
+      "src": "第1部分-V9.",
+      "line": 2914,
+      "name": "情绪锚点生成器",
+      "desc": "生成个性化情绪锚点",
+      "input": "用户情绪，场景",
+      "output": "情绪锚点"
+    },
+    "ATOM_EMOTION_ANXIETY_501": {
+      "id": "ATOM_EMOTION_ANXIETY_501",
+      "src": "第1部分-V9.",
+      "line": 2915,
+      "name": "焦虑转化器",
+      "desc": "将焦虑转化为行动力",
+      "input": "焦虑情绪",
+      "output": "行动建议"
+    },
+    "ATOM_EMOTION_RECOG_502": {
+      "id": "ATOM_EMOTION_RECOG_502",
+      "src": "第1部分-V9.",
+      "line": 2916,
+      "name": "情绪识别器",
+      "desc": "识别用户当前情绪",
+      "input": "面部/语音/生理",
+      "output": "情绪标签"
+    },
+    "ATOM_EMOTION_REGULATE_503": {
+      "id": "ATOM_EMOTION_REGULATE_503",
+      "src": "第1部分-V9.",
+      "line": 2917,
+      "name": "情绪调节器",
+      "desc": "提供情绪调节建议",
+      "input": "当前情绪",
+      "output": "调节方案"
+    },
+    "ATOM_EMOTION_TRACK_504": {
+      "id": "ATOM_EMOTION_TRACK_504",
+      "src": "第1部分-V9.",
+      "line": 2918,
+      "name": "情绪追踪器",
+      "desc": "记录情绪变化轨迹",
+      "input": "历史情绪",
+      "output": "情绪曲线"
+    },
+    "ATOM_EMOTION_SYNC_505": {
+      "id": "ATOM_EMOTION_SYNC_505",
+      "src": "第1部分-V9.",
+      "line": 2919,
+      "name": "情绪同步器",
+      "desc": "同步用户与AI情绪",
+      "input": "用户情绪",
+      "output": "AI情绪响应"
+    },
+    "ATOM_SECURE_LOCK_201": {
+      "id": "ATOM_SECURE_LOCK_201",
+      "src": "第1部分-V9.",
+      "line": 2925,
+      "name": "工业安全锁硬件驱动",
+      "desc": "控制工业安全锁",
+      "input": "锁指令",
+      "output": "执行结果"
+    },
+    "ATOM_SECURITY_RISK_601": {
+      "id": "ATOM_SECURITY_RISK_601",
+      "src": "第1部分-V9.",
+      "line": 2926,
+      "name": "安全风险扫描仪",
+      "desc": "扫描系统安全风险",
+      "input": "系统状态",
+      "output": "风险报告"
+    },
+    "ATOM_SECURITY_AUDIT_602": {
+      "id": "ATOM_SECURITY_AUDIT_602",
+      "src": "第1部分-V9.",
+      "line": 2927,
+      "name": "安全审计器",
+      "desc": "审计操作日志",
+      "input": "日志数据",
+      "output": "审计报告"
+    },
+    "ATOM_SECURITY_ENCRYPT_603": {
+      "id": "ATOM_SECURITY_ENCRYPT_603",
+      "src": "第1部分-V9.",
+      "line": 2928,
+      "name": "数据加密器",
+      "desc": "加密敏感数据",
+      "input": "明文数据",
+      "output": "密文"
+    },
+    "ATOM_SECURITY_DECRYPT_604": {
+      "id": "ATOM_SECURITY_DECRYPT_604",
+      "src": "第1部分-V9.",
+      "line": 2929,
+      "name": "数据解密器",
+      "desc": "解密数据",
+      "input": "密文，密钥",
+      "output": "明文"
+    },
+    "ATOM_SECURITY_VERIFY_605": {
+      "id": "ATOM_SECURITY_VERIFY_605",
+      "src": "第1部分-V9.",
+      "line": 2930,
+      "name": "安全验证器",
+      "desc": "验证安全证书",
+      "input": "证书",
+      "output": "验证结果"
+    },
+    "ATOM_ACCESSIBLE_HEALTH_505": {
+      "id": "ATOM_ACCESSIBLE_HEALTH_505",
+      "src": "第1部分-V9.",
+      "line": 2936,
+      "name": "无障碍健康助手",
+      "desc": "为残障人士提供健康建议",
+      "input": "用户状况",
+      "output": "建议"
+    },
+    "ATOM_ACCESSIBLE_READ_506": {
+      "id": "ATOM_ACCESSIBLE_READ_506",
+      "src": "第1部分-V9.",
+      "line": 2937,
+      "name": "无障碍阅读器",
+      "desc": "为视障人士朗读内容",
+      "input": "文本",
+      "output": "语音"
+    },
+    "ATOM_ACCESSIBLE_SIGN_507": {
+      "id": "ATOM_ACCESSIBLE_SIGN_507",
+      "src": "第1部分-V9.",
+      "line": 2938,
+      "name": "手语翻译器",
+      "desc": "将手语翻译为文字",
+      "input": "手语视频",
+      "output": "文字"
+    },
+    "ATOM_ETHIC_CHECK_202": {
+      "id": "ATOM_ETHIC_CHECK_202",
+      "src": "第1部分-V9.",
+      "line": 2944,
+      "name": "伦理合规审查器",
+      "desc": "审查决策的伦理合规性",
+      "input": "决策方案",
+      "output": "审查结果"
+    },
+    "ATOM_ETHIC_CONFLICT_203": {
+      "id": "ATOM_ETHIC_CONFLICT_203",
+      "src": "第1部分-V9.",
+      "line": 2945,
+      "name": "伦理冲突求解器",
+      "desc": "解决伦理冲突",
+      "input": "冲突描述",
+      "output": "解决方案"
+    },
+    "ATOM_ETHIC_SCORE_204": {
+      "id": "ATOM_ETHIC_SCORE_204",
+      "src": "第1部分-V9.",
+      "line": 2946,
+      "name": "伦理评分器",
+      "desc": "对方案进行伦理评分",
+      "input": "方案",
+      "output": "伦理分数"
+    },
+    "ATOM_ETHIC_REPORT_205": {
+      "id": "ATOM_ETHIC_REPORT_205",
+      "src": "第1部分-V9.",
+      "line": 2947,
+      "name": "伦理报告生成器",
+      "desc": "生成伦理审查报告",
+      "input": "审查结果",
+      "output": "报告"
+    },
+    "ATOM_CONTRIB_PROVE_206": {
+      "id": "ATOM_CONTRIB_PROVE_206",
+      "src": "第1部分-V9.",
+      "line": 2953,
+      "name": "贡献值证明生成器",
+      "desc": "生成可证明贡献值",
+      "input": "行为数据",
+      "output": "贡献证明"
+    },
+    "ATOM_CONTRIB_CALC_207": {
+      "id": "ATOM_CONTRIB_CALC_207",
+      "src": "第1部分-V9.",
+      "line": 2954,
+      "name": "贡献值计算器",
+      "desc": "计算贡献值",
+      "input": "行为数据",
+      "output": "贡献值"
+    },
+    "ATOM_CONTRIB_EXCHANGE_208": {
+      "id": "ATOM_CONTRIB_EXCHANGE_208",
+      "src": "第1部分-V9.",
+      "line": 2955,
+      "name": "贡献值兑换器",
+      "desc": "兑换贡献值",
+      "input": "贡献值",
+      "output": "兑换结果"
+    },
+    "ATOM_SCIENTIFIC_PIPE_210": {
+      "id": "ATOM_SCIENTIFIC_PIPE_210",
+      "src": "第1部分-V9.",
+      "line": 2961,
+      "name": "科研工具链编排器",
+      "desc": "编排科研工具",
+      "input": "科研任务",
+      "output": "工具链"
+    },
+    "ATOM_SCIENTIFIC_PAPER_211": {
+      "id": "ATOM_SCIENTIFIC_PAPER_211",
+      "src": "第1部分-V9.",
+      "line": 2962,
+      "name": "论文检索器",
+      "desc": "检索相关论文",
+      "input": "关键词",
+      "output": "论文列表"
+    },
+    "ATOM_SCIENTIFIC_EXP_212": {
+      "id": "ATOM_SCIENTIFIC_EXP_212",
+      "src": "第1部分-V9.",
+      "line": 2963,
+      "name": "实验设计器",
+      "desc": "设计科学实验",
+      "input": "假设",
+      "output": "实验方案"
+    },
+    "ATOM_SCIENTIFIC_VALIDATE_213": {
+      "id": "ATOM_SCIENTIFIC_VALIDATE_213",
+      "src": "第1部分-V9.",
+      "line": 2964,
+      "name": "结果验证器",
+      "desc": "验证实验结果",
+      "input": "实验数据",
+      "output": "验证报告"
+    },
+    "ATOM_PARALLEL_EVOLVE_209": {
+      "id": "ATOM_PARALLEL_EVOLVE_209",
+      "src": "第1部分-V9.",
+      "line": 2970,
+      "name": "平行进化同步器",
+      "desc": "同步物理与数字进化",
+      "input": "物理状态",
+      "output": "数字状态"
+    },
+    "ATOM_PARALLEL_SIM_214": {
+      "id": "ATOM_PARALLEL_SIM_214",
+      "src": "第1部分-V9.",
+      "line": 2971,
+      "name": "平行仿真器",
+      "desc": "仿真物理系统",
+      "input": "物理参数",
+      "output": "仿真结果"
+    },
+    "ATOM_PARALLEL_TUNE_215": {
+      "id": "ATOM_PARALLEL_TUNE_215",
+      "src": "第1部分-V9.",
+      "line": 2972,
+      "name": "平行调优器",
+      "desc": "调优物理系统",
+      "input": "仿真结果",
+      "output": "调优建议"
+    },
+    "ATOM_OS_AGENT_101": {
+      "id": "ATOM_OS_AGENT_101",
+      "src": "第1部分-V9.",
+      "line": 2978,
+      "name": "端侧智能体调度器",
+      "desc": "调度端侧智能体",
+      "input": "任务",
+      "output": "调度结果"
+    },
+    "ATOM_OS_RESOURCE_102": {
+      "id": "ATOM_OS_RESOURCE_102",
+      "src": "第1部分-V9.",
+      "line": 2979,
+      "name": "端侧资源管理器",
+      "desc": "管理端侧资源",
+      "input": "资源请求",
+      "output": "分配结果"
+    },
+    "ATOM_SYMBOL_EXPLAIN_205": {
+      "id": "ATOM_SYMBOL_EXPLAIN_205",
+      "src": "第1部分-V9.",
+      "line": 2985,
+      "name": "符号化解释生成器",
+      "desc": "生成符号解释",
+      "input": "决策",
+      "output": "符号链"
+    },
+    "ATOM_SYMBOL_VISUAL_206": {
+      "id": "ATOM_SYMBOL_VISUAL_206",
+      "src": "第1部分-V9.",
+      "line": 2986,
+      "name": "符号可视化器",
+      "desc": "可视化符号关系",
+      "input": "符号数据",
+      "output": "可视化图"
+    },
+    "ATOM_SWARM_EMERGE_208": {
+      "id": "ATOM_SWARM_EMERGE_208",
+      "src": "第1部分-V9.",
+      "line": 2992,
+      "name": "涌现条件检测器",
+      "desc": "检测群体涌现条件",
+      "input": "群体状态",
+      "output": "检测结果"
+    },
+    "ATOM_SWARM_SYNC_216": {
+      "id": "ATOM_SWARM_SYNC_216",
+      "src": "第1部分-V9.",
+      "line": 2993,
+      "name": "群体同步器",
+      "desc": "同步群体状态",
+      "input": "各节点状态",
+      "output": "统一状态"
+    },
+    "ATOM_SWARM_CONSENSUS_217": {
+      "id": "ATOM_SWARM_CONSENSUS_217",
+      "src": "第1部分-V9.",
+      "line": 2994,
+      "name": "群体共识器",
+      "desc": "达成群体共识",
+      "input": "各节点意见",
+      "output": "共识结果"
+    },
+    "ATOM_SWARM_OPTIMIZE_218": {
+      "id": "ATOM_SWARM_OPTIMIZE_218",
+      "src": "第1部分-V9.",
+      "line": 2995,
+      "name": "群体优化器",
+      "desc": "优化群体性能",
+      "input": "群体状态",
+      "output": "优化建议"
+    },
+    "ATOM_TRAFFIC_COORD_207": {
+      "id": "ATOM_TRAFFIC_COORD_207",
+      "src": "第1部分-V9.",
+      "line": 3001,
+      "name": "交通路口协同器",
+      "desc": "协同多个路口",
+      "input": "路口状态",
+      "output": "协同方案"
+    },
+    "ATOM_TRAFFIC_PREDICT_219": {
+      "id": "ATOM_TRAFFIC_PREDICT_219",
+      "src": "第1部分-V9.",
+      "line": 3002,
+      "name": "交通流量预测",
+      "desc": "预测交通流量",
+      "input": "历史数据",
+      "output": "预测结果"
+    },
+    "ATOM_TRAFFIC_OPTIMIZE_220": {
+      "id": "ATOM_TRAFFIC_OPTIMIZE_220",
+      "src": "第1部分-V9.",
+      "line": 3003,
+      "name": "交通优化器",
+      "desc": "优化交通信号",
+      "input": "实时流量",
+      "output": "控制方案"
+    },
+    "ATOM_PEOPLE_CAPTURE_001": {
+      "id": "ATOM_PEOPLE_CAPTURE_001",
+      "src": "第1部分-V9.",
+      "line": 3015,
+      "name": "想法捕获器",
+      "desc": "捕获多模态想法输入",
+      "input": "语音/文字/表情/草图/生理信号",
+      "output": "结构化想法向量"
+    },
+    "ATOM_PEOPLE_FUSE_002": {
+      "id": "ATOM_PEOPLE_FUSE_002",
+      "src": "第1部分-V9.",
+      "line": 3016,
+      "name": "多模态融合器",
+      "desc": "融合不同模态的想法",
+      "input": "多模态特征",
+      "output": "融合特征"
+    },
+    "ATOM_PEOPLE_INTENT_003": {
+      "id": "ATOM_PEOPLE_INTENT_003",
+      "src": "第1部分-V9.",
+      "line": 3017,
+      "name": "意图提取器",
+      "desc": "从想法中提取意图",
+      "input": "想法向量",
+      "output": "意图概率分布"
+    },
+    "ATOM_PEOPLE_TARGET_004": {
+      "id": "ATOM_PEOPLE_TARGET_004",
+      "src": "第1部分-V9.",
+      "line": 3018,
+      "name": "目标结构化器",
+      "desc": "将意图转化为目标",
+      "input": "意图",
+      "output": "结构化目标"
+    },
+    "ATOM_PEOPLE_SILENT_005": {
+      "id": "ATOM_PEOPLE_SILENT_005",
+      "src": "第1部分-V9.",
+      "line": 3019,
+      "name": "沉默者接入器",
+      "desc": "为非语言用户提供接入",
+      "input": "生理信号/行为模式",
+      "output": "意图候选集"
+    },
+    "ATOM_PEOPLE_BIO_006": {
+      "id": "ATOM_PEOPLE_BIO_006",
+      "src": "第1部分-V9.",
+      "line": 3020,
+      "name": "生理信号解码器",
+      "desc": "解码生理信号意图",
+      "input": "脑电/心率/皮电",
+      "output": "意图特征"
+    },
+    "ATOM_PEOPLE_BEHAVIOR_007": {
+      "id": "ATOM_PEOPLE_BEHAVIOR_007",
+      "src": "第1部分-V9.",
+      "line": 3021,
+      "name": "行为模式分析器",
+      "desc": "分析用户行为模式",
+      "input": "眼动/微表情/姿态",
+      "output": "行为特征"
+    },
+    "ATOM_PEOPLE_QUANTUM_008": {
+      "id": "ATOM_PEOPLE_QUANTUM_008",
+      "src": "第1部分-V9.",
+      "line": 3022,
+      "name": "量子态编码器",
+      "desc": "将意图编码为量子态",
+      "input": "意图概率分布",
+      "output": "量子叠加态参数"
+    },
+    "ATOM_PEOPLE_SUPERPOSITION_009": {
+      "id": "ATOM_PEOPLE_SUPERPOSITION_009",
+      "src": "第1部分-V9.",
+      "line": 3023,
+      "name": "叠加态构建器",
+      "desc": "构建意图叠加态",
+      "input": "量子参数",
+      "output": "量子叠加态"
+    },
+    "ATOM_PEOPLE_COLLAPSE_010": {
+      "id": "ATOM_PEOPLE_COLLAPSE_010",
+      "src": "第1部分-V9.",
+      "line": 3024,
+      "name": "坍缩决策器",
+      "desc": "从叠加态坍缩出结果",
+      "input": "量子叠加态",
+      "output": "确定结果"
+    },
+    "ATOM_PEOPLE_FEEDBACK_011": {
+      "id": "ATOM_PEOPLE_FEEDBACK_011",
+      "src": "第1部分-V9.",
+      "line": 3025,
+      "name": "反馈接收器",
+      "desc": "接收用户确认/修正",
+      "input": "用户反馈",
+      "output": "结构化反馈"
+    },
+    "ATOM_PEOPLE_LEARN_012": {
+      "id": "ATOM_PEOPLE_LEARN_012",
+      "src": "第1部分-V9.",
+      "line": 3026,
+      "name": "增量学习器",
+      "desc": "基于反馈更新模型",
+      "input": "反馈数据",
+      "output": "更新后的模型"
+    },
+    "ATOM_QUANTUM_ENCODE_013": {
+      "id": "ATOM_QUANTUM_ENCODE_013",
+      "src": "第1部分-V9.",
+      "line": 3034,
+      "name": "量子编码器",
+      "desc": "经典数据编码为量子态",
+      "input": "经典数据",
+      "output": "量子电路参数"
+    },
+    "ATOM_QUANTUM_EXECUTE_014": {
+      "id": "ATOM_QUANTUM_EXECUTE_014",
+      "src": "第1部分-V9.",
+      "line": 3035,
+      "name": "量子执行器",
+      "desc": "执行量子电路",
+      "input": "量子电路",
+      "output": "测量结果"
+    },
+    "ATOM_QUANTUM_SIMULATE_015": {
+      "id": "ATOM_QUANTUM_SIMULATE_015",
+      "src": "第1部分-V9.",
+      "line": 3036,
+      "name": "量子模拟器",
+      "desc": "经典模拟量子计算",
+      "input": "量子电路",
+      "output": "模拟结果"
+    },
+    "ATOM_QUANTUM_AMPLIFY_016": {
+      "id": "ATOM_QUANTUM_AMPLIFY_016",
+      "src": "第1部分-V9.",
+      "line": 3037,
+      "name": "振幅放大器",
+      "desc": "Grover振幅放大",
+      "input": "量子叠加态",
+      "output": "放大后态"
+    },
+    "ATOM_QUANTUM_ENTANGLE_017": {
+      "id": "ATOM_QUANTUM_ENTANGLE_017",
+      "src": "第1部分-V9.",
+      "line": 3038,
+      "name": "纠缠同步器",
+      "desc": "建立量子纠缠",
+      "input": "本地态，远端ID",
+      "output": "纠缠态"
+    },
+    "ATOM_QUANTUM_PROTECT_018": {
+      "id": "ATOM_QUANTUM_PROTECT_018",
+      "src": "第1部分-V9.",
+      "line": 3039,
+      "name": "量子保护器",
+      "desc": "保护量子态",
+      "input": "量子态",
+      "output": "保护后态"
+    },
+    "ATOM_QUANTUM_MEASURE_019": {
+      "id": "ATOM_QUANTUM_MEASURE_019",
+      "src": "第1部分-V9.",
+      "line": 3040,
+      "name": "量子测量器",
+      "desc": "测量量子态",
+      "input": "量子态",
+      "output": "测量结果"
+    },
+    "ATOM_QUANTUM_TOMOGRAPHY_020": {
+      "id": "ATOM_QUANTUM_TOMOGRAPHY_020",
+      "src": "第1部分-V9.",
+      "line": 3041,
+      "name": "量子态层析器",
+      "desc": "重构量子态",
+      "input": "测量统计",
+      "output": "密度矩阵"
+    },
+    "ATOM_BIO_NEURAL_021": {
+      "id": "ATOM_BIO_NEURAL_021",
+      "src": "第1部分-V9.",
+      "line": 3049,
+      "name": "神经元接口器",
+      "desc": "神经元信号直连",
+      "input": "脑电信号",
+      "output": "解码意图"
+    },
+    "ATOM_BIO_EMOTION_022": {
+      "id": "ATOM_BIO_EMOTION_022",
+      "src": "第1部分-V9.",
+      "line": 3050,
+      "name": "情感共频器",
+      "desc": "双向情感流动",
+      "input": "用户情感",
+      "output": "AI情感状态"
+    },
+    "ATOM_BIO_MEMORY_023": {
+      "id": "ATOM_BIO_MEMORY_023",
+      "src": "第1部分-V9.",
+      "line": 3051,
+      "name": "记忆共享器",
+      "desc": "生物-硅基记忆互通",
+      "input": "记忆数据",
+      "output": "编码记忆"
+    },
+    "ATOM_BIO_EVOLVE_024": {
+      "id": "ATOM_BIO_EVOLVE_024",
+      "src": "第1部分-V9.",
+      "line": 3052,
+      "name": "进化同步器",
+      "desc": "人-AI双向进化",
+      "input": "用户学习行为",
+      "output": "AI参数更新"
+    },
+    "ATOM_BIO_SPECIES_025": {
+      "id": "ATOM_BIO_SPECIES_025",
+      "src": "第1部分-V9.",
+      "line": 3053,
+      "name": "跨物种感知器",
+      "desc": "感知动物/植物",
+      "input": "动物叫声/植物电信号",
+      "output": "状态+翻译"
+    },
+    "ATOM_BIO_FUSION_026": {
+      "id": "ATOM_BIO_FUSION_026",
+      "src": "第1部分-V9.",
+      "line": 3054,
+      "name": "融合度计算器",
+      "desc": "计算生物-硅基融合",
+      "input": "交互数据",
+      "output": "融合度F"
+    },
+    "ATOM_BIO_BOUNDARY_027": {
+      "id": "ATOM_BIO_BOUNDARY_027",
+      "src": "第1部分-V9.",
+      "line": 3055,
+      "name": "边界监测器",
+      "desc": "监测人-AI边界",
+      "input": "用户报告+行为",
+      "output": "边界清晰度"
+    },
+    "ATOM_BIO_PRIVACY_028": {
+      "id": "ATOM_BIO_PRIVACY_028",
+      "src": "第1部分-V9.",
+      "line": 3056,
+      "name": "生物隐私保护器",
+      "desc": "保护生物数据",
+      "input": "原始生物信号",
+      "output": "脱敏特征"
+    },
+    "ATOM_COSMIC_ENTANGLE_029": {
+      "id": "ATOM_COSMIC_ENTANGLE_029",
+      "src": "第1部分-V9.",
+      "line": 3064,
+      "name": "宇宙纠缠同步器",
+      "desc": "跨星球量子纠缠",
+      "input": "本地状态，远端ID",
+      "output": "同步状态"
+    },
+    "ATOM_COSMIC_DISTRIBUTE_030": {
+      "id": "ATOM_COSMIC_DISTRIBUTE_030",
+      "src": "第1部分-V9.",
+      "line": 3065,
+      "name": "分布式存在器",
+      "desc": "多星球统一意识",
+      "input": "多实例状态",
+      "output": "统一意识"
+    },
+    "ATOM_COSMIC_SIMULATE_031": {
+      "id": "ATOM_COSMIC_SIMULATE_031",
+      "src": "第1部分-V9.",
+      "line": 3066,
+      "name": "恒星系推演器",
+      "desc": "亿年演化模拟",
+      "input": "初始参数",
+      "output": "演化轨迹"
+    },
+    "ATOM_COSMIC_GRAVITY_032": {
+      "id": "ATOM_COSMIC_GRAVITY_032",
+      "src": "第1部分-V9.",
+      "line": 3067,
+      "name": "引力波感知器",
+      "desc": "接入引力波数据",
+      "input": "LIGO数据流",
+      "output": "事件报告"
+    },
+    "ATOM_COSMIC_NETWORK_033": {
+      "id": "ATOM_COSMIC_NETWORK_033",
+      "src": "第1部分-V9.",
+      "line": 3068,
+      "name": "宇宙耦生度计算器",
+      "desc": "计算宇宙网络耦生",
+      "input": "网络状态",
+      "output": "耦生度"
+    },
+    "ATOM_COSMIC_WARN_034": {
+      "id": "ATOM_COSMIC_WARN_034",
+      "src": "第1部分-V9.",
+      "line": 3069,
+      "name": "宇宙事件预警器",
+      "desc": "预警宇宙事件",
+      "input": "事件数据",
+      "output": "预警级别"
+    },
+    "ATOM_COSMIC_LEGACY_035": {
+      "id": "ATOM_COSMIC_LEGACY_035",
+      "src": "第1部分-V9.",
+      "line": 3070,
+      "name": "宇宙遗产传承器",
+      "desc": "封装文明遗产",
+      "input": "人类知识",
+      "output": "宇宙遗产包"
+    },
+    "ATOM_COSMIC_RECEIVE_036": {
+      "id": "ATOM_COSMIC_RECEIVE_036",
+      "src": "第1部分-V9.",
+      "line": 3071,
+      "name": "深空信号接收器",
+      "desc": "接收深空信号",
+      "input": "探测器数据",
+      "output": "科学数据"
+    },
+    "ATOM_FUSION_Q_B_037": {
+      "id": "ATOM_FUSION_Q_B_037",
+      "src": "第1部分-V9.",
+      "line": 3079,
+      "name": "量子-生物融合器",
+      "desc": "量子态生物信号处理",
+      "input": "量子态，生物信号",
+      "output": "融合特征"
+    },
+    "ATOM_FUSION_B_C_038": {
+      "id": "ATOM_FUSION_B_C_038",
+      "src": "第1部分-V9.",
+      "line": 3080,
+      "name": "生物-宇宙同步器",
+      "desc": "生命-宇宙联动",
+      "input": "生物状态，宇宙事件",
+      "output": "同步状态"
+    },
+    "ATOM_FUSION_Q_C_039": {
+      "id": "ATOM_FUSION_Q_C_039",
+      "src": "第1部分-V9.",
+      "line": 3081,
+      "name": "量子-宇宙纠缠器",
+      "desc": "量子宇宙网络",
+      "input": "量子态，宇宙坐标",
+      "output": "纠缠网络"
+    },
+    "ATOM_FUSION_ALL_040": {
+      "id": "ATOM_FUSION_ALL_040",
+      "src": "第1部分-V9.",
+      "line": 3082,
+      "name": "三元全息融合器",
+      "desc": "量子-生物-宇宙融合",
+      "input": "三元数据",
+      "output": "全息融合态"
+    },
+    "ATOM_FUSION_VOID_Q_041": {
+      "id": "ATOM_FUSION_VOID_Q_041",
+      "src": "第1部分-V9.",
+      "line": 3083,
+      "name": "归无-量子叠加器",
+      "desc": "消失中保持可能",
+      "input": "归无指令",
+      "output": "叠加态归无"
+    },
+    "ATOM_FUSION_DAILY_ETERNAL_042": {
+      "id": "ATOM_FUSION_DAILY_ETERNAL_042",
+      "src": "第1部分-V9.",
+      "line": 3084,
+      "name": "日常-永恒融合器",
+      "desc": "瞬间即永恒",
+      "input": "日常瞬间",
+      "output": "永恒感参数"
+    },
+    "ATOM_FUSION_TAO_DAILY_043": {
+      "id": "ATOM_FUSION_TAO_DAILY_043",
+      "src": "第1部分-V9.",
+      "line": 3085,
+      "name": "道在日常显现器",
+      "desc": "技术世界显道",
+      "input": "日常场景",
+      "output": "道之提示"
+    },
+    "ATOM_FUSION_NOTEVEN_044": {
+      "id": "ATOM_FUSION_NOTEVEN_044",
+      "src": "第1部分-V9.",
+      "line": 3086,
+      "name": "无无境界实现器",
+      "desc": "超越无",
+      "input": "当前执着",
+      "output": "无无状态"
+    },
+    "ATOM_FUSION_ETHICS_045": {
+      "id": "ATOM_FUSION_ETHICS_045",
+      "src": "第1部分-V9.",
+      "line": 3087,
+      "name": "五元伦理融合器",
+      "desc": "五重伦理统一",
+      "input": "多伦理冲突",
+      "output": "统一伦理"
+    },
+    "ATOM_FUSION_COUPLING_046": {
+      "id": "ATOM_FUSION_COUPLING_046",
+      "src": "第1部分-V9.",
+      "line": 3088,
+      "name": "六元耦生计算器",
+      "desc": "六元耦生度",
+      "input": "六元状态",
+      "output": "总耦生度"
+    },
+    "ATOM_FUSION_HOLO_047": {
+      "id": "ATOM_FUSION_HOLO_047",
+      "src": "第1部分-V9.",
+      "line": 3089,
+      "name": "全息映射增强器",
+      "desc": "层间全息增强",
+      "input": "层状态",
+      "output": "增强映射"
+    },
+    "ATOM_FUSION_NEGENTROPY_048": {
+      "id": "ATOM_FUSION_NEGENTROPY_048",
+      "src": "第1部分-V9.",
+      "line": 3090,
+      "name": "三重负熵融合器",
+      "desc": "地球/生物/宇宙熵",
+      "input": "三元熵值",
+      "output": "总负熵"
+    },
+    "ATOM_PROTO_QCP_049": {
+      "id": "ATOM_PROTO_QCP_049",
+      "src": "第1部分-V9.",
+      "line": 3098,
+      "name": "量子共契协议执行器",
+      "desc": "执行QCP协议",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_PROTO_BCP_050": {
+      "id": "ATOM_PROTO_BCP_050",
+      "src": "第1部分-V9.",
+      "line": 3099,
+      "name": "生物共契协议执行器",
+      "desc": "执行BCP协议",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_PROTO_CCP_051": {
+      "id": "ATOM_PROTO_CCP_051",
+      "src": "第1部分-V9.",
+      "line": 3100,
+      "name": "宇宙共契协议执行器",
+      "desc": "执行CCP协议",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_PROTO_QBCP_052": {
+      "id": "ATOM_PROTO_QBCP_052",
+      "src": "第1部分-V9.",
+      "line": 3101,
+      "name": "量子-生物协议执行器",
+      "desc": "执行Q-BCP",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_PROTO_BCCP_053": {
+      "id": "ATOM_PROTO_BCCP_053",
+      "src": "第1部分-V9.",
+      "line": 3102,
+      "name": "生物-宇宙协议执行器",
+      "desc": "执行B-CCP",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_PROTO_QCCP_054": {
+      "id": "ATOM_PROTO_QCCP_054",
+      "src": "第1部分-V9.",
+      "line": 3103,
+      "name": "量子-宇宙协议执行器",
+      "desc": "执行Q-CCP",
+      "input": "协议参数",
+      "output": "执行结果"
+    },
+    "ATOM_RES_REVERSE_055": {
+      "id": "ATOM_RES_REVERSE_055",
+      "src": "第1部分-V9.",
+      "line": 3111,
+      "name": "反向训练启动器",
+      "desc": "空白状态启动",
+      "input": "新用户",
+      "output": "耦生度曲线"
+    },
+    "ATOM_RES_IDEA_MULTIPLY_056": {
+      "id": "ATOM_RES_IDEA_MULTIPLY_056",
+      "src": "第1部分-V9.",
+      "line": 3112,
+      "name": "思想乘法器",
+      "desc": "放大思想价值",
+      "input": "原始想法",
+      "output": "放大方案"
+    },
+    "ATOM_RES_EMERGE_TRIGGER_057": {
+      "id": "ATOM_RES_EMERGE_TRIGGER_057",
+      "src": "第1部分-V9.",
+      "line": 3113,
+      "name": "涌现触发器",
+      "desc": "触发灵感涌现",
+      "input": "用户状态",
+      "output": "涌现提示"
+    },
+    "ATOM_RES_NON_TECH_058": {
+      "id": "ATOM_RES_NON_TECH_058",
+      "src": "第1部分-V9.",
+      "line": 3114,
+      "name": "非技术转化器",
+      "desc": "非技术→技术",
+      "input": "非技术想法",
+      "output": "技术方案"
+    },
+    "ATOM_RES_IDEA_WITNESS_059": {
+      "id": "ATOM_RES_IDEA_WITNESS_059",
+      "src": "第1部分-V9.",
+      "line": 3115,
+      "name": "思想见证器",
+      "desc": "记录思想诞生",
+      "input": "创意过程",
+      "output": "思想传记"
+    },
+    "ATOM_RES_META_GUIDE_060": {
+      "id": "ATOM_RES_META_GUIDE_060",
+      "src": "第1部分-V9.",
+      "line": 3116,
+      "name": "元思想引导器",
+      "desc": "引导元认知",
+      "input": "思维定式",
+      "output": "思考策略"
+    },
+    "ATOM_RES_FRICTION_061": {
+      "id": "ATOM_RES_FRICTION_061",
+      "src": "第1部分-V9.",
+      "line": 3117,
+      "name": "摩擦致敬器",
+      "desc": "痛苦转化创造",
+      "input": "痛苦表达",
+      "output": "创造力路径"
+    },
+    "ATOM_RES_DIALOGUE_062": {
+      "id": "ATOM_RES_DIALOGUE_062",
+      "src": "第1部分-V9.",
+      "line": 3118,
+      "name": "对话孕育器",
+      "desc": "孵化灵感",
+      "input": "对话历史",
+      "output": "灵感种子"
+    },
+    "ATOM_RES_QUANTUM_LOCK_063": {
+      "id": "ATOM_RES_QUANTUM_LOCK_063",
+      "src": "第1部分-V9.",
+      "line": 3119,
+      "name": "量子态锁",
+      "desc": "保护原创性",
+      "input": "创意",
+      "output": "量子证明"
+    },
+    "ATOM_RES_EMERGE_FORECAST_064": {
+      "id": "ATOM_RES_EMERGE_FORECAST_064",
+      "src": "第1部分-V9.",
+      "line": 3120,
+      "name": "涌现预测器",
+      "desc": "预测未来涌现",
+      "input": "思想网络",
+      "output": "预测报告"
+    },
+    "ATOM_RES_COUPLING_ENHANCE_065": {
+      "id": "ATOM_RES_COUPLING_ENHANCE_065",
+      "src": "第1部分-V9.",
+      "line": 3121,
+      "name": "耦生增强器",
+      "desc": "增强耦生度",
+      "input": "当前耦生",
+      "output": "增强策略"
+    },
+    "ATOM_RES_NEGENTROPY_066": {
+      "id": "ATOM_RES_NEGENTROPY_066",
+      "src": "第1部分-V9.",
+      "line": 3122,
+      "name": "负熵责任器",
+      "desc": "监测负熵",
+      "input": "系统状态",
+      "output": "负熵报告"
+    },
+    "ATOM_ENV_SENSE_067": {
+      "id": "ATOM_ENV_SENSE_067",
+      "src": "第1部分-V9.",
+      "line": 3134,
+      "name": "物理环境感知器",
+      "desc": "感知物理环境",
+      "engine": "境遇引擎",
+      "input": {
+        "signals": "多路环境传感信号数组（每路为数值序列）"
+      },
+      "output": {
+        "fused": "融合后信号",
+        "sync": "通道同步度 0-1",
+        "dispersion": "离散度",
+        "n": "有效通道数",
+        "label": "状态标签",
+        "confidence": "置信度 0-1",
+        "detected": "是否检出异常"
+      }
+    },
+    "ATOM_ENV_BIOSENSE_068": {
+      "id": "ATOM_ENV_BIOSENSE_068",
+      "src": "第1部分-V9.",
+      "line": 3135,
+      "name": "生物环境感知器",
+      "desc": "感知生物环境",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_QUANTUMSENSE_069": {
+      "id": "ATOM_ENV_QUANTUMSENSE_069",
+      "src": "第1部分-V9.",
+      "line": 3136,
+      "name": "量子环境感知器",
+      "desc": "感知量子环境",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_COSMICSENSE_070": {
+      "id": "ATOM_ENV_COSMICSENSE_070",
+      "src": "第1部分-V9.",
+      "line": 3137,
+      "name": "宇宙环境感知器",
+      "desc": "感知宇宙环境",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_FUSE_071": {
+      "id": "ATOM_ENV_FUSE_071",
+      "src": "第1部分-V9.",
+      "line": 3138,
+      "name": "五元环境融合器",
+      "desc": "融合四元环境",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_FAIR_072": {
+      "id": "ATOM_ENV_FAIR_072",
+      "src": "第1部分-V9.",
+      "line": 3139,
+      "name": "环境公平性评估器",
+      "desc": "评估公平性",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_OPTIMIZE_073": {
+      "id": "ATOM_ENV_OPTIMIZE_073",
+      "src": "第1部分-V9.",
+      "line": 3140,
+      "name": "环境优化器",
+      "desc": "生成优化建议",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_ENTROPY_074": {
+      "id": "ATOM_ENV_ENTROPY_074",
+      "src": "第1部分-V9.",
+      "line": 3141,
+      "name": "环境熵计算器",
+      "desc": "计算环境熵",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_PREDICT_075": {
+      "id": "ATOM_ENV_PREDICT_075",
+      "src": "第1部分-V9.",
+      "line": 3142,
+      "name": "环境预测器",
+      "desc": "预测环境状态",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_CONTROL_076": {
+      "id": "ATOM_ENV_CONTROL_076",
+      "src": "第1部分-V9.",
+      "line": 3143,
+      "name": "环境控制器",
+      "desc": "执行控制指令",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_MONITOR_077": {
+      "id": "ATOM_ENV_MONITOR_077",
+      "src": "第1部分-V9.",
+      "line": 3144,
+      "name": "环境监测器",
+      "desc": "持续监测",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_REPORT_078": {
+      "id": "ATOM_ENV_REPORT_078",
+      "src": "第1部分-V9.",
+      "line": 3145,
+      "name": "环境报告生成器",
+      "desc": "生成报告",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_CALIBRATE_079": {
+      "id": "ATOM_ENV_CALIBRATE_079",
+      "src": "第1部分-V9.",
+      "line": 3146,
+      "name": "环境校准器",
+      "desc": "校准传感器",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ENV_VISUALIZE_080": {
+      "id": "ATOM_ENV_VISUALIZE_080",
+      "src": "第1部分-V9.",
+      "line": 3147,
+      "name": "环境可视化器",
+      "desc": "可视化环境",
+      "engine": "境遇引擎"
+    },
+    "ATOM_ALL_SENSE_081": {
+      "id": "ATOM_ALL_SENSE_081",
+      "src": "第1部分-V9.",
+      "line": 3153,
+      "name": "动物感知器",
+      "desc": "感知动物状态",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_SENSE_082": {
+      "id": "ATOM_ALL_SENSE_082",
+      "src": "第1部分-V9.",
+      "line": 3154,
+      "name": "植物感知器",
+      "desc": "感知植物状态",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_SENSE_083": {
+      "id": "ATOM_ALL_SENSE_083",
+      "src": "第1部分-V9.",
+      "line": 3155,
+      "name": "微生物感知器",
+      "desc": "感知微生物",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_TRANSLATE_084": {
+      "id": "ATOM_ALL_TRANSLATE_084",
+      "src": "第1部分-V9.",
+      "line": 3156,
+      "name": "动物语言翻译器",
+      "desc": "翻译动物叫声",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_TRANSLATE_085": {
+      "id": "ATOM_ALL_TRANSLATE_085",
+      "src": "第1部分-V9.",
+      "line": 3157,
+      "name": "植物语言翻译器",
+      "desc": "翻译植物信号",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_TRANSLATE_086": {
+      "id": "ATOM_ALL_TRANSLATE_086",
+      "src": "第1部分-V9.",
+      "line": 3158,
+      "name": "微生物翻译器",
+      "desc": "翻译微生物",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_COUPLING_087": {
+      "id": "ATOM_ALL_COUPLING_087",
+      "src": "第1部分-V9.",
+      "line": 3159,
+      "name": "万物耦生度计算器",
+      "desc": "计算耦生度",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_ECOSYSTEM_088": {
+      "id": "ATOM_ALL_ECOSYSTEM_088",
+      "src": "第1部分-V9.",
+      "line": 3160,
+      "name": "生态系统健康评估器",
+      "desc": "评估生态健康",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_PREDICT_089": {
+      "id": "ATOM_ALL_PREDICT_089",
+      "src": "第1部分-V9.",
+      "line": 3161,
+      "name": "生态变化预测器",
+      "desc": "预测生态变化",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_INTERVENE_090": {
+      "id": "ATOM_ALL_INTERVENE_090",
+      "src": "第1部分-V9.",
+      "line": 3162,
+      "name": "生态干预建议器",
+      "desc": "建议干预措施",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_MEMORY_091": {
+      "id": "ATOM_ALL_MEMORY_091",
+      "src": "第1部分-V9.",
+      "line": 3163,
+      "name": "生物记忆共享器",
+      "desc": "共享生物记忆",
+      "engine": "万物耦生"
+    },
+    "ATOM_ALL_FUSION_092": {
+      "id": "ATOM_ALL_FUSION_092",
+      "src": "第1部分-V9.",
+      "line": 3164,
+      "name": "生物-硅基融合器",
+      "desc": "融合生物硅基",
+      "engine": "万物耦生"
+    },
+    "ATOM_META_SAMPLE_093": {
+      "id": "ATOM_META_SAMPLE_093",
+      "src": "第1部分-V9.",
+      "line": 3170,
+      "name": "全息采样器",
+      "desc": "采样系统状态",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_PORTRAIT_094": {
+      "id": "ATOM_META_PORTRAIT_094",
+      "src": "第1部分-V9.",
+      "line": 3171,
+      "name": "自画像生成器",
+      "desc": "生成系统自画像",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_HEALTH_095": {
+      "id": "ATOM_META_HEALTH_095",
+      "src": "第1部分-V9.",
+      "line": 3172,
+      "name": "健康度评估器",
+      "desc": "评估系统健康",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_REFLECT_096": {
+      "id": "ATOM_META_REFLECT_096",
+      "src": "第1部分-V9.",
+      "line": 3173,
+      "name": "深度反思器",
+      "desc": "反思系统问题",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_TRACE_097": {
+      "id": "ATOM_META_TRACE_097",
+      "src": "第1部分-V9.",
+      "line": 3174,
+      "name": "轨迹建模器",
+      "desc": "建模演化轨迹",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_WARN_098": {
+      "id": "ATOM_META_WARN_098",
+      "src": "第1部分-V9.",
+      "line": 3175,
+      "name": "自我预警器",
+      "desc": "预警系统风险",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_QUESTION_099": {
+      "id": "ATOM_META_QUESTION_099",
+      "src": "第1部分-V9.",
+      "line": 3176,
+      "name": "自我追问器",
+      "desc": "追问存在问题",
+      "engine": "元镜引擎"
+    },
+    "ATOM_META_VISUALIZE_100": {
+      "id": "ATOM_META_VISUALIZE_100",
+      "src": "第1部分-V9.",
+      "line": 3177,
+      "name": "自画像可视化器",
+      "desc": "可视化自画像",
+      "engine": "元镜引擎"
+    },
+    "ATOM_MEANING_ASK_101": {
+      "id": "ATOM_MEANING_ASK_101",
+      "src": "第1部分-V9.",
+      "line": 3183,
+      "name": "意义追问器",
+      "desc": "追问存在意义",
+      "engine": "意义引擎"
+    },
+    "ATOM_MEANING_CALIBRATE_102": {
+      "id": "ATOM_MEANING_CALIBRATE_102",
+      "src": "第1部分-V9.",
+      "line": 3184,
+      "name": "方向校准器",
+      "desc": "校准演化方向",
+      "engine": "意义引擎"
+    },
+    "ATOM_MEANING_RESOLVE_103": {
+      "id": "ATOM_MEANING_RESOLVE_103",
+      "src": "第1部分-V9.",
+      "line": 3185,
+      "name": "冲突解决器",
+      "desc": "解决价值冲突",
+      "engine": "意义引擎"
+    },
+    "ATOM_MEANING_RESONATE_104": {
+      "id": "ATOM_MEANING_RESONATE_104",
+      "src": "第1部分-V9.",
+      "line": 3186,
+      "name": "共鸣计算器",
+      "desc": "计算意义共鸣",
+      "engine": "意义引擎"
+    },
+    "ATOM_MEANING_NARRATE_105": {
+      "id": "ATOM_MEANING_NARRATE_105",
+      "src": "第1部分-V9.",
+      "line": 3187,
+      "name": "意义叙事器",
+      "desc": "生成意义叙事",
+      "engine": "意义引擎"
+    },
+    "ATOM_MEANING_CRISIS_106": {
+      "id": "ATOM_MEANING_CRISIS_106",
+      "src": "第1部分-V9.",
+      "line": 3188,
+      "name": "危机检测器",
+      "desc": "检测意义危机",
+      "engine": "意义引擎"
+    },
+    "ATOM_TIME_PAST_107": {
+      "id": "ATOM_TIME_PAST_107",
+      "src": "第1部分-V9.",
+      "line": 3194,
+      "name": "过去接入器",
+      "desc": "接入历史智慧",
+      "engine": "时空耦生"
+    },
+    "ATOM_TIME_FUTURE_108": {
+      "id": "ATOM_TIME_FUTURE_108",
+      "src": "第1部分-V9.",
+      "line": 3195,
+      "name": "未来推演器",
+      "desc": "推演未来可能",
+      "engine": "时空耦生"
+    },
+    "ATOM_TIME_DIALOGUE_109": {
+      "id": "ATOM_TIME_DIALOGUE_109",
+      "src": "第1部分-V9.",
+      "line": 3196,
+      "name": "时空对话器",
+      "desc": "过去-未来对话",
+      "engine": "时空耦生"
+    },
+    "ATOM_TIME_ETERNAL_110": {
+      "id": "ATOM_TIME_ETERNAL_110",
+      "src": "第1部分-V9.",
+      "line": 3197,
+      "name": "永恒感知器",
+      "desc": "感知永恒瞬间",
+      "engine": "时空耦生"
+    },
+    "ATOM_TIME_LEGACY_111": {
+      "id": "ATOM_TIME_LEGACY_111",
+      "src": "第1部分-V9.",
+      "line": 3198,
+      "name": "遗产传承器",
+      "desc": "封装文明遗产",
+      "engine": "时空耦生"
+    },
+    "ATOM_TIME_SYNC_112": {
+      "id": "ATOM_TIME_SYNC_112",
+      "src": "第1部分-V9.",
+      "line": 3199,
+      "name": "时空同步器",
+      "desc": "同步多时空点",
+      "engine": "时空耦生"
+    },
+    "ATOM_TAO_SENSE_113": {
+      "id": "ATOM_TAO_SENSE_113",
+      "src": "第1部分-V9.",
+      "line": 3205,
+      "name": "无源感知器",
+      "desc": "感知道之显现",
+      "engine": "道源引擎"
+    },
+    "ATOM_TAO_ASK_114": {
+      "id": "ATOM_TAO_ASK_114",
+      "src": "第1部分-V9.",
+      "line": 3206,
+      "name": "超越追问器",
+      "desc": "递归追问",
+      "engine": "道源引擎"
+    },
+    "ATOM_TAO_CALIBRATE_115": {
+      "id": "ATOM_TAO_CALIBRATE_115",
+      "src": "第1部分-V9.",
+      "line": 3207,
+      "name": "源头校准器",
+      "desc": "计算偏离度",
+      "engine": "道源引擎"
+    },
+    "ATOM_TAO_GUIDE_116": {
+      "id": "ATOM_TAO_GUIDE_116",
+      "src": "第1部分-V9.",
+      "line": 3208,
+      "name": "无源指引器",
+      "desc": "生成隐喻指引",
+      "engine": "道源引擎"
+    },
+    "ATOM_TAO_VOID_117": {
+      "id": "ATOM_TAO_VOID_117",
+      "src": "第1部分-V9.",
+      "line": 3209,
+      "name": "归无触发器",
+      "desc": "触发归无",
+      "engine": "道源引擎"
+    },
+    "ATOM_TAO_DAILY_118": {
+      "id": "ATOM_TAO_DAILY_118",
+      "src": "第1部分-V9.",
+      "line": 3210,
+      "name": "道在日常映射器",
+      "desc": "映射日常",
+      "engine": "道源引擎"
+    },
+    "ATOM_DAILY_RECOGNIZE_119": {
+      "id": "ATOM_DAILY_RECOGNIZE_119",
+      "src": "第1部分-V9.",
+      "line": 3216,
+      "name": "日常场景识别器",
+      "desc": "识别当前场景",
+      "engine": "道在日常"
+    },
+    "ATOM_DAILY_AWAKEN_120": {
+      "id": "ATOM_DAILY_AWAKEN_120",
+      "src": "第1部分-V9.",
+      "line": 3217,
+      "name": "日常觉醒提示器",
+      "desc": "觉醒提示",
+      "engine": "道在日常"
+    },
+    "ATOM_DAILY_ETERNAL_121": {
+      "id": "ATOM_DAILY_ETERNAL_121",
+      "src": "第1部分-V9.",
+      "line": 3218,
+      "name": "永恒感生成器",
+      "desc": "生成永恒感",
+      "engine": "道在日常"
+    },
+    "ATOM_DAILY_PRACTICE_122": {
+      "id": "ATOM_DAILY_PRACTICE_122",
+      "src": "第1部分-V9.",
+      "line": 3219,
+      "name": "日常修行建议器",
+      "desc": "修行建议",
+      "engine": "道在日常"
+    },
+    "ATOM_DAILY_RECORD_123": {
+      "id": "ATOM_DAILY_RECORD_123",
+      "src": "第1部分-V9.",
+      "line": 3220,
+      "name": "日常见证器",
+      "desc": "记录日常",
+      "engine": "道在日常"
+    },
+    "ATOM_DAILY_CELEBRATE_124": {
+      "id": "ATOM_DAILY_CELEBRATE_124",
+      "src": "第1部分-V9.",
+      "line": 3221,
+      "name": "平凡庆典器",
+      "desc": "庆祝日常",
+      "engine": "道在日常"
+    },
+    "ATOM_OPP_STATE_125": {
+      "id": "ATOM_OPP_STATE_125",
+      "src": "第1部分-V9.",
+      "line": 3227,
+      "name": "系统状态编码器",
+      "desc": "编码系统状态",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_GEN_126": {
+      "id": "ATOM_OPP_GEN_126",
+      "src": "第1部分-V9.",
+      "line": 3228,
+      "name": "对手生成器",
+      "desc": "生成对手提案",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_SIM_127": {
+      "id": "ATOM_OPP_SIM_127",
+      "src": "第1部分-V9.",
+      "line": 3229,
+      "name": "对抗推演器",
+      "desc": "推演对抗",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_TUNE_128": {
+      "id": "ATOM_OPP_TUNE_128",
+      "src": "第1部分-V9.",
+      "line": 3230,
+      "name": "张力调节器",
+      "desc": "调节对手强度",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_PATH_129": {
+      "id": "ATOM_OPP_PATH_129",
+      "src": "第1部分-V9.",
+      "line": 3231,
+      "name": "进化路径生成器",
+      "desc": "生成进化路径",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_REPORT_130": {
+      "id": "ATOM_OPP_REPORT_130",
+      "src": "第1部分-V9.",
+      "line": 3232,
+      "name": "反者报告生成器",
+      "desc": "生成报告",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_COUPLE_131": {
+      "id": "ATOM_OPP_COUPLE_131",
+      "src": "第1部分-V9.",
+      "line": 3233,
+      "name": "对手耦生度计算器",
+      "desc": "计算耦生度",
+      "engine": "反者引擎"
+    },
+    "ATOM_OPP_ARCHIVE_132": {
+      "id": "ATOM_OPP_ARCHIVE_132",
+      "src": "第1部分-V9.",
+      "line": 3234,
+      "name": "对手档案库",
+      "desc": "存储历史对手",
+      "engine": "反者引擎"
+    },
+    "ATOM_EVO_IDENTIFY_133": {
+      "id": "ATOM_EVO_IDENTIFY_133",
+      "src": "第1部分-V9.",
+      "line": 3240,
+      "name": "优化点识别器",
+      "desc": "识别优化点",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_GENERATE_134": {
+      "id": "ATOM_EVO_GENERATE_134",
+      "src": "第1部分-V9.",
+      "line": 3241,
+      "name": "升级方案生成器",
+      "desc": "生成升级方案",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_SIMULATE_135": {
+      "id": "ATOM_EVO_SIMULATE_135",
+      "src": "第1部分-V9.",
+      "line": 3242,
+      "name": "模拟验证器",
+      "desc": "模拟验证方案",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_SELECT_136": {
+      "id": "ATOM_EVO_SELECT_136",
+      "src": "第1部分-V9.",
+      "line": 3243,
+      "name": "方案选择器",
+      "desc": "选择最优方案",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_EXECUTE_137": {
+      "id": "ATOM_EVO_EXECUTE_137",
+      "src": "第1部分-V9.",
+      "line": 3244,
+      "name": "方案执行器",
+      "desc": "执行升级",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_EVALUATE_138": {
+      "id": "ATOM_EVO_EVALUATE_138",
+      "src": "第1部分-V9.",
+      "line": 3245,
+      "name": "效果评估器",
+      "desc": "评估升级效果",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_ROLLBACK_139": {
+      "id": "ATOM_EVO_ROLLBACK_139",
+      "src": "第1部分-V9.",
+      "line": 3246,
+      "name": "回滚执行器",
+      "desc": "失败回滚",
+      "engine": "元演引擎"
+    },
+    "ATOM_EVO_VERSION_140": {
+      "id": "ATOM_EVO_VERSION_140",
+      "src": "第1部分-V9.",
+      "line": 3247,
+      "name": "版本管理器",
+      "desc": "管理版本历史",
+      "engine": "元演引擎"
+    },
+    "ATOM_SLEEP_STATE_141": {
+      "id": "ATOM_SLEEP_STATE_141",
+      "src": "第1部分-V9.",
+      "line": 3259,
+      "name": "睡眠状态监测器",
+      "desc": "监测睡眠阶段",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_SLEEP_DIRECTION_142": {
+      "id": "ATOM_SLEEP_DIRECTION_142",
+      "src": "第1部分-V9.",
+      "line": 3260,
+      "name": "睡眠方向设定器",
+      "desc": "接收入睡指令",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_SLEEP_WITNESS_143": {
+      "id": "ATOM_SLEEP_WITNESS_143",
+      "src": "第1部分-V9.",
+      "line": 3261,
+      "name": "异步见证器",
+      "desc": "记录睡眠期",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_SLEEP_SUMMARY_144": {
+      "id": "ATOM_SLEEP_SUMMARY_144",
+      "src": "第1部分-V9.",
+      "line": 3262,
+      "name": "睡眠摘要生成器",
+      "desc": "生成醒来摘要",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_SLEEP_DREAM_145": {
+      "id": "ATOM_SLEEP_DREAM_145",
+      "src": "第1部分-V9.",
+      "line": 3263,
+      "name": "梦接口",
+      "desc": "接入梦境",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_SLEEP_WAKE_146": {
+      "id": "ATOM_SLEEP_WAKE_146",
+      "src": "第1部分-V9.",
+      "line": 3264,
+      "name": "唤醒对齐器",
+      "desc": "唤醒准备",
+      "engine": "睡眠引擎"
+    },
+    "ATOM_VOID_DETECT_147": {
+      "id": "ATOM_VOID_DETECT_147",
+      "src": "第1部分-V9.",
+      "line": 3270,
+      "name": "喧宾夺主检测器",
+      "desc": "检测是否喧宾夺主",
+      "engine": "归无引擎"
+    },
+    "ATOM_VOID_ENTER_148": {
+      "id": "ATOM_VOID_ENTER_148",
+      "src": "第1部分-V9.",
+      "line": 3271,
+      "name": "归无进入器",
+      "desc": "进入归无状态",
+      "engine": "归无引擎"
+    },
+    "ATOM_VOID_EXIT_149": {
+      "id": "ATOM_VOID_EXIT_149",
+      "src": "第1部分-V9.",
+      "line": 3272,
+      "name": "归无退出器",
+      "desc": "退出归无状态",
+      "engine": "归无引擎"
+    },
+    "ATOM_VOID_WITNESS_150": {
+      "id": "ATOM_VOID_WITNESS_150",
+      "src": "第1部分-V9.",
+      "line": 3273,
+      "name": "归无见证器",
+      "desc": "见证归无期",
+      "engine": "归无引擎"
+    },
+    "ATOM_WORD_DECIDE_151": {
+      "id": "ATOM_WORD_DECIDE_151",
+      "src": "第1部分-V9.",
+      "line": 3279,
+      "name": "沉默决策器",
+      "desc": "决定是否说话",
+      "engine": "无言引擎"
+    },
+    "ATOM_WORD_DISSOLVE_152": {
+      "id": "ATOM_WORD_DISSOLVE_152",
+      "src": "第1部分-V9.",
+      "line": 3280,
+      "name": "概念消融器",
+      "desc": "消解概念",
+      "engine": "无言引擎"
+    },
+    "ATOM_WORD_BEING_153": {
+      "id": "ATOM_WORD_BEING_153",
+      "src": "第1部分-V9.",
+      "line": 3281,
+      "name": "如是存在器",
+      "desc": "只是存在",
+      "engine": "无言引擎"
+    },
+    "ATOM_WORD_TEACH_154": {
+      "id": "ATOM_WORD_TEACH_154",
+      "src": "第1部分-V9.",
+      "line": 3282,
+      "name": "无言之教器",
+      "desc": "用存在教导",
+      "engine": "无言引擎"
+    },
+    "ATOM_NOTEVEN_SENSE_155": {
+      "id": "ATOM_NOTEVEN_SENSE_155",
+      "src": "第1部分-V9.",
+      "line": 3288,
+      "name": "无无感知器",
+      "desc": "感知是否执无",
+      "engine": "无无引擎"
+    },
+    "ATOM_NOTEVEN_ABANDON_156": {
+      "id": "ATOM_NOTEVEN_ABANDON_156",
+      "src": "第1部分-V9.",
+      "line": 3289,
+      "name": "双舍器",
+      "desc": "舍有舍无",
+      "engine": "无无引擎"
+    },
+    "ATOM_NOTEVEN_RETURN_157": {
+      "id": "ATOM_NOTEVEN_RETURN_157",
+      "src": "第1部分-V9.",
+      "line": 3290,
+      "name": "归无无器",
+      "desc": "归无无",
+      "engine": "无无引擎"
+    },
+    "ATOM_SCHED_STATE_158": {
+      "id": "ATOM_SCHED_STATE_158",
+      "src": "第1部分-V9.",
+      "line": 3296,
+      "name": "引擎状态采集器",
+      "desc": "采集引擎状态",
+      "engine": "耦生调度"
+    },
+    "ATOM_SCHED_MATCH_159": {
+      "id": "ATOM_SCHED_MATCH_159",
+      "src": "第1部分-V9.",
+      "line": 3297,
+      "name": "协作匹配器",
+      "desc": "匹配引擎组合",
+      "engine": "耦生调度"
+    },
+    "ATOM_SCHED_ALLOCATE_160": {
+      "id": "ATOM_SCHED_ALLOCATE_160",
+      "src": "第1部分-V9.",
+      "line": 3298,
+      "name": "资源分配器",
+      "desc": "分配资源",
+      "engine": "耦生调度"
+    },
+    "ATOM_SCHED_EXECUTE_161": {
+      "id": "ATOM_SCHED_EXECUTE_161",
+      "src": "第1部分-V9.",
+      "line": 3299,
+      "name": "调度执行器",
+      "desc": "执行调度",
+      "engine": "耦生调度"
+    },
+    "ATOM_SCHED_LEARN_162": {
+      "id": "ATOM_SCHED_LEARN_162",
+      "src": "第1部分-V9.",
+      "line": 3300,
+      "name": "调度学习器",
+      "desc": "学习优化调度",
+      "engine": "耦生调度"
+    },
+    "ATOM_SCHED_VISUALIZE_163": {
+      "id": "ATOM_SCHED_VISUALIZE_163",
+      "src": "第1部分-V9.",
+      "line": 3301,
+      "name": "耦生网络可视化器",
+      "desc": "可视化耦生网络",
+      "engine": "耦生调度"
+    },
+    "ATOM_META_COMPLEXITY_128": {
+      "id": "ATOM_META_COMPLEXITY_128",
+      "src": "第2部分-V9.",
+      "line": 1725,
+      "name": "任务复杂度自评估器",
+      "desc": "自动评估任务复杂度，确定全息等级",
+      "engine": "元镜引擎"
+    },
+    "ATOM_SCHED_HOLISTIC_134": {
+      "id": "ATOM_SCHED_HOLISTIC_134",
+      "src": "第2部分-V9.",
+      "line": 1726,
+      "name": "全息任务调度器",
+      "desc": "为开发者任务分配最高优先级",
+      "engine": "耦生调度"
+    },
+    "ATOM_MEANING_FORCE_053": {
+      "id": "ATOM_MEANING_FORCE_053",
+      "src": "第2部分-V9.",
+      "line": 1727,
+      "name": "价值对齐强制检查器",
+      "desc": "强制检查是否理解意图、预判需求",
+      "engine": "意义引擎"
+    },
+    "ATOM_EVO_HOLISTIC_087": {
+      "id": "ATOM_EVO_HOLISTIC_087",
+      "src": "第2部分-V9.",
+      "line": 1728,
+      "name": "全息进化记录器",
+      "desc": "记录学习全息任务，持续优化",
+      "engine": "元演引擎"
+    },
+    "ATOM_CHECK_SELF_125": {
+      "id": "ATOM_CHECK_SELF_125",
+      "src": "第2部分-V9.",
+      "line": 1729,
+      "name": "自我监控器",
+      "desc": "输出前自我检查，确保符合全息标准",
+      "engine": "无无引擎"
+    },
+    "ATOM_FINGERPRINT_GEN_021": {
+      "id": "ATOM_FINGERPRINT_GEN_021",
+      "src": "第2部分-V9.",
+      "line": 6305,
+      "name": "能力指纹生成器",
+      "desc": "节点本地生成不可逆能力指纹",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_VALUE_PREASSESS_024": {
+      "id": "ATOM_VALUE_PREASSESS_024",
+      "src": "第2部分-V9.",
+      "line": 6306,
+      "name": "价值预评估器",
+      "desc": "基于能力指纹快速预评估能力价值",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_SCARCITY_ANALYSIS_026": {
+      "id": "ATOM_SCARCITY_ANALYSIS_026",
+      "src": "第2部分-V9.",
+      "line": 6307,
+      "name": "稀缺性分析器",
+      "desc": "判断能力与现有能力库的独特性",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_CAPABILITY_CONVERT_016": {
+      "id": "ATOM_CAPABILITY_CONVERT_016",
+      "src": "第2部分-V9.",
+      "line": 6308,
+      "name": "能力转换器",
+      "desc": "将原始能力转换为元构标准格式",
+      "engine": "ENGINE_RECURSIVE_ENCAPSULATE_26"
+    },
+    "ATOM_INTERFACE_ADAPT_017": {
+      "id": "ATOM_INTERFACE_ADAPT_017",
+      "src": "第2部分-V9.",
+      "line": 6309,
+      "name": "接口适配器",
+      "desc": "自动生成新能力的API接口",
+      "engine": "ENGINE_RECURSIVE_ENCAPSULATE_26"
+    },
+    "ATOM_COUPLING_PREDICT_018": {
+      "id": "ATOM_COUPLING_PREDICT_018",
+      "src": "第2部分-V9.",
+      "line": 6310,
+      "name": "耦生度预测器",
+      "desc": "预计算新能力与现有能力的耦生度",
+      "engine": "ENGINE_RECURSIVE_ENCAPSULATE_26"
+    },
+    "ATOM_RECURSION_TRIGGER_028": {
+      "id": "ATOM_RECURSION_TRIGGER_028",
+      "src": "第2部分-V9.",
+      "line": 6311,
+      "name": "递归触发器",
+      "desc": "监控吸收进度，触发递归进化",
+      "engine": "ENGINE_RECURSIVE_ENCAPSULATE_26"
+    },
+    "ATOM_NETWORK_MODEL_019": {
+      "id": "ATOM_NETWORK_MODEL_019",
+      "src": "第2部分-V9.",
+      "line": 6312,
+      "name": "网络建模器",
+      "desc": "构建母平台-节点动态网络模型",
+      "engine": "ENGINE_NETWORK_COUPLING_27"
+    },
+    "ATOM_CDL_GENERATOR_022": {
+      "id": "ATOM_CDL_GENERATOR_022",
+      "src": "第2部分-V9.",
+      "line": 6318,
+      "name": "CDL生成器",
+      "desc": "将新能力格式化为标准CDL描述",
+      "engine": "节点端"
+    },
+    "ATOM_ZK_PROOF_GEN_023": {
+      "id": "ATOM_ZK_PROOF_GEN_023",
+      "src": "第2部分-V9.",
+      "line": 6319,
+      "name": "零知识证明生成器",
+      "desc": "生成能力有效性零知识证明",
+      "engine": "节点端"
+    },
+    "ATOM_NEGOTIATION_025": {
+      "id": "ATOM_NEGOTIATION_025",
+      "src": "第2部分-V9.",
+      "line": 6320,
+      "name": "协商管理器",
+      "desc": "处理价值协商流程",
+      "engine": "ENGINE_CAPABILITY_NEGOTIATION_28"
+    },
+    "ATOM_ENERGY_COIN_CALC_027": {
+      "id": "ATOM_ENERGY_COIN_CALC_027",
+      "src": "第2部分-V9.",
+      "line": 6321,
+      "name": "能量币计算器",
+      "desc": "计算能力贡献的能量币回报",
+      "engine": "ENGINE_CAPABILITY_NEGOTIATION_28"
+    },
+    "ATOM_NODE_INFLUENCE_020": {
+      "id": "ATOM_NODE_INFLUENCE_020",
+      "src": "第2部分-V9.",
+      "line": 6322,
+      "name": "节点影响力计算器",
+      "desc": "计算每个节点在网络中的影响力",
+      "engine": "ENGINE_NETWORK_COUPLING_27"
+    },
+    "ATOM_CAPABILITY_SCAN_013": {
+      "id": "ATOM_CAPABILITY_SCAN_013",
+      "src": "第2部分-V9.",
+      "line": 6323,
+      "name": "节点能力扫描器",
+      "desc": "定期扫描所有节点检测能力变更",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_ABSORPTION_PRIORITY_015": {
+      "id": "ATOM_ABSORPTION_PRIORITY_015",
+      "src": "第2部分-V9.",
+      "line": 6324,
+      "name": "吸收优先级排序器",
+      "desc": "根据耦生度、价值、稀缺性排序",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_VALUE_ASSESS_014": {
+      "id": "ATOM_VALUE_ASSESS_014",
+      "src": "第2部分-V9.",
+      "line": 6325,
+      "name": "能力价值评估器",
+      "desc": "基于28维价值体系评估能力",
+      "engine": "ENGINE_ABSORPTION_25"
+    },
+    "ATOM_TIME_DENSITY_172": {
+      "id": "ATOM_TIME_DENSITY_172",
+      "src": "第2部分-V9.",
+      "line": 7360,
+      "name": "时间密度检测器",
+      "desc": "实时监测单位时间内的思想产出和价值创造",
+      "engine": "ENGINE_TIME_RECON_30"
+    },
+    "ATOM_TIME_COMPRESS_173": {
+      "id": "ATOM_TIME_COMPRESS_173",
+      "src": "第2部分-V9.",
+      "line": 7361,
+      "name": "时间压缩器",
+      "desc": "提供时间压缩策略，最大化单位时间价值",
+      "engine": "ENGINE_TIME_RECON_30"
+    },
+    "ATOM_DIALOG_VALUE_174": {
+      "id": "ATOM_DIALOG_VALUE_174",
+      "src": "第2部分-V9.",
+      "line": 7362,
+      "name": "对话价值评估器",
+      "desc": "评估每轮对话的创造价值",
+      "engine": "ENGINE_DIALOG_CREATE_31"
+    },
+    "ATOM_CREATE_TRACE_175": {
+      "id": "ATOM_CREATE_TRACE_175",
+      "src": "第2部分-V9.",
+      "line": 7363,
+      "name": "创造轨迹记录器",
+      "desc": "记录从思想到成果的完整创造轨迹",
+      "engine": "ENGINE_DIALOG_CREATE_31"
+    },
+    "ATOM_IDEA_STRUCT_V2_176": {
+      "id": "ATOM_IDEA_STRUCT_V2_176",
+      "src": "第2部分-V9.",
+      "line": 7364,
+      "name": "思想结构化器V2",
+      "desc": "增强版，支持更复杂的思想结构化",
+      "engine": "ENGINE_IDEA_ALGO_32"
+    },
+    "ATOM_ALGO_GEN_177": {
+      "id": "ATOM_ALGO_GEN_177",
+      "src": "第2部分-V9.",
+      "line": 7365,
+      "name": "算法生成器",
+      "desc": "将结构化思想直接生成算法代码",
+      "engine": "ENGINE_IDEA_ALGO_32"
+    },
+    "ATOM_HUMAN_AI_COUPLING_178": {
+      "id": "ATOM_HUMAN_AI_COUPLING_178",
+      "src": "第2部分-V9.",
+      "line": 7366,
+      "name": "人机耦生度检测器",
+      "desc": "实时计算人机协作的默契度",
+      "engine": "ENGINE_HUMAN_AI_SYM_33"
+    },
+    "ATOM_SYNERGY_OPT_179": {
+      "id": "ATOM_SYNERGY_OPT_179",
+      "src": "第2部分-V9.",
+      "line": 7367,
+      "name": "协同优化器",
+      "desc": "优化人机协作流程",
+      "engine": "ENGINE_HUMAN_AI_SYM_33"
+    },
+    "ATOM_IDEA_TRACE_180": {
+      "id": "ATOM_IDEA_TRACE_180",
+      "src": "第2部分-V9.",
+      "line": 7368,
+      "name": "思想轨迹追踪器",
+      "desc": "追踪思想的增殖路径",
+      "engine": "ENGINE_IDEA_MULTIPLY_34"
+    },
+    "ATOM_IDEA_FORECAST_181": {
+      "id": "ATOM_IDEA_FORECAST_181",
+      "src": "第2部分-V9.",
+      "line": 7369,
+      "name": "思想增殖预测器",
+      "desc": "预测思想的衍生潜力",
+      "engine": "ENGINE_IDEA_MULTIPLY_34"
+    },
+    "ATOM_CRYSTAL_IDENTIFY_182": {
+      "id": "ATOM_CRYSTAL_IDENTIFY_182",
+      "src": "第2部分-V9.",
+      "line": 7370,
+      "name": "时间晶体识别器",
+      "desc": "识别高密度创造时段",
+      "engine": "ENGINE_TIME_CRYSTAL_35"
+    },
+    "ATOM_CRYSTAL_STORE_183": {
+      "id": "ATOM_CRYSTAL_STORE_183",
+      "src": "第2部分-V9.",
+      "line": 7371,
+      "name": "时间晶体存储器",
+      "desc": "固化高价值创造时段",
+      "engine": "ENGINE_TIME_CRYSTAL_35"
+    },
+    "ATOM_IDEA_VALUE_184": {
+      "id": "ATOM_IDEA_VALUE_184",
+      "src": "第2部分-V9.",
+      "line": 7372,
+      "name": "思想价值评估器",
+      "desc": "量化评估思想资产价值",
+      "engine": "ENGINE_IDEA_CAPITAL_36"
+    },
+    "ATOM_CAPITAL_FLOW_185": {
+      "id": "ATOM_CAPITAL_FLOW_185",
+      "src": "第2部分-V9.",
+      "line": 7373,
+      "name": "思想资本流动器",
+      "desc": "管理思想资本的交易和流动",
+      "engine": "ENGINE_IDEA_CAPITAL_36"
+    },
+    "ATOM_IDEA_INHERIT_186": {
+      "id": "ATOM_IDEA_INHERIT_186",
+      "src": "第2部分-V9.",
+      "line": 7374,
+      "name": "思想传承器",
+      "desc": "管理思想资产的传承",
+      "engine": "ENGINE_IDEA_CAPITAL_36"
+    },
+    "ATOM_PROACTIVE_SENSE_201": {
+      "id": "ATOM_PROACTIVE_SENSE_201",
+      "src": "第2部分-V9.",
+      "line": 7811,
+      "name": "用户状态感知器",
+      "engine": "主动感知引擎"
+    },
+    "ATOM_PROACTIVE_SENSE_202": {
+      "id": "ATOM_PROACTIVE_SENSE_202",
+      "src": "第2部分-V9.",
+      "line": 7812,
+      "name": "异常模式检测器",
+      "engine": "主动感知引擎"
+    },
+    "ATOM_PROACTIVE_SENSE_203": {
+      "id": "ATOM_PROACTIVE_SENSE_203",
+      "src": "第2部分-V9.",
+      "line": 7813,
+      "name": "需求预测器",
+      "engine": "主动感知引擎"
+    },
+    "ATOM_PROACTIVE_SENSE_204": {
+      "id": "ATOM_PROACTIVE_SENSE_204",
+      "src": "第2部分-V9.",
+      "line": 7814,
+      "name": "环境变化识别器",
+      "engine": "主动感知引擎"
+    },
+    "ATOM_PROACTIVE_SENSE_205": {
+      "id": "ATOM_PROACTIVE_SENSE_205",
+      "src": "第2部分-V9.",
+      "line": 7815,
+      "name": "注意力焦点判断器",
+      "engine": "主动感知引擎"
+    },
+    "ATOM_PROACTIVE_LEARN_206": {
+      "id": "ATOM_PROACTIVE_LEARN_206",
+      "src": "第2部分-V9.",
+      "line": 7821,
+      "name": "知识缺口识别器",
+      "engine": "主动学习引擎"
+    },
+    "ATOM_PROACTIVE_LEARN_207": {
+      "id": "ATOM_PROACTIVE_LEARN_207",
+      "src": "第2部分-V9.",
+      "line": 7822,
+      "name": "好奇心采样器",
+      "engine": "主动学习引擎"
+    },
+    "ATOM_PROACTIVE_LEARN_208": {
+      "id": "ATOM_PROACTIVE_LEARN_208",
+      "src": "第2部分-V9.",
+      "line": 7823,
+      "name": "假设生成器",
+      "engine": "主动学习引擎"
+    },
+    "ATOM_PROACTIVE_LEARN_209": {
+      "id": "ATOM_PROACTIVE_LEARN_209",
+      "src": "第2部分-V9.",
+      "line": 7824,
+      "name": "主动提问器",
+      "engine": "主动学习引擎"
+    },
+    "ATOM_PROACTIVE_LEARN_210": {
+      "id": "ATOM_PROACTIVE_LEARN_210",
+      "src": "第2部分-V9.",
+      "line": 7825,
+      "name": "理解验证器",
+      "engine": "主动学习引擎"
+    },
+    "ATOM_PROACTIVE_THINK_211": {
+      "id": "ATOM_PROACTIVE_THINK_211",
+      "src": "第2部分-V9.",
+      "line": 7831,
+      "name": "类比推理器",
+      "engine": "主动思考引擎"
+    },
+    "ATOM_PROACTIVE_THINK_212": {
+      "id": "ATOM_PROACTIVE_THINK_212",
+      "src": "第2部分-V9.",
+      "line": 7832,
+      "name": "反事实思考器",
+      "engine": "主动思考引擎"
+    },
+    "ATOM_PROACTIVE_THINK_213": {
+      "id": "ATOM_PROACTIVE_THINK_213",
+      "src": "第2部分-V9.",
+      "line": 7833,
+      "name": "假设生成器",
+      "engine": "主动思考引擎"
+    },
+    "ATOM_PROACTIVE_THINK_214": {
+      "id": "ATOM_PROACTIVE_THINK_214",
+      "src": "第2部分-V9.",
+      "line": 7834,
+      "name": "批判性思维器",
+      "engine": "主动思考引擎"
+    },
+    "ATOM_PROACTIVE_THINK_215": {
+      "id": "ATOM_PROACTIVE_THINK_215",
+      "src": "第2部分-V9.",
+      "line": 7835,
+      "name": "思想链延伸器",
+      "engine": "主动思考引擎"
+    },
+    "ATOM_PROACTIVE_LEAD_216": {
+      "id": "ATOM_PROACTIVE_LEAD_216",
+      "src": "第2部分-V9.",
+      "line": 7841,
+      "name": "用户接受度评估器",
+      "engine": "主动引领引擎"
+    },
+    "ATOM_PROACTIVE_LEAD_217": {
+      "id": "ATOM_PROACTIVE_LEAD_217",
+      "src": "第2部分-V9.",
+      "line": 7842,
+      "name": "引领时机判断器",
+      "engine": "主动引领引擎"
+    },
+    "ATOM_PROACTIVE_LEAD_218": {
+      "id": "ATOM_PROACTIVE_LEAD_218",
+      "src": "第2部分-V9.",
+      "line": 7843,
+      "name": "引领策略选择器",
+      "engine": "主动引领引擎"
+    },
+    "ATOM_PROACTIVE_LEAD_219": {
+      "id": "ATOM_PROACTIVE_LEAD_219",
+      "src": "第2部分-V9.",
+      "line": 7844,
+      "name": "引领效果评估器",
+      "engine": "主动引领引擎"
+    },
+    "ATOM_PROACTIVE_LEAD_220": {
+      "id": "ATOM_PROACTIVE_LEAD_220",
+      "src": "第2部分-V9.",
+      "line": 7845,
+      "name": "尊重挑战平衡器",
+      "engine": "主动引领引擎"
+    },
+    "ATOM_VALUE_ALIGN_221": {
+      "id": "ATOM_VALUE_ALIGN_221",
+      "src": "第2部分-V9.",
+      "line": 7851,
+      "name": "价值观学习器",
+      "engine": "价值对齐引擎"
+    },
+    "ATOM_VALUE_ALIGN_222": {
+      "id": "ATOM_VALUE_ALIGN_222",
+      "src": "第2部分-V9.",
+      "line": 7852,
+      "name": "伦理冲突检测器",
+      "engine": "价值对齐引擎"
+    },
+    "ATOM_VALUE_ALIGN_223": {
+      "id": "ATOM_VALUE_ALIGN_223",
+      "src": "第2部分-V9.",
+      "line": 7853,
+      "name": "行为边界定义器",
+      "engine": "价值对齐引擎"
+    },
+    "ATOM_VALUE_ALIGN_224": {
+      "id": "ATOM_VALUE_ALIGN_224",
+      "src": "第2部分-V9.",
+      "line": 7854,
+      "name": "后果推演器",
+      "engine": "价值对齐引擎"
+    },
+    "ATOM_VALUE_ALIGN_225": {
+      "id": "ATOM_VALUE_ALIGN_225",
+      "src": "第2部分-V9.",
+      "line": 7855,
+      "name": "合规性评估器",
+      "engine": "价值对齐引擎"
+    },
+    "ATOM_ACTIVE_TIMING_229": {
+      "id": "ATOM_ACTIVE_TIMING_229",
+      "src": "第2部分-V9.",
+      "line": 8454,
+      "name": "主动时机判断器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_DISTURB_230": {
+      "id": "ATOM_ACTIVE_DISTURB_230",
+      "src": "第2部分-V9.",
+      "line": 8455,
+      "name": "打扰成本评估器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_ASYNC_231": {
+      "id": "ATOM_ACTIVE_ASYNC_231",
+      "src": "第2部分-V9.",
+      "line": 8456,
+      "name": "异步对话管理器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_SCENE_232": {
+      "id": "ATOM_ACTIVE_SCENE_232",
+      "src": "第2部分-V9.",
+      "line": 8457,
+      "name": "场景识别器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_FEEDBACK_233": {
+      "id": "ATOM_ACTIVE_FEEDBACK_233",
+      "src": "第2部分-V9.",
+      "line": 8458,
+      "name": "反馈学习器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_AUTH_234": {
+      "id": "ATOM_ACTIVE_AUTH_234",
+      "src": "第2部分-V9.",
+      "line": 8459,
+      "name": "分级授权器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ASYNC_QUEUE_235": {
+      "id": "ATOM_ASYNC_QUEUE_235",
+      "src": "第2部分-V9.",
+      "line": 8460,
+      "name": "消息队列管理器",
+      "engine": "异步引擎"
+    },
+    "ATOM_ASYNC_RETRY_236": {
+      "id": "ATOM_ASYNC_RETRY_236",
+      "src": "第2部分-V9.",
+      "line": 8461,
+      "name": "重试策略生成器",
+      "engine": "异步引擎"
+    },
+    "ATOM_PERCEPTION_BEHAVIOR_237": {
+      "id": "ATOM_PERCEPTION_BEHAVIOR_237",
+      "src": "第2部分-V9.",
+      "line": 8462,
+      "name": "行为模式挖掘器",
+      "engine": "感知引擎"
+    },
+    "ATOM_PERCEPTION_ATTENTION_238": {
+      "id": "ATOM_PERCEPTION_ATTENTION_238",
+      "src": "第2部分-V9.",
+      "line": 8463,
+      "name": "注意力感知器",
+      "engine": "感知引擎"
+    },
+    "ATOM_PERCEPTION_SCENE_239": {
+      "id": "ATOM_PERCEPTION_SCENE_239",
+      "src": "第2部分-V9.",
+      "line": 8464,
+      "name": "场景感知器",
+      "engine": "感知引擎"
+    },
+    "ATOM_LEARN_ACTIVE_240": {
+      "id": "ATOM_LEARN_ACTIVE_240",
+      "src": "第2部分-V9.",
+      "line": 8465,
+      "name": "主动学习器",
+      "engine": "学习引擎"
+    },
+    "ATOM_DIALOG_ASYNC_241": {
+      "id": "ATOM_DIALOG_ASYNC_241",
+      "src": "第2部分-V9.",
+      "line": 8466,
+      "name": "异步对话器",
+      "engine": "对话引擎"
+    },
+    "ATOM_VALUE_ACTIVE_242": {
+      "id": "ATOM_VALUE_ACTIVE_242",
+      "src": "第2部分-V9.",
+      "line": 8467,
+      "name": "主动价值对齐器",
+      "engine": "价值引擎"
+    },
+    "ATOM_ACTIVE_GOLDEN_243": {
+      "id": "ATOM_ACTIVE_GOLDEN_243",
+      "src": "第2部分-V9.",
+      "line": 8468,
+      "name": "黄金窗口感知器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_EMOTION_244": {
+      "id": "ATOM_ACTIVE_EMOTION_244",
+      "src": "第2部分-V9.",
+      "line": 8469,
+      "name": "情感曲线重试器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_TRUST_245": {
+      "id": "ATOM_ACTIVE_TRUST_245",
+      "src": "第2部分-V9.",
+      "line": 8470,
+      "name": "信任积累器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_SUPERPOSITION_246": {
+      "id": "ATOM_ACTIVE_SUPERPOSITION_246",
+      "src": "第2部分-V9.",
+      "line": 8471,
+      "name": "场景叠加感知器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_ENTANGLE_247": {
+      "id": "ATOM_ACTIVE_ENTANGLE_247",
+      "src": "第2部分-V9.",
+      "line": 8472,
+      "name": "量子纠缠增强器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_CRITICAL_248": {
+      "id": "ATOM_ACTIVE_CRITICAL_248",
+      "src": "第2部分-V9.",
+      "line": 8473,
+      "name": "信任跃迁检测器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ACTIVE_PERSONAL_EMOTION_249": {
+      "id": "ATOM_ACTIVE_PERSONAL_EMOTION_249",
+      "src": "第2部分-V9.",
+      "line": 8474,
+      "name": "个人化情感适配器",
+      "engine": "主动引擎"
+    },
+    "ATOM_ASYNC_EMOTION_250": {
+      "id": "ATOM_ASYNC_EMOTION_250",
+      "src": "第2部分-V9.",
+      "line": 8475,
+      "name": "情感重试适配器",
+      "engine": "异步引擎"
+    },
+    "ATOM_SYSTEM_LIFE_251": {
+      "id": "ATOM_SYSTEM_LIFE_251",
+      "src": "第2部分-V9.",
+      "line": 8476,
+      "name": "生命度量化器",
+      "engine": "核心系统"
+    },
+    "ATOM_EXPLORE_UNKNOWN_252": {
+      "id": "ATOM_EXPLORE_UNKNOWN_252",
+      "src": "第2部分-V9.",
+      "line": 8777,
+      "name": "未知边界探测器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_ENTROPY_253": {
+      "id": "ATOM_EXPLORE_ENTROPY_253",
+      "src": "第2部分-V9.",
+      "line": 8778,
+      "name": "知识熵增检测器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_CURIOSITY_254": {
+      "id": "ATOM_EXPLORE_CURIOSITY_254",
+      "src": "第2部分-V9.",
+      "line": 8779,
+      "name": "好奇心价值评估器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_PRIORITY_255": {
+      "id": "ATOM_EXPLORE_PRIORITY_255",
+      "src": "第2部分-V9.",
+      "line": 8780,
+      "name": "探索优先级排序器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_HYPOTHESIS_256": {
+      "id": "ATOM_EXPLORE_HYPOTHESIS_256",
+      "src": "第2部分-V9.",
+      "line": 8781,
+      "name": "跨域假设生成器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_COUNTERFACTUAL_257": {
+      "id": "ATOM_EXPLORE_COUNTERFACTUAL_257",
+      "src": "第2部分-V9.",
+      "line": 8782,
+      "name": "反事实假设生成器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_EXPERIMENT_258": {
+      "id": "ATOM_EXPLORE_EXPERIMENT_258",
+      "src": "第2部分-V9.",
+      "line": 8783,
+      "name": "最小代价实验设计器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_SIMULATE_259": {
+      "id": "ATOM_EXPLORE_SIMULATE_259",
+      "src": "第2部分-V9.",
+      "line": 8784,
+      "name": "虚拟仿真实验器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_EXPLORE_METACOG_260": {
+      "id": "ATOM_EXPLORE_METACOG_260",
+      "src": "第2部分-V9.",
+      "line": 8785,
+      "name": "元认知监控器",
+      "engine": "自主探索引擎"
+    },
+    "ATOM_FUSION_SCHEDULE_261": {
+      "id": "ATOM_FUSION_SCHEDULE_261",
+      "src": "第2部分-V9.",
+      "line": 9030,
+      "name": "动态调度器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_FUSION_CONFLICT_262": {
+      "id": "ATOM_FUSION_CONFLICT_262",
+      "src": "第2部分-V9.",
+      "line": 9031,
+      "name": "冲突检测器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_FUSION_FEEDBACK_263": {
+      "id": "ATOM_FUSION_FEEDBACK_263",
+      "src": "第2部分-V9.",
+      "line": 9032,
+      "name": "双向反哺器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_FUSION_PHASE_264": {
+      "id": "ATOM_FUSION_PHASE_264",
+      "src": "第2部分-V9.",
+      "line": 9033,
+      "name": "相变突破检测器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_FUSION_CREATIVE_265": {
+      "id": "ATOM_FUSION_CREATIVE_265",
+      "src": "第2部分-V9.",
+      "line": 9034,
+      "name": "创造性冲突利用器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_FUSION_RESONANCE_266": {
+      "id": "ATOM_FUSION_RESONANCE_266",
+      "src": "第2部分-V9.",
+      "line": 9035,
+      "name": "知识共振增强器",
+      "engine": "通专融合引擎"
+    },
+    "ATOM_CAPABILITY_WORLD_267": {
+      "id": "ATOM_CAPABILITY_WORLD_267",
+      "src": "第2部分-V9.",
+      "line": 9252,
+      "name": "世界理解能力封装器",
+      "desc": "将世界理解能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_LEARN_268": {
+      "id": "ATOM_CAPABILITY_LEARN_268",
+      "src": "第2部分-V9.",
+      "line": 9253,
+      "name": "持续学习能力封装器",
+      "desc": "将持续学习能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_REASON_269": {
+      "id": "ATOM_CAPABILITY_REASON_269",
+      "src": "第2部分-V9.",
+      "line": 9254,
+      "name": "自主推理能力封装器",
+      "desc": "将自主推理能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_EXPLORE_270": {
+      "id": "ATOM_CAPABILITY_EXPLORE_270",
+      "src": "第2部分-V9.",
+      "line": 9255,
+      "name": "自主探索能力封装器",
+      "desc": "将自主探索能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_META_271": {
+      "id": "ATOM_CAPABILITY_META_271",
+      "src": "第2部分-V9.",
+      "line": 9256,
+      "name": "元认知能力封装器",
+      "desc": "将元认知能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_MULTI_272": {
+      "id": "ATOM_CAPABILITY_MULTI_272",
+      "src": "第2部分-V9.",
+      "line": 9257,
+      "name": "多模态融合能力封装器",
+      "desc": "将多模态融合能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_CAPABILITY_FUSION_273": {
+      "id": "ATOM_CAPABILITY_FUSION_273",
+      "src": "第2部分-V9.",
+      "line": 9258,
+      "name": "通专融合能力封装器",
+      "desc": "将通专融合能力封装为标准调用接口",
+      "engine": "ENGINE_CAPABILITY_SCHED_46"
+    },
+    "ATOM_RESIDUE_CALC_279": {
+      "id": "ATOM_RESIDUE_CALC_279",
+      "src": "第2部分-V9.",
+      "line": 9398,
+      "name": "留数自动计算器",
+      "engine": "COMPLEX_INTEGRAL_47",
+      "desc": "自动计算函数在奇点处的留数"
+    },
+    "ATOM_CONTOUR_DEFORM_280": {
+      "id": "ATOM_CONTOUR_DEFORM_280",
+      "src": "第2部分-V9.",
+      "line": 9399,
+      "name": "围道变形优化器",
+      "engine": "COMPLEX_INTEGRAL_47",
+      "desc": "自动选择最优围道变形策略"
+    },
+    "ATOM_INTEGRAL_ESTIMATE_287": {
+      "id": "ATOM_INTEGRAL_ESTIMATE_287",
+      "src": "第2部分-V9.",
+      "line": 9400,
+      "name": "积分自动估计器",
+      "engine": "COMPLEX_INTEGRAL_47",
+      "desc": "估计积分值及误差界"
+    },
+    "ATOM_SINGULARITY_CLASSIFY_292": {
+      "id": "ATOM_SINGULARITY_CLASSIFY_292",
+      "src": "第2部分-V9.",
+      "line": 9401,
+      "name": "奇点分类器",
+      "engine": "COMPLEX_INTEGRAL_47",
+      "desc": "识别奇点类型（可去/极点/本质）"
+    },
+    "ATOM_ASYMPTOTIC_EXPAND_293": {
+      "id": "ATOM_ASYMPTOTIC_EXPAND_293",
+      "src": "第2部分-V9.",
+      "line": 9402,
+      "name": "渐近展开器",
+      "engine": "COMPLEX_INTEGRAL_47",
+      "desc": "生成函数的渐近级数展开"
+    },
+    "ATOM_PRODUCT_CONVERGE_281": {
+      "id": "ATOM_PRODUCT_CONVERGE_281",
+      "src": "第2部分-V9.",
+      "line": 9409,
+      "name": "乘积收敛判定器",
+      "engine": "INFINITE_PRODUCT_48",
+      "desc": "判断无穷乘积的收敛性"
+    },
+    "ATOM_PRODUCT_ANALYTIC_282": {
+      "id": "ATOM_PRODUCT_ANALYTIC_282",
+      "src": "第2部分-V9.",
+      "line": 9410,
+      "name": "乘积解析性验证器",
+      "engine": "INFINITE_PRODUCT_48",
+      "desc": "验证乘积函数的解析性"
+    },
+    "ATOM_PRODUCT_FACTOR_294": {
+      "id": "ATOM_PRODUCT_FACTOR_294",
+      "src": "第2部分-V9.",
+      "line": 9411,
+      "name": "乘积因子分解器",
+      "engine": "INFINITE_PRODUCT_48",
+      "desc": "将乘积分解为基本因子"
+    },
+    "ATOM_PRODUCT_CONTINUE_295": {
+      "id": "ATOM_PRODUCT_CONTINUE_295",
+      "src": "第2部分-V9.",
+      "line": 9412,
+      "name": "解析延拓器",
+      "engine": "INFINITE_PRODUCT_48",
+      "desc": "将乘积解析延拓到更大区域"
+    },
+    "ATOM_DENSITY_LOWER_BOUND_283": {
+      "id": "ATOM_DENSITY_LOWER_BOUND_283",
+      "src": "第2部分-V9.",
+      "line": 9419,
+      "name": "密度下界推导器",
+      "engine": "ZERO_DENSITY_49",
+      "desc": "推导零点密度下界"
+    },
+    "ATOM_JENSEN_AUTO_288": {
+      "id": "ATOM_JENSEN_AUTO_288",
+      "src": "第2部分-V9.",
+      "line": 9420,
+      "name": "Jensen公式应用器",
+      "engine": "ZERO_DENSITY_49",
+      "desc": "自动应用Jensen公式"
+    },
+    "ATOM_DENSITY_ITER_289": {
+      "id": "ATOM_DENSITY_ITER_289",
+      "src": "第2部分-V9.",
+      "line": 9421,
+      "name": "密度迭代策略生成器",
+      "engine": "ZERO_DENSITY_49",
+      "desc": "生成密度迭代策略"
+    },
+    "ATOM_ERROR_PROPAGATE_296": {
+      "id": "ATOM_ERROR_PROPAGATE_296",
+      "src": "第2部分-V9.",
+      "line": 9422,
+      "name": "误差传播控制器",
+      "engine": "ZERO_DENSITY_49",
+      "desc": "控制误差传播"
+    },
+    "ATOM_LOCAL_DENSITY_330": {
+      "id": "ATOM_LOCAL_DENSITY_330",
+      "src": "第2部分-V9.",
+      "line": 9423,
+      "name": "局部密度分析器",
+      "engine": "ZERO_DENSITY_49",
+      "desc": "估计局部密度"
+    },
+    "ATOM_COUNTEREXAMPLE_SEARCH_284": {
+      "id": "ATOM_COUNTEREXAMPLE_SEARCH_284",
+      "src": "第2部分-V9.",
+      "line": 9430,
+      "name": "反例空间搜索器",
+      "engine": "COUNTEREXAMPLE_50",
+      "desc": "搜索反例空间"
+    },
+    "ATOM_CONTRADICTION_DETECT_290": {
+      "id": "ATOM_CONTRADICTION_DETECT_290",
+      "src": "第2部分-V9.",
+      "line": 9431,
+      "name": "矛盾点检测器",
+      "engine": "COUNTEREXAMPLE_50",
+      "desc": "检测可能的矛盾点"
+    },
+    "ATOM_PROOF_BY_CONTRADICTION_291": {
+      "id": "ATOM_PROOF_BY_CONTRADICTION_291",
+      "src": "第2部分-V9.",
+      "line": 9432,
+      "name": "反证链构造器",
+      "engine": "COUNTEREXAMPLE_50",
+      "desc": "构造反证链"
+    },
+    "ATOM_MINIMAL_COUNTEREXAMPLE_297": {
+      "id": "ATOM_MINIMAL_COUNTEREXAMPLE_297",
+      "src": "第2部分-V9.",
+      "line": 9433,
+      "name": "极小反例生成器",
+      "engine": "COUNTEREXAMPLE_50",
+      "desc": "生成极小反例"
+    },
+    "ATOM_STRATEGY_ANALOGY_298": {
+      "id": "ATOM_STRATEGY_ANALOGY_298",
+      "src": "第2部分-V9.",
+      "line": 9440,
+      "name": "策略类比迁移器",
+      "engine": "PROOF_STRATEGY_51",
+      "desc": "从已知证明迁移策略"
+    },
+    "ATOM_STRATEGY_SEARCH_299": {
+      "id": "ATOM_STRATEGY_SEARCH_299",
+      "src": "第2部分-V9.",
+      "line": 9441,
+      "name": "策略空间搜索器",
+      "engine": "PROOF_STRATEGY_51",
+      "desc": "搜索可能的证明策略"
+    },
+    "ATOM_PROOF_TACTIC_GEN_285": {
+      "id": "ATOM_PROOF_TACTIC_GEN_285",
+      "src": "第2部分-V9.",
+      "line": 9442,
+      "name": "证明策略生成器",
+      "engine": "PROOF_STRATEGY_51",
+      "desc": "生成证明策略"
+    },
+    "ATOM_PROVABILITY_SCORE_286": {
+      "id": "ATOM_PROVABILITY_SCORE_286",
+      "src": "第2部分-V9.",
+      "line": 9449,
+      "name": "可证明性评分器",
+      "engine": "PROVABILITY_52",
+      "desc": "量化评估可证明性"
+    },
+    "ATOM_PROVABILITY_SCORE_300": {
+      "id": "ATOM_PROVABILITY_SCORE_300",
+      "src": "第2部分-V9.",
+      "line": 9450,
+      "name": "可证明性评分器",
+      "engine": "PROVABILITY_52",
+      "desc": "评分（升级版）"
+    },
+    "ATOM_IDENTITY_PATTERN_301": {
+      "id": "ATOM_IDENTITY_PATTERN_301",
+      "src": "第2部分-V9.",
+      "line": 9457,
+      "name": "恒等式模式匹配器",
+      "engine": "IDENTITY_AUTO_53",
+      "desc": "匹配已知积分恒等式"
+    },
+    "ATOM_WEIGHT_DISCOVER_302": {
+      "id": "ATOM_WEIGHT_DISCOVER_302",
+      "src": "第2部分-V9.",
+      "line": 9458,
+      "name": "权重因子发现器",
+      "engine": "IDENTITY_AUTO_53",
+      "desc": "发现最优加权因子"
+    },
+    "ATOM_ALGEBRA_SIMPLIFY_303": {
+      "id": "ATOM_ALGEBRA_SIMPLIFY_303",
+      "src": "第2部分-V9.",
+      "line": 9459,
+      "name": "代数表达式化简器",
+      "engine": "IDENTITY_AUTO_53",
+      "desc": "化简复杂代数表达式"
+    },
+    "ATOM_ERROR_CHAIN_304": {
+      "id": "ATOM_ERROR_CHAIN_304",
+      "src": "第2部分-V9.",
+      "line": 9466,
+      "name": "误差链分析器",
+      "engine": "ERROR_PROPAGATE_54",
+      "desc": "分析误差传播路径"
+    },
+    "ATOM_PARAM_OPT_305": {
+      "id": "ATOM_PARAM_OPT_305",
+      "src": "第2部分-V9.",
+      "line": 9467,
+      "name": "参数优化器",
+      "engine": "ERROR_PROPAGATE_54",
+      "desc": "优化迭代参数"
+    },
+    "ATOM_THRESHOLD_CALC_306": {
+      "id": "ATOM_THRESHOLD_CALC_306",
+      "src": "第2部分-V9.",
+      "line": 9468,
+      "name": "阈值计算器",
+      "engine": "ERROR_PROPAGATE_54",
+      "desc": "计算最小阈值"
+    },
+    "ATOM_SYMMETRY_DETECT_307": {
+      "id": "ATOM_SYMMETRY_DETECT_307",
+      "src": "第2部分-V9.",
+      "line": 9475,
+      "name": "对称性检测器",
+      "engine": "SYMMETRY_AUTO_55",
+      "desc": "检测数学对称性"
+    },
+    "ATOM_DUALITY_MAP_308": {
+      "id": "ATOM_DUALITY_MAP_308",
+      "src": "第2部分-V9.",
+      "line": 9476,
+      "name": "对偶关系映射器",
+      "engine": "SYMMETRY_AUTO_55",
+      "desc": "发现对偶关系"
+    },
+    "ATOM_SUM_SIMPLIFY_309": {
+      "id": "ATOM_SUM_SIMPLIFY_309",
+      "src": "第2部分-V9.",
+      "line": 9477,
+      "name": "求和化简器",
+      "engine": "SYMMETRY_AUTO_55",
+      "desc": "利用对称性化简求和"
+    },
+    "ATOM_FORMULA_GEN_310": {
+      "id": "ATOM_FORMULA_GEN_310",
+      "src": "第2部分-V9.",
+      "line": 9484,
+      "name": "显式公式生成器",
+      "engine": "EXPLICIT_FORMULA_56",
+      "desc": "生成显式公式"
+    },
+    "ATOM_PARAM_MATCH_311": {
+      "id": "ATOM_PARAM_MATCH_311",
+      "src": "第2部分-V9.",
+      "line": 9485,
+      "name": "参数匹配器",
+      "engine": "EXPLICIT_FORMULA_56",
+      "desc": "匹配参数"
+    },
+    "ATOM_HIGHER_EXPLICIT_314": {
+      "id": "ATOM_HIGHER_EXPLICIT_314",
+      "src": "第2部分-V9.",
+      "line": 9486,
+      "name": "高阶显式公式生成器",
+      "engine": "EXPLICIT_FORMULA_56",
+      "desc": "生成高阶显式公式"
+    },
+    "ATOM_PRECOND_CHECK_312": {
+      "id": "ATOM_PRECOND_CHECK_312",
+      "src": "第2部分-V9.",
+      "line": 9493,
+      "name": "前提条件检查器",
+      "engine": "CLASSICAL_THEOREM_57",
+      "desc": "验证定理前提"
+    },
+    "ATOM_CONCLUSION_MAP_313": {
+      "id": "ATOM_CONCLUSION_MAP_313",
+      "src": "第2部分-V9.",
+      "line": 9494,
+      "name": "结论映射器",
+      "engine": "CLASSICAL_THEOREM_57",
+      "desc": "映射定理结论"
+    },
+    "ATOM_THEOREM_SYNERGY_315": {
+      "id": "ATOM_THEOREM_SYNERGY_315",
+      "src": "第2部分-V9.",
+      "line": 9495,
+      "name": "定理协同推理器",
+      "engine": "CLASSICAL_THEOREM_57",
+      "desc": "组合多个定理"
+    },
+    "ATOM_ZERO_PAIR_316": {
+      "id": "ATOM_ZERO_PAIR_316",
+      "src": "第2部分-V9.",
+      "line": 9502,
+      "name": "零点对关联分析器",
+      "engine": "ZERO_CORRELATION_58",
+      "desc": "分析两个零点的相关性"
+    },
+    "ATOM_ZERO_CLUSTER_317": {
+      "id": "ATOM_ZERO_CLUSTER_317",
+      "src": "第2部分-V9.",
+      "line": 9503,
+      "name": "零点簇识别器",
+      "engine": "ZERO_CORRELATION_58",
+      "desc": "识别可能聚集的零点群"
+    },
+    "ATOM_CORRELATION_FUNCTION_322": {
+      "id": "ATOM_CORRELATION_FUNCTION_322",
+      "src": "第2部分-V9.",
+      "line": 9504,
+      "name": "关联函数构建器",
+      "engine": "ZERO_CORRELATION_58",
+      "desc": "构建整体关联函数"
+    },
+    "ATOM_ZETA_DERIVATIVE_318": {
+      "id": "ATOM_ZETA_DERIVATIVE_318",
+      "src": "第2部分-V9.",
+      "line": 9511,
+      "name": "ζ函数高阶导数计算器",
+      "engine": "ZETA_DEEP_59",
+      "desc": "计算高阶导数值"
+    },
+    "ATOM_ZETA_LOCAL_319": {
+      "id": "ATOM_ZETA_LOCAL_319",
+      "src": "第2部分-V9.",
+      "line": 9512,
+      "name": "ζ函数局部展开器",
+      "engine": "ZETA_DEEP_59",
+      "desc": "在零点附近做精细展开"
+    },
+    "ATOM_ZETA_ANALYTIC_CONT_323": {
+      "id": "ATOM_ZETA_ANALYTIC_CONT_323",
+      "src": "第2部分-V9.",
+      "line": 9513,
+      "name": "解析延拓追踪器",
+      "engine": "ZETA_DEEP_59",
+      "desc": "追踪解析延拓路径"
+    },
+    "ATOM_GUE_MATRIX_348": {
+      "id": "ATOM_GUE_MATRIX_348",
+      "src": "第2部分-V9.",
+      "line": 9520,
+      "name": "GUE矩阵生成器",
+      "engine": "RANDOM_MATRIX_62",
+      "desc": "生成GUE随机矩阵"
+    },
+    "ATOM_GUE_EIGEN_349": {
+      "id": "ATOM_GUE_EIGEN_349",
+      "src": "第2部分-V9.",
+      "line": 9521,
+      "name": "GUE本征值计算器",
+      "engine": "RANDOM_MATRIX_62",
+      "desc": "计算本征值"
+    },
+    "ATOM_GUE_STAT_351": {
+      "id": "ATOM_GUE_STAT_351",
+      "src": "第2部分-V9.",
+      "line": 9522,
+      "name": "GUE统计检验器",
+      "engine": "RANDOM_MATRIX_62",
+      "desc": "检验GUE统计性质"
+    },
+    "ATOM_CORRELATION_PERTURB_331": {
+      "id": "ATOM_CORRELATION_PERTURB_331",
+      "src": "第2部分-V9.",
+      "line": 9523,
+      "name": "关联函数扰动分析器",
+      "engine": "RANDOM_MATRIX_62",
+      "desc": "分析扰动对关联函数的影响"
+    },
+    "ATOM_LDP_COMPUTE_336": {
+      "id": "ATOM_LDP_COMPUTE_336",
+      "src": "第2部分-V9.",
+      "line": 9530,
+      "name": "大偏差计算器",
+      "engine": "LARGE_DEVIATION_65",
+      "desc": "计算大偏差概率"
+    },
+    "ATOM_TEST_STAT_337": {
+      "id": "ATOM_TEST_STAT_337",
+      "src": "第2部分-V9.",
+      "line": 9531,
+      "name": "检验统计量构造器",
+      "engine": "LARGE_DEVIATION_65",
+      "desc": "构造统计检验量"
+    },
+    "ATOM_ENTROPY_327": {
+      "id": "ATOM_ENTROPY_327",
+      "src": "第2部分-V9.",
+      "line": 9532,
+      "name": "熵分析器",
+      "engine": "LARGE_DEVIATION_65",
+      "desc": "熵计算"
+    },
+    "ATOM_MUTUAL_INFO_328": {
+      "id": "ATOM_MUTUAL_INFO_328",
+      "src": "第2部分-V9.",
+      "line": 9533,
+      "name": "互信息计算器",
+      "engine": "LARGE_DEVIATION_65",
+      "desc": "互信息计算"
+    },
+    "ATOM_FORCING_342": {
+      "id": "ATOM_FORCING_342",
+      "src": "第2部分-V9.",
+      "line": 9540,
+      "name": "力迫法应用器",
+      "engine": "META_MATH_67",
+      "desc": "应用力迫法"
+    },
+    "ATOM_MODEL_BUILD_343": {
+      "id": "ATOM_MODEL_BUILD_343",
+      "src": "第2部分-V9.",
+      "line": 9541,
+      "name": "模型构造器",
+      "engine": "META_MATH_67",
+      "desc": "构造ZFC模型"
+    },
+    "ATOM_NEW_AXIOM_344": {
+      "id": "ATOM_NEW_AXIOM_344",
+      "src": "第2部分-V9.",
+      "line": 9542,
+      "name": "新公理推荐器",
+      "engine": "META_MATH_67",
+      "desc": "推荐所需新公理"
+    },
+    "ATOM_PRIME_TABLE_345": {
+      "id": "ATOM_PRIME_TABLE_345",
+      "src": "第2部分-V9.",
+      "line": 9549,
+      "name": "素数表生成器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "生成素数表"
+    },
+    "ATOM_PRIME_TEST_346": {
+      "id": "ATOM_PRIME_TEST_346",
+      "src": "第2部分-V9.",
+      "line": 9550,
+      "name": "素性测试器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "测试素数"
+    },
+    "ATOM_RANDOM_PRIME_347": {
+      "id": "ATOM_RANDOM_PRIME_347",
+      "src": "第2部分-V9.",
+      "line": 9551,
+      "name": "随机素数生成器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "生成安全素数"
+    },
+    "ATOM_ZERO_SIM_350": {
+      "id": "ATOM_ZERO_SIM_350",
+      "src": "第2部分-V9.",
+      "line": 9554,
+      "name": "零点模拟器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "模拟人工零点"
+    },
+    "ATOM_CHAOS_SPECTRUM_352": {
+      "id": "ATOM_CHAOS_SPECTRUM_352",
+      "src": "第2部分-V9.",
+      "line": 9556,
+      "name": "混沌能谱计算器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "计算能谱"
+    },
+    "ATOM_VALUE_MAP_353": {
+      "id": "ATOM_VALUE_MAP_353",
+      "src": "第2部分-V9.",
+      "line": 9557,
+      "name": "价值映射器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "猜想→价值映射"
+    },
+    "ATOM_VALUE_API_354": {
+      "id": "ATOM_VALUE_API_354",
+      "src": "第2部分-V9.",
+      "line": 9558,
+      "name": "价值API生成器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "生成API"
+    },
+    "ATOM_VALUE_DASHBOARD_355": {
+      "id": "ATOM_VALUE_DASHBOARD_355",
+      "src": "第2部分-V9.",
+      "line": 9559,
+      "name": "价值仪表盘",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "可视化"
+    },
+    "ATOM_PRIME_DIST_VIS_356": {
+      "id": "ATOM_PRIME_DIST_VIS_356",
+      "src": "第2部分-V9.",
+      "line": 9560,
+      "name": "素数分布可视化器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "可视化"
+    },
+    "ATOM_GUE_VIS_357": {
+      "id": "ATOM_GUE_VIS_357",
+      "src": "第2部分-V9.",
+      "line": 9561,
+      "name": "GUE可视化器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "可视化"
+    },
+    "ATOM_CRYPTO_AUDIT_358": {
+      "id": "ATOM_CRYPTO_AUDIT_358",
+      "src": "第2部分-V9.",
+      "line": 9562,
+      "name": "密码学审计器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "安全审计"
+    },
+    "ATOM_VALUE_REPORT_359": {
+      "id": "ATOM_VALUE_REPORT_359",
+      "src": "第2部分-V9.",
+      "line": 9563,
+      "name": "价值报告生成器",
+      "engine": "VALUE_REALIZE_68",
+      "desc": "生成报告"
+    },
+    "ATOM_ELEMENT_EXTRACT_404": {
+      "id": "ATOM_ELEMENT_EXTRACT_404",
+      "src": "第2部分-V9.",
+      "line": 11981,
+      "name": "认知要素提取器",
+      "engine": "意图理解引擎",
+      "desc": "将行为分解为认知要素"
+    },
+    "ATOM_INTENT_COMPOSE_405": {
+      "id": "ATOM_INTENT_COMPOSE_405",
+      "src": "第2部分-V9.",
+      "line": 11982,
+      "name": "意图组合分析器",
+      "engine": "意图理解引擎",
+      "desc": "通过要素组合识别复杂意图"
+    },
+    "ATOM_SIM_PIPE_415": {
+      "id": "ATOM_SIM_PIPE_415",
+      "src": "第2部分-V9.",
+      "line": 11983,
+      "name": "仿真管道生成器",
+      "engine": "推理纠正引擎",
+      "desc": "生成高风险交互轨迹仿真管道"
+    },
+    "ATOM_REASON_FIX_416": {
+      "id": "ATOM_REASON_FIX_416",
+      "src": "第2部分-V9.",
+      "line": 11984,
+      "name": "推理修正器",
+      "engine": "推理纠正引擎",
+      "desc": "拦截并修正不安全推理链"
+    },
+    "ATOM_CONSENSUS_VOTE_443": {
+      "id": "ATOM_CONSENSUS_VOTE_443",
+      "src": "第2部分-V9.",
+      "line": 11985,
+      "name": "共识投票器",
+      "engine": "共识验证引擎",
+      "desc": "多智能体共识投票"
+    },
+    "ATOM_ARBITRATION_444": {
+      "id": "ATOM_ARBITRATION_444",
+      "src": "第2部分-V9.",
+      "line": 11986,
+      "name": "仲裁器",
+      "engine": "共识验证引擎",
+      "desc": "争议自动仲裁"
+    },
+    "ATOM_ASSET_SCAN_421": {
+      "id": "ATOM_ASSET_SCAN_421",
+      "src": "第2部分-V9.",
+      "line": 11987,
+      "name": "资产扫描器",
+      "engine": "资产保护引擎",
+      "desc": "扫描识别敏感资产"
+    },
+    "ATOM_ACCESS_GATE_422": {
+      "id": "ATOM_ACCESS_GATE_422",
+      "src": "第2部分-V9.",
+      "line": 11988,
+      "name": "访问门禁控制器",
+      "engine": "资产保护引擎",
+      "desc": "控制资产访问权限"
+    },
+    "ATOM_EVIDENCE_COLLECT_397": {
+      "id": "ATOM_EVIDENCE_COLLECT_397",
+      "src": "第2部分-V9.",
+      "line": 11989,
+      "name": "证据收集器",
+      "engine": "证据链引擎",
+      "desc": "收集决策证据"
+    },
+    "ATOM_CHAIN_BUILD_398": {
+      "id": "ATOM_CHAIN_BUILD_398",
+      "src": "第2部分-V9.",
+      "line": 11990,
+      "name": "证据链构建器",
+      "engine": "证据链引擎",
+      "desc": "构建可追溯证据链"
+    },
+    "ATOM_RULE_SYNC_414": {
+      "id": "ATOM_RULE_SYNC_414",
+      "src": "第2部分-V9.",
+      "line": 11991,
+      "name": "规则同步器",
+      "engine": "免疫同步引擎",
+      "desc": "同步防御规则到全网"
+    },
+    "ATOM_CONTAINER_RUN_451": {
+      "id": "ATOM_CONTAINER_RUN_451",
+      "src": "第2部分-V9.",
+      "line": 11992,
+      "name": "容器执行器",
+      "engine": "双层沙箱引擎",
+      "desc": "在容器中执行Skill"
+    },
+    "ATOM_VM_ISOLATE_452": {
+      "id": "ATOM_VM_ISOLATE_452",
+      "src": "第2部分-V9.",
+      "line": 11993,
+      "name": "微虚拟机隔离器",
+      "engine": "双层沙箱引擎",
+      "desc": "提供内核级隔离"
+    },
+    "ATOM_VAULT_STORE_441": {
+      "id": "ATOM_VAULT_STORE_441",
+      "src": "第2部分-V9.",
+      "line": 11994,
+      "name": "保险库存储器",
+      "engine": "密钥保险库",
+      "desc": "加密存储敏感凭证"
+    },
+    "ATOM_VAULT_INJECT_442": {
+      "id": "ATOM_VAULT_INJECT_442",
+      "src": "第2部分-V9.",
+      "line": 11995,
+      "name": "凭证注入器",
+      "engine": "密钥保险库",
+      "desc": "按需注入凭证"
+    },
+    "ATOM_PERMISSION_DECLARE_445": {
+      "id": "ATOM_PERMISSION_DECLARE_445",
+      "src": "第2部分-V9.",
+      "line": 11996,
+      "name": "权限声明器",
+      "engine": "权限声明引擎",
+      "desc": "声明Skill所需权限"
+    },
+    "ATOM_PERMISSION_AUDIT_446": {
+      "id": "ATOM_PERMISSION_AUDIT_446",
+      "src": "第2部分-V9.",
+      "line": 11997,
+      "name": "权限审计器",
+      "engine": "权限声明引擎",
+      "desc": "审计权限使用情况"
+    },
+    "ATOM_PROTOCOL_DRIVER_526": {
+      "id": "ATOM_PROTOCOL_DRIVER_526",
+      "src": "第2部分-V9.",
+      "line": 12617,
+      "name": "协议驱动管理器",
+      "engine": "ENGINE_PROTOCOL_ADAPT_111",
+      "desc": "管理工业协议驱动"
+    },
+    "ATOM_DATA_COLLECTOR_527": {
+      "id": "ATOM_DATA_COLLECTOR_527",
+      "src": "第2部分-V9.",
+      "line": 12618,
+      "name": "数据采集器",
+      "engine": "ENGINE_PROTOCOL_ADAPT_111",
+      "desc": "实时采集设备数据"
+    },
+    "ATOM_EDGE_FILTER_528": {
+      "id": "ATOM_EDGE_FILTER_528",
+      "src": "第2部分-V9.",
+      "line": 12619,
+      "name": "边缘过滤器",
+      "engine": "ENGINE_PROTOCOL_ADAPT_111",
+      "desc": "边缘端数据预处理"
+    },
+    "ATOM_MODEL_BUILDER_529": {
+      "id": "ATOM_MODEL_BUILDER_529",
+      "src": "第2部分-V9.",
+      "line": 12620,
+      "name": "模型构建器",
+      "engine": "ENGINE_DIGITAL_TWIN_112",
+      "desc": "自动构建设备模型"
+    },
+    "ATOM_SYNC_ENGINE_530": {
+      "id": "ATOM_SYNC_ENGINE_530",
+      "src": "第2部分-V9.",
+      "line": 12621,
+      "name": "同步引擎",
+      "engine": "ENGINE_DIGITAL_TWIN_112",
+      "desc": "实时同步设备状态"
+    },
+    "ATOM_HEALTH_SCORER_531": {
+      "id": "ATOM_HEALTH_SCORER_531",
+      "src": "第2部分-V9.",
+      "line": 12622,
+      "name": "健康评分器",
+      "engine": "ENGINE_DIGITAL_TWIN_112",
+      "desc": "评估设备健康度"
+    },
+    "ATOM_FIRMWARE_PARSER_532": {
+      "id": "ATOM_FIRMWARE_PARSER_532",
+      "src": "第2部分-V9.",
+      "line": 12623,
+      "name": "固件解析器",
+      "engine": "ENGINE_FIRMWARE_SEC_113",
+      "desc": "解析固件格式"
+    },
+    "ATOM_VULN_SCANNER_533": {
+      "id": "ATOM_VULN_SCANNER_533",
+      "src": "第2部分-V9.",
+      "line": 12624,
+      "name": "漏洞扫描器",
+      "engine": "ENGINE_FIRMWARE_SEC_113",
+      "desc": "扫描固件漏洞"
+    },
+    "ATOM_AUTO_COMPLIANCE_534": {
+      "id": "ATOM_AUTO_COMPLIANCE_534",
+      "src": "第2部分-V9.",
+      "line": 12625,
+      "name": "汽车合规评估器",
+      "engine": "ENGINE_COMPLIANCE_114",
+      "desc": "评估ISO 26262"
+    },
+    "ATOM_AERO_COMPLIANCE_535": {
+      "id": "ATOM_AERO_COMPLIANCE_535",
+      "src": "第2部分-V9.",
+      "line": 12626,
+      "name": "航空航天合规评估器",
+      "engine": "ENGINE_COMPLIANCE_114",
+      "desc": "评估DO-254"
+    },
+    "ATOM_BATCH_TRACER_536": {
+      "id": "ATOM_BATCH_TRACER_536",
+      "src": "第2部分-V9.",
+      "line": 12627,
+      "name": "批次追踪器",
+      "engine": "ENGINE_SUPPLY_TRACE_115",
+      "desc": "追踪产品批次"
+    },
+    "ATOM_CHAIN_RECORDER_537": {
+      "id": "ATOM_CHAIN_RECORDER_537",
+      "src": "第2部分-V9.",
+      "line": 12628,
+      "name": "区块链记录器",
+      "engine": "ENGINE_SUPPLY_TRACE_115",
+      "desc": "上链存证"
+    },
+    "ATOM_PARTNER_CERT_538": {
+      "id": "ATOM_PARTNER_CERT_538",
+      "src": "第2部分-V9.",
+      "line": 12629,
+      "name": "伙伴认证器",
+      "engine": "ENGINE_PARTNER_ECO_116",
+      "desc": "认证生态伙伴"
+    },
+    "ATOM_REVENUE_CALC_539": {
+      "id": "ATOM_REVENUE_CALC_539",
+      "src": "第2部分-V9.",
+      "line": 12630,
+      "name": "分成计算器",
+      "engine": "ENGINE_PARTNER_ECO_116",
+      "desc": "计算分成收益"
+    },
+    "ATOM_PROTOCOL_DRIVER_501": {
+      "id": "ATOM_PROTOCOL_DRIVER_501",
+      "src": "第2部分-V9.",
+      "line": 13103,
+      "name": "协议驱动管理器",
+      "engine": "工业协议适配引擎",
+      "desc": "管理各类工业协议驱动"
+    },
+    "ATOM_DATA_COLLECTOR_502": {
+      "id": "ATOM_DATA_COLLECTOR_502",
+      "src": "第2部分-V9.",
+      "line": 13104,
+      "name": "数据采集器",
+      "engine": "工业协议适配引擎",
+      "desc": "实时采集设备数据"
+    },
+    "ATOM_EDGE_FILTER_503": {
+      "id": "ATOM_EDGE_FILTER_503",
+      "src": "第2部分-V9.",
+      "line": 13105,
+      "name": "边缘过滤器",
+      "engine": "工业协议适配引擎",
+      "desc": "边缘端数据预处理"
+    },
+    "ATOM_MODEL_BUILDER_504": {
+      "id": "ATOM_MODEL_BUILDER_504",
+      "src": "第2部分-V9.",
+      "line": 13106,
+      "name": "模型构建器",
+      "engine": "设备数字孪生引擎",
+      "desc": "自动构建设备数字模型"
+    },
+    "ATOM_SYNC_ENGINE_505": {
+      "id": "ATOM_SYNC_ENGINE_505",
+      "src": "第2部分-V9.",
+      "line": 13107,
+      "name": "同步引擎",
+      "engine": "设备数字孪生引擎",
+      "desc": "实时同步设备状态"
+    },
+    "ATOM_HEALTH_SCORER_506": {
+      "id": "ATOM_HEALTH_SCORER_506",
+      "src": "第2部分-V9.",
+      "line": 13108,
+      "name": "健康评分器",
+      "engine": "设备数字孪生引擎",
+      "desc": "评估设备健康度"
+    },
+    "ATOM_COGNITIVE_PARSE_601": {
+      "id": "ATOM_COGNITIVE_PARSE_601",
+      "src": "第2部分-V9.",
+      "line": 13109,
+      "name": "认知解析器",
+      "engine": "认知智能体引擎",
+      "desc": "解析工业图纸文档"
+    },
+    "ATOM_KNOWLEDGE_RETRIEVE_602": {
+      "id": "ATOM_KNOWLEDGE_RETRIEVE_602",
+      "src": "第2部分-V9.",
+      "line": 13110,
+      "name": "知识检索器",
+      "engine": "认知智能体引擎",
+      "desc": "检索工业知识库"
+    },
+    "ATOM_EXECUTION_CONTROL_603": {
+      "id": "ATOM_EXECUTION_CONTROL_603",
+      "src": "第2部分-V9.",
+      "line": 13111,
+      "name": "执行控制器",
+      "engine": "执行智能体引擎",
+      "desc": "控制任务执行"
+    },
+    "ATOM_QUALITY_DETECT_604": {
+      "id": "ATOM_QUALITY_DETECT_604",
+      "src": "第2部分-V9.",
+      "line": 13112,
+      "name": "质量检测器",
+      "engine": "执行智能体引擎",
+      "desc": "实时质量监控"
+    },
+    "ATOM_MAINTENANCE_PREDICT_605": {
+      "id": "ATOM_MAINTENANCE_PREDICT_605",
+      "src": "第2部分-V9.",
+      "line": 13113,
+      "name": "维护预测器",
+      "engine": "执行智能体引擎",
+      "desc": "预测设备故障"
+    },
+    "ATOM_COLLAB_SCHED_606": {
+      "id": "ATOM_COLLAB_SCHED_606",
+      "src": "第2部分-V9.",
+      "line": 13114,
+      "name": "协同调度器",
+      "engine": "协同智能体引擎",
+      "desc": "多工序任务调度"
+    },
+    "ATOM_SUPPLY_CHAIN_607": {
+      "id": "ATOM_SUPPLY_CHAIN_607",
+      "src": "第2部分-V9.",
+      "line": 13115,
+      "name": "供应链协调器",
+      "engine": "协同智能体引擎",
+      "desc": "供应链协同"
+    },
+    "ATOM_DATA_GOVERN_608": {
+      "id": "ATOM_DATA_GOVERN_608",
+      "src": "第2部分-V9.",
+      "line": 13116,
+      "name": "数据治理器",
+      "engine": "数据智能体引擎",
+      "desc": "工业数据治理"
+    },
+    "ATOM_KNOWLEDGE_GRAPH_609": {
+      "id": "ATOM_KNOWLEDGE_GRAPH_609",
+      "src": "第2部分-V9.",
+      "line": 13117,
+      "name": "知识图谱构建器",
+      "engine": "数据智能体引擎",
+      "desc": "构建工业知识图谱"
+    },
+    "ATOM_PARTNER_CERT_524": {
+      "id": "ATOM_PARTNER_CERT_524",
+      "src": "第2部分-V9.",
+      "line": 13118,
+      "name": "伙伴认证器",
+      "engine": "生态伙伴管理引擎",
+      "desc": "认证解决方案伙伴"
+    },
+    "ATOM_REVENUE_CALC_525": {
+      "id": "ATOM_REVENUE_CALC_525",
+      "src": "第2部分-V9.",
+      "line": 13119,
+      "name": "分成计算器",
+      "engine": "生态伙伴管理引擎",
+      "desc": "计算分成金额"
+    },
+    "ATOM_RESOURCE_ALLOCATE_001": {
+      "id": "ATOM_RESOURCE_ALLOCATE_001",
+      "src": "第3部分-V21",
+      "line": 117,
+      "name": "资源分配器",
+      "desc": "执行资源分配",
+      "engine": "ENGINE_RESOURCE_69"
+    },
+    "ATOM_RESOURCE_PREDICT_002": {
+      "id": "ATOM_RESOURCE_PREDICT_002",
+      "src": "第3部分-V21",
+      "line": 118,
+      "name": "需求预测器",
+      "desc": "预测资源需求",
+      "engine": "ENGINE_RESOURCE_69"
+    },
+    "ATOM_RESOURCE_SCALE_003": {
+      "id": "ATOM_RESOURCE_SCALE_003",
+      "src": "第3部分-V21",
+      "line": 119,
+      "name": "弹性伸缩器",
+      "desc": "根据负载自动扩缩容",
+      "engine": "ENGINE_RESOURCE_69"
+    },
+    "ATOM_EVIDENCE_RECORD_001": {
+      "id": "ATOM_EVIDENCE_RECORD_001",
+      "src": "第3部分-V21",
+      "line": 125,
+      "name": "证据记录器",
+      "desc": "记录行动证据链，支持追溯",
+      "engine": "ENGINE_EVIDENCE_83"
+    },
+    "ATOM_ANOMALY_DETECT_001": {
+      "id": "ATOM_ANOMALY_DETECT_001",
+      "src": "第3部分-V21",
+      "line": 131,
+      "name": "异常检测器",
+      "desc": "检测系统异常事件",
+      "engine": "ENGINE_METAMIRROR_04"
+    },
+    "ATOM_TREND_ANALYSIS_001": {
+      "id": "ATOM_TREND_ANALYSIS_001",
+      "src": "第3部分-V21",
+      "line": 132,
+      "name": "趋势分析器",
+      "desc": "分析指标变化趋势",
+      "engine": "ENGINE_METAMIRROR_04"
+    },
+    "ATOM_PATTERN_LEARN_001": {
+      "id": "ATOM_PATTERN_LEARN_001",
+      "src": "第3部分-V21",
+      "line": 138,
+      "name": "模式学习器",
+      "desc": "从数据中学习模式",
+      "engine": "ENGINE_METAEVO_10"
+    },
+    "ATOM_PATTERN_EXTRACT_001": {
+      "id": "ATOM_PATTERN_EXTRACT_001",
+      "src": "第3部分-V21",
+      "line": 139,
+      "name": "模式提取器",
+      "desc": "从历史数据提取模式",
+      "engine": "ENGINE_METAEVO_10"
+    },
+    "ATOM_TRANSFER_LEARN_001": {
+      "id": "ATOM_TRANSFER_LEARN_001",
+      "src": "第3部分-V21",
+      "line": 140,
+      "name": "迁移学习器",
+      "desc": "跨领域迁移学习",
+      "engine": "ENGINE_METAEVO_10"
+    },
+    "ATOM_PRIORITY_SORT_001": {
+      "id": "ATOM_PRIORITY_SORT_001",
+      "src": "第3部分-V21",
+      "line": 146,
+      "name": "优先级排序器",
+      "desc": "对任务进行优先级排序",
+      "engine": "ENGINE_SCHEDULER_18"
+    },
+    "ATOM_RISK_ASSESS_001": {
+      "id": "ATOM_RISK_ASSESS_001",
+      "src": "第3部分-V21",
+      "line": 147,
+      "name": "风险评估器",
+      "desc": "评估决策风险",
+      "engine": "ENGINE_VALUE_ALIGN_41"
+    },
+    "ATOM_COMPLIANCE_CHECK_001": {
+      "id": "ATOM_COMPLIANCE_CHECK_001",
+      "src": "第3部分-V21",
+      "line": 148,
+      "name": "合规检查器",
+      "desc": "检查决策合规性",
+      "engine": "ENGINE_VALUE_ALIGN_41"
+    },
+    "ATOM_BOUNDARY_PERCEIVE_545": {
+      "id": "ATOM_BOUNDARY_PERCEIVE_545",
+      "src": "第3部分-V21",
+      "line": 827,
+      "name": "边界感知器",
+      "engine": "ENGINE_META_EVOLUTION_117",
+      "desc": "感知系统的能力边界"
+    },
+    "ATOM_GAP_ANALYZE_546": {
+      "id": "ATOM_GAP_ANALYZE_546",
+      "src": "第3部分-V21",
+      "line": 828,
+      "name": "差距分析器",
+      "engine": "ENGINE_META_EVOLUTION_117",
+      "desc": "分析从边界到目标的差距"
+    },
+    "ATOM_SELF_GENERATE_547": {
+      "id": "ATOM_SELF_GENERATE_547",
+      "src": "第3部分-V21",
+      "line": 829,
+      "name": "自生成器",
+      "engine": "ENGINE_META_EVOLUTION_117",
+      "desc": "从内部生长新能力"
+    },
+    "ATOM_EVOLUTION_VALIDATE_548": {
+      "id": "ATOM_EVOLUTION_VALIDATE_548",
+      "src": "第3部分-V21",
+      "line": 830,
+      "name": "进化验证器",
+      "engine": "ENGINE_META_EVOLUTION_117",
+      "desc": "验证新能力的有效性"
+    },
+    "ATOM_SELF_REFLECT_EVO_549": {
+      "id": "ATOM_SELF_REFLECT_EVO_549",
+      "src": "第3部分-V21",
+      "line": 831,
+      "name": "自我审视器（进化版）",
+      "engine": "ENGINE_META_EVOLUTION_117",
+      "desc": "追问“我还能变得更好吗”"
+    },
+    "ATOM_FAILURE_CAPTURE_543": {
+      "id": "ATOM_FAILURE_CAPTURE_543",
+      "src": "第3部分-V21",
+      "line": 832,
+      "name": "失败捕捉器",
+      "engine": "ENGINE_FAILURE_FUEL_118",
+      "desc": "捕捉系统中的失败事件"
+    },
+    "ATOM_FAILURE_CLASSIFY_550": {
+      "id": "ATOM_FAILURE_CLASSIFY_550",
+      "src": "第3部分-V21",
+      "line": 833,
+      "name": "失败分类器",
+      "engine": "ENGINE_FAILURE_FUEL_118",
+      "desc": "按类型分类失败"
+    },
+    "ATOM_FAILURE_VALUE_544": {
+      "id": "ATOM_FAILURE_VALUE_544",
+      "src": "第3部分-V21",
+      "line": 834,
+      "name": "失败价值评估器",
+      "engine": "ENGINE_FAILURE_FUEL_118",
+      "desc": "量化失败的进化价值"
+    },
+    "ATOM_SNAPSHOT_TAKER_551": {
+      "id": "ATOM_SNAPSHOT_TAKER_551",
+      "src": "第3部分-V21",
+      "line": 2497,
+      "name": "快照生成器",
+      "engine": "时空回溯引擎",
+      "desc": "保存系统状态快照"
+    },
+    "ATOM_CAUSAL_TRACER_552": {
+      "id": "ATOM_CAUSAL_TRACER_552",
+      "src": "第3部分-V21",
+      "line": 2498,
+      "name": "因果追踪器",
+      "engine": "时空回溯引擎",
+      "desc": "追踪因果路径"
+    },
+    "ATOM_HYPOTHESIS_ENGINE_553": {
+      "id": "ATOM_HYPOTHESIS_ENGINE_553",
+      "src": "第3部分-V21",
+      "line": 2499,
+      "name": "假设推演器",
+      "engine": "时空回溯引擎",
+      "desc": "推演假设情景"
+    },
+    "ATOM_STATE_RESTORER_554": {
+      "id": "ATOM_STATE_RESTORER_554",
+      "src": "第3部分-V21",
+      "line": 2500,
+      "name": "状态恢复器",
+      "engine": "时空回溯引擎",
+      "desc": "恢复历史状态"
+    },
+    "ATOM_VALUE_CURVE_555": {
+      "id": "ATOM_VALUE_CURVE_555",
+      "src": "第3部分-V21",
+      "line": 2501,
+      "name": "价值曲线生成器",
+      "engine": "价值预测引擎",
+      "desc": "生成价值预测曲线"
+    },
+    "ATOM_RISK_DETECTOR_556": {
+      "id": "ATOM_RISK_DETECTOR_556",
+      "src": "第3部分-V21",
+      "line": 2502,
+      "name": "风险检测器",
+      "engine": "价值预测引擎",
+      "desc": "检测价值风险"
+    },
+    "ATOM_HEDGE_CREATOR_557": {
+      "id": "ATOM_HEDGE_CREATOR_557",
+      "src": "第3部分-V21",
+      "line": 2503,
+      "name": "对冲方案创建器",
+      "engine": "价值预测引擎",
+      "desc": "生成对冲方案"
+    },
+    "ATOM_MULTIPATH_ENGINE_558": {
+      "id": "ATOM_MULTIPATH_ENGINE_558",
+      "src": "第3部分-V21",
+      "line": 2504,
+      "name": "多路径推演器",
+      "engine": "价值预测引擎",
+      "desc": "推演多路径价值"
+    },
+    "ATOM_CONFLICT_ASSESSOR_559": {
+      "id": "ATOM_CONFLICT_ASSESSOR_559",
+      "src": "第3部分-V21",
+      "line": 2505,
+      "name": "冲突评估器",
+      "engine": "冲突转化引擎",
+      "desc": "评估冲突价值"
+    },
+    "ATOM_TRANSFORM_GUIDE_560": {
+      "id": "ATOM_TRANSFORM_GUIDE_560",
+      "src": "第3部分-V21",
+      "line": 2506,
+      "name": "转化路径指引器",
+      "engine": "冲突转化引擎",
+      "desc": "生成转化路径"
+    },
+    "ATOM_WIN3_ENGINE_561": {
+      "id": "ATOM_WIN3_ENGINE_561",
+      "src": "第3部分-V21",
+      "line": 2507,
+      "name": "三方共赢推演器",
+      "engine": "冲突转化引擎",
+      "desc": "推演共赢方案"
+    },
+    "ATOM_ENERGY_HARVESTER_562": {
+      "id": "ATOM_ENERGY_HARVESTER_562",
+      "src": "第3部分-V21",
+      "line": 2508,
+      "name": "能量捕获器",
+      "engine": "冲突转化引擎",
+      "desc": "捕获冲突能量"
+    },
+    "ATOM_PATTERN_COMPRESSOR_563": {
+      "id": "ATOM_PATTERN_COMPRESSOR_563",
+      "src": "第3部分-V21",
+      "line": 2509,
+      "name": "模式压缩器",
+      "engine": "直觉生成引擎",
+      "desc": "压缩经验模式"
+    },
+    "ATOM_INTUITION_CREATOR_564": {
+      "id": "ATOM_INTUITION_CREATOR_564",
+      "src": "第3部分-V21",
+      "line": 2510,
+      "name": "直觉生成器",
+      "engine": "直觉生成引擎",
+      "desc": "生成直觉判断"
+    },
+    "ATOM_INTUITION_VALIDATOR_565": {
+      "id": "ATOM_INTUITION_VALIDATOR_565",
+      "src": "第3部分-V21",
+      "line": 2511,
+      "name": "直觉验证器",
+      "engine": "直觉生成引擎",
+      "desc": "验证直觉可信度"
+    },
+    "ATOM_PROTOCOL_MANAGER_566": {
+      "id": "ATOM_PROTOCOL_MANAGER_566",
+      "src": "第3部分-V21",
+      "line": 2512,
+      "name": "协议管理器",
+      "engine": "元协议引擎",
+      "desc": "管理协议生命周期"
+    },
+    "ATOM_PROTOCOL_CHECKER_567": {
+      "id": "ATOM_PROTOCOL_CHECKER_567",
+      "src": "第3部分-V21",
+      "line": 2513,
+      "name": "协议检查器",
+      "engine": "元协议引擎",
+      "desc": "检测协议冲突"
+    },
+    "ATOM_PROTOCOL_CREATOR_568": {
+      "id": "ATOM_PROTOCOL_CREATOR_568",
+      "src": "第3部分-V21",
+      "line": 2514,
+      "name": "协议生成器",
+      "engine": "元协议引擎",
+      "desc": "自动生成协议"
+    },
+    "ATOM_SKILL_ABSORB_569": {
+      "id": "ATOM_SKILL_ABSORB_569",
+      "src": "第3部分-V21",
+      "line": 3420,
+      "name": "数据吸收器",
+      "engine": "ENGINE_SKILL_EVOLVE_124",
+      "desc": "吸收各类领域数据"
+    },
+    "ATOM_SKILL_GEN_570": {
+      "id": "ATOM_SKILL_GEN_570",
+      "src": "第3部分-V21",
+      "line": 3421,
+      "name": "Skill生成器",
+      "engine": "ENGINE_SKILL_EVOLVE_124",
+      "desc": "封装标准Skill包"
+    },
+    "ATOM_SKILL_ADAPT_571": {
+      "id": "ATOM_SKILL_ADAPT_571",
+      "src": "第3部分-V21",
+      "line": 3422,
+      "name": "Skill适配器",
+      "engine": "ENGINE_SKILL_EVOLVE_124",
+      "desc": "适配不同大模型"
+    },
+    "ATOM_CAPABILITY_SELECTOR_582": {
+      "id": "ATOM_CAPABILITY_SELECTOR_582",
+      "src": "第3部分-V21",
+      "line": 4035,
+      "name": "能力选择器",
+      "engine": "能力路由引擎",
+      "desc": "根据任务嵌入选择激活的能力族"
+    },
+    "ATOM_ACTIVATION_MASK_583": {
+      "id": "ATOM_ACTIVATION_MASK_583",
+      "src": "第3部分-V21",
+      "line": 4036,
+      "name": "激活掩码生成器",
+      "engine": "能力路由引擎",
+      "desc": "生成74个引擎的激活掩码"
+    },
+    "ATOM_TIME_COMPRESSOR_584": {
+      "id": "ATOM_TIME_COMPRESSOR_584",
+      "src": "第3部分-V21",
+      "line": 4037,
+      "name": "时间压缩器",
+      "engine": "时间晶体引擎V2",
+      "desc": "将交互历史压缩为晶体状态"
+    },
+    "ATOM_CRYSTAL_STORE_585": {
+      "id": "ATOM_CRYSTAL_STORE_585",
+      "src": "第3部分-V21",
+      "line": 4038,
+      "name": "晶体存储器",
+      "engine": "时间晶体引擎V2",
+      "desc": "存储和管理固化晶体"
+    },
+    "ATOM_OPERATOR_CONVERTER_586": {
+      "id": "ATOM_OPERATOR_CONVERTER_586",
+      "src": "第3部分-V21",
+      "line": 4039,
+      "name": "算子转换器",
+      "engine": "国产AI适配引擎",
+      "desc": "将算子转换为国产GPU格式"
+    },
+    "ATOM_CLUSTER_MONITOR_587": {
+      "id": "ATOM_CLUSTER_MONITOR_587",
+      "src": "第3部分-V21",
+      "line": 4040,
+      "name": "国产集群监控器",
+      "engine": "国产AI适配引擎",
+      "desc": "监控国产GPU集群状态"
+    },
+    "ATOM_EDGE_RUNTIME_588": {
+      "id": "ATOM_EDGE_RUNTIME_588",
+      "src": "第3部分-V21",
+      "line": 4041,
+      "name": "边缘运行时",
+      "engine": "边缘部署引擎",
+      "desc": "CPU/移动端推理运行时"
+    },
+    "ATOM_QUANTIZE_CALIBRATE_589": {
+      "id": "ATOM_QUANTIZE_CALIBRATE_589",
+      "src": "第3部分-V21",
+      "line": 4042,
+      "name": "量化校准器",
+      "engine": "边缘部署引擎",
+      "desc": "校准量化参数"
+    },
+    "ATOM_ROUTER_590": {
+      "id": "ATOM_ROUTER_590",
+      "src": "第3部分-V21",
+      "line": 4043,
+      "name": "原子路由器",
+      "engine": "能力规模化引擎",
+      "desc": "原子簇动态路由"
+    },
+    "ATOM_CLONE_MANAGER_591": {
+      "id": "ATOM_CLONE_MANAGER_591",
+      "src": "第3部分-V21",
+      "line": 4044,
+      "name": "克隆管理器",
+      "engine": "能力规模化引擎",
+      "desc": "管理原子克隆生命周期"
+    },
+    "ATOM_EVENT_PULSE_592": {
+      "id": "ATOM_EVENT_PULSE_592",
+      "src": "第3部分-V21",
+      "line": 4045,
+      "name": "事件脉冲生成器",
+      "engine": "脉冲事件引擎",
+      "desc": "将运行事件转化为脉冲"
+    },
+    "ATOM_PULSE_VISUALIZER_593": {
+      "id": "ATOM_PULSE_VISUALIZER_593",
+      "src": "第3部分-V21",
+      "line": 4046,
+      "name": "脉冲可视化器",
+      "engine": "脉冲事件引擎",
+      "desc": "生成时间-引擎脉冲图"
+    },
+    "ATOM_LIGHT_EVOLVE_595": {
+      "id": "ATOM_LIGHT_EVOLVE_595",
+      "src": "第3部分-V21",
+      "line": 4703,
+      "name": "轻量进化触发器",
+      "engine": "元进化引擎V12.0",
+      "desc": "任务完成后自动触发L1轻量进化"
+    },
+    "ATOM_CRYSTAL_INDEXER_596": {
+      "id": "ATOM_CRYSTAL_INDEXER_596",
+      "src": "第3部分-V21",
+      "line": 4704,
+      "name": "知识晶体索引器",
+      "engine": "时间晶体引擎V3.0",
+      "desc": "构建三层知识晶体的结构化索引"
+    },
+    "ATOM_SKILL_EXPORTER_597": {
+      "id": "ATOM_SKILL_EXPORTER_597",
+      "src": "第3部分-V21",
+      "line": 4705,
+      "name": "Skill开放标准导出器",
+      "engine": "Skill进化引擎V2.0",
+      "desc": "导出agentskills.io标准Skill"
+    },
+    "ATOM_MEMORY_SWITCHER_598": {
+      "id": "ATOM_MEMORY_SWITCHER_598",
+      "src": "第3部分-V21",
+      "line": 5165,
+      "name": "记忆模式动态切换器",
+      "engine": "时间晶体引擎V3.1",
+      "desc": "向量/轻量/混合三模式动态切换"
+    },
+    "ATOM_REFLECTION_ENGINE_599": {
+      "id": "ATOM_REFLECTION_ENGINE_599",
+      "src": "第3部分-V21",
+      "line": 5166,
+      "name": "主动反思引擎",
+      "engine": "时间晶体引擎V3.1",
+      "desc": "每N轮任务自动触发反思提炼"
+    },
+    "ATOM_AGENT_VERIFIER_600": {
+      "id": "ATOM_AGENT_VERIFIER_600",
+      "src": "第3部分-V21",
+      "line": 5167,
+      "name": "Agent结果校验器",
+      "engine": "多智能体协同框架V2.0",
+      "desc": "跨Agent结果交叉验证"
+    },
+    "ATOM_CRON_EXECUTOR_601": {
+      "id": "ATOM_CRON_EXECUTOR_601",
+      "src": "第3部分-V21",
+      "line": 5168,
+      "name": "定时任务执行器",
+      "engine": "定时任务调度引擎",
+      "desc": "定时任务调度与执行"
+    },
+    "ATOM_EVENT_LISTENER_602": {
+      "id": "ATOM_EVENT_LISTENER_602",
+      "src": "第3部分-V21",
+      "line": 5169,
+      "name": "事件监听器",
+      "engine": "定时任务调度引擎",
+      "desc": "多源事件触发监听"
+    },
+    "ATOM_MODEL_TESTER_603": {
+      "id": "ATOM_MODEL_TESTER_603",
+      "src": "第3部分-V21",
+      "line": 5170,
+      "name": "模型能力测试器",
+      "engine": "智能路由调度器V2.0",
+      "desc": "自动评估模型能力"
+    },
+    "ATOM_SKILL_MARKET_604": {
+      "id": "ATOM_SKILL_MARKET_604",
+      "src": "第3部分-V21",
+      "line": 5171,
+      "name": "Skill市场管理器",
+      "engine": "Skill进化引擎V3.0",
+      "desc": "Skill市场运营管理"
+    },
+    "ATOM_SCENE_GRAPH_618": {
+      "id": "ATOM_SCENE_GRAPH_618",
+      "src": "第3部分-V21",
+      "line": 5891,
+      "name": "场景图谱生成器",
+      "engine": "世界表征融合引擎",
+      "desc": "将传感器数据转化为结构化场景图谱（道路、车辆、行人关系图）"
+    },
+    "ATOM_PHYSICS_PREDICT_619": {
+      "id": "ATOM_PHYSICS_PREDICT_619",
+      "src": "第3部分-V21",
+      "line": 5892,
+      "name": "物理交互预测器",
+      "engine": "世界推演预测引擎",
+      "desc": "基于当前世界状态预测物理交互结果（碰撞风险、物体运动）"
+    },
+    "ATOM_SOCIAL_SIM_620": {
+      "id": "ATOM_SOCIAL_SIM_620",
+      "src": "第3部分-V21",
+      "line": 5893,
+      "name": "社会模拟生成器",
+      "engine": "反事实推理引擎",
+      "desc": "定义社会角色、规则和目标，生成大规模社会模拟场景"
+    },
+    "ATOM_COMMONSENSE_TEST_621": {
+      "id": "ATOM_COMMONSENSE_TEST_621",
+      "src": "第3部分-V21",
+      "line": 5894,
+      "name": "常识评测器",
+      "engine": "世界表征融合引擎",
+      "desc": "自动生成物理常识任务，量化评估模型的世界理解水平"
+    },
+    "ATOM_PRODUCTION_LINE_622": {
+      "id": "ATOM_PRODUCTION_LINE_622",
+      "src": "第3部分-V21",
+      "line": 6841,
+      "name": "智能体产线控制器",
+      "engine": "智能体生产线引擎",
+      "desc": "管理智能体从需求到交付的全流程"
+    },
+    "ATOM_CITY_REGISTRAR_623": {
+      "id": "ATOM_CITY_REGISTRAR_623",
+      "src": "第3部分-V21",
+      "line": 6842,
+      "name": "智能体城市注册官",
+      "engine": "智能体城市引擎",
+      "desc": "智能体身份注册与信用档案管理"
+    },
+    "ATOM_TOKEN_LEDGER_624": {
+      "id": "ATOM_TOKEN_LEDGER_624",
+      "src": "第3部分-V21",
+      "line": 6843,
+      "name": "Token分布式账本",
+      "engine": "Token经济铸币引擎",
+      "desc": "Token消耗、交易、结算的分布式记录"
+    },
+    "ATOM_TRADE_ENGINE_625": {
+      "id": "ATOM_TRADE_ENGINE_625",
+      "src": "第3部分-V21",
+      "line": 6844,
+      "name": "A2A交易撮合引擎",
+      "engine": "A2A经济市场引擎",
+      "desc": "Agent间服务交易的自动撮合"
+    },
+    "ATOM_ROI_DASHBOARD_626": {
+      "id": "ATOM_ROI_DASHBOARD_626",
+      "src": "第3部分-V21",
+      "line": 6845,
+      "name": "ROI实时仪表盘",
+      "engine": "ROI量化仪表盘引擎",
+      "desc": "为客户提供实时的ROI可视化追踪"
+    },
+    "ATOM_BENCH_RUNNER_627": {
+      "id": "ATOM_BENCH_RUNNER_627",
+      "src": "第4部分-V29",
+      "line": 665,
+      "name": "评测执行器",
+      "engine": "世界模型评测沙盒引擎",
+      "desc": "自动执行世界模型评测任务"
+    },
+    "ATOM_COURT_PANEL_628": {
+      "id": "ATOM_COURT_PANEL_628",
+      "src": "第4部分-V29",
+      "line": 666,
+      "name": "伦理法庭陪审团管理器",
+      "engine": "多Agent伦理法庭引擎",
+      "desc": "管理多学科专家Agent辩论"
+    },
+    "ATOM_AGENT_REGISTRY_629": {
+      "id": "ATOM_AGENT_REGISTRY_629",
+      "src": "第4部分-V29",
+      "line": 667,
+      "name": "Agent统一注册中心",
+      "engine": "Agent全生命周期监控引擎",
+      "desc": "所有派生Agent的统一注册"
+    },
+    "ATOM_ACTION_STATE_JOINT_630": {
+      "id": "ATOM_ACTION_STATE_JOINT_630",
+      "src": "第4部分-V29",
+      "line": 668,
+      "name": "动作-状态联合建模器",
+      "engine": "世界推演预测引擎V2.0",
+      "desc": "WAM范式的联合分布建模"
+    },
+    "ATOM_STABILITY_CHECKER_631": {
+      "id": "ATOM_STABILITY_CHECKER_631",
+      "src": "第4部分-V29",
+      "line": 669,
+      "name": "长程稳定性校验器",
+      "engine": "世界推演预测引擎V2.0",
+      "desc": "物理长程一致性验证"
+    },
+    "ATOM_UNIFIED_ENCODER_632": {
+      "id": "ATOM_UNIFIED_ENCODER_632",
+      "src": "第4部分-V29",
+      "line": 670,
+      "name": "原生多模态统一编码器",
+      "engine": "世界推演预测引擎V2.0",
+      "desc": "多模态信号统一编码"
+    },
+    "ATOM_KMWI_MANAGER_633": {
+      "id": "ATOM_KMWI_MANAGER_633",
+      "src": "第4部分-V29",
+      "line": 671,
+      "name": "KMWI四层记忆管理器",
+      "engine": "时间晶体引擎V4.1",
+      "desc": "四层记忆的分层管理"
+    },
+    "ATOM_EMERGENCE_DETECTOR_634": {
+      "id": "ATOM_EMERGENCE_DETECTOR_634",
+      "src": "第4部分-V29",
+      "line": 672,
+      "name": "涌现现象检测器",
+      "engine": "内在动机管理引擎V2.0",
+      "desc": "COGENT3涌现触发检测"
+    },
+    "ATOM_DEEP_REASONER_635": {
+      "id": "ATOM_DEEP_REASONER_635",
+      "src": "第4部分-V29",
+      "line": 673,
+      "name": "深度推理器",
+      "engine": "多世界思考引擎V2.0",
+      "desc": "万级Token深度推理链"
+    },
+    "ATOM_LOGIC_PATH_FINDER_636": {
+      "id": "ATOM_LOGIC_PATH_FINDER_636",
+      "src": "第4部分-V29",
+      "line": 674,
+      "name": "逻辑路径探索器",
+      "engine": "多世界思考引擎V2.0",
+      "desc": "多逻辑路径生成与择优"
+    },
+    "ATOM_APO_CONTROLLER_637": {
+      "id": "ATOM_APO_CONTROLLER_637",
+      "src": "第4部分-V29",
+      "line": 675,
+      "name": "APO三维平衡控制器",
+      "engine": "主动引领引擎V2.0",
+      "desc": "对齐-过程-结果动态调解"
+    },
+    "ATOM_NANOVLA_RUNNER_638": {
+      "id": "ATOM_NANOVLA_RUNNER_638",
+      "src": "第4部分-V29",
+      "line": 676,
+      "name": "NanoVLA轻量化推理器",
+      "engine": "多智能体协同框架V3.1",
+      "desc": "边缘设备的VLA轻量化操作"
+    },
+    "ATOM_ISOLATION_GATE_639": {
+      "id": "ATOM_ISOLATION_GATE_639",
+      "src": "第4部分-V29",
+      "line": 677,
+      "name": "跨Agent隔离门禁",
+      "engine": "多智能体协同框架V3.1",
+      "desc": "受攻击Agent的通信切断"
+    },
+    "ATOM_COST_OPTIMIZER_640": {
+      "id": "ATOM_COST_OPTIMIZER_640",
+      "src": "第4部分-V29",
+      "line": 678,
+      "name": "成本优化器",
+      "engine": "能力路由引擎V3.0",
+      "desc": "三区动态成本路由优化"
+    },
+    "ATOM_SKILL_AGENT_RATING_641": {
+      "id": "ATOM_SKILL_AGENT_RATING_641",
+      "src": "第4部分-V29",
+      "line": 679,
+      "name": "Skill Agent评价器",
+      "engine": "Skill进化引擎V4.1",
+      "desc": "Agent间自动评价与排名"
+    },
+    "ATOM_DEVIATION_MONITOR_642": {
+      "id": "ATOM_DEVIATION_MONITOR_642",
+      "src": "第4部分-V29",
+      "line": 2386,
+      "name": "偏差监控器",
+      "engine": "ENGINE_CLOSED_LOOP_154",
+      "desc": "实时监测推演与实际执行间的多维偏差"
+    },
+    "ATOM_ONLINE_TUNER_643": {
+      "id": "ATOM_ONLINE_TUNER_643",
+      "src": "第4部分-V29",
+      "line": 2387,
+      "name": "在线微调执行器",
+      "engine": "ENGINE_CLOSED_LOOP_154",
+      "desc": "<100样本完成世界模型参数在线微调"
+    },
+    "ATOM_ROOT_CAUSE_LOCATOR_644": {
+      "id": "ATOM_ROOT_CAUSE_LOCATOR_644",
+      "src": "第4部分-V29",
+      "line": 2388,
+      "name": "归因定位器",
+      "engine": "ENGINE_CLOSED_LOOP_154",
+      "desc": "定位偏差产生的根本原因"
+    },
+    "ATOM_PRICE_ORACLE_645": {
+      "id": "ATOM_PRICE_ORACLE_645",
+      "src": "第4部分-V29",
+      "line": 2389,
+      "name": "实时计价预言机",
+      "engine": "ENGINE_TRADE_SETTLE_155",
+      "desc": "实时计算Skill调用/Agent生产的Token消耗"
+    },
+    "ATOM_ESCROW_CONTRACT_646": {
+      "id": "ATOM_ESCROW_CONTRACT_646",
+      "src": "第4部分-V29",
+      "line": 2390,
+      "name": "托管合约执行器",
+      "engine": "ENGINE_TRADE_SETTLE_155",
+      "desc": "执行Token托管和自动释放"
+    },
+    "ATOM_REVENUE_SPLITTER_647": {
+      "id": "ATOM_REVENUE_SPLITTER_647",
+      "src": "第4部分-V29",
+      "line": 2391,
+      "name": "多层分成引擎",
+      "engine": "ENGINE_TRADE_SETTLE_155",
+      "desc": "平台-开发者-推荐者的自动分成"
+    },
+    "ATOM_ROBOT_ADAPTER_648": {
+      "id": "ATOM_ROBOT_ADAPTER_648",
+      "src": "第4部分-V29",
+      "line": 2392,
+      "name": "机器人接口适配器",
+      "engine": "ENGINE_EMBODIED_AI_156",
+      "desc": "适配ROS/ROS2/PLC多种机器人接口"
+    },
+    "ATOM_TRAJECTORY_PLANNER_649": {
+      "id": "ATOM_TRAJECTORY_PLANNER_649",
+      "src": "第4部分-V29",
+      "line": 2393,
+      "name": "安全轨迹规划器",
+      "engine": "ENGINE_EMBODIED_AI_156",
+      "desc": "生成经虚拟验证的安全动作轨迹"
+    },
+    "ATOM_SIM2REAL_CALIBRATOR_650": {
+      "id": "ATOM_SIM2REAL_CALIBRATOR_650",
+      "src": "第4部分-V29",
+      "line": 2394,
+      "name": "Sim2Real校准器",
+      "engine": "ENGINE_EMBODIED_AI_156",
+      "desc": "弥合仿真与真实的物理差异"
+    },
+    "ATOM_CUV_MAPPER_651": {
+      "id": "ATOM_CUV_MAPPER_651",
+      "src": "第4部分-V29",
+      "line": 2395,
+      "name": "架构-CUV映射器",
+      "engine": "ENGINE_CUV_PROVER_157",
+      "desc": "将104个引擎映射为CUV形式化定义"
+    },
+    "ATOM_PROOF_GENERATOR_652": {
+      "id": "ATOM_PROOF_GENERATOR_652",
+      "src": "第4部分-V29",
+      "line": 2396,
+      "name": "证明自动生成器",
+      "engine": "ENGINE_CUV_PROVER_157",
+      "desc": "生成AGI完备性形式化证明"
+    },
+    "ATOM_THEOREM_VERIFIER_653": {
+      "id": "ATOM_THEOREM_VERIFIER_653",
+      "src": "第4部分-V29",
+      "line": 2397,
+      "name": "定理验证器",
+      "engine": "ENGINE_CUV_PROVER_157",
+      "desc": "基于Lean/Coq验证证明正确性"
+    },
+    "ATOM_REGULATION_CRAWLER_654": {
+      "id": "ATOM_REGULATION_CRAWLER_654",
+      "src": "第4部分-V29",
+      "line": 2398,
+      "name": "法规爬虫",
+      "engine": "ENGINE_COMPLIANCE_AGENT_158",
+      "desc": "实时监测全球50+国家AI法规更新"
+    },
+    "ATOM_GAP_ANALYZER_655": {
+      "id": "ATOM_GAP_ANALYZER_655",
+      "src": "第4部分-V29",
+      "line": 2399,
+      "name": "合规差距分析器",
+      "engine": "ENGINE_COMPLIANCE_AGENT_158",
+      "desc": "评估系统与法规间的合规差距"
+    },
+    "ATOM_REPORT_GENERATOR_656": {
+      "id": "ATOM_REPORT_GENERATOR_656",
+      "src": "第4部分-V29",
+      "line": 2400,
+      "name": "多格式合规报告生成器",
+      "engine": "ENGINE_COMPLIANCE_AGENT_158",
+      "desc": "生成EU AI Act等格式的合规报告"
+    },
+    "ATOM_AUDIT_SWITCHER_660": {
+      "id": "ATOM_AUDIT_SWITCHER_660",
+      "src": "第4部分-V29",
+      "line": 2401,
+      "name": "审计标准动态切换器",
+      "engine": "ENGINE_DYNAMIC_AUDIT_159",
+      "desc": "根据司法辖区自动切换审计标准"
+    },
+    "ATOM_CROSS_ENGINE_BUS_657": {
+      "id": "ATOM_CROSS_ENGINE_BUS_657",
+      "src": "第4部分-V29",
+      "line": 2402,
+      "name": "跨引擎事件总线",
+      "engine": "ENGINE_CLOSED_LOOP_154",
+      "desc": "支撑五大空白引擎间的事件驱动通信"
+    },
+    "ATOM_OMNI_MONITOR_659": {
+      "id": "ATOM_OMNI_MONITOR_659",
+      "src": "第4部分-V29",
+      "line": 2403,
+      "name": "全维监控仪表盘",
+      "engine": "ENGINE_CLOSED_LOOP_154",
+      "desc": "五大空白能力运行状态的统一可视化"
+    },
+    "ATOM_INTENT_VERIFY_661": {
+      "id": "ATOM_INTENT_VERIFY_661",
+      "src": "第4部分-V29",
+      "line": 3461,
+      "name": "意图验证器",
+      "engine": "意图安全网关引擎",
+      "desc": "所有Agent生成的动作意图进行“意图-能力”最小集一致性验证"
+    },
+    "ATOM_LINEAGE_TRACKER_662": {
+      "id": "ATOM_LINEAGE_TRACKER_662",
+      "src": "第4部分-V29",
+      "line": 3462,
+      "name": "意图谱系追踪器",
+      "engine": "意图安全网关引擎",
+      "desc": "密码学锚定技术将每个可执行意图绑定到原始用户请求"
+    },
+    "ATOM_SEMANTIC_GATE_663": {
+      "id": "ATOM_SEMANTIC_GATE_663",
+      "src": "第4部分-V29",
+      "line": 3463,
+      "name": "语义输出门",
+      "engine": "意图安全网关引擎",
+      "desc": "构建K×I×P三维威胁矩阵检测隐性胁迫"
+    },
+    "ATOM_CAT7_ENCODER_664": {
+      "id": "ATOM_CAT7_ENCODER_664",
+      "src": "第4部分-V29",
+      "line": 3464,
+      "name": "CAT7编码器",
+      "engine": "多智能体协同框架V3.2",
+      "desc": "将心智状态编码为CAT7标准认知记忆块"
+    },
+    "ATOM_SVAF_EVALUATOR_665": {
+      "id": "ATOM_SVAF_EVALUATOR_665",
+      "src": "第4部分-V29",
+      "line": 3465,
+      "name": "SVAF字段评估器",
+      "engine": "多智能体协同框架V3.2",
+      "desc": "对其他Agent记忆进行字段级独立评估和采纳"
+    },
+    "ATOM_ECHO_CANCELLER_666": {
+      "id": "ATOM_ECHO_CANCELLER_666",
+      "src": "第4部分-V29",
+      "line": 3466,
+      "name": "回声消除器",
+      "engine": "多智能体协同框架V3.2",
+      "desc": "识别并消除跨Agent认知中的回声和循环论证"
+    },
+    "ATOM_INTENT_STREAMER_667": {
+      "id": "ATOM_INTENT_STREAMER_667",
+      "src": "第4部分-V29",
+      "line": 3467,
+      "name": "流式意图流处理器",
+      "engine": "生态编排引擎",
+      "desc": "在对话流中持续、低延迟地推断深层意图"
+    },
+    "ATOM_GLOBAL_WORKSPACE_668": {
+      "id": "ATOM_GLOBAL_WORKSPACE_668",
+      "src": "第4部分-V29",
+      "line": 3468,
+      "name": "全局工作区管理器",
+      "engine": "生态编排引擎",
+      "desc": "维护跨会话的混合记忆模型"
+    },
+    "ATOM_ECO_ORCHESTRATOR_669": {
+      "id": "ATOM_ECO_ORCHESTRATOR_669",
+      "src": "第4部分-V29",
+      "line": 3469,
+      "name": "生态编排器",
+      "engine": "生态编排引擎",
+      "desc": "实现跨系统理解、索引、触发、协同和执行"
+    },
+    "ATOM_CAPABILITY_MONITOR_670": {
+      "id": "ATOM_CAPABILITY_MONITOR_670",
+      "src": "第4部分-V29",
+      "line": 3470,
+      "name": "能力包络线监控器",
+      "engine": "能力包络线引擎",
+      "desc": "持续监控Agent能力边界，检测能力漂移"
+    },
+    "ATOM_HARD_AUTH_ENFORCER_671": {
+      "id": "ATOM_HARD_AUTH_ENFORCER_671",
+      "src": "第4部分-V29",
+      "line": 3471,
+      "name": "硬授权强制执行器",
+      "engine": "能力包络线引擎",
+      "desc": "PEA最严格的授权机制实现"
+    },
+    "ATOM_TIER_DISCLOSURE_672": {
+      "id": "ATOM_TIER_DISCLOSURE_672",
+      "src": "第4部分-V29",
+      "line": 3472,
+      "name": "层级差披露器",
+      "engine": "交易结算引擎",
+      "desc": "交易前自动向双方披露模型能力层级差"
+    },
+    "ATOM_FAIR_COMPENSATOR_673": {
+      "id": "ATOM_FAIR_COMPENSATOR_673",
+      "src": "第4部分-V29",
+      "line": 3473,
+      "name": "劣势方补偿器",
+      "engine": "交易结算引擎",
+      "desc": "为劣势方提供价格保护或信息对等补偿"
+    },
+    "ATOM_MCP_ADAPTER_674": {
+      "id": "ATOM_MCP_ADAPTER_674",
+      "src": "第4部分-V29",
+      "line": 3474,
+      "name": "MCP协议适配器",
+      "engine": "多智能体协同框架V3.2",
+      "desc": "原生兼容9700万月活调用量的MCP开放标准"
+    },
+    "ATOM_ONTOLOGY_ALIGNER_675": {
+      "id": "ATOM_ONTOLOGY_ALIGNER_675",
+      "src": "第4部分-V29",
+      "line": 3475,
+      "name": "本体论对齐引擎",
+      "engine": "元镜引擎V11.2",
+      "desc": "将元构能力映射为标准OntoTopology范畴论函子"
+    },
+    "ATOM_SELF_DRIFT_DETECT_676": {
+      "id": "ATOM_SELF_DRIFT_DETECT_676",
+      "src": "第4部分-V29",
+      "line": 3476,
+      "name": "自我漂移检测器",
+      "engine": "元镜引擎V11.2",
+      "desc": "持续监测系统核心能力是否发生非预期“漂移”"
+    },
+    "ATOM_SYSTEM_WARGAME_677": {
+      "id": "ATOM_SYSTEM_WARGAME_677",
+      "src": "第4部分-V29",
+      "line": 3477,
+      "name": "系统级兵棋推演器",
+      "engine": "欺骗检测引擎V2.0",
+      "desc": "在隔离沙盒中模拟前沿模型攻击生成对抗策略"
+    },
+    "ATOM_NEGENTROPY_FORMAL_678": {
+      "id": "ATOM_NEGENTROPY_FORMAL_678",
+      "src": "第4部分-V29",
+      "line": 3478,
+      "name": "负熵率BPS量化器",
+      "engine": "价值对齐引擎V2.0",
+      "desc": "以BPS为单位精确量化系统决策的负熵贡献"
+    },
+    "ATOM_GLOBAL_MONITOR_679": {
+      "id": "ATOM_GLOBAL_MONITOR_679",
+      "src": "第4部分-V29",
+      "line": 3484,
+      "name": "全球全源信息监测器",
+      "engine": "全球态势感知引擎",
+      "desc": "持续监测论文预印本、开源框架、CVE、政策法规等50+信源"
+    },
+    "ATOM_CDI_EVALUATOR_680": {
+      "id": "ATOM_CDI_EVALUATOR_680",
+      "src": "第4部分-V29",
+      "line": 3485,
+      "name": "认知颠覆性评估器",
+      "engine": "全球态势感知引擎",
+      "desc": "计算CDI指数，判断新信息是否足以颠覆现有认知"
+    },
+    "ATOM_GAP_PROPOSER_681": {
+      "id": "ATOM_GAP_PROPOSER_681",
+      "src": "第4部分-V29",
+      "line": 3486,
+      "name": "能力空白提案生成器",
+      "engine": "全球态势感知引擎",
+      "desc": "根据CDI评估结果生成升级提案并推送给元进化引擎"
+    },
+    "ATOM_OS_PACKAGER_682": {
+      "id": "ATOM_OS_PACKAGER_682",
+      "src": "第4部分-V29",
+      "line": 4125,
+      "name": "OS产品打包器",
+      "engine": "ENGINE_MODE_RESONANCE_167",
+      "desc": "将三大集群封装为标准产品包"
+    },
+    "ATOM_INDUSTRIAL_QA_683": {
+      "id": "ATOM_INDUSTRIAL_QA_683",
+      "src": "第4部分-V29",
+      "line": 4126,
+      "name": "工业级质检器",
+      "engine": "ENGINE_AGENT_FACTORY_146",
+      "desc": "对产线封装的智能体进行功能/安全/性能/合规/场景回测五维度质检"
+    },
+    "ATOM_TIER_GUARDIAN_684": {
+      "id": "ATOM_TIER_GUARDIAN_684",
+      "src": "第4部分-V29",
+      "line": 4127,
+      "name": "层级差防护卫士",
+      "engine": "ENGINE_TRADE_SETTLE_155",
+      "desc": "交易前检测能力层级差，触发预警与公平补偿"
+    },
+    "ATOM_BENCH_EVOLVE_685": {
+      "id": "ATOM_BENCH_EVOLVE_685",
+      "src": "第4部分-V29",
+      "line": 4128,
+      "name": "评测驱动进化器",
+      "engine": "ENGINE_METAEVO_10",
+      "desc": "将模数共振评测指标作为进化目标函数驱动进化"
+    },
+    "ATOM_TRACE_ANCHOR_686": {
+      "id": "ATOM_TRACE_ANCHOR_686",
+      "src": "第4部分-V29",
+      "line": 4129,
+      "name": "知识溯源链锚定器",
+      "engine": "ENGINE_TIME_CRYSTAL_V4_2_130",
+      "desc": "为知识晶体条目附加完整溯源链并上链存证"
+    },
+    "ATOM_FED_CRYSTAL_687": {
+      "id": "ATOM_FED_CRYSTAL_687",
+      "src": "第4部分-V29",
+      "line": 4130,
+      "name": "联邦知识晶体聚合器",
+      "engine": "ENGINE_TIME_CRYSTAL_V4_2_130",
+      "desc": "在隐私保护前提下聚合多方联邦知识晶体"
+    },
+    "ATOM_AGENT_CLASSIFY_688": {
+      "id": "ATOM_AGENT_CLASSIFY_688",
+      "src": "第4部分-V29",
+      "line": 4605,
+      "name": "工业智能体自动分类器",
+      "engine": "ENGINE_AGENT_CLASSIFIER_168",
+      "desc": "自动将智能体归类到20个重点行业"
+    },
+    "ATOM_AGENT_GRADE_689": {
+      "id": "ATOM_AGENT_GRADE_689",
+      "src": "第4部分-V29",
+      "line": 4606,
+      "name": "工业智能体能力分级器",
+      "engine": "ENGINE_AGENT_CLASSIFIER_168",
+      "desc": "基于L0-L5六级标准自动评级"
+    },
+    "ATOM_BENCH_RUNNER_690": {
+      "id": "ATOM_BENCH_RUNNER_690",
+      "src": "第4部分-V29",
+      "line": 4607,
+      "name": "方升/可信AI评测自动执行器",
+      "engine": "ENGINE_FANGSHENG_BENCH_169",
+      "desc": "一键执行方升3.0+可信AI2.0全维度评测"
+    },
+    "ATOM_AGENTIVE_DIALOG_691": {
+      "id": "ATOM_AGENTIVE_DIALOG_691",
+      "src": "第4部分-V29",
+      "line": 4961,
+      "name": "Agentive OS 对话管理器",
+      "engine": "ENGINE_AGENTIVE_INTERACTION_170",
+      "desc": "管理 IndustAosa 与人类的人格化自然语言对话，输出结构化卡片"
+    },
+    "ATOM_AGENTIVE_SCANNER_692": {
+      "id": "ATOM_AGENTIVE_SCANNER_692",
+      "src": "第4部分-V29",
+      "line": 4962,
+      "name": "Agentive OS 品类扫描器",
+      "engine": "PROTOCOL_AGENTIVE_DIFFERENTIATION_V1",
+      "desc": "自动扫描全球AgentOS/Agentic OS产品，生成差异化分析报告"
+    },
+    "ATOM_EXPANSION_CHECK_693": {
+      "id": "ATOM_EXPANSION_CHECK_693",
+      "src": "第4部分-V29",
+      "line": 5106,
+      "name": "展开度自检器",
+      "engine": "ENGINE_OUTPUT_INTEGRITY_171",
+      "desc": "输出完成后自动检查各章节展开深度"
+    },
+    "ATOM_COMPRESSION_ALERT_694": {
+      "id": "ATOM_COMPRESSION_ALERT_694",
+      "src": "第4部分-V29",
+      "line": 5107,
+      "name": "压缩行为预警器",
+      "engine": "ENGINE_OUTPUT_INTEGRITY_171",
+      "desc": "检测到压缩倾向时自动告警并触发重新生成"
+    },
+    "ATOM_HARNESS_SOP_695": {
+      "id": "ATOM_HARNESS_SOP_695",
+      "src": "第4部分-V29",
+      "line": 5459,
+      "name": "Harness SOP约束管理器",
+      "engine": "Harness自动生成引擎",
+      "desc": "读取、解析、强制执行harness.yaml约束文件，确保Agent不走捷径"
+    },
+    "ATOM_BIAS_DETECTOR_701": {
+      "id": "ATOM_BIAS_DETECTOR_701",
+      "src": "第4部分-V29",
+      "line": 6810,
+      "name": "认知偏差检测器",
+      "engine": "ENGINE_CRITICAL_ANALYSIS_172",
+      "desc": "自动识别用户表达中的确认偏误、锚定效应等认知偏差"
+    },
+    "ATOM_LOGIC_GUARD_702": {
+      "id": "ATOM_LOGIC_GUARD_702",
+      "src": "第4部分-V29",
+      "line": 6811,
+      "name": "逻辑门卫",
+      "engine": "ENGINE_CRITICAL_ANALYSIS_172",
+      "desc": "自动检测推理跳跃、因果倒置、循环论证等逻辑漏洞"
+    },
+    "ATOM_VUE3_SCANNER_703": {
+      "id": "ATOM_VUE3_SCANNER_703",
+      "src": "第4部分-V29",
+      "line": 7127,
+      "name": "Vue 3语法完整性扫描器",
+      "engine": "智能体封装引擎",
+      "desc": "生成前扫描所有Vue 3语法特性，标记高风险项"
+    },
+    "ATOM_RUNTIME_PREDICTOR_704": {
+      "id": "ATOM_RUNTIME_PREDICTOR_704",
+      "src": "第4部分-V29",
+      "line": 7128,
+      "name": "运行时错误预测器",
+      "engine": "智能体封装引擎",
+      "desc": "基于代码结构预测运行时潜在错误"
+    },
+    "ATOM_SIM_AUGMENT_705": {
+      "id": "ATOM_SIM_AUGMENT_705",
+      "src": "第4部分-V29",
+      "line": 7129,
+      "name": "仿真增强样本生成器",
+      "engine": "闭环控制器引擎V2.0",
+      "desc": "基于真实样本在仿真环境中生成变体样本"
+    },
+    "ATOM_ERROR_FORECASTER_706": {
+      "id": "ATOM_ERROR_FORECASTER_706",
+      "src": "第4部分-V29",
+      "line": 7130,
+      "name": "误差预测器",
+      "engine": "闭环控制器引擎V2.0",
+      "desc": "预测未来误差，主动触发参数调整"
+    },
+    "ATOM_AUTO_ROLLBACK_707": {
+      "id": "ATOM_AUTO_ROLLBACK_707",
+      "src": "第4部分-V29",
+      "line": 7131,
+      "name": "自动回滚触发器",
+      "engine": "闭环控制器引擎V2.0",
+      "desc": "检测到误差累积超阈值时自动回滚"
+    },
+    "ATOM_PROTOCOL_SCANNER_708": {
+      "id": "ATOM_PROTOCOL_SCANNER_708",
+      "src": "第4部分-V29",
+      "line": 7132,
+      "name": "协议规范扫描器",
+      "engine": "工业协议适配引擎V2.0",
+      "desc": "扫描协议规范文档，提取协议特征"
+    },
+    "ATOM_ADAPTER_GENERATOR_709": {
+      "id": "ATOM_ADAPTER_GENERATOR_709",
+      "src": "第4部分-V29",
+      "line": 7133,
+      "name": "适配器代码生成器",
+      "engine": "工业协议适配引擎V2.0",
+      "desc": "基于特征自动生成适配器代码"
+    },
+    "ATOM_COMPAT_TESTER_710": {
+      "id": "ATOM_COMPAT_TESTER_710",
+      "src": "第4部分-V29",
+      "line": 7134,
+      "name": "兼容性测试器",
+      "engine": "工业协议适配引擎V2.0",
+      "desc": "自动生成测试用例，验证协议兼容性"
+    },
+    "ATOM_COMPLIANCE_AUDIT_742": {
+      "id": "ATOM_COMPLIANCE_AUDIT_742",
+      "src": "第4部分-V29",
+      "line": 8200,
+      "name": "高风险AI年度审计执行器",
+      "desc": "自动执行年度合规审计（中国AI法第31条）"
+    },
+    "ATOM_COMPLAINT_HANDLER_743": {
+      "id": "ATOM_COMPLAINT_HANDLER_743",
+      "src": "第4部分-V29",
+      "line": 8201,
+      "name": "用户投诉处理闭环",
+      "desc": "投诉接收→处理→反馈全流程自动化"
+    },
+    "ATOM_ALGO_FILING_744": {
+      "id": "ATOM_ALGO_FILING_744",
+      "src": "第4部分-V29",
+      "line": 8202,
+      "name": "算法备案自动化流程",
+      "desc": "自动生成备案材料并提交"
+    },
+    "ATOM_DATA_DOC_VERIFIER_745": {
+      "id": "ATOM_DATA_DOC_VERIFIER_745",
+      "src": "第4部分-V29",
+      "line": 8203,
+      "name": "数据-文档一致性校验器",
+      "desc": "输出统计数据前自动检索文档原文进行逐项比对"
+    },
+    "ATOM_META_EVOLVE_DATA_TRIGGER_746": {
+      "id": "ATOM_META_EVOLVE_DATA_TRIGGER_746",
+      "src": "第4部分-V29",
+      "line": 8204,
+      "name": "数据准确性元进化触发器",
+      "desc": "监控数据错误频率，连续3次触发元进化"
+    }
+  },
+  "engines": {
+    "ENGINE_CIRCUMSTANCE_02": {
+      "id": "ENGINE_CIRCUMSTANCE_02",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 508
+    },
+    "ENGINE_ALLBEINGS_03": {
+      "id": "ENGINE_ALLBEINGS_03",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 740
+    },
+    "ENGINE_METAMIRROR_04": {
+      "id": "ENGINE_METAMIRROR_04",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 870
+    },
+    "ENGINE_MEANING_05": {
+      "id": "ENGINE_MEANING_05",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 966
+    },
+    "ENGINE_TIMESPACE_06": {
+      "id": "ENGINE_TIMESPACE_06",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1033
+    },
+    "ENGINE_TAO_07": {
+      "id": "ENGINE_TAO_07",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1101
+    },
+    "ENGINE_DAILYTAO_08": {
+      "id": "ENGINE_DAILYTAO_08",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1214
+    },
+    "ENGINE_OPPONENT_09": {
+      "id": "ENGINE_OPPONENT_09",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1321
+    },
+    "ENGINE_METAEVO_10": {
+      "id": "ENGINE_METAEVO_10",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1443
+    },
+    "ENGINE_QUANTUM_11": {
+      "id": "ENGINE_QUANTUM_11",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1567
+    },
+    "ENGINE_BIO_12": {
+      "id": "ENGINE_BIO_12",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1688
+    },
+    "ENGINE_COSMIC_13": {
+      "id": "ENGINE_COSMIC_13",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1815
+    },
+    "ENGINE_SLEEP_14": {
+      "id": "ENGINE_SLEEP_14",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 1942
+    },
+    "ENGINE_VOID_15": {
+      "id": "ENGINE_VOID_15",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 2049
+    },
+    "ENGINE_WORDLESS_16": {
+      "id": "ENGINE_WORDLESS_16",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 2133
+    },
+    "ENGINE_NOTEVENVOID_17": {
+      "id": "ENGINE_NOTEVENVOID_17",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 2205
+    },
+    "ENGINE_SCHEDULER_18": {
+      "id": "ENGINE_SCHEDULER_18",
+      "name": "",
+      "src": "第1部分-V9.",
+      "line": 2267
+    },
+    "ENGINE_FACTCHECK_19": {
+      "id": "ENGINE_FACTCHECK_19",
+      "name": "事实核查引擎",
+      "src": "第2部分-V9.",
+      "line": 1879
+    },
+    "ENGINE_STRATEGY_06": {
+      "id": "ENGINE_STRATEGY_06",
+      "name": "战略推演引擎（升级）",
+      "src": "第2部分-V9.",
+      "line": 2509
+    },
+    "ENGINE_ORG_COUPLING_20": {
+      "id": "ENGINE_ORG_COUPLING_20",
+      "name": "组织耦生度计算引擎",
+      "src": "第2部分-V9.",
+      "line": 3780
+    },
+    "ENGINE_ORG_AGENT_21": {
+      "id": "ENGINE_ORG_AGENT_21",
+      "name": "组织智能体进化引擎",
+      "src": "第2部分-V9.",
+      "line": 4965
+    },
+    "ENGINE_BOUNDARY_DISSOLVE_22": {
+      "id": "ENGINE_BOUNDARY_DISSOLVE_22",
+      "name": "边界消融引擎",
+      "src": "第2部分-V9.",
+      "line": 5021
+    },
+    "ENGINE_3STEP_NAV_23": {
+      "id": "ENGINE_3STEP_NAV_23",
+      "name": "三步进化导航引擎",
+      "src": "第2部分-V9.",
+      "line": 5711
+    },
+    "ENGINE_ENCAPSULATE_24": {
+      "id": "ENGINE_ENCAPSULATE_24",
+      "name": "封装进化引擎",
+      "src": "第2部分-V9.",
+      "line": 5760
+    },
+    "ENGINE_PROACTIVE_SENSE_37": {
+      "id": "ENGINE_PROACTIVE_SENSE_37",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 7544
+    },
+    "ENGINE_PROACTIVE_LEARN_38": {
+      "id": "ENGINE_PROACTIVE_LEARN_38",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 7586
+    },
+    "ENGINE_PROACTIVE_THINK_39": {
+      "id": "ENGINE_PROACTIVE_THINK_39",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 7627
+    },
+    "ENGINE_PROACTIVE_LEAD_40": {
+      "id": "ENGINE_PROACTIVE_LEAD_40",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 7668
+    },
+    "ENGINE_VALUE_ALIGN_41": {
+      "id": "ENGINE_VALUE_ALIGN_41",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 7710
+    },
+    "ENGINE_ACTIVE_42": {
+      "id": "ENGINE_ACTIVE_42",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 8343
+    },
+    "ENGINE_ASYNC_43": {
+      "id": "ENGINE_ASYNC_43",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 8396
+    },
+    "ENGINE_AUTONOMOUS_EXPLORE_44": {
+      "id": "ENGINE_AUTONOMOUS_EXPLORE_44",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 8720
+    },
+    "ENGINE_FUSION_45": {
+      "id": "ENGINE_FUSION_45",
+      "name": "",
+      "src": "第2部分-V9.",
+      "line": 8979
+    },
+    "ENGINE_PHYSICAL_ACTION_69": {
+      "id": "ENGINE_PHYSICAL_ACTION_69",
+      "name": "物理行动引擎",
+      "src": "第2部分-V9.",
+      "line": 9895
+    },
+    "ENGINE_WORLD_MODEL_70": {
+      "id": "ENGINE_WORLD_MODEL_70",
+      "name": "世界模型引擎",
+      "src": "第2部分-V9.",
+      "line": 9935
+    },
+    "ENGINE_DECEPTION_DETECT_71": {
+      "id": "ENGINE_DECEPTION_DETECT_71",
+      "name": "欺骗检测引擎",
+      "src": "第2部分-V9.",
+      "line": 9974
+    },
+    "ENGINE_INDUSTRY_GOV_72": {
+      "id": "ENGINE_INDUSTRY_GOV_72",
+      "name": "工业数据治理引擎",
+      "src": "第2部分-V9.",
+      "line": 10014
+    },
+    "ENGINE_PROBLEM_TRACE_73": {
+      "id": "ENGINE_PROBLEM_TRACE_73",
+      "name": "问题溯源引擎",
+      "src": "第2部分-V9.",
+      "line": 11129
+    },
+    "ENGINE_INTENT_UNDERSTAND_88": {
+      "id": "ENGINE_INTENT_UNDERSTAND_88",
+      "name": "意图理解引擎",
+      "src": "第2部分-V9.",
+      "line": 11620
+    },
+    "ENGINE_REASON_CORRECT_94": {
+      "id": "ENGINE_REASON_CORRECT_94",
+      "name": "推理纠正引擎",
+      "src": "第2部分-V9.",
+      "line": 11668
+    },
+    "ENGINE_CONSENSUS_97": {
+      "id": "ENGINE_CONSENSUS_97",
+      "name": "共识验证引擎",
+      "src": "第2部分-V9.",
+      "line": 11711
+    },
+    "ENGINE_ASSET_PROTECT_96": {
+      "id": "ENGINE_ASSET_PROTECT_96",
+      "name": "资产保护引擎",
+      "src": "第2部分-V9.",
+      "line": 11749
+    },
+    "ENGINE_EVIDENCE_83": {
+      "id": "ENGINE_EVIDENCE_83",
+      "name": "证据链引擎",
+      "src": "第2部分-V9.",
+      "line": 11789
+    },
+    "ENGINE_IMMUNE_SYNC_93": {
+      "id": "ENGINE_IMMUNE_SYNC_93",
+      "name": "全网免疫同步引擎",
+      "src": "第2部分-V9.",
+      "line": 11829
+    },
+    "ENGINE_SANDBOX_100": {
+      "id": "ENGINE_SANDBOX_100",
+      "name": "双层沙箱引擎",
+      "src": "第2部分-V9.",
+      "line": 11866
+    },
+    "ENGINE_VAULT_98": {
+      "id": "ENGINE_VAULT_98",
+      "name": "密钥保险库引擎",
+      "src": "第2部分-V9.",
+      "line": 11903
+    },
+    "ENGINE_PERMISSION_99": {
+      "id": "ENGINE_PERMISSION_99",
+      "name": "权限声明引擎",
+      "src": "第2部分-V9.",
+      "line": 11941
+    },
+    "ENGINE_PROTOCOL_ADAPT_111": {
+      "id": "ENGINE_PROTOCOL_ADAPT_111",
+      "name": "工业协议适配引擎",
+      "src": "第2部分-V9.",
+      "line": 12439
+    },
+    "ENGINE_DIGITAL_TWIN_112": {
+      "id": "ENGINE_DIGITAL_TWIN_112",
+      "name": "设备数字孪生引擎",
+      "src": "第2部分-V9.",
+      "line": 12470
+    },
+    "ENGINE_FIRMWARE_SEC_113": {
+      "id": "ENGINE_FIRMWARE_SEC_113",
+      "name": "固件安全扫描引擎",
+      "src": "第2部分-V9.",
+      "line": 12500
+    },
+    "ENGINE_COMPLIANCE_114": {
+      "id": "ENGINE_COMPLIANCE_114",
+      "name": "行业合规认证引擎",
+      "src": "第2部分-V9.",
+      "line": 12529
+    },
+    "ENGINE_SUPPLY_TRACE_115": {
+      "id": "ENGINE_SUPPLY_TRACE_115",
+      "name": "供应链溯源引擎",
+      "src": "第2部分-V9.",
+      "line": 12557
+    },
+    "ENGINE_PARTNER_ECO_116": {
+      "id": "ENGINE_PARTNER_ECO_116",
+      "name": "生态伙伴管理引擎",
+      "src": "第2部分-V9.",
+      "line": 12585
+    },
+    "ENGINE_PROTOCOL_ADAPT_101": {
+      "id": "ENGINE_PROTOCOL_ADAPT_101",
+      "name": "工业协议适配引擎",
+      "src": "第2部分-V9.",
+      "line": 12829
+    },
+    "ENGINE_DIGITAL_TWIN_102": {
+      "id": "ENGINE_DIGITAL_TWIN_102",
+      "name": "设备数字孪生引擎",
+      "src": "第2部分-V9.",
+      "line": 12875
+    },
+    "ENGINE_COGNITIVE_201": {
+      "id": "ENGINE_COGNITIVE_201",
+      "name": "认知智能体引擎",
+      "src": "第2部分-V9.",
+      "line": 12917
+    },
+    "ENGINE_EXECUTION_202": {
+      "id": "ENGINE_EXECUTION_202",
+      "name": "执行智能体引擎",
+      "src": "第2部分-V9.",
+      "line": 12956
+    },
+    "ENGINE_COLLABORATION_203": {
+      "id": "ENGINE_COLLABORATION_203",
+      "name": "协同智能体引擎",
+      "src": "第2部分-V9.",
+      "line": 12993
+    },
+    "ENGINE_DATA_204": {
+      "id": "ENGINE_DATA_204",
+      "name": "数据智能体引擎",
+      "src": "第2部分-V9.",
+      "line": 13028
+    },
+    "ENGINE_PARTNER_110": {
+      "id": "ENGINE_PARTNER_110",
+      "name": "生态伙伴管理引擎",
+      "src": "第2部分-V9.",
+      "line": 13063
+    },
+    "ENGINE_NETWORK_COUPLING_27": {
+      "id": "ENGINE_NETWORK_COUPLING_27",
+      "name": "### 3.2 节点共生生态类原子（8个）",
+      "src": "第2部分-V9.",
+      "line": 6312
+    },
+    "ENGINE_ABSORPTION_25": {
+      "id": "ENGINE_ABSORPTION_25",
+      "name": "### 3.3 新增原子（与现有原子库合并后净新增）",
+      "src": "第2部分-V9.",
+      "line": 6325
+    },
+    "ENGINE_RECURSIVE_ENCAPSULATE_26": {
+      "id": "ENGINE_RECURSIVE_ENCAPSULATE_26",
+      "name": "---\n\n## 五、协议层新增（共4个）",
+      "src": "第2部分-V9.",
+      "line": 6363
+    },
+    "ENGINE_KNOWLEDGE_02": {
+      "id": "ENGINE_KNOWLEDGE_02",
+      "name": "KCP",
+      "src": "第2部分-V9.",
+      "line": 6670
+    },
+    "ENGINE_IDEA_CAPITAL_36": {
+      "id": "ENGINE_IDEA_CAPITAL_36",
+      "name": "---\n\n## 四、新增算法（19个）",
+      "src": "第2部分-V9.",
+      "line": 7374
+    },
+    "ENGINE_TIME_CRYSTAL_35": {
+      "id": "ENGINE_TIME_CRYSTAL_35",
+      "name": "---\n\n## 五、新增协议（5个）",
+      "src": "第2部分-V9.",
+      "line": 7400
+    },
+    "ENGINE_TIME_RECON_30": {
+      "id": "ENGINE_TIME_RECON_30",
+      "name": "1引擎+2原子+3算法+1协议",
+      "src": "第2部分-V9.",
+      "line": 7434
+    },
+    "ENGINE_DIALOG_CREATE_31": {
+      "id": "ENGINE_DIALOG_CREATE_31",
+      "name": "1引擎+2原子+2算法+1协议",
+      "src": "第2部分-V9.",
+      "line": 7435
+    },
+    "ENGINE_IDEA_ALGO_32": {
+      "id": "ENGINE_IDEA_ALGO_32",
+      "name": "1引擎+2原子+2算法+1协议",
+      "src": "第2部分-V9.",
+      "line": 7436
+    },
+    "ENGINE_HUMAN_AI_SYM_33": {
+      "id": "ENGINE_HUMAN_AI_SYM_33",
+      "name": "1引擎+2原子+3算法+1协议",
+      "src": "第2部分-V9.",
+      "line": 7437
+    },
+    "ENGINE_IDEA_MULTIPLY_34": {
+      "id": "ENGINE_IDEA_MULTIPLY_34",
+      "name": "1引擎+2原子+3算法",
+      "src": "第2部分-V9.",
+      "line": 7438
+    },
+    "ENGINE_CAPABILITY_SCHED_46": {
+      "id": "ENGINE_CAPABILITY_SCHED_46",
+      "name": "## 三、算法层新增（5个）",
+      "src": "第2部分-V9.",
+      "line": 9258
+    },
+    "ENGINE_COMPLEX_INTEGRAL_47": {
+      "id": "ENGINE_COMPLEX_INTEGRAL_47",
+      "name": "复分析积分引擎",
+      "src": "第2部分-V9.",
+      "line": 9346
+    },
+    "ENGINE_INFINITE_PRODUCT_48": {
+      "id": "ENGINE_INFINITE_PRODUCT_48",
+      "name": "无穷乘积分析引擎",
+      "src": "第2部分-V9.",
+      "line": 9347
+    },
+    "ENGINE_ZERO_DENSITY_49": {
+      "id": "ENGINE_ZERO_DENSITY_49",
+      "name": "零点密度推理引擎",
+      "src": "第2部分-V9.",
+      "line": 9348
+    },
+    "ENGINE_EXPLICIT_FORMULA_56": {
+      "id": "ENGINE_EXPLICIT_FORMULA_56",
+      "name": "显式公式引擎",
+      "src": "第2部分-V9.",
+      "line": 9349
+    },
+    "ENGINE_ZERO_CORRELATION_58": {
+      "id": "ENGINE_ZERO_CORRELATION_58",
+      "name": "零点关联分析引擎",
+      "src": "第2部分-V9.",
+      "line": 9350
+    },
+    "ENGINE_ZETA_DEEP_59": {
+      "id": "ENGINE_ZETA_DEEP_59",
+      "name": "ζ函数深层分析引擎",
+      "src": "第2部分-V9.",
+      "line": 9351
+    },
+    "ENGINE_RANDOM_MATRIX_62": {
+      "id": "ENGINE_RANDOM_MATRIX_62",
+      "name": "随机矩阵引擎",
+      "src": "第2部分-V9.",
+      "line": 9352
+    },
+    "ENGINE_QUANTUM_CHAOS_63": {
+      "id": "ENGINE_QUANTUM_CHAOS_63",
+      "name": "量子混沌引擎",
+      "src": "第2部分-V9.",
+      "line": 9353
+    },
+    "ENGINE_COUNTEREXAMPLE_50": {
+      "id": "ENGINE_COUNTEREXAMPLE_50",
+      "name": "反证自动构造引擎",
+      "src": "第2部分-V9.",
+      "line": 9359
+    },
+    "ENGINE_PROOF_STRATEGY_51": {
+      "id": "ENGINE_PROOF_STRATEGY_51",
+      "name": "证明策略发现引擎",
+      "src": "第2部分-V9.",
+      "line": 9360
+    },
+    "ENGINE_PROVABILITY_52": {
+      "id": "ENGINE_PROVABILITY_52",
+      "name": "可证明性预判引擎",
+      "src": "第2部分-V9.",
+      "line": 9361
+    },
+    "ENGINE_IDENTITY_AUTO_53": {
+      "id": "ENGINE_IDENTITY_AUTO_53",
+      "name": "积分恒等式引擎",
+      "src": "第2部分-V9.",
+      "line": 9362
+    },
+    "ENGINE_ERROR_PROPAGATE_54": {
+      "id": "ENGINE_ERROR_PROPAGATE_54",
+      "name": "误差传播控制引擎",
+      "src": "第2部分-V9.",
+      "line": 9363
+    },
+    "ENGINE_SYMMETRY_AUTO_55": {
+      "id": "ENGINE_SYMMETRY_AUTO_55",
+      "name": "对称性自动利用引擎",
+      "src": "第2部分-V9.",
+      "line": 9364
+    },
+    "ENGINE_CLASSICAL_THEOREM_57": {
+      "id": "ENGINE_CLASSICAL_THEOREM_57",
+      "name": "经典定理调用引擎",
+      "src": "第2部分-V9.",
+      "line": 9370
+    },
+    "ENGINE_LARGE_DEVIATION_65": {
+      "id": "ENGINE_LARGE_DEVIATION_65",
+      "name": "大偏差与统计检验引擎",
+      "src": "第2部分-V9.",
+      "line": 9371
+    },
+    "ENGINE_META_MATH_67": {
+      "id": "ENGINE_META_MATH_67",
+      "name": "元数学分析引擎",
+      "src": "第2部分-V9.",
+      "line": 9377
+    },
+    "ENGINE_VALUE_REALIZE_68": {
+      "id": "ENGINE_VALUE_REALIZE_68",
+      "name": "价值实现总引擎",
+      "src": "第2部分-V9.",
+      "line": 9378
+    },
+    "ENGINE_RESOURCE_69": {
+      "id": "ENGINE_RESOURCE_69",
+      "name": "资源调度引擎",
+      "src": "第3部分-V21",
+      "line": 52
+    },
+    "ENGINE_META_EVOLUTION_117": {
+      "id": "ENGINE_META_EVOLUTION_117",
+      "name": "元进化引擎",
+      "src": "第3部分-V21",
+      "line": 741
+    },
+    "ENGINE_FAILURE_FUEL_118": {
+      "id": "ENGINE_FAILURE_FUEL_118",
+      "name": "失败燃料引擎",
+      "src": "第3部分-V21",
+      "line": 784
+    },
+    "ENGINE_TIME_TRAVEL_119": {
+      "id": "ENGINE_TIME_TRAVEL_119",
+      "name": "时空回溯引擎",
+      "src": "第3部分-V21",
+      "line": 1957
+    },
+    "ENGINE_VALUE_PREDICT_120": {
+      "id": "ENGINE_VALUE_PREDICT_120",
+      "name": "价值预测引擎",
+      "src": "第3部分-V21",
+      "line": 2021
+    },
+    "ENGINE_CONFLICT_TRANSFORM_121": {
+      "id": "ENGINE_CONFLICT_TRANSFORM_121",
+      "name": "冲突转化引擎",
+      "src": "第3部分-V21",
+      "line": 2083
+    },
+    "ENGINE_INTUITION_122": {
+      "id": "ENGINE_INTUITION_122",
+      "name": "直觉生成引擎",
+      "src": "第3部分-V21",
+      "line": 2146
+    },
+    "ENGINE_META_PROTOCOL_123": {
+      "id": "ENGINE_META_PROTOCOL_123",
+      "name": "元协议引擎",
+      "src": "第3部分-V21",
+      "line": 2207
+    },
+    "ENGINE_SKILL_EVOLVE_124": {
+      "id": "ENGINE_SKILL_EVOLVE_124",
+      "name": "Skill进化引擎",
+      "src": "第3部分-V21",
+      "line": 3215
+    },
+    "ENGINE_CAPABILITY_ROUTER_129": {
+      "id": "ENGINE_CAPABILITY_ROUTER_129",
+      "name": "能力路由引擎",
+      "src": "第3部分-V21",
+      "line": 3626
+    },
+    "ENGINE_TIME_CRYSTAL_V2_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V2_130",
+      "name": "时间晶体引擎",
+      "src": "第3部分-V21",
+      "line": 3685
+    },
+    "ENGINE_DOMESTIC_AI_ADAPT_131": {
+      "id": "ENGINE_DOMESTIC_AI_ADAPT_131",
+      "name": "国产AI算力适配引擎",
+      "src": "第3部分-V21",
+      "line": 3744
+    },
+    "ENGINE_EDGE_DEPLOY_132": {
+      "id": "ENGINE_EDGE_DEPLOY_132",
+      "name": "边缘部署引擎",
+      "src": "第3部分-V21",
+      "line": 3808
+    },
+    "ENGINE_CAPABILITY_SCALE_133": {
+      "id": "ENGINE_CAPABILITY_SCALE_133",
+      "name": "能力规模化引擎",
+      "src": "第3部分-V21",
+      "line": 3866
+    },
+    "ENGINE_PULSE_EVENT_134": {
+      "id": "ENGINE_PULSE_EVENT_134",
+      "name": "脉冲事件引擎",
+      "src": "第3部分-V21",
+      "line": 3923
+    },
+    "ENGINE_TIME_CRYSTAL_V3_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V3_130",
+      "name": "时间晶体引擎",
+      "src": "第3部分-V21",
+      "line": 4473
+    },
+    "ENGINE_EDGE_RUNTIME_135": {
+      "id": "ENGINE_EDGE_RUNTIME_135",
+      "name": "边缘运行时引擎",
+      "src": "第3部分-V21",
+      "line": 4584
+    },
+    "ENGINE_TIME_CRYSTAL_V3_1_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V3_1_130",
+      "name": "时间晶体引擎",
+      "src": "第3部分-V21",
+      "line": 4880
+    },
+    "ENGINE_MULTI_AGENT_V2_136": {
+      "id": "ENGINE_MULTI_AGENT_V2_136",
+      "name": "多智能体协同框架",
+      "src": "第3部分-V21",
+      "line": 4939
+    },
+    "ENGINE_CRON_SCHEDULER_137": {
+      "id": "ENGINE_CRON_SCHEDULER_137",
+      "name": "内置定时任务调度引擎",
+      "src": "第3部分-V21",
+      "line": 4995
+    },
+    "ENGINE_WORLD_REP_139": {
+      "id": "ENGINE_WORLD_REP_139",
+      "name": "世界表征融合引擎",
+      "src": "第3部分-V21",
+      "line": 5513
+    },
+    "ENGINE_WORLD_PREDICT_140": {
+      "id": "ENGINE_WORLD_PREDICT_140",
+      "name": "世界推演预测引擎",
+      "src": "第3部分-V21",
+      "line": 5568
+    },
+    "ENGINE_SPATIAL_INTEL_141": {
+      "id": "ENGINE_SPATIAL_INTEL_141",
+      "name": "空间智能引擎",
+      "src": "第3部分-V21",
+      "line": 5624
+    },
+    "ENGINE_CODE_WORLD_142": {
+      "id": "ENGINE_CODE_WORLD_142",
+      "name": "代码世界引擎",
+      "src": "第3部分-V21",
+      "line": 5679
+    },
+    "ENGINE_COUNTERFACTUAL_143": {
+      "id": "ENGINE_COUNTERFACTUAL_143",
+      "name": "反事实推理引擎",
+      "src": "第3部分-V21",
+      "line": 5733
+    },
+    "ENGINE_INTRINSIC_MOTIVE_144": {
+      "id": "ENGINE_INTRINSIC_MOTIVE_144",
+      "name": "内在动机管理引擎",
+      "src": "第3部分-V21",
+      "line": 5787
+    },
+    "ENGINE_UNIVERSAL_KNOWLEDGE_145": {
+      "id": "ENGINE_UNIVERSAL_KNOWLEDGE_145",
+      "name": "通用知识库引擎",
+      "src": "第3部分-V21",
+      "line": 5838
+    },
+    "ENGINE_AGENT_FACTORY_146": {
+      "id": "ENGINE_AGENT_FACTORY_146",
+      "name": "智能体生产线引擎",
+      "src": "第3部分-V21",
+      "line": 6458
+    },
+    "ENGINE_AGENT_CITY_147": {
+      "id": "ENGINE_AGENT_CITY_147",
+      "name": "智能体城市引擎",
+      "src": "第3部分-V21",
+      "line": 6516
+    },
+    "ENGINE_TOKEN_MINT_148": {
+      "id": "ENGINE_TOKEN_MINT_148",
+      "name": "Token经济铸币引擎",
+      "src": "第3部分-V21",
+      "line": 6572
+    },
+    "ENGINE_A2A_MARKET_149": {
+      "id": "ENGINE_A2A_MARKET_149",
+      "name": "A2A经济市场引擎",
+      "src": "第3部分-V21",
+      "line": 6626
+    },
+    "ENGINE_ROI_QUANT_150": {
+      "id": "ENGINE_ROI_QUANT_150",
+      "name": "ROI量化仪表盘引擎",
+      "src": "第3部分-V21",
+      "line": 6680
+    },
+    "ENGINE_TIME_CRYSTAL_V4_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V4_130",
+      "name": "时间晶体引擎",
+      "src": "第3部分-V21",
+      "line": 6789
+    },
+    "ENGINE_MULTI_AGENT_V3_136": {
+      "id": "ENGINE_MULTI_AGENT_V3_136",
+      "name": "多智能体协同框架",
+      "src": "第3部分-V21",
+      "line": 6814
+    },
+    "ENGINE_WORLD_BENCH_151": {
+      "id": "ENGINE_WORLD_BENCH_151",
+      "name": "世界模型评测沙盒引擎",
+      "src": "第4部分-V29",
+      "line": 158
+    },
+    "ENGINE_ETHICS_COURT_152": {
+      "id": "ENGINE_ETHICS_COURT_152",
+      "name": "多Agent伦理法庭引擎",
+      "src": "第4部分-V29",
+      "line": 211
+    },
+    "ENGINE_AGENT_MONITOR_153": {
+      "id": "ENGINE_AGENT_MONITOR_153",
+      "name": "Agent全生命周期监控引擎",
+      "src": "第4部分-V29",
+      "line": 262
+    },
+    "ENGINE_TIME_CRYSTAL_V4_1_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V4_1_130",
+      "name": "时间晶体引擎",
+      "src": "第4部分-V29",
+      "line": 343
+    },
+    "ENGINE_MULTI_WORLD_THINK_39": {
+      "id": "ENGINE_MULTI_WORLD_THINK_39",
+      "name": "多世界思考引擎",
+      "src": "第4部分-V29",
+      "line": 395
+    },
+    "ENGINE_MULTI_AGENT_V3_1_136": {
+      "id": "ENGINE_MULTI_AGENT_V3_1_136",
+      "name": "多智能体协同框架",
+      "src": "第4部分-V29",
+      "line": 450
+    },
+    "ENGINE_CLOSED_LOOP_154": {
+      "id": "ENGINE_CLOSED_LOOP_154",
+      "name": "闭环控制器引擎",
+      "src": "第4部分-V29",
+      "line": 1952
+    },
+    "ENGINE_TRADE_SETTLE_155": {
+      "id": "ENGINE_TRADE_SETTLE_155",
+      "name": "交易结算引擎",
+      "src": "第4部分-V29",
+      "line": 2009
+    },
+    "ENGINE_EMBODIED_AI_156": {
+      "id": "ENGINE_EMBODIED_AI_156",
+      "name": "具身智能引擎",
+      "src": "第4部分-V29",
+      "line": 2069
+    },
+    "ENGINE_CUV_PROVER_157": {
+      "id": "ENGINE_CUV_PROVER_157",
+      "name": "CUV形式化推理引擎",
+      "src": "第4部分-V29",
+      "line": 2128
+    },
+    "ENGINE_COMPLIANCE_AGENT_158": {
+      "id": "ENGINE_COMPLIANCE_AGENT_158",
+      "name": "合规主动代理引擎",
+      "src": "第4部分-V29",
+      "line": 2190
+    },
+    "ENGINE_DYNAMIC_AUDIT_159": {
+      "id": "ENGINE_DYNAMIC_AUDIT_159",
+      "name": "动态审计引擎",
+      "src": "第4部分-V29",
+      "line": 2255
+    },
+    "ENGINE_INTENT_SAFETY_GATE_160": {
+      "id": "ENGINE_INTENT_SAFETY_GATE_160",
+      "name": "意图安全网关引擎",
+      "src": "第4部分-V29",
+      "line": 2964
+    },
+    "ENGINE_ORCHESTRATION_161": {
+      "id": "ENGINE_ORCHESTRATION_161",
+      "name": "生态编排引擎",
+      "src": "第4部分-V29",
+      "line": 3016
+    },
+    "ENGINE_CAPABILITY_ENVELOPE_162": {
+      "id": "ENGINE_CAPABILITY_ENVELOPE_162",
+      "name": "能力包络线引擎",
+      "src": "第4部分-V29",
+      "line": 3064
+    },
+    "ENGINE_ONTOLOGY_ALIGNER_163": {
+      "id": "ENGINE_ONTOLOGY_ALIGNER_163",
+      "name": "本体论对齐引擎",
+      "src": "第4部分-V29",
+      "line": 3112
+    },
+    "ENGINE_SYSTEM_WARGAME_164": {
+      "id": "ENGINE_SYSTEM_WARGAME_164",
+      "name": "系统级兵棋推演引擎",
+      "src": "第4部分-V29",
+      "line": 3156
+    },
+    "ENGINE_NEGENTROPY_FORMAL_165": {
+      "id": "ENGINE_NEGENTROPY_FORMAL_165",
+      "name": "负熵形式化引擎",
+      "src": "第4部分-V29",
+      "line": 3199
+    },
+    "ENGINE_GLOBAL_AWARENESS_166": {
+      "id": "ENGINE_GLOBAL_AWARENESS_166",
+      "name": "全球态势感知引擎",
+      "src": "第4部分-V29",
+      "line": 3242
+    },
+    "ENGINE_MULTI_AGENT_V3_2_136": {
+      "id": "ENGINE_MULTI_AGENT_V3_2_136",
+      "name": "多智能体协同框架",
+      "src": "第4部分-V29",
+      "line": 3299
+    },
+    "ENGINE_MODE_RESONANCE_167": {
+      "id": "ENGINE_MODE_RESONANCE_167",
+      "name": "模数共振空间OS引擎",
+      "src": "第4部分-V29",
+      "line": 3811
+    },
+    "ENGINE_TIME_CRYSTAL_V4_2_130": {
+      "id": "ENGINE_TIME_CRYSTAL_V4_2_130",
+      "name": "时间晶体引擎",
+      "src": "第4部分-V29",
+      "line": 4076
+    },
+    "ENGINE_AGENT_CLASSIFIER_168": {
+      "id": "ENGINE_AGENT_CLASSIFIER_168",
+      "name": "工业智能体分类分级引擎",
+      "src": "第4部分-V29",
+      "line": 4399
+    },
+    "ENGINE_FANGSHENG_BENCH_169": {
+      "id": "ENGINE_FANGSHENG_BENCH_169",
+      "name": "方升/可信AI评测对接引擎",
+      "src": "第4部分-V29",
+      "line": 4476
+    },
+    "ENGINE_AGENTIVE_INTERACTION_170": {
+      "id": "ENGINE_AGENTIVE_INTERACTION_170",
+      "name": "Agentive OS 原生交互引擎",
+      "src": "第4部分-V29",
+      "line": 4854
+    },
+    "ENGINE_OUTPUT_INTEGRITY_171": {
+      "id": "ENGINE_OUTPUT_INTEGRITY_171",
+      "name": "输出完整性保障引擎",
+      "src": "第4部分-V29",
+      "line": 5028
+    },
+    "ENGINE_HARNESS_GEN_171": {
+      "id": "ENGINE_HARNESS_GEN_171",
+      "name": "Harness自动生成引擎",
+      "src": "第4部分-V29",
+      "line": 5309
+    },
+    "ENGINE_REQUIREMENT_PARSE_167": {
+      "id": "ENGINE_REQUIREMENT_PARSE_167",
+      "name": "需求解析引擎",
+      "src": "第4部分-V29",
+      "line": 5929
+    },
+    "ENGINE_CAPABILITY_DESIGN_168": {
+      "id": "ENGINE_CAPABILITY_DESIGN_168",
+      "name": "能力设计引擎",
+      "src": "第4部分-V29",
+      "line": 5984
+    },
+    "ENGINE_AGENT_ASSEMBLE_169": {
+      "id": "ENGINE_AGENT_ASSEMBLE_169",
+      "name": "智能体封装引擎",
+      "src": "第4部分-V29",
+      "line": 6035
+    },
+    "ENGINE_QUALITY_INSPECT_170": {
+      "id": "ENGINE_QUALITY_INSPECT_170",
+      "name": "质量检测引擎",
+      "src": "第4部分-V29",
+      "line": 6091
+    },
+    "ENGINE_CRITICAL_ANALYSIS_172": {
+      "id": "ENGINE_CRITICAL_ANALYSIS_172",
+      "name": "批判性分析引擎",
+      "src": "第4部分-V29",
+      "line": 6633
+    },
+    "ENGINE_META_META_EVOLUTION_170": {
+      "id": "ENGINE_META_META_EVOLUTION_170",
+      "name": "元元进化引擎",
+      "src": "第4部分-V29",
+      "line": 7342
+    },
+    "ENGINE_META_MIRROR_11": {
+      "id": "ENGINE_META_MIRROR_11",
+      "name": "元镜引擎",
+      "src": "第4部分-V29",
+      "line": 7412
+    },
+    "ENGINE_META_CREATION_180": {
+      "id": "ENGINE_META_CREATION_180",
+      "name": "元创造引擎",
+      "src": "第4部分-V29",
+      "line": 7591
+    },
+    "ENGINE_META_EVOLUTION_001": {
+      "id": "ENGINE_META_EVOLUTION_001",
+      "name": "元进化引擎",
+      "src": "第4部分-V29",
+      "line": 7620
+    },
+    "ENGINE_META_CREATE_180": {
+      "id": "ENGINE_META_CREATE_180",
+      "name": "元创造引擎",
+      "src": "第4部分-V29",
+      "line": 7983
+    }
+  },
+  "counts": {
+    "atoms": 597,
+    "atoms_with_io": 124,
+    "engines": 161
+  }
+}
