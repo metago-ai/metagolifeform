@@ -306,7 +306,7 @@ registerBatch2(types_1.AlgorithmFamily.CREATION, 'M', CreationAlg, [
     ['historyNegentropy', CreationAlg.historyNegentropy, '历史负熵', '{history}', '{negentropy,trend,provenance}', ['负熵', '历史'], types_1.AlgorithmComplexity.O_N],
     ['creationGovernor', CreationAlg.creationGovernor, '创造治理', '{creation,rules}', '{approved,violations,provenance}', ['治理', '创造'], types_1.AlgorithmComplexity.O_N],
     ['divergentGeneration', CreationAlg.divergentGeneration, '发散生成', '{seed,branchFactor,depth}', '{branches,provenance}', ['发散', '生成'], types_1.AlgorithmComplexity.O_2_N],
-    ['convergentRefinement', CreationAlg.convergentRefinement, '收敛精炼', '{ideas,criteria}', '{refined,scores,provenance}', ['收敛', '精炼'], types_1.AlgorithmComplexity.O_N_LOG_N],
+    ['convergentRefinement', CreationAlg.convergentRefinement, '收敛精炼', '{ideas,objective,iterations}', '{refined,convergence,provenance}', ['收敛', '精炼'], types_1.AlgorithmComplexity.O_N_LOG_N],
     ['creationMutation', CreationAlg.creationMutation, '创造变异', '{idea,mutationRate}', '{mutated,changes,provenance}', ['变异', '创造'], types_1.AlgorithmComplexity.O_N],
     ['creationRecombination', CreationAlg.creationRecombination, '创造重组', '{ideaA,ideaB}', '{recombined,provenance}', ['重组', '创造'], types_1.AlgorithmComplexity.O_N],
     ['creationSelection', CreationAlg.creationSelection, '创造选择', '{creations,criteria,topK}', '{selected,provenance}', ['选择', '创造'], types_1.AlgorithmComplexity.O_N_LOG_N],
@@ -679,6 +679,31 @@ var METAGO_FN_PRESETS = {
     'count': function () { return function (x) { return (x && x.length) || 0; }; },
     'first': function () { return function (x) { return Array.isArray(x) ? x[0] : x; }; }
 };
+/* ==== R144 / D-23：JSON 结构标记还原 ====
+   shapes.json 用 {__map__:true,entries:[...]} 表达 Map、{__set__:true,values:[...]} 表达 Set、
+   {__regex__:"..."} 表达 RegExp —— 纯 JSON 无法表达这三种原生类型。
+   此前只处理 __fn__，导致 21 条含此三类形参的算法在 JSON 通道下报 "store.set is not a function"。
+   安全性：仅在对象显式带标记时转换，不影响任何普通对象。 */
+function metagoHydrateStructure(value) {
+    if (value === null || value === undefined) return value;
+    if (typeof value !== "object") return value;
+    if (Array.isArray(value)) return value.map(metagoHydrateStructure);
+    if (value.__map__ === true && Array.isArray(value.entries)) {
+        return new Map(value.entries.map(function (kv) {
+            return [metagoHydrateStructure(kv[0]), metagoHydrateStructure(kv[1])];
+        }));
+    }
+    if (value.__set__ === true && Array.isArray(value.values)) {
+        return new Set(value.values.map(metagoHydrateStructure));
+    }
+    if (typeof value.__regex__ === "string") return new RegExp(value.__regex__);
+    /* 嵌套 __fn__：数组/对象内层的函数标记，走既有 metagoCoerceFn 编译（含安全边界） */
+    if (typeof value.__fn__ === "string") return metagoCoerceFn(value, null);
+    if (value instanceof Map || value instanceof Set || value instanceof RegExp) return value;
+    var out = Object.create(Object.getPrototypeOf(value));
+    for (var k of Object.keys(value)) out[k] = metagoHydrateStructure(value[k]);
+    return out;
+}
 function metagoCoerceFn(value, paramName) {
     if (typeof value === 'function') return value;
     /* R142-fix：preset 查找必须在 RE 判断**之前**。
@@ -751,14 +776,14 @@ function metagoInvoke(handler, input) {
             return handler(input);
         }
         for (var i = 0; i < args.length; i++) {
-            args[i] = metagoCoerceFn(args[i], names[i]);
+            args[i] = metagoCoerceFn(metagoHydrateStructure(args[i]), names[i]);
         }
         return handler.apply(null, args);
     }
     if (n === 1) {
-        return handler(metagoCoerceFn(input, names[0]));
+        return handler(metagoCoerceFn(metagoHydrateStructure(input), names[0]));
     }
-    return handler(input);
+    return handler(metagoHydrateStructure(input));
 }
 /* ==== R142-PRESET ==== */
 /* ==== /METAGO-R141-POSITIONAL ==== */
@@ -967,6 +992,7 @@ function executeAlgorithmSync(id, input) {
         try { module.exports.executeAlgorithm = executeAlgorithm; } catch (e) { /* R141 已确认合理：同上 */ }
     }
 
-    module.exports.__outputGuard = { installed: true };
+    module.exports.__hydrateStructure = metagoHydrateStructure;
+exports.__outputGuard = { installed: true };
 })();
 /* ==== END METAGO-OUTPUT-GUARD-V36.11 ==== */

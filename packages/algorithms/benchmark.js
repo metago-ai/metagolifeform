@@ -16,8 +16,8 @@ const path = require('path');
 const { spawn } = require('child_process');
 
 const ENGINE_DIST = process.env.ENGINE_DIST
-  || path.resolve(__dirname, '../../packages/engine/RUNTIME/dist');
-const registry = require(path.join(ENGINE_DIST, 'algorithms/registry.js'));
+  || path.resolve(__dirname, 'engine/algorithms')
+const registry = require(path.join(ENGINE_DIST, 'registry.js'));
 const toolRegistry = require('./tool-registry.js');
 toolRegistry.initialize(registry);
 
