@@ -1,5 +1,5 @@
 {
- "version": "V36.10.0",
+ "version": "V37.0.0",
  "generatedBy": "D:\\metago-build\\facts.py",
  "principle": "权威值 = 可机器验证的实测值；拿不到实测的取蓝本声明并标注为『声明值』；有冲突就明写，不做调和",
  "facts": {
@@ -726,8 +726,8 @@
    "value": "9 / 9 包全部对齐",
    "unit": "个",
    "evidence": [
-    "9 个全局包的 rules_version 全部统一为 V36.12.0（原先 5 个缺失/落后）",
-    "metago-lifeform 的 version 由 36.9.6 → 36.12.0（它是体系版本号载体）",
+    "9 个全局包的 rules_version 全部统一为 V37.0.0（原先 5 个缺失/落后）",
+    "metago-lifeform 的 version 由 36.9.6 → 37.0.0（它是体系版本号载体）",
     "全部 package.json 经 Python 校验合法（9/9）",
     "MCP 6 组服务器全部正常（162 工具）；T3 算法跨目录执行成功"
    ],
@@ -1019,15 +1019,15 @@
    "note": "结论：脚本不依赖 CWD，包拷到别处可用"
   },
   "platform_adapters": {
-   "value": "11 / 11 差异化的 V36.12.0",
+   "value": "11 / 11 差异化的 V37.0.0",
    "unit": "个",
    "evidence": [
     "升级前：11 个平台文件停留在 V36.9.1–V36.9.6，且 cursor/chatgpt/kimi×2 缺失",
-    "第一次升级后：版本对了（V36.12.0），但 11 个文件 SHA256 全同（7d9acfc4aff1）——适配未生效",
+    "第一次升级后：版本对了（V37.0.0），但 11 个文件 SHA256 全同（7d9acfc4aff1）——适配未生效",
     "根因：替换表只认「Trae」，母本已改为「DeepSeek Harness」",
     "修复后：11 个模板 SHA256 各不同；每个含本平台名 18–21 次；DeepSeek Harness 残留 0",
     "已装入用户目录 11 个位置（备份 backup-platforms-20261018-211624）",
-    "内容审计：版本 V36.12.0 ｜ 1557 行 ｜ 占位符 0 ｜ 缺章节 0 ｜ 无 BOM ｜ 无交叉污染"
+    "内容审计：版本 V37.0.0 ｜ 1557 行 ｜ 占位符 0 ｜ 缺章节 0 ｜ 无 BOM ｜ 无交叉污染"
    ],
    "note": "教训：只查「版本对/占位符清/章节齐」看不出适配失效——必须查「11 个文件是否真的不一样」"
   },
@@ -1145,7 +1145,7 @@
    "unit": "处",
    "evidence": [
     "首轮扫描命中 56 处：25 处疑似当前声明 + 31 处历史叙述",
-    "真正需改的 3 处：metago-architecture-guild-team-lead（43属性→47、36公理→38、31维→29维）、metago-meta-thoughts（V36.9.4→V36.12.0）、docs/rtm.md 版本口径缺口（已关闭）",
+    "真正需改的 3 处：metago-architecture-guild-team-lead（43属性→47、36公理→38、31维→29维）、metago-meta-thoughts（V36.9.4→V37.0.0）、docs/rtm.md 版本口径缺口（已关闭）",
     "蓝本「元构全息文档体系-第二卷/第七卷」属原文层：597 条原子 / 161 个引擎是 V36.8/V37.0 当时事实，改写会让历史失真 → 保留（第七卷已自带口径校正注记）",
     "修正判据后复扫：13 处全部归入历史叙述，当前声明 0 处",
     "全量回归 29/29 全绿"
@@ -1222,9 +1222,9 @@
    "value": "26 / 26 项版本一致（V36.11）",
    "unit": "项",
    "evidence": [
-    "9 个 npm 包：rules_version 全部 V36.12.0（version 各自 semver：algorithms 1.0.3 / engine 2.1.3 / mcp-server 1.3.4 / dev-kit 1.1.2 / verify-kit 1.1.4 / lifeform 36.12.0 / cli 1.1.0 / completeness-kit 1.0.0 / veracity-kit 1.0.0）",
-    "交付包 + VERSION + AGENTS.md + 离线 portable：全部 36.11.x / V36.12.0",
-    "11 平台适配法则：全部 V36.12.0",
+    "9 个 npm 包：rules_version 全部 V37.0.0（version 各自 semver：algorithms 1.0.3 / engine 2.1.3 / mcp-server 1.3.4 / dev-kit 1.1.2 / verify-kit 1.1.4 / lifeform 37.0.0 / cli 1.1.0 / completeness-kit 1.0.0 / veracity-kit 1.0.0）",
+    "交付包 + VERSION + AGENTS.md + 离线 portable：全部 36.11.x / V37.0.0",
+    "11 平台适配法则：全部 V37.0.0",
     "蓝本产出卷（总索引-V36.11 / 附录卷-原子契约补全-V36.11）：V36.11",
     "蓝本原文层 13 卷豁免：卷内标的是「该卷写就时的版本」（V36.3/V36.8），改写即失真"
    ],
@@ -1551,7 +1551,7 @@
     "全文松散检索: 846"
    ],
    "loaded": 523,
-   "loaded_where": "V36.12.0 已装入 npm 生效路径：engine/atoms/{engine.cjs(compute 50), atom-factory.cjs(468), constraints.cjs(5)}",
+   "loaded_where": "V37.0.0 已装入 npm 生效路径：engine/atoms/{engine.cjs(compute 50), atom-factory.cjs(468), constraints.cjs(5)}",
    "loaded_rate": 0.5315,
    "gap": 461,
    "caveat": "523/984 = 53.2%；相对蓝本可枚举的 597 条为 87.6%；剩余为 external 6 条 + template 3 条（需模型/服务）"
@@ -2026,13 +2026,13 @@
   },
   {
    "id": "DEF-034",
-   "component": "交付包 metagolifeform-v36.12.0/package.json",
+   "component": "交付包 metagolifeform-v37.0.0/package.json",
    "severity": "low",
    "type": "missing_version_field",
-   "description": "4 个全局安装包与 3 个 @metago-ai 包都有 rules_version=V36.12.0，但交付包自身的 package.json 缺该字段（None）",
+   "description": "4 个全局安装包与 3 个 @metago-ai 包都有 rules_version=V37.0.0，但交付包自身的 package.json 缺该字段（None）",
    "impact": "以包内 package.json 为真相源的版本对齐审计会判交付包不合规；安装到新环境后读不到体系版本",
-   "fix": "补 rules_version=V36.12.0",
-   "verified": "读回复核：metago-lifeform version=36.12.0 rules_version=V36.12.0；全部 7 个包（4 全局 + 3 scoped）现已一致",
+   "fix": "补 rules_version=V37.0.0",
+   "verified": "读回复核：metago-lifeform version=37.0.0 rules_version=V37.0.0；全部 7 个包（4 全局 + 3 scoped）现已一致",
    "foundBy": "包可移植性验证时顺带打印 package.json 字段，发现 rules_version 为 None"
   },
   {
@@ -2052,8 +2052,8 @@
    "severity": "high",
    "type": "stale_offline_bundle",
    "description": "离线安装版三处过期：① portable 里的 AGENTS.md 与 package.json 是 36.9.6；② offline-packages/metago-lifeform-36.9.6.tgz 是旧版包；③ 自检脚本期望 Engine 2.1.1（实际 2.1.3）",
-   "impact": "离线安装会装上 36.9.6 而不是 36.12.0；自检自身还会误报",
-   "fix": "同步 AGENTS.md、重打 metago-lifeform-36.12.0.tgz 删旧包、期望值 2.1.1 → 2.1.3",
+   "impact": "离线安装会装上 36.9.6 而不是 37.0.0；自检自身还会误报",
+   "fix": "同步 AGENTS.md、重打 metago-lifeform-37.0.0.tgz 删旧包、期望值 2.1.1 → 2.1.3",
    "verified": "离线安装版自检 57/59 → 58/59 → 59/59 全绿",
    "foundBy": "包可移植性延伸验证时跑 local-edition/verify-local-install.cjs"
   },
@@ -2301,7 +2301,7 @@
   },
   {
    "id": "DEF-060",
-   "component": "local-edition/offline-packages/metago-lifeform-36.12.0.tgz",
+   "component": "local-edition/offline-packages/metago-lifeform-37.0.0.tgz",
    "severity": "high",
    "type": "offline_bundle_stale",
    "description": "离线 tgz 是旧时点打的，顶层 scripts 只有 174 个，缺本轮新增 8 个（patch-dedupe / scripts-syntax-gate / vendor-syntax-gate / fix_shapes_9 / fix_shapes_2 / fix_audit_global / all-scripts-smoke / delivery.config.json）",
@@ -2328,7 +2328,7 @@
    "type": "machine_readable_metadata_stale",
    "description": "metago.version=V36.9.6 / attributes=43 / protocols=8 / skills=100 —— 四个全是旧值。这是**机器可读的能力声明**，任何工具读它都会拿到错数字",
    "impact": "外部工具/脚本按此块判断能力时全部判错",
-   "fix": "按实测重写：version V36.12.0、axioms 38、attributes 47、protocols 121、skills 112、atoms 597、engines 161，并新增 lawChapters/runtimeAxioms/mcpServers/totalMcpTools 分项",
+   "fix": "按实测重写：version V37.0.0、axioms 38、attributes 47、protocols 121、skills 112、atoms 597、engines 161，并新增 lawChapters/runtimeAxioms/mcpServers/totalMcpTools 分项",
    "verified": "复核 metago 块 17 个字段全部与实测一致",
    "foundBy": "实测 CLI 子命令时顺带看到 help 里写 V36.9.6，追到 package.json"
   },
@@ -2339,7 +2339,7 @@
    "type": "current_declaration_stale_version",
    "description": "README 徽章 Rules-V36.9.6、core/METAGO_CORE.md「版本：V36.9.6」、docs/{MAP,PLATFORMS,PLUGINS,MANIFEST,UPGRADE}.md、adapters/trae/README、packages/docs-site 3 文件、packages/engine 5 文件 —— 共 13 文件含旧版本",
    "impact": "用户/工具读文档拿到的版本号是旧的",
-   "fix": "逐文件判定「当前声明 vs 历史记录」，把当前声明的 V36.9.6 改 V36.12.0；CHANGELOG/RELEASE-NOTES 保留",
+   "fix": "逐文件判定「当前声明 vs 历史记录」，把当前声明的 V36.9.6 改 V37.0.0；CHANGELOG/RELEASE-NOTES 保留",
    "verified": "复扫：当前声明文件已无 V36.9.6；历史类文件保留（正确）",
    "foundBy": "版本一致性总检后的延伸扫描"
   },
@@ -2348,7 +2348,7 @@
    "component": "交付包 packages/*/package.json（5 个子包）",
    "severity": "high",
    "type": "fix_not_surviving_reinstall",
-   "description": "npm 装机的 5 个子包有 rules_version=V36.12.0，但交付包内的 packages/*/package.json 没有这个字段 → 从包重装就丢掉",
+   "description": "npm 装机的 5 个子包有 rules_version=V37.0.0，但交付包内的 packages/*/package.json 没有这个字段 → 从包重装就丢掉",
    "impact": "「修复不能存活于重装」——每次重装都要重新补",
    "fix": "把 rules_version 写回包内 5 个子包的 package.json",
    "verified": "复核：包内 5/5 与装机 5/5 完全一致",

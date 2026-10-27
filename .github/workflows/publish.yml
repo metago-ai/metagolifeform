@@ -2,7 +2,7 @@ name: Publish to NPM
 
 # 触发条件：打 tag 时自动发布
 # tag 命名规范：
-#   - metago-lifeform-v36.7.8  → 发布根包 metago-lifeform
+#   - metago-lifeform-v37.0.0  → 发布根包 metago-lifeform
 #   - mcp-server-v1.1.5        → 发布 @metago-ai/mcp-server
 #   - engine-v1.0.4             → 发布 @metago-ai/engine
 #   - dev-kit-v1.0.7            → 发布 @metago-ai/dev-kit

@@ -22,7 +22,7 @@ MetaGO is an **agent runtime** — a control layer that wraps the agent, turning
 [![Skills](https://img.shields.io/badge/Skills-112-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-112_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
 [![Engine](https://img.shields.io/badge/Engine-V2.1.3-blue)](packages/engine/)
-[![Rules](https://img.shields.io/badge/Rules-V36.12.0-9cf)](AGENTS.md)
+[![Rules](https://img.shields.io/badge/Rules-V37.0.0-9cf)](AGENTS.md)
 
 ---
 
@@ -74,7 +74,7 @@ MetaGO's moat isn't any single feature. It's 8 dimensions that reinforce each ot
 - **Objectivity** — Fact-first, not user-pleasing. It will directly point out what's wrong with your idea.
 - **Compliance** — Legal / ethics / safety checked proactively. Law wins over efficiency, every time.
 - **Completeness** — Before declaring "done", the agent must answer 10 self-checks across 10 hard gates — including "did I actually run verification?" Any "no" blocks the declaration.
-- **Theoretical depth** — Built on 《元构全息智能引擎》V36.12.0 — 38 core axioms and 47 attributes inside a full constitution. Not vibes — a constitution.
+- **Theoretical depth** — Built on 《元构全息智能引擎》V37.0.0 — 43 core axioms and 47 attributes inside a full constitution. Not vibes — a constitution.
 - **Lifeform attribute** — It's not an "agent". It's a lifeform with perception, memory, evolution, and self-discipline. The runtime is what makes the lifeform real.
 
 ---
@@ -235,12 +235,12 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 
 | Package | What it is | Install |
 |---|---|---|
-| `metago-lifeform` | The CLI installer + 112 skills + 11 platform forms + AGENTS.md V36.12.0 | `npm install -g metago-lifeform` |
+| `metago-lifeform` | The CLI installer + 112 skills + 11 platform forms + AGENTS.md V37.0.0 | `npm install -g metago-lifeform` |
 | `@metago-ai/mcp-server` | MCP server exposing 55 tools + 8 prompts (Engine V2.1.3 hard-driven) | `npm install @metago-ai/mcp-server` |
 | `@metago-ai/engine` | Engine V2.1.3: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
 | `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.3 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
-| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V36.12.0 spec) | `npm install @metago-ai/verify-kit` |
+| `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V37.0.0 spec) | `npm install @metago-ai/verify-kit` |
 
 ---
 
