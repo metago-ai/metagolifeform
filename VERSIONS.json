@@ -2,11 +2,11 @@
   "generatedBy": "D:\\metago-build\\audit_versions_v2.py",
   "generatedAt": "2026-10-18T17:09:03",
   "principle": "两级口径：体系版本（法则/蓝本/发行包）必须统一；组件版本（npm semver）各自独立，只要求 rules_version 声明所适配的体系版本",
-  "targetSystemVersion": "V36.12.0",
+  "targetSystemVersion": "V37.0.0",
   "tier1_system": {
-    "AGENTS.md（法则）": "V36.12.0",
+    "AGENTS.md（法则）": "V37.0.0",
     "元构初始文档（蓝本）": "36.11",
-    "发行包": "36.12.0"
+    "发行包": "37.0.0"
   },
   "tier1_volume_versions": {
     "元构全息文档体系-第一卷-哲学与理论体系.md": "36.9.4",
@@ -17,8 +17,8 @@
     "元构全息文档体系-第八卷-产品与工程体系.md": "36.8.0",
     "元构全息文档体系-第六卷-知识产权体系.md": "36.8.0",
     "元构全息文档体系-第四卷-经济与价值体系.md": "36.8.0",
-    "总索引-V36.11.md": "36.12.0",
-    "附录卷-原子契约补全-V36.11.md": "36.12.0",
+    "总索引-V36.11.md": "37.0.0",
+    "附录卷-原子契约补全-V36.11.md": "37.0.0",
     "附录卷-第1部分-V9.0原始内容.md": "36.8.0",
     "附录卷-第2部分-V9.1-V16.6升级.md": "36.8.0",
     "附录卷-第3部分-V21.0-V28.0升级.md": "36.8.0",
@@ -27,24 +27,24 @@
   },
   "tier2_components": {
     "algorithms": {
-      "semver": "1.0.3",
-      "rules_version": "V36.12.0"
+      "semver": "1.0.4",
+      "rules_version": "V37.0.0"
     },
     "engine": {
-      "semver": "2.1.3",
-      "rules_version": "V36.12.0"
+      "semver": "2.1.4",
+      "rules_version": "V37.0.0"
     },
     "mcp-server": {
-      "semver": "1.3.4",
-      "rules_version": "V36.12.0"
+      "semver": "1.3.5",
+      "rules_version": "V37.0.0"
     },
     "dev-kit": {
-      "semver": "1.1.2",
-      "rules_version": "V36.12.0"
+      "semver": "1.1.3",
+      "rules_version": "V37.0.0"
     },
     "verify-kit": {
-      "semver": "1.1.4",
-      "rules_version": "V36.12.0"
+      "semver": "1.1.5",
+      "rules_version": "V37.0.0"
     }
   },
   "summary": {
@@ -109,48 +109,48 @@
     }
   },
   "versionAlignment": {
-    "systemVersion": "36.12.0",
-    "rulesVersionAllPackages": "V36.12.0",
+    "systemVersion": "37.0.0",
+    "rulesVersionAllPackages": "V37.0.0",
     "alignedAt": "2026-10-18",
     "packages": {
       "@metago-ai/algorithms": {
-        "version": "1.0.3",
-        "rules_version": "V36.12.0"
+        "version": "1.0.4",
+        "rules_version": "V37.0.0"
       },
       "@metago-ai/dev-kit": {
-        "version": "1.1.2",
-        "rules_version": "V36.12.0"
+        "version": "1.1.3",
+        "rules_version": "V37.0.0"
       },
       "@metago-ai/engine": {
-        "version": "2.1.3",
-        "rules_version": "V36.12.0"
+        "version": "2.1.4",
+        "rules_version": "V37.0.0"
       },
       "@metago-ai/mcp-server": {
-        "version": "1.3.4",
-        "rules_version": "V36.12.0"
+        "version": "1.3.5",
+        "rules_version": "V37.0.0"
       },
       "@metago-ai/verify-kit": {
-        "version": "1.1.4",
-        "rules_version": "V36.12.0"
+        "version": "1.1.5",
+        "rules_version": "V37.0.0"
       },
       "metago-cli": {
         "version": "1.1.0",
-        "rules_version": "V36.12.0"
+        "rules_version": "V37.0.0"
       },
       "metago-completeness-kit": {
         "version": "1.0.0",
-        "rules_version": "V36.12.0"
+        "rules_version": "V37.0.0"
       },
       "metago-lifeform": {
-        "version": "36.12.0",
-        "rules_version": "V36.12.0"
+        "version": "37.0.0",
+        "rules_version": "V37.0.0"
       },
       "metago-veracity-kit": {
         "version": "1.0.0",
-        "rules_version": "V36.12.0"
+        "rules_version": "V37.0.0"
       }
     },
     "backup": "D:\\metago-build\\backup-versions-20261018-195558",
-    "note": "组件版本（semver）各自独立；rules_version 全部统一为 V36.12.0；metago-lifeform 的 version 即体系版本号"
+    "note": "组件版本（semver）各自独立；rules_version 全部统一为 V37.0.0；metago-lifeform 的 version 即体系版本号"
   }
 }
