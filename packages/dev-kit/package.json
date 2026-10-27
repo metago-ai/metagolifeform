@@ -1,6 +1,6 @@
 {
   "name": "@metago-ai/dev-kit",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "rules_version": "V36.12.0",
   "description": "元构·智能生命体（MetaGO Intelligent Lifeform）Dev Kit — 开发者垂直场景包，把 AI 升级为遵循决策锁治理的代码生命体。复用 4 个核心能力（决策锁/批判性分析/事实核查/问题溯源）+ 叠加 4 个开发专用技能：深度代码审查（5 步流程 + 4 级分级）、架构设计（5 步 + 7 原则 + ADR）、重构建议（8 种代码异味检测）、安全审计（OWASP Top 10 + CVSS 评分）。V1.1.2 恢复为完整包，含 4 个 Dev Kit 技能 SKILL.md 实际代码。",
   "main": "index.js",
@@ -24,7 +24,7 @@
   "metago": {
     "type": "vertical-kit",
     "vertical": "developer",
-    "rules_version": "V36.12.0",
+    "rules_version": "V37.0.0",
     "reusedSkills": [
       "metago-decision-lock",
       "metago-critique",
