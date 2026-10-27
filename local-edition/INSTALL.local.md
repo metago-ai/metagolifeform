@@ -1,6 +1,6 @@
 # MetaGO Lifeform 本地发行版 · 离线安装总入口
 
-> 版本：V36.9.6（法则）/ Engine V2.1.3 / mcp-server 1.3.4 / algorithms 1.0.3 / dev-kit 1.1.2 / verify-kit 1.1.4
+> 版本：V37.0.0（法则）/ Engine V2.1.4 / mcp-server 1.3.5 / algorithms 1.0.4 / dev-kit 1.1.3 / verify-kit 1.1.5
 > 适用：任何智能体平台（Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode / Kimi）
 > 前提：**全程无需访问 gitee / github / npm registry**。本目录即完整宇宙。
 
@@ -22,7 +22,7 @@
 
 ```
 <仓库根>/
-├── AGENTS.md                  法则母本 V36.9.6（第 0 节 + 20 章，一切平台法则的源头）
+├── AGENTS.md                  法则母本 V37.0.0（第 0 节 + 27 章，一切平台法则的源头）
 ├── skills/                    112 个技能目录（直接可用，无需构建）
 ├── adapters/                  11 平台法则适配模板（含 universal 通用路径）
 ├── packages/                  8 个 npm 包源码（engine / mcp-server / algorithms / dev-kit / verify-kit / dashboard / demo / docs-site）
@@ -56,9 +56,9 @@ cp -r local-edition/portable/bin/* "$(dirname "<NPM_G>")/"   # 命令垫片到 n
 
 ```bash
 cd local-edition/offline-packages
-npm install -g ./metago-lifeform-36.9.6.tgz ./metago-ai-engine-2.1.3.tgz \
-  ./metago-ai-mcp-server-1.3.4.tgz ./metago-ai-algorithms-1.0.3.tgz \
-  ./metago-ai-dev-kit-1.1.2.tgz ./metago-ai-verify-kit-1.1.4.tgz
+npm install -g ./metago-lifeform-37.0.0.tgz ./metago-ai-engine-2.1.4.tgz \
+  ./metago-ai-mcp-server-1.3.5.tgz ./metago-ai-algorithms-1.0.4.tgz \
+  ./metago-ai-dev-kit-1.1.3.tgz ./metago-ai-verify-kit-1.1.5.tgz
 ```
 
 注意：mcp-server 与 algorithms 依赖 `@modelcontextprotocol/sdk`、`zod`，tgz 不内含这些依赖——所以本路径需要 registry；**完全离线请走路径 A**。
@@ -76,7 +76,7 @@ mcp-server / verify-kit 需先 `npm run build` 生成 dist（TypeScript）。
 **通用成功判据**（A/B/C 任一完成后）：
 
 ```bash
-metago-lifeform version    # 输出 v36.9.6
+metago-lifeform version    # 输出 v37.0.0
 metago-engine --help       # 引擎 CLI 可用
 ```
 
@@ -151,7 +151,7 @@ node local-edition/verify-local-install.cjs
 | 类别 | 检查内容 | 说明 |
 |------|---------|------|
 | 1 | 文件存在性 | 法则文件、全局npm包、MCP配置、技能目录、cli.js、备份目录 |
-| 2 | 版本正确性 | 法则版本 V36.9.6（动态校验根包版本）、package版本、Engine版本、CLI --version输出 |
+| 2 | 版本正确性 | 法则版本 V37.0.0（动态校验根包版本）、package版本、Engine版本、CLI --version输出 |
 | 3 | 编码检查 | 法则文件和母本无UTF-8 BOM |
 | 4 | 第十八章完整性 | 章节存在、MCP/技能清单已注入、无{{...}}占位符残留、§18.11存在 |
 | 5 | 技能完整性 | 核心技能存在、元构技能数量 ≥90（实际 100） |
@@ -184,4 +184,4 @@ npm uninstall -g metago-lifeform @metago-ai/engine @metago-ai/mcp-server \
 
 ---
 
-*本地发行版由 元构·智能生命体 V36.9.6 构建 | 源仓库（联网时备用）：https://gitee.com/metago/metagolifeform · https://github.com/metago-ai/metagolifeform*
+*本地发行版由 元构·智能生命体 V37.0.0 构建 | 源仓库（联网时备用）：https://gitee.com/metago/metagolifeform · https://github.com/metago-ai/metagolifeform*

@@ -36,12 +36,12 @@ if [ "$OFFLINE" = "1" ] || [ -d "$LE/portable/node_modules" ]; then
   [ -d "$LE/portable/bin" ] && cp -r "$LE/portable/bin/." "$PREFIX/" || true
 else
   echo "→ 路径B：tgz 安装（mcp-server/algorithms 的依赖需 npm registry）"
-  npm install -g "$LE/offline-packages/metago-lifeform-36.9.6.tgz" \
-    "$LE/offline-packages/metago-ai-engine-2.1.3.tgz" \
-    "$LE/offline-packages/metago-ai-mcp-server-1.3.4.tgz" \
-    "$LE/offline-packages/metago-ai-algorithms-1.0.3.tgz" \
-    "$LE/offline-packages/metago-ai-dev-kit-1.1.2.tgz" \
-    "$LE/offline-packages/metago-ai-verify-kit-1.1.4.tgz"
+  npm install -g "$LE/offline-packages/metago-lifeform-37.0.0.tgz" \
+    "$LE/offline-packages/metago-ai-engine-2.1.4.tgz" \
+    "$LE/offline-packages/metago-ai-mcp-server-1.3.5.tgz" \
+    "$LE/offline-packages/metago-ai-algorithms-1.0.4.tgz" \
+    "$LE/offline-packages/metago-ai-dev-kit-1.1.3.tgz" \
+    "$LE/offline-packages/metago-ai-verify-kit-1.1.5.tgz"
 fi
 
 # 2. 法则 + 技能（调用 CLI 内建适配器）

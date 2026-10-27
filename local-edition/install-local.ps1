@@ -1,4 +1,4 @@
-﻿# MetaGO 本地发行版 · 一键安装（Windows PowerShell）
+# MetaGO 本地发行版 · 一键安装（Windows PowerShell）
 # 用法：powershell -ExecutionPolicy Bypass -File install-local.ps1 [-Platform trae] [-Offline] [-SkipMcp] [-WithPlugin] [-WithCompleteness]
 # 36.9.4 修复：tgz 文件名对齐实包；平台与 cli.js 的 11 平台对齐；新增插件/完整性套件开关（与 sh 版对齐）；技能数动态化
 param(
@@ -45,12 +45,12 @@ if ($Offline) {
   if (Test-Path "$LE\portable\bin") { Copy-Tree "$LE\portable\bin" $Prefix }
 } else {
   Write-Host "→ 路径B：tgz 安装（mcp-server/algorithms 的依赖需 npm registry）"
-  npm install -g "$LE\offline-packages\metago-lifeform-36.9.6.tgz" `
-    "$LE\offline-packages\metago-ai-engine-2.1.3.tgz" `
-    "$LE\offline-packages\metago-ai-mcp-server-1.3.4.tgz" `
-    "$LE\offline-packages\metago-ai-algorithms-1.0.3.tgz" `
-    "$LE\offline-packages\metago-ai-dev-kit-1.1.2.tgz" `
-    "$LE\offline-packages\metago-ai-verify-kit-1.1.4.tgz"
+  npm install -g "$LE\offline-packages\metago-lifeform-37.0.0.tgz" `
+    "$LE\offline-packages\metago-ai-engine-2.1.4.tgz" `
+    "$LE\offline-packages\metago-ai-mcp-server-1.3.5.tgz" `
+    "$LE\offline-packages\metago-ai-algorithms-1.0.4.tgz" `
+    "$LE\offline-packages\metago-ai-dev-kit-1.1.3.tgz" `
+    "$LE\offline-packages\metago-ai-verify-kit-1.1.5.tgz"
 }
 
 # 2. 法则 + 技能
