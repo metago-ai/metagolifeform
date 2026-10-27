@@ -132,7 +132,7 @@ out.write_text(json.dumps({
 import json as _json, datetime as _dt
 _fails = [r for r in results if not r["ok"]]
 if _fails:
-    _log = pathlib.Path(str(out).replace(".json", "-fail-log.jsonl"))
+    _log = pathlib.Path(str(OUT).replace(".json", "-fail-log.jsonl"))
     _rec = {"at": _dt.datetime.now().isoformat(timespec="seconds"),
             "fails": [{"name": r["name"], "rc": r.get("rc"), "hit": r.get("hit"), "sec": r.get("sec")} for r in _fails]}
     with _log.open("a", encoding="utf-8") as fh:
