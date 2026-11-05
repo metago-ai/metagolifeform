@@ -1,0 +1,34 @@
+{
+  "target": "file:///$DSH_HOME/home/skills/metago-self-eyes/fixtures/clean-page.html",
+  "generatedAt": "2026-10-29T14:47:50.164Z",
+  "chromium": "$DSH_HOME\\localappdata\\ms-playwright\\chromium-1208\\chrome-win64\\chrome.exe",
+  "views": [
+    {
+      "width": 1440,
+      "height": 900,
+      "title": "自见协议 · 零问题对照页（应当 0 问题）",
+      "bodyTextLength": 98,
+      "contrastChecked": 4,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\clean-page\\shots\\1440-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\clean-page\\shots\\1440-full.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "title": "自见协议 · 零问题对照页（应当 0 问题）",
+      "bodyTextLength": 98,
+      "contrastChecked": 4,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\clean-page\\shots\\390-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\clean-page\\shots\\390-full.png"
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "issues": [],
+  "summary": {
+    "P0": 0,
+    "P1": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0
+  }
+}

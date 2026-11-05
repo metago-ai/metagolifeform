@@ -1,6 +1,6 @@
 # MetaGO 僵尸能力分析报告
 
-> **数据源**: `C:\Users\MetaGO\.metago\logs\calls.jsonl`
+> **数据源**: `~\.metago\logs\calls.jsonl`
 > **采样时间**: 2026-06-29 19:18:16 (UTC)
 > **数据状态**: 存在
 > **记录总数**: 0
@@ -25,7 +25,7 @@
 本报告转为**理论分析模式**，基于 53 个工具的设计意图做僵尸候选评估。
 
 **建议操作**:
-1. 部署 MetaGO Agent Harness 到生产环境
+1. 部署 MetaGO Fabric V11 到生产环境
 2. 收集至少 7 天的真实使用数据
 3. 重新运行本分析器: `node zombie-analyzer.mjs`
 

@@ -1,0 +1,237 @@
+{
+  "target": "file:///$DSH_HOME/home/skills/metago-self-eyes/scripts/selftest-page.html",
+  "generatedAt": "2026-10-29T14:47:41.960Z",
+  "chromium": "$DSH_HOME\\localappdata\\ms-playwright\\chromium-1208\\chrome-win64\\chrome.exe",
+  "views": [
+    {
+      "width": 1440,
+      "height": 900,
+      "title": "自见协议 · 自检页（故意埋了 8 类问题）",
+      "bodyTextLength": 243,
+      "contrastChecked": 9,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\selftest-page\\shots\\1440-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\selftest-page\\shots\\1440-full.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "title": "自见协议 · 自检页（故意埋了 8 类问题）",
+      "bodyTextLength": 243,
+      "contrastChecked": 9,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\selftest-page\\shots\\390-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\selftest-page\\shots\\390-full.png"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "width": 1440,
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    },
+    {
+      "width": 390,
+      "text": "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    }
+  ],
+  "pageErrors": [],
+  "issues": [
+    {
+      "level": "P0",
+      "type": "text-clipped",
+      "detail": "文字横向被裁：scrollWidth=190 > clientWidth=104",
+      "rect": {
+        "x": 24,
+        "y": 97,
+        "w": 106,
+        "h": 34
+      },
+      "text": "立即开始一次完整的网站自查",
+      "viewport": 1440
+    },
+    {
+      "level": "P1",
+      "type": "tiny-target",
+      "detail": "可点击元素过小 12x12",
+      "rect": {
+        "x": 386,
+        "y": 108,
+        "w": 12,
+        "h": 12
+      },
+      "text": "",
+      "viewport": 1440
+    },
+    {
+      "level": "P1",
+      "type": "text-vert-clipped",
+      "detail": "文字纵向被裁：scrollHeight=68 > clientHeight=38",
+      "rect": {
+        "x": 24,
+        "y": 227,
+        "w": 230,
+        "h": 40
+      },
+      "text": "这一段文字远超容器高度，会被纵向裁掉一大半，用来触发 text-vert-clipped 检查。",
+      "viewport": 1440
+    },
+    {
+      "level": "P0",
+      "type": "broken-image",
+      "detail": "图片加载失败：file:///$DSH_HOME/home/skills/metago-self-eyes/scripts/does-not-exist.png",
+      "rect": {
+        "x": 24,
+        "y": 149,
+        "w": 80,
+        "h": 60
+      },
+      "text": "",
+      "viewport": 1440
+    },
+    {
+      "level": "P1",
+      "type": "low-contrast",
+      "detail": "对比度 4.20 < 4.5（字号 14px）",
+      "rect": {
+        "x": 24,
+        "y": 97,
+        "w": 106,
+        "h": 34
+      },
+      "text": "立即开始一次完整的网站自查",
+      "viewport": 1440
+    },
+    {
+      "level": "P1",
+      "type": "low-contrast",
+      "detail": "对比度 1.17 < 4.5（字号 14px）",
+      "rect": {
+        "x": 146,
+        "y": 105,
+        "w": 224,
+        "h": 18
+      },
+      "text": "这段文字几乎看不见（浅灰压白底）",
+      "viewport": 1440
+    },
+    {
+      "level": "P1",
+      "type": "placeholder-content",
+      "detail": "页面残留占位内容：\"todo\"",
+      "rect": null,
+      "text": "",
+      "viewport": 1440
+    },
+    {
+      "level": "P0",
+      "type": "horizontal-overflow",
+      "detail": "文档横向溢出：scrollWidth=1226 > clientWidth=390",
+      "rect": null,
+      "text": "",
+      "viewport": 390
+    },
+    {
+      "level": "P0",
+      "type": "text-clipped",
+      "detail": "文字横向被裁：scrollWidth=190 > clientWidth=94",
+      "rect": {
+        "x": 24,
+        "y": 114,
+        "w": 96,
+        "h": 34
+      },
+      "text": "立即开始一次完整的网站自查",
+      "viewport": 390
+    },
+    {
+      "level": "P1",
+      "type": "tiny-target",
+      "detail": "可点击元素过小 12x12",
+      "rect": {
+        "x": 354,
+        "y": 125,
+        "w": 12,
+        "h": 12
+      },
+      "text": "",
+      "viewport": 390
+    },
+    {
+      "level": "P1",
+      "type": "text-vert-clipped",
+      "detail": "文字纵向被裁：scrollHeight=68 > clientHeight=38",
+      "rect": {
+        "x": 24,
+        "y": 245,
+        "w": 230,
+        "h": 40
+      },
+      "text": "这一段文字远超容器高度，会被纵向裁掉一大半，用来触发 text-vert-clipped 检查。",
+      "viewport": 390
+    },
+    {
+      "level": "P0",
+      "type": "outside-viewport",
+      "detail": "元素超出视口右侧 836px",
+      "rect": {
+        "x": 24,
+        "y": 303,
+        "w": 1202,
+        "h": 42
+      },
+      "text": "",
+      "viewport": 390
+    },
+    {
+      "level": "P0",
+      "type": "broken-image",
+      "detail": "图片加载失败：file:///$DSH_HOME/home/skills/metago-self-eyes/scripts/does-not-exist.png",
+      "rect": {
+        "x": 24,
+        "y": 167,
+        "w": 80,
+        "h": 60
+      },
+      "text": "",
+      "viewport": 390
+    },
+    {
+      "level": "P1",
+      "type": "low-contrast",
+      "detail": "对比度 4.20 < 4.5（字号 14px）",
+      "rect": {
+        "x": 24,
+        "y": 114,
+        "w": 96,
+        "h": 34
+      },
+      "text": "立即开始一次完整的网站自查",
+      "viewport": 390
+    },
+    {
+      "level": "P1",
+      "type": "low-contrast",
+      "detail": "对比度 1.17 < 4.5（字号 14px）",
+      "rect": {
+        "x": 136,
+        "y": 113,
+        "w": 202,
+        "h": 36
+      },
+      "text": "这段文字几乎看不见（浅灰压白底）",
+      "viewport": 390
+    },
+    {
+      "level": "P1",
+      "type": "placeholder-content",
+      "detail": "页面残留占位内容：\"todo\"",
+      "rect": null,
+      "text": "",
+      "viewport": 390
+    }
+  ],
+  "summary": {
+    "P0": 6,
+    "P1": 10,
+    "consoleErrors": 2,
+    "pageErrors": 0
+  }
+}

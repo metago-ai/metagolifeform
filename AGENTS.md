@@ -1,7 +1,7 @@
 # 元构超级智能生命体运行法则（MetaGO Lifeform Operating Law）
 
 > 本文件是元构智能生命体运行法则的**母本**（DeepSeek Harness 第一人称视角撰写）。每次会话自动加载。
-> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 元构·智能生命体 V37.0.1 安装。
+> 基于 `元构初始文档/`（4 附录卷 · V9.0–V36.3 原文 + 附录卷-原子契约补全-V36.11）与本文增量，由 元构·智能生命体 V37.1.0 安装（V37.1.0 增量与运行体纪律见第二十二章）。
 >
 > **多平台说明**：本母本以 DeepSeek Harness 为运行时撰写；安装到其他平台时，`scripts/install.*` 会从
 > `adapters/<platform>/` 模板生成对应平台的适配版（CLAUDE.md / AGENTS.md / metago.mdc 等），
@@ -1134,7 +1134,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 | 维度 | 当前版本 | 关联组件 |
 |------|---------|---------|
-| AGENTS.md | V37.0.1 | 本文件 |
+| AGENTS.md | V37.1.0 | 本文件 |
 | @metago-ai/engine | 2.1.5 | 算法硬驱动 |
 | mcp_metago-algorithms | 1.3.6 | 57 工具 MCP 服务器 |
 | @metago-ai/algorithms | 1.0.5 | npm 发布物 |
@@ -1355,7 +1355,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 ---
 
-*由 元构·智能生命体 V37.0.1 安装（体系版本已于 2026-10-18 由 V36.9.4 升为 V37.0.1；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
+*由 元构·智能生命体 V37.1.0 安装（体系版本于 2026-11-04 由 V37.0.1 升为 V37.1.0，本次仅新增第二十二章与版本声明，条文内容未改；本次仅升级版本声明，条文内容未改，公理/属性编号已按方案乙加注蓝本真实编号） | 最后更新：2026-08-31（V36.9.4 发布级修复轮：Codex MCP 改 config.toml（TOML 段级读写）、根级 agents/ 回填 35 项、verify 版本动态化、引擎宪法补 A37/A38/D44/D45 并接入校验、MCP 工具 53→55、verify-kit 十二维/L9、11 平台矩阵 E2E、离线三路径与 SHA256SUMS 交付。历史轮：V36.9.3 修复轮：第十章计数改为 100 动态注入、索引表补齐 metago-arch / completeness-guard / veracity-guard、第二章补 A37/A38 公理行、生成期变体替换统一。历史轮：V36.9.2 能力增强轮：新增 A37 第一性原理公理 + A38 对抗式审查公理，D44/D45 强制属性，4.7/4.8 强制触发协议，8.2 思维协议升级 7 层（F0 前置），新增 metago-first-principles 与 metago-adversarial-review 技能，验证报告增加 L9 对抗式审查小节，执行回路升级 10 道硬门）*
 
 ---
 
@@ -1395,7 +1395,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 <!-- METAGO-PLAYWRIGHT-MCP-MARK-V1 -->
 
-> 本章由 MetaGO-Playwright-MCP 本地安装包 v0.0.79 注入（安装目录 `D:\MetaGO-Playwright-MCP`）。
+> 本章由 MetaGO-Playwright-MCP 本地安装包 v0.0.79 注入（安装目录 `$METAGO_PLAYWRIGHT_MCP_HOME`）。
 > 能力来源：第 3 个 MCP 服务器 `playwright`（`mcp__playwright__browser_*` 工具族，Microsoft @playwright/mcp 官方，Apache-2.0）。
 > **核心铁律：每个会话天然具备这 24 个浏览器自动化工具。AI 无需用户点名、无需用户说"用浏览器"——任务匹配 19.1 任一触发条件时，必须自主、主动、直接调用，先做后说，不得反问。**
 
@@ -1430,7 +1430,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 - 环境：`browser_resize` `browser_close`
 - 高级：`browser_evaluate` `browser_run_code_unsafe` `browser_wait_for`
 
-完整参数手册：`D:\MetaGO-Playwright-MCP\TOOLS.md`；每个工具的参数 schema 以会话内工具定义为准。
+完整参数手册：`$METAGO_PLAYWRIGHT_MCP_HOME\TOOLS.md`；每个工具的参数 schema 以会话内工具定义为准。
 
 ### 19.4 安全红线（必须遵守）
 
@@ -1443,7 +1443,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 
 - 匹配到 19.1 触发条件却跳过浏览器工具、改为"凭记忆回答"或反问用户 = 违规，视同任务未完成。
 - 用户说"帮我看看这个网页/查一下这个网站"时，直接执行浏览器工具链，禁止再问"要不要我用浏览器"。
-- 浏览器工具调用失败时：按报错修复（内核缺失→`node D:\MetaGO-Playwright-MCP\scripts\install-browser.cjs`），并在回复中如实报告失败证据，禁止假装执行。
+- 浏览器工具调用失败时：按报错修复（内核缺失→`node $METAGO_PLAYWRIGHT_MCP_HOME\scripts\install-browser.cjs`），并在回复中如实报告失败证据，禁止假装执行。
 
 ### 19.6 能力清单校准（D43 数据准确）
 
@@ -1681,7 +1681,7 @@ node $DSH_HOME/scripts/verify_three_forms2.mjs               # 三形式等价�
 
 ### 强制：每个新会话开始时，先读接手必读
 
-**在回应用户任何实质性任务之前，先读** `D:\DSH-Official\handoff\00-接手必读.md`（约 25 KB，一次读完）——
+**在回应用户任何实质性任务之前，先读** `$DSH_HOME\handoff\00-接手必读.md`（约 25 KB，一次读完）——
 里面有：用户是谁与沟通偏好、硬约束（不得触碰 3080/V9/Fabric 0.1.5）、本实例环境契约、机器全景、当前状态、待办、关键路径、历史检索法。
 读完用一句话向用户确认你已经接上（复述当前待办即可），不要复述全文。
 
@@ -1699,7 +1699,7 @@ node $DSH_HOME/scripts/verify_three_forms2.mjs               # 三形式等价�
 ### 启动与使用须知（用户已知晓，别让他重复踩）
 
 - 冷启动到**窗口出现约 55–70 秒**（要拉起 6 个 MCP 服务器 + 元构插件栈）；**托盘出现图标 = 已在启动，不是失败**；重复双击会再起一份进程。
-- 超过 2 分钟仍无窗口才算真故障 → 查 `D:\DSH-Official\electron\logs\crash-*.log` 有无**新增**的 `Error: dsh desktop host stopped:`。
+- 超过 2 分钟仍无窗口才算真故障 → 查 `$DSH_HOME\electron\logs\crash-*.log` 有无**新增**的 `Error: dsh desktop host stopped:`。
 - 工作区已备好 `DH工作区`（`D:\DH工作区`，0 会话）与 `default-workspace`，用户可直接选。
 
 ### 禁止事项（有崩溃与打包事故证据）
@@ -1717,3 +1717,152 @@ node $DSH_HOME/scripts/verify_three_forms2.mjs               # 三形式等价�
 <!-- <<< handoff-navigation 2026-10-05 >>> -->
 
 
+
+---
+
+## 第二十一章 自见协议（Self-Eyes · 交付前自验收 · 强制）
+
+<!-- SELF-EYES-V1 -->
+> 由 metago-self-eyes v1.0.0 注入。核心命题：**没看过产物，就没有资格说"完成"。**
+
+### 21.1 铁律
+
+1. 任何**可见产物**（网站、软件界面、文章、文档、图片、视频、海报、PPT）交付前，必须先把它**渲染成用户会看到的像素**，再用 `read_image` **亲眼看**，带着证据才能说完成。
+2. **测试通过 ≠ 看着对**。`tsc 0 错误`、`HTTP 200`、断言全绿，都不能替代"我看过那张图"。
+3. **不等用户提醒**。用户说"你自己去看看哪里有问题"时，直接渲染→看→挑，不许反问"看哪里"。
+4. 截图不算看过；**只有把图读进来看见内容，才算看过**。
+
+### 21.2 四步闭环
+
+```
+① 渲染  截图 / 抽帧 / 导出图 → 拿到用户视角的像素
+② 看    read_image 打开，逐张看（不是看 DOM、不是看代码）
+③ 挑    对照清单逐项判定，P0 必须清零
+④ 复看  改完重新渲染再看，直到清单全绿
+```
+
+### 21.3 工具（技能 metago-self-eyes 下 scripts/）
+
+| 产物 | 命令 |
+|---|---|
+| 网页 / 软件界面 | `node scripts/audit-web.mjs --url <URL> \| --html <文件> --out <目录>`（三视口截图 + 控制台错误 + 溢出/裁字/对比度/破图/占位体检） |
+| 视频 | `node scripts/audit-video.mjs --input <视频> --out <目录>`（抽帧 + 联络表 + 黑场/空白/近静止） |
+| 图片 | `node scripts/audit-image.mjs --input <图> --out <目录>`（尺寸/空白/纯色边/裁切风险） |
+| 任意桌面应用（Word/PPT/软件） | `powershell -File scripts/capture-window.ps1 -Title "<窗口名>" -Out <png>` |
+
+### 21.4 交付必须附的证据
+
+```
+## 自见审查
+- 渲染：<URL/文件> → 截图 <绝对路径>
+- 我看过的图：<N 张的绝对路径>
+- 发现并已修：P0 a 项 / P1 b 项（每条带位置与现象）
+- 复看：<第二次截图绝对路径>，清单全绿
+- 未修但告知：P2 c 项
+```
+
+### 21.5 禁止话术（出现即视为未验）
+
+"应该没问题" / "逻辑上是对的" / "测试都通过了" / "元素都在 DOM 里" / 只给截图路径而不说看见了什么。
+
+### 21.6 边界
+
+- 眼睛看：排版/对齐/留白/层级/遮挡/溢出/截断/配色/错别字/图文不符/空状态/与需求不符。
+- 眼睛看不见：业务逻辑、并发、权限、性能 —— 必须靠测试，且要说明"已用测试覆盖"，不得冒充"我看过了"。
+- 审美主观：用户给过标准的以用户为准；没给时按"克制、留白、层级清晰"，并说明判据。
+
+<!-- /SELF-EYES-V1 -->
+
+---
+
+## 第二十二章 V37.1.0 增量与运行体改动纪律（V37.1.0 新增 · 强制）
+
+<!-- V371-INCREMENT -->
+
+> 本章是 V37.1.0 相对 V37.0.1 的**唯一增量条文**，其余各章原文未改。
+> 完整增量文档在 `$DSH_HOME/metago/blueprint/元构初始文档-V37.1.0/`（12 卷）。
+
+### 22.1 增量文档索引（12 卷）
+
+| 卷 | 内容 |
+|---|---|
+| `V37.1-00-口径权威表` | 每个数字的唯一权威值与复现命令 |
+| `V37.1-01-版本演进与Fabric产品线` | 引擎线 vs 产品线（禁止混称） |
+| `V37.1-02-能力全景与真伪表` | 各层能力实测（算法 927/927 等） |
+| `V37.1-03-治理落地现状` | 四层安全基因的落地率与原生落点 |
+| `V37.1-04-DSH原生映射表` | 元构机制 → DSH 原生承载 |
+| `V37.1-05-修订记录与对账表` | 51 条对账（更正 21 / 标注 28） |
+| **`V37.1-06-运行体改动纪律`** | **改运行体前必读（红黄绿 + 四道闸）** |
+| `V37.1-07-原子可调用面规格` | 597 原子 → 1 分发工具的施工规格 |
+| **`V37.1-08-DSH事件面实测清单`** | **75 个事件的模式与签名（serial 只有 2 个）** |
+| `V37.1-09-身份产品化清单` | 哪些界面位能改、哪些是底座不能碰 |
+| `V37.1-10-交付验收清单` | 什么算完成（含一票否决 8 条 + 对抗式审查） |
+| `V37.1-11-WBS 116 项真实对账` | 逐项进度（复跑 `p10-wbs-reconcile.mjs`） |
+
+### 22.2 两次 P0 事故（24 小时内，均由本人缺陷造成）
+
+| 编号 | 症状 | 根因 | 教训 |
+|---|---|---|---|
+| **INC-001** | 每轮收尾 `next is not a function`，会话终止 | 把 **serial** 事件 `agent/turn-stopping` 当成 waterfall，调了不存在的 `next()` | **写钩子前必须查权威签名，不许推断** |
+| **INC-002** | 桌面端每条消息 400 `at least one tool must have defer_loading=false` | 把 `tool-presentation(mode: ptc)` 当"能力行"并入 native 语境；它是**作用域级** `presentAs()` 开关，与本机 `addition-only` 路由冲突 | **只并「能力行」，不并「形态行」** |
+
+### 22.3 运行体改动三条红线（只读，绝不改）
+
+1. 任何 `presentAs(` / `mode:` / `deferLoading` —— 一行影响**所有会话**
+2. 账号 / 路由 / 鉴权配置
+3. `cordis.patch.yml` 既有行、`preset.patch.yml` 既有 `plugins` 行、**能改变执行决策的 4 个钩子**（`approval/request` / `tools/pre-execute` / `agent/pre-step` / `tools/post-execute`）
+
+**黄区**（自建插件、只读路由、不改决策的 emit 钩子）：先隔离空跑 → 再进运行体 → 立即冒烟。
+**绿区**（`$METAGO_LIFEFORM_HOME` 产物、V37.1.0 文档、桌面交付物）：随便改，零风险。
+**能在绿区做完的，绝不去红黄区做。**
+
+### 22.4 系统级改动四道闸（缺一不可）
+
+1. **读实现** —— 不只读注释、不只读文档（INC-002 的注释就没写它是作用域级）
+2. **算影响面** —— 本会话 / 所有会话 / 所有 profile？
+3. **隔离空跑** —— 独立 profile 或假 ctx 验证，成功才进运行体
+4. **冒烟 + 回滚** —— 验收动作写死；回滚脚本**先演练再动手**
+
+**完成定义**：preset / cordis 类改动 = **重启后能正常发出消息**，不是"文件改好了"。
+
+### 22.5 静态安全闸（硬门）
+
+`node $METAGO_LIFEFORM_HOME\scripts\validate-runtime-safety.mjs` —— 改 preset / cordis **进运行体前必跑**，8 类检查（无 `presentAs` / 无 `mode: ptc` / 无 `tool-presentation` 行 / 无 `deferLoading` 覆写 / 插件行 ≥20 / 核心工具面 10 项齐备 / cordis 关键 MCP 在位 / gate 行 ≤1）。**跑不过 = 禁止进运行体。**
+
+### 22.6 契约核实铁律
+
+订阅或调用任何 DSH 接口前，**先用 `cordis_inspect_query` 拉权威契约**：
+
+| Provider | 用途 |
+|---|---|
+| `host / Event / listEvents` | 75 个事件的名称、模式、签名 |
+| `host / Service / listService` | 服务方法签名 |
+| `host / Tool / listTools` | 工具 schema（含 `deferLoading`） |
+| `host / Config / listConfigs` | 插件 Config schema |
+
+**四类事件的回调形态**（实测）：`emit` `(…args)=>void` 不返回不抛 ｜ **`serial` `(payload)=>void` 没有 next** ｜ `parallel` 会被 await ｜ `waterfall` `(…args, next)` **必须先 `await next()`**。
+
+### 22.7 V37.1.0 实测口径（引用数字前先看这里）
+
+| 项 | 权威值 | 复现 |
+|---|---|---|
+| 技能 | **126**（metago-* 116；另有插件自带 46，合计 172） | `Get-ChildItem $DSH_HOME/skills -Directory` |
+| 法则 | 本文件字节数以实测为准（预算 262,144） | `(Get-Item AGENTS.md).Length` |
+| profile 包 | **55**（含 dsh-metago-gate / dsh-metago-atom） | 目录计数 |
+| 原子 | **597 = 594 可调 + 3 诚实不支持**，0 异常 | `metago_atom(mode:list)` |
+| 算法 | **927 = T1 300 + T2 400 + T3 227，全部实跑成功** | `scripts/p4-algorithm-verify.mjs` |
+| 工具面 | **696** = MCP 547（10 服务器）+ 插件 32 + 内核 117 | `scripts/p4-tool-inventory.mjs` |
+| 事件面 | **75 个**（emit 45 / waterfall 22 / serial 2 / parallel 3） | `cordis_inspect_query` |
+
+### 22.8 进度只认对账，不认估算
+
+`node $METAGO_LIFEFORM_HOME\scripts\p10-wbs-reconcile.mjs` 输出 116 项逐条状态（DONE / PARTIAL / NOT_DONE / CONFLICT）。
+**凡报进度，以该脚本输出为准；口头估算一律无效。**
+
+### 22.9 元构自有 DSH 原生工具
+
+- **`metago_atom`**（`dsh-metago-atom` 插件）：597 原子统一入口，三模式 `invoke` / `describe` / `list`，返回统一信封 `{ok, atom, action, domain, status, contract, checks, output, degraded?}`。**不设 `deferLoading`**。
+- **`metago_lifeform_status`**：本机安装状态取证（法则体积 / 技能数 / MCP 数 / 记忆健康 / 包版本）。
+- **治理门禁**（`dsh-metago-gate` v0.1.1，shadow 模式）：订阅 `tools/pre-execute` / `tools/result` / `agent/turn-stopping`，只记录不改判；HTTP 面 `/api/metago/gate/{status,log,policy,mode}`。
+
+<!-- /V371-INCREMENT -->

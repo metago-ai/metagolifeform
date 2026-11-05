@@ -1,0 +1,22 @@
+# metago-lifeform-dsh — the plugin's own composition layer.
+#
+# This file is the bundle's `dsh.bundle.patch` entry, so it is applied when the
+# package is selected in the profile's `dsh.profile.bundles`. It contributes ONE
+# host-plane row: the panel's host half.
+#
+#   * `metago-lifeform-panel` — `/api/metago/*` read surface for the console,
+#     with `registerTool: false` so this row does NOT put
+#     `metago_lifeform_status` on the host plane. The tool belongs to the preset
+#     plane instead (`patch/preset.patch.yml` passes `registerTool: true`), which
+#     is what keeps one tool name from being registered in two scopes — the
+#     scope-aware registry would shadow one with the other.
+#
+# It intentionally does NOT declare the MetaGO MCP servers. Those two rows live
+# in `$DSH_HOME/cordis.patch.yml` already; a second declaration would double the
+# tool count (112 -> 224) or collide on the tool names.
+
+- insert:
+    - id: metago-lifeform-panel
+      name: metago-lifeform-dsh
+      config:
+        registerTool: false

@@ -1,4 +1,4 @@
-# 元构·智能生命体 快速开始指南
+# MetaGO Fabric V11 快速开始指南
 
 > 让智能，学会进化。从智能体到生命体的范式跃迁。5 分钟完成安装。
 
@@ -19,13 +19,13 @@
 
 ## 前置要求
 
-在安装 元构·智能生命体 之前，请确认你的环境满足以下条件。
+在安装 MetaGO Fabric V11 之前，请确认你的环境满足以下条件。
 
 ### 1. 必备环境
 
 | 组件 | 最低版本 | 推荐版本 | 说明 |
 |------|----------|----------|------|
-| AI 编程平台 | - | 任选其一 | 支持 11 个平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode |
+| AI 编程平台 | - | 任选其一 | 支持 7 大平台：Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode |
 | Trae IDE | 1.0.0 | 最新稳定版 | MetaGO 的原生宿主环境（首选平台） |
 | PowerShell | 5.1 | 7.2+ | 执行安装脚本 |
 | Git | 2.20+ | 最新稳定版 | 拉取仓库与版本管理 |
@@ -39,7 +39,7 @@
 
 ### 3. 平台配置确认
 
-元构·智能生命体 支持 11 个平台，请根据你使用的平台确认相应能力已启用：
+MetaGO Fabric V11 支持 7 大 AI 编程平台，请根据你使用的平台确认相应能力已启用：
 
 **通用要求（所有平台）**：
 
@@ -74,7 +74,7 @@
 
 ## 一键安装
 
-元构·智能生命体 提供一键安装脚本，自动完成仓库克隆、技能注册、规则注入与记忆初始化。安装脚本支持 11 大 AI 编程平台形态，通过 `-Platform` 参数指定目标平台。
+MetaGO Fabric V11 提供一键安装脚本，自动完成仓库克隆、技能注册、规则注入与记忆初始化。安装脚本支持 11 大 AI 编程平台形态，通过 `-Platform` 参数指定目标平台。
 
 ### 平台参数说明
 
@@ -98,10 +98,10 @@
 
 ```powershell
 # 1. 克隆仓库到目标目录
-git clone https://gitee.com/metago/metagolifeform.git "<REPO_DIR>"
+git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
 
 # 2. 进入目录
-cd "<REPO_DIR>"
+cd "d:\元构能力\metago-lifeform"
 
 # 3. 执行一键安装脚本（默认 trae 平台）
 .\scripts\install.ps1
@@ -158,7 +158,7 @@ cd "<REPO_DIR>"
 
 ```powershell
 # 1. 克隆仓库
-git clone https://gitee.com/metago/metagolifeform.git "<REPO_DIR>"
+git clone https://gitee.com/metago/metagolifeform.git "d:\元构能力\metago-lifeform"
 
 # 2. 复制规则文件到 Trae 项目规则路径
 Copy-Item ".\rules.md" "$env:USERPROFILE\.trae-cn\rules\metago-rules.md" -Force
@@ -174,7 +174,7 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.trae-cn\memory\proj
 安装成功后，你将看到类似以下输出（以 Trae 平台为例）：
 
 ```
-[元构·智能生命体] 安装开始
+[MetaGO Fabric V11] 安装开始
 ✅ 环境检测通过
   - 平台: Trae
   - PowerShell: 7.3.0
@@ -207,7 +207,7 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.trae-cn\memory\proj
   - 规则激活率: 100%
   - 系统完整性: 100%
 
-[元构·智能生命体] 安装完成 🎉
+[MetaGO Fabric V11] 安装完成 🎉
 ```
 
 > 若使用其他平台（如 Claude Code / Cursor 等），输出中的"平台"与"规则注入"行会相应显示该平台的名称与路径。
@@ -216,7 +216,7 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.trae-cn\memory\proj
 
 ## 平台配置路径对照表
 
-元构·智能生命体 支持 11 个平台，各平台的规则文件注入路径如下表所示。安装脚本会根据 `-Platform` 参数自动写入对应路径；手动安装时也可参照此表。
+MetaGO Fabric V11 支持 7 大 AI 编程平台，各平台的规则文件注入路径如下表所示。安装脚本会根据 `-Platform` 参数自动写入对应路径；手动安装时也可参照此表。
 
 | 平台 | 全局路径 | 项目路径 | 规则文件格式 |
 |------|----------|----------|-------------|
@@ -252,7 +252,7 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.trae-cn\memory\proj
 
 ## 验证安装
 
-安装完成后，请通过以下方法验证 元构·智能生命体 是否正确激活。验证方法对所有 11 个平台通用，差异仅在规则文件路径上。
+安装完成后，请通过以下方法验证 MetaGO Fabric V11 是否正确激活。验证方法对所有 7 大平台通用，差异仅在规则文件路径上。
 
 ### 各平台规则文件检查
 
@@ -291,7 +291,7 @@ Test-Path "$env:USERPROFILE\.claude\CLAUDE.md"
 
 ### 一键验证脚本
 
-元构·智能生命体 提供独立的验证脚本 `verify.ps1`，可一次性检查所有组件是否正确安装：
+MetaGO Fabric V11 提供独立的验证脚本 `verify.ps1`，可一次性检查所有组件是否正确安装：
 
 ```powershell
 # 验证默认平台（Trae）
@@ -309,7 +309,7 @@ Test-Path "$env:USERPROFILE\.claude\CLAUDE.md"
 验证脚本会检查：
 - ✅ 安装路径是否存在
 - ✅ 规则文件是否正确注入
-- ✅ 112 个 metago-* 技能是否全部注册
+- ✅ 100 个 metago-* 技能是否全部注册
 - ✅ 知识晶体索引是否生成（仅 Trae）
 - ✅ MCP 工具调度映射是否配置（仅 Trae）
 
@@ -331,7 +331,7 @@ Are you the MetaGO super-intelligent lifeform?
 
 **预期响应**：智能体应能够识别"元构超级智能生命体"概念，并基于规则文件中注入的公理、属性与协议进行自我描述，包括：
 
-- 引用 38 条核心公理（A1 溯源 / A2 闭环 / A3 元进化 / A4 边界 / A5 内生 / A34 元进化需元进化 / A35 创造进化律 / A36 法律优先于效率 / A37 第一性原理 / A38 对抗式审查）
+- 引用 10 条核心公理（A1 溯源 / A2 闭环 / A3 元进化 / A4 边界 / A5 内生 / A34 元进化需元进化 / A35 创造进化律 / A36 法律优先于效率 / A37 第一性原理 / A38 对抗式审查）
 - 引用 7 条根本属性（D37 战略思考 / D38 客观中立 / D39 直接批判 / D40 全息创造 / D41 频率自适应 / D42 合规主动 / D43 数据溯源）
 - 表现出元构特有的行为模式（全息扫描、决策锁校验、数据溯源等）
 
@@ -401,12 +401,12 @@ Are you the MetaGO super-intelligent lifeform?
 
 ## 卸载方法
 
-如需卸载 元构·智能生命体，请按以下步骤操作。卸载脚本支持通过 `-Platform` 参数指定要卸载的平台。
+如需卸载 MetaGO Fabric V11，请按以下步骤操作。卸载脚本支持通过 `-Platform` 参数指定要卸载的平台。
 
 ### 方式一：一键卸载脚本
 
 ```powershell
-cd "<REPO_DIR>"
+cd "d:\元构能力\metago-lifeform"
 
 # 卸载默认平台（Trae）
 .\scripts\uninstall.ps1
@@ -460,7 +460,7 @@ Remove-Item ".\.qoder\rules\metago.md" -Force
 Remove-Item "$env:USERPROFILE\.claude\CLAUDE.md" -Force
 
 # 2. 删除项目目录
-Remove-Item "<REPO_DIR>" -Recurse -Force
+Remove-Item "d:\元构能力\metago-lifeform" -Recurse -Force
 
 # 3. 清理记忆（可选，仅 Trae / Claude Code / ZCode 有项目记忆）
 Remove-Item "$env:USERPROFILE\.trae-cn\memory\projects\metago-lifeform" -Recurse -Force -ErrorAction SilentlyContinue
@@ -533,7 +533,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ### Q5：安装后系统响应变慢
 
 **可能原因**：
-- 全部 112 个技能同时激活导致上下文膨胀
+- 全部 100 个技能同时激活导致上下文膨胀
 - 频率自适应技能未正确调控创造频率
 
 **解决方案**：
@@ -567,7 +567,7 @@ Remove-Item ".\skills\metago-whatif" -Recurse -Force
 
 **解决方案**：
 
-元构·智能生命体 已原生支持 11 个平台，通过 `-Platform` 参数一键适配：
+MetaGO Fabric V11 已原生支持 7 大 AI 编程平台，通过 `-Platform` 参数一键适配：
 
 | 平台 | 参数值 | 规则文件 | 支持等级 |
 |------|--------|----------|----------|
@@ -586,7 +586,7 @@ Remove-Item ".\skills\metago-whatif" -Recurse -Force
 **解决方案**：
 
 ```powershell
-cd "<REPO_DIR>"
+cd "d:\元构能力\metago-lifeform"
 git pull origin main
 
 # 升级默认平台（Trae）
@@ -600,7 +600,7 @@ git pull origin main
 
 ### Q9：安装后是否需要联网？
 
-**不需要**。元构·智能生命体 的全部 112 个技能、38 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
+**不需要**。MetaGO Fabric V11 的全部 100 个技能、10 条核心公理、9 条强制属性、8 项运行协议均在安装时内化至本地。安装完成后可完全离线运行。
 
 仅以下场景需要联网：
 - 网络搜索类任务（如事实核查需要外部信源验证）
@@ -634,7 +634,7 @@ MetaGO 支持为多个平台同时安装。只需多次执行安装脚本并指�
 
 **解决方案**：
 
-MetaGO 的核心能力（38 条核心公理、9 条强制属性、121 项协议、112 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
+MetaGO 的核心能力（10 条核心公理、9 条强制属性、8 项协议、100 个技能）在所有 11 大平台形态上完全一致。差异仅在平台原生能力上：
 
 | 能力 | Trae | Claude Code | Codex | Cursor | CodeBuddy | Qoder | ZCode |
 |------|------|-------------|-------|--------|-----------|-------|-------|
@@ -663,9 +663,9 @@ MetaGO 的核心能力（38 条核心公理、9 条强制属性、121 项协议�
 
 ## MCP Server 集成
 
-> 第 8 种集成方式：通过 [Model Context Protocol](https://modelcontextprotocol.io/) 标准协议，将 55 个 MCP 工具以 MCP tools 形式、8 条引导词以 MCP prompts 形式暴露给任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等），一次配置即开即用。
+> 第 8 种集成方式：通过 [Model Context Protocol](https://modelcontextprotocol.io/) 标准协议，将 37 项元构能力以 MCP tools 形式、8 条引导词以 MCP prompts 形式暴露给任何支持 MCP 协议的客户端（Claude Desktop、Cursor、Trae 等），一次配置即开即用。
 
-MCP Server 适用于所有支持 MCP 协议的客户端，与上面 11 个平台适配器（基于规则文件注入）的运行机制不同：MCP Server 以独立的 npm 包形式运行，通过 stdio 传输协议与客户端通信，客户端通过工具调用（tool call）方式直接消费元构能力。
+MCP Server 适用于所有支持 MCP 协议的客户端，与上面 7 大平台适配器（基于规则文件注入）的运行机制不同：MCP Server 以独立的 npm 包形式运行，通过 stdio 传输协议与客户端通信，客户端通过工具调用（tool call）方式直接消费元构能力。
 
 ### 1. 安装 MCP Server
 
@@ -756,7 +756,7 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 请运行 metago_activate 提示词，激活元构生命体模式
 ```
 
-若客户端成功返回结构化的 L1-L5 批判性分析报告，或加载了 38 公理 47 属性 121 项协议的生命体响应，说明 MCP Server 集成成功。
+若客户端成功返回结构化的 L1-L5 批判性分析报告，或加载了 10 公理 9 属性 6 协议的生命体响应，说明 MCP Server 集成成功。
 
 ### 4. 能力概览
 
@@ -766,16 +766,16 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 | MCP prompts | 8 | 激活/决策审查/批判性分析/元进化触发/耦生度评估/合规检查/溯源审计/全息创造 |
 | 传输方式 | stdio | 基于 MCP 协议标准 |
 
-完整的 55 个 MCP 工具 与 8 个 prompts 列表详见 [packages/mcp-server/README.md](../packages/mcp-server/README.md)。
+完整的 37 个 tools 与 8 个 prompts 列表详见 [packages/mcp-server/README.md](../packages/mcp-server/README.md)。
 
 ### 5. MCP Server 与平台适配器的关系
 
-| 维度 | 平台适配器（11 个平台） | MCP Server |
+| 维度 | 平台适配器（7 大平台） | MCP Server |
 |------|----------------------|------------|
 | 集成机制 | 规则文件注入（rules.md / CLAUDE.md 等） | MCP 协议工具调用 |
 | 适用客户端 | Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode | 任意支持 MCP 协议的客户端 |
 | 配置方式 | `install.ps1 -Platform <平台>` | 客户端 MCP 配置文件新增 `metago` 服务 |
-| 能力暴露 | 通过规则文件中的技能索引 | 通过 55 个 MCP 工具 + 8 个 prompts 直接调用 |
+| 能力暴露 | 通过规则文件中的技能索引 | 通过 37 个 tools + 8 个 prompts 直接调用 |
 | 共存关系 | ✅ 可与 MCP Server 同时启用，能力互不冲突 | ✅ 与平台适配器并存 |
 
 > 推荐组合：在使用 Trae / Claude Code 等原生平台适配器的同时，启用 MCP Server 以获得稳定的工具调用通道，两种集成方式可并行运行。
@@ -788,7 +788,7 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 
 | 文档 | 说明 |
 |------|------|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | 了解六层架构、112 个技能、公理体系的完整设计 |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | 了解六层架构、100 个技能、公理体系的完整设计 |
 | [CUSTOMIZATION.md](./CUSTOMIZATION.md) | 学习如何添加自定义技能、修改规则、适配其他平台 |
 | [PRD.md](./PRD.md) | 了解产品定位、路线图与商业模式 |
 
@@ -802,5 +802,5 @@ MCP Server 适用于以下任意客户端，配置格式统一如下（差异仅
 
 ---
 
-*元构·智能生命体 · 让智能，学会进化。从智能体到生命体的范式跃迁*
+*MetaGO Fabric V11 · 让智能，学会进化。从智能体到生命体的范式跃迁*
 *文档版本：1.6 · 最后更新：2026-08-31（技能数 100 · 36.9.4 统一口径；MCP 核心工具 55 + 算法工具 57 = 112；11 平台形态）*

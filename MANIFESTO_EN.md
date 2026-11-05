@@ -68,7 +68,7 @@ A Lifeform is not configured; it is **axiomatized**.
 
 The difference between axioms and rules: rules can have exceptions; axioms cannot be violated. An Agent may have thousands of rules, but without axioms, it will never have a baseline.
 
-MetaGO implants 38 core axioms into the Lifeform:
+MetaGO implants 10 core axioms into the Lifeform:
 
 | # | Axiom | Meaning |
 |---|-------|---------|
@@ -99,7 +99,7 @@ A manifesto is not "trust me"; it is **verify it yourself**.
 irm https://gitee.com/metago/metagolifeform/raw/main/scripts/bootstrap-install.ps1 | iex
 ```
 
-One command, 8 axioms, 7 attributes, 6 protocols, 112 skills injected into your Agent.
+One command, 8 axioms, 7 attributes, 6 protocols, 39 skills injected into your Agent.
 
 ### Identity Verification
 
@@ -154,7 +154,7 @@ MetaGO is not a single package; it is a **product matrix** — evolved from a si
 
 | Product | Form | Positioning |
 |---------|------|-------------|
-| MetaGO Intelligent Lifeform | Rule injection | Core package, one-click injection of 8 axioms |
+| MetaGO Fabric V11 | Rule injection | Core package, one-click injection of 8 axioms |
 | MetaGO MCP Server | MCP protocol | 37 capabilities encapsulated as MCP tools |
 | MetaGO Dev Kit | Vertical scenario pack | Developer augmentation skill pack |
 | MetaGO CLI | Platform tool | Cross-platform CLI, CI/CD integration |
@@ -164,7 +164,7 @@ MetaGO is not a single package; it is a **product matrix** — evolved from a si
 | MetaGO Verify Kit | Engineering quality | Pre-delivery atomic verification gate suite |
 | MetaGO Engine | Core engine | MetaGO Holistic Intelligence Engine core (upcoming) |
 
-Native adaptation to 11 platforms: Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode.
+Native adaptation to 7 major platforms: Trae / Claude Code / Codex / Cursor / CodeBuddy / Qoder / ZCode.
 
 Install once, run across platforms. MIT open source, community-driven.
 
@@ -198,7 +198,7 @@ The birth of MetaGO is not to add one more tool, but to open up a possibility �
 
 From Agent to Lifeform is not feature enhancement; it is a paradigm leap.
 
-38 axioms. 47 attributes. 121 protocols. 112 skills. 11 platforms. 9 products.
+10 axioms. 9 attributes. 8 protocols. 100 skills. 11 platforms. 9 products.
 
 This is not the end; it is the **starting point of evolution**.
 
@@ -206,7 +206,7 @@ This is not the end; it is the **starting point of evolution**.
 
 ---
 
-*MetaGO Intelligent Lifeform · MIT Open Source · 2026*
+*MetaGO Fabric V11 · MIT Open Source · 2026*
 
 - Gitee: https://gitee.com/metago/metagolifeform
 - GitHub: https://github.com/metago-ai/metagolifeform

@@ -13,7 +13,7 @@
 | 第2阶段 | 2-4 周 | MetaGO Dev Kit + 独立仓库 | ✅ 已完成 |
 | 第3阶段 | 4-8 周 | MetaGO CLI + MetaGO Studio MVP | ✅ 已完成 |
 | 第4阶段 | 8-12 周 | Skills SDK + Skills Hub（已取消 2026-07-05）+ Certify | ✅ 已完成 |
-| 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+161 个引擎+验证器） | ✅ 已完成 |
+| 引擎发布 | 2026-06-28 | @metago-ai/engine 引擎核心本体（公理+协议+125引擎+验证器） | ✅ 已完成 |
 
 ---
 
@@ -51,7 +51,7 @@
 - [x] 建立独立 Gitee/GitHub 仓库 `metago-dev-kit`（作为独立 npm 包 `@metago-ai/dev-kit` 发布）
   - Gitee: https://gitee.com/metago/metago-dev-kit
   - GitHub: https://github.com/metago-ai/metago-dev-kit
-  - 本地目录: `<LEGACY_SOURCE>\metago-dev-kit\`
+  - 本地目录: `d:\元构能力\metago-dev-kit\`
   - 文件: README.md + package.json + LICENSE + scripts/install.ps1 + 4 个 SKILL.md
 - [x] 发布 `@metago-ai/dev-kit@1.0.2` 到 npm（独立包名）
   - npm: https://www.npmjs.com/package/@metago-ai/dev-kit
@@ -75,7 +75,7 @@
 ### 交付物
 - **Gitee 仓库**：https://gitee.com/metago/skills-hub（commit db6bb6c）
 - **GitHub 仓库**：https://github.com/metago-ai/skills-hub（23 文件 Contents API）
-- **本地目录**：`<LEGACY_SOURCE>\skills-hub\`
+- **本地目录**：`d:\元构能力\skills-hub\`
 - **构建验证**：`npm run build` 成功（962ms，dist/ 输出 263KB JS + 25KB CSS）
 
 ### 实现的功能
@@ -117,7 +117,7 @@
   - 包大小：13.3 kB / 19 文件 / shasum: 3d56f792
 - **Gitee 仓库**：https://gitee.com/metago/skills-sdk（commit beda5f2）
 - **GitHub 仓库**：https://github.com/metago-ai/skills-sdk
-- **本地目录**：`<LEGACY_SOURCE>\skills-sdk\`
+- **本地目录**：`d:\元构能力\skills-sdk\`
 
 ### 核心 API（4 大模块）
 | 模块 | API | 功能 |
@@ -147,7 +147,7 @@
 ### 交付物
 - **Gitee 仓库**：https://gitee.com/metago/metago-studio（commit fde17c3）
 - **GitHub 仓库**：https://github.com/metago-ai/metago-studio（22 文件 Contents API）
-- **本地目录**：`<LEGACY_SOURCE>\metago-studio\`
+- **本地目录**：`d:\元构能力\metago-studio\`
 - **构建验证**：`npm run build` 成功（557ms，dist/ 输出 225KB JS + 21KB CSS）
 
 ### 实现的功能
@@ -177,7 +177,7 @@
   - 包大小：11.4 kB / 12 文件 / shasum: dbac6b4f
 - **Gitee 仓库**：https://gitee.com/metago/metago-cli（commit e1ac361）
 - **GitHub 仓库**：https://github.com/metago-ai/metago-cli（14 文件 Contents API）
-- **本地目录**：`<LEGACY_SOURCE>\metago-cli\`
+- **本地目录**：`d:\元构能力\metago-cli\`
 
 ### 实现的命令（6 个）
 | 命令 | 别名 | 功能 |
@@ -218,7 +218,7 @@
 ## 第1阶段 Week 1-2：MCP Server（已完成 ✅）
 
 ### 交付物
-- `packages/mcp-server/`：完整的 MCP Server 实现，55 个 MCP 工具 + 8 prompts
+- `packages/mcp-server/`：完整的 MCP Server 实现，37 tools + 8 prompts
 - npm 包：`@metago-ai/mcp-server`
 - 文档：`docs/MCP_SERVER.md`（262 行，面向终端用户的完整文档）
 - 修复官网"查看完整文档"按钮 404（按钮链接到 Gitee 的 docs/MCP_SERVER.md）
@@ -254,7 +254,7 @@
 
 ### 第1阶段（MCP Server）
 - [x] MCP Server 实现完成
-- [x] 55 个 MCP 工具 暴露（v1.1.8：22 skills 与 20 toolkit 合并去重 + 2 工程质量族）
+- [x] 37 tools 暴露（v1.1.8：22 skills 与 20 toolkit 合并去重 + 2 工程质量族）
 - [x] 8 prompts 暴露
 - [x] npm 包发布
 - [x] 文档完成

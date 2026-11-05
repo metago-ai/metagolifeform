@@ -1,0 +1,135 @@
+/**
+ * metago-lifeform-dsh — Host half.
+ *
+ * The MetaGO Agent Harness (智能体运行时控制层套件 · 驭智层) exposed as a native
+ * DeepSeek Harness plugin. This half owns the read-only `/api/metago/*` surface
+ * over the live installation and one status tool.
+ *
+ * Contract notes (verified against @deepseek-ai/dsh 0.2.0-rc.2):
+ *   - `export function apply` + named `inject` / `Config`. Never mix with
+ *     `export default`, because the Loader's `unwrapExports` prefers `.default`
+ *     and would then drop `inject` / `Config` silently.
+ *   - The file is ESM (`"type": "module"`); the Loader imports it dynamically.
+ *   - Routes go through `ctx.webServer.register` rather than `@Remote`, because
+ *     an external plugin cannot declare a new remote namespace.
+ *   - All collection logic lives in `./status.js` (Node builtins only) so it can
+ *     be exercised without a Cordis runtime.
+ *
+ * @module metago-lifeform-dsh
+ */
+
+import { join } from 'node:path'
+import {
+  collectStatus, dshHome, familyRollup, layerMatrix, memoryState,
+  name as pluginPackageName, parseLaw, readText, scanMcpTools, scanSkills,
+} from './status.js'
+
+export { parseLaw, scanSkills, scanMcpTools, memoryState, collectStatus, layerMatrix }
+
+/** Cordis plugin name. */
+export const name = 'metago-lifeform-dsh'
+
+/** Services this row needs before it may activate. */
+export const inject = ['webServer', 'tools']
+
+/**
+ * No `Config` export on purpose.
+ *
+ * Cordis resolves config through `runtime.Config['~standard'].validate(config)`
+ * (see `resolveConfig` in the vendored cordis), so exporting a plain JSON-Schema
+ * object makes every activation throw `TypeError: Cannot read properties of
+ * undefined (reading 'validate')` and the row lands in `failed` — this plugin did
+ * exactly that in its first install. A real schema would need
+ * `@deepseek-ai/schemastery`, which is not resolvable from a profile-installed
+ * plugin (`require.resolve` fails from both the profile and the DSH runtime).
+ *
+ * With no `Config`, Cordis passes the raw YAML config through untouched, and the
+ * optional knobs are read defensively in `status.js`:
+ *   - `lawBudgetBytes`  → falls back to DEFAULT_LAW_BUDGET when absent/invalid
+ *   - `memoryPath`      → falls back to the `$DSH_HOME/metago/kmwi.json` probe
+ * Both are documented in this package's README; set them in the row config when
+ * a deployment needs different values.
+ */
+
+/** Send one JSON response with no-store caching. */
+function json(res, body, statusCode = 200) {
+  const payload = JSON.stringify(body)
+  res.writeHead(statusCode, {
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-store',
+    'content-length': Buffer.byteLength(payload),
+  })
+  res.end(payload)
+}
+
+/**
+ * Wrap one handler so a throw becomes a 500 with a readable message.
+ * @param handler - Route handler.
+ * @returns The guarded handler.
+ */
+function guarded(handler) {
+  return (req, res) => {
+    try {
+      const result = handler(req, res)
+      if (result && typeof result.then === 'function') {
+        result.catch(error => json(res, { ok: false, error: String((error && error.message) || error) }, 500))
+      }
+    } catch (error) {
+      json(res, { ok: false, error: String((error && error.message) || error) }, 500)
+    }
+  }
+}
+
+/**
+ * Register the plugin: one grouped HTTP surface plus one status tool.
+ * @param ctx - Cordis context.
+ * @param config - Validated plugin config.
+ */
+export function apply(ctx, config = {}) {
+  const routes = [
+    ['/api/metago/status', () => collectStatus(ctx, config)],
+    ['/api/metago/layers', () => layerMatrix(ctx, config)],
+    ['/api/metago/skills', () => {
+      const skills = scanSkills(join(dshHome(), 'skills'))
+      return { ...skills, families: familyRollup(skills.skills) }
+    }],
+    ['/api/metago/memory', () => memoryState(config)],
+    ['/api/metago/law', () => {
+      const text = readText(join(dshHome(), 'AGENTS.md'))
+      return text === undefined ? { error: 'AGENTS.md 不存在' } : parseLaw(text)
+    }],
+    ['/api/metago/ping', () => ({ plugin: pluginPackageName, version: '1.0.0', ts: new Date().toISOString() })],
+  ]
+
+  for (const [path, produce] of routes) {
+    ctx.effect(() => ctx.webServer.register({
+      kind: 'exact',
+      path,
+      handler: guarded((_req, res) => json(res, { ok: true, ...produce() })),
+    }), `metago-lifeform-dsh: ${path}`)
+  }
+
+  // One explicit tool keeps the plugin visible to the model without competing
+  // with the 112 MetaGO MCP tools: it answers "is the installation healthy?"
+  // from the same collector the panel uses.
+  ctx.effect(() => ctx.tools.register({
+    name: 'metago_lifeform_status',
+    description: 'Read the live MetaGO Lifeform installation status from this DSH host: law version and size against the preset budget, skill catalog size, mounted MCP tool counts, KMWI memory health, and installed @metago-ai package versions. Use it before claiming anything about the MetaGO installation.',
+    parameters: {},
+    output: {
+      schema: { type: 'string' },
+      render: (_args, value) => [{ type: 'text', text: value }],
+    },
+    async execute() {
+      const status = collectStatus(ctx, config)
+      return [
+        `法则: ${status.law.exists ? `V${status.law.version} · ${status.law.bytes}B / 预算 ${status.lawBudget.configured}B · ${status.law.lines} 行 · ${status.law.chapterCount} 章 · ${status.lawBudget.fits ? '全文可加载' : `将截断 ${status.lawBudget.truncatedBy}B`}` : '缺失'}`,
+        `技能: ${status.skills.metago} 个 metago-* / 共 ${status.skills.total} 个 · 触发词 ${status.skills.triggerCount} 条`,
+        `MCP: ${status.mcp.total} 个工具 · ${status.mcp.servers.map(entry => `${entry.server}=${entry.count}`).join(' / ') || '无'}`,
+        `公理: ${status.law.axioms.length} 条有正文 | 属性: ${status.law.properties.length} 条有正文`,
+        `KMWI: ${status.memory.exists ? `H=${status.memory.health} · K${status.memory.layers.K}/M${status.memory.layers.M}/W${status.memory.layers.W}/I${status.memory.layers.I}` : '未落盘'}`,
+        `引擎: ${status.packages.engine.installed ? `v${status.packages.engine.version}` : '未安装'} | 算法: ${status.packages.algorithms.installed ? `v${status.packages.algorithms.version}` : '未安装'} | MCP 服务器: ${status.packages.mcpServer.installed ? `v${status.packages.mcpServer.version}` : '未安装'}`,
+      ].join('\n')
+    },
+  }), 'metago-lifeform-dsh: metago_lifeform_status')
+}

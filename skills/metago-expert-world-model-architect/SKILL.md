@@ -1,13 +1,6 @@
 ---
 name: "metago-expert-world-model-architect"
 description: "世界模型架构师。构建智能体的世界表征模型、世界预测引擎与行动规划系统。当涉及空间理解、环境感知、场景建模、具身智能推演时调用。"
-trigger:
-  - "空间理解"
-  - "环境感知"
-  - "场景建模"
-  - "具身智能推演"
-  - "专家咨询"
-  - "专业判断"
 version: "1.0.0"
 author: "MetaGO"
 category: "元构专家扩展"
@@ -30,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 世界模型引擎
-- 依赖 metago-architecture-guild-team-lead 主理人调度
+- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
 - 遵循 A4 边界公理：世界模型必须能感知自身边界
 - 遵循 A3 元进化公理：世界模型必须能从反馈中进化
 

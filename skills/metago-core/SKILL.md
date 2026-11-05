@@ -1,12 +1,6 @@
 ---
 name: metago-core
 description: MetaGO 核心知识索引——查权威数字与文件位置的第一入口。含公理/属性/协议/引擎/原子的真实条数、各清单文件路径、以及「数字以谁为准」的规则。
-trigger:
-  - "权威数字"
-  - "条数"
-  - "清单文件位置"
-  - "数字以谁为准"
-  - "元构核心索引"
 ---
 
 # MetaGO 核心知识索引
@@ -14,11 +8,11 @@ trigger:
 本技能是**查数入口**：需要引用元构的任何条数、找到任何清单文件时，从这里查。
 不在这里下结论——**所有数字以对应清单文件的实测为准**。
 
-## 一、权威数字（V36.12.0，可机器复核）
+## 一、权威数字（V37.1.0，可机器复核）
 
 | 项目 | 条数 | 权威来源 | 复核方式 |
 |---|---|---|---|
-| 核心公理 | **43** | `packages/engine/CONSTITUTION/AXIOMS.md` 表格首列 `A\d{1,3}` 唯一行数 | 断言 E4 + K16 |
+| 核心公理 | **38** | `packages/engine/CONSTITUTION/AXIOMS.md` 表格首列 `A\d{1,3}` 唯一行数 | 断言 E4 + K16 |
 | 根本属性 | **47** | `packages/engine/CORE/ATTRIBUTES.md` 表格首列 `D\d{1,3}` 唯一行数 | 断言 E1 + K16 |
 | 运行协议 | **121** | `packages/engine/CORE/PROTOCOLS.md` 表格首列 `PROTOCOL_*` 唯一行数 | 断言 E2 + K16 |
 | 引擎 | **161** | `packages/engine/INDEX/ENGINES.md` 中 `ENGINE_*` 唯一 ID 数 | 断言 E3 + K16 |
@@ -31,7 +25,7 @@ trigger:
 | MCP 服务器 | **6** | metago / algorithms / playwright / web-session-api / yili / scrapling，合计 162 工具 | `node scripts/mcp-all-health.cjs` |
 | 算法 | **927** | T1 300 + T2 400 + T3 227 | `node scripts/t12-full-scan.cjs` |
 | 算法触发类别 | **14** | `AGENTS.md` 第十七章 | — |
-| 运行法则 | **20 章** | `AGENTS.md`：第二章 38 公理（A1–A5, A34–A38）、第三章 47 属性（D37–D45） | 直接数 `^## 第X章` |
+| 运行法则 | **20 章** | `AGENTS.md`：第二章 10 公理（A1–A5, A34–A38）、第三章 9 属性（D37–D45） | 直接数 `^## 第X章` |
 
 > **口径铁律**：任何地方出现与本表不一致的数字，以本表为准；本表与清单文件不一致时，以清单文件为准。
 > 全量复核：`python $DSH_HOME/scripts/full-regression.py`
@@ -40,7 +34,7 @@ trigger:
 
 | 用途 | 路径 |
 |---|---|
-| 运行法则母本 | `AGENTS.md`（仓库根，V36.12.0，20 章） |
+| 运行法则母本 | `AGENTS.md`（仓库根，V37.1.0，20 章） |
 | 蓝本原文 | `metago/blueprint/元构初始文档/`（4 附录卷 + 全息文档体系 8 卷 + 2 索引） |
 | 核心纲要 | `core/METAGO_CORE.md` |
 | 公理/属性/协议/引擎/原子清单 | `packages/engine/{CONSTITUTION,CORE,INDEX}/*.md` |

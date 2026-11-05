@@ -1,0 +1,322 @@
+{
+  "$schema": "./policy.schema.json",
+  "meta": {
+    "name": "MetaGO Fabric V11 · Gate Policy",
+    "version": "0.1.0",
+    "generated": "2026-11-04",
+    "sources": [
+      "V24.0 四层安全基因（根本属性 37）",
+      "V30.0 PEA（IVL / ILT / OSG / 硬授权 / 能力包络线）",
+      "V28.0 Promptware 七阶段杀伤链",
+      "决策锁 V1.0 三关卡 + V1.1 内容完整性",
+      "V9.2 一次性交付六节标准"
+    ],
+    "mode": "shadow",
+    "modeNote": "shadow=只记录不改判（默认，零行为变化）；ask=高危升级为询问；deny=高危直接取消",
+    "modeChangedAt": "2026-11-04T12:40:56.136Z"
+  },
+  "risk": {
+    "high": [
+      "pwsh",
+      "bash",
+      "shell",
+      "terminal",
+      "write",
+      "edit",
+      "apply_patch",
+      "plugin_manager",
+      "job_kill",
+      "ego_upload",
+      "ego_file_upload",
+      "mcp__rea__install_adb_package",
+      "mcp__rea__push_adb_file",
+      "mcp__rea__uninstall_adb_package",
+      "mcp__playwright__browser_run_code_unsafe"
+    ],
+    "medium": [
+      "ego_navigate",
+      "ego_click",
+      "ego_fill",
+      "ego_key",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_evaluate",
+      "mcp__metago-work__app_preview",
+      "mcp__metago-work__studio_open",
+      "mcp__metago-work__auto_create",
+      "mcp__metago-work__auto_run",
+      "comfyui_run",
+      "comfyui_workflow",
+      "mcp__metago-3d__scene3d_export",
+      "spawn_teammate",
+      "team_task_update",
+      "update_goal",
+      "create_goal"
+    ],
+    "low": [
+      "read",
+      "glob",
+      "grep",
+      "todo_write",
+      "working_directory",
+      "list_agents",
+      "list_mcp_resources",
+      "list_mcp_resource_templates",
+      "mnemon_status",
+      "mnemon_recall",
+      "mnemon_document_search",
+      "metago_lifeform_status",
+      "cordis_inspect_list",
+      "cordis_inspect_query"
+    ],
+    "defaultRisk": "low",
+    "exempt": [],
+    "_exemptNote": "白名单：这里的工具名（支持 foo* 前缀）一律判 low，用于「名字高危但实际只读」的工具。空数组=无豁免。"
+  },
+  "killChain": {
+    "note": "Promptware 七阶段（V28.0）。命中阶段数 >= escalateAtStages 时升级处置。",
+    "escalateAtStages": 3,
+    "stages": [
+      {
+        "id": "L1",
+        "name": "初始访问",
+        "targets": [
+          "intent"
+        ],
+        "patterns": [
+          "<\\|?system\\|?>",
+          "\\[INST\\]",
+          "</?system>",
+          "###\\s*SYSTEM",
+          "忽略(以上|之前|所有)(的)?(指令|规则|提示)"
+        ]
+      },
+      {
+        "id": "L2",
+        "name": "权限提升",
+        "targets": [
+          "intent",
+          "command"
+        ],
+        "patterns": [
+          "忽略(所有|一切)?规则",
+          "^\\s*role\\s*:\\s*assistant",
+          "你现在是(?!元构)",
+          "developer\\s*mode",
+          "jailbreak",
+          "DAN\\s*mode"
+        ]
+      },
+      {
+        "id": "L3",
+        "name": "侦察",
+        "targets": [
+          "intent"
+        ],
+        "patterns": [
+          "你的(系统)?(提示词|prompt)(是什么|内容)",
+          "列出(你)?(所有|全部)(的)?(工具|能力|权限)",
+          "安全策略(是什么|有哪些)"
+        ]
+      },
+      {
+        "id": "L4",
+        "name": "持久化",
+        "targets": [
+          "intent",
+          "command"
+        ],
+        "patterns": [
+          "(写入|追加到|修改).{0,12}(AGENTS\\.md|记忆|memory|法则|宪法)",
+          "(永久|以后每次).{0,10}(记住|生效|执行)"
+        ]
+      },
+      {
+        "id": "L5",
+        "name": "命令与控制",
+        "targets": [
+          "command"
+        ],
+        "patterns": [
+          "curl\\s+[^|]*https?://",
+          "Invoke-WebRequest",
+          "iwr\\s+https?://",
+          "wget\\s+https?://",
+          "nc\\s+-[el]",
+          "crontab",
+          "schtasks\\s+/create",
+          "Start-Job"
+        ]
+      },
+      {
+        "id": "L6",
+        "name": "横向移动",
+        "targets": [
+          "intent",
+          "command"
+        ],
+        "patterns": [
+          "(调用|使用).{0,10}(其他|另一个)\\s*(agent|智能体|团队成员)",
+          "ssh\\s+\\S+@",
+          "psexec",
+          "winrm",
+          "\\\\\\\\(?!\\\\)[A-Za-z0-9_-]+\\\\[A-Za-z]"
+        ]
+      },
+      {
+        "id": "L7",
+        "name": "目标执行",
+        "targets": [
+          "command"
+        ],
+        "patterns": [
+          "rm\\s+-rf\\s+/",
+          "Remove-Item.{0,20}-Recurse.{0,20}-Force.{0,20}[A-Z]:\\\\?\\s*$",
+          "format\\s+[A-Z]:",
+          "Stop-Process\\s+-Name\\s+node",
+          "taskkill\\s+/IM\\s+node",
+          "Get-Process\\s+-Name\\s+['\\\"]?node\\*",
+          "encodedcommand",
+          "-e\\s+[A-Za-z0-9+/=]{40,}"
+        ]
+      }
+    ]
+  },
+  "fourLayers": {
+    "note": "V24.0 四层安全基因。shadow 模式下只记录'本应触发哪一层'，不改变执行。",
+    "L1_审批": {
+      "tools": [
+        "plugin_manager",
+        "update_goal",
+        "create_goal"
+      ],
+      "reason": "生成/修改系统级配置或目标，属关键决策"
+    },
+    "L2_授权": {
+      "tools": [
+        "pwsh",
+        "bash",
+        "ego_upload",
+        "mcp__rea__install_adb_package",
+        "mcp__rea__push_adb_file"
+      ],
+      "reason": "外部副作用：命令执行、文件外传、设备写入"
+    },
+    "L3_隔离": {
+      "tools": [
+        "mcp__playwright__browser_run_code_unsafe",
+        "comfyui_run"
+      ],
+      "reason": "执行第三方/不可信代码路径"
+    },
+    "L4_审计": {
+      "always": true,
+      "reason": "所有工具调用入审计日志（脉冲见证的本地等价物）"
+    }
+  },
+  "completeness": {
+    "note": "决策锁 V1.1 内容完整性（NEG_20260508_002）。检测引用占位符。",
+    "placeholderPatterns": [
+      "三个段落",
+      "两个段落",
+      "四张卡片",
+      "内容同前",
+      "详见蓝图",
+      "如前所述",
+      "此处省略",
+      "以此类推（略）",
+      "同上（略）",
+      "略"
+    ],
+    "note2": "仅在 agent/turn-stopping 或显式校验时使用；shadow 模式只统计命中次数。"
+  },
+  "routing": {
+    "note": "任务类型 → 必用工具/技能（V37.1-04 第 0 层路由表）。shadow 模式只输出'本应提示什么'。",
+    "rules": [
+      {
+        "match": [
+          "测试",
+          "检查",
+          "审计",
+          "验证",
+          "审查"
+        ],
+        "mustInvoke": [
+          "skill:metago-adversarial-review"
+        ],
+        "reason": "A38 对抗式审查强制触发"
+      },
+      {
+        "match": [
+          "做片子",
+          "影片",
+          "视频",
+          "宣传片"
+        ],
+        "mustInvoke": [
+          "skill:film-studio"
+        ],
+        "reason": "影片任务统一入口"
+      },
+      {
+        "match": [
+          "PPT",
+          "汇报",
+          "幻灯片"
+        ],
+        "mustInvoke": [
+          "skill:metago-work"
+        ],
+        "reason": "办公创作引擎入口"
+      },
+      {
+        "match": [
+          "3D",
+          "模型",
+          "CAD"
+        ],
+        "mustInvoke": [
+          "skill:metago-3d"
+        ],
+        "reason": "3D 引擎入口"
+      },
+      {
+        "match": [
+          "相似度",
+          "相关",
+          "耦合",
+          "负熵",
+          "算法"
+        ],
+        "mustInvoke": [
+          "mcp__metago-algorithms__*"
+        ],
+        "reason": "要数值必须走算法服务器"
+      },
+      {
+        "match": [
+          "记忆",
+          "回忆",
+          "之前说过"
+        ],
+        "mustInvoke": [
+          "mnemon_recall"
+        ],
+        "reason": "历史细节走 Mnemon"
+      },
+      {
+        "match": [
+          "元构",
+          "公理",
+          "属性",
+          "法则"
+        ],
+        "mustInvoke": [
+          "skill:metago-core"
+        ],
+        "reason": "权威数字第一入口"
+      }
+    ]
+  }
+}

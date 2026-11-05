@@ -1,8 +1,8 @@
-# Contributing to MetaGO Intelligent Lifeform
+# Contributing to MetaGO Fabric V11
 
 First off, thank you for considering contributing to MetaGO. It's people like you that make the agent ecosystem evolve.
 
-> MetaGO is an **agent runtime** — a control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
+> MetaGO is an **MetaGO Fabric V11** — a runtime control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
 
 ---
 
@@ -90,7 +90,7 @@ npm start
 metago-lifeform/
 ├── core/                   # The operating law (METAGO_CORE.md)
 ├── adapters/               # Platform adapters (trae, claude-code, codex, ...)
-├── skills/                 # 112 built-in skills (metago-* prefix)
+├── skills/                 # 100 built-in skills (metago-* prefix)
 │   ├── metago-critique/
 │   ├── metago-decision-lock/
 │   └── ...
@@ -100,7 +100,7 @@ metago-lifeform/
 │   ├── dev-kit/            # @metago-ai/dev-kit — Code review, architecture, refactor
 │   ├── algorithms/         # @metago-ai/algorithms — 927 algorithms / 57 MCP tools
 │   ├── verify-kit/         # @metago-ai/verify-kit — 7-layer verification + L8/L9 gates
-│   ├── docs-site/          # metago.life/docs content
+│   ├── docs-site/          # docs.metago.life content
 │   ├── dashboard/          # Capability metrics dashboard
 │   └── demo/               # Killer demo
 ├── scripts/                # CLI, install, verify, test scripts

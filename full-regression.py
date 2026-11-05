@@ -22,12 +22,12 @@ import pathlib
 import subprocess
 import sys
 
-PYEXE = r"C:\Users\MetaGO\AppData\Local\Python\pythoncore-3.14-64\python.exe"
+PYEXE = r"~\AppData\Local\Python\pythoncore-3.14-64\python.exe"
 NODE = "node"
-H = pathlib.Path(r"D:\DSH-Official\home")
+H = pathlib.Path(r"$DSH_HOME\home")
 SC = H / "scripts"
-PKG = pathlib.Path(r"D:\metago-build\outbound\v36.10.0\metagolifeform-v36.12.0")
-MB = pathlib.Path(r"D:\metago-build")
+PKG = pathlib.Path(r"outbound\v36.10.0\metagolifeform-v37.1.0")
+MB = pathlib.Path(r"$METAGO_BUILD_HOME")
 NPM = r"C:/Users/MetaGO/AppData/Roaming/npm/node_modules/@metago-ai"
 
 ENV = {k: v for k, v in os.environ.items()

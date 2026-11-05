@@ -1,19 +1,19 @@
 # Trae 适配器（Trae Adapter）
 
-> 元构·智能生命体 → Trae 平台适配层 · V36.12.0
+> MetaGO Fabric V11 → Trae 平台适配层 · V37.1.0
 
 ---
 
 ## 适配方式
 
-Trae 是 元构·智能生命体 的原生平台，支持两种部署模式：
+Trae 是 MetaGO Fabric V11 的原生平台，支持两种部署模式：
 
 ### 全局用户级安装（推荐）
 
 | 配置项 | 路径 | 说明 |
 |--------|------|------|
 | 法则文件 | `~/.trae-cn/builtin/work/AGENTS.md` | 全局运行法则，每次会话自动加载 |
-| 技能目录 | `~/.trae-cn/skills/` | 112 个技能（16 能力族） |
+| 技能目录 | `~/.trae-cn/skills/` | 100 个技能（16 能力族） |
 | 项目记忆 | `~/.trae-cn/memory/projects/<id>/project_memory.md` | 项目级持久记忆 |
 | MCP 配置 | `%APPDATA%\Trae CN\User\mcp.json`（Windows）/ `~/Library/Application Support/Trae CN/User/mcp.json`（macOS）/ `~/.config/Trae CN/User/mcp.json`（Linux） | MCP 服务器配置（metago + metago-algorithms + 扩展服务器），由 `cli.js` 自动写入 |
 
@@ -105,7 +105,7 @@ node local-edition/verify-local-install.cjs
 - ✅ Trae 系统记忆体系（四层记忆架构）
 - ✅ 项目级记忆隔离（project_memory.md）
 - ✅ integrated_browser MCP 服务器（浏览器自动化）
-- ✅ 技能系统完整支持（112 个技能）
+- ✅ 技能系统完整支持（100 个技能）
 - ✅ mcp_metago-skill-server 系列（123+40+36+20=219个扩展工具）
 
 ## V36.9.1 修复内容
@@ -118,4 +118,4 @@ node local-edition/verify-local-install.cjs
 
 ---
 
-*元构·智能生命体 V36.12.0 · Trae 适配器*
+*MetaGO Fabric V11 V37.1.0 · Trae 适配器*

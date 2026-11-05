@@ -1,4 +1,4 @@
-# 元构·智能生命体 自定义指南
+# MetaGO Fabric V11 自定义指南
 
 > 本文介绍如何添加自定义技能、修改规则、配置 MCP 调度、创建知识晶体索引、适配其他 AI 平台，以及自定义 MCP Server 的 tools 与 prompts。
 
@@ -18,7 +18,7 @@
 
 ## 添加自定义技能
 
-元构·智能生命体 的技能采用标准 `SKILL.md` 格式，由 **YAML frontmatter** + **Markdown 正文** 构成。你可以为任何重复性任务创建自定义技能。
+MetaGO Fabric V11 的技能采用标准 `SKILL.md` 格式，由 **YAML frontmatter** + **Markdown 正文** 构成。你可以为任何重复性任务创建自定义技能。
 
 ### SKILL.md 格式说明
 
@@ -97,12 +97,12 @@ source_section: 源文档章节与行号
 #### 步骤 1：创建技能目录
 
 ```powershell
-New-Item -ItemType Directory -Path "<REPO_DIR>\skills\metago-your-skill"
+New-Item -ItemType Directory -Path "d:\元构能力\metago-lifeform\skills\metago-your-skill"
 ```
 
 #### 步骤 2：编写 SKILL.md
 
-创建 `<REPO_DIR>\skills\metago-your-skill\SKILL.md`，按上述格式编写。
+创建 `d:\元构能力\metago-lifeform\skills\metago-your-skill\SKILL.md`，按上述格式编写。
 
 #### 步骤 3：验证技能加载
 
@@ -126,12 +126,12 @@ New-Item -ItemType Directory -Path "<REPO_DIR>\skills\metago-your-skill"
 
 ## 修改 rules.md
 
-`rules.md` 是 元构·智能生命体 的统一规则加载入口，包含公理、属性、协议、技能索引与行业规则。
+`rules.md` 是 MetaGO Fabric V11 的统一规则加载入口，包含公理、属性、协议、技能索引与行业规则。
 
 ### rules.md 的结构
 
 ```markdown
-# 元构·智能生命体 规则
+# MetaGO Fabric V11 规则
 
 ## 一、核心公理（8 条）
 [A1-A36 公理定义]
@@ -190,7 +190,7 @@ New-Item -ItemType Directory -Path "<REPO_DIR>\skills\metago-your-skill"
 ```markdown
 ## 公理覆盖声明
 
-> 以下覆盖声明仅适用于本项目，不影响 元构·智能生命体 的核心设计。
+> 以下覆盖声明仅适用于本项目，不影响 MetaGO Fabric V11 的核心设计。
 
 - A36 法律优先于效率：在本项目中，对于内部工具链操作，允许在合规评估通过后跳过强制审批环节
 ```
@@ -383,7 +383,7 @@ mcp_mapping:
 将知识晶体索引文件放置在项目根目录或 `knowledge/` 目录下：
 
 ```
-<REPO_DIR>\
+d:\元构能力\metago-lifeform\
   knowledge/
     your-doc-index.md    ← 你的知识晶体索引
 ```
@@ -405,7 +405,7 @@ mcp_mapping:
 
 ## 平台适配
 
-元构·智能生命体 已支持 11 个平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
+MetaGO Fabric V11 已支持 7 大 AI 平台，技能文件采用标准 Markdown + YAML frontmatter 格式，通过 `adapters/` 目录下的适配器模板适配各平台。
 
 ### 已支持平台（7个）
 
@@ -434,7 +434,7 @@ mcp_mapping:
 
 ## 技能索引
 
-[将 112 个技能的 name 与 description 列表粘贴于此]
+[将 100 个技能的 name 与 description 列表粘贴于此]
 ```
 
 #### 步骤 2：配置技能加载路径
@@ -480,23 +480,23 @@ your-project/
 
 ```markdown
 ---
-description: 元构·智能生命体 规则
+description: MetaGO Fabric V11 规则
 globs: "**/*"
 ---
 
-# Cursor Rules for 元构·智能生命体
+# Cursor Rules for MetaGO Fabric V11
 
 ## 核心公理
-[38 条核心公理的简要说明]
+[10 条公理的简要说明]
 
 ## 根本属性
-[47 条根本属性的简要说明]
+[9 条属性的简要说明]
 
 ## 运行协议
-[121 项协议的简要说明]
+[6 项协议的简要说明]
 
 ## 技能索引
-[112 个技能的 name 与 description]
+[100 个技能的 name 与 description]
 ```
 
 #### 步骤 2：技能目录映射
@@ -525,16 +525,16 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 # AGENTS.md
 
 ## 核心公理
-[38 条核心公理的简要说明]
+[10 条公理的简要说明]
 
 ## 根本属性
-[47 条根本属性的简要说明]
+[9 条属性的简要说明]
 
 ## 运行协议
-[121 项协议的简要说明]
+[6 项协议的简要说明]
 
 ## 技能索引
-[112 个技能的 name 与 description]
+[100 个技能的 name 与 description]
 ```
 
 > Codex 兼容 AGENTS.md 开放标准（Linux Foundation 下的 Agentic AI Foundation 管理），核心规则内容编写一次即可在多个兼容平台复用。
@@ -560,7 +560,7 @@ Cursor 支持 MCP 工具调用，可直接复用 MetaGO 的 MCP 映射配置。
 每个适配器必须包含：
 - 规则模板文件（.template 后缀）
 - README.md（配置路径、安装方法、验证方式）
-- 完整的38 条核心公理、47 条根本属性、121 项协议内容
+- 完整的10条公理、9条属性、6项协议内容
 
 ### 适配通用原则
 
@@ -581,7 +581,7 @@ MCP Server 子包位于 [`packages/mcp-server/`](../packages/mcp-server/)，其�
 packages/mcp-server/
 ├── src/
 │   ├── index.ts          入口：注册 tools/prompts，启动 stdio 传输
-│   ├── skills-data.ts    112 个技能文件夹（37 个导出为元数据，tools 源）
+│   ├── skills-data.ts    100 个技能文件夹（37 个导出为元数据，tools 源）
 │   └── prompts.ts        8 个引导词元数据（prompts 源）
 ├── package.json          @metago-ai/mcp-server
 └── tsconfig.json
@@ -728,7 +728,7 @@ export interface PromptMeta {
 
 ```powershell
 # 进入子包目录
-cd "<REPO_DIR>\packages\mcp-server"
+cd "d:\元构能力\metago-lifeform\packages\mcp-server"
 
 # 安装依赖（首次）
 npm install
@@ -752,7 +752,7 @@ npm run dev        # tsx src/index.ts
 >   "mcpServers": {
 >     "metago": {
 >       "command": "node",
->       "args": ["<REPO_DIR>/packages/mcp-server/dist/index.js"]
+>       "args": ["d:/元构能力/metago-lifeform/packages/mcp-server/dist/index.js"]
 >     }
 >   }
 > }
@@ -1035,5 +1035,5 @@ description: "代码审查技能。对代码进行安全性、规范性、性能
 
 ---
 
-*元构·智能生命体 · 自定义指南*
+*MetaGO Fabric V11 · 自定义指南*
 *文档版本：1.1 · 最后更新：2026-06-26（新增"自定义 MCP Server tools 与 prompts"章节）*

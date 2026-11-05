@@ -1,0 +1,5 @@
+{
+  "token": "80cc771c1293c7e324fe56a15ca848e0",
+  "note": "控制台写动作令牌：POST /api/metago/gate/action 需带 x-metago-token 头",
+  "createdAt": "2026-11-04T12:40:13.815Z"
+}

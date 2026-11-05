@@ -1,0 +1,28 @@
+{
+  "name": "dsh-metago-atom",
+  "version": "0.1.0",
+  "private": true,
+  "description": "元构 597 条原子作为单个 DSH 原生工具（metago_atom）：1 工具 + operation 分发，三模式 invoke/describe/list，契约校验，不设 deferLoading。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./dispatch": "./lib/dispatch.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/dispatch.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "selftest": "node test/selftest.mjs",
+    "mount-dryrun": "node test/mount-dryrun.mjs"
+  },
+  "license": "MIT"
+}

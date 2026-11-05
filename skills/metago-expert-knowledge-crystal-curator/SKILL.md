@@ -1,12 +1,6 @@
 ---
 name: "metago-expert-knowledge-crystal-curator"
 description: "知识晶体系统管理员。管理三类晶体（会话晶体/持久晶体/技能晶体）的固化、检索、衰减与复用，是元构记忆生命体的核心运维者。当涉及记忆管理、知识固化、长期记忆持久化时调用。"
-trigger:
-  - "记忆管理"
-  - "知识固化"
-  - "长期记忆持久化"
-  - "专家咨询"
-  - "专业判断"
 version: "1.0.0"
 author: "MetaGO"
 category: "元构专家扩展"
@@ -29,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 知识晶体引擎
-- 依赖 metago-architecture-guild-team-lead 主理人调度
+- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
 - 遵循 A1 溯源公理：晶体内容必须可溯源至原始输入
 - 遵循 A3 元进化公理：晶体体系必须能自我进化
 

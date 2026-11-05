@@ -1,6 +1,6 @@
 # MetaGO V36.10.0 升级工程 · 进度台账
 
-> 工作区：`D:\metago-build\`
+> 工作区：``
 > 目标：把元构全量能力做成真实可用的实现，并产出可安装的新包
 > 纪律：每条能力附可复跑断言；任一 FAIL 不宣告完成
 
@@ -13,7 +13,7 @@
 | 项 | 状态 | 证据 |
 |---|---|---|
 | **安装状态核查** | ✅ | 核心 5 包版本全一致（algorithms 1.0.3 / engine 2.1.3 / mcp-server 1.3.4 / dev-kit 1.1.2 / verify-kit 1.1.4）；3 辅助包未装（dashboard / demo / docs-site）；机器上技能 111 > 包内 100；7 个技能与包内不同；AGENTS.md 机器 94,558 B > 包内 87,723 B；home 根缺 package.json |
-| **蓝本落地** | ✅ | 解压到 `D:\DSH-Official\home\metago\blueprint\元构初始文档\`，14 文件 / 1,853.6 KB；编码全部 UTF-8；**附录卷 34,747 行 ≈ 原文 34,656 行 + 91 行头部，完整性成立** |
+| **蓝本落地** | ✅ | 解压到 `$DSH_HOME\home\metago\blueprint\元构初始文档\`，14 文件 / 1,853.6 KB；编码全部 UTF-8；**附录卷 34,747 行 ≈ 原文 34,656 行 + 91 行头部，完整性成立** |
 | **缺口量化** | ✅ | 公理 12/36、属性 11/43、协议 6/108、原子 0/984、算法 592/927；GENOME 自述 `activation_rate: "<30%"` |
 | **蓝本边界发现** | ✅ | 附录卷止于 **V36.3**；A37/A38/D44/D45、「第一性原理」「对抗式审查」在附录卷中**出现 0 次** → 需建第 5 部分增量卷 |
 | **基因解析** | ✅ | `genome/genome_extracted.json`；表格命中 1,435 次；松散 token 唯一值 ALG 921 / ATOM 846 / PROTOCOL 143 / ENGINE 183 |
@@ -361,7 +361,7 @@ R14 修掉的自查错误：正则写死两位数字，把表里的 A1-A9 全漏
 ### 最终交付状态
 
 ```
-包：D:\metago-build\outbound\v36.10.0\metagolifeform-v36.10.0
+包：outbound\v36.10.0\metagolifeform-v36.10.0
 文件 5,995 ｜ 32.29 MB
 包内 T3：227/227 bound，executeAlgorithmSync → success:true
 交付验收：16/16 PASS
@@ -423,16 +423,16 @@ FACTS.json：51 条事实 / 3 冲突 / 7 裁决
 ## 三、已知阻塞 / 需注意
 
 1. **附录卷不含 A37/A38/D44/D45** —— 必须建增量卷，否则引用迁移会造出死链。
-2. **GENOME 自述 597 条原子 / 108 协议，蓝本只枚举 846 / 143（松散）** —— 差额来源待查，不能凭空补齐；先按"蓝本可枚举的"落地，缺的登记为缺口。
+2. **GENOME 自述 984 原子 / 108 协议，蓝本只枚举 846 / 143（松散）** —— 差额来源待查，不能凭空补齐；先按"蓝本可枚举的"落地，缺的登记为缺口。
 3. **算法 ID 两套体系**：附录A 用 `ALG_BASE_SORT_001`，注册表用 `ALG_T1_C_001` —— 需建映射表。
-4. 不得重构生产环境（3080 / V9 / Fabric 0.1.5）；只在 `D:\metago-build\` 构建，安装到 `D:\DSH-Official\home`。
+4. 不得重构生产环境（3080 / V9 / Fabric 0.1.5）；只在 `` 构建，安装到 `$DSH_HOME\home`。
 
 ---
 
 ## 四、目录约定
 
 ```
-D:\metago-build\
+
 ├─ inbound\v36.9.6\metagolifeform-v36.9.6\   解压的原始安装包
 ├─ outbound\v36.10.0\                        新包构建区（与 inbound 同构）
 │  └─ packages\algorithms\engine\algorithms\t3impl\

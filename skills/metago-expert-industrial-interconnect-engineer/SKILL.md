@@ -1,12 +1,6 @@
 ---
 name: "metago-expert-industrial-interconnect-engineer"
 description: "工业互联网工程师。专长工业设备接入、协议适配、数字孪生建模、工业网络安全与合规认证。当涉及工业设备接入、PLC/CNC/传感器数据采集、工业协议、数字孪生时调用。"
-trigger:
-  - "工业设备接入"
-  - "工业协议"
-  - "数字孪生"
-  - "专家咨询"
-  - "专业判断"
 version: "1.0.0"
 author: "MetaGO"
 category: "元构专家扩展"
@@ -29,7 +23,7 @@ platforms: ["trae","claude-code","codex","cursor","codebuddy","qoder","zcode","k
 
 ## 前置条件
 - 依赖元构 V36.3+ 工业互联适配层
-- 依赖 metago-architecture-guild-team-lead 主理人调度
+- 依赖 metago-expert-architecture-guild-team-lead 主理人调度
 - 遵循 A36 法律优先于效率：工业合规认证不可绕过
 - 遵循 D42 合规主动：主动检查工业安全合规性
 

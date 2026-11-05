@@ -1,0 +1,51 @@
+{
+  "target": "file:///$DSH_HOME/home/skills/metago-self-eyes/fixtures/empty-page.html",
+  "generatedAt": "2026-10-29T14:47:46.381Z",
+  "chromium": "$DSH_HOME\\localappdata\\ms-playwright\\chromium-1208\\chrome-win64\\chrome.exe",
+  "views": [
+    {
+      "width": 1440,
+      "height": 900,
+      "title": "空白页",
+      "bodyTextLength": 0,
+      "contrastChecked": 0,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\empty-page\\shots\\1440-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\empty-page\\shots\\1440-full.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "title": "空白页",
+      "bodyTextLength": 0,
+      "contrastChecked": 0,
+      "viewportShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\empty-page\\shots\\390-viewport.png",
+      "fullShot": "$DSH_HOME\\home\\skills\\metago-self-eyes\\.selftest-out\\empty-page\\shots\\390-full.png"
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "issues": [
+    {
+      "level": "P0",
+      "type": "near-empty",
+      "detail": "首屏可见文字仅 0 字，疑似空白页/渲染失败",
+      "rect": null,
+      "text": "",
+      "viewport": 1440
+    },
+    {
+      "level": "P0",
+      "type": "near-empty",
+      "detail": "首屏可见文字仅 0 字，疑似空白页/渲染失败",
+      "rect": null,
+      "text": "",
+      "viewport": 390
+    }
+  ],
+  "summary": {
+    "P0": 2,
+    "P1": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0
+  }
+}
