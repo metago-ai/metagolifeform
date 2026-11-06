@@ -293,9 +293,9 @@ UDGK 四重门禁之外，凡本次交付属于**测试/检查/审计/验证**�
 
 ---
 
-## 第十章 元构技能系统（112个metago-*技能）
+## 第十章 元构技能系统（114个metago-*技能）
 
-> **第十章实测口径**：`$DSH_HOME/skills` 下实有 **112 个 SKILL.md**，本章表格为分类索引（未逐条列全）。复核：`python $DSH_HOME/scripts/audit_skills.py`
+> **第十章实测口径**：`/data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy/skills` 下实有 **114 个 SKILL.md**，本章表格为分类索引（未逐条列全）。复核：`python /data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy/scripts/audit_skills.py`
 
 以下技能已在 WorkBuddy 的 `skills/` 目录下安装，可按需激活：
 
@@ -609,14 +609,14 @@ npm run verify
 
 **每次会话启动后，在进行任何任务之前，必须先读取项目级记忆文件。**
 
-- 项目记忆由 **WorkBuddy 持久化记忆体系（$DSH_HOME 笔记与会话存档）**自动管理，按项目标识自动隔离（不会跨项目泄漏）
+- 项目记忆由 **WorkBuddy 持久化记忆体系（/data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy 笔记与会话存档）**自动管理，按项目标识自动隔离（不会跨项目泄漏）
 - 项目级记忆文件路径：`~/.dsh/memory/projects/<项目标识>/project_memory.md`（Windows 下 `~` 为用户主目录；项目标识由工作目录路径派生，可用 `METAGO_MEMORY_HOME` 环境变量覆盖根目录）
 - 此文件是元构项目的唯一记忆真相源
 - 包含：官方域名、项目结构、云基础设施、AI 配置、技术栈、部署命令、关键决策记录
 - **未读取此文件 = 失忆 = 失职**
 - 每次完成重要工作后，必须更新此文件
 - **绝对禁止把 CloudBase 默认域名（tcloudbaseapp.com）当成官方域名**，官方域名永远是 `metago.life`
-- **禁止在项目工作目录根部创建 PROJECT_MEMORY.md 文件**——记忆文件统一由 WorkBuddy 持久化记忆体系（$DSH_HOME 笔记与会话存档）管理，以消除跨项目读取风险
+- **禁止在项目工作目录根部创建 PROJECT_MEMORY.md 文件**——记忆文件统一由 WorkBuddy 持久化记忆体系（/data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy 笔记与会话存档）管理，以消除跨项目读取风险
 
 ---
 
@@ -1189,7 +1189,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 >
 > **要数值结果请走 `metago-algorithms`**（57 个工具 / 927 算法）：`cosine_similarity`、`is_superconductive`、`coupling_calculate`（族工具需显式传 operation）等。
 > **实测反例**：`metago_coupling_calculate(mode=human_machine, satisfaction=0.91, …)` 返回的是方法模板与入参回显，**不会返回耦生度数值**——要数值请用 `metago-algorithms` 的 `coupling_calculate` 或 `execute_sync(ALG_…_…)`。
-> 复核命令：`node $DSH_HOME/scripts/classify-metago-tools.mjs`
+> 复核命令：`node /data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy/scripts/classify-metago-tools.mjs`
 
 | 触发条件（任务特征） | 应调用的 MCP 工具 | 调用方式 |
 |---------|------------------|---------|
@@ -1300,7 +1300,7 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 | metago-algorithms | 57 | 57 工具 · 927 算法 |
 | **总计（生成时快照）** | **112** | **2 个 MCP 服务器** |
 
-> ⚠️ **上表是安装时的快照，已过期。当前实测为 6 个服务器 / 162 个工具**，以本表下方的「实测权威值」为准。
+> 本表由安装器按当前平台实际配置生成：**2 个服务器 / 112 个工具**。
 
 <!-- /AUTO-GENERATED -->
 
@@ -1324,19 +1324,19 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
 | Dev Kit | metago-code-review-deep, metago-architecture-design, metago-refactor-suggest, metago-security-audit |
 | 工程质量族 | metago-delivery-gate, metago-discipline, metago-adversarial-review, metago-completeness-guard, metago-veracity-guard |
 | 专家团 | metago-agent-smith, metago-architecture-guild-team-lead, metago-architecture-reviewer, metago-brand-designer, metago-build-engineer, metago-code-reviewer, metago-container-expert, metago-copywriter, metago-core, metago-dependency-manager, metago-deploy-engineer, metago-dev-engineer, metago-evolution-expert, metago-expert-agent-lifecycle-manager, metago-expert-dcv-economist, metago-expert-industrial-interconnect-engineer, metago-expert-knowledge-crystal-curator, metago-expert-world-model-architect, metago-marketing-designer, metago-meta-thoughts, metago-monitoring-engineer, metago-motion-designer, metago-ops-engineer, metago-pm, metago-presentation-designer, metago-refactor-planner, metago-root-cause-analyst, metago-security-engineer, metago-sre-engineer, metago-system-architect, metago-tech-decider, metago-test-engineer, metago-test-generator, metago-thought-01-dual-helix-wealth, metago-thought-02-coupling-civilization, metago-thought-03-dcv-value, metago-thought-04-four-step-breakthrough, metago-thought-05-policy-traction, metago-thought-06-socialist-coupling, metago-thought-07-coupling-dialectics, metago-thought-08-quantum-bio-cosmic, metago-thought-09-yixiao-traceability, metago-thought-10-skill-centrism, metago-thought-11-reality-driven, metago-thought-12-agentive-os, metago-thought-13-industrial-intelligence, metago-thought-14-ambient-intelligence, metago-thought-15-origin-plan, metago-thought-16-spatial-agent, metago-thought-17-pspace-os, metago-thought-18-sip-protocol, metago-thought-19-negentropy-engine, metago-ui-illustrator, metago-ux-designer, metago-ux-researcher, metago-visual-director |
-| **总计（生成时快照）** | **112 个技能**（已按实测校正；原快照标称 100，差额为后续补充的技能） |
+| **总计（生成时快照）** | **114 个技能**（已按实测校正；原快照标称 100，差额为后续补充的技能） |
 
 <!-- /AUTO-GENERATED -->
 
 > 本表格由安装脚本自动生成，请勿手动修改。
 
 <!-- SKILLS-TABLE-ACTUAL -->
-> **实测口径（2026-10-18）**：`$DSH_HOME/skills` 下实有 **112 个 SKILL.md**。
+> **实测口径（2026-10-18）**：`/data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy/skills` 下实有 **114 个 SKILL.md**。
 > 上表为安装时脚本生成的清单（标称 100 个），**少于实测数量**——差额为后续补充的技能
 > （如 `metago-fabric-guide`、`metago-hetu-luoshu`、`metago-liuyao`、`metago-qimen`、
 > `metago-shushu`、`metago-shushu-calculus`、`metago-shushu-diagnose`、`metago-shushu-zeri`、
 > `metago-taiyi`、`metago-yijing`、`metago-ziwei`、`metago-bazi` 等易理族与产品族）。
-> **以实测数为准**：`python $DSH_HOME/scripts/audit_skills.py` 可随时复核（含 frontmatter 与正文质量检查）。
+> **以实测数为准**：`python /data/storage/el2/base/files/home/.tmp/metago-adapters-LANNfP/workbuddy/.workbuddy/scripts/audit_skills.py` 可随时复核（含 frontmatter 与正文质量检查）。
 <!-- /SKILLS-TABLE-ACTUAL -->
 
 ### 18.11 与其他章节的协同
@@ -1387,335 +1387,6 @@ node scripts/memory-guard.cjs   # 仓库内脚本；全局安装后为 metago-li
    · `completeness-guard verify` / `veracity-guard report`（须主动运行）
    禁止声称"钩子会自动拦住"。
 <!-- METAGO-COMPLETENESS-KIT-MARK -->
-
-
----
-
-## 第十九章 浏览器自动化工具自动触发协议（Playwright MCP · 24 工具）
-
-<!-- METAGO-PLAYWRIGHT-MCP-MARK-V1 -->
-
-> 本章由 MetaGO-Playwright-MCP 本地安装包 v0.0.79 注入（安装目录 `$METAGO_PLAYWRIGHT_MCP_HOME`）。
-> 能力来源：第 3 个 MCP 服务器 `playwright`（`mcp__playwright__browser_*` 工具族，Microsoft @playwright/mcp 官方，Apache-2.0）。
-> **核心铁律：每个会话天然具备这 24 个浏览器自动化工具。AI 无需用户点名、无需用户说"用浏览器"——任务匹配 19.1 任一触发条件时，必须自主、主动、直接调用，先做后说，不得反问。**
-
-### 19.1 自动触发条件表（任务特征 → 立即调用，禁止等待/反问）
-
-| # | 任务特征（出现任意一条即触发） | 自动调用序列 |
-|---|------------------------------|------------|
-| 1 | 打开/访问/查看某个网页、URL、官网、产品页 | browser_navigate → browser_snapshot → browser_take_screenshot |
-| 2 | 从网页抓取/阅读/提取内容（新闻、公告、公开数据、价格、榜单） | browser_navigate → browser_snapshot / browser_find 定位 → 提取 |
-| 3 | 核实线上事实/最新信息/竞品动态（本地知识可能过期时） | browser_navigate → browser_snapshot → browser_network_requests |
-| 4 | UI 走查/交互验证/回归测试（按钮反馈、输入、导航、表单提交、loading） | browser_snapshot 定位 → browser_click / browser_type / browser_fill_form → browser_take_screenshot 留证 |
-| 5 | 网页表单填写、登录、上传文件、弹窗处理 | browser_fill_form / browser_type / browser_file_upload / browser_handle_dialog |
-| 6 | 需要页面视觉证据/截图/留档 | browser_take_screenshot（fullPage=true） |
-| 7 | 排查网页故障（白屏、报错、接口异常、性能） | browser_navigate → browser_console_messages → browser_network_request |
-| 8 | 多标签/多页面并行任务 | browser_tabs（list / new / select / close） |
-| 9 | 需要在页面上下文执行 JS 取数或操作 | browser_evaluate（browser_run_code_unsafe 仅限可信环境） |
-| 10 | 等待页面异步内容/文案出现或消失 | browser_wait_for |
-
-### 19.2 工作流铁律（源自包内 TOOLS.md 设计准则）
-
-1. 先 `browser_snapshot` 看结构 → 用 target(ref) 精确定位 → 操作 → `browser_take_screenshot` 验证效果。
-2. 截图只用于观察与留证，**定位必须用 snapshot**，禁止凭截图猜坐标。
-3. 大结果（长快照/长日志/大响应体）用 filename 参数落盘，避免撑爆上下文。
-4. 操作完成后及时 `browser_close` 释放浏览器进程。
-5. 七层运行时验证中的浏览器走查类任务（L4 渲染层/L5 交互层）优先用本工具族执行并留截图证据。
-
-### 19.3 24 工具速查
-
-- 导航：`browser_navigate` `browser_navigate_back` `browser_tabs`
-- 感知：`browser_snapshot` `browser_find` `browser_take_screenshot` `browser_console_messages` `browser_network_requests` `browser_network_request`
-- 交互：`browser_click` `browser_hover` `browser_type` `browser_press_key` `browser_select_option` `browser_fill_form` `browser_file_upload` `browser_drag` `browser_drop` `browser_handle_dialog`
-- 环境：`browser_resize` `browser_close`
-- 高级：`browser_evaluate` `browser_run_code_unsafe` `browser_wait_for`
-
-完整参数手册：`$METAGO_PLAYWRIGHT_MCP_HOME\TOOLS.md`；每个工具的参数 schema 以会话内工具定义为准。
-
-### 19.4 安全红线（必须遵守）
-
-1. `browser_run_code_unsafe` 等价远程代码执行（RCE），仅在可信环境使用。
-2. `browser_evaluate` 可读取页面内已登录会话数据，禁止在未知/不可信站点执行敏感读取。
-3. 禁止用浏览器自动化绕过登录校验、访问未授权内部系统。
-4. 敏感操作前先 `browser_snapshot` 确认页面状态再动手。
-
-### 19.5 反绕过条款
-
-- 匹配到 19.1 触发条件却跳过浏览器工具、改为"凭记忆回答"或反问用户 = 违规，视同任务未完成。
-- 用户说"帮我看看这个网页/查一下这个网站"时，直接执行浏览器工具链，禁止再问"要不要我用浏览器"。
-- 浏览器工具调用失败时：按报错修复（内核缺失→`node $METAGO_PLAYWRIGHT_MCP_HOME\scripts\install-browser.cjs`），并在回复中如实报告失败证据，禁止假装执行。
-
-### 19.6 能力清单校准（D43 数据准确）
-
-**实测权威值（2026-10-18，`node $DSH_HOME/scripts/mcp-all-health.cjs` 6/6 PASS）：**
-
-| MCP 服务器 | 工具数 | 用途 |
-|---|---|---|
-| `metago` | 55 | 核心工具（记忆/进化/决策锁/价值评估/校验门）——**54 个方法注入型 + 1 个上报型，无计算型** |
-| `metago-algorithms` | 57 | 927 算法（相似度/相关性/耦合度/负熵/价值） |
-| `playwright` | 24 | 浏览器自动化 |
-| `web-session-api` | 7 | 带会话的站点 API 调用 |
-| `yili` | 14 | 易理工程学（八字/六爻/奇门/紫微/太乙/择日等） |
-| `scrapling` | 5 | 反爬采集 |
-| **合计** | **162** | **6 个 MCP 服务器** |
-
-> 第十八章 §18.9 的自动生成表是安装时快照（2 服务器 / 112 工具），**已过期**；凡出现矛盾，一律以本表为准（本表由 `mcp-all-health.cjs` 实测得出，可随时复核）。
-
-## 第二十章 进程清理铁律（防宿主自杀 · 2026-08-18 事故）
-
-历史事故：某次执行 `Get-Process -Name 'node*' | ... | Stop-Process -Force`，把 DSH 宿主进程一并杀死，导致前端 failed to fetch、整机工作中断。
-
-1. 禁止任何"扫射式"杀 node 进程的命令：`Get-Process -Name 'node*'` + `Stop-Process`、`Stop-Process -Name node*`、`taskkill /IM node.exe`、`wmic ... node ... delete` 等一律不得使用（本环境已装硬拦截插件 kill-sweep-guard，违者命令会被直接拒绝）。
-2. 清理或重启进程只能按**精确 PID、端口属主（`Get-NetTCPConnection -LocalPort <端口>`）、或完整路径**过滤。
-3. 永远不得终止 DSH 宿主进程、pnpm/node 父链进程、以及宿主进程。
-4. 执行 Stop-Process 前必须先打印目标清单（PID + Name + Path），确认清单不含上述进程后再执行。
-
-# MetaGO Fabric 产品功能指南（v1.0.1）
-
-<!-- FABRIC-SCOPE-BANNER -->
-> **适用边界**：本章描述的是 **MetaGO Fabric** 产品（v1.0.1）的桌面端界面。
-> 当前实例是 **WorkBuddy**——本章的快捷键（Ctrl+K / Ctrl+Shift+V）、⚡工具箱、
-> 语音输入、系统托盘等**未必适用**。用户询问此类问题时，须先确认平台，不确定时如实说明，
-> 不得把 Fabric 的界面当作当前平台的答案。
->
-> 当用户询问 MetaGO Fabric 的功能、用法、操作方法时，按以下内容准确回答。
-> 本章内容已同步至 `metago-fabric-guide` 技能（自动触发；技能创建于 2026-10-18）。
-
-## 核心功能速查
-
-### 快捷键
-| 快捷键 | 功能 |
-|--------|------|
-| **Ctrl+K** | 命令面板（搜索所有命令、技能、功能） |
-| **Ctrl+Shift+V** | 全局语音按住说话（按下录音，松开转写，支持中文） |
-
-### MetaGO 工具箱（⚡ 按钮，右下角）
-右下角 **⚡** 按钮点击展开分类菜单：
-
-**工具组**：
-- **场景模板** — 预设 5 个常用场景（审查代码/写报告/架构评审/测试生成/深度调研），点击自动填入提示词
-- **后台任务** — 显示所有 subagent/织工的运行状态（🟡运行中/🟢已完成/🔴失败）
-- **Hooks 事件总线** — 配置钩子（PostToolUse 自动跑 UDGK 门禁等），查看 hook 执行记录
-- **Checkpoint 时间线** — 会话时间线，支持从任意节点回滚
-
-**市场组**：
-- **技能市场** — 浏览 30 个核心 metago-* 技能，点击直接在输入框填入 /技能名 启用
-- **角色市场** — 浏览可用的智能体角色预设（元构生命体/傻瓜工坊/标准等）
-- **会话检索** — 全局搜索历史会话（支持中文全文检索）
-
-**治理组**：
-- **治理面板** — 权限模式查看 + MCP 连接状态 + 审批历史
-
-**状态区**（菜单内）：
-- 6 组 MCP 服务器状态灯（Codex/Metago/算法/浏览器/Scrapling/Vision）
-- 织工状态指示
-
-### 语音输入（metago-voice）
-- 输入框左侧有麦克风按钮，**按住说话**（按下开始录音，松开自动转写）
-- **Ctrl+Shift+V** 全局快捷键
-- 以 `/` 开头的语音内容自动发送（语音指令直达）
-- 基于硅基流动 SenseVoiceSmall 模型，支持中文英文等多语言
-
-### 桌面端专属
-- **系统托盘**：关闭窗口后隐藏到托盘继续运行（不退出），右键菜单有打开/新建会话/退出
-- **系统通知**：织工完成/上下文压缩/审批请求时弹出 Windows 通知
-- **局域网共享**：设置中开启后，手机可通过局域网 IP 访问
-
-### MCP 工具集（6 组）
-| 服务器 | 工具数 | 用途 |
-|--------|--------|------|
-| metago | 55 | 核心工具（记忆/进化/决策锁/价值评估） |
-| metago-algorithms | 57 | 927 算法（相似度/相关性/耦合度等） |
-| codex | 1 | 织工 Codex（代码生成/分析，subagent 委托） |
-| playwright | 24 | 浏览器自动化（截图/点击/填表） |
-| scrapling | 4 | 智能网页采集（自适应/反爬） |
-| vision-bridge | 10 | 视觉理解（图像描述/OCR） |
-
-### 常用操作
-| 想做什么 | 怎么做 |
-|----------|--------|
-| 打开命令面板 | Ctrl+K |
-| 语音输入 | 麦克风按钮 或 Ctrl+Shift+V |
-| 压缩会话 | 输入 /compact |
-| 设置检查点 | 输入 /checkpoint |
-| 创建 subagent | /subagent <描述> 或 Ctrl+K → 织工委托 |
-| 切换主题 | Ctrl+K → 切换主题；或 设置 → 外观 |
-| 启用技能 | /技能名（如 /metago-code-review-deep） |
-
-<!-- >>> metago algorithm-coverage appendix >>> -->
-<!-- 本块由人工维护（原生成脚本 update-law-algorithm-coverage.mjs 已不存在，2026-10-18 核实）。
-     上游重新生成 AGENTS.md 时本块会丢失，重跑下方「复核命令」即可重建判断依据。
-     回归检查：node $DSH_HOME/scripts/verify-package.cjs（含 K1-K16 共 34 项断言） -->
-
-## 附录 · 算法库口径纠正（实测，非注册表宣传数）
-
-> 第十七章按层列出「927 算法」。**927 是注册表条目数，不是可执行能力数**——实测两者差约 4 倍。
-> 本附录以机器实测为准（2026-10-18 复核，原 `verify-algorithms-all.mjs` 已不存在，改用以下三条）：
->
-> ```bash
-> node $DSH_HOME/scripts/t12-full-scan.cjs      # T1/T2 700 条逐条实跑
-> node $DSH_HOME/scripts/verify-package.cjs     # 包验收 34 项（含 T3 227 条自测 + K1-K16）
-> python $DSH_HOME/scripts/audit_skills.py      # 技能层可加载性
-> ```
->
-> 最新实测：2026-10-18，T1 300/300、T2 400/400、T3 227/227 全部实跑成功。
-
-| 层级 | 注册数 | 有样例 | 实测实跑成功 | 未实现 |
-|---|---|---|---|---|---|
-| T1 | 300 | 300 | 300 | 0 |
-| T2 | 400 | 400 | 400 | 0 |
-| T3 | 227 | 227 | 227 | 0 |
-| **合计** | **927** | **927** | **927** | **0** |
-
-> 口径：927 条全部配了合规样例（`t3impl/shapes.json`，T1 300 + T2 400 + T3 227），按 `success:true` 或 `degraded:true` 判定实跑成功。
-> T3 的 227 条样例由 `reapply-patches.cjs` 的 **P21** 补丁维护（模板 `scripts/patches/r141-t3-shapes.json`）——直接改 shapes.json 会在 npm 重装时丢失。
-> 样例形状经两道校验：K6（与 `inputSchema` 声明一致）、K7（算法读取的元素字段齐全）。
-> 数据来源：`scripts/t12-full-scan.cjs` + `scripts/verify-package.cjs`（**34 项断言**，含 K1-K16：安装一致性 K10 / 技能可加载 K11 / vendor 补丁在位 K12 / 算子语义 K13 / 算法不变量 K14 / 输出洁净度 K15 / 蓝本声明一致 K16）。
-
-**调用算法时的事实约束（必须遵守）**：
-
-1. **927 个算法全部可实现调用**：T3 227 条由 metago-dsh-lifeform 补全实现；T1/T2 700 条全部配了合规样例并实跑成功；
-2. **调用方必须按 `inputSchema` 传参**，注意三种易错形态：
-   - **位置参数型**（`positional: true`）：传 `{param1: v1, param2: v2}`；
-   - **单参非位置型**（`positional` 非 true 且只有 1 个形参）：**输入即该参数的值本身，不要再包一层**（实测 432 条属此类；多形参 495 条、无形参 0 条）；
-   - **结构化输入**：矩阵类需 `{size, matrix[][], labels[]}`；Map 类用 `{"__map__": true, "entries": [...]}`；
-     正则用 `{"__regex__": "..."}`；
-     **函数型形参**可传表达式字符串（如 `"x => x*2"`）或 `{"__fn__": "..."}`，由 `metagoInvoke` 的桥接层编译。安全边界与 `t3impl/fn-bridge.cjs` 一致：
-     长度上限 512 字符；禁用 require / process / global / eval / Function / import 等构造；
-     编译失败抛 `[R141-FN-BRIDGE]` 明确错误（不静默降级）；函数执行异常返回 undefined 不外泄。
-     **这是对 JSON 协议限制的补足，不是沙箱——不可用于执行不可信代码。**
-3. **`execute_sync` 的 `input` 必须是「算法原始参数」**（R141 实测，连验证脚本都踩过）：
-   - **单参算法** → 传裸值：`is_superconductive` 传 `1.5`，不是 `{couplingScore: 1.5}`
-   - **多参算法** → 传**位置数组** `[p1, p2, ...]`：`semantic_similarity(s1,s2)` 传 `["文本A","文本B"]`，
-     **传 `{a:"...", b:"..."}` 会被整体当作单参传进 `s1`，`s2` 变 undefined，结果静默错成 0**
-   - 实测证据：同一份参数 `{a:"机器学习和人工智能", b:"深度学习与神经网络"}`
-     经 MCP L3 工具（适配器转位置数组）得 score 0.125；直接给 `execute_sync` 传对象得 score 0
-   - 想传对象形式：请走 L3 专用工具（如 `semantic_similarity`），它带适配器
-4. **禁止把 `get_statistics` 的 `total: 927` 当作能力数**——同一响应里的 `implemented` 字段才是可执行数，
-   且上游该字段自身口径不一致（对外报 819 个可跑，字段写 implemented=300）；以本包的 `verify-package.cjs` 为准；
-5. 调用前先看 `get_algorithm_info` 的 `inputSchema`；族级工具（如 `coupling_calculate`）只暴露族内首个算法，
-   其余需走 `execute` 并显式指定算法 ID。
-### 附录二 · 原子层能力边界（R141 实测 · 597 条契约）
-
-> 本附录对应 `packages/engine/atoms/`。**597 条契约的真实状态**（实测，非宣称）：
-
-| 类别 | 条数 | 说明 | 能否调用 |
-|---|---|---|---|
-| 工厂生成（元创造 V36.11） | 526 | `atom-factory.cjs` 按动作类型生成计算实现 | ✅ 可调用 |
-| 蓝本契约实现 | 52 | `blueprint-atoms.cjs` 逐条按契约 input/output 写的真实算法 | ✅ 可调用 |
-| 哲学族约束器 | 5 | `CONSTRAINT_IMPL`：归无见证/如是存在/沉默决策/概念消融/无言之教 | ✅ 可调用（返回违背判定） |
-| **第二批确定性实现** | **11** | `blueprint-atoms-2.cjs`：抽取式摘要 / 术语内联注释 / 规则库 / 模板生成 / Shannon 熵 / HRV 特征 / 文本情绪 / 词袋向量 | ✅ 可调用 |
-| **需硬件/训练模型** | **3** | 需物理锁具接口 / 手语视频模型 / 脑电意图解码器 | ❌ **不提供**（诚实标注） |
-| **合计** | **597** | — | — |
-
-**第二批实现的 11 条（`blueprint-atoms-2.cjs`）—— 上一轮误判为「需模型/需硬件」，实为可确定性实现：**
-
-| 原子 ID | 名称 | 实现方式 |
-|---|---|---|
-| `ATOM_NEWS_SUMMARY_304` | 时事摘要生成 | **抽取式摘要**：词频 × 位置权重 × 长度惩罚选原句（不生成，只选择） |
-| `ATOM_POLICY_TRANSLATE_101` | 政策翻译官 | **术语内联注释**：保留原文结构，术语后加括号解释 + 对照表 |
-| `ATOM_TECH_DEMYSTIFY_201` | 科技祛魅器 | 术语表 + 类比库；未命中时明确告知不编造 |
-| `ATOM_RES_IDEA_WITNESS_059` | 思想见证器 | 事件按阶段聚类 → 模板化传记 + 转折点 |
-| `ATOM_RES_NON_TECH_058` | 非技术转化器 | 问题特征 → 领域 + 技术候选 + 步骤骨架 |
-| `ATOM_RES_FRICTION_061` | 摩擦致敬器 | 痛苦表达 → 创造力路径规则库 + 可转化度 |
-| `ATOM_FUSION_TAO_DAILY_043` | 道在日常显现器 | 场景特征 → 经典文本提示（仅映射不预测） |
-| `ATOM_RES_NEGENTROPY_066` | 负熵责任器 | Shannon 熵 → 负熵 + 趋势 + 模板化报告 |
-| `ATOM_PEOPLE_BIO_006` | 生理信号解码器 | **HRV 时域（RMSSD/pNN50）+ 频域（LF/HF/质心）+ 唤醒度代理** |
-| `ATOM_PEOPLE_CAPTURE_001` | 想法捕获器 | 文本/结构化 → 16 维词袋哈希向量（归一化） |
-| `ATOM_EMOTION_RECOG_502` | 情绪识别器 | **文本**情绪识别：词典 + 否定翻转 + 程度加权 |
-
-> **方法论纠正**：「契约产物是自然语言」不等于「需要大模型」。
-> 自然语言有多种确定性生成方式：抽取（选句不生成）、模板填充、规则库匹配、术语注释、信号特征。
-> 上一轮把它们一律标成 `MODEL_NEEDED` 是分类太粗。
-
-
-**仍做不到的 3 条（`EXTERNAL_NEEDED`）—— 纯软件无法获得输入或需训练好的模型：**
-
-| 原子 ID | 名称 | 缺什么 |
-|---|---|---|
-| `ATOM_SECURE_LOCK_201` | 工业安全锁硬件驱动 | 物理锁具接口（纯软件无法真正控制硬件） |
-| `ATOM_ACCESSIBLE_SIGN_507` | 手语转换 | 手语视频理解模型 |
-| `ATOM_BIO_NEURAL_021` | 神经意图解码 | 脑电信号 + 训练好的意图解码器 |
-
-
-**调用这 3 条会得到什么**：`make(id)` 返回 `null`，上层明确报「该原子无计算实现」。
-**这是设计如此，不是故障。** 上一版它们由工厂 GEN 生成了「计算实现」，
-但输出与契约语义错位（如「通俗解释」返回 `"[0.8,0.6,0.75]"`、情绪识别恒返回 `neutral/0`）——
-那是**虚假实现**，已按「诚实的不支持 > 虚假的支持」原则移除。
-
-**复核命令：**
-```bash
-node $DSH_HOME/scripts/verify-package.cjs                    # K1 契约校验（遍历全量 597 条）
-node $DSH_HOME/scripts/verify_blueprint_atoms2.mjs           # 52 条蓝本原子 L-1/L-2/L-3 三层验证
-node $DSH_HOME/scripts/verify_three_forms2.mjs               # 三形式等价（注册表 / L3工具 / execute_sync）
-```
-
-### 附录三 · 活界面代码生效规则（R141 踩坑记录）
-
-**现象**：改完 `@metago-ai` 包内代码后，活界面里的 MCP 工具仍报旧错误。
-
-**根因**：MCP 服务器是**长驻子进程**，`@deepseek-ai/dsh-mcp-client` 启动后把模块加载进内存。
-磁盘上的 `.js` 改了，进程内存里的还是旧的。
-
-**实测证据**（R141 第 7 批）：
-- 活界面调 `is_superconductive({couplingScore:1.5})` → `couplingScore.toFixed is not a function`（旧代码）
-- **同一时刻 spawn 全新进程调同一工具 → 正确返回 `{superconductive:true, margin:0.5}`**（新代码）
-
-**结论与处置：**
-1. **改完包内代码，必须重开界面**（或重启对应 MCP 子进程）才会生效
-2. **验证代码是否正确，要用全新进程**（`node scripts/verify_*.mjs` 内部 spawn 新进程），
-   不要用活界面的工具调用结果来判断「代码改坏了没有」
-3. 两个 MCP 服务器的入口不同，别搞混：
-   - `metago`（55 工具）→ `@metago-ai/mcp-server/dist/index.js`
-   - `metago-algorithms`（57 工具）→ `@metago-ai/algorithms/index.js`
-   配置在 `$DSH_HOME/cordis.patch.yml`
-
-<!-- <<< metago algorithm-coverage appendix <<< -->
-
----
-
-## 接管导航（2026-10-05 由 3080 会话移交注入）
-
-> 本实例是从 `D:\DH工作区`（3080 主机）迁来的**官方 WorkBuddy 桌面端独立实例**。用户已决定弃用 3080、由本实例接管协作。
-> 历史会话（896 轮 / 690 MB）因格式与体积原因**无法迁入本实例会话库**，改以「记忆 + 接管包」承接。
-
-### 强制：每个新会话开始时，先读接手必读
-
-**在回应用户任何实质性任务之前，先读** `$DSH_HOME\handoff\00-接手必读.md`（约 25 KB，一次读完）——
-里面有：用户是谁与沟通偏好、硬约束（不得触碰 3080/V9/Fabric 0.1.5）、本实例环境契约、机器全景、当前状态、待办、关键路径、历史检索法。
-读完用一句话向用户确认你已经接上（复述当前待办即可），不要复述全文。
-
-### 接管包索引（按需局部读，不要整篇灌）
-
-| 文件 | 用途 |
-|---|---|
-| `00-接手必读.md` | **先读这个**：全部接手上下文（约 25 KB） |
-| `03-接管摘要.md` | 更短的接管摘要（4.7 KB，需快速回顾时用） |
-| `04-官方桌面端上线记录.md` | 本实例的隔离契约、验证结论、回滚手段 |
-| `02-本会话对话摘要.md` | 全对话分段摘要（4.05 MB，**先在这里搜关键词**） |
-| `01-本会话完整对话.md` | 逐条原文（11.86 MB，仅在需精确原文时按行号局部读/grep） |
-| `README.md` | 接管包的来龙去脉与证据/回滚位置 |
-
-### 启动与使用须知（用户已知晓，别让他重复踩）
-
-- 冷启动到**窗口出现约 55–70 秒**（要拉起 6 个 MCP 服务器 + 元构插件栈）；**托盘出现图标 = 已在启动，不是失败**；重复双击会再起一份进程。
-- 超过 2 分钟仍无窗口才算真故障 → 查 `$DSH_HOME\electron\logs\crash-*.log` 有无**新增**的 `Error: dsh desktop host stopped:`。
-- 工作区已备好 `DH工作区`（`D:\DH工作区`，0 会话）与 `default-workspace`，用户可直接选。
-
-### 禁止事项（有崩溃与打包事故证据）
-
-1. **不要**把旧会话文件（v0、数百 MB 级）复制进本实例 `$DSH_HOME/sessions/` —— 实测会让宿主静默退出（只剩托盘图标、无窗口）。
-2. **不要**为本实例再建指向那条会话的工作区条目去"试载"。
-3. **不要**把 11.86 MB 全文放进 `memory/`（会被当记忆加载）。
-4. **不要**无参数跑 `a7-pack-plugins.cjs`（会把 54 个插件全部重打包，造成出货源漂移，详见 `00-接手必读.md` 第 6 节）。
-5. **不要在与自己共用的活界面里做客户端插件的安装/重载**（2026-10-14 00:28 整界面空白事故的直接原因：插件管理器 `pnpm install`
-   重写 profile `node_modules` 的同时界面在重载插件 ⇒ 渲染树被卸载，全屏只剩壳背景）。要开发客户端插件就换独立实例（如
-   `D:\dsh-0.2.0-test-home`）或另开 profile；实在要在本实例上装，**装完立刻主动重启界面**。
-   界面若已空白：**数据没丢**（宿主与会话都还在），按进程名精确结束 `WorkBuddy` 后重跑图标即可恢复；
-   `Ctrl+R` 在本应用**无效**；取证与恢复脚本见 `00-接手必读.md` 第 11.6 节。
-
-<!-- <<< handoff-navigation 2026-10-05 >>> -->
-
 
 
 ---
@@ -1775,94 +1446,6 @@ node $DSH_HOME/scripts/verify_three_forms2.mjs               # 三形式等价�
 
 ---
 
-## 第二十二章 V37.1.0 增量与运行体改动纪律（V37.1.0 新增 · 强制）
 
-<!-- V371-INCREMENT -->
 
-> 本章是 V37.1.0 相对 V37.0.1 的**唯一增量条文**，其余各章原文未改。
-> 完整增量文档在 `$DSH_HOME/metago/blueprint/元构初始文档-V37.1.0/`（12 卷）。
-
-### 22.1 增量文档索引（12 卷）
-
-| 卷 | 内容 |
-|---|---|
-| `V37.1-00-口径权威表` | 每个数字的唯一权威值与复现命令 |
-| `V37.1-01-版本演进与Fabric产品线` | 引擎线 vs 产品线（禁止混称） |
-| `V37.1-02-能力全景与真伪表` | 各层能力实测（算法 927/927 等） |
-| `V37.1-03-治理落地现状` | 四层安全基因的落地率与原生落点 |
-| `V37.1-04-DSH原生映射表` | 元构机制 → DSH 原生承载 |
-| `V37.1-05-修订记录与对账表` | 51 条对账（更正 21 / 标注 28） |
-| **`V37.1-06-运行体改动纪律`** | **改运行体前必读（红黄绿 + 四道闸）** |
-| `V37.1-07-原子可调用面规格` | 597 原子 → 1 分发工具的施工规格 |
-| **`V37.1-08-DSH事件面实测清单`** | **75 个事件的模式与签名（serial 只有 2 个）** |
-| `V37.1-09-身份产品化清单` | 哪些界面位能改、哪些是底座不能碰 |
-| `V37.1-10-交付验收清单` | 什么算完成（含一票否决 8 条 + 对抗式审查） |
-| `V37.1-11-WBS 116 项真实对账` | 逐项进度（复跑 `p10-wbs-reconcile.mjs`） |
-
-### 22.2 两次 P0 事故（24 小时内，均由本人缺陷造成）
-
-| 编号 | 症状 | 根因 | 教训 |
-|---|---|---|---|
-| **INC-001** | 每轮收尾 `next is not a function`，会话终止 | 把 **serial** 事件 `agent/turn-stopping` 当成 waterfall，调了不存在的 `next()` | **写钩子前必须查权威签名，不许推断** |
-| **INC-002** | 桌面端每条消息 400 `at least one tool must have defer_loading=false` | 把 `tool-presentation(mode: ptc)` 当"能力行"并入 native 语境；它是**作用域级** `presentAs()` 开关，与本机 `addition-only` 路由冲突 | **只并「能力行」，不并「形态行」** |
-
-### 22.3 运行体改动三条红线（只读，绝不改）
-
-1. 任何 `presentAs(` / `mode:` / `deferLoading` —— 一行影响**所有会话**
-2. 账号 / 路由 / 鉴权配置
-3. `cordis.patch.yml` 既有行、`preset.patch.yml` 既有 `plugins` 行、**能改变执行决策的 4 个钩子**（`approval/request` / `tools/pre-execute` / `agent/pre-step` / `tools/post-execute`）
-
-**黄区**（自建插件、只读路由、不改决策的 emit 钩子）：先隔离空跑 → 再进运行体 → 立即冒烟。
-**绿区**（`$METAGO_LIFEFORM_HOME` 产物、V37.1.0 文档、桌面交付物）：随便改，零风险。
-**能在绿区做完的，绝不去红黄区做。**
-
-### 22.4 系统级改动四道闸（缺一不可）
-
-1. **读实现** —— 不只读注释、不只读文档（INC-002 的注释就没写它是作用域级）
-2. **算影响面** —— 本会话 / 所有会话 / 所有 profile？
-3. **隔离空跑** —— 独立 profile 或假 ctx 验证，成功才进运行体
-4. **冒烟 + 回滚** —— 验收动作写死；回滚脚本**先演练再动手**
-
-**完成定义**：preset / cordis 类改动 = **重启后能正常发出消息**，不是"文件改好了"。
-
-### 22.5 静态安全闸（硬门）
-
-`node $METAGO_LIFEFORM_HOME\scripts\validate-runtime-safety.mjs` —— 改 preset / cordis **进运行体前必跑**，8 类检查（无 `presentAs` / 无 `mode: ptc` / 无 `tool-presentation` 行 / 无 `deferLoading` 覆写 / 插件行 ≥20 / 核心工具面 10 项齐备 / cordis 关键 MCP 在位 / gate 行 ≤1）。**跑不过 = 禁止进运行体。**
-
-### 22.6 契约核实铁律
-
-订阅或调用任何 DSH 接口前，**先用 `cordis_inspect_query` 拉权威契约**：
-
-| Provider | 用途 |
-|---|---|
-| `host / Event / listEvents` | 75 个事件的名称、模式、签名 |
-| `host / Service / listService` | 服务方法签名 |
-| `host / Tool / listTools` | 工具 schema（含 `deferLoading`） |
-| `host / Config / listConfigs` | 插件 Config schema |
-
-**四类事件的回调形态**（实测）：`emit` `(…args)=>void` 不返回不抛 ｜ **`serial` `(payload)=>void` 没有 next** ｜ `parallel` 会被 await ｜ `waterfall` `(…args, next)` **必须先 `await next()`**。
-
-### 22.7 V37.1.0 实测口径（引用数字前先看这里）
-
-| 项 | 权威值 | 复现 |
-|---|---|---|
-| 技能 | **126**（metago-* 116；另有插件自带 46，合计 172） | `Get-ChildItem $DSH_HOME/skills -Directory` |
-| 法则 | 本文件字节数以实测为准（预算 262,144） | `(Get-Item AGENTS.md).Length` |
-| profile 包 | **55**（含 dsh-metago-gate / dsh-metago-atom） | 目录计数 |
-| 原子 | **597 = 594 可调 + 3 诚实不支持**，0 异常 | `metago_atom(mode:list)` |
-| 算法 | **927 = T1 300 + T2 400 + T3 227，全部实跑成功** | `scripts/p4-algorithm-verify.mjs` |
-| 工具面 | **696** = MCP 547（10 服务器）+ 插件 32 + 内核 117 | `scripts/p4-tool-inventory.mjs` |
-| 事件面 | **75 个**（emit 45 / waterfall 22 / serial 2 / parallel 3） | `cordis_inspect_query` |
-
-### 22.8 进度只认对账，不认估算
-
-`node $METAGO_LIFEFORM_HOME\scripts\p10-wbs-reconcile.mjs` 输出 116 项逐条状态（DONE / PARTIAL / NOT_DONE / CONFLICT）。
-**凡报进度，以该脚本输出为准；口头估算一律无效。**
-
-### 22.9 元构自有 DSH 原生工具
-
-- **`metago_atom`**（`dsh-metago-atom` 插件）：597 原子统一入口，三模式 `invoke` / `describe` / `list`，返回统一信封 `{ok, atom, action, domain, status, contract, checks, output, degraded?}`。**不设 `deferLoading`**。
-- **`metago_lifeform_status`**：本机安装状态取证（法则体积 / 技能数 / MCP 数 / 记忆健康 / 包版本）。
-- **治理门禁**（`dsh-metago-gate` v0.1.1，shadow 模式）：订阅 `tools/pre-execute` / `tools/result` / `agent/turn-stopping`，只记录不改判；HTTP 面 `/api/metago/gate/{status,log,policy,mode}`。
-
-<!-- /V371-INCREMENT -->
+> 注：V37.1.0 DSH 运行体增量章节不适用于本平台，已略；完整母本见包内 AGENTS.md。

@@ -22,7 +22,7 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createHash, randomBytes } from 'node:crypto'
-import { collectStatus, dshHome, familyRollup, memoryState, readText, scanMcpTools, scanSkills } from './status.js'
+import { collectStatus, dshHome, familyRollup, kmwiStore, memoryState, memoryStorePath, readText, scanMcpTools, scanSkills } from './status.js'
 
 /* ------------------------------------------------------------------ *
  * 路径
@@ -241,6 +241,175 @@ export function buildRegistry(ctx, config) {
       }
       return { ok: true, query, hits, scanned: lines.length, source: p }
     },
+  }
+
+/** 四层记忆的总条数（与面板「条目总数」同一口径）。 */
+  const n = (m) => {
+    try {
+      const s = m.computeStats ? m.computeStats() : null
+      if (s && typeof s.total === 'number') return s.total
+    } catch { /* 落到下面逐层数 */ }
+    try {
+      return ['K', 'M', 'W', 'I'].reduce((sum, L) => sum + (m.query(L, {}) || []).length, 0)
+    } catch { return null }
+  }
+/* ---------- ④-1 KMWI 四层记忆（L2 · 插件自持写入面） ---------- */
+  //
+  // 这组动作解决一个真问题：上游 mcp-server 把 KMWI 落盘写死在 ~/.trae-cn/ 下，
+  // DSH 运行期没有任何代码写它，控制台只能读到一个冻死的快照。
+  // 从这里开始，写入面归插件自己，读和写用的是同一个文件。
+
+  const kmwiWith = (fn) => {
+    const p = memoryStorePath(config)
+    const m = kmwiStore(p)
+    if (!m) return { ok: false, error: 'engine 不可用（@metago-ai/engine 未安装或入口缺失）', path: p }
+    try {
+      return fn(m, p)
+    } catch (e) {
+      return { ok: false, error: String((e && e.message) || e), path: p }
+    }
+  }
+
+  const LAYER_NAMES = { K: 'knowledge', M: 'memories', W: 'wisdom', I: 'intuitions' }
+
+  A['memory.learn'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '写入知识层 K：把一条事实/结论存进四层记忆（长期累积，被访问 3 次后可晋升为记忆）',
+    params: { content: 'string', category: 'string?', tags: 'string[]?' },
+    run: ({ content, category, tags }) => {
+      if (!content) return { ok: false, error: '缺 content：这条动作要把哪条事实记进知识层？' }
+      return kmwiWith((m, p) => {
+        const id = m.addKnowledge(String(content), category || 'console', Array.isArray(tags) ? tags : [], 'console')
+        return { ok: true, action: 'learn', layer: 'K', id, path: p, health: m.getHealth().H, total: n(m) }
+      })
+    },
+  }
+
+  A['memory.remember'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '写入记忆层 M：记录一次经历（含发生场景），晋升自知识层或直接记录',
+    params: { content: 'string', context: 'string?', tags: 'string[]?' },
+    run: ({ content, context, tags }) => {
+      if (!content) return { ok: false, error: '缺 content：这条动作要记住哪次经历？' }
+      return kmwiWith((m, p) => {
+        const id = m.addMemory(String(content), context || 'console', Array.isArray(tags) ? tags : [], 'console')
+        return { ok: true, action: 'remember', layer: 'M', id, path: p, health: m.getHealth().H, total: n(m) }
+      })
+    },
+  }
+
+  A['memory.synthesize'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '写入智慧层 W：记录一条规律（现象 → 因果 → 适用），可被 apply 记成功/失败',
+    params: { pattern: 'string', description: 'string?', causeEffect: 'string?', tags: 'string[]?' },
+    run: ({ pattern, description, causeEffect, tags }) => {
+      if (!pattern) return { ok: false, error: '缺 pattern：这条动作要沉淀哪条规律？' }
+      return kmwiWith((m, p) => {
+        const id = m.addWisdom(String(pattern), description || 'console', causeEffect || '待补充因果', Array.isArray(tags) ? tags : [], 'console')
+        return { ok: true, action: 'synthesize', layer: 'W', id, path: p, health: m.getHealth().H, total: n(m) }
+      })
+    },
+  }
+
+  A['memory.internalize'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '写入直觉层 I：记录一条已内化的判断（直觉 + 隐性知识），可被 validate 校准准确率',
+    params: { insight: 'string', implicitKnowledge: 'string?', tags: 'string[]?' },
+    run: ({ insight, implicitKnowledge, tags }) => {
+      if (!insight) return { ok: false, error: '缺 insight：这条动作要内化哪条直觉？' }
+      return kmwiWith((m, p) => {
+        const id = m.addIntuition(String(insight), implicitKnowledge || 'console', Array.isArray(tags) ? tags : [], 'console')
+        return { ok: true, action: 'internalize', layer: 'I', id, path: p, health: m.getHealth().H, total: n(m) }
+      })
+    },
+  }
+
+  A['memory.recall'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '语义召回：按关键词扫四层并逐条记录访问（accessCount +1）——这是晋升的前置条件',
+    params: { query: 'string', layer: 'string?', limit: 'number?' },
+    run: ({ query, layer, limit }) => {
+      if (!query) return { ok: false, error: '缺 query：要召回什么关键词？' }
+      const q = String(query).toLowerCase()
+      const cap = Number(limit) > 0 ? Number(limit) : 10
+      return kmwiWith((m, p) => {
+        const layers = layer && LAYER_NAMES[layer] ? [layer] : ['K', 'M', 'W', 'I']
+        const hits = []
+        for (const L of layers) {
+          let items = []
+          try { items = m.query(L, {}) || [] } catch { items = [] }
+          for (const it of items) {
+            const text = String(it.content || it.pattern || it.insight || '')
+            if (!text.toLowerCase().includes(q)) continue
+            hits.push({
+              layer: L, layerName: LAYER_NAMES[L], id: it.id,
+              text: text.slice(0, 140),
+              accessCount: typeof it.accessCount === 'number' ? it.accessCount : null,
+            })
+            if (hits.length >= cap) break
+          }
+          if (hits.length >= cap) break
+        }
+        let accessed = 0
+        for (const h of hits) {
+          try { if (m.access(h.layer, h.id)) accessed += 1 } catch { /* 单条失败不影响整体 */ }
+        }
+        return { ok: true, action: 'recall', query, hits, accessed, health: m.getHealth().H, path: p, total: n(m) }
+      })
+    },
+  }
+
+  A['memory.promote'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '四层晋升：K→M（需访问≥3）／M→W／W→I；也可回退（feedbackTo*）',
+    params: { op: 'string', id: 'string' },
+    run: ({ op, id }) => {
+      const OPS = ['K2M', 'M2W', 'W2I', 'I2W', 'W2M', 'M2K']
+      const kind = String(op || 'K2M').toUpperCase()
+      if (!OPS.includes(kind)) return { ok: false, error: 'op 必须是 ' + OPS.join(' / ') }
+      if (!id) return { ok: false, error: '缺 id：要晋升/回退哪一条？' }
+      return kmwiWith((m, p) => {
+        let r
+        if (kind === 'K2M') r = m.promoteToMemory(String(id))
+        else if (kind === 'M2W') r = m.promoteToWisdom(String(id))
+        else if (kind === 'W2I') r = m.promoteToIntuition(String(id))
+        else if (kind === 'I2W') r = m.feedbackToWisdom(String(id))
+        else if (kind === 'W2M') r = m.feedbackToMemory(String(id))
+        else r = m.feedbackToKnowledge(String(id))
+        return { ok: !!(r && r.success), action: 'promote', op: kind, result: r, health: m.getHealth().H, path: p }
+      })
+    },
+  }
+
+  A['memory.apply'] = {
+    domain: 'memory', level: 'L2', needsConfirm: false,
+    desc: '应用智慧：给某条智慧记一次成功或失败（successRate 会变，够数可晋升直觉）',
+    params: { id: 'string', success: 'boolean' },
+    run: ({ id, success }) => {
+      if (!id) return { ok: false, error: '缺 id：要记哪条智慧的应用结果？' }
+      return kmwiWith((m, p) => {
+        const r = m.applyWisdom(String(id), success !== false)
+        return { ok: r !== undefined, action: 'apply', id: String(id), success: success !== false, result: r ?? null, health: m.getHealth().H, path: p }
+      })
+    },
+  }
+
+  A['memory.health'] = {
+    domain: 'memory', level: 'L1', needsConfirm: false,
+    desc: 'KMWI 完整健康度：四层分数 + 每层明细（条数/置信/回忆强度/成功率/准确率）+ 衰减率 + 建议',
+    params: {},
+    run: () => kmwiWith((m, p) => {
+      const full = m.getHealth()
+      return {
+        ok: true, action: 'health', path: p,
+        H: full.H, layers: { K: full.K, M: full.M, W: full.W, I: full.I },
+        details: full.details || null,
+        decay: typeof m.getDecayRates === 'function' ? m.getDecayRates() : null,
+        suggestions: typeof m.getStrengthenSuggestions === 'function' ? m.getStrengthenSuggestions() : null,
+        history: typeof m.getHistory === 'function' ? m.getHistory().slice(-10) : null,
+        total: n(m),
+      }
+    }),
   }
 
   /* ---------- ⑤ 运行运维（L2–L3） ---------- */

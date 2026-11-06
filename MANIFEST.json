@@ -1,76 +1,48 @@
 {
   "name": "metagolifeform",
   "version": "37.1.0",
-  "builtAt": "2026-10-18T09:26:17.332Z",
+  "builtAt": "2026-11-05T13:54:20.528Z",
   "base": "36.9.6",
   "totals": {
-    "files": 6007,
-    "bytes": 34072793
+    "files": 11198,
+    "bytes": 71820441
   },
   "byTop": {
-    "adapters": {
-      "files": 22,
-      "bytes": 996424
-    },
     "AGENTS.md": {
       "files": 1,
-      "bytes": 87723
-    },
-    "agents": {
-      "files": 35,
-      "bytes": 71760
-    },
-    "assets": {
-      "files": 4,
-      "bytes": 24509
+      "bytes": 121851
     },
     "CHANGELOG.md": {
       "files": 1,
-      "bytes": 21728
-    },
-    "completeness-kit": {
-      "files": 21,
-      "bytes": 45076
+      "bytes": 21733
     },
     "CONTRIBUTING.md": {
       "files": 1,
-      "bytes": 9603
+      "bytes": 9604
     },
-    "core": {
+    "DELIVERY-REPORT.md": {
       "files": 1,
-      "bytes": 4105
+      "bytes": 69133
     },
-    "docs": {
-      "files": 18,
-      "bytes": 376807
+    "DELIVERY-VERIFY.md": {
+      "files": 1,
+      "bytes": 3508
     },
     "FACTS.json": {
       "files": 1,
-      "bytes": 15561
-    },
-    "industry": {
-      "files": 1,
-      "bytes": 369
+      "bytes": 190771
     },
     "LICENSE": {
       "files": 1,
       "bytes": 1103
     },
-    "local-edition": {
-      "files": 4752,
-      "bytes": 24683805
+    "MANIFESTO.md": {
+      "files": 1,
+      "bytes": 8182
     },
     "MANIFESTO_EN.md": {
       "files": 1,
-      "bytes": 9498
-    },
-    "MANIFESTO.md": {
-      "files": 1,
-      "bytes": 8188
-    },
-    "metago-veracity-kit": {
-      "files": 12,
-      "bytes": 30613
+      "bytes": 9492
     },
     "METHODOLOGY.md": {
       "files": 1,
@@ -80,29 +52,13 @@
       "files": 1,
       "bytes": 5363
     },
-    "package-lock.json": {
-      "files": 1,
-      "bytes": 193358
-    },
-    "package.json": {
-      "files": 1,
-      "bytes": 4575
-    },
-    "packages": {
-      "files": 390,
-      "bytes": 4288870
-    },
     "PATCHES.md": {
       "files": 1,
       "bytes": 15863
     },
-    "patches": {
-      "files": 2,
-      "bytes": 28275
-    },
-    "plugins": {
-      "files": 583,
-      "bytes": 1649568
+    "PLATFORM-MATRIX.md": {
+      "files": 1,
+      "bytes": 2780
     },
     "READ-ME-FIRST.md": {
       "files": 1,
@@ -110,27 +66,119 @@
     },
     "README.md": {
       "files": 1,
-      "bytes": 16865
+      "bytes": 17164
+    },
+    "REGRESSION-REPORT.md": {
+      "files": 1,
+      "bytes": 1036
     },
     "RELEASE-NOTES.md": {
       "files": 1,
-      "bytes": 5991
-    },
-    "scripts": {
-      "files": 38,
-      "bytes": 262152
+      "bytes": 5994
     },
     "SECURITY.md": {
       "files": 1,
-      "bytes": 4534
+      "bytes": 4522
     },
     "SHA256SUMS.txt": {
       "files": 1,
-      "bytes": 838542
+      "bytes": 1395
+    },
+    "UPGRADE-NOTES.md": {
+      "files": 1,
+      "bytes": 33561
+    },
+    "VERSION": {
+      "files": 1,
+      "bytes": 7
+    },
+    "VERSIONS.json": {
+      "files": 1,
+      "bytes": 5093
+    },
+    "adapters": {
+      "files": 23,
+      "bytes": 1130296
+    },
+    "agents": {
+      "files": 35,
+      "bytes": 71760
+    },
+    "assets": {
+      "files": 4,
+      "bytes": 24509
+    },
+    "completeness-gaps.json": {
+      "files": 1,
+      "bytes": 2888
+    },
+    "completeness-kit": {
+      "files": 22,
+      "bytes": 46117
+    },
+    "completeness-radar.json": {
+      "files": 1,
+      "bytes": 866
+    },
+    "completeness.config.json": {
+      "files": 1,
+      "bytes": 948
+    },
+    "core": {
+      "files": 1,
+      "bytes": 4240
+    },
+    "delivery.config.json": {
+      "files": 1,
+      "bytes": 596
+    },
+    "docs": {
+      "files": 67,
+      "bytes": 2668475
+    },
+    "full-regression.py": {
+      "files": 1,
+      "bytes": 8165
+    },
+    "industry": {
+      "files": 1,
+      "bytes": 369
+    },
+    "local-edition": {
+      "files": 9493,
+      "bytes": 58029703
+    },
+    "metago-veracity-kit": {
+      "files": 12,
+      "bytes": 30613
+    },
+    "package-lock.json": {
+      "files": 1,
+      "bytes": 193358
+    },
+    "package.json": {
+      "files": 1,
+      "bytes": 4960
+    },
+    "packages": {
+      "files": 355,
+      "bytes": 3735150
+    },
+    "patches": {
+      "files": 2,
+      "bytes": 36792
+    },
+    "plugins": {
+      "files": 651,
+      "bytes": 2509869
+    },
+    "scripts": {
+      "files": 355,
+      "bytes": 2051106
     },
     "skills": {
-      "files": 105,
-      "bytes": 333308
+      "files": 142,
+      "bytes": 700375
     },
     "templates": {
       "files": 3,
@@ -140,13 +188,17 @@
       "files": 1,
       "bytes": 378
     },
-    "UPGRADE-NOTES.md": {
+    "verify-package.cjs": {
       "files": 1,
-      "bytes": 27776
+      "bytes": 28125
     },
-    "VERSION": {
+    "包状态说明.md": {
       "files": 1,
-      "bytes": 8
+      "bytes": 2133
+    },
+    "MANIFEST.json": {
+      "files": 1,
+      "bytes": 5366
     }
   },
   "overlays": [
@@ -215,5 +267,7 @@
     "packages/algorithms/.../t3impl/t3test.cjs  → 227/227 T3 通过 + 反桩",
     "packages/algorithms/.../t3impl/verify-all.cjs → 接线 + 契约 + 严格执行",
     "packages/engine/atoms/verify.cjs → 原子 compute 类自测 + 诚实性校验"
-  ]
+  ],
+  "regeneratedAt": "2026-11-05",
+  "regeneratedBy": "all-platforms-release-20261105"
 }

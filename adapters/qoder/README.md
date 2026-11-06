@@ -16,9 +16,18 @@
 4. Restart Qoder
 
 ### Via Install Script
+```bash
+# Linux / macOS / Git Bash
+./scripts/install.sh --platform qoder
+```
 ```powershell
+# Windows
 .\scripts\install.ps1 -Platform qoder
 ```
+
+安装器会写入 `~/.qoder-cn/AGENTS.md`、`~/.qoder-cn/skills/`，并把两个 MCP 服务器合并进
+`~/.qoder-cn/settings.json` 的 `mcpServers`，不会覆盖其他配置。生成的法则为 5.3 万字符级，
+低于 Qoder 规则 100,000 字符上限。
 
 ## Rule Types
 - **手动引入 (Manual)**: Applied on @rule mention

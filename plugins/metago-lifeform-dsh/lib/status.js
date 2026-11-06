@@ -494,6 +494,36 @@ export function memoryState(config = {}) {
  * @param path - Store path.
  * @returns `{ health?, layerScores?, decay?, version? }`.
  */
+/**
+ * Build (or reuse) a live KMWI instance bound to the console's own store path.
+ *
+ * Why this exists: the upstream MCP server hard-codes its store under
+ * `~/.trae-cn/...`, which no DSH runtime ever writes, so the console could only
+ * ever read a frozen snapshot. The plugin therefore owns the write side itself.
+ *
+ * Every call returns a fresh instance over the same file, so a write through one
+ * action is immediately visible to the next read — no shared mutable state.
+ * @param path - KMWI store path (from `memoryStorePath`).
+ * @returns The engine's KMWIMemory instance, or null when the engine is absent.
+ */
+export function kmwiStore(path) {
+  const dir = locatePackage('@metago-ai/engine')
+  if (dir === null) return null
+  const entry = join(dir, 'RUNTIME', 'dist', 'index.js')
+  if (!existsSync(entry)) return null
+  let mod
+  try {
+    mod = createRequire(import.meta.url)(entry)
+  } catch {
+    return null
+  }
+  try {
+    return new mod.KMWIMemory(path)
+  } catch {
+    return null
+  }
+}
+
 export function engineHealth(path) {
   const dir = locatePackage('@metago-ai/engine')
   if (dir === null) return {}

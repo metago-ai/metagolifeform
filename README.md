@@ -16,9 +16,9 @@ MetaGO is an **MetaGO Fabric V11** — a runtime control layer that wraps the ag
 [![npm](https://img.shields.io/npm/v/metago-lifeform.svg?logo=npm)](https://www.npmjs.com/package/metago-lifeform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Platforms](https://img.shields.io/badge/Platforms-11-blue)](#supported-platforms)
-[![Skills](https://img.shields.io/badge/Skills-100-orange)](#what-you-get)
+[![Skills](https://img.shields.io/badge/Skills-114-orange)](#what-you-get)
 [![MCP Server](https://img.shields.io/badge/MCP-112_tools_+_8_prompts-8A2BE2?logo=npm)](packages/mcp-server/)
-[![Engine](https://img.shields.io/badge/Engine-V2.1.3-blue)](packages/engine/)
+[![Engine](https://img.shields.io/badge/Engine-V2.1.5-blue)](packages/engine/)
 [![Rules](https://img.shields.io/badge/Rules-V37.1.0-9cf)](AGENTS.md)
 
 ---
@@ -111,11 +111,11 @@ Engine V2 is real code, not a prompt: `KMWIMemory` manages the 4-layer memory wi
 
 ## By the numbers (all real, none invented)
 
-- **100 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
-- **112 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (55 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). In Trae environments the installer additionally registers MetaGO skill-servers (up to 324 tools across 6 servers)
-- **Engine V2.1.3** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
+- **114 built-in skills** across 16 capability families — cognition, safeguard, governance, evolution, execution, traceability, value, consciousness, methodology, architecture (incl. F0 first-principles + arch governance), Dev Kit, engineering quality (delivery gate / discipline / adversarial review / completeness / veracity), 19 meta-thoughts, 30 expert team, 5 expert extensions
+- **112 MCP tools + 8 MCP prompts** shipped with this package: `@metago-ai/mcp-server` (55 tools) + `@metago-ai/algorithms` (57 tools / 927 algorithms). All 11 platform installers register these same 2 bundled servers; no external server is required.
+- **Engine V2.1.5** — `@metago-ai/engine` with 3 hard-driven modules: KMWIMemory, EvolutionEngine, SkillGenerator — **driving 927 algorithms across 57 tools (14 trigger categories)**
 - **11 platform forms**: Trae, Claude Code, OpenAI Codex, Cursor, CodeBuddy, Qoder, ZCode, ChatGPT Work, WorkBuddy, Kimi Code, Kimi Work — plus Agent-Plugins 1.0.0 / Claude / ZCode / Codex plugin packs
-- **10 core axioms + 9 enforced properties + 4 decision-lock gates + 5 evolution stages + 8 runtime protocols**
+- **43 core axioms + 47 enforced properties + 121 runtime protocols + 161 engines + 4 decision-lock gates + 5 evolution stages**
 - **4-layer KMWI memory**: Knowledge → Memory → Wisdom → Intuition (persistent JSON store)
 - **7-layer runtime verification (L1-L7) + L8 defect hunting + L9 adversarial review** — technical / link / contract / rendering / interaction / state / defense layers, each a hard gate
 - **3 patentable mechanisms**: axiom-based AI output verification · multi-level decision-lock for AI decisions · automatic capability-boundary detection and evolution
@@ -177,7 +177,7 @@ const skill = await engine.createSkill('kubernetes-deployment');
 | OpenAI Codex | `AGENTS.md` |
 | Cursor | `.cursor/rules/*.mdc` |
 | CodeBuddy | `CODEBUDDY.md` |
-| Qoder | `.qoder/rules/` |
+| Qoder | `~/.qoder-cn/AGENTS.md` + `~/.qoder-cn/settings.json` |
 | ZCode | `CLAUDE.md` |
 | ChatGPT Work | `AGENTS.md` + Agent Plugin（Agent Plugins 1.0.0） |
 | WorkBuddy | `AGENTS.md` |
@@ -233,9 +233,9 @@ See **[CHANGELOG.md](CHANGELOG.md)** for version history.
 | Package | What it is | Install |
 |---|---|---|
 | `metago-lifeform` | The CLI installer + 100 skills + 11 platform forms + AGENTS.md V37.1.0 | `npm install -g metago-lifeform` |
-| `@metago-ai/mcp-server` | MCP server exposing 55 tools + 8 prompts (Engine V2.1.3 hard-driven) | `npm install @metago-ai/mcp-server` |
-| `@metago-ai/engine` | Engine V2.1.3: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
-| `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.3 hard-driven) | `npm install @metago-ai/algorithms` |
+| `@metago-ai/mcp-server` | MCP server exposing 55 tools + 8 prompts (Engine V2.1.5 hard-driven) | `npm install @metago-ai/mcp-server` |
+| `@metago-ai/engine` | Engine V2.1.5: KMWI memory + evolution engine + skill generator + 927 algorithms driver | `npm install @metago-ai/engine` |
+| `@metago-ai/algorithms` | 927 algorithms across 57 MCP tools (14 trigger categories, Engine V2.1.5 hard-driven) | `npm install @metago-ai/algorithms` |
 | `@metago-ai/dev-kit` | Developer kit: code review, architecture design, refactor, security audit | `npm install @metago-ai/dev-kit` |
 | `@metago-ai/verify-kit` | 7-layer runtime verification + L8/L9 (V37.1.0 spec) | `npm install @metago-ai/verify-kit` |
 

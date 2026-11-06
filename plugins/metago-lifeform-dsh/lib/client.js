@@ -209,6 +209,8 @@ window.__ModuleLoader__.load({
 		      const builtin = {
 		        "gate.toggleMode": { mode: consoleMeta && consoleMeta.currentMode || "shadow" },
 		        "memory.recallTest": { query: "metago", limit: 5 },
+        "memory.health": {},
+        "memory.recall": { query: "metago", limit: 5 },
 		        "tool.dryRun": { tool: "pwsh", args: {} },
 		        "gate.explain": { tool: "pwsh" },
 		        "audit.tail": { limit: 50 }
