@@ -80,7 +80,7 @@
 | V36.5 | docs/WHITEPAPER.md | 活文档系统 + 39 技能 |
 | V36.6 | docs/WHITEPAPER.md | 白皮书发布 + 39 技能 + 工程质量族 |
 | V36.7 | docs/WHITEPAPER.md | Studio上线 + FDE服务模式 + 行为银行 |
-| V36.8 | docs/WHITEPAPER.md | MetaGO Fabric V11学名确立 + Agentive OS愿景 + 12大能力族 |
+| V36.8 | docs/WHITEPAPER.md | 「Agent Harness」学名确立（V37.1 更正：该命名属误判并已回滚；产品学名是 MetaGO Fabric，V11 是当期版本号） + Agentive OS愿景 + 12大能力族 |
 | V36.9 | AGENTS.md + CHANGELOG.md | UDGK 第零节 + A37/A38 · 100 技能 · 11 平台形态 · 治理双套件 · 36.9.6 发布级修复轮 |
 
 ---

@@ -2,7 +2,7 @@
   "generatedBy": "audit_versions_v2.py",
   "generatedAt": "2026-10-18T17:09:03",
   "principle": "两级口径：体系版本（法则/蓝本/发行包）必须统一；组件版本（npm semver）各自独立，只要求 rules_version 声明所适配的体系版本",
-  "targetSystemVersion": "V37.1.3",
+  "targetSystemVersion": "V37.1.4",
   "tier1_system": {
     "AGENTS.md（法则）": "V37.1.0",
     "元构初始文档（蓝本）": "36.11",
@@ -109,7 +109,7 @@
     }
   },
   "versionAlignment": {
-    "systemVersion": "V37.1.3",
+    "systemVersion": "V37.1.4",
     "rulesVersionAllPackages": "V37.1.0",
     "alignedAt": "2026-10-18",
     "packages": {

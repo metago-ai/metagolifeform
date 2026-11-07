@@ -50,7 +50,7 @@
 
 # Changelog
 
-All notable changes to MetaGO Fabric V11 are documented in this file.
+All notable changes to metago-lifeform（元构·智能生命体）are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -184,7 +184,7 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 ## [36.8.3] — 2026-07-09
 
 ### Added
-- Standard scientific name finalized: **MetaGO Fabric V11 (智能体运行时控制层套件 · 驭智层)**
+- Standard scientific name finalized: **Agent Harness (智能体运行时控制层套件 · 驭智层)**（V37.1 更正：该命名属误判并已回滚；产品学名是 MetaGO Fabric，V11 是当期版本号）
 - Dev Kit joined the standard naming convention (v1.0.8)
 
 ### Changed
@@ -194,12 +194,12 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 ## [36.8.0] — 2026-07-08
 
 ### Added
-- **Harness paradigm finalized** — MetaGO positioned as "MetaGO Fabric V11 (驭智层)", the runtime control layer for AI agents
+- **Harness paradigm finalized** — MetaGO positioned as "Agent Harness (驭智层)"（V37.1 更正：该命名属误判并已回滚；产品学名是 MetaGO Fabric，V11 是当期版本号）, the runtime control layer for AI agents
 - **Engine V2 hard-driven integration** — KMWI global memory system connected to the engine
 - **8-dimension advantage framework**: Reliability + Evolvability + Traceability (core 3) + Objectivity + Compliance + Completeness + Theoretical Depth + Lifeform Attribute (extended 5)
 
 ### Changed
-- All terminology unified to "MetaGO Fabric V11" across README, AGENTS.md, package.json
+- All terminology unified to "Agent Harness" across README, AGENTS.md, package.json（V37.1 更正：该命名属误判并已回滚；产品学名是 MetaGO Fabric，V11 是当期版本号）
 - Deprecated term "Lifeform Kit" removed from all public-facing content
 
 ## [36.7.15] — 2026-07-07
@@ -222,7 +222,7 @@ For the full commit history, see [git log](https://github.com/metago-ai/metagoli
 ## [36.7.0] — 2026-07-01
 
 ### Added
-- **Harness paradigm introduction** — MetaGO repositioned from "Lifeform Kit" to "MetaGO Fabric V11"
+- **Harness paradigm introduction** — MetaGO repositioned from "Lifeform Kit" to "Agent Harness"（V37.1 更正：该命名属误判并已回滚；产品学名是 MetaGO Fabric，V11 是当期版本号）
 - **Engine V2 hard drive** — dual-track drive (prompt soft drive + code hard drive)
 - **KMWI memory system** — 4-layer memory: Knowledge → Memory → Wisdom → Intuition
 
