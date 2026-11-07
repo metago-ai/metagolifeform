@@ -1,0 +1,27 @@
+{
+    "name":  "dsh-metago-gate",
+    "version":  "0.1.1",
+    "private":  true,
+    "description":  "MetaGO Fabric V11 治理门禁（Host half · 影子模式）：把四层安全基因 / PEA / Promptware 七阶段 / 决策锁挂到 DSH 原生 9 个钩子上，默认只记录不改判。",
+    "type":  "module",
+    "main":  "lib/index.js",
+    "exports":  {
+                    ".":  {
+                              "default":  "./lib/index.js"
+                          },
+                    "./policy.json":  "./lib/policy.json",
+                    "./package.json":  "./package.json"
+                },
+    "files":  [
+                  "lib/index.js",
+                  "lib/policy.json",
+                  "README.md"
+              ],
+    "engines":  {
+                    "node":  "\u003e=20"
+                },
+    "scripts":  {
+                    "selftest":  "node test/selftest.mjs"
+                },
+    "license":  "MIT"
+}

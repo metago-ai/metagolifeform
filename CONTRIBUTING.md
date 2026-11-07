@@ -1,8 +1,8 @@
-# Contributing to MetaGO Fabric V11
+# Contributing to MetaGO Intelligent Lifeform
 
 First off, thank you for considering contributing to MetaGO. It's people like you that make the agent ecosystem evolve.
 
-> MetaGO is an **MetaGO Fabric V11** — a runtime control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
+> MetaGO is a **MetaGO Intelligent Lifeform** — a runtime control layer that turns AI agents into self-evolving lifeforms. This guide is for developers who want to extend, fix, or improve it.
 
 ---
 

@@ -1,12 +1,12 @@
 # Trae 适配器（Trae Adapter）
 
-> MetaGO Fabric V11 → Trae 平台适配层 · V37.1.0
+> MetaGO Intelligent Lifeform → Trae 平台适配层 · V37.1.0
 
 ---
 
 ## 适配方式
 
-Trae 是 MetaGO Fabric V11 的原生平台，支持两种部署模式：
+Trae 是 元构·智能生命体 的原生平台，支持两种部署模式：
 
 ### 全局用户级安装（推荐）
 
@@ -118,4 +118,4 @@ node local-edition/verify-local-install.cjs
 
 ---
 
-*MetaGO Fabric V11 V37.1.0 · Trae 适配器*
+*MetaGO Intelligent Lifeform V37.1.0 · Trae 适配器*

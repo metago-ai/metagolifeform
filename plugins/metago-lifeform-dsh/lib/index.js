@@ -215,7 +215,7 @@ export function apply(ctx, config = {}) {
 
   ctx.effect(() => ctx.tools.register({
     name: 'metago_lifeform_status',
-    description: 'MetaGO Fabric V11 · 读取本机 MetaGO Lifeform 安装状态：法则版本与体积对预设预算的余量、技能目录规模、已挂载 MCP 工具计数、KMWI 记忆健康度、已安装的 @metago-ai 包版本。在就 MetaGO 安装状况下任何结论之前先用它取证。',
+    description: 'MetaGO Intelligent Lifeform · 读取本机 MetaGO Lifeform 安装状态：法则版本与体积对预设预算的余量、技能目录规模、已挂载 MCP 工具计数、KMWI 记忆健康度、已安装的 @metago-ai 包版本。在就 MetaGO 安装状况下任何结论之前先用它取证。',
     // [METAGO_FIX 2026-10-03] DSH 0.2.0 把 parameters 原样作为函数 schema 送给
     // 模型 API；空对象 {} 会被序列化成 `type: null`，DeepSeek 直接以
     // INVALID_REQUEST 拒绝整轮请求。无参工具也必须显式声明对象类型。

@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-MetaGO Fabric V11 is actively developed. Security fixes are applied to the latest `main` branch and released as patch versions.
+MetaGO Intelligent Lifeform is actively developed. Security fixes are applied to the latest `main` branch and released as patch versions.
 
 | Version | Supported |
 |---------|-----------|
@@ -13,7 +13,7 @@ MetaGO Fabric V11 is actively developed. Security fixes are applied to the lates
 
 **Do NOT open a public GitHub issue for security vulnerabilities.**
 
-If you discover a security vulnerability in MetaGO Fabric V11, please report it responsibly:
+If you discover a security vulnerability in MetaGO Intelligent Lifeform, please report it responsibly:
 
 ### How to Report
 
@@ -83,7 +83,7 @@ KMWI memory (Knowledge → Memory → Wisdom → Intuition) persists to local JS
 
 ### In Scope
 
-- Vulnerabilities in MetaGO Fabric V11 core (`core/`, `adapters/`, `skills/`)
+- Vulnerabilities in MetaGO Intelligent Lifeform core (`core/`, `adapters/`, `skills/`)
 - Vulnerabilities in Engine V2 (`packages/engine/`)
 - Vulnerabilities in MCP Server (`packages/mcp-server/`)
 - Vulnerabilities in Dev Kit (`packages/dev-kit/`)
@@ -103,4 +103,4 @@ KMWI memory (Knowledge → Memory → Wisdom → Intuition) persists to local JS
 
 ---
 
-*MetaGO Fabric V11 — security is not a feature, it's an axiom.*
+*MetaGO Intelligent Lifeform — security is not a feature, it's an axiom.*

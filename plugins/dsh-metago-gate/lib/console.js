@@ -465,7 +465,7 @@ export function consoleHtml() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MetaGO Fabric V11 · 元构控制台</title>
+<title>MetaGO Intelligent Lifeform · 元构控制台</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d9488'/%3E%3Cpath d='M8 23V9l8 9 8-9v14' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -530,7 +530,7 @@ nav.tabs .tab.on{background:var(--accent);border-color:var(--accent);color:#0b0d
 </head>
 <body>
 <header>
-  <h1>MetaGO Fabric V11 <span class="dot">·</span> 元构控制台 <span class="muted">治理门禁</span></h1>
+  <h1>MetaGO Intelligent Lifeform <span class="dot">·</span> 元构控制台 <span class="muted">治理门禁</span></h1>
   <span class="tag" id="tag-mode">mode —</span>
   <span class="tag" id="tag-ts">—</span>
   <span class="tag" id="tag-conn">连接中…</span>

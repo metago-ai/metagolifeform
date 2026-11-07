@@ -410,7 +410,7 @@ window.__ModuleLoader__.load({
 		    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("header", { className: header, children: [
 		      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
 		        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { className: title, children: "\u5143\u6784\u63A7\u5236\u53F0" }),
-		        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: subtitle, children: "MetaGO Fabric V11 \xB7 \u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42" })
+		        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: subtitle, children: "MetaGO Intelligent Lifeform \xB7 \u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42" })
 		      ] }),
 		      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: refresh, onClick: () => setReloadKey((value) => value + 1), children: "\u91CD\u65B0\u4F53\u68C0" })
 		    ] }),
@@ -770,7 +770,7 @@ window.__ModuleLoader__.load({
 		        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: cardTitle2, children: "\u5143\u6784\u751F\u547D\u4F53 \xB7 \u672C\u673A\u4F53\u68C0" }),
 		        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Badge, { tone: data && data.law.exists && data.mcp.mounted ? "ok" : "warn", children: data && data.law.exists && data.mcp.mounted ? "\u5728\u4F4D" : status.state === "loading" ? "\u8BFB\u53D6\u4E2D" : "\u5F85\u8865\u9F50" })
 		      ] }),
-		      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: cardBody, children: "MetaGO Fabric V11\uFF08\u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42\uFF09\u628A\u6CD5\u5219\u3001\u6280\u80FD\u3001\u5DE5\u5177\u4E0E\u8BB0\u5FC6\u5408\u6210\u4E00\u6761\u95ED\u73AF\u3002 \u672C\u9875\u53EA\u8BFB\u5C55\u793A\u672C\u673A\u5B9E\u9645\u88C5\u914D\u4E86\u4EC0\u4E48\uFF1B\u6240\u6709\u6570\u5B57\u90FD\u7531\u63D2\u4EF6\u5BBF\u4E3B\u534A\u5728\u6BCF\u6B21\u6253\u5F00\u65F6\u5B9E\u8BFB\u78C1\u76D8\u4E0E\u8FD0\u884C\u65F6\u5F97\u5230\u3002" }),
+		      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: cardBody, children: "MetaGO Intelligent Lifeform\uFF08\u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42\uFF09\u628A\u6CD5\u5219\u3001\u6280\u80FD\u3001\u5DE5\u5177\u4E0E\u8BB0\u5FC6\u5408\u6210\u4E00\u6761\u95ED\u73AF\u3002 \u672C\u9875\u53EA\u8BFB\u5C55\u793A\u672C\u673A\u5B9E\u9645\u88C5\u914D\u4E86\u4EC0\u4E48\uFF1B\u6240\u6709\u6570\u5B57\u90FD\u7531\u63D2\u4EF6\u5BBF\u4E3B\u534A\u5728\u6BCF\u6B21\u6253\u5F00\u65F6\u5B9E\u8BFB\u78C1\u76D8\u4E0E\u8FD0\u884C\u65F6\u5F97\u5230\u3002" }),
 		      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: rows2, style: { marginTop: 12 }, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
 		        "button",
 		        {
@@ -949,13 +949,13 @@ window.__ModuleLoader__.load({
 		  panel: "\u5143\u6784\u63A7\u5236\u53F0",
 		  nav: "\u5143\u6784\u751F\u547D\u4F53",
 		  codex: "\u5143\u6784\u6CD5\u5178",
-		  hint: "MetaGO Fabric V11\uFF08\u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42\uFF09\u5728\u672C\u673A\u7684\u5B9E\u65F6\u4F53\u68C0\u9762\u3002"
+		  hint: "MetaGO Intelligent Lifeform\uFF08\u5143\u6784\u8D85\u7EA7\u667A\u80FD\u751F\u547D\u4F53\u6A21\u5F0F\u5957\u4EF6 \xB7 \u9A6D\u667A\u5C42\uFF09\u5728\u672C\u673A\u7684\u5B9E\u65F6\u4F53\u68C0\u9762\u3002"
 		};
 		var en = {
 		  panel: "MetaGO Console",
 		  nav: "MetaGO Lifeform",
 		  codex: "MetaGO Codex",
-		  hint: "Live inspection surface for the MetaGO Fabric V11 installation on this host."
+		  hint: "Live inspection surface for the MetaGO Intelligent Lifeform installation on this host."
 		};
 		
 		// ../MetaGO-Atlas/console-plugin/src/client/index.js

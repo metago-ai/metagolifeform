@@ -1,7 +1,7 @@
 {
   "$schema": "./policy.schema.json",
   "meta": {
-    "name": "MetaGO Fabric V11 · Gate Policy",
+    "name": "MetaGO Intelligent Lifeform · Gate Policy",
     "version": "0.1.0",
     "generated": "2026-11-04",
     "sources": [

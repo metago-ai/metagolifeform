@@ -1,5 +1,5 @@
 /**
- * dsh-metago-gate — MetaGO Fabric V11 治理门禁（Host half，影子模式）
+ * dsh-metago-gate — 元构·智能生命体 治理门禁（Host half，影子模式）
  *
  * 把元构的四项治理设计（四层安全基因 / PEA / Promptware 七阶段 / 决策锁）
  * 挂到 DSH 原生的 9 个钩子事件上。

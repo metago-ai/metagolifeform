@@ -2,7 +2,7 @@
   "name": "metago-lifeform-dsh",
   "version": "1.0.0",
   "private": true,
-  "description": "MetaGO Fabric V11 · 元构生命体运行时控制层：元构超级智能生命体模式（Agent preset）+ 元构控制台原生界面 + 状态工具，作为 DSH 原生插件运行。",
+  "description": "MetaGO Intelligent Lifeform · 元构生命体运行时控制层：元构超级智能生命体模式（Agent preset）+ 元构控制台原生界面 + 状态工具，作为 DSH 原生插件运行。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {

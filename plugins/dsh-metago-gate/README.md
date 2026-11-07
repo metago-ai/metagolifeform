@@ -1,4 +1,4 @@
-# dsh-metago-gate · MetaGO Fabric V11 治理门禁（影子模式）
+# dsh-metago-gate · 元构·智能生命体 治理门禁（影子模式）
 
 > **一句话**：把元构的四层安全基因、PEA 决策锁、Promptware 七阶段杀伤链，挂到 DeepSeek Harness 原生的 9 个钩子事件上。
 > **当前形态**：`shadow`（影子）模式 —— **只记录，绝不改判**，对现有行为零影响。

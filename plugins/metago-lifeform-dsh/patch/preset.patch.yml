@@ -56,9 +56,9 @@
       name: '@deepseek-ai/dsh-agent-preset'
       config:
         id: metago
-        name: MetaGO Fabric V11 · 元构超级智能生命体模式
+        name: MetaGO Intelligent Lifeform · 元构超级智能生命体模式
         description: >-
-          MetaGO Fabric V11 · 元构超级智能生命体模式：完整法则（第零节 UDGK + 21 章 + 架构治理 +
+          MetaGO Intelligent Lifeform · 元构超级智能生命体模式：完整法则（第零节 UDGK + 21 章 + 架构治理 +
           完整性治理，运行层 10 公理 / 9 属性）、126 个技能（metago-* 116）、696 个工具面
           （MCP 547 + 插件 32 + 内核 117 · 含 927 算法）、Mnemon 记忆、元构控制台原生界面，
           并原生并入创造模式（ptc）的能力行（定时任务 / 时间上下文 / 插件市场等 22 行）；

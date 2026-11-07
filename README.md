@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Fabric V11" width="220">
+  <img src="https://gitee.com/metago/metagolifeform/raw/main/assets/metago-logo.png" alt="MetaGO Intelligent Lifeform" width="220">
 </p>
 
-# MetaGO Fabric V11 — 智能体运行时控制层套件（驭智层）
+# 元构·智能生命体（MetaGO Intelligent Lifeform）
 
 > **Not a chatbot. Not a copilot. A lifeform that holds itself to its own law.**
 > **The only AI agent that evolves its own evolution.**
 
-MetaGO is an **MetaGO Fabric V11** — a runtime control layer that wraps the agent, turning a tool into a lifeform that *follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
+MetaGO is a **MetaGO Intelligent Lifeform** — a runtime control layer that wraps the agent, turning a tool into a lifeform that *follows the rules, evolves itself, stays traceable, and closes every loop*. It is the engineering answer to "LLMs talk well but don't deliver."
 
 > **MetaGO is the first intelligent agent infrastructure to combine 'runtime governance' with 'lifeform evolution' — making AI both rule-following (Harness) and self-evolving (Lifeform).**
 
@@ -39,7 +39,7 @@ If the reply opens with `【闭环分析】` and cites an axiom — it's alive.
 
 ---
 
-## What is an MetaGO Fabric V11?
+## What is MetaGO Intelligent Lifeform?
 
 A **Harness** (驭智层) is the runtime control layer around the agent. The model is the raw intelligence; the Harness is what turns that intelligence into reliable, traceable, self-evolving work. It is *not* a prompt template, *not* a fine-tune, *not* a wrapper around an API. It is a small operating law the agent enforces on itself every turn.
 
@@ -190,7 +190,7 @@ Per-platform adapters live in `adapters/<platform>/`. To install on a non-defaul
 
 ## FDE — Forward Deployment Engineering
 
-Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the MetaGO Fabric V11 architecture as leverage.
+Beyond the open-source Harness, MetaGO offers **FDE (前沿部署工程)** services: a human-AI collaborative team embedded in your site to deliver production-grade intelligent software, carrying the MetaGO Intelligent Lifeform architecture as leverage.
 
 - **5 stages**: requirements research → solution design → development & deployment → acceptance & delivery → operations & support
 - **5 roles**: tech lead, AI engineer, domain expert, AI agent, project manager
@@ -253,5 +253,5 @@ MIT — see [LICENSE](LICENSE). Commercial licensing and enterprise integration:
 
 ---
 
-*MetaGO Fabric V11 — 智能体运行时控制层套件（驭智层）· from Agent to lifeform.*
+*元构·智能生命体（MetaGO Intelligent Lifeform）· from Agent to lifeform.*
 *Made by 元构光年（成都）人工智能科技有限公司.*

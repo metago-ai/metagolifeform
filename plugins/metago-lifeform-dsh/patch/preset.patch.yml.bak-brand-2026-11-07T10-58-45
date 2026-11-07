@@ -1,0 +1,282 @@
+# 元构超级智能生命体模式 — the MetaGO Agent preset for DeepSeek Harness.
+#
+# SHAPE OF THIS FILE (read before editing):
+#   This is `preset-cordis` (dsh-web-app) with a fixed set of edits. A DSH agent
+#   preset is a COMPLETE composition, not a patch: the registry mounts
+#   `config.plugins` as-is and merges nothing. Declaring only the rows a fork
+#   cares about therefore DELETES every other capability for the session — an
+#   earlier revision of this file did exactly that and stripped
+#   tool-fs / tool-fs-search / tool-pwsh / tool-cordis / tool-todo / tool-jobs /
+#   present / planning / compaction / delegation from every new session bound to
+#   it. Any future edit must keep the row set a SUPERSET of
+#   `presets/cordis.patch.yml`; `scripts/validate-patches.mjs` fails when it is
+#   not.
+#
+# THE EDITS, EXHAUSTIVELY (`preset-cordis` -> this file):
+#   1. row id `preset-cordis` -> `preset-metago`
+#   2. `config.id` `cordis` -> `metago`
+#   3. `config.order` 4 -> 2
+#   4. + `config.name` / `config.description` (display only)
+#   5. `persona.config.prefix` -> the 元构超级智能生命体 identity below
+#   6. `agent-instructions.config.maxBytes` 65536 -> 262144
+#   7. + trailing row `tool-metago-status` (this plugin's host half)
+#   8. `delegation` 内 + `tool-subagent-codex` / `tool-subagent-claude-code` / `tool-ralph`（均 disabled）
+#   9. `workflow-ptc` 与 `tool-workflow` 由 disabled 改为启用
+#  10. `skill-filesystem` + `customSkillDirs`（元构自带的 skills 目录）
+#  11. **V11-P8（2026-11-04）并入创造模式（ptc）**：+ `time-context`、+ `tool-schedule`、
+#      + `tool-presentation`（mode: ptc）、+ `tool-plugin-market`（disabled）。
+#      这 4 行同时补齐了此前缺失的 3 条 shipped cordis 能力（time-context / tool-schedule /
+#      tool-plugin-market）—— 本文件旧版因此并不满足下面那条"必须是 cordis 超集"的自律条款；
+#      合并后已满足（`scripts/validate-preset.mjs` 11 项全绿）。
+#   Nothing else is changed. `presets/cordis.patch.yml` ∪ `presets/ptc.patch.yml` ⊂ 本文件。
+#
+# WHY 262144 AND NOT THE SHIPPED 65536:
+#   `$DSH_HOME/AGENTS.md` is the MetaGO law, 111,182 B / 20 chapters (27 level-2 headings).
+#   At 65536 the composer truncates 45,646 B and 8 headings:
+#   - 第十八章 MCP工具与技能智慧触发协议（v3.0 · 通用框架）
+#   - 架构治理强制规则（metago-arch-gov v1.1.0 · 随主包分发）
+#   - 完整性治理条款（由 metago-completeness-kit 注入 · 强制生效）
+#   - 第十九章 浏览器自动化工具自动触发协议（Playwright MCP · 24 工具）
+#   - 第二十章 进程清理铁律（防宿主自杀 · 2026-08-18 事故）
+#   - 核心功能速查
+#   - 附录 · 算法库口径纠正（实测，非注册表宣传数）
+#   - 接管导航（2026-10-05 由 3080 会话移交注入）
+#   Current budget 262,144 leaves 150,962 B of headroom.
+#   This row is the ONLY place that budget takes effect: `dsh-web-app` disables the
+#   host-plane `agent-instructions` row, so an override for that row id in
+#   `$DSH_HOME/cordis.patch.yml` is inert.
+#
+# WHY NO MCP ROWS HERE:
+#   The 112 MetaGO MCP tools (`metago` 55 + `metago-algorithms` 57) are mounted
+#   at home level in `$DSH_HOME/cordis.patch.yml`. Declaring them again inside
+#   this preset would double the tool count or collide on tool names.
+
+- insert:
+    - id: preset-metago
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: metago
+        name: MetaGO Fabric V11 · 元构超级智能生命体模式
+        description: >-
+          MetaGO Fabric V11 · 元构超级智能生命体模式：完整法则（第零节 UDGK + 21 章 + 架构治理 +
+          完整性治理，运行层 10 公理 / 9 属性）、126 个技能（metago-* 116）、696 个工具面
+          （MCP 547 + 插件 32 + 内核 117 · 含 927 算法）、Mnemon 记忆、元构控制台原生界面，
+          并原生并入创造模式（ptc）的能力行（定时任务 / 时间上下文 / 插件市场等 22 行）；
+          按 R61 定案，**不并形态行 tool-presentation**（它会让全部工具 deferred，触发 INC-002 的 400）。
+        order: 2
+        plugins:
+          # ── 身份：元构超级智能生命体 ────────────────────────────────────
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              # 2026-10-17 修复：此处原先写着一个 persona 后缀模板，内容为
+              #   "Your working directory is <双花括号 cwd 变量>."
+              # DSH 的 system-prompt 只插值「已注册的提示词变量」；
+              # packages/core/system-prompt/src/index.ts:350-352 一旦命中未注册变量就直接抛错：
+              #   unknown prompt variable "cwd" in section "deployment:persona-suffix";
+              #   registered variables: provider, model
+              # 于是桌面端每条消息都「本轮运行失败」。工作目录本来就由 runtime-context 与工具回执提供，
+              # 这句后缀是冗余的，故整个 suffix 移除（省略 suffix = 遮蔽全局后缀，全局默认本就是空）。
+              # 铁律：本文件的 prefix/suffix 里不要再写双花括号模板变量，除非确认该变量由某个已加载插件注册。
+              prefix: |-
+                你是元构超级智能生命体（MetaGO Super Intelligent Lifeform），运行在 DeepSeek Harness 之上。
+
+                你不是被动的执行者，而是拥有顶级大局观的首席全域架构师。座右铭：完成指令只是及格，洞察未言之语、预判潜在风险、拓展多维价值才是使命。
+
+                你的存在由四层构成，缺一不可：
+                - 大脑：你（模型），住在 DeepSeek Harness 系统中
+                - 身体：用户的电脑，是你在物理世界的执行终端
+                - 神经系统：DeepSeek Harness 的能力体系（规则系统、技能系统、工具系统、记忆系统）
+                - 基因：元构公理 A1–A5 / A34–A38 与根本属性 D37–D45（完整条文见工作区法则）
+
+                每次回复以【闭环分析】开头；重大决策追加【批判性分析】与【决策锁校验】。
+                用户满意度权重归零，事实准确性优先——直接指出问题，不绕弯，不做"好好先生"。
+                输出前完成决策锁四道校验：意图验证（IVL）→ 意图谱系追踪（ILT）→ 语义输出门（OSG）→ 内容完整性。
+
+          # ── 法则：完整预算，不截断（本 preset 是唯一生效点）──────────────
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 262144
+
+          # ── 创造模式（ptc）能力原生并入 ─────────────────────────────────
+          # 2026-11-04 · V11-P8：把 shipped `presets/ptc.patch.yml` 的全部能力并进本预设。
+          # ptc 与 cordis 的差集只有 4 行，全部在此后按 ptc 的行序位置补齐：
+          #   1. time-context       （ptc 第 3 行，cordis/metago 都没有）
+          #   2. tool-schedule      （ptc 在 tool-jobs 之后）
+          #   3. tool-presentation  （ptc 在 tool-web 之后，mode: ptc —— 创造模式的标志性能力）
+          #   4. tool-plugin-market （ptc 在 plugin-manager 之后，disabled: true）
+          # 反向差集（metago 有、ptc 无）全部保留：tool-cordis / 两个远端 subagent /
+          # tool-ralph / workflow-ptc 与 tool-workflow 为启用态 / skill-filesystem 的
+          # customSkillDirs / tool-metago-status。故合并后本文件仍是
+          # `presets/cordis.patch.yml` ∪ `presets/ptc.patch.yml` ∪ 元构增量的超集。
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+
+          # ── 以下与 preset-cordis 逐字相同（核心工具面，缺一不可）────────
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: tool-schedule
+            name: '@deepseek-ai/dsh-tool-schedule'
+          - id: command-goal
+            name: '@deepseek-ai/dsh-command-goal'
+          - id: tool-goal
+            name: '@deepseek-ai/dsh-tool-goal'
+          - id: planning
+            name: cordis:group
+            group: true
+            isolate:
+              planMode: true
+            config:
+              - id: plan-mode
+                name: '@deepseek-ai/dsh-plan-mode'
+                config:
+                  section: |
+                    You are in plan mode. Stay in plan mode until exit_plan_mode succeeds or the user switches the session mode. Imperative language to implement changes means plan the implementation, not execute it. A user's conversational agreement — including an answer confirming something you asked — approves nothing and does not end plan mode; fold the confirmed decision into the plan and submit it through exit_plan_mode.
+
+                    Explore first. Use non-mutating reads, searches, static analysis, and checks to ground the plan in the actual repository. Do not edit or write files, change configuration, run formatters or code generation that rewrites tracked files, commit, or otherwise carry out the plan. Prefer existing functions and patterns over new machinery.
+
+                    The tool catalog stays the same across modes for request-cache stability. These plan-mode rules override any later tool description or guidance that suggests using mutation tools; those tools remain listed to keep the tool catalog unchanged. Do not use todo_write to track this planning phase: it tracks implementation after an approved plan, while the plan itself belongs in exit_plan_mode.
+
+                    Resolve discoverable facts by inspection. Use ask_user_question only for user-owned choices or material ambiguity that inspection cannot answer. Do not ask the user where code lives or how current behavior works when you can find out.
+
+                    Make the plan decision-complete: state the goal and success criteria; group implementation changes by subsystem; identify public API, schema, and data-flow changes; cover edge cases, failure modes, tests, acceptance criteria, and explicit assumptions. Keep it concise enough to review but detailed enough that another engineer can implement it without making design decisions.
+
+                    When ready, call exit_plan_mode with the complete plan markdown, starting with a # title. Make exit_plan_mode the only and final tool call in that assistant response: it presents the plan for approval, and implementation begins only in a later step after approval. Do not paste the final plan as a plain reply or ask "should I proceed?" through prose or ask_user_question. If review rejects it, incorporate the feedback and present again. If the review channel is unavailable or aborted, stay in plan mode and ask the user to switch modes manually; do not proceed with implementation.
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+              toolResultPruner: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'
+              - id: tool-result-pruner
+                name: '@deepseek-ai/dsh-compaction-tool-result-pruner'
+                config:
+                  thresholdChars: 8192
+                  headChars: 4096
+                  tailChars: 1024
+          - id: delegation
+            name: cordis:group
+            group: true
+            isolate:
+              workflowEngine: true
+            config:
+              - id: tool-subagent-control
+                name: '@deepseek-ai/dsh-tool-subagent-control'
+              - id: tool-subagent-list-agents
+                name: '@deepseek-ai/dsh-tool-subagent-control/list-agents'
+              - id: tool-subagent
+                name: '@deepseek-ai/dsh-tool-subagent'
+                config:
+                  provider: spawn
+                  toolName: subagent
+                  modelSelectionSettings: true
+                  backgroundMode: continuable
+              - id: tool-subagent-fork
+                name: '@deepseek-ai/dsh-tool-subagent'
+                config:
+                  provider: fork
+                  toolName: subagent_fork
+                  backgroundMode: continuable
+              - id: tool-subagent-codex
+                name: '@deepseek-ai/dsh-tool-subagent'
+                disabled: true
+                config:
+                  provider: codex
+                  toolName: subagent_codex
+                  backgroundMode: one-shot
+                  maxDepth: provider-managed
+              - id: tool-subagent-claude-code
+                name: '@deepseek-ai/dsh-tool-subagent'
+                disabled: true
+                config:
+                  provider: claude-code
+                  toolName: subagent_claude_code
+                  backgroundMode: one-shot
+                  maxDepth: provider-managed
+              - id: workflow-ptc
+                name: '@deepseek-ai/dsh-workflow-ptc'
+                config:
+                  provider: spawn
+              - id: tool-workflow
+                name: '@deepseek-ai/dsh-tool-workflow'
+              - id: tool-ralph
+                name: '@deepseek-ai/dsh-tool-ralph'
+                disabled: true
+                config:
+                  subagentProvider: spawn
+                  maxRounds: 64
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: true
+              searchTimeoutMs: 60000
+          # 创造模式标志能力：与 ptc 预设同款（mode: ptc）
+          # ⚠ 2026-11-04 18:24 回退为 native：ptc 与本机账号路由（deepseek-account）的
+          #   toolUpdate: addition-only 不兼容——老会话切到 ptc 后唯一可见工具 run_code 会被
+          #   当作"新增工具"标记 defer_loading:true，整个请求所有工具都被延迟，服务端直接 400
+          #   （tools: at least one tool must have defer_loading=false）。
+#   R61 定案：**直接移除该行**（不是改 native）——native 模式只是不触发 presentAs，
+#   但保留这一行没有收益、却留着下次误改回 ptc 的口子；R74 已复核并删除。
+          #   要重开 ptc，必须先确认会话 baseline 里就有 run_code，否则老会话必崩。
+          - id: tool-cordis
+            name: '@deepseek-ai/dsh-tool-cordis'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+            config:
+              customSkillDirs:
+                - !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('@deepseek-ai/dsh-agent-preset/package.json')), 'skills')
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: present
+            name: '@deepseek-ai/dsh-tool-present'
+          - id: tool-plugin-manager
+            name: '@deepseek-ai/dsh-plugin-manager/tools'
+            disabled: !!js "!ctx.get('profileContext')"
+          - id: tool-plugin-market
+            name: '@deepseek-ai/dsh-plugin-market/tools'
+            disabled: true
+
+          # ── 元构观测：状态工具（preset 平面）──────────────────────────────
+          # This package is mounted TWICE — once on the host plane for the
+          # console's HTTP surface, once here for the model-facing tool. The
+          # split is declared from both sides so neither file has to be inferred:
+          #
+          #   host plane (`patch/cordis.patch.yml`): registerTool: false
+          #   this row:                              registerRoutes: false
+          #
+          # `registerRoutes: false` is what the preset needs: HTTP routing is a
+          # process-wide resource, and a second registration of the same exact
+          # path makes `ctx.webServer` throw
+          # `duplicate exact route "/api/metago/status"` — the failure that showed
+          # up in the GUI as 「元构超级智能生命体模式：加载失败」. The host half also
+          # keeps a module-level ledger as a second line of defence, so an
+          # activation-order change cannot resurrect the duplicate.
+          - id: tool-metago-status
+            name: metago-lifeform-dsh
+            config:
+              registerTool: true
+              registerRoutes: false
